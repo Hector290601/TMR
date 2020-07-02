@@ -43,6 +43,9 @@ def displayLines(image, lines):
     lineImage = np.zeros_like(image)
     if lines is not None:
         for x1, y1, x2, y2 in lines:
+            #print(lines.shape, 'Shapes on the line')
+            print(lines, 'lines')
+            #print(x1, 'x1', y1, 'y1', x2, 'x2', y2, 'y2')
             cv2.line(lineImage, (x1, y1), (x2, y2), (255, 0, 0), 10)
     return lineImage
 
@@ -51,7 +54,7 @@ def regionOfInterest(image):
     y, x = image.shape
     #polygons = np.array([[(0, 0), (144, 320), (288, 640)]])
     #polygons = np.array([[(390, 360), (730, 380), (600, 271)]])
-    polygons = np.array([[(193, 177), (361, 187), (297, 133)]])#para el vide, ambos valores se vividen entre 2.02
+    polygons = np.array([[(150, 172), (357, 182), (339, 138)]])#para el video, ambos valores se vividen entre 2.02
     #polygons = np.array([[(670, 0), (y//2, x//2), (670, 270)]])
     mask = np.zeros_like(image)
     cv2.fillPoly(mask, polygons, 255)
@@ -59,29 +62,33 @@ def regionOfInterest(image):
     return maskedImage
 
 
+cap = cv2.VideoCapture("video.mp4")
+out = cv2.VideoWriter('lanes.avi',cv2.VideoWriter_fourcc(*'XVID'),20.0,(640,480))
+while cap.isOpened():
+    _, image = cap.read()
+    laneIMage = np.copy(image)
+    cannyImage = canny(laneIMage)
+    croppedImage = regionOfInterest(cannyImage)
+    lines = cv2.HoughLinesP(croppedImage, 2, np.pi / 180, 10, np.array([]), minLineLength = 10, maxLineGap = 5)
+    averagedLines =  averagedSlopeIntercept(laneIMage, lines)
+    lineImage = displayLines(laneIMage, averagedLines)
+    comboImage = cv2.addWeighted(laneIMage, 0.8, lineImage, 1, 1)
+    cv2.imshow("resultado", comboImage)
+    out.write(comboImage)
+    cv2.waitKey(1)
+
+cap.release()
+out.release()
+
 """
 image = cv2.imread('equis.png')
-print(image.shape)
 laneIMage = np.copy(image)
 cannyImage = canny(laneIMage)
 croppedImage = regionOfInterest(cannyImage)
 lines = cv2.HoughLinesP(croppedImage, 2, np.pi / 180, 10, np.array([]), minLineLength = 10, maxLineGap = 5)
 averagedLines =  averagedSlopeIntercept(laneIMage, lines)
-lineImage = displayLines(laneIMage, averagedLines)
+ineImage = displayLines(laneIMage, averagedLines)
 comboImage = cv2.addWeighted(laneIMage, 0.8, lineImage, 1, 1)
-plt.imshow(comboImage)
-plt.show()
-"""
-cap = cv2.VideoCapture("video.mp4")
+cv2.imshow("results", croppedImage)
+cv2.waitKey(0)"""
 
-while(cap.isOpened()):
-    ret, frame = cap.read()
-    print(frame.shape)
-    cannyImage = canny(frame)
-    croppedImage = regionOfInterest(cannyImage)
-    lines = cv2.HoughLinesP(croppedImage, 2, np.pi / 180, 50, np.array([]), minLineLength = 40, maxLineGap = 5)
-    averagedLines =  averagedSlopeIntercept(frame, lines)
-    lineImage = displayLines(frame, averagedLines)
-    comboImage = cv2.addWeighted(frame, 0.8, lineImage, 1, 1)
-    cv2.imshow("results", comboImage)
-    cv2.waitKey(1)
