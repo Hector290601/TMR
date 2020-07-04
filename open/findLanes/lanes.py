@@ -2,15 +2,19 @@
 
 import cv2
 import numpy as np
-import matplotlib.pyplot as plt
+#import matplotlib.pyplot as plt
 
 def makeCoordinates(image, lineParameters):
-    slope, intercept = lineParameters
-    y1 = image.shape[0]
-    y2 = int(y1*(3/5))
-    x1 = int((y1 - intercept)/slope)
-    x2 = int((y2 - intercept) / slope)
-    return np.array([x1, y1, x2, y2])
+    print("lineParameters: ", lineParameters)
+    try:
+        slope, intercept = lineParameters
+        y1 = image.shape[0]
+        y2 = int(y1*(3/5))
+        x1 = int((y1 - intercept)/slope)
+        x2 = int((y2 - intercept) / slope)
+        return np.array([x1, y1, x2, y2])
+    except:
+        return np.array([0, 0, 0, 0])
 
 
 def averagedSlopeIntercept(image, lines):
@@ -44,9 +48,12 @@ def displayLines(image, lines):
     if lines is not None:
         for x1, y1, x2, y2 in lines:
             #print(lines.shape, 'Shapes on the line')
-            print(lines, 'lines')
+            #print(lines, 'lines')
             #print(x1, 'x1', y1, 'y1', x2, 'x2', y2, 'y2')
-            cv2.line(lineImage, (x1, y1), (x2, y2), (255, 0, 0), 10)
+            try:
+                cv2.line(lineImage, (x1, y1), (x2, y2), (255, 0, 0), 10)
+            except:
+                lineImage = lineImage
     return lineImage
 
 
@@ -63,22 +70,29 @@ def regionOfInterest(image):
 
 
 cap = cv2.VideoCapture("video.mp4")
-out = cv2.VideoWriter('lanes.avi',cv2.VideoWriter_fourcc(*'XVID'),20.0,(640,480))
+salida = cv2.VideoWriter('videoSalida.avi',cv2.VideoWriter_fourcc(*'XVID'),20.0,(int(cap.get(3)),int(cap.get(4))))
 while cap.isOpened():
-    _, image = cap.read()
-    laneIMage = np.copy(image)
-    cannyImage = canny(laneIMage)
-    croppedImage = regionOfInterest(cannyImage)
-    lines = cv2.HoughLinesP(croppedImage, 2, np.pi / 180, 10, np.array([]), minLineLength = 10, maxLineGap = 5)
-    averagedLines =  averagedSlopeIntercept(laneIMage, lines)
-    lineImage = displayLines(laneIMage, averagedLines)
-    comboImage = cv2.addWeighted(laneIMage, 0.8, lineImage, 1, 1)
-    cv2.imshow("resultado", comboImage)
-    out.write(comboImage)
-    cv2.waitKey(1)
+    try:
+        _, image = cap.read()
+        laneIMage = np.copy(image)
+        cannyImage = canny(laneIMage)
+        croppedImage = regionOfInterest(cannyImage)
+        lines = cv2.HoughLinesP(croppedImage, 2, np.pi / 180, 10, np.array([]), minLineLength = 10, maxLineGap = 5)
+        if lines is not None:
+            averagedLines =  averagedSlopeIntercept(laneIMage, lines)
+            lineImage = displayLines(laneIMage, averagedLines)
+            comboImage = cv2.addWeighted(laneIMage, 0.8, lineImage, 1, 1)
+            salida.write(comboImage)
+            cv2.imshow("resultado", comboImage)
+        if cv2.waitKey(1) & 0xFF == ord('s'):
+            break
+        cv2.waitKey(1)
+    except:
+        break
 
 cap.release()
-out.release()
+salida.release()
+cv2.destroyAllWindows()
 
 """
 image = cv2.imread('equis.png')
@@ -91,4 +105,3 @@ ineImage = displayLines(laneIMage, averagedLines)
 comboImage = cv2.addWeighted(laneIMage, 0.8, lineImage, 1, 1)
 cv2.imshow("results", croppedImage)
 cv2.waitKey(0)"""
-
