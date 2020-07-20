@@ -92,9 +92,9 @@ def color(frame, gray, cropped):
     msk = cv2.inRange(color, yellowMin, whitesMax) #busca el color en la zona de interés
     return msk
 
-cap = cv2.VideoCapture(0) #importa el video
+cap = cv2.VideoCapture(0) #importa el video o abre la imagen de la cámara
 salida = cv2.VideoWriter('videoSalida.avi',cv2.VideoWriter_fourcc(*'XVID'),20.0,(int(cap.get(3)),int(cap.get(4)))) #guarda el video procesado en un video externo
-prueba = cv2.VideoWriter('videoTest.avi',cv2.VideoWriter_fourcc(*'XVID'),20.0,(int(cap.get(3)),int(cap.get(4)))) #guarda el video procesado en un video externo
+prueba = cv2.VideoWriter('videoTest.avi',cv2.VideoWriter_fourcc(*'XVID'),20.0,(int(cap.get(3)),int(cap.get(4)))) #guarda el video sin procesar en un video externo
 try:
     while cap.isOpened():
         try:
