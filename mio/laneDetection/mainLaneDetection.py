@@ -36,23 +36,29 @@ def averagedSlopeIntercept(interceptImage, interceptLines):
             rightFit.append((slope, intercept))
     leftFitAverage = np.average(leftFit, axis = 0) #unifica los valores de las rectas izquierdas
     rightFitAverage = np.average(rightFit, axis = 0) #unifica los valores de las rectas izquierdas
+    try:
+        isNanLeft = math.isnan(leftFitAverage[0])
+    except:
+        isNanLeft = math.isnan(leftFitAverage)
+    #print("Left ", isNanLeft)
+    try:
+        isNanRight = math.isnan(rightFitAverage[0])
+    except:
+        isNanRight = math.isnan(rightFitAverage)
+    #print("Right ", isNanRight)
     leftLine = makeCoordinates(interceptImage, leftFitAverage) #obtiene las ecuaciones de cada recta (izquierda)
     rightLine = makeCoordinates(interceptImage, rightFitAverage) #obtiene las ecuaciones de cada recta (izquierda)
-    return np.array([leftLine, rightLine])
+    return np.array([leftLine, rightLine]), isNanLeft, isNanRight
 
 def makeCoordinates(coordinatesImage, lineParameters):
-    print("lineParameters: ", lineParameters)
-    isNan = math.isnan(lineParameters[0])
-    print(isNan)
-    isNan = math.isnan(lineParameters[1])
-    print(isNan)
+    #print("lineParameters: ", lineParameters)
     try:
         slope, intercept = lineParameters #intercept es la ordenada al origen de la recta
         y1 = coordinatesImage.shape[0] #obtiene el valor '0' de la imagen
         y2 = int(y1*(3/5)) #esto es pra determinar el largo de la recta que dibuja en la imagen
         x1 = int((y1 - intercept)/slope) #obtiene la ecuación de la recta con el primer punto
         x2 = int((y2 - intercept) / slope) # obtiene la ecuación de la recta con el segundo punto
-        print(type(lineParameters))
+        #print(type(lineParameters))
         return np.array([x1, y1, x2, y2])
     except:
         return np.array([0, 0, 0, 0])
@@ -88,7 +94,13 @@ if __name__ == '__main__':
             #left = range(0, 480 // 2)
             #right = range(480 // 2, 480)
             if lines is not None:
-                averagedLines =  averagedSlopeIntercept(coppiedFrame, lines)
+                averagedLines, left, right =  averagedSlopeIntercept(coppiedFrame, lines)
+                if left:
+                    print("Girar a la izquierda")
+                elif right:
+                    print("Girar a la derecha")
+                else:
+                    print("Hay una recta")
                 lineImage = displayLines(coppiedFrame, averagedLines)
                 for line in lines:
                     x1, y1, x2, y2 = line[0]
