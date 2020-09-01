@@ -68,9 +68,9 @@ def averagedSlopeIntercept(interceptImage, interceptLines):
     if isNanLeft:
         detected.loc[len(detected)]=['L', leftFitAverage, rightFitAverage, leftLine, rightLine, deltaTime, leftLine[0], leftLine[1], leftLine[2], leftLine[3], rightLine[0], rightLine[1], rightLine[2], rightLine[3]]
     elif isNanRight:
-        detected.loc[len(detected)]=['L', leftFitAverage, rightFitAverage, leftLine, rightLine, deltaTime, leftLine[0], leftLine[1], leftLine[2], leftLine[3], rightLine[0], rightLine[1], rightLine[2], rightLine[3]]
+        detected.loc[len(detected)]=['R', leftFitAverage, rightFitAverage, leftLine, rightLine, deltaTime, leftLine[0], leftLine[1], leftLine[2], leftLine[3], rightLine[0], rightLine[1], rightLine[2], rightLine[3]]
     else:
-        detected.loc[len(detected)]=['L', leftFitAverage, rightFitAverage, leftLine, rightLine, deltaTime, leftLine[0], leftLine[1], leftLine[2], leftLine[3], rightLine[0], rightLine[1], rightLine[2], rightLine[3]]
+        detected.loc[len(detected)]=['C', leftFitAverage, rightFitAverage, leftLine, rightLine, deltaTime, leftLine[0], leftLine[1], leftLine[2], leftLine[3], rightLine[0], rightLine[1], rightLine[2], rightLine[3]]
     return np.array([leftLine, rightLine]), isNanLeft, isNanRight
 
 def makeCoordinates(coordinatesImage, lineParameters):
