@@ -3,13 +3,13 @@ import numpy as np
 import math
 import pandas as pd
 import time
-import matplotlib.pyplot as plt
-import os
+import serial
 
-leftX = []
-leftY = []
-rightX = []
-rightY = []
+directionPort = serial.Serial('/dev/ttyACM0', 9600, timeout=1)
+time.sleep(1.8)
+
+xL = [0]
+xR = [0]
 
 detected = pd.DataFrame(columns=('direction', 'leftFitAverage', 'rightFitAverage', 'leftLine', 'rigthLine', 'slopeLeft', 'interceptLeft', 'slopeRight', 'interceptRight' ))
 
@@ -36,7 +36,8 @@ def colorRange(colorFrame, colorGray, colorCropped):
     return colorRanged
 
 def averagedSlopeIntercept(interceptImage, interceptLines):
-    global leftX, leftY, rightX, rightY
+    #global leftX, leftY, rightX, rightY
+    global xL, yL, xR, yR
     leftFit = []
     rightFit = []
     for line in interceptLines:
@@ -66,16 +67,16 @@ def averagedSlopeIntercept(interceptImage, interceptLines):
     #print("Right ", isNanRight)
     leftLine, slopeLeft, interceptLeft =  makeCoordinates(interceptImage, leftFitAverage)
     rightLine, slopeRight, interceptRight = makeCoordinates(interceptImage, rightFitAverage)
+    xL.append(interceptLeft)
+    xR.append(interceptRight)
     deltaTime = time.time() - startTime
     if isNanLeft:
-        print('L')
-        #detected.loc[len(detected)]=['L', leftFitAverage, rightFitAverage, leftLine, rightLine, slopeLeft, interceptLeft, slopeRight, interceptRight]
+        detected.loc[len(detected)]=['L', leftFitAverage, rightFitAverage, leftLine, rightLine, slopeLeft, interceptLeft, slopeRight, interceptRight]
     elif isNanRight:
-        print('R')
-        #detected.loc[len(detected)]=['R', leftFitAverage, rightFitAverage, leftLine, rightLine, slopeLeft, interceptLeft, slopeRight, interceptRight]
+        detected.loc[len(detected)]=['R', leftFitAverage, rightFitAverage, leftLine, rightLine, slopeLeft, interceptLeft, slopeRight, interceptRight]
     else:
         detected.loc[len(detected)]=['C', leftFitAverage, rightFitAverage, leftLine, rightLine, slopeLeft, interceptLeft, slopeRight, interceptRight]
-    return np.array([leftLine, rightLine]), isNanLeft, isNanRight
+    return np.array([leftLine, rightLine]), isNanLeft, isNanRight, slopeLeft, slopeRight
 
 def makeCoordinates(coordinatesImage, lineParameters):
     #print("lineParameters: ", lineParameters)
@@ -105,56 +106,88 @@ def displayLines(displayImage, displayLinesVar):
                 lineImage = lineImage #regresa una matriz de ceros
     return lineImage
 
+def makeDegrees(leftSide, rightSide):
+    summed = rightSide - leftSide
+    if summed >= 1.7 or summed <=1.5:
+        print(summed)
+        if rightSide <= -0.11:
+            degrees = 90 + (9 - rightSide)
+            degreesStr = str(degrees)
+        elif rightSide >= -0.8 :
+            degrees = 90 + (9 - rightSide)
+            degreesStr = str(degrees)
+        elif leftSide <= 0.6:
+            degrees = 90 + (9 - leftSide)
+            degreesStr = str(degrees)
+        elif leftSide >= 0.8:
+            degrees = 90 + (90 - leftSide)
+            degreesStr = str(degrees)
+        return degreesStr
+    else:
+        return str(90)
+
 if __name__ == '__main__':
-    try:
-        cap = cv2.VideoCapture(0)
-        salida = cv2.VideoWriter('videoSalida.avi',cv2.VideoWriter_fourcc(*'XVID'),20.0,(int(cap.get(3)),int(cap.get(4))))
-        font = cv2.FONT_HERSHEY_SIMPLEX
-        while cap.isOpened():
-            os.system("clear")
-            ret, origFrame = cap.read()
-            
-            coppiedFrame = np.copy(origFrame)
-            
-            gray = cv2.cvtColor(origFrame, cv2.COLOR_BGR2GRAY)
-            canny = cannyImage(gray)
-            croppedImage = regionOfInterest(canny)
-            colorInRange = colorRange(coppiedFrame, gray, croppedImage)
-            lines = cv2.HoughLinesP(colorInRange, 1, np.pi/180, 50, minLineLength=20, maxLineGap=50)
-            #print(lines)
-            #left = range(0, 480 // 2)
-            #right = range(480 // 2, 480)
-            if lines is not None:
-                averagedLines, left, right =  averagedSlopeIntercept(coppiedFrame, lines)
-                if left:
-                    cv2.putText(coppiedFrame, '<---', (0, 30), font, 0.8, (255, 0, 0), 2, cv2.LINE_AA)
-                elif right:
-                    cv2.putText(coppiedFrame, '--->', (0, 30), font, 0.8, (0, 255, 0), 2, cv2.LINE_AA)
-                else:
-                    cv2.putText(coppiedFrame, '^', (0, 30), font, 0.8, (0, 0, 255), 2, cv2.LINE_AA)
-                timeText = time.strftime("%Y/%m/%d %H:%M:%S %Z", time.localtime())
-                cv2.putText(coppiedFrame, timeText, (250, 20), font, 0.8, (255, 255, 255), 2, cv2.LINE_AA)
-                lineImage = displayLines(coppiedFrame, averagedLines)
-                for line in lines:
-                    x1, y1, x2, y2 = line[0]
-                    #cv2.rectangle(coppiedFrame, (x1, y1), (x2, y2), (0, 255, 0), 5)
-                    cv2.line(coppiedFrame, (x1, y1), (x2, y2), (0, 255, 0), 5)
-            if cv2.waitKey(25) & 0xFF == ord('s'):
-                break
-            #cv2.imshow("origFrame", origFrame)
-            salida.write(coppiedFrame)
-            cv2.imshow("coppiedFrameWithLines", coppiedFrame)
-            #if lines is not None:
-            #    cv2.imshow("lineImage", lineImage)
-            
-            #cv2.imshow("lines", lines)
-        #print(detected)
-        timeSaved = time.strftime("%Y%m%d%H%M%S%Z", time.localtime())
-        name1 = 'detected' + timeSaved + '.csv'
-        name2 = 'detected' + timeSaved + 'HeadAndIndexFalse.csv'
-        detected.to_csv(name1)
-        detected.to_csv(name2, header=False, index=False)
-        cap.release()
-        cv2.destroyAllWindows()
-    except:
-        print("Algo malo ha ocurrido!")
+    cap = cv2.VideoCapture(0)
+    salida = cv2.VideoWriter('videoSalida.avi',cv2.VideoWriter_fourcc(*'XVID'),20.0,(int(cap.get(3)),int(cap.get(4))))
+    font = cv2.FONT_HERSHEY_SIMPLEX
+    leftDirection = str(120)
+    rightDirection = str(60)
+    rectDirection = str(90)
+    directionPort.write(rectDirection.encode())
+    anterior = 0
+    while cap.isOpened():
+        print("Actual: ", anterior)
+        ret, origFrame = cap.read()        
+        coppiedFrame = np.copy(origFrame)    
+        gray = cv2.cvtColor(origFrame, cv2.COLOR_BGR2GRAY)
+        canny = cannyImage(gray)
+        croppedImage = regionOfInterest(canny)
+        colorInRange = colorRange(coppiedFrame, gray, croppedImage)
+        lines = cv2.HoughLinesP(colorInRange, 1, np.pi/180, 50, minLineLength=20, maxLineGap=50)
+        if lines is not None:
+            averagedLines, left, right, lSlope, rSlope =  averagedSlopeIntercept(coppiedFrame, lines)
+            if left:
+                cv2.putText(coppiedFrame, '<---', (0, 30), font, 0.8, (255, 0, 0), 2, cv2.LINE_AA)
+                if anterior != -1:
+                    directionPort.write(leftDirection.encode())
+                    anterior = -1
+                    time.sleep(1)
+            elif right:
+                cv2.putText(coppiedFrame, '--->', (0, 30), font, 0.8, (0, 255, 0), 2, cv2.LINE_AA)
+                if anterior != 1:
+                    directionPort.write(rightDirection.encode())
+                    anterior = 1
+                    time.sleep(1)
+            elif not right and not left:
+                cv2.putText(coppiedFrame, '^', (0, 30), font, 0.8, (0, 0, 255), 2, cv2.LINE_AA)
+                if anterior != 0:
+                    directionPort.write(makeDegrees(lSlope, rSlope).encode())
+                    anterior = 0
+                    time.sleep(1)
+            else:
+                cv2.putText(coppiedFrame, 'V', (0, 30), font, 0.8, (0, 0, 255), 2, cv2.LINE_AA)
+                """
+                if anterior != 0:
+                    directionPort.write(rectDirection.encode())
+                    anterior = 0"""
+            timeText = time.strftime("%Y/%m/%d %H:%M:%S %Z", time.localtime())
+            cv2.putText(coppiedFrame, timeText, (250, 20), font, 0.8, (255, 255, 255), 2, cv2.LINE_AA)
+            lineImage = displayLines(coppiedFrame, averagedLines)
+            for line in lines:
+                x1, y1, x2, y2 = line[0]
+                #cv2.rectangle(coppiedFrame, (x1, y1), (x2, y2), (0, 255, 0), 5)
+                cv2.line(coppiedFrame, (x1, y1), (x2, y2), (0, 255, 0), 5)
+        if cv2.waitKey(25) & 0xFF == ord('s'):
+            break
+        #cv2.imshow("origFrame", origFrame)
+        salida.write(coppiedFrame)
+        cv2.imshow("coppiedFrameWithLines", coppiedFrame)
+    timeSaved = time.strftime("%Y%m%d%H%M%S%Z", time.localtime())
+    name1 = 'detected' + timeSaved + '.csv'
+    name2 = 'detected' + timeSaved + 'HeadAndIndexFalse.csv'
+    detected.to_csv(name1)
+    detected.to_csv(name2, header=False, index=False)
+    cap.release()
+    cv2.destroyAllWindows()
+    directionPort.write(rectDirection.encode())
+    directionPort.close()

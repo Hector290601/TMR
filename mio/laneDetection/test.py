@@ -4,13 +4,15 @@ import math
 import pandas as pd
 import time
 import matplotlib.pyplot as plt
+import os
 
 leftX = []
 leftY = []
 rightX = []
 rightY = []
 
-detected = pd.DataFrame(columns=('direction', 'leftFitAverage', 'rightFitAverage', 'leftFitAverage0', 'leftFitAverage1', 'rightFitAverage0', 'rightFitAverage1', 'leftLine', 'rigthLine', 'time(s)', 'leftX1', 'leftY1', 'leftX2', 'leftY2', 'rightX1', 'rightY1', 'rightX2', 'rightX2'))
+detected = pd.DataFrame(columns=('direction', 'leftFitAverage', 'rightFitAverage', 'leftLine', 'rigthLine', 'slopeLeft', 'interceptLeft', 'slopeRight', 'interceptRight' ))
+
 startTime = time.time()
 
 def cannyImage(cannyGray):
@@ -54,56 +56,40 @@ def averagedSlopeIntercept(interceptImage, interceptLines):
     rightFitAverage = np.average(rightFit, axis = 0)
     try:
         isNanLeft = math.isnan(leftFitAverage[0])
-        leftType = 1
     except:
         isNanLeft = math.isnan(leftFitAverage)
-        leftType = 2
     #print("Left ", isNanLeft)
     try:
         isNanRight = math.isnan(rightFitAverage[0])
-        rightType = 1
     except:
         isNanRight = math.isnan(rightFitAverage)
-        rightType = 2
     #print("Right ", isNanRight)
-    leftLine = makeCoordinates(interceptImage, leftFitAverage)
-    rightLine = makeCoordinates(interceptImage, rightFitAverage)
+    leftLine, slopeLeft, interceptLeft =  makeCoordinates(interceptImage, leftFitAverage)
+    rightLine, slopeRight, interceptRight = makeCoordinates(interceptImage, rightFitAverage)
     deltaTime = time.time() - startTime
     if isNanLeft:
-        if leftType == 1 and rightType == 1:
-            detected.loc[len(detected)]=['L', leftFitAverage, rightFitAverage, leftFitAverage[0], leftFitAverage[1], rightFitAverage[0], rightFitAverage[1], leftLine, rightLine, deltaTime, leftLine[0], leftLine[1], leftLine[2], leftLine[3], rightLine[0], rightLine[1], rightLine[2], rightLine[3]]
-        elif leftType == 1 and rightType == 2:
-            detected.loc[len(detected)]=['L', leftFitAverage, rightFitAverage, leftFitAverage[0], leftFitAverage[1], np.nan(), np.nan, leftLine, rightLine, deltaTime, leftLine[0], leftLine[1], leftLine[2], leftLine[3], rightLine[0], rightLine[1], rightLine[2], rightLine[3]]
-        elif leftType == 2 and rightType == 2:
-            detected.loc[len(detected)]=['L', leftFitAverage, rightFitAverage, np.nan, np.nan, rightFitAverage[0], rightFitAverage[1], leftLine, rightLine, deltaTime, leftLine[0], leftLine[1], leftLine[2], leftLine[3], rightLine[0], rightLine[1], rightLine[2], rightLine[3]]
+        print('L')
+        #detected.loc[len(detected)]=['L', leftFitAverage, rightFitAverage, leftLine, rightLine, slopeLeft, interceptLeft, slopeRight, interceptRight]
     elif isNanRight:
-        if leftType == 1 and rightType == 1:
-            detected.loc[len(detected)]=['R', leftFitAverage, rightFitAverage, leftFitAverage[0], leftFitAverage[1], rightFitAverage[0], rightFitAverage[1], leftLine, rightLine, deltaTime, leftLine[0], leftLine[1], leftLine[2], leftLine[3], rightLine[0], rightLine[1], rightLine[2], rightLine[3]]
-        elif leftType == 1 and rightType == 2:
-            detected.loc[len(detected)]=['R', leftFitAverage, rightFitAverage, leftFitAverage[0], leftFitAverage[1], np.nan(), np.nan, leftLine, rightLine, deltaTime, leftLine[0], leftLine[1], leftLine[2], leftLine[3], rightLine[0], rightLine[1], rightLine[2], rightLine[3]]
-        elif leftType == 2 and rightType == 2:
-            detected.loc[len(detected)]=['R', leftFitAverage, rightFitAverage, np.nan, np.nan, rightFitAverage[0], rightFitAverage[1], leftLine, rightLine, deltaTime, leftLine[0], leftLine[1], leftLine[2], leftLine[3], rightLine[0], rightLine[1], rightLine[2], rightLine[3]]
+        print('R')
+        #detected.loc[len(detected)]=['R', leftFitAverage, rightFitAverage, leftLine, rightLine, slopeLeft, interceptLeft, slopeRight, interceptRight]
     else:
-        if leftType == 1 and rightType == 1:
-            detected.loc[len(detected)]=['C', leftFitAverage, rightFitAverage, leftFitAverage[0], leftFitAverage[1], rightFitAverage[0], rightFitAverage[1], leftLine, rightLine, deltaTime, leftLine[0], leftLine[1], leftLine[2], leftLine[3], rightLine[0], rightLine[1], rightLine[2], rightLine[3]]
-        elif leftType == 1 and rightType == 2:
-            detected.loc[len(detected)]=['C', leftFitAverage, rightFitAverage, leftFitAverage[0], leftFitAverage[1], np.nan(), np.nan, leftLine, rightLine, deltaTime, leftLine[0], leftLine[1], leftLine[2], leftLine[3], rightLine[0], rightLine[1], rightLine[2], rightLine[3]]
-        elif leftType == 2 and rightType == 2:
-            detected.loc[len(detected)]=['C', leftFitAverage, rightFitAverage, np.nan, np.nan, rightFitAverage[0], rightFitAverage[1], leftLine, rightLine, deltaTime, leftLine[0], leftLine[1], leftLine[2], leftLine[3], rightLine[0], rightLine[1], rightLine[2], rightLine[3]]
+        detected.loc[len(detected)]=['C', leftFitAverage, rightFitAverage, leftLine, rightLine, slopeLeft, interceptLeft, slopeRight, interceptRight]
     return np.array([leftLine, rightLine]), isNanLeft, isNanRight
 
 def makeCoordinates(coordinatesImage, lineParameters):
     #print("lineParameters: ", lineParameters)
     try:
         slope, intercept = lineParameters #intercept es la ordenada al origen de la recta
+        #print("slope: ", slope, "intercept ", intercept)
         y1 = coordinatesImage.shape[0] #obtiene el valor '0' de la imagen
         y2 = int(y1*(3/5)) #esto es pra determinar el largo de la recta que dibuja en la imagen
         x1 = int((y1 - intercept)/slope) #obtiene la ecuación de la recta con el primer punto
         x2 = int((y2 - intercept) / slope) # obtiene la ecuación de la recta con el segundo punto
         #print(type(lineParameters))
-        return np.array([x1, y1, x2, y2])
+        return np.array([x1, y1, x2, y2]), slope, intercept
     except:
-        return np.array([0, 0, 0, 0])
+        return np.array([0, 0, 0, 0]), np.nan, np.nan
 
 def displayLines(displayImage, displayLinesVar):
     lineImage = np.zeros_like(displayImage)#obtiene un arreglo de ceros de las mismas características de la imagen
@@ -125,6 +111,7 @@ if __name__ == '__main__':
         salida = cv2.VideoWriter('videoSalida.avi',cv2.VideoWriter_fourcc(*'XVID'),20.0,(int(cap.get(3)),int(cap.get(4))))
         font = cv2.FONT_HERSHEY_SIMPLEX
         while cap.isOpened():
+            os.system("clear")
             ret, origFrame = cap.read()
             
             coppiedFrame = np.copy(origFrame)
