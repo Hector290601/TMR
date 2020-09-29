@@ -22,10 +22,10 @@ while True:
     edge = cv2.Canny(blur, 25, 75)
     maskpfrm = cv2.bitwise_and(frame, frame, mask = mask)
     maskpedgs = cv2.bitwise_and(edge, edge, mask = mask)
-    cv2.imshow('cannyEdge.jpeg', edge)
-    cv2.imshow('hsv.jpeg', hsv)
-    cv2.imshow('whites.jpeg', mask)
-    cv2.imshow('whitesAndFrame.jpeg', maskpfrm)
-    cv2.imshow('whitesAndEdges.jpeg', maskpedgs)
+    cv2.imwrite('cannyEdge.jpeg', edge)
+    cv2.imwrite('hsv.jpeg', hsv)
+    cv2.imwrite('whites.jpeg', mask)
+    cv2.imwrite('whitesAndFrame.jpeg', maskpfrm)
+    cv2.imwrite('whitesAndEdges.jpeg', maskpedgs)
     if cv2.waitKey(1) & 0XFF == ord('q'):
         break;

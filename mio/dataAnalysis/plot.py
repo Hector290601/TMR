@@ -23,8 +23,8 @@ lY2 = range(len(lX2Array))
 rX2Array = rX2.to_numpy()
 rY2 = range(len(rX2Array))
 
-plt.plot(lX1Array, lY1, 'r')
-plt.plot(rX1Array, rY1, 'g')
+#plt.plot(lX1Array, lY1, 'r')
+#plt.plot(rX1Array, rY1, 'g')
 plt.plot(lX2Array, lY2, 'b')
 plt.plot(rX2Array, rY2, 'm')
 
