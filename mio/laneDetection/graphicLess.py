@@ -21,6 +21,7 @@ def cannyImage(cannyGray):
     return cannyCanny
 
 def regionOfInterest(regionImage):
+    #regionPolygons = np.array([[(0, 448), (639, 425), (434, 276), (256, 159)]])
     regionPolygons = np.array([[(0, 400), (640, 400), (640, 180), (0, 180)]])
     zeros = np.zeros_like(regionImage)
     cv2.fillPoly(zeros, regionPolygons, 255)
@@ -46,18 +47,24 @@ def averagedSlopeIntercept(interceptImage, interceptLines):
         intercept = parameters[1]
         if slope < 0:
             leftFit.append((slope, intercept))
+            #leftX.append(slope)
+            #leftY.append(intercept)
         else:
             rightFit.append((slope, intercept))
+            #rightX.append(slope)
+            #rightY.append(intercept)
     leftFitAverage = np.average(leftFit, axis = 0)
     rightFitAverage = np.average(rightFit, axis = 0)
     try:
         isNanLeft = math.isnan(leftFitAverage[0])
     except:
         isNanLeft = math.isnan(leftFitAverage)
+    #print("Left ", isNanLeft)
     try:
         isNanRight = math.isnan(rightFitAverage[0])
     except:
         isNanRight = math.isnan(rightFitAverage)
+    #print("Right ", isNanRight)
     leftLine, slopeLeft, interceptLeft =  makeCoordinates(interceptImage, leftFitAverage)
     rightLine, slopeRight, interceptRight = makeCoordinates(interceptImage, rightFitAverage)
     xL.append(interceptLeft)
@@ -72,111 +79,107 @@ def averagedSlopeIntercept(interceptImage, interceptLines):
     return np.array([leftLine, rightLine]), isNanLeft, isNanRight, slopeLeft, slopeRight
 
 def makeCoordinates(coordinatesImage, lineParameters):
+    #print("lineParameters: ", lineParameters)
     try:
-        slope, intercept = lineParameters
-        y1 = coordinatesImage.shape[0]
-        y2 = int(y1*(3/5))
-        x1 = int((y1 - intercept)/slope)
-        x2 = int((y2 - intercept) / slope)
+        slope, intercept = lineParameters #intercept es la ordenada al origen de la recta
+        #print("slope: ", slope, "intercept ", intercept)
+        y1 = coordinatesImage.shape[0] #obtiene el valor '0' de la imagen
+        y2 = int(y1*(3/5)) #esto es pra determinar el largo de la recta que dibuja en la imagen
+        x1 = int((y1 - intercept)/slope) #obtiene la ecuación de la recta con el primer punto
+        x2 = int((y2 - intercept) / slope) # obtiene la ecuación de la recta con el segundo punto
+        #print(type(lineParameters))
         return np.array([x1, y1, x2, y2]), slope, intercept
     except:
         return np.array([0, 0, 0, 0]), np.nan, np.nan
 
-def makeDegrees(leftSide, rightSide, anterior):
+def makeDegrees(leftSide, rightSide):
     summed = rightSide - leftSide
     if summed >= 1.7 or summed <=1.5:
         print(summed)
         if rightSide <= -0.11:
-            degrees = 90 + (rightSide * 10)
-            if anterior != degrees:
-                anterior = degrees
-                degreesStr = str(degrees)
+            degrees = 90 + (9 - rightSide)
+            degreesStr = str(degrees)
         elif rightSide >= -0.8 :
-            degrees = 90 + (rightSide * 10)
-            if anterior != degrees:
-                anterior = degrees
-                degreesStr = str(degrees)
+            degrees = 90 + (9 - rightSide)
+            degreesStr = str(degrees)
         elif leftSide <= 0.6:
-            degrees = 90 + (leftSide * 10)
-            if anterior != degrees:
-                anterior = degrees
-                degreesStr = str(degrees)
+            degrees = 90 + (9 - leftSide)
+            degreesStr = str(degrees)
         elif leftSide >= 0.8:
-            degrees = 90 + (leftSide * 10)
-            if anterior != degrees:
-                anterior = degrees
-                degreesStr = str(degrees)
-        return degreesStr, anterior
+            degrees = 90 + (90 - leftSide)
+            degreesStr = str(degrees)
+        return degreesStr
     else:
-        return str(90), 90
+        return str(90)
 
 if __name__ == '__main__':
+    font = cv2.FONT_HERSHEY_SIMPLEX
     cap = cv2.VideoCapture(0)
     salida = cv2.VideoWriter('videoSalida.avi',cv2.VideoWriter_fourcc(*'XVID'),20.0,(int(cap.get(3)),int(cap.get(4))))
-    font = cv2.FONT_HERSHEY_SIMPLEX
     leftDirection = str(120)
     rightDirection = str(60)
     rectDirection = str(90)
+    unknowDirection = str(255)
     directionPort.write(rectDirection.encode())
-    anterior = 0
-    print("Starting")
+    anterior = actual = 0
     while cap.isOpened():
         try:
-            print("Running")
-            print("Actual: ", anterior)
-            ret, origFrame = cap.read()        
-            coppiedFrame = np.copy(origFrame)    
-            gray = cv2.cvtColor(origFrame, cv2.COLOR_BGR2GRAY)
-            canny = cannyImage(gray)
-            croppedImage = regionOfInterest(canny)
-            colorInRange = colorRange(coppiedFrame, gray, croppedImage)
-            lines = cv2.HoughLinesP(colorInRange, 1, np.pi/180, 50, minLineLength=20, maxLineGap=50)
-            if lines is not None:
-                averagedLines, left, right, lSlope, rSlope =  averagedSlopeIntercept(coppiedFrame, lines)
-                if left:
-                    cv2.putText(coppiedFrame, 'L', (0, 30), font, 0.8, (255, 0, 0), 2, cv2.LINE_AA)
-                    directionPort.write(leftDirection.encode())
-                    if anterior != -1:
-                        directionPort.write(leftDirection.encode())
-                        anterior = -1
-                        time.sleep(1)
-                elif right:
-                    cv2.putText(coppiedFrame, 'R', (0, 30), font, 0.8, (0, 255, 0), 2, cv2.LINE_AA)
-                    directionPort.write(rightDirection.encode())
-                    if anterior != 1:
-                        directionPort.write(rightDirection.encode())
-                        anterior = 1
-                        time.sleep(1)
-                elif not right and not left:
-                    cv2.putText(coppiedFrame, 'C', (0, 30), font, 0.8, (0, 0, 255), 2, cv2.LINE_AA)
-                    directionPort.write(rectDirection.encode())
-                    if anterior != 0:
-                        directionPort.write(rectDirection.encode())
-                        anterior = 0
-                        time.sleep(1)
-                else:
-                    cv2.putText(coppiedFrame, 'V', (0, 30), font, 0.8, (0, 0, 255), 2, cv2.LINE_AA)
-                if anterior != 0:
-                        directionPort.write(rectDirection.encode())
-                        anterior = 0
-                timeText = time.strftime("%Y/%m/%d %H:%M:%S %Z", time.localtime())
-                cv2.putText(coppiedFrame, timeText, (250, 20), font, 0.8, (255, 255, 255), 2, cv2.LINE_AA)
-                for line in lines:
-                    x1, y1, x2, y2 = line[0]
-                    cv2.line(coppiedFrame, (x1, y1), (x2, y2), (0, 255, 0), 5)
-                if cv2.waitKey(25) & 0xFF == ord('s'):
-                    break
-                if lines is None:
-                    break
-                salida.write(coppiedFrame)
-            timeSaved = time.strftime("%Y%m%d", time.localtime())
-            name1 = 'detected' + timeSaved + '.csv'
-            name2 = 'detected' + timeSaved + 'HeadAndIndexFalse.csv'
-            detected.to_csv(name1)
-            detected.to_csv(name2, header=False, index=False)
+            actualArd = directionPort.readline()
+            print(actualArd)
         except:
-            print("Algo ha ocurrido")
+            actualArd = unknowDirection
+            print(actualArd)
+        print("Actual: ", anterior)
+        ret, origFrame = cap.read()
+        #coppiedFrame = np.copy(origFrame)
+        gray = cv2.cvtColor(origFrame, cv2.COLOR_BGR2GRAY)
+        canny = cannyImage(gray)
+        croppedImage = regionOfInterest(canny)
+        colorInRange = colorRange(origFrame, gray, croppedImage)
+        lines = cv2.HoughLinesP(colorInRange, 1, np.pi/180, 50, minLineLength=20, maxLineGap=50)
+        if lines is not None:
+            averagedLines, left, right, lSlope, rSlope =  averagedSlopeIntercept(origFrame, lines)
+            if left:
+                cv2.putText(origFrame, '<---', (0, 30), font, 0.8, (255, 0, 0), 2, cv2.LINE_AA)
+                directionPort.write(leftDirection.encode())
+                actual = -1
+                if anterior != actual:
+                    anterior = actual
+                    time.sleep(0.5)
+            elif right:
+                cv2.putText(origFrame, '--->', (0, 30), font, 0.8, (0, 255, 0), 2, cv2.LINE_AA)
+                directionPort.write(rightDirection.encode())
+                actual = 1
+                if anterior != actual:
+                    anterior = actual
+                    time.sleep(0.5)
+            elif not right and not left:
+                cv2.putText(origFrame, '^', (0, 30), font, 0.8, (0, 0, 255), 2, cv2.LINE_AA)
+                directionPort.write(rectDirection.encode())
+                actual = 0
+                if anterior != actual:
+                    anterior = actual
+                    time.sleep(0.5)
+            else:
+                anterior = 255
+                cv2.putText(origFrame, 'V', (0, 30), font, 0.8, (0, 0, 255), 2, cv2.LINE_AA)
+                directionPort.write(unknowDirection.encode())
+                time.sleep(0.5)
+                """
+                if anterior != 0:
+                    directionPort.write(rectDirection.encode())
+                    anterior = 0"""
+            for line in lines:
+                x1, y1, x2, y2 = line[0]
+        if cv2.waitKey(25) & 0xFF == ord('s'):
+            break
+        salida.write(origFrame)
+    timeSaved = time.strftime("%Y%m%d%H%M%S%Z", time.localtime())
+    name1 = 'detected' + timeSaved + '.csv'
+    name2 = 'detected' + timeSaved + 'HeadAndIndexFalse.csv'
+    detected.to_csv(name1)
+    detected.to_csv(name2, header=False, index=False)
     cap.release()
     cv2.destroyAllWindows()
-    directionPort.write(rectDirection.encode())
+    directionPort.write(str(255).encode);
     directionPort.close()

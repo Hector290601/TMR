@@ -1,3 +1,6 @@
+import threading
+import logging
+import datetime
 import cv2
 import numpy as np
 import math
@@ -5,8 +8,8 @@ import pandas as pd
 import time
 import serial
 
-directionPort = serial.Serial('/dev/ttyACM0', 9600, timeout=1)
-time.sleep(1.8)
+#directionPort = serial.Serial('/dev/ttyACM0', 9600, timeout=1)
+#time.sleep(1.8)
 
 xL = [0]
 xR = [0]
@@ -14,6 +17,55 @@ xR = [0]
 detected = pd.DataFrame(columns=('direction', 'leftFitAverage', 'rightFitAverage', 'leftLine', 'rigthLine', 'slopeLeft', 'interceptLeft', 'slopeRight', 'interceptRight' ))
 
 startTime = time.time()
+
+def linesOnImage(lines):
+    for line in lines:
+        x1, y1, x2, y2 = line[0]
+        cv2.line(coppiedFrame, (x1, y1), (x2, y2), (0, 255, 0), 5)
+
+def directionLeft(left):
+    if left:
+        print("left")
+
+def directionRight(right):
+    if right:
+        print("right")
+
+def directionCenter(lft, right):
+    if not right and not left:
+        print("center")
+
+def directionUnknow(left, right):
+    if left and right:
+        print("U N K N O W")
+
+def graphicInterface(left, right, coppiedFrame, anterior):
+    if left:
+        cv2.putText(coppiedFrame, '<---', (0, 30), font, 0.8, (255, 0, 0), 2, cv2.LINE_AA)
+        if anterior != -1:
+            anterior = -1
+    if right:
+        cv2.putText(coppiedFrame, '--->', (0, 30), font, 0.8, (0, 255, 0), 2, cv2.LINE_AA)
+        if anterior != 1:
+            anterior = 1
+    if not right and not left:
+        cv2.putText(coppiedFrame, '^', (0, 30), font, 0.8, (0, 0, 255), 2, cv2.LINE_AA)
+        if anterior != 0:
+            anterior = 0
+    if left and right:
+        cv2.putText(coppiedFrame, 'UNKNOW', (0, 30), font, 0.8, (0, 0, 255), 2, cv2.LINE_AA)
+        anterior = 255
+    timeText = time.strftime("%Y/%m/%d %H:%M:%S %Z", time.localtime())
+    cv2.putText(coppiedFrame, timeText, (250, 20), font, 0.8, (255, 255, 255), 2, cv2.LINE_AA)
+
+
+def putTimeData(coppiedFrame, font):
+    timeText = time.strftime("%Y/%m/%d %H:%M:%S %Z", time.localtime())
+    cv2.putText(coppiedFrame, timeText, (250, 20), font, 0.8, (255, 255, 255), 2, cv2.LINE_AA)
+
+def saveVideo(salida, coppiedFrame):
+    salida.write(coppiedFrame)
+
 
 def cannyImage(cannyGray):
     cannyBlur = cv2.GaussianBlur(gray, (5, 5), 0)
@@ -92,20 +144,6 @@ def makeCoordinates(coordinatesImage, lineParameters):
     except:
         return np.array([0, 0, 0, 0]), np.nan, np.nan
 
-def displayLines(displayImage, displayLinesVar):
-    lineImage = np.zeros_like(displayImage)#obtiene un arreglo de ceros de las mismas características de la imagen
-    if displayLinesVar is not None: #verifica que existan líneas
-        for x1, y1, x2, y2 in displayLinesVar: #itera en cada línea
-            #x1, y1, x2, y2 = line.shape()
-            #print(lines.shape, 'Shapes on the line')
-            #print(lines, 'lines')
-            #print(x1, 'x1', y1, 'y1', x2, 'x2', y2, 'y2')
-            try: #evita que el programa falle si no hay líneas
-                cv2.line(lineImage, (x1, y1), (x2, y2), (255, 255, 255), 3) #dibuja una línea azul en las líneas
-            except:
-                lineImage = lineImage #regresa una matriz de ceros
-    return lineImage
-
 def makeDegrees(leftSide, rightSide):
     summed = rightSide - leftSide
     if summed >= 1.7 or summed <=1.5:
@@ -125,73 +163,53 @@ def makeDegrees(leftSide, rightSide):
         return degreesStr
     else:
         return str(90)
-
-if __name__ == '__main__':
-    cap = cv2.VideoCapture(0)
-    salida = cv2.VideoWriter('videoSalida.avi',cv2.VideoWriter_fourcc(*'XVID'),20.0,(int(cap.get(3)),int(cap.get(4))))
-    font = cv2.FONT_HERSHEY_SIMPLEX
-    leftDirection = str(115)
-    rightDirection = str(65)
-    rectDirection = str(90)
-    unknowDirection = str(255)
-    directionPort.write(rectDirection.encode())
-    anterior = 0
-    while cap.isOpened():
-        print("Actual: ", anterior)
-        ret, origFrame = cap.read()        
-        coppiedFrame = np.copy(origFrame)    
-        gray = cv2.cvtColor(origFrame, cv2.COLOR_BGR2GRAY)
-        canny = cannyImage(gray)
-        croppedImage = regionOfInterest(canny)
-        colorInRange = colorRange(coppiedFrame, gray, croppedImage)
-        lines = cv2.HoughLinesP(colorInRange, 1, np.pi/180, 50, minLineLength=20, maxLineGap=50)
-        if lines is not None:
-            averagedLines, left, right, lSlope, rSlope =  averagedSlopeIntercept(coppiedFrame, lines)
-            if left:
-                cv2.putText(coppiedFrame, '<---', (0, 30), font, 0.8, (255, 0, 0), 2, cv2.LINE_AA)
-                if anterior != -1:
-                    directionPort.write(leftDirection.encode())
-                    anterior = -1
-                    time.sleep(0.8)
-            elif right:
-                cv2.putText(coppiedFrame, '--->', (0, 30), font, 0.8, (0, 255, 0), 2, cv2.LINE_AA)
-                if anterior != 1:
-                    directionPort.write(rightDirection.encode())
-                    anterior = 1
-                    time.sleep(0.8)
-            elif not right and not left:
-                cv2.putText(coppiedFrame, '^', (0, 30), font, 0.8, (0, 0, 255), 2, cv2.LINE_AA)
-                if anterior != 0:
-                    directionPort.write(rectDirection.encode())
-                    anterior = 0
-                    time.sleep(0.8)
-            else:
-                anterior = 255
-                cv2.putText(coppiedFrame, 'V', (0, 30), font, 0.8, (0, 0, 255), 2, cv2.LINE_AA)
-                directionPort.write(unknowDirection.encode())
-                time.sleep(0.8)
-                """
-                if anterior != 0:
-                    directionPort.write(rectDirection.encode())
-                    anterior = 0"""
-            timeText = time.strftime("%Y/%m/%d %H:%M:%S %Z", time.localtime())
-            cv2.putText(coppiedFrame, timeText, (250, 20), font, 0.8, (255, 255, 255), 2, cv2.LINE_AA)
-            lineImage = displayLines(coppiedFrame, averagedLines)
-            for line in lines:
-                x1, y1, x2, y2 = line[0]
-                #cv2.rectangle(coppiedFrame, (x1, y1), (x2, y2), (0, 255, 0), 5)
-                cv2.line(coppiedFrame, (x1, y1), (x2, y2), (0, 255, 0), 5)
-        if cv2.waitKey(25) & 0xFF == ord('s'):
-            break
-        #cv2.imshow("origFrame", origFrame)
-        salida.write(coppiedFrame)
-        cv2.imshow("coppiedFrameWithLines", coppiedFrame)
-    timeSaved = time.strftime("%Y%m%d%H%M%S%Z", time.localtime())
-    name1 = 'detected' + timeSaved + '.csv'
-    name2 = 'detected' + timeSaved + 'HeadAndIndexFalse.csv'
-    detected.to_csv(name1)
-    detected.to_csv(name2, header=False, index=False)
+try:
+    if __name__ == '__main__':
+        cap = cv2.VideoCapture(0)
+        salida = cv2.VideoWriter('videoSalida.avi',cv2.VideoWriter_fourcc(*'XVID'),20.0,(int(cap.get(3)),int(cap.get(4))))
+        font = cv2.FONT_HERSHEY_SIMPLEX
+        leftDirection = str(115)
+        rightDirection = str(65)
+        rectDirection = str(90)
+        unknowDirection = str(255)
+        anterior = 0
+        while cap.isOpened():
+            timeIni = time.time()
+            ret, origFrame = cap.read()
+            coppiedFrame = np.copy(origFrame)
+            gray = cv2.cvtColor(origFrame, cv2.COLOR_BGR2GRAY)
+            canny = cannyImage(gray)
+            croppedImage = regionOfInterest(canny)
+            colorInRange = colorRange(coppiedFrame, gray, croppedImage)
+            lines = cv2.HoughLinesP(colorInRange, 1, np.pi/180, 50, minLineLength=20, maxLineGap=50)
+            if lines is not None:
+                averagedLines, left, right, lSlope, rSlope =  averagedSlopeIntercept(coppiedFrame, lines)
+                t1 = threading.Thread(target = graphicInterface, args=(left, right, coppiedFrame, anterior))
+                t2 = threading.Thread(target=saveVideo, args=(salida, coppiedFrame))
+                t3 = threading.Thread(target=linesOnImage, args=(lines, ))
+                t4 = threading.Thread(target=directionLeft, args=(left, ))
+                t5 = threading.Thread(target=directionRight, args=(right, ))
+                t6 = threading.Thread(target=directionCenter, args=(left, right))
+                t7 = threading.Thread(target=directionUnknow, args=(left, right))
+                t8 = threading.Thread(target=putTimeData, args=(coppiedFrame, font))
+                t1.start()
+                t3.start()
+                t8.start()
+                t2.start()
+                t4.start()
+                t5.start()
+                t6.start()
+                t7.start()
+                t2.join()
+            timeEnd = time.time()
+            print("Tiempo por este fotograma: " + str(timeEnd - timeIni))
+        timeSaved = time.strftime("%Y%m%d%H%M%S%Z", time.localtime())
+        name1 = 'detected' + timeSaved + '.csv'
+        name2 = 'detected' + timeSaved + 'HeadAndIndexFalse.csv'
+        detected.to_csv(name1)
+        detected.to_csv(name2, header=False, index=False)
+except KeyboardInterrupt:
     cap.release()
     cv2.destroyAllWindows()
-    directionPort.write(str(255).encode);
-    directionPort.close()
+cap.release()
+cv2.destroyAllWindows()
