@@ -111,7 +111,7 @@ if __name__ == '__main__':
         salida = cv2.VideoWriter('videoSalida.avi',cv2.VideoWriter_fourcc(*'XVID'),20.0,(int(cap.get(3)),int(cap.get(4))))
         font = cv2.FONT_HERSHEY_SIMPLEX
         while cap.isOpened():
-            os.system("clear")
+            #os.system("clear")
             ret, origFrame = cap.read()
             
             coppiedFrame = np.copy(origFrame)
