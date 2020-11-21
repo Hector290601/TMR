@@ -1,6 +1,6 @@
 llamar librerias
 abrir camara
 escala de grises
-recortar la imagen. poner coordenadas
+recortar la imagen. poner coordenadas, hacer poligono
 reconocer el blanco
 reconocer las lineas
