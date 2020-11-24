@@ -27,7 +27,7 @@ if __name__ == "__main__":
         cv2.imshow('Depth image',depth)
  
         # quit program when 'esc' key is pressed
-        k = cv2.waitKey(5) & 0xFF
+        k = cv2.waitKey(25) & 0xFF
         if k == 27:
             break
     cv2.destroyAllWindows()
