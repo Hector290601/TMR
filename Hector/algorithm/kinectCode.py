@@ -25,7 +25,7 @@ def main():
     while cap.isOpened():
         #ret, origFrame = cap.read()
         kinectFrame, _ = freenect.sync_get_video()
-        origFrame = cv2.
+        origFrame = kinectFrame
         coppiedFrame = np.copy(origFrame)
         gray = cv2.cvtColor(origFrame, cv2.COLOR_BGR2GRAY)
         canny = cannyImage(gray)
