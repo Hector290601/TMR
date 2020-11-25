@@ -42,11 +42,11 @@ if __name__ == '__main__':
         np.clip(frame, 0, 2**10-1, frame)
         frame >>=2
         frame = frame.astype(np.uint8)
-        cany = cannyImage(frame)
-        lineas = makeLines(cany)
+        #cany = cannyImage(frame)
+        #lineas = makeLines(cany)
         cv2.imshow("IR", frame)
-        cv2.imshow("Canny", cany)
-        cv2.imshow("Lines", lineas)
+        #cv2.imshow("Canny", cany)
+        #cv2.imshow("Lines", lineas)
         k = cv2.waitKey(1) & 0xFF
         if k == 27:
             break

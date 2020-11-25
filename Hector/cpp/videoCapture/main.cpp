@@ -1,44 +1,60 @@
-#include <opencv2/core.hpp>
-#include <opencv2/videoio.hpp>
-#include <opencv2/highgui.hpp>
+//Uncomment the following line if you are compiling this code in Visual Studio
+//#include "stdafx.h"
+
+#include <opencv2/opencv.hpp>
 #include <iostream>
-#include <stdio.h>
+
 using namespace cv;
 using namespace std;
-int main(int, char**)
+
+int main(int argc, char* argv[])
 {
-    Mat frame;
-    //--- INITIALIZE VIDEOCAPTURE
-    VideoCapture cap(0);
-    // open the default camera using default API
-    // cap.open(0);
-    // OR advance usage: select any API backend
-    //int deviceID = 11;             // 0 = open default camera
-    //int apiID = cv::CAP_ANY;      // 0 = autodetect default API
-    // open selected camera using selected API
-    //cap.open(deviceID, apiID);
-    // check if we succeeded
-    if (!cap.isOpened()) {
-        cerr << "ERROR! Unable to open camera\n";
-        return -1;
-    }
-    //--- GRAB AND WRITE LOOP
-    cout << "Start grabbing" << endl
-        << "Press any key to terminate" << endl;
-    for (;;)
-    {
-        // wait for a new frame from camera and store it into 'frame'
-        cap.read(frame);
-        // check if we succeeded
-        if (frame.empty()) {
-            cerr << "ERROR! blank frame grabbed\n";
-            break;
-        }
-        // show live and wait for a key with timeout long enough to show images
-        imshow("Live", frame);
-        if (waitKey(5) >= 0)
-            break;
-    }
-    // the camera will be deinitialized automatically in VideoCapture destructor
-    return 0;
+ //Open the default video camera
+ VideoCapture cap(0);
+
+ // if not success, exit program
+ if (cap.isOpened() == false)  
+ {
+  cout << "Cannot open the video camera" << endl;
+  cin.get(); //wait for any key press
+  return -1;
+ } 
+
+ double dWidth = cap.get(CAP_PROP_FRAME_WIDTH); //get the width of frames of the video
+ double dHeight = cap.get(CAP_PROP_FRAME_HEIGHT); //get the height of frames of the video
+
+ cout << "Resolution of the video : " << dWidth << " x " << dHeight << endl;
+
+ string window_name = "My Camera Feed";
+ namedWindow(window_name); //create a window called "My Camera Feed"
+ 
+ while (true)
+ {
+  Mat frame;
+  bool bSuccess = cap.read(frame); // read a new frame from video 
+
+  //Breaking the while loop if the frames cannot be captured
+  if (bSuccess == false) 
+  {
+   cout << "Video camera is disconnected" << endl;
+   cin.get(); //Wait for any key press
+   break;
+  }
+
+  //show the frame in the created window
+  imshow(window_name, frame);
+
+  //wait for for 10 ms until any key is pressed.  
+  //If the 'Esc' key is pressed, break the while loop.
+  //If the any other key is pressed, continue the loop 
+  //If any key is not pressed withing 10 ms, continue the loop 
+  if (waitKey(10) == 27)
+  {
+   cout << "Esc key is pressed by user. Stoppig the video" << endl;
+   break;
+  }
+ }
+
+ return 0;
+
 }
