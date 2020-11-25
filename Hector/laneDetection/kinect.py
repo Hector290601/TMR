@@ -113,7 +113,11 @@ if __name__ == '__main__':
         while True:
             #os.system("clear")
             #ret, origFrame = cap.read()
+            #origFrame, _ = freenect.sync_get_video(0, freenect.VIDEO_IR_10BIT)
             origFrame, _ = freenect.sync_get_video()
+            #np.clip(origFrame, 0, 2**10-1, origFrame)
+            #origFrame >>=2
+            #origFrame = origFrame.astype(np.uint8)
             origFrame = cv2.cvtColor(origFrame,cv2.COLOR_RGB2BGR)
             coppiedFrame = np.copy(origFrame)
             gray = cv2.cvtColor(origFrame, cv2.COLOR_BGR2GRAY)

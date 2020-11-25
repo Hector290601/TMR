@@ -25,13 +25,28 @@ if __name__ == "__main__":
     cv2.destroyAllWindows()
 """
 
+def cannyImage(frame):
+    #gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+    edges = cv2.Canny(frame, 50, 150, apertureSize = 3)
+    return edges
+
+def makeLines(frame):
+    lines = cv2.HoughLinesP(frame, 1, np.pi/180, 100, 100, 10)
+    for x1, y1, x2, y2 in lines[0]:
+        cv2.line(frame, (x1, y1), (x2, y2), (0, 255, 0), 2)
+    return frame
+
 if __name__ == '__main__':
     while True:
         frame, _ = freenect.sync_get_video(0, freenect.VIDEO_IR_10BIT)
         np.clip(frame, 0, 2**10-1, frame)
         frame >>=2
         frame = frame.astype(np.uint8)
+        cany = cannyImage(frame)
+        lineas = makeLines(cany)
         cv2.imshow("IR", frame)
+        cv2.imshow("Canny", cany)
+        cv2.imshow("Lines", lineas)
         k = cv2.waitKey(1) & 0xFF
         if k == 27:
             break
