@@ -18,8 +18,8 @@ def getDepth():
 def main():
     tilt = 0
     led = 1
-    vS = 100
-    bS = 100
+    vS = 243
+    bS = 245
     font = cv2.FONT_HERSHEY_SIMPLEX
     while True:
         frame = getBGR()
@@ -45,13 +45,13 @@ def main():
         k = cv2.waitKey(1)
         if k == 27:
             break
-        elif k == ord('w'):
+        elif k == ord('w') and vS < 255:
             vS += 1
-        elif k == ord('s'):
+        elif k == ord('s') and vS > 0:
             vS -= 1
-        elif k == ord('a'):
+        elif k == ord('a') and bS < 255:
             bS += 1
-        elif k == ord('d'):
+        elif k == ord('d') and bS > 0:
             bS -= 1
         elif k == ord('p'):
             print("Suma a V y L: ", vS)
