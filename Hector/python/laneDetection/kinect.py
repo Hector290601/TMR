@@ -101,12 +101,13 @@ def improveImage(frame, a):
 
 if __name__ == '__main__':
     font = cv2.FONT_HERSHEY_SIMPLEX
-    vChange = 0
+    vChange = 87
     while True:
         origFrame, _ = freenect.sync_get_video()
         origFrame = cv2.cvtColor(origFrame,cv2.COLOR_RGB2BGR)
         coppiedFrame = np.copy(origFrame)
-        origFrame = improveImage(origFrame, vChange)
+        hsvVideo = improveImage(origFrame, vChange)
+        origFrame = cv2.cvtColor(hsvVideo, cv2.COLOR_HSV2BGR)
         gray = cv2.cvtColor(origFrame, cv2.COLOR_BGR2GRAY)
         canny = cannyImage(gray)
         croppedImage, origFrame = regionOfInterest(canny, origFrame)
@@ -126,14 +127,17 @@ if __name__ == '__main__':
             for line in lines:
                 x1, y1, x2, y2 = line[0]
                 cv2.line(coppiedFrame, (x1, y1), (x2, y2), (0, 255, 0), 5)
-        k = cv2.waitKey(1)
+        k = cv2.waitKey(250)
         if k == ord('s'):
             break
-        elif k == ord('a'):
+        elif k == ord('a') and vChange > 0:
+            vChange -= 1
+            print(vChange)
+        elif k == ord('d') and vChange < 255:
             vChange += 1
-        elif k == ord('d'):
-            vChange += 1
+            print(vChange)
         cv2.imshow("origFrame", origFrame)
+        cv2.imshow("hsvVideo", hsvVideo)
         cv2.imshow("coppiedFrameWithLines", coppiedFrame)
     timeSaved = time.strftime("%Y%m%d%H%M%S%Z", time.localtime())
     name1 = 'detected' + timeSaved + '.csv'
