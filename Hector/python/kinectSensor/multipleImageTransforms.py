@@ -31,7 +31,7 @@ def toOthercolorspaces(frame, vS, bS):
     finalHsv = cv2.merge((h0, s0S, vSum))
     finalHls = cv2.merge((h1, lSum, s1S))
     improvedHsv = cv2.cvtColor(finalHsv, cv2.COLOR_HSV2BGR)
-    improvedHls = cv2.cvtColor(finalHls, cv2.COLOR_HSV2BGR)
+    improvedHls = cv2.cvtColor(finalHls, cv2.COLOR_HLS2BGR)
     return improvedHls, improvedHsv
 
 def blurs(improvedHsv, improvedHls):
@@ -49,7 +49,6 @@ def blurs(improvedHsv, improvedHls):
     return medianBlurHls, medianBlurHsv, filter2DHls, filter2DHsv, blurHls, blurHsv, gausianBlurHls, gausianBlurHsv, bilateralFilterHls, bilateralFilterHsv
 
 def main():
-    led = 1
     vS = 243
     bS = 245
     while True:
@@ -88,3 +87,4 @@ def main():
 
 if __name__ == '__main__':
     main()
+

@@ -120,6 +120,8 @@ if __name__ == '__main__':
             #origFrame = origFrame.astype(np.uint8)
             origFrame = cv2.cvtColor(origFrame,cv2.COLOR_RGB2BGR)
             coppiedFrame = np.copy(origFrame)
+            hsvFrame = cv2.cvtColor(origFrame,cv2.COLOR_BGR2HSV)
+            origFrame = hsvFrame
             gray = cv2.cvtColor(origFrame, cv2.COLOR_BGR2GRAY)
             canny = cannyImage(gray)
             croppedImage = regionOfInterest(canny)
