@@ -17,7 +17,7 @@ detected = pd.DataFrame(columns=('direction', 'leftFitAverage', 'rightFitAverage
 startTime = time.time()
 
 def cannyImage(cannyGray):
-    cannyBlur = cv2.GaussianBlur(gray, (5, 5), 0)
+    cannyBlur = cv2.GaussianBlur(cannyGray, (5, 5), 0)
     cannyCanny = cv2.Canny(cannyBlur, 10, 250)
     return cannyCanny
 
@@ -29,9 +29,7 @@ def regionOfInterest(regionImage, toPol):
     regionedImage = cv2.bitwise_and(regionImage, regionImage, mask=zeros)
     return regionedImage, toPol
 
-def colorRange(colorFrame, colorGray, colorCropped):
-    colorMax = np.array([255, 255, 255])
-    colorMin = np.array([79, 73, 57])
+def colorRange(colorFrame, colorGray, colorCropped, colorMax, colorMin):
     colorColor = cv2.bitwise_and(colorFrame, colorFrame, mask = colorCropped)
     colorRanged = cv2.inRange(colorColor, colorMin, colorMax)
     return colorRanged
@@ -99,6 +97,54 @@ def improveImage(frame, a):
     hsvVideo = cv2.merge((h, s, v))
     return hsvVideo
 
+def laneDetectionBGR(frame):
+    gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+    canny = cannyImage(gray)
+    croppedImage, frame = regionOfInterest(canny, frame)
+    colorMax = np.array([255, 255, 255])
+    colorMin = np.array([79, 73, 57])
+    colorInRange = colorRange(frame, gray, croppedImage, colorMax, colorMin)
+    lines = cv2.HoughLinesP(colorInRange, 1, np.pi/180, 50, minLineLength=20, maxLineGap=50)
+    if lines is not None:
+        averagedLines, left, right =  averagedSlopeIntercept(frame, lines)
+        if left:
+            cv2.putText(frame, '<---', (0, 30), font, 0.8, (255, 0, 0), 2, cv2.LINE_AA)
+        elif right:
+            cv2.putText(frame, '--->', (0, 30), font, 0.8, (0, 255, 0), 2, cv2.LINE_AA)
+        else:
+            cv2.putText(frame, '^', (0, 30), font, 0.8, (0, 0, 255), 2, cv2.LINE_AA)
+        timeText = time.strftime("%Y/%m/%d %H:%M:%S %Z", time.localtime())
+        cv2.putText(coppiedFrame, timeText, (250, 20), font, 0.8, (255, 255, 255), 2, cv2.LINE_AA)
+        lineImage = displayLines(frame, averagedLines)
+        for line in lines:
+            x1, y1, x2, y2 = line[0]
+            cv2.line(frame, (x1, y1), (x2, y2), (0, 255, 0), 5)
+    return frame
+
+def laneDetectionHSV(frame):
+    gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+    canny = cannyImage(gray)
+    croppedImage, frame = regionOfInterest(canny, frame)
+    colorMax = np.array([10, 30, 10])
+    colorMin = np.array([0, 0, 0])
+    colorInRange = colorRange(frame, gray, croppedImage, colorMax, colorMin)
+    lines = cv2.HoughLinesP(colorInRange, 1, np.pi/180, 50, minLineLength=20, maxLineGap=50)
+    if lines is not None:
+        averagedLines, left, right =  averagedSlopeIntercept(frame, lines)
+        if left:
+            cv2.putText(frame, '<---', (0, 30), font, 0.8, (255, 0, 0), 2, cv2.LINE_AA)
+        elif right:
+            cv2.putText(frame, '--->', (0, 30), font, 0.8, (0, 255, 0), 2, cv2.LINE_AA)
+        else:
+            cv2.putText(frame, '^', (0, 30), font, 0.8, (0, 0, 255), 2, cv2.LINE_AA)
+        timeText = time.strftime("%Y/%m/%d %H:%M:%S %Z", time.localtime())
+        cv2.putText(coppiedFrame, timeText, (250, 20), font, 0.8, (255, 255, 255), 2, cv2.LINE_AA)
+        lineImage = displayLines(frame, averagedLines)
+        for line in lines:
+            x1, y1, x2, y2 = line[0]
+            cv2.line(frame, (x1, y1), (x2, y2), (0, 255, 0), 5)
+    return frame
+
 if __name__ == '__main__':
     font = cv2.FONT_HERSHEY_SIMPLEX
     vChange = 87
@@ -108,25 +154,8 @@ if __name__ == '__main__':
         coppiedFrame = np.copy(origFrame)
         hsvVideo = improveImage(origFrame, vChange)
         origFrame = cv2.cvtColor(hsvVideo, cv2.COLOR_HSV2BGR)
-        gray = cv2.cvtColor(origFrame, cv2.COLOR_BGR2GRAY)
-        canny = cannyImage(gray)
-        croppedImage, origFrame = regionOfInterest(canny, origFrame)
-        colorInRange = colorRange(coppiedFrame, gray, croppedImage)
-        lines = cv2.HoughLinesP(colorInRange, 1, np.pi/180, 50, minLineLength=20, maxLineGap=50)
-        if lines is not None:
-            averagedLines, left, right =  averagedSlopeIntercept(coppiedFrame, lines)
-            if left:
-                cv2.putText(coppiedFrame, '<---', (0, 30), font, 0.8, (255, 0, 0), 2, cv2.LINE_AA)
-            elif right:
-                cv2.putText(coppiedFrame, '--->', (0, 30), font, 0.8, (0, 255, 0), 2, cv2.LINE_AA)
-            else:
-                cv2.putText(coppiedFrame, '^', (0, 30), font, 0.8, (0, 0, 255), 2, cv2.LINE_AA)
-            timeText = time.strftime("%Y/%m/%d %H:%M:%S %Z", time.localtime())
-            cv2.putText(coppiedFrame, timeText, (250, 20), font, 0.8, (255, 255, 255), 2, cv2.LINE_AA)
-            lineImage = displayLines(coppiedFrame, averagedLines)
-            for line in lines:
-                x1, y1, x2, y2 = line[0]
-                cv2.line(coppiedFrame, (x1, y1), (x2, y2), (0, 255, 0), 5)
+        lanesBgr = laneDetectionBGR(coppiedFrame)
+        lanesHsv = laneDetectionHSV(origFrame)
         k = cv2.waitKey(250)
         if k == ord('s'):
             break
@@ -137,7 +166,8 @@ if __name__ == '__main__':
             vChange += 1
             print(vChange)
         cv2.imshow("origFrame", origFrame)
-        cv2.imshow("hsvVideo", hsvVideo)
+        cv2.imshow("lanesBgr", lanesBgr)
+        cv2.imshow("lanesHsv", lanesHsv)
         cv2.imshow("coppiedFrameWithLines", coppiedFrame)
     timeSaved = time.strftime("%Y%m%d%H%M%S%Z", time.localtime())
     name1 = 'detected' + timeSaved + '.csv'
