@@ -23,7 +23,7 @@ def cannyImage(cannyGray):
 
 def regionOfInterest(regionImage, toPol):
     regionPolygons = np.array([[(0, 470), (640, 470), (640, 420), (400, 250), (220, 250), (0, 420)]])
-    cv2.polylines(toPol,[regionPolygons],True,(0,255,255))
+    #cv2.polylines(toPol,[regionPolygons],True,(0,255,255))
     zeros = np.zeros_like(regionImage)
     cv2.fillPoly(zeros, regionPolygons, 255)
     regionedImage = cv2.bitwise_and(regionImage, regionImage, mask=zeros)
@@ -153,10 +153,10 @@ if __name__ == '__main__':
         origFrame = cv2.cvtColor(origFrame,cv2.COLOR_RGB2BGR)
         coppiedFrame = np.copy(origFrame)
         hsvVideo = improveImage(origFrame, vChange)
-        origFrame = cv2.cvtColor(hsvVideo, cv2.COLOR_HSV2BGR)
+        #origFrame = cv2.cvtColor(hsvVideo, cv2.COLOR_HSV2BGR)
         lanesBgr = laneDetectionBGR(coppiedFrame)
-        lanesHsv = laneDetectionHSV(origFrame)
-        k = cv2.waitKey(250)
+        lanesHsv = laneDetectionHSV(cv2.cvtColor(hsvVideo, cv2.COLOR_HSV2BGR))
+        k = cv2.waitKey(1)
         if k == ord('s'):
             break
         elif k == ord('a') and vChange > 0:
@@ -168,6 +168,7 @@ if __name__ == '__main__':
         cv2.imshow("origFrame", origFrame)
         cv2.imshow("lanesBgr", lanesBgr)
         cv2.imshow("lanesHsv", lanesHsv)
+        cv2.imshow("hsv", hsvVideo)
         cv2.imshow("coppiedFrameWithLines", coppiedFrame)
     timeSaved = time.strftime("%Y%m%d%H%M%S%Z", time.localtime())
     name1 = 'detected' + timeSaved + '.csv'

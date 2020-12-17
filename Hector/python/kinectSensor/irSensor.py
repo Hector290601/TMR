@@ -40,7 +40,7 @@ if __name__ == '__main__':
     while True:
         frame, _ = freenect.sync_get_video(0, freenect.VIDEO_IR_10BIT)
         np.clip(frame, 0, 2**10-1, frame)
-        frame >>=2
+        frame >>= 3
         frame = frame.astype(np.uint8)
         #cany = cannyImage(frame)
         #lineas = makeLines(cany)
