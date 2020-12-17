@@ -1,0 +1,3 @@
+/home/hector/TMR/Hector/cpp/basics/videoCapture/CMakeFiles/rebuild_cache.dir
+/home/hector/TMR/Hector/cpp/basics/videoCapture/CMakeFiles/edit_cache.dir
+/home/hector/TMR/Hector/cpp/basics/videoCapture/CMakeFiles/videoCapture.dir
