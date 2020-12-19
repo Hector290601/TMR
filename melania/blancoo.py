@@ -3,8 +3,8 @@ import numpy as np
 
 cap = cv2.VideoCapture(0)
 
-blancoBajo=np.array([255,255,255],np.uint8)
-blancoAlto=np.array([222,219,219],np.uint8)
+blancoBajo=np.array([100,100,100])
+blancoAlto=np.array([222,255,255])
 
 while True:
     ret, frame = cap.read()
