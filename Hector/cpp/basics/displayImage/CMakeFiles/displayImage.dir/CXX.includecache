@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/hector/TMR/Hector/cpp/tutorials/displayImage/main.cpp
+/home/ubuntu/TMR/Hector/cpp/basics/displayImage/main.cpp
 stdio.h
 -
 opencv2/opencv.hpp

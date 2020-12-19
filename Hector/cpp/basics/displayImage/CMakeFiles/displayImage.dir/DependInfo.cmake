@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/hector/TMR/Hector/cpp/tutorials/displayImage/main.cpp" "/home/hector/TMR/Hector/cpp/tutorials/displayImage/CMakeFiles/displayImage.dir/main.cpp.o"
+  "/home/ubuntu/TMR/Hector/cpp/basics/displayImage/main.cpp" "/home/ubuntu/TMR/Hector/cpp/basics/displayImage/CMakeFiles/displayImage.dir/main.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
