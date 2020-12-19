@@ -38,14 +38,17 @@ def makeLines(frame):
 
 if __name__ == '__main__':
     while True:
+        freenect_change_ir_brightness(0, 50)
         frame, _ = freenect.sync_get_video(0, freenect.VIDEO_IR_10BIT)
         np.clip(frame, 0, 2**10-1, frame)
         frame >>= 3
         frame = frame.astype(np.uint8)
-        #cany = cannyImage(frame)
+        frameRBG = cv2.cvtColor(frame, cv2.COLOR_GRAY2BGR)
+        cany = cannyImage(frame)
         #lineas = makeLines(cany)
         cv2.imshow("IR", frame)
-        #cv2.imshow("Canny", cany)
+        cv2.imshow("RGB", frameRBG)
+        cv2.imshow("Canny", cany)
         #cv2.imshow("Lines", lineas)
         k = cv2.waitKey(1) & 0xFF
         if k == 27:
