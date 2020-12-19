@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/hector/TMR/Hector/cpp/basics/videoCapture/main.cpp" "/home/hector/TMR/Hector/cpp/basics/videoCapture/CMakeFiles/videoCapture.dir/main.cpp.o"
+  "/home/ubuntu/TMR/Hector/cpp/basics/videoCapture/main.cpp" "/home/ubuntu/TMR/Hector/cpp/basics/videoCapture/CMakeFiles/videoCapture.dir/main.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

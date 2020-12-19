@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/hector/TMR/Hector/cpp/basics/videoCapture/main.cpp
+/home/ubuntu/TMR/Hector/cpp/basics/videoCapture/main.cpp
 stdio.h
 -
 iostream

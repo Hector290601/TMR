@@ -1,0 +1,14 @@
+<launch>
+  <node
+    pkg="cv_basics"
+    type="webCamPublisher.py"
+    name="webcamPublisher"
+    output="screen"
+  />
+  <node
+    pkg="cv_basics"
+    type="webCamSubscriber.py"
+    name="webcamSubscriber"
+    output="screen"
+  />
+</launch>
