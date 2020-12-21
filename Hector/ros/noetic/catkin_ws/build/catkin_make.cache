@@ -1,0 +1,2 @@
+cv_basics
+-DCATKIN_DEVEL_PREFIX=/home/hector/TMR/Hector/ros/noetic/catkin_ws/devel -DCMAKE_INSTALL_PREFIX=/home/hector/TMR/Hector/ros/noetic/catkin_ws/install -G Unix Makefiles

@@ -1,0 +1,2 @@
+- setup-file:
+    local-name: /home/hector/TMR/Hector/ros/noetic/catkin_ws/install/setup.sh
