@@ -14,7 +14,8 @@ def callback(data):
 
 def reciveMessage():
     rospy.init_node('videoSubPy', anonymous = True)
-    rospy.Subscriber('videoFrames', Image, callback())
+    rospy.Subscriber('videoFrames', Image, callback)
+    #rospy.Subscriber('video_frames', Image, callback)
     rospy.spin()
     cv2.destroyAllWindows()
 

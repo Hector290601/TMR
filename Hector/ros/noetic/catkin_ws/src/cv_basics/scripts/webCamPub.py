@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
 import rospy
 from sensor_msgs.msg import Image
-from cv_bridge import Cv_bridge
+from cv_bridge import CvBridge
 import cv2
 
 def publishImage():
     pub = rospy.Publisher('videoFrames', Image, queue_size=10)
     rospy.init_node('videoPub', anonymous = True)
-    rate = rospy.rate(30)
+    rate = rospy.Rate(30)
     cap = cv2.VideoCapture(0)
     br = CvBridge()
     while not rospy.is_shutdown():
