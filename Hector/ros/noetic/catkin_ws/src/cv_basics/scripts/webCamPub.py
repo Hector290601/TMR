@@ -1,4 +1,4 @@
-#!/usr/bin/encv python3
+#!/usr/bin/env python3
 import rospy
 from sensor_msgs.msg import Image
 from cv_bridge import Cv_bridge
