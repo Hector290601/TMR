@@ -132,6 +132,7 @@ if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
   include("/home/ubuntu/TMR/Hector/ros/noetic/catkin_wsRasp/build/gtest/cmake_install.cmake")
   include("/home/ubuntu/TMR/Hector/ros/noetic/catkin_wsRasp/build/cv_basics/cmake_install.cmake")
+  include("/home/ubuntu/TMR/Hector/ros/noetic/catkin_wsRasp/build/lanes/cmake_install.cmake")
 
 endif()
 

@@ -55,12 +55,14 @@ CMAKE_BINARY_DIR = /home/ubuntu/TMR/Hector/ros/noetic/catkin_wsRasp/build
 # The main recursive "all" target.
 all: gtest/all
 all: cv_basics/all
+all: lanes/all
 
 .PHONY : all
 
 # The main recursive "preinstall" target.
 preinstall: gtest/preinstall
 preinstall: cv_basics/preinstall
+preinstall: lanes/preinstall
 
 .PHONY : preinstall
 
@@ -72,6 +74,7 @@ clean: CMakeFiles/tests.dir/clean
 clean: CMakeFiles/download_extra_data.dir/clean
 clean: gtest/clean
 clean: cv_basics/clean
+clean: lanes/clean
 
 .PHONY : clean
 
@@ -176,6 +179,26 @@ gtest/googletest/clean: gtest/googletest/CMakeFiles/gtest_main.dir/clean
 gtest/googletest/clean: gtest/googletest/CMakeFiles/gtest.dir/clean
 
 .PHONY : gtest/googletest/clean
+
+#=============================================================================
+# Directory level rules for directory lanes
+
+# Recursive "all" directory target.
+lanes/all: lanes/CMakeFiles/webCamSubscriber.dir/all
+lanes/all: lanes/CMakeFiles/webCamPublisher.dir/all
+
+.PHONY : lanes/all
+
+# Recursive "preinstall" directory target.
+lanes/preinstall:
+
+.PHONY : lanes/preinstall
+
+# Recursive "clean" directory target.
+lanes/clean: lanes/CMakeFiles/webCamSubscriber.dir/clean
+lanes/clean: lanes/CMakeFiles/webCamPublisher.dir/clean
+
+.PHONY : lanes/clean
 
 #=============================================================================
 # Target rules for target CMakeFiles/doxygen.dir
@@ -1103,7 +1126,7 @@ cv_basics/CMakeFiles/sensor_msgs_generate_messages_eus.dir/clean:
 cv_basics/CMakeFiles/webCamSub.dir/all:
 	$(MAKE) -f cv_basics/CMakeFiles/webCamSub.dir/build.make cv_basics/CMakeFiles/webCamSub.dir/depend
 	$(MAKE) -f cv_basics/CMakeFiles/webCamSub.dir/build.make cv_basics/CMakeFiles/webCamSub.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ubuntu/TMR/Hector/ros/noetic/catkin_wsRasp/build/CMakeFiles --progress-num=11,12 "Built target webCamSub"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ubuntu/TMR/Hector/ros/noetic/catkin_wsRasp/build/CMakeFiles --progress-num=13,14 "Built target webCamSub"
 .PHONY : cv_basics/CMakeFiles/webCamSub.dir/all
 
 # Build rule for subdir invocation for target.
@@ -1149,6 +1172,60 @@ rosgraph_msgs_generate_messages_cpp: cv_basics/CMakeFiles/rosgraph_msgs_generate
 cv_basics/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/clean:
 	$(MAKE) -f cv_basics/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/build.make cv_basics/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/clean
 .PHONY : cv_basics/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/clean
+
+#=============================================================================
+# Target rules for target lanes/CMakeFiles/webCamSubscriber.dir
+
+# All Build rule for target.
+lanes/CMakeFiles/webCamSubscriber.dir/all:
+	$(MAKE) -f lanes/CMakeFiles/webCamSubscriber.dir/build.make lanes/CMakeFiles/webCamSubscriber.dir/depend
+	$(MAKE) -f lanes/CMakeFiles/webCamSubscriber.dir/build.make lanes/CMakeFiles/webCamSubscriber.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ubuntu/TMR/Hector/ros/noetic/catkin_wsRasp/build/CMakeFiles --progress-num=15,16 "Built target webCamSubscriber"
+.PHONY : lanes/CMakeFiles/webCamSubscriber.dir/all
+
+# Build rule for subdir invocation for target.
+lanes/CMakeFiles/webCamSubscriber.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ubuntu/TMR/Hector/ros/noetic/catkin_wsRasp/build/CMakeFiles 2
+	$(MAKE) -f CMakeFiles/Makefile2 lanes/CMakeFiles/webCamSubscriber.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ubuntu/TMR/Hector/ros/noetic/catkin_wsRasp/build/CMakeFiles 0
+.PHONY : lanes/CMakeFiles/webCamSubscriber.dir/rule
+
+# Convenience name for target.
+webCamSubscriber: lanes/CMakeFiles/webCamSubscriber.dir/rule
+
+.PHONY : webCamSubscriber
+
+# clean rule for target.
+lanes/CMakeFiles/webCamSubscriber.dir/clean:
+	$(MAKE) -f lanes/CMakeFiles/webCamSubscriber.dir/build.make lanes/CMakeFiles/webCamSubscriber.dir/clean
+.PHONY : lanes/CMakeFiles/webCamSubscriber.dir/clean
+
+#=============================================================================
+# Target rules for target lanes/CMakeFiles/webCamPublisher.dir
+
+# All Build rule for target.
+lanes/CMakeFiles/webCamPublisher.dir/all:
+	$(MAKE) -f lanes/CMakeFiles/webCamPublisher.dir/build.make lanes/CMakeFiles/webCamPublisher.dir/depend
+	$(MAKE) -f lanes/CMakeFiles/webCamPublisher.dir/build.make lanes/CMakeFiles/webCamPublisher.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ubuntu/TMR/Hector/ros/noetic/catkin_wsRasp/build/CMakeFiles --progress-num=11,12 "Built target webCamPublisher"
+.PHONY : lanes/CMakeFiles/webCamPublisher.dir/all
+
+# Build rule for subdir invocation for target.
+lanes/CMakeFiles/webCamPublisher.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ubuntu/TMR/Hector/ros/noetic/catkin_wsRasp/build/CMakeFiles 2
+	$(MAKE) -f CMakeFiles/Makefile2 lanes/CMakeFiles/webCamPublisher.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ubuntu/TMR/Hector/ros/noetic/catkin_wsRasp/build/CMakeFiles 0
+.PHONY : lanes/CMakeFiles/webCamPublisher.dir/rule
+
+# Convenience name for target.
+webCamPublisher: lanes/CMakeFiles/webCamPublisher.dir/rule
+
+.PHONY : webCamPublisher
+
+# clean rule for target.
+lanes/CMakeFiles/webCamPublisher.dir/clean:
+	$(MAKE) -f lanes/CMakeFiles/webCamPublisher.dir/build.make lanes/CMakeFiles/webCamPublisher.dir/clean
+.PHONY : lanes/CMakeFiles/webCamPublisher.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

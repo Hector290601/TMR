@@ -1,0 +1,14 @@
+<launch>
+	<node
+		pkg="lanes"
+		type="webCamPublisher"
+		name="webCamPublisher"
+		output="screen"
+	/>
+	<node
+		pkg="lanes"
+		type="webCamSubscriber"
+		name="webCamSubscriber"
+		output="screen"
+	/>
+</launch>

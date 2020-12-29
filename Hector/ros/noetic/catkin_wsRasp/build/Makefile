@@ -635,6 +635,32 @@ rosgraph_msgs_generate_messages_cpp/fast:
 	$(MAKE) -f cv_basics/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/build.make cv_basics/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/build
 .PHONY : rosgraph_msgs_generate_messages_cpp/fast
 
+#=============================================================================
+# Target rules for targets named webCamSubscriber
+
+# Build rule for target.
+webCamSubscriber: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 webCamSubscriber
+.PHONY : webCamSubscriber
+
+# fast build rule for target.
+webCamSubscriber/fast:
+	$(MAKE) -f lanes/CMakeFiles/webCamSubscriber.dir/build.make lanes/CMakeFiles/webCamSubscriber.dir/build
+.PHONY : webCamSubscriber/fast
+
+#=============================================================================
+# Target rules for targets named webCamPublisher
+
+# Build rule for target.
+webCamPublisher: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 webCamPublisher
+.PHONY : webCamPublisher
+
+# fast build rule for target.
+webCamPublisher/fast:
+	$(MAKE) -f lanes/CMakeFiles/webCamPublisher.dir/build.make lanes/CMakeFiles/webCamPublisher.dir/build
+.PHONY : webCamPublisher/fast
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -684,6 +710,8 @@ help:
 	@echo "... sensor_msgs_generate_messages_eus"
 	@echo "... webCamSub"
 	@echo "... rosgraph_msgs_generate_messages_cpp"
+	@echo "... webCamSubscriber"
+	@echo "... webCamPublisher"
 .PHONY : help
 
 

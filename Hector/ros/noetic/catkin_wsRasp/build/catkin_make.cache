@@ -1,2 +1,2 @@
-cv_basics
+cv_basics:lanes
 -DCATKIN_DEVEL_PREFIX=/home/ubuntu/TMR/Hector/ros/noetic/catkin_wsRasp/devel -DCMAKE_INSTALL_PREFIX=/home/ubuntu/TMR/Hector/ros/noetic/catkin_wsRasp/install -G Unix Makefiles
