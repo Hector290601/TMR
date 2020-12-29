@@ -11,4 +11,16 @@
 		name="webCamSubscriber"
 		output="screen"
 	/>
+	<node
+		pkg="lanes"
+		type="hsvConvPub"
+		name="hsvconvPub"
+		output="screen"
+	/>
+	<node
+		pkg="lanes"
+		type="hsvConvSub"
+		name="hsvconvSub"
+		output="screen"
+	/>
 </launch>

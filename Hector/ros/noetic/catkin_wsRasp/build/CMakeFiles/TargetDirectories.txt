@@ -76,5 +76,7 @@
 /home/ubuntu/TMR/Hector/ros/noetic/catkin_wsRasp/build/lanes/CMakeFiles/rebuild_cache.dir
 /home/ubuntu/TMR/Hector/ros/noetic/catkin_wsRasp/build/lanes/CMakeFiles/edit_cache.dir
 /home/ubuntu/TMR/Hector/ros/noetic/catkin_wsRasp/build/lanes/CMakeFiles/test.dir
+/home/ubuntu/TMR/Hector/ros/noetic/catkin_wsRasp/build/lanes/CMakeFiles/hsvConvSub.dir
+/home/ubuntu/TMR/Hector/ros/noetic/catkin_wsRasp/build/lanes/CMakeFiles/hsvConvPub.dir
 /home/ubuntu/TMR/Hector/ros/noetic/catkin_wsRasp/build/lanes/CMakeFiles/webCamSubscriber.dir
 /home/ubuntu/TMR/Hector/ros/noetic/catkin_wsRasp/build/lanes/CMakeFiles/webCamPublisher.dir

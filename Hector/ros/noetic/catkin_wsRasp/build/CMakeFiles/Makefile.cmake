@@ -260,6 +260,8 @@ set(CMAKE_DEPEND_INFO_FILES
   "cv_basics/CMakeFiles/sensor_msgs_generate_messages_eus.dir/DependInfo.cmake"
   "cv_basics/CMakeFiles/webCamSub.dir/DependInfo.cmake"
   "cv_basics/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/DependInfo.cmake"
+  "lanes/CMakeFiles/hsvConvSub.dir/DependInfo.cmake"
+  "lanes/CMakeFiles/hsvConvPub.dir/DependInfo.cmake"
   "lanes/CMakeFiles/webCamSubscriber.dir/DependInfo.cmake"
   "lanes/CMakeFiles/webCamPublisher.dir/DependInfo.cmake"
   )

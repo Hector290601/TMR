@@ -168,6 +168,36 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
+lanes/CMakeFiles/hsvConvSub.dir/rule:
+	cd /home/ubuntu/TMR/Hector/ros/noetic/catkin_wsRasp/build && $(MAKE) -f CMakeFiles/Makefile2 lanes/CMakeFiles/hsvConvSub.dir/rule
+.PHONY : lanes/CMakeFiles/hsvConvSub.dir/rule
+
+# Convenience name for target.
+hsvConvSub: lanes/CMakeFiles/hsvConvSub.dir/rule
+
+.PHONY : hsvConvSub
+
+# fast build rule for target.
+hsvConvSub/fast:
+	cd /home/ubuntu/TMR/Hector/ros/noetic/catkin_wsRasp/build && $(MAKE) -f lanes/CMakeFiles/hsvConvSub.dir/build.make lanes/CMakeFiles/hsvConvSub.dir/build
+.PHONY : hsvConvSub/fast
+
+# Convenience name for target.
+lanes/CMakeFiles/hsvConvPub.dir/rule:
+	cd /home/ubuntu/TMR/Hector/ros/noetic/catkin_wsRasp/build && $(MAKE) -f CMakeFiles/Makefile2 lanes/CMakeFiles/hsvConvPub.dir/rule
+.PHONY : lanes/CMakeFiles/hsvConvPub.dir/rule
+
+# Convenience name for target.
+hsvConvPub: lanes/CMakeFiles/hsvConvPub.dir/rule
+
+.PHONY : hsvConvPub
+
+# fast build rule for target.
+hsvConvPub/fast:
+	cd /home/ubuntu/TMR/Hector/ros/noetic/catkin_wsRasp/build && $(MAKE) -f lanes/CMakeFiles/hsvConvPub.dir/build.make lanes/CMakeFiles/hsvConvPub.dir/build
+.PHONY : hsvConvPub/fast
+
+# Convenience name for target.
 lanes/CMakeFiles/webCamSubscriber.dir/rule:
 	cd /home/ubuntu/TMR/Hector/ros/noetic/catkin_wsRasp/build && $(MAKE) -f CMakeFiles/Makefile2 lanes/CMakeFiles/webCamSubscriber.dir/rule
 .PHONY : lanes/CMakeFiles/webCamSubscriber.dir/rule
@@ -196,6 +226,60 @@ webCamPublisher: lanes/CMakeFiles/webCamPublisher.dir/rule
 webCamPublisher/fast:
 	cd /home/ubuntu/TMR/Hector/ros/noetic/catkin_wsRasp/build && $(MAKE) -f lanes/CMakeFiles/webCamPublisher.dir/build.make lanes/CMakeFiles/webCamPublisher.dir/build
 .PHONY : webCamPublisher/fast
+
+src/hsvPub.o: src/hsvPub.cpp.o
+
+.PHONY : src/hsvPub.o
+
+# target to build an object file
+src/hsvPub.cpp.o:
+	cd /home/ubuntu/TMR/Hector/ros/noetic/catkin_wsRasp/build && $(MAKE) -f lanes/CMakeFiles/hsvConvPub.dir/build.make lanes/CMakeFiles/hsvConvPub.dir/src/hsvPub.cpp.o
+.PHONY : src/hsvPub.cpp.o
+
+src/hsvPub.i: src/hsvPub.cpp.i
+
+.PHONY : src/hsvPub.i
+
+# target to preprocess a source file
+src/hsvPub.cpp.i:
+	cd /home/ubuntu/TMR/Hector/ros/noetic/catkin_wsRasp/build && $(MAKE) -f lanes/CMakeFiles/hsvConvPub.dir/build.make lanes/CMakeFiles/hsvConvPub.dir/src/hsvPub.cpp.i
+.PHONY : src/hsvPub.cpp.i
+
+src/hsvPub.s: src/hsvPub.cpp.s
+
+.PHONY : src/hsvPub.s
+
+# target to generate assembly for a file
+src/hsvPub.cpp.s:
+	cd /home/ubuntu/TMR/Hector/ros/noetic/catkin_wsRasp/build && $(MAKE) -f lanes/CMakeFiles/hsvConvPub.dir/build.make lanes/CMakeFiles/hsvConvPub.dir/src/hsvPub.cpp.s
+.PHONY : src/hsvPub.cpp.s
+
+src/hsvSub.o: src/hsvSub.cpp.o
+
+.PHONY : src/hsvSub.o
+
+# target to build an object file
+src/hsvSub.cpp.o:
+	cd /home/ubuntu/TMR/Hector/ros/noetic/catkin_wsRasp/build && $(MAKE) -f lanes/CMakeFiles/hsvConvSub.dir/build.make lanes/CMakeFiles/hsvConvSub.dir/src/hsvSub.cpp.o
+.PHONY : src/hsvSub.cpp.o
+
+src/hsvSub.i: src/hsvSub.cpp.i
+
+.PHONY : src/hsvSub.i
+
+# target to preprocess a source file
+src/hsvSub.cpp.i:
+	cd /home/ubuntu/TMR/Hector/ros/noetic/catkin_wsRasp/build && $(MAKE) -f lanes/CMakeFiles/hsvConvSub.dir/build.make lanes/CMakeFiles/hsvConvSub.dir/src/hsvSub.cpp.i
+.PHONY : src/hsvSub.cpp.i
+
+src/hsvSub.s: src/hsvSub.cpp.s
+
+.PHONY : src/hsvSub.s
+
+# target to generate assembly for a file
+src/hsvSub.cpp.s:
+	cd /home/ubuntu/TMR/Hector/ros/noetic/catkin_wsRasp/build && $(MAKE) -f lanes/CMakeFiles/hsvConvSub.dir/build.make lanes/CMakeFiles/hsvConvSub.dir/src/hsvSub.cpp.s
+.PHONY : src/hsvSub.cpp.s
 
 src/mainCameraPub.o: src/mainCameraPub.cpp.o
 
@@ -264,8 +348,16 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... test"
+	@echo "... hsvConvSub"
+	@echo "... hsvConvPub"
 	@echo "... webCamSubscriber"
 	@echo "... webCamPublisher"
+	@echo "... src/hsvPub.o"
+	@echo "... src/hsvPub.i"
+	@echo "... src/hsvPub.s"
+	@echo "... src/hsvSub.o"
+	@echo "... src/hsvSub.i"
+	@echo "... src/hsvSub.s"
 	@echo "... src/mainCameraPub.o"
 	@echo "... src/mainCameraPub.i"
 	@echo "... src/mainCameraPub.s"
