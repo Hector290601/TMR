@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/hector/TMR/Hector/ros/noetic/catkin_ws/src
+CMAKE_SOURCE_DIR = /home/ubuntu/TMR/Hector/ros/noetic/catkin_ws/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/hector/TMR/Hector/ros/noetic/catkin_ws/build
+CMAKE_BINARY_DIR = /home/ubuntu/TMR/Hector/ros/noetic/catkin_ws/build
 
 # Utility rule file for sensor_msgs_generate_messages_cpp.
 
@@ -63,10 +63,10 @@ cv_basics/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/build: sensor_msgs_ge
 .PHONY : cv_basics/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/build
 
 cv_basics/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/clean:
-	cd /home/hector/TMR/Hector/ros/noetic/catkin_ws/build/cv_basics && $(CMAKE_COMMAND) -P CMakeFiles/sensor_msgs_generate_messages_cpp.dir/cmake_clean.cmake
+	cd /home/ubuntu/TMR/Hector/ros/noetic/catkin_ws/build/cv_basics && $(CMAKE_COMMAND) -P CMakeFiles/sensor_msgs_generate_messages_cpp.dir/cmake_clean.cmake
 .PHONY : cv_basics/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/clean
 
 cv_basics/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/depend:
-	cd /home/hector/TMR/Hector/ros/noetic/catkin_ws/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/hector/TMR/Hector/ros/noetic/catkin_ws/src /home/hector/TMR/Hector/ros/noetic/catkin_ws/src/cv_basics /home/hector/TMR/Hector/ros/noetic/catkin_ws/build /home/hector/TMR/Hector/ros/noetic/catkin_ws/build/cv_basics /home/hector/TMR/Hector/ros/noetic/catkin_ws/build/cv_basics/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/ubuntu/TMR/Hector/ros/noetic/catkin_ws/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/ubuntu/TMR/Hector/ros/noetic/catkin_ws/src /home/ubuntu/TMR/Hector/ros/noetic/catkin_ws/src/cv_basics /home/ubuntu/TMR/Hector/ros/noetic/catkin_ws/build /home/ubuntu/TMR/Hector/ros/noetic/catkin_ws/build/cv_basics /home/ubuntu/TMR/Hector/ros/noetic/catkin_ws/build/cv_basics/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : cv_basics/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/depend
 

@@ -1,0 +1,2 @@
+- setup-file:
+    local-name: /home/ubuntu/TMR/Hector/ros/noetic/catkin_wsRasp/install/setup.sh

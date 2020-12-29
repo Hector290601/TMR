@@ -1,8 +1,8 @@
-# Install script for directory: /home/hector/TMR/Hector/ros/noetic/catkin_ws/src/cv_basics
+# Install script for directory: /home/ubuntu/TMR/Hector/ros/noetic/catkin_ws/src/cv_basics
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/hector/TMR/Hector/ros/noetic/catkin_ws/install")
+  set(CMAKE_INSTALL_PREFIX "/home/ubuntu/TMR/Hector/ros/noetic/catkin_ws/install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -38,17 +38,17 @@ if(NOT DEFINED CMAKE_CROSSCOMPILING)
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/hector/TMR/Hector/ros/noetic/catkin_ws/build/cv_basics/catkin_generated/installspace/cv_basics.pc")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/ubuntu/TMR/Hector/ros/noetic/catkin_ws/build/cv_basics/catkin_generated/installspace/cv_basics.pc")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/cv_basics/cmake" TYPE FILE FILES
-    "/home/hector/TMR/Hector/ros/noetic/catkin_ws/build/cv_basics/catkin_generated/installspace/cv_basicsConfig.cmake"
-    "/home/hector/TMR/Hector/ros/noetic/catkin_ws/build/cv_basics/catkin_generated/installspace/cv_basicsConfig-version.cmake"
+    "/home/ubuntu/TMR/Hector/ros/noetic/catkin_ws/build/cv_basics/catkin_generated/installspace/cv_basicsConfig.cmake"
+    "/home/ubuntu/TMR/Hector/ros/noetic/catkin_ws/build/cv_basics/catkin_generated/installspace/cv_basicsConfig-version.cmake"
     )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/cv_basics" TYPE FILE FILES "/home/hector/TMR/Hector/ros/noetic/catkin_ws/src/cv_basics/package.xml")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/cv_basics" TYPE FILE FILES "/home/ubuntu/TMR/Hector/ros/noetic/catkin_ws/src/cv_basics/package.xml")
 endif()
 

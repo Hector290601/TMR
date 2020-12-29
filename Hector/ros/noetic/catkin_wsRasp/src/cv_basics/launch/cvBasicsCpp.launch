@@ -1,0 +1,14 @@
+<launch>
+	<node
+		pkg="cv_basics"
+		type="webCamPub"
+		name="webCamPub"
+		output="screen"
+	/>
+	<node
+		pkg="cv_basics"
+		type="webCamSub"
+		name="webCamSub"
+		output="screen"
+	/>
+</launch>

@@ -67,14 +67,14 @@ set(cv_basics_CONFIG_INCLUDED TRUE)
 
 # set variables for source/devel/install prefixes
 if("FALSE" STREQUAL "TRUE")
-  set(cv_basics_SOURCE_PREFIX /home/hector/TMR/Hector/ros/noetic/catkin_ws/src/cv_basics)
-  set(cv_basics_DEVEL_PREFIX /home/hector/TMR/Hector/ros/noetic/catkin_ws/devel)
+  set(cv_basics_SOURCE_PREFIX /home/ubuntu/TMR/Hector/ros/noetic/catkin_ws/src/cv_basics)
+  set(cv_basics_DEVEL_PREFIX /home/ubuntu/TMR/Hector/ros/noetic/catkin_ws/devel)
   set(cv_basics_INSTALL_PREFIX "")
   set(cv_basics_PREFIX ${cv_basics_DEVEL_PREFIX})
 else()
   set(cv_basics_SOURCE_PREFIX "")
   set(cv_basics_DEVEL_PREFIX "")
-  set(cv_basics_INSTALL_PREFIX /home/hector/TMR/Hector/ros/noetic/catkin_ws/install)
+  set(cv_basics_INSTALL_PREFIX /home/ubuntu/TMR/Hector/ros/noetic/catkin_ws/install)
   set(cv_basics_PREFIX ${cv_basics_INSTALL_PREFIX})
 endif()
 
@@ -154,7 +154,7 @@ foreach(library ${libraries})
     set(lib_path "")
     set(lib "${library}-NOTFOUND")
     # since the path where the library is found is returned we have to iterate over the paths manually
-    foreach(path /home/hector/TMR/Hector/ros/noetic/catkin_ws/install/lib;/home/hector/catkin_ws/devel/lib;/opt/ros/noetic/lib)
+    foreach(path /home/ubuntu/TMR/Hector/ros/noetic/catkin_ws/install/lib;/home/ubuntu/TMR/Hector/ros/noetic/catkin_ws/devel/lib;/opt/ros/noetic/lib)
       find_library(lib ${library}
         PATHS ${path}
         NO_DEFAULT_PATH NO_CMAKE_FIND_ROOT_PATH)

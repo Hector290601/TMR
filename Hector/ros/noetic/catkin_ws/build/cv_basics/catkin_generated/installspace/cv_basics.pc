@@ -1,4 +1,4 @@
-prefix=/home/hector/TMR/Hector/ros/noetic/catkin_ws/install
+prefix=/home/ubuntu/TMR/Hector/ros/noetic/catkin_ws/install
 
 Name: cv_basics
 Description: Description of cv_basics
