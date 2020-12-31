@@ -7,21 +7,20 @@
 void imageCallback(const sensor_msgs::ImageConstPtr&msg){
 	cv_bridge::CvImagePtr cvPtr;
 	try{
-		cvPtr = cv_bridge::toCvCopy(msg, "bgr8");
+		cvPtr = cv_bridge::toCvCopy(msg, "mono8");
 		cv::Mat currentFrame = cvPtr -> image;
-		cv::imshow("originalImage", currentFrame);
+		cv::imshow("grayVideo", currentFrame);
 		cv::waitKey(30);
 	}catch(cv_bridge::Exception& e){
-		ROS_ERROR("Couldn't convert from %s to bgr8.", msg->encoding.c_str());
-
+		ROS_ERROR("Couldn't convert from %s to bgr8 on gray subscriber", msg->encoding.c_str());
 	}
 }
 
 int main(int argc, char** argv){
-	ros::init(argc, argv, "videoSubCpp");
+	ros::init(argc, argv, "videoGraySubCpp");
 	ros::NodeHandle nh;
 	image_transport::ImageTransport it(nh);
-	image_transport::Subscriber sub = it.subscribe("camera", 1, imageCallback);
+	image_transport::Subscriber sub = it.subscribe("gray", 1, imageCallback);
 	ros::spin();
 	cv::destroyWindow("View");
 }

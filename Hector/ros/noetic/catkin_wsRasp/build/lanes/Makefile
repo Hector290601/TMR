@@ -68,18 +68,6 @@ install/strip/fast: preinstall/fast
 	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
 .PHONY : install/strip/fast
 
-# Special rule for the target install/local
-install/local: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
-	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
-.PHONY : install/local
-
-# Special rule for the target install/local
-install/local/fast: preinstall/fast
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
-	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
-.PHONY : install/local/fast
-
 # Special rule for the target install
 install: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
@@ -135,6 +123,18 @@ test/fast: test
 
 .PHONY : test/fast
 
+# Special rule for the target install/local
+install/local: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local
+
+# Special rule for the target install/local
+install/local/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local/fast
+
 # The main all target
 all: cmake_check_build_system
 	cd /home/ubuntu/TMR/Hector/ros/noetic/catkin_wsRasp/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/ubuntu/TMR/Hector/ros/noetic/catkin_wsRasp/build/CMakeFiles /home/ubuntu/TMR/Hector/ros/noetic/catkin_wsRasp/build/lanes/CMakeFiles/progress.marks
@@ -166,6 +166,21 @@ preinstall/fast:
 depend:
 	cd /home/ubuntu/TMR/Hector/ros/noetic/catkin_wsRasp/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
+
+# Convenience name for target.
+lanes/CMakeFiles/grayConvSub.dir/rule:
+	cd /home/ubuntu/TMR/Hector/ros/noetic/catkin_wsRasp/build && $(MAKE) -f CMakeFiles/Makefile2 lanes/CMakeFiles/grayConvSub.dir/rule
+.PHONY : lanes/CMakeFiles/grayConvSub.dir/rule
+
+# Convenience name for target.
+grayConvSub: lanes/CMakeFiles/grayConvSub.dir/rule
+
+.PHONY : grayConvSub
+
+# fast build rule for target.
+grayConvSub/fast:
+	cd /home/ubuntu/TMR/Hector/ros/noetic/catkin_wsRasp/build && $(MAKE) -f lanes/CMakeFiles/grayConvSub.dir/build.make lanes/CMakeFiles/grayConvSub.dir/build
+.PHONY : grayConvSub/fast
 
 # Convenience name for target.
 lanes/CMakeFiles/hsvConvSub.dir/rule:
@@ -213,6 +228,21 @@ webCamSubscriber/fast:
 .PHONY : webCamSubscriber/fast
 
 # Convenience name for target.
+lanes/CMakeFiles/grayConvPub.dir/rule:
+	cd /home/ubuntu/TMR/Hector/ros/noetic/catkin_wsRasp/build && $(MAKE) -f CMakeFiles/Makefile2 lanes/CMakeFiles/grayConvPub.dir/rule
+.PHONY : lanes/CMakeFiles/grayConvPub.dir/rule
+
+# Convenience name for target.
+grayConvPub: lanes/CMakeFiles/grayConvPub.dir/rule
+
+.PHONY : grayConvPub
+
+# fast build rule for target.
+grayConvPub/fast:
+	cd /home/ubuntu/TMR/Hector/ros/noetic/catkin_wsRasp/build && $(MAKE) -f lanes/CMakeFiles/grayConvPub.dir/build.make lanes/CMakeFiles/grayConvPub.dir/build
+.PHONY : grayConvPub/fast
+
+# Convenience name for target.
 lanes/CMakeFiles/webCamPublisher.dir/rule:
 	cd /home/ubuntu/TMR/Hector/ros/noetic/catkin_wsRasp/build && $(MAKE) -f CMakeFiles/Makefile2 lanes/CMakeFiles/webCamPublisher.dir/rule
 .PHONY : lanes/CMakeFiles/webCamPublisher.dir/rule
@@ -226,6 +256,60 @@ webCamPublisher: lanes/CMakeFiles/webCamPublisher.dir/rule
 webCamPublisher/fast:
 	cd /home/ubuntu/TMR/Hector/ros/noetic/catkin_wsRasp/build && $(MAKE) -f lanes/CMakeFiles/webCamPublisher.dir/build.make lanes/CMakeFiles/webCamPublisher.dir/build
 .PHONY : webCamPublisher/fast
+
+src/grayPub.o: src/grayPub.cpp.o
+
+.PHONY : src/grayPub.o
+
+# target to build an object file
+src/grayPub.cpp.o:
+	cd /home/ubuntu/TMR/Hector/ros/noetic/catkin_wsRasp/build && $(MAKE) -f lanes/CMakeFiles/grayConvPub.dir/build.make lanes/CMakeFiles/grayConvPub.dir/src/grayPub.cpp.o
+.PHONY : src/grayPub.cpp.o
+
+src/grayPub.i: src/grayPub.cpp.i
+
+.PHONY : src/grayPub.i
+
+# target to preprocess a source file
+src/grayPub.cpp.i:
+	cd /home/ubuntu/TMR/Hector/ros/noetic/catkin_wsRasp/build && $(MAKE) -f lanes/CMakeFiles/grayConvPub.dir/build.make lanes/CMakeFiles/grayConvPub.dir/src/grayPub.cpp.i
+.PHONY : src/grayPub.cpp.i
+
+src/grayPub.s: src/grayPub.cpp.s
+
+.PHONY : src/grayPub.s
+
+# target to generate assembly for a file
+src/grayPub.cpp.s:
+	cd /home/ubuntu/TMR/Hector/ros/noetic/catkin_wsRasp/build && $(MAKE) -f lanes/CMakeFiles/grayConvPub.dir/build.make lanes/CMakeFiles/grayConvPub.dir/src/grayPub.cpp.s
+.PHONY : src/grayPub.cpp.s
+
+src/graySub.o: src/graySub.cpp.o
+
+.PHONY : src/graySub.o
+
+# target to build an object file
+src/graySub.cpp.o:
+	cd /home/ubuntu/TMR/Hector/ros/noetic/catkin_wsRasp/build && $(MAKE) -f lanes/CMakeFiles/grayConvSub.dir/build.make lanes/CMakeFiles/grayConvSub.dir/src/graySub.cpp.o
+.PHONY : src/graySub.cpp.o
+
+src/graySub.i: src/graySub.cpp.i
+
+.PHONY : src/graySub.i
+
+# target to preprocess a source file
+src/graySub.cpp.i:
+	cd /home/ubuntu/TMR/Hector/ros/noetic/catkin_wsRasp/build && $(MAKE) -f lanes/CMakeFiles/grayConvSub.dir/build.make lanes/CMakeFiles/grayConvSub.dir/src/graySub.cpp.i
+.PHONY : src/graySub.cpp.i
+
+src/graySub.s: src/graySub.cpp.s
+
+.PHONY : src/graySub.s
+
+# target to generate assembly for a file
+src/graySub.cpp.s:
+	cd /home/ubuntu/TMR/Hector/ros/noetic/catkin_wsRasp/build && $(MAKE) -f lanes/CMakeFiles/grayConvSub.dir/build.make lanes/CMakeFiles/grayConvSub.dir/src/graySub.cpp.s
+.PHONY : src/graySub.cpp.s
 
 src/hsvPub.o: src/hsvPub.cpp.o
 
@@ -342,16 +426,24 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... install/strip"
-	@echo "... install/local"
 	@echo "... install"
 	@echo "... list_install_components"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... test"
+	@echo "... install/local"
+	@echo "... grayConvSub"
 	@echo "... hsvConvSub"
 	@echo "... hsvConvPub"
 	@echo "... webCamSubscriber"
+	@echo "... grayConvPub"
 	@echo "... webCamPublisher"
+	@echo "... src/grayPub.o"
+	@echo "... src/grayPub.i"
+	@echo "... src/grayPub.s"
+	@echo "... src/graySub.o"
+	@echo "... src/graySub.i"
+	@echo "... src/graySub.s"
 	@echo "... src/hsvPub.o"
 	@echo "... src/hsvPub.i"
 	@echo "... src/hsvPub.s"

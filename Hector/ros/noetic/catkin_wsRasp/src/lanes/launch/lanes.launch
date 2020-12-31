@@ -14,13 +14,25 @@
 	<node
 		pkg="lanes"
 		type="hsvConvPub"
-		name="hsvconvPub"
+		name="hsvConvPub"
 		output="screen"
 	/>
 	<node
 		pkg="lanes"
 		type="hsvConvSub"
-		name="hsvconvSub"
+		name="hsvConvSub"
+		output="screen"
+	/>
+	<node
+		pkg="lanes"
+		type="grayConvPub"
+		name="grayConvPub"
+		output="screen"
+	/>
+	<node
+		pkg="lanes"
+		type="grayConvSub"
+		name="grayConvSub"
 		output="screen"
 	/>
 </launch>

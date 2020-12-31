@@ -636,6 +636,19 @@ rosgraph_msgs_generate_messages_cpp/fast:
 .PHONY : rosgraph_msgs_generate_messages_cpp/fast
 
 #=============================================================================
+# Target rules for targets named grayConvSub
+
+# Build rule for target.
+grayConvSub: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 grayConvSub
+.PHONY : grayConvSub
+
+# fast build rule for target.
+grayConvSub/fast:
+	$(MAKE) -f lanes/CMakeFiles/grayConvSub.dir/build.make lanes/CMakeFiles/grayConvSub.dir/build
+.PHONY : grayConvSub/fast
+
+#=============================================================================
 # Target rules for targets named hsvConvSub
 
 # Build rule for target.
@@ -673,6 +686,19 @@ webCamSubscriber: cmake_check_build_system
 webCamSubscriber/fast:
 	$(MAKE) -f lanes/CMakeFiles/webCamSubscriber.dir/build.make lanes/CMakeFiles/webCamSubscriber.dir/build
 .PHONY : webCamSubscriber/fast
+
+#=============================================================================
+# Target rules for targets named grayConvPub
+
+# Build rule for target.
+grayConvPub: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 grayConvPub
+.PHONY : grayConvPub
+
+# fast build rule for target.
+grayConvPub/fast:
+	$(MAKE) -f lanes/CMakeFiles/grayConvPub.dir/build.make lanes/CMakeFiles/grayConvPub.dir/build
+.PHONY : grayConvPub/fast
 
 #=============================================================================
 # Target rules for targets named webCamPublisher
@@ -736,9 +762,11 @@ help:
 	@echo "... sensor_msgs_generate_messages_eus"
 	@echo "... webCamSub"
 	@echo "... rosgraph_msgs_generate_messages_cpp"
+	@echo "... grayConvSub"
 	@echo "... hsvConvSub"
 	@echo "... hsvConvPub"
 	@echo "... webCamSubscriber"
+	@echo "... grayConvPub"
 	@echo "... webCamPublisher"
 .PHONY : help
 
