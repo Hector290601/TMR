@@ -7,5 +7,4 @@
 # new environment variables
 
 # modified environment variables
-export PWD='/home/ubuntu/TMR/Hector/ros/noetic/catkin_ws/build'
-export ROS_PACKAGE_PATH='/home/hector/TMR/Hector/ros/noetic/catkin_ws/src:/home/ubuntu/TMR/Hector/ros/noetic/catkin_ws/src:/opt/ros/noetic/share'
+export PWD='/home/hector/TMR/Hector/ros/noetic/catkin_ws/build'
