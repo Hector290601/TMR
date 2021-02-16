@@ -1,8 +1,0 @@
-prefix=/home/ubuntu/TMR/Hector/ros/noetic/catkin_wsRasp/devel
-
-Name: lanes
-Description: Description of lanes
-Version: 0.0.0
-Cflags: 
-Libs: -L${prefix}/lib 
-Requires: 
