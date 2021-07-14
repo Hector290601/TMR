@@ -4,14 +4,14 @@ import numpy
 cap = cv2.VideoCapture(0)
 k = 0
 
-while cap.isOppened():
+while True:
     ret, frame = cap.read()
-    rgb = cv2.cvtColor(frame, cv2.COLOR_BGR2HLS)
-    r, g, b = cv2.split(rgb)
-    cv2.imshow("rgb", rgb)
-    cv2.imshow("r", r)
-    cv2.imshow("g", g)
+    abc = cv2.cvtColor(frame, cv2.COLOR_BGR2LAB)
+    a, b, c = cv2.split(abc)
+    cv2.imshow("abc", abc)
+    cv2.imshow("a", a)
     cv2.imshow("b", b)
+    cv2.imshow("c", c)
     k = cv2.waitKey(0)
     if k == 27:
         break

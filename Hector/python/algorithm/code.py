@@ -10,10 +10,16 @@ while cap.isOpened():
     anchura, altura, ch = hsv.shape
     mitad = altura // 2
     cortado = hsv[:mitad, :]
-    cv2.imshow('Frame', frame)  #mostrar
+    gauss = cv2.GaussianBlur(gray, (5, 5), 0)
+    cannyEdgeNormal = cv2.Canny(gray, 100, 200)
+    cannyEdgeGauss = cv2.Canny(gauss, 100, 200)
+    #cv2.imshow('Frame', frame)  #mostrar
     cv2.imshow('Gray', gray)
-    cv2.imshow('cortado', cortado)
-    cv2.imshow('hsv', hsv)
+    cv2.imshow('GrayCanny', cannyEdgeNormal)
+    cv2.imshow('gauss', gauss)
+    cv2.imshow('GaussCanny', cannyEdgeGauss)
+    #cv2.imshow('cortado', cortado)
+    #cv2.imshow('hsv', hsv)
     k = cv2.waitKey(1)
     if k == 27:
         break

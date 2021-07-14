@@ -27,8 +27,8 @@ def regionOfInterest(regionImage):
     return regionedImage
 
 def colorRange(colorFrame, colorGray, colorCropped):
-    colorMax = np.array([255, 255, 255])
-    colorMin = np.array([79, 73, 57])
+    colorMax = np.array([250, 250, 250])
+    colorMin = np.array([96, 90, 80])
     colorColor = cv2.bitwise_and(colorFrame, colorFrame, mask = colorCropped)
     colorRanged = cv2.inRange(colorColor, colorMin, colorMax)
     return colorRanged
@@ -114,7 +114,7 @@ if __name__ == '__main__':
             canny = cannyImage(gray)
             croppedImage = regionOfInterest(canny)
             colorInRange = colorRange(coppiedFrame, gray, croppedImage)
-            lines = cv2.HoughLinesP(colorInRange, 1, np.pi/180, 50, minLineLength=20, maxLineGap=50)
+            lines = cv2.HoughLinesP(colorInRange, 1, np.pi/180, 50, minLineLength=2, maxLineGap=100)
             #print(lines)
             #left = range(0, 480 // 2)
             #right = range(480 // 2, 480)

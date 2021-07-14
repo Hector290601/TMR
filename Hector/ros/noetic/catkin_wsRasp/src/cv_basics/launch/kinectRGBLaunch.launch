@@ -1,0 +1,14 @@
+<launch>
+	<node
+		pkg="cv_basics"
+		type="kinectIRPub.py"
+		name="kinectPub"
+		output="screen"
+	/>
+        <node
+                pkg="cv_basics"
+                type="kinectIRSub.py"
+                name="kinectSub"
+                output="screen"
+        />
+</launch>

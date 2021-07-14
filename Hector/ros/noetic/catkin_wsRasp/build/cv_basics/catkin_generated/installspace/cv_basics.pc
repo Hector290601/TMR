@@ -1,0 +1,8 @@
+prefix=/home/ubuntu/TMR/Hector/ros/noetic/catkin_wsRasp/install
+
+Name: cv_basics
+Description: Description of cv_basics
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

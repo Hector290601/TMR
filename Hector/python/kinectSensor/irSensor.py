@@ -1,7 +1,6 @@
 import freenect
 import numpy as np
 import cv2
-"""
 def get_video():
     array,_ = freenect.sync_get_video(0,freenect.VIDEO_IR_10BIT)
     return array
@@ -54,3 +53,4 @@ if __name__ == '__main__':
         if k == 27:
             break
     cv2.destroyAllWindows()
+"""
