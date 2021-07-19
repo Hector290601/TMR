@@ -1,13 +1,13 @@
 <launch>
 	<node
 		pkg="cv_basics"
-		type="kinectIRPub.py"
+		type="kinectRGBPub.py"
 		name="kinectPub"
 		output="screen"
 	/>
         <node
                 pkg="cv_basics"
-                type="kinectIRSub.py"
+                type="kinectRGBSub.py"
                 name="kinectSub"
                 output="screen"
         />

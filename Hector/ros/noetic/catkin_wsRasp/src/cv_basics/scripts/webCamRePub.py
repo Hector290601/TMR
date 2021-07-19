@@ -7,13 +7,10 @@ import cv2
 
 def publishImage(img):
     pub = rospy.Publisher('videoFramesGray', Image, queue_size=10)
-    #rospy.init_node('videoRePub', anonymous = True)
-    #rate = rospy.Rate(30)
     br = CvBridge()
     frame = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
     rospy.loginfo('Publicando video en grises')
     pub.publish(br.cv2_to_imgmsg(frame))
-    #rate.sleep()
 
 def callback(data):
     br = CvBridge()

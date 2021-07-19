@@ -14,13 +14,9 @@ void imageCallback(const sensor_msgs::ImageConstPtr& msg){
 		image_transport::ImageTransport it(node);
 		image_transport::Publisher pubFrame = it.advertise("gray", 1);
 		sensor_msgs::ImagePtr msgToPublish;
-		//:w
-		//ros::Rate loopRate(10);
 		msgToPublish = cv_bridge::CvImage(std_msgs::Header(), "mono8", grayImage).toImageMsg();
 		pubFrame.publish(msgToPublish);
 		cv::waitKey(1);
-		ros::spinOnce();
-		//loopRate.sleep();
 	}catch(cv_bridge::Exception& e){
 		ROS_ERROR("Couldn't convert from %s to bgr8 on gray conversion publisher", msg->encoding.c_str());
 	}

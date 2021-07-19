@@ -6,16 +6,6 @@ import cv2
 import freenect
 import numpy as np
 
-def getVideo():
-    array, _ = freenect.sync_get_video(0, freenect.VIDEO_IR_10BIT)
-    return array
-
-def prettyDept(depth):
-    np.clip(depth, 0, 2**10-2, depth)
-    depth >>= 2
-    depth = depth.astype(np.uint8)
-    return depth
-
 def publishImage():
     pub = rospy.Publisher('videoFrames', Image, queue_size=10)
     rospy.init_node('kinectPub', anonymous = True)
@@ -23,8 +13,9 @@ def publishImage():
     cap = cv2.VideoCapture(0)
     br = CvBridge()
     while not rospy.is_shutdown():
-        frame = getVideo()
-        frame = prettyDept(frame)
+        rgbVideo, _ = freenect.sync_get_video()
+        bgrVideo = cv2.cvtColor(rgbVideo, cv2.COLOR_RGB2BGR)
+        frame = bgrVideo.astype(np.uint8)
         rospy.loginfo('Publicando video')
         pub.publish(br.cv2_to_imgmsg(frame))
         rate.sleep()
