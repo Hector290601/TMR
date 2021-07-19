@@ -9,8 +9,8 @@ import cv2
 def publishImage(img):
     pub = rospy.Publisher('videoFramecolorDetection', Image, queue_size=10)
     br = CvBridge()
-    frame = cv2.cvtColor(img, cv2.COLOR_BGR2HLS)
-    kernel = np.ones((15, 15), np.uint8)
+    frame = cv2.cvtColor(img, cv2.COLOR_BGR2YCrCb)
+    kernel = np.ones((20, 20), np.uint8)
     eroded = cv2.erode(frame, kernel, iterations = 1)
     rospy.loginfo('Publicando video en colorDetection')
     pub.publish(br.cv2_to_imgmsg(eroded))
