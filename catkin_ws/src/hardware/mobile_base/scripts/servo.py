@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 #-*-coding: latin-1-*-
 
 import RPi.GPIO as GPIO
@@ -6,8 +6,12 @@ import time
 import rospy
 from std_msgs.msg import Float32
 
-def AngleToDuty(ang):
-    return float(pos)/10.+5.
+steering = 0
+speed = 0
+
+def AngleToDuty():
+    global steering
+    return float(steering)/10.+5.
 
 def callback_steering(msg):
     global steering
@@ -18,32 +22,27 @@ def callback_speed(msg):
     speed = msg.data
 
 def main():
+    global steering, speed
     print("INITIALIZING SERVO CONTROL NODE...")
     rospy.init_node("mobile_base")
-    rospy.Subscribe("/steering", Float32, callback_steering)
-    rospy.Subscribe("/speed", Float32, callback_speed)
+    rospy.Subscriber("/steering", Float32, callback_steering)
+    rospy.Subscriber("/speed", Float32, callback_speed)
     loop = rospy.Rate(10)
     servoPin=12
     GPIO.setmode(GPIO.BOARD)
     GPIO.setup(servoPin,GPIO.OUT)
-    pwm=GPIO.PWM(servoPin,100)
-    
-    pwm.start(AngleToDuty(pos))
-
-    i=0
-    v = 60
-    global steering, speed
     steering = 0
+    pwm=GPIO.PWM(servoPin, 50)
+    pwm.start(AngleToDuty())
     speed = 0
     while not rospy.is_shutdown():
         #
         # TODO:
         # Transform steering to pwm values
         #
-        pos = int(v)
-        duty=AngleToDuty(pos)
-        pwm.ChangeDutyCycle(duty)
-        i=i+1
+        duty=AngleToDuty()
+        pwm.ChangeDutyCycle(3)
+        loop.sleep()
         
 
     pwm.stop()
