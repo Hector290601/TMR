@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-#-*-coding: latin-1-*-
+#-*- coding: utf-8 -*-
 
 import RPi.GPIO as GPIO
 import time
@@ -50,3 +50,4 @@ def main():
 
 if __name__ == '__main__':
     main()
+
