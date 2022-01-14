@@ -40,17 +40,12 @@ def main():
     motor = GPIO.PWM(motorPin, 60.2)
     motor.start(9)
     while not rospy.is_shutdown():
-        #
-        # TODO:
-        # Transform steering to pwm values
-        #
         duty=AngleToDuty()
         servo.ChangeDutyCycle(steering)
-        motor.ChangeDutyCycle( 9 + (speed * 5))
-        loop.sleep()
-        
-
-    pwm.stop()
+        motor.ChangeDutyCycle(9)
+        loop.sleep() 
+    servo.stop()
+    motor.stop()
     GPIO.cleanup()
 
 if __name__ == '__main__':

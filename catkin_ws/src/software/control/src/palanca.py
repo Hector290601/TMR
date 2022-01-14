@@ -38,8 +38,8 @@ steering = ""
 def callback_joy(msg):
     global joyLeft, pub, speed, steering
     joyLeft = msg.axes[:2]
-    speed.publish(msg.axes[1])
-    steering.publish(msg.axes[0])
+    speed.publish(msg.axes[1] + 2.0)
+    steering.publish(msg.axes[0] + 2.0)
 
 def main():
     global msgJoy, speed, steering
