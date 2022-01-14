@@ -30,6 +30,7 @@ buttons[
 import rospy
 from sensor_msgs.msg import Joy
 from std_msgs.msg import Float32
+import math
 
 joyLeft = ""
 speed = ""
@@ -38,8 +39,8 @@ steering = ""
 def callback_joy(msg):
     global joyLeft, pub, speed, steering
     joyLeft = msg.axes[:2]
-    speed.publish(msg.axes[1] + 2.0)
-    steering.publish(msg.axes[0] + 2.0)
+    speed.publish(msg.axes[4] * .5)
+    steering.publish(msg.axes[0] * math.pi /6)
 
 def main():
     global msgJoy, speed, steering

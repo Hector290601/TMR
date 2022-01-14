@@ -13,7 +13,7 @@ def publishImage():
     while not rospy.is_shutdown():
         ret, frame = cap.read()
         if ret == True:
-            rospy.loginfo('Publicando video')
+            #rospy.loginfo('Publicando video')
             pub.publish(br.cv2_to_imgmsg(frame))
             rate.sleep()
 
