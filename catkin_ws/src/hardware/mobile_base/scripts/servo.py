@@ -28,20 +28,25 @@ def main():
     rospy.Subscriber("/steering", Float32, callback_steering)
     rospy.Subscriber("/speed", Float32, callback_speed)
     loop = rospy.Rate(10)
-    servoPin=12
+    servoPin = 12
+    motorPin = 16
     GPIO.setmode(GPIO.BOARD)
     GPIO.setup(servoPin,GPIO.OUT)
+    GPIO.setup(motorPin,GPIO.OUT)
     steering = 0
-    pwm=GPIO.PWM(servoPin, 50)
-    pwm.start(AngleToDuty())
     speed = 0
+    servo = GPIO.PWM(servoPin, 50)
+    servo.start(AngleToDuty())
+    motor = GPIO.PWM(motorPin, 60.2)
+    motor.start(9)
     while not rospy.is_shutdown():
         #
         # TODO:
         # Transform steering to pwm values
         #
         duty=AngleToDuty()
-        pwm.ChangeDutyCycle(3)
+        servo.ChangeDutyCycle(steering)
+        motor.ChangeDutyCycle( 9 + (speed * 5))
         loop.sleep()
         
 
