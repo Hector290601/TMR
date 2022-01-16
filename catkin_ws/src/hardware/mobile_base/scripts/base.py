@@ -5,6 +5,7 @@ import RPi.GPIO as GPIO
 import time
 import rospy
 from std_msgs.msg import Float32
+from sensor_msgs.msg import LaserScan
 import math
 
 steering = 0
@@ -23,12 +24,16 @@ def callback_speed(msg):
     global speed
     speed = msg.data
 
+def callback_lidar(msg):
+    print(msg.ranges)
+
 def main():
     global steering, speed
     print("INITIALIZING SERVO CONTROL NODE...")
     rospy.init_node("mobile_base")
     rospy.Subscriber("/steering", Float32, callback_steering)
     rospy.Subscriber("/speed", Float32, callback_speed)
+    rospy.Subscriber("/scan", LaserScan, callback_lidar)
     loop = rospy.Rate(10)
     servoPin = 12
     motorPin = 16
