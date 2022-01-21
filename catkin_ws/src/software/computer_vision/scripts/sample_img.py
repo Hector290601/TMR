@@ -6,7 +6,7 @@ from cv_bridge import CvBridge
 import cv2
 
 def main():
-    pub = rospy.Publisher("video_frames", Image, queue_size=10)
+    pub = rospy.Publisher("/raw_image", Image, queue_size=10)
     rospy.init_node("sample_image")
     rate = rospy.Rate(10)
     cap = cv2.imread("test.jpeg")

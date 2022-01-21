@@ -41,7 +41,7 @@ def color_seg(frame_color, frame_gray, frame_interest):
             )
     color_mask = cv2.bitwise_and(frame_color, frame_color, mask=frame_interest)
     ranged_frame = cv2.inRange(color_mask, color_min, color_max)
-    return ranged_color
+    return ranged_frame
 
 def callback_raw_image(data):
     brdg = CvBridge()
@@ -53,7 +53,7 @@ def callback_raw_image(data):
     color_frame = color_seg(coppied_frame, gray_frame, interest_frame) #31
     possible_lanes = cv2.HoughLinesP(color_frame, 1, np.pi/180, 50, 
             minLineLength=20, maxLineGap=50)
-    print(possible_lines)
+    print(possible_lanes)
     cv2.waitKey(1)
 
 def main():
