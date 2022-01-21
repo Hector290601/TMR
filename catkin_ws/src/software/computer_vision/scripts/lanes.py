@@ -46,6 +46,9 @@ def color_seg(frame_color, frame_gray, frame_interest):
 def callback_raw_image(data):
     brdg = CvBridge()
     raw_frame = brdg.imgmsg_to_cv2(data)
+    cv2.imshow("raw_frame", raw_frame)
+    cv2.waitkey(1)
+    """
     coppied_frame = np.copy(raw_frame)
     gray_frame = cv2.cvtColor(raw_frame, cv2.COLOR_BGR2GRAY)
     cannied_frame = canny_frame(gray_frame) #10
@@ -54,7 +57,11 @@ def callback_raw_image(data):
     possible_lanes = cv2.HoughLinesP(color_frame, 1, np.pi/180, 50, 
             minLineLength=20, maxLineGap=50)
     print(possible_lanes)
+    cv2.imshow("Canny", cannied_frame)
+    cv2.imshow("raw_frame", raw_frame)
+    cv2.imshow("interest_frame", interest_frame)
     cv2.waitKey(1)
+    """
 
 def main():
     rospy.init_node('raw_img_subscriber', anonymous = True)
