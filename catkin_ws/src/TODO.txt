@@ -1,6 +1,6 @@
 - Control nodes
-- Publish possible lanes array
+- Publish possible lanes array -Héctor
 - Obstacle detection
 - Traffic lights detection
-- others cars detection
+- Others cars detection
 
