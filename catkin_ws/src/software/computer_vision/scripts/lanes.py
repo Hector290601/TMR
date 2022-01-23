@@ -51,11 +51,9 @@ def callback_raw_image(data):
     cannied_frame = canny_frame(gray_frame) #10
     interest_frame = crop_frame(cannied_frame) #15
     color_frame = color_seg(coppied_frame, gray_frame, interest_frame) #31
-    possible_lanes = cv2.HoughLinesP(color_frame, 1, np.pi/180, 50, 
+    possible_lines_p = cv2.HoughLines(color_frame, 1, np.pi/180, 50, 
             minLineLength=20, maxLineGap=50)
-    print(possible_lanes)
-    cv2.imshow("Canny", cannied_frame)
-    cv2.imshow("raw_frame", raw_frame)
+    possible_lines = cv2.HoughLines(color_frame, 1, np.pi/180, 50)
     cv2.imshow("interest_frame", interest_frame)
     cv2.waitKey(1)
 

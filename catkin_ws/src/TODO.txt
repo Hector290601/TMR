@@ -1,0 +1,6 @@
+- Control nodes
+- Publish possible lanes array
+- Obstacle detection
+- Traffic lights detection
+- others cars detection
+
