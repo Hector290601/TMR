@@ -9,7 +9,7 @@ def main():
     pub = rospy.Publisher("/raw_image", Image, queue_size=10)
     rospy.init_node("sample_image")
     rate = rospy.Rate(10)
-    cap = cv2.imread("test.jpeg")
+    cap = cv2.imread("test_lanes.jpeg")
     br = CvBridge()
     while True:
         pub.publish(br.cv2_to_imgmsg(cap))
