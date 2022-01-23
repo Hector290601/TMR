@@ -32,7 +32,7 @@ def callback_lidar(msg):
 
 def main():
     global steering, speed
-    print("INITIALIZING SERVO CONTROL NODE...")
+    print("INITIALIZING HARDWARE CONTROL NODE...")
     rospy.init_node("mobile_base")
     img_publisher = rospy.Publisher("/raw_image", Image, queue_size=10)
     rospy.Subscriber("/steering", Float32, callback_steering)
@@ -52,6 +52,7 @@ def main():
     motor.start(9)
     cap = cv2.VideoCapture(0)
     brdg = CvBridge()
+    print("ALL SUCCESFULLY INITIALIZED")
     while not rospy.is_shutdown():
         dutySpeed, dutySteering=AngleToDuty(speed, steering)
         servo.ChangeDutyCycle(dutySteering)

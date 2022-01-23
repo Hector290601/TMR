@@ -20,10 +20,10 @@ def crop_frame(frame_cannied):
     polygon = np.array(
             [
                 [
-                    (0, 400),
-                    (640, 400),
-                    (640, 180),
-                    (0, 180)
+                    (0, 410),
+                    (640, 410),
+                    (640, 330),
+                    (0, 330)
                     ]
                 ]
             )
@@ -35,12 +35,12 @@ def crop_frame(frame_cannied):
 def color_seg(frame_color, frame_gray, frame_interest):
     color_max = np.array(
             [
-                255, 255, 255
+                50, 115, 110
                 ]
             )
     color_min = np.array(
             [
-                79, 73, 57
+                0, 25, 60
                 ]
             )
     color_mask = cv2.bitwise_and(frame_color, frame_color, mask=frame_interest)
@@ -60,12 +60,13 @@ def callback_raw_image(data):
             minLineLength=20, maxLineGap=50)
     possible_lines = cv2.HoughLines(color_frame, 1, np.pi/180, 50)
     lines = []
-    for line in possible_lines:
-        for points in line:
-            for number in points:
-                lines.append(number)
+    if possible_lines is not None:
+        for line in possible_lines:
+            for points in line:
+                for number in points:
+                    lines.append(number)
     lanes_to_publish = np.array(lines, dtype=np.float32)
-    cv2.imshow("interest_frame", coppied_frame)
+    cv2.imshow("interest_frame", interest_frame)
     cv2.waitKey(1)
 
 def main():
