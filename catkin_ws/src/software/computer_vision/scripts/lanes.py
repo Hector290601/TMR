@@ -35,12 +35,12 @@ def crop_frame(frame_cannied):
 def color_seg(frame_color, frame_gray, frame_interest):
     color_max = np.array(
             [
-                50, 115, 110
+                60, 120, 120
                 ]
             )
     color_min = np.array(
             [
-                0, 25, 60
+                0, 20, 0
                 ]
             )
     color_mask = cv2.bitwise_and(frame_color, frame_color, mask=frame_interest)
@@ -54,20 +54,22 @@ def callback_raw_image(data):
     coppied_frame = np.copy(raw_frame)
     gray_frame = cv2.cvtColor(raw_frame, cv2.COLOR_BGR2GRAY)
     cannied_frame = canny_frame(gray_frame) #10
+    hls_frame = cv2.cvtColor(coppied_frame, cv2.COLOR_BGR2HLS)
     interest_frame = crop_frame(cannied_frame) #15
-    color_frame = color_seg(coppied_frame, gray_frame, interest_frame) #31
+    color_frame = color_seg(hls_frame, gray_frame, interest_frame) #31
     possible_lines_p = cv2.HoughLinesP(color_frame, 1, np.pi/180, 50, 
             minLineLength=20, maxLineGap=50)
     possible_lines = cv2.HoughLines(color_frame, 1, np.pi/180, 50)
     lines = []
-    if possible_lines is not None:
+    if possible_lines_p is not None:
         for line in possible_lines:
             for points in line:
                 for number in points:
                     lines.append(number)
+    #print(lines)
     lanes_to_publish = np.array(lines, dtype=np.float32)
-    cv2.imshow("interest_frame", interest_frame)
-    cv2.waitKey(1)
+    #cv2.imshow("interest_frame", color_frame)
+    #cv2.waitKey(1)
 
 def main():
     global lanes_to_publish
