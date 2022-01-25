@@ -62,14 +62,14 @@ def callback_raw_image(data):
     possible_lines = cv2.HoughLines(color_frame, 1, np.pi/180, 50)
     lines = []
     if possible_lines_p is not None:
-        for line in possible_lines:
+        for line in possible_lines_p:
             for points in line:
                 for number in points:
                     lines.append(number)
     #print(lines)
     lanes_to_publish = np.array(lines, dtype=np.float32)
-    #cv2.imshow("interest_frame", color_frame)
-    #cv2.waitKey(1)
+    cv2.imshow("interest_frame", color_frame)
+    cv2.waitKey(1)
 
 def main():
     global lanes_to_publish

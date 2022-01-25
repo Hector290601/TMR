@@ -26,10 +26,6 @@ def callback_speed(msg):
     global speed
     speed = msg.data
 
-def callback_lidar(msg):
-    print("ranges: " + str(msg.ranges))
-    print("intensities: " + str(msg.intensities))
-
 def main():
     global steering, speed
     print("INITIALIZING HARDWARE CONTROL NODE...")
@@ -37,7 +33,6 @@ def main():
     img_publisher = rospy.Publisher("/raw_image", Image, queue_size=10)
     rospy.Subscriber("/steering", Float32, callback_steering)
     rospy.Subscriber("/speed", Float32, callback_speed)
-    rospy.Subscriber("/scan", LaserScan, callback_lidar)
     loop = rospy.Rate(10)
     servoPin = 12
     motorPin = 16
