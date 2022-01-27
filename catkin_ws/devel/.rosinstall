@@ -1,0 +1,2 @@
+- setup-file:
+    local-name: /home/ubuntu/TMR/catkin_ws/devel/setup.sh

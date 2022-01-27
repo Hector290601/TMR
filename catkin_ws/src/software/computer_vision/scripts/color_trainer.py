@@ -27,6 +27,14 @@ def callback_raw_image(data):
         os.system("clear")
         rect = cv2.boundingRect(np.array(pts))
         x, y, w, h = rect
+        x1 = pts[0][0]
+        y1 = pts[0][1]
+        x2 = pts[1][0]
+        y2 = pts[1][1]
+        vect1 = [abs(x1 - x2), abs(y1 - y2)]
+        print(vect1)
+        cv2.line(raw_frame, (x1, y1), (x2, y2), (255, 0, 0), 3)
+        """
         cv2.rectangle(raw_frame, (x - 2, y - 2), (x + w + 2, y + h + 2), (255, 0, 0), 1)
         interest = raw_frame[y:y+h, x:x+w, :]
         print("Mean B: " + str(int(interest[:,:,0].mean()))
@@ -47,7 +55,7 @@ def callback_raw_image(data):
                 + " Max Recomended R: " + str(int(interest[:,:,2].mean() + (np.std(interest[:,:,2]) * 2)))
                 + " Min Recomended R: " + str(int(interest[:,:,2].mean() - (np.std(interest[:,:,2]) * 2)))
             )
-        flag = False
+        """
     cv2.imshow("camera", raw_frame)
     cv2.setMouseCallback('camera', mouse_event)
     cv2.waitKey(1)
