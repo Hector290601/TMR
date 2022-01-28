@@ -20,10 +20,10 @@ def crop_frame(frame_cannied):
     polygon = np.array(
             [
                 [
-                    (0, 400),
-                    (640, 400),
-                    (640, 180),
-                    (0, 180)
+                    (0, 428),
+                    (640, 428),
+                    (640, 355),
+                    (0, 355)
                     ]
                 ]
             )
@@ -35,12 +35,12 @@ def crop_frame(frame_cannied):
 def color_seg(frame_color, frame_gray, frame_interest):
     color_max = np.array(
             [
-                255, 255, 255
+                203, 196, 193
                 ]
             )
     color_min = np.array(
             [
-                79, 73, 57
+                21, 22, 16
                 ]
             )
     color_mask = cv2.bitwise_and(frame_color, frame_color, mask=frame_interest)
