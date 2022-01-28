@@ -9,7 +9,8 @@ import cv2
 import numpy as np
 import math
 
-lanes_to_publish = ""
+lanes_to_publish_left = ""
+lanes_to_publish_right = ""
 
 def canny_frame(frame_gray):
     blured_frame = cv2.GaussianBlur(frame_gray, (5, 5), 0)
@@ -77,7 +78,7 @@ def make_coordinates(coordinates_frame, line_params):
         return np.array([0, 0, 0, 0])
 
 def callback_raw_image(data):
-    global lanes_to_publish
+    global lanes_to_publish_left, lanes_to_publish_right
     brdg = CvBridge()
     raw_frame = brdg.imgmsg_to_cv2(data)
     coppied_frame = np.copy(raw_frame)
@@ -88,30 +89,33 @@ def callback_raw_image(data):
     possible_lines_p = cv2.HoughLinesP(color_frame, 1, np.pi/180, 50, 
             minLineLength=20, maxLineGap=50)
     possible_lines = cv2.HoughLines(color_frame, 1, np.pi/180, 50)
-    lines = []
+    linesL = []
+    linesR = []
     if possible_lines_p is not None:
-        for line in possible_lines_p:
-            for points in line:
-                for number in points:
-                    lines.append(number)
         averaged_lines = averaged_slope_intercept(raw_frame, possible_lines_p)# 50
         left = averaged_lines.reshape(8)[:4]
+        for line in left:
+                linesL.append(line)
         right = averaged_lines.reshape(8)[4:]
-        cv2.line(raw_frame, left[:2], left[2:], (255, 0, 0), 3)
-        cv2.line(raw_frame, right[:2], right[2:], (0, 255, 0), 3)
-        print(left)
-    lanes_to_publish = np.array(lines, dtype=np.float32)
-    cv2.imshow("raw_frame", raw_frame)
-    cv2.waitKey(1)
+        for line in right:
+                linesR.append(line)
+        #cv2.line(raw_frame, left[:2], left[2:], (255, 0, 0), 3)
+        #cv2.line(raw_frame, right[:2], right[2:], (0, 255, 0), 3)
+    lanes_to_publish_left = np.array(linesL, dtype=np.float32)
+    lanes_to_publish_right = np.array(linesR, dtype=np.float32)
+    #cv2.imshow("raw_frame", raw_frame)
+    #cv2.waitKey(1)
 
 def main():
-    global lanes_to_publish
+    global lanes_to_publish_left, lanes_to_publish_right
     rospy.init_node('raw_img_subscriber', anonymous = True)
     rospy.Subscriber('/raw_image', Image, callback_raw_image)
-    lanes_publisher = rospy.Publisher("/raw_lanes", numpy_msg(Floats), queue_size=10)
+    lanes_publisherL = rospy.Publisher("/raw_lanes_left", numpy_msg(Floats), queue_size=10)
+    lanes_publisherR = rospy.Publisher("/raw_lanes_right", numpy_msg(Floats), queue_size=10)
     loop = rospy.Rate(10)
     while not rospy.is_shutdown():
-        lanes_publisher.publish(lanes_to_publish)
+        lanes_publisherL.publish(lanes_to_publish_left)
+        lanes_publisherR.publish(lanes_to_publish_right)
         loop.sleep()
 
     cv2.destroyAllWindows()
