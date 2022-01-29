@@ -8,6 +8,7 @@ from rospy_tutorials.msg import Floats
 import cv2
 import numpy as np
 import math
+import os
 
 lanes_to_publish_left = ""
 lanes_to_publish_right = ""
@@ -52,8 +53,15 @@ def averaged_slope_intercept(intercept_frame, intercept_lines):
     left_fit = []
     right_fit = []
     for line in intercept_lines:
-        x1, y1, x2, y2 = line.reshape(4)
-        params = np.polyfit((x1, x2), (y1, y2), 1)
+        rho = line[0][0]
+        theta = line[0][1]
+        a = math.cos(theta)
+        b = math.sin(theta)
+        x1 = a * rho
+        y1 = b * rho
+        pt1 = (int(x1 + 1000 * (-b)), int(y1 + 1000 * (a)))
+        pt2 = (int(x1 - 100 * (-b)), int(y1 - 100 * (a)))
+        params = np.polyfit(pt1, pt2, 1)
         slope = params[0]
         intercept = params[1]
         if slope < 0:
@@ -91,20 +99,36 @@ def callback_raw_image(data):
     possible_lines = cv2.HoughLines(color_frame, 1, np.pi/180, 50)
     linesL = []
     linesR = []
-    if possible_lines_p is not None:
-        averaged_lines = averaged_slope_intercept(raw_frame, possible_lines_p)# 50
+    if possible_lines is not None:
+        os.system("clear")
+        print(possible_lines)
+        for line in possible_lines:
+            rho = line[0][0]
+            theta = line[0][1]
+            a = math.cos(theta)
+            b = math.sin(theta)
+            x1 = a * rho
+            y1 = b * rho
+            pt1 = (int(x1 + 1000 * (-b)), int(y1 + 1000 * (a)))
+            pt2 = (int(x1 - 1000 * (-b)), int(y1 - 1000 * (a)))
+            if rho <= 340:
+                cv2.line(raw_frame, pt1, pt2, (255, 0, 0), 3)
+            elif rho >= 340:
+                cv2.line(raw_frame, pt1, pt2, (0, 255, 0), 3)
+        """
+        averaged_lines = averaged_slope_intercept(raw_frame, possible_lines)# 50
         left = averaged_lines.reshape(8)[:4]
         for line in left:
                 linesL.append(line)
         right = averaged_lines.reshape(8)[4:]
         for line in right:
                 linesR.append(line)
-        #cv2.line(raw_frame, left[:2], left[2:], (255, 0, 0), 3)
-        #cv2.line(raw_frame, right[:2], right[2:], (0, 255, 0), 3)
-    lanes_to_publish_left = np.array(linesL, dtype=np.float32)
-    lanes_to_publish_right = np.array(linesR, dtype=np.float32)
-    #cv2.imshow("raw_frame", raw_frame)
-    #cv2.waitKey(1)
+        cv2.line(raw_frame, right[:2], right[2:], (0, 255, 0), 3)
+        """
+    #lanes_to_publish_left = np.array(linesL, dtype=np.float32)
+    #lanes_to_publish_right = np.array(linesR, dtype=np.float32)
+    cv2.imshow("raw_frame", raw_frame)
+    cv2.waitKey(1)
 
 def main():
     global lanes_to_publish_left, lanes_to_publish_right
