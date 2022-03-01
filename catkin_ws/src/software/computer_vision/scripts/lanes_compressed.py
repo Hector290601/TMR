@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 import rospy
-from sensor_msgs.msg import Image
+from std_msgs.msg import UInt8
 from cv_bridge import CvBridge
 from rospy.numpy_msg import numpy_msg
 from rospy_tutorials.msg import Floats
@@ -106,8 +106,8 @@ def make_coordinates(coordinates_frame, line_params):
 
 def callback_raw_image(data):
     global lanes_to_publish_left, lanes_to_publish_right
-    brdg = CvBridge()
-    raw_frame = brdg.imgmsg_to_cv2(data)
+    frame = np.asarray(bytearray(data.read()), dtype="uint8")
+    raw_frame = cv2.imdecode(frame, cv2.IMREAD_COLOR)
     coppied_frame = np.copy(raw_frame)
     gray_frame = cv2.cvtColor(raw_frame, cv2.COLOR_BGR2GRAY)
     cannied_frame = canny_frame(gray_frame) #10
@@ -119,23 +119,6 @@ def callback_raw_image(data):
     linesL = []
     linesR = []
     if possible_lines_p is not None:
-        """
-        os.system("clear")
-        print(possible_lines)
-        for line in possible_lines:
-            rho = line[0][0]
-            theta = line[0][1]
-            a = math.cos(theta)
-            b = math.sin(theta)
-            x1 = a * rho
-            y1 = b * rho
-            pt1 = (int(x1 + 1000 * (-b)), int(y1 + 1000 * (a)))
-            pt2 = (int(x1 - 1000 * (-b)), int(y1 - 1000 * (a)))
-            if rho <= 340:
-                cv2.line(raw_frame, pt1, pt2, (255, 0, 0), 3)
-            elif rho >= 340:
-                cv2.line(raw_frame, pt1, pt2, (0, 255, 0), 3)
-        """
         averaged_lines = averaged_slope_intercept(raw_frame, possible_lines_p)# 50
         left = averaged_lines.reshape(8)[:4]
         for line in left:
@@ -155,7 +138,7 @@ def callback_raw_image(data):
 def main():
     global lanes_to_publish_left, lanes_to_publish_right
     rospy.init_node('raw_img_subscriber', anonymous = True)
-    rospy.Subscriber('/raw_image', Image, callback_raw_image)
+    rospy.Subscriber('/raw_image', UInt8, callback_raw_image)
     lanes_publisherL = rospy.Publisher("/raw_lanes_left", numpy_msg(Floats), queue_size=10)
     lanes_publisherR = rospy.Publisher("/raw_lanes_right", numpy_msg(Floats), queue_size=10)
     loop = rospy.Rate(10)

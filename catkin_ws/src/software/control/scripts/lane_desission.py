@@ -11,17 +11,23 @@ left_lines = ""
 right_lines = ""
 
 def decide():
-
+    global left_lines, right_lines
+    left = (left_lines[0] + left_lines[2])
+    right = (right_lines[0] + right_lines[2])
+    summed = right - left
+    if summed >= 1.7 or summed <= 1.5:
+        print(summed)
+        if right <= -0.11:
+            #publish steering like 0.5
+        elif 
 
 def callback_left(msg):
     global left_lines
     left_lines = msg.data
-    print("left: " + str(left_lines))
 
 def callback_right(msg):
     global right_lines
     right_lines = msg.data
-    print("right: " + str(right_lines))
 
 def main():
     print("INITIALIZING LANES CONTROL NODE...")
