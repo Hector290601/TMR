@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 import rospy
+import random
 from sensor_msgs.msg import Image
 from cv_bridge import CvBridge
 from rospy.numpy_msg import numpy_msg
@@ -49,7 +50,7 @@ def color_seg(frame_color, frame_gray, frame_interest):
     ranged_frame = cv2.inRange(color_mask, color_min, color_max)
     return ranged_frame
 
-def averaged_slope_intercept_p(intercept_frame, intercept_lines):
+def averaged_slope_intercept(intercept_frame, intercept_lines):
     left_fit = []
     right_fit = []
     for line in intercept_lines:
@@ -64,17 +65,17 @@ def averaged_slope_intercept_p(intercept_frame, intercept_lines):
         params = np.polyfit(pt1, pt2, 1)
         slope = params[0]
         intercept = params[1]
-        if slope < 0:
-            left_fit.append((slope, intercept))
-        else:
+        if rho < 250:
             right_fit.append((slope, intercept))
+        elif rho > 350:
+            left_fit.append((slope, intercept))
     left_average = np.average(left_fit, axis = 0)
     right_average = np.average(right_fit, axis = 0)
     left_line = make_coordinates(intercept_frame, left_average) # 67
     right_line = make_coordinates(intercept_frame, right_average) # 67
     return np.array([left_line, right_line])
 
-def averaged_slope_intercept(intercept_frame, intercept_lines):
+def averaged_slope_intercept_p(intercept_frame, intercept_lines):
     left_fit = []
     right_fit = []
     for line in intercept_lines:
@@ -82,7 +83,6 @@ def averaged_slope_intercept(intercept_frame, intercept_lines):
         params = np.polyfit((x1, y1), (x2, y2), 1)
         slope = params[0]
         intercept = params[1]
-        print(slope)
         if slope < 0:
             left_fit.append((slope, intercept))
         else:
@@ -105,6 +105,10 @@ def make_coordinates(coordinates_frame, line_params):
         return np.array([0, 0, 0, 0])
 
 def callback_raw_image(data):
+    font = cv2.FONT_HERSHEY_SIMPLEX
+    org = (50, 50)
+    font_scale = 1
+    thickness = 2
     global lanes_to_publish_left, lanes_to_publish_right
     brdg = CvBridge()
     raw_frame = brdg.imgmsg_to_cv2(data)
@@ -119,46 +123,52 @@ def callback_raw_image(data):
     linesL = []
     linesR = []
     if possible_lines_p is not None:
-        """
-        os.system("clear")
-        print(possible_lines)
+        l = 0
+        r = 0
         for line in possible_lines:
             rho = line[0][0]
-            theta = line[0][1]
-            a = math.cos(theta)
-            b = math.sin(theta)
-            x1 = a * rho
-            y1 = b * rho
-            pt1 = (int(x1 + 1000 * (-b)), int(y1 + 1000 * (a)))
-            pt2 = (int(x1 - 1000 * (-b)), int(y1 - 1000 * (a)))
-            if rho <= 340:
-                cv2.line(raw_frame, pt1, pt2, (255, 0, 0), 3)
-            elif rho >= 340:
-                cv2.line(raw_frame, pt1, pt2, (0, 255, 0), 3)
-        """
-        averaged_lines = averaged_slope_intercept(raw_frame, possible_lines_p)# 50
-        left = averaged_lines.reshape(8)[:4]
+            if rho < 400:
+                theta = line[0][1]
+                a = math.cos(theta)
+                b = math.sin(theta)
+                x1 = a * rho
+                y1 = b * rho
+                pt1 = (int(x1 + 1000 * (-b)), int(y1 + 1000 * (a)))
+                pt2 = (int(x1 - 1000 * (-b)), int(y1 - 1000 * (a)))
+                color = rho % 255 + random.randint(0, 255 - rho % 255)
+                if rho < 250:
+                    cv2.line(raw_frame, pt1, pt2, (color, 0, 0), 3)
+                    raw_frame = cv2.putText(raw_frame, str(rho), (50, 50 * l + 50), font, font_scale, (color, 0, 0), thickness, cv2.LINE_AA)
+                    l += 1
+                elif rho > 350:
+                    cv2.line(raw_frame, pt1, pt2, (0, color, 0), 3)
+                    raw_frame = cv2.putText(raw_frame, str(rho), (150, 50 * r + 50), font, font_scale, (0, color, 0), thickness, cv2.LINE_AA)
+                    r += 1
+        averaged_lines = averaged_slope_intercept(raw_frame, possible_lines)# 50
+        left = averaged_lines.reshape(8)[4:]
         for line in left:
                 linesL.append(line)
-                print("left: " + str(line))
-        right = averaged_lines.reshape(8)[4:]
+        right = averaged_lines.reshape(8)[:4]
         for line in right:
                 linesR.append(line)
-                print("right: " + str(line))
+                """
         cv2.line(raw_frame, right[:2], right[2:], (0, 255, 0), 3)
         cv2.line(raw_frame, left[:2], left[2:], (255, 0, 0), 3)
+                """
     lanes_to_publish_left = np.array(linesL, dtype=np.float32)
     lanes_to_publish_right = np.array(linesR, dtype=np.float32)
-    cv2.imshow("frame", cannied_frame)
+    cv2.imshow("frame", raw_frame)
     cv2.waitKey(1)
 
 def main():
+    print("INITIALIZING NODE")
     global lanes_to_publish_left, lanes_to_publish_right
     rospy.init_node('raw_img_subscriber', anonymous = True)
     rospy.Subscriber('/raw_image', Image, callback_raw_image)
     lanes_publisherL = rospy.Publisher("/raw_lanes_left", numpy_msg(Floats), queue_size=10)
     lanes_publisherR = rospy.Publisher("/raw_lanes_right", numpy_msg(Floats), queue_size=10)
     loop = rospy.Rate(10)
+    print("NODE INITIALIZED SUCCESFULLY")
     while not rospy.is_shutdown():
         lanes_publisherL.publish(lanes_to_publish_left)
         lanes_publisherR.publish(lanes_to_publish_right)
