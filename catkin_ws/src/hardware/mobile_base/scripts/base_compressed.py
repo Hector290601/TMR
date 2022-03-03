@@ -6,7 +6,7 @@ import time
 import math
 import cv2
 import rospy
-from std_msgs.msg import Float32, UInt8
+from std_msgs.msg import Float32, UInt8MultiArray
 from sensor_msgs.msg import LaserScan, Image
 from cv_bridge import CvBridge
 
@@ -30,7 +30,7 @@ def main():
     global steering, speed
     print("INITIALIZING HARDWARE CONTROL NODE...")
     rospy.init_node("mobile_base")
-    img_publisher = rospy.Publisher("/raw_image", UInt8, queue_size=10)
+    img_publisher = rospy.Publisher("/compressed_image", UInt8MultiArray, queue_size=10)
     rospy.Subscriber("/steering", Float32, callback_steering)
     rospy.Subscriber("/speed", Float32, callback_speed)
     loop = rospy.Rate(10)
@@ -48,6 +48,7 @@ def main():
     cap = cv2.VideoCapture(0)
     brdg = CvBridge()
     print("ALL SUCCESFULLY INITIALIZED")
+    msg_compressed = UInt8MultiArray()
     while not rospy.is_shutdown():
         dutySpeed, dutySteering=AngleToDuty(speed, steering)
         servo.ChangeDutyCycle(dutySteering)
@@ -55,7 +56,8 @@ def main():
         ret, frame = cap.read()
         if ret == True:
             _, frame = cv2.imencode('.JPEG', frame)
-            img_publisher.publish(frame)
+            msg_compressed.data = frame
+            img_publisher.publish(msg_compressed)
         loop.sleep() 
     servo.stop()
     motor.stop()
