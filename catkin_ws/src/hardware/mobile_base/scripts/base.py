@@ -15,7 +15,7 @@ speed = 0
 
 def AngleToDuty(speed, steering):
     dutySteering = 6.0 * steering / math.pi + 2.5
-    dutySpeed = speed + 9
+    dutySpeed = speed
     return dutySpeed, dutySteering
 
 def callback_steering(msg):
@@ -24,7 +24,7 @@ def callback_steering(msg):
 
 def callback_speed(msg):
     global speed
-    speed = msg.data
+    speed = msg.data #Speed in PWM
 
 def main():
     global steering, speed
@@ -33,7 +33,7 @@ def main():
     img_publisher = rospy.Publisher("/raw_image", Image, queue_size=10)
     rospy.Subscriber("/steering", Float32, callback_steering)
     rospy.Subscriber("/speed", Float32, callback_speed)
-    loop = rospy.Rate(10)
+    loop = rospy.Rate(60)
     servoPin = 12
     motorPin = 16
     GPIO.setmode(GPIO.BOARD)
@@ -50,6 +50,7 @@ def main():
     print("ALL SUCCESFULLY INITIALIZED")
     while not rospy.is_shutdown():
         dutySpeed, dutySteering=AngleToDuty(speed, steering)
+        print(dutySpeed)
         servo.ChangeDutyCycle(dutySteering)
         motor.ChangeDutyCycle(dutySpeed)
         ret, frame = cap.read()

@@ -9,17 +9,38 @@ import math
 
 left_lines = ""
 right_lines = ""
+const = 180/math.pi
+speed = 
+
+def error_rho(rho_left, rho_right):
+    e = ( 1/2 * (409 - rho_left) ) + ( 1/2 * (247 - rho_right) )
+    return e
+
+def error_theta(theta_left, theta_right):
+    e = ( 1/2 * (1.36 - theta_left) ) + ( 1/2 * (1.87 - theta_right) )
+    return e
 
 def decide():
-    global left_lines, right_lines
-    left = (left_lines[0] + left_lines[2])
-    right = (right_lines[0] + right_lines[2])
-    summed = right - left
-    if summed >= 1.7 or summed <= 1.5:
-        print(summed)
-        if right <= -0.11:
-            #publish steering like 0.5
-        elif 
+    global left_lines, right_lines, const
+    rho_left = 0
+    theta_left = 0
+    rho_right = 0
+    theta_right = 0
+    if len(left_lines) == 2:
+        rho_left = left_lines[0]
+        theta_left = left_lines[1]
+        grad_left = theta_left * const
+        #print("left: " + str([grad_left, theta_left, rho_left]))
+    if len(right_lines) == 2:
+        rho_right = right_lines[0]
+        theta_right = right_lines[1]
+        grad_right = theta_right * const
+        #print("right: " + str([grad_right, theta_right, rho_right]))
+    if rho_left != 0 and rho_right != 0:
+        e_rho = error_rho(rho_left, rho_right)
+        e_theta = error_theta(theta_left, theta_right)
+        print("errores: " + str([e_rho, e_theta]))
+
 
 def callback_left(msg):
     global left_lines
@@ -30,14 +51,19 @@ def callback_right(msg):
     right_lines = msg.data
 
 def main():
+    global speed_value, steering_value
     print("INITIALIZING LANES CONTROL NODE...")
     rospy.init_node('hardware_control', anonymous=True)
     speed = rospy.Publisher('/speed', Float32, queue_size=10)
     steering = rospy.Publisher('/steering', Float32, queue_size=10)
     rospy.Subscriber("/raw_lanes_left", Floats, callback_left)
     rospy.Subscriber("/raw_lanes_right", Floats, callback_right)
-    loop = rospy.Rate(10)
+    loop = rospy.Rate(60)
+    print("NODE INITIALIZED SUCCESFULLY")
     while not rospy.is_shutdown():
+        decide()
+        speed.publish(speed_value)
+        steering.publis(steering_value)
         loop.sleep()
 main()
 
