@@ -23,10 +23,10 @@ def crop_frame(frame_cannied):
     polygon = np.array(
             [
                 [
-                    (0, 428),
-                    (640, 428),
-                    (640, 355),
-                    (0, 355)
+                    (0, 240),
+                    (0, 480),
+                    (640, 480),
+                    (640, 240)
                     ]
                 ]
             )
@@ -38,7 +38,7 @@ def crop_frame(frame_cannied):
 def color_seg(frame_color, frame_gray, frame_interest):
     color_max = np.array(
             [
-                203, 196, 193
+                200, 200, 200
                 ]
             )
     color_min = np.array(
@@ -51,10 +51,6 @@ def color_seg(frame_color, frame_gray, frame_interest):
     return ranged_frame
 
 def callback_raw_image(data):
-    font = cv2.FONT_HERSHEY_SIMPLEX
-    org = (50, 50)
-    font_scale = 1
-    thickness = 2
     global lanes_to_publish_left, lanes_to_publish_right
     brdg = CvBridge()
     raw_frame = brdg.imgmsg_to_cv2(data)
@@ -90,7 +86,6 @@ def callback_raw_image(data):
         if l != 0:
             prom_left_rho = left_rho / l
             prom_left_theta = left_theta / l
-            """
             a = math.cos(prom_left_theta)
             b = math.sin(prom_left_theta)
             x1 = a * prom_left_rho
@@ -98,7 +93,6 @@ def callback_raw_image(data):
             pt1 = (int(x1 + 1000 * (-b)), int(y1 + 1000 * (a)))
             pt2 = (int(x1 - 1000 * (-b)), int(y1 - 1000 * (a)))
             cv2.line(raw_frame, pt1, pt2, (255, 0, 0), 3)
-            """
             linesL = [
                     prom_left_rho,
                     prom_left_theta,
@@ -106,7 +100,6 @@ def callback_raw_image(data):
         if r != 0:
             prom_right_rho = right_rho / r
             prom_right_theta = right_theta / r
-            """
             a = math.cos(prom_right_theta)
             b = math.sin(prom_right_theta)
             x1 = a * prom_right_rho
@@ -114,17 +107,14 @@ def callback_raw_image(data):
             pt1 = (int(x1 + 1000 * (-b)), int(y1 + 1000 * (a)))
             pt2 = (int(x1 - 1000 * (-b)), int(y1 - 1000 * (a)))
             cv2.line(raw_frame, pt1, pt2, (0, 255, 0), 3)
-            """
             linesR = [
                     prom_right_rho,
                     prom_right_theta
                     ]
     lanes_to_publish_left = np.array(linesL, dtype=np.float32)
     lanes_to_publish_right = np.array(linesR, dtype=np.float32)
-    """
     cv2.imshow("frame", raw_frame)
     cv2.waitKey(1)
-    """
 
 def main():
     print("INITIALIZING NODE")

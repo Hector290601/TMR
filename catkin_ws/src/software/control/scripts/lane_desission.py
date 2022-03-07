@@ -10,7 +10,7 @@ import math
 left_lines = ""
 right_lines = ""
 const = 180/math.pi
-speed = 
+steering_value = Float32(0)
 
 def error_rho(rho_left, rho_right):
     e = ( 1/2 * (409 - rho_left) ) + ( 1/2 * (247 - rho_right) )
@@ -62,8 +62,8 @@ def main():
     print("NODE INITIALIZED SUCCESFULLY")
     while not rospy.is_shutdown():
         decide()
-        speed.publish(speed_value)
-        steering.publis(steering_value)
+        speed.publish(0.0)
+        steering.publish(steering_value)
         loop.sleep()
 main()
 
