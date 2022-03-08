@@ -33,16 +33,21 @@ def decide():
         rho_left = left_lines[0]
         theta_left = left_lines[1]
         grad_left = theta_left * const
-        print("left: " + str([grad_left, theta_left, rho_left]))
     if len(right_lines) == 2:
         rho_right = right_lines[0]
         theta_right = right_lines[1]
         grad_right = theta_right * const
-        print("right: " + str([grad_right, theta_right, rho_right]))
     if rho_left != 0 and rho_right != 0:
         e_rho = error_rho(rho_left, rho_right)
         e_theta = error_theta(theta_left, theta_right)
-        print("errores: " + str([e_rho, e_theta]))
+        print("e_rho" + str(e_rho))
+        print("e_theta" + str(e_theta))
+        strng = math.cos(e_theta) + math.sin(e_theta)
+        print("steering: " + str(strng))
+    else:
+        strng = 0
+    spd = 0.05
+    return spd, strng
 
 
 def callback_left(msg):
@@ -64,7 +69,7 @@ def main():
     loop = rospy.Rate(60)
     print("NODE INITIALIZED SUCCESFULLY")
     while not rospy.is_shutdown():
-        decide()
+        speed_value, steering_value = decide()
         speed.publish(speed_value)
         steering.publish(steering_value)
         loop.sleep()
