@@ -11,6 +11,7 @@ left_lines = ""
 right_lines = ""
 const = 180/math.pi
 steering_value = Float32(0)
+speed_valie = Float32(0)
 
 def error_rho(rho_left, rho_right):
     e = ( 1/2 * (409 - rho_left) ) + ( 1/2 * (247 - rho_right) )
@@ -21,7 +22,9 @@ def error_theta(theta_left, theta_right):
     return e
 
 def decide():
-    global left_lines, right_lines, const
+    global left_lines, right_lines, const, speed_value, steering_value
+    speed_value = 0.1
+    steering_value = 0.0
     rho_left = 0
     theta_left = 0
     rho_right = 0
@@ -30,12 +33,12 @@ def decide():
         rho_left = left_lines[0]
         theta_left = left_lines[1]
         grad_left = theta_left * const
-        #print("left: " + str([grad_left, theta_left, rho_left]))
+        print("left: " + str([grad_left, theta_left, rho_left]))
     if len(right_lines) == 2:
         rho_right = right_lines[0]
         theta_right = right_lines[1]
         grad_right = theta_right * const
-        #print("right: " + str([grad_right, theta_right, rho_right]))
+        print("right: " + str([grad_right, theta_right, rho_right]))
     if rho_left != 0 and rho_right != 0:
         e_rho = error_rho(rho_left, rho_right)
         e_theta = error_theta(theta_left, theta_right)
@@ -62,7 +65,7 @@ def main():
     print("NODE INITIALIZED SUCCESFULLY")
     while not rospy.is_shutdown():
         decide()
-        speed.publish(0.0)
+        speed.publish(speed_value)
         steering.publish(steering_value)
         loop.sleep()
 main()

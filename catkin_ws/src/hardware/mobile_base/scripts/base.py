@@ -50,7 +50,6 @@ def main():
     print("ALL SUCCESFULLY INITIALIZED")
     while not rospy.is_shutdown():
         dutySpeed, dutySteering=AngleToDuty(speed, steering)
-        print(dutySpeed)
         servo.ChangeDutyCycle(dutySteering)
         motor.ChangeDutyCycle(dutySpeed)
         ret, frame = cap.read()
