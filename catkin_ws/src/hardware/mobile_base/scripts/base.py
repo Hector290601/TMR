@@ -21,6 +21,7 @@ def AngleToDuty(speed, steering):
 def callback_steering(msg):
     global steering
     steering = msg.data #Steering in radians
+    steering = float(steering)/10.+5.
 
 def callback_speed(msg):
     global speed
@@ -44,7 +45,7 @@ def main():
     servo = GPIO.PWM(servoPin, 50)
     servo.start(2.5)
     motor = GPIO.PWM(motorPin, 60.2)
-    motor.start(9)
+    motor.start(0)
     cap = cv2.VideoCapture(0)
     brdg = CvBridge()
     print("ALL SUCCESFULLY INITIALIZED")
