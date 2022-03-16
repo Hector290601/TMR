@@ -94,7 +94,7 @@ def callback_raw_image(data):
             pt1 = (int(x1 + 1000 * (-b)), int(y1 + 1000 * (a)))
             pt2 = (int(x1 - 1000 * (-b)), int(y1 - 1000 * (a)))
             cv2.line(raw_frame, pt1, pt2, (255, 0, 0), 3)
-            """
+            #"""
             linesL = [
                     prom_left_rho,
                     prom_left_theta,
@@ -110,7 +110,7 @@ def callback_raw_image(data):
             pt1 = (int(x1 + 1000 * (-b)), int(y1 + 1000 * (a)))
             pt2 = (int(x1 - 1000 * (-b)), int(y1 - 1000 * (a)))
             cv2.line(raw_frame, pt1, pt2, (0, 255, 0), 3)
-            """
+            #"""
             linesR = [
                     prom_right_rho,
                     prom_right_theta
@@ -120,7 +120,7 @@ def callback_raw_image(data):
     """
     cv2.imshow("frame", raw_frame)
     cv2.waitKey(1)
-    """
+    #"""
 
 def main():
     print("INITIALIZING NODE")

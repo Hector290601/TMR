@@ -44,7 +44,27 @@ def decide():
         with open("values.csv", 'a') as f:
             f.write(str(e_rho) + ", " + str(e_theta) + "\n")
             f.close()
-        strng = - ( e_rho + e_theta ) % 0.44
+        strng = - ( e_rho + e_theta ) * 3
+        print("steering: " + str(strng))
+        spd = 10
+    elif rho_left != 0:
+        e_rho = ( 2.17737162539248 - error_rho(rho_left, rho_left) ) * 0.1
+        e_theta = ( 0.006019229902828 - error_theta(theta_left, theta_left) )
+        print(str(e_rho) + ", " + str(e_theta))
+        with open("values.csv", 'a') as f:
+            f.write(str(e_rho) + ", " + str(e_theta) + "n")
+            f.close()
+        strng = - ( e_rho + e_theta ) * .1
+        print("steering: " + str(strng))
+        spd = 9.5
+    elif rho_right != 0:
+        e_rho = ( 2.17737162539248 - error_rho(rho_right, rho_right) ) * 0.1
+        e_theta = ( 0.006019229902828 - error_theta(theta_right, theta_right) )
+        print(str(e_rho) + ", " + str(e_theta))
+        with open("values.csv", 'a') as f:
+            f.write(str(e_rho) + ", " + str(e_theta) + "n")
+            f.close()
+        strng = - ( e_rho + e_theta ) * .1
         print("steering: " + str(strng))
         spd = 9.5
     else:
@@ -69,7 +89,7 @@ def main():
     steering = rospy.Publisher('/steering', Float32, queue_size=10)
     rospy.Subscriber("/raw_lanes_left", Floats, callback_left)
     rospy.Subscriber("/raw_lanes_right", Floats, callback_right)
-    loop = rospy.Rate(60)
+    loop = rospy.Rate(30)
     print("NODE INITIALIZED SUCCESFULLY")
     while not rospy.is_shutdown():
         speed_value, steering_value = decide()

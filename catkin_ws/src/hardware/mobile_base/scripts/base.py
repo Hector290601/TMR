@@ -14,14 +14,13 @@ steering = 0
 speed = 0
 
 def AngleToDuty(speed, steering):
-    dutySteering = 6.0 * steering / math.pi + 2.5
+    dutySteering = float(steering) / 10. + 5.
     dutySpeed = speed
     return dutySpeed, dutySteering
 
 def callback_steering(msg):
     global steering
     steering = msg.data #Steering in radians
-    steering = float(steering)/10.+5.
 
 def callback_speed(msg):
     global speed
@@ -42,8 +41,8 @@ def main():
     GPIO.setup(motorPin,GPIO.OUT)
     steering = 0
     speed = 0
-    servo = GPIO.PWM(servoPin, 50)
-    servo.start(2.5)
+    servo = GPIO.PWM(servoPin, 100)
+    servo.start(50)
     motor = GPIO.PWM(motorPin, 60.2)
     motor.start(0)
     cap = cv2.VideoCapture(0)
