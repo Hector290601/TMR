@@ -16,7 +16,7 @@ lanes_to_publish_right = ""
 
 def canny_frame(frame_gray):
     blured_frame = cv2.GaussianBlur(frame_gray, (5, 5), 0)
-    cannied_frame = cv2.Canny(blured_frame, 100, 200)
+    cannied_frame = cv2.Canny(blured_frame, 50, 200)
     return cannied_frame
 
 def crop_frame(frame_cannied):

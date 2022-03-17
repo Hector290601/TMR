@@ -23,6 +23,7 @@ def error_theta(theta_left, theta_right):
 
 def decide():
     global left_lines, right_lines, const, speed_value, steering_value
+    spd_tmp = 9.2
     speed_value = 0.1
     steering_value = 0.0
     rho_left = 0
@@ -46,7 +47,7 @@ def decide():
             f.close()
         strng = (- ( e_rho + e_theta )) % .44
         print("steering: " + str(strng))
-        spd = 8.8
+        spd = spd_tmp + .1
     elif rho_left != 0:
         e_rho = ( 2.17737162539248 - error_rho(rho_left, rho_left) ) * 0.1
         e_theta = ( 0.006019229902828 - error_theta(theta_left, theta_left) )
@@ -56,7 +57,7 @@ def decide():
             f.close()
         strng = -( (( e_rho + e_theta ) * .1) % .44)
         print("steering l: " + str(strng))
-        spd = 8.6
+        spd = spd_tmp
     elif rho_right != 0:
         e_rho = ( 2.17737162539248 - error_rho(rho_right, rho_right) ) * 0.1
         e_theta = ( 0.006019229902828 - error_theta(theta_right, theta_right) )
@@ -66,10 +67,10 @@ def decide():
             f.close()
         strng = -( ( ( e_rho + e_theta )  * .1) % .44)
         print("steering r: " + str(strng))
-        spd = 8.6
+        spd = spd_tmp
     else:
         strng = 0
-        spd = 8.5
+        spd = spd_tmp
     return spd, strng
 
 
@@ -82,24 +83,22 @@ def callback_right(msg):
     right_lines = msg.data
 
 def main():
-    try:
-        global speed_value, steering_value
-        print("INITIALIZING LANES CONTROL NODE...")
-        rospy.init_node('hardware_control', anonymous=True)
-        speed = rospy.Publisher('/speed', Float32, queue_size=10)
-        steering = rospy.Publisher('/steering', Float32, queue_size=10)
-        rospy.Subscriber("/raw_lanes_left", Floats, callback_left)
-        rospy.Subscriber("/raw_lanes_right", Floats, callback_right)
-        loop = rospy.Rate(30)
-        print("NODE INITIALIZED SUCCESFULLY")
-        while not rospy.is_shutdown():
-            speed_value, steering_value = decide()
-            speed.publish(speed_value)
-            steering.publish(steering_value)
-            loop.sleep()
-    except KeyboardInterrupt:
-            speed.publish(0.0)
-            steering.publish(0.0)
+    global speed_value, steering_value
+    print("INITIALIZING LANES CONTROL NODE...")
+    rospy.init_node('hardware_control', anonymous=True)
+    speed = rospy.Publisher('/speed', Float32, queue_size=10)
+    steering = rospy.Publisher('/steering', Float32, queue_size=10)
+    rospy.Subscriber("/raw_lanes_left", Floats, callback_left)
+    rospy.Subscriber("/raw_lanes_right", Floats, callback_right)
+    loop = rospy.Rate(60)
+    print("NODE INITIALIZED SUCCESFULLY")
+    while not rospy.is_shutdown():
+        speed_value, steering_value = decide()
+        speed.publish(speed_value)
+        steering.publish(steering_value)
+        loop.sleep()
+    speed.publish(0.0)
+    steering.publish(0.0)
 
 main()
 
