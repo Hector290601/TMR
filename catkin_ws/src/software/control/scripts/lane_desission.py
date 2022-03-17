@@ -14,15 +14,16 @@ steering_value = Float32(0)
 speed_valie = Float32(0)
 
 def error_rho(rho_left, rho_right):
-    e = ( 1/2 * (409 - rho_left) ) + ( 1/2 * (247 - rho_right) )
+    e = ( 1/2 * (370 - rho_left) ) + ( 1/2 * (200 - rho_right) )
     return e
 
 def error_theta(theta_left, theta_right):
-    e = ( 1/2 * (1.36 - theta_left) ) + ( 1/2 * (1.87 - theta_right) )
+    e = ( 1/2 * (1.33 - theta_left) ) + ( 1/2 * (1.9 - theta_right) )
     return e
 
 def decide():
     global left_lines, right_lines, const, speed_value, steering_value
+    spd_tmp = 9.2
     speed_value = 0.1
     steering_value = 0.0
     rho_left = 0
@@ -38,15 +39,38 @@ def decide():
         theta_right = right_lines[1]
         grad_right = theta_right * const
     if rho_left != 0 and rho_right != 0:
-        e_rho = error_rho(rho_left, rho_right)
-        e_theta = error_theta(theta_left, theta_right)
-        print("e_rho" + str(e_rho))
-        print("e_theta" + str(e_theta))
-        strng = math.cos(e_theta) + math.sin(e_theta)
+        e_rho = ( 2.17737162539248 - error_rho(rho_left, rho_right) ) * 0.1
+        e_theta = ( 0.006019229902828 - error_theta(theta_left, theta_right) )
+        print(str(e_rho) + ", " + str(e_theta))
+        with open("values.csv", 'a') as f:
+            f.write(str(e_rho) + ", " + str(e_theta) + "\n")
+            f.close()
+        strng = (- ( e_rho + e_theta )) % .44
         print("steering: " + str(strng))
+        spd = spd_tmp + .1
+    elif rho_left != 0:
+        e_rho = ( 2.17737162539248 - error_rho(rho_left, rho_left) ) * 0.1
+        e_theta = ( 0.006019229902828 - error_theta(theta_left, theta_left) )
+        print(str(e_rho) + ", " + str(e_theta))
+        with open("values.csv", 'a') as f:
+            f.write(str(e_rho) + ", " + str(e_theta) + "n")
+            f.close()
+        strng = -( (( e_rho + e_theta ) * .1) % .44)
+        print("steering l: " + str(strng))
+        spd = spd_tmp
+    elif rho_right != 0:
+        e_rho = ( 2.17737162539248 - error_rho(rho_right, rho_right) ) * 0.1
+        e_theta = ( 0.006019229902828 - error_theta(theta_right, theta_right) )
+        print(str(e_rho) + ", " + str(e_theta))
+        with open("values.csv", 'a') as f:
+            f.write(str(e_rho) + ", " + str(e_theta) + "n")
+            f.close()
+        strng = -( ( ( e_rho + e_theta )  * .1) % .44)
+        print("steering r: " + str(strng))
+        spd = spd_tmp
     else:
         strng = 0
-    spd = 0.05
+        spd = spd_tmp
     return spd, strng
 
 
@@ -73,5 +97,8 @@ def main():
         speed.publish(speed_value)
         steering.publish(steering_value)
         loop.sleep()
+    speed.publish(0.0)
+    steering.publish(0.0)
+
 main()
 

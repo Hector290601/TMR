@@ -14,7 +14,8 @@ steering = 0
 speed = 0
 
 def AngleToDuty(speed, steering):
-    dutySteering = 6.0 * steering / math.pi + 2.5
+    steering_deg = steering * (180 / math.pi)
+    dutySteering = float(steering_deg) / 10. + 5.
     dutySpeed = speed
     return dutySpeed, dutySteering
 
@@ -41,10 +42,10 @@ def main():
     GPIO.setup(motorPin,GPIO.OUT)
     steering = 0
     speed = 0
-    servo = GPIO.PWM(servoPin, 50)
-    servo.start(2.5)
+    servo = GPIO.PWM(servoPin, 100)
+    servo.start(5.0)
     motor = GPIO.PWM(motorPin, 60.2)
-    motor.start(9)
+    motor.start(0)
     cap = cv2.VideoCapture(0)
     brdg = CvBridge()
     print("ALL SUCCESFULLY INITIALIZED")

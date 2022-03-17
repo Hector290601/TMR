@@ -16,7 +16,7 @@ lanes_to_publish_right = ""
 
 def canny_frame(frame_gray):
     blured_frame = cv2.GaussianBlur(frame_gray, (5, 5), 0)
-    cannied_frame = cv2.Canny(blured_frame, 100, 200)
+    cannied_frame = cv2.Canny(blured_frame, 50, 200)
     return cannied_frame
 
 def crop_frame(frame_cannied):
@@ -58,8 +58,8 @@ def callback_raw_image(data):
     gray_frame = cv2.cvtColor(raw_frame, cv2.COLOR_BGR2GRAY)
     cannied_frame = canny_frame(gray_frame) #10
     interest_frame = crop_frame(cannied_frame) #15
-    color_frame = color_seg(coppied_frame, gray_frame, interest_frame) #31
-    possible_lines = cv2.HoughLines(color_frame, 1, np.pi/180, 50)
+    #color_frame = color_seg(coppied_frame, gray_frame, interest_frame) #31
+    possible_lines = cv2.HoughLines(interest_frame, 1, np.pi/180, 50)
     linesL = []
     linesR = []
     if possible_lines is not None:
