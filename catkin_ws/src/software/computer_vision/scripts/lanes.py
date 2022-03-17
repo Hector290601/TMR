@@ -86,7 +86,7 @@ def callback_raw_image(data):
         if l != 0:
             prom_left_rho = left_rho / l
             prom_left_theta = left_theta / l
-            """
+            #"""
             a = math.cos(prom_left_theta)
             b = math.sin(prom_left_theta)
             x1 = a * prom_left_rho
@@ -94,7 +94,7 @@ def callback_raw_image(data):
             pt1 = (int(x1 + 1000 * (-b)), int(y1 + 1000 * (a)))
             pt2 = (int(x1 - 1000 * (-b)), int(y1 - 1000 * (a)))
             cv2.line(raw_frame, pt1, pt2, (255, 0, 0), 3)
-            """
+            #"""
             linesL = [
                     prom_left_rho,
                     prom_left_theta,
@@ -102,7 +102,7 @@ def callback_raw_image(data):
         if r != 0:
             prom_right_rho = right_rho / r
             prom_right_theta = right_theta / r
-            """
+            #"""
             a = math.cos(prom_right_theta)
             b = math.sin(prom_right_theta)
             x1 = a * prom_right_rho
@@ -110,17 +110,17 @@ def callback_raw_image(data):
             pt1 = (int(x1 + 1000 * (-b)), int(y1 + 1000 * (a)))
             pt2 = (int(x1 - 1000 * (-b)), int(y1 - 1000 * (a)))
             cv2.line(raw_frame, pt1, pt2, (0, 255, 0), 3)
-            """
+            #"""
             linesR = [
                     prom_right_rho,
                     prom_right_theta
                     ]
     lanes_to_publish_left = np.array(linesL, dtype=np.float32)
     lanes_to_publish_right = np.array(linesR, dtype=np.float32)
-    """
+    #"""
     cv2.imshow("frame", raw_frame)
     cv2.waitKey(1)
-    """
+    #"""
 
 def main():
     print("INITIALIZING NODE")
