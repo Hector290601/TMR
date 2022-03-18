@@ -23,7 +23,7 @@ def error_theta(theta_left, theta_right):
 
 def decide():
     global left_lines, right_lines, const, speed_value, steering_value
-    spd_tmp = 9.0
+    spd_tmp = 9
     speed_value = 0.1
     steering_value = 0.0
     rho_left = 0

@@ -13,10 +13,11 @@ import os
 
 lanes_to_publish_left = ""
 lanes_to_publish_right = ""
+lane_publisherL, lane_publisherR = "", ""
 
 def canny_frame(frame_gray):
     blured_frame = cv2.GaussianBlur(frame_gray, (5, 5), 0)
-    cannied_frame = cv2.Canny(blured_frame, 50, 200)
+    cannied_frame = cv2.Canny(blured_frame, 70, 120)
     return cannied_frame
 
 def crop_frame(frame_cannied):
@@ -51,7 +52,7 @@ def color_seg(frame_color, frame_gray, frame_interest):
     return ranged_frame
 
 def callback_raw_image(data):
-    global lanes_to_publish_left, lanes_to_publish_right
+    global lanes_to_publish_left, lanes_to_publish_right, lane_publisherL, lane_publisherR
     brdg = CvBridge()
     raw_frame = brdg.imgmsg_to_cv2(data)
     coppied_frame = np.copy(raw_frame)
@@ -121,19 +122,19 @@ def callback_raw_image(data):
     cv2.imshow("frame", raw_frame)
     cv2.waitKey(1)
     #"""
+    lane_publisherL.publish(lanes_to_publish_left)
+    lane_publisherR.publish(lanes_to_publish_right)
 
 def main():
     print("INITIALIZING NODE")
-    global lanes_to_publish_left, lanes_to_publish_right
+    global lanes_to_publish_left, lanes_to_publish_right, lane_publisherL, lane_publisherR
     rospy.init_node('raw_img_subscriber', anonymous = True)
     rospy.Subscriber('/raw_image', Image, callback_raw_image)
-    lanes_publisherL = rospy.Publisher("/raw_lanes_left", numpy_msg(Floats), queue_size=10)
-    lanes_publisherR = rospy.Publisher("/raw_lanes_right", numpy_msg(Floats), queue_size=10)
+    lane_publisherL = rospy.Publisher("/raw_lanes_left", numpy_msg(Floats), queue_size=10)
+    lane_publisherR = rospy.Publisher("/raw_lanes_right", numpy_msg(Floats), queue_size=10)
     loop = rospy.Rate(60)
     print("NODE INITIALIZED SUCCESFULLY")
     while not rospy.is_shutdown():
-        lanes_publisherL.publish(lanes_to_publish_left)
-        lanes_publisherR.publish(lanes_to_publish_right)
         loop.sleep()
 
     cv2.destroyAllWindows()
