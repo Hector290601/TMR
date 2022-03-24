@@ -13,12 +13,26 @@ import os
 
 lanes_to_publish_left = ""
 lanes_to_publish_right = ""
+<<<<<<< HEAD
 lane_publisherL, lane_publisherR = "", ""
 
 def canny_frame(frame_gray):
     blured_frame = cv2.GaussianBlur(frame_gray, (5, 5), 0)
     cannied_frame = cv2.Canny(blured_frame, 70, 120)
     return cannied_frame
+=======
+max_val = 50
+min_val = 100
+k_size_x = 5
+k_size_y = 5
+
+
+def canny_frame(frame_gray):
+    global max_val, min_val, k_size_y, k_size_x
+    blured_frame = cv2.GaussianBlur(frame_gray, (k_size_y, k_size_x), 0)
+    cannied_frame = cv2.Canny(blured_frame, min_val, max_val)
+    return cannied_frame, blured_frame
+>>>>>>> c7c60b50faf5086fc08be1cdfb94f4034231886d
 
 def crop_frame(frame_cannied):
     polygon = np.array(
@@ -52,12 +66,16 @@ def color_seg(frame_color, frame_gray, frame_interest):
     return ranged_frame
 
 def callback_raw_image(data):
+<<<<<<< HEAD
     global lanes_to_publish_left, lanes_to_publish_right, lane_publisherL, lane_publisherR
+=======
+    global lanes_to_publish_left, lanes_to_publish_right, max_val, min_val, k_size_y, k_size_x
+>>>>>>> c7c60b50faf5086fc08be1cdfb94f4034231886d
     brdg = CvBridge()
     raw_frame = brdg.imgmsg_to_cv2(data)
     coppied_frame = np.copy(raw_frame)
     gray_frame = cv2.cvtColor(raw_frame, cv2.COLOR_BGR2GRAY)
-    cannied_frame = canny_frame(gray_frame) #10
+    cannied_frame, blured_frame = canny_frame(gray_frame) #10
     interest_frame = crop_frame(cannied_frame) #15
     #color_frame = color_seg(coppied_frame, gray_frame, interest_frame) #31
     possible_lines = cv2.HoughLines(interest_frame, 1, np.pi/180, 50)
@@ -87,7 +105,7 @@ def callback_raw_image(data):
         if l != 0:
             prom_left_rho = left_rho / l
             prom_left_theta = left_theta / l
-            """
+            #"""
             a = math.cos(prom_left_theta)
             b = math.sin(prom_left_theta)
             x1 = a * prom_left_rho
@@ -103,7 +121,7 @@ def callback_raw_image(data):
         if r != 0:
             prom_right_rho = right_rho / r
             prom_right_theta = right_theta / r
-            """
+            #"""
             a = math.cos(prom_right_theta)
             b = math.sin(prom_right_theta)
             x1 = a * prom_right_rho
@@ -120,7 +138,33 @@ def callback_raw_image(data):
     lanes_to_publish_right = np.array(linesR, dtype=np.float32)
     """
     cv2.imshow("frame", raw_frame)
-    cv2.waitKey(1)
+    cv2.imshow("Canny", interest_frame)
+    cv2.imshow("Blur", blured_frame)
+    k = cv2.waitKey(1)
+    if k == ord('a'):
+        max_val += 10
+    elif k == ord('d'):
+        max_val -= 10
+    elif k == ord('w'):
+        min_val += 10
+    elif k == ord('s'):
+        min_val -= 10
+    elif k == ord('i'):
+        k_size_y += 2
+    elif k == ord('k'):
+        if k_size_y > 0:
+            k_size_y -= 2
+        else:
+            print("No es posible")
+    elif k == ord('j'):
+        if k_size_x > 0:
+            k_size_x -= 2
+        else:
+            print("No es posible")
+    elif k == ord('l'):
+        k_size_x += 2
+    elif k == ord('p'):
+        print([min_val, max_val, k_size_y, k_size_x])
     #"""
     lane_publisherL.publish(lanes_to_publish_left)
     lane_publisherR.publish(lanes_to_publish_right)
