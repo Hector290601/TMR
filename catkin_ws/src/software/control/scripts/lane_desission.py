@@ -6,30 +6,72 @@ from std_msgs.msg import Float32
 from rospy.numpy_msg import numpy_msg
 from rospy_tutorials.msg import Floats
 import math
-
+from datetime import datetime
+now = datetime.now()
+filename = now.strftime("%d-%m-%Y-%H-%M-%S") + ".csv"
 left_lines = ""
 right_lines = ""
 const = 180/math.pi
 steering_value = Float32(0)
 speed_valie = Float32(0)
 
-def error_rho(rho_left, rho_right):
-    e = ( 1/2 * (370 - rho_left) ) + ( 1/2 * (200 - rho_right) )
+def error_rho(rho_left = 370.17645922990600, rho_right = 205.89647743100000):
+    e = ( 1/2 * (370.17645922990600 - rho_left) ) + ( 1/2 * (205.89647743100000 - rho_right) )
     return e
 
-def error_theta(theta_left, theta_right):
-    e = ( 1/2 * (1.33 - theta_left) ) + ( 1/2 * (1.9 - theta_right) )
+def error_theta(theta_left = 1.32712506916856, theta_right = 1.82540516519209):
+    e = ( 1/2 * (1.32712506916856 - theta_left) ) + ( 1/2 * (1.82540516519209 - theta_right) )
     return e
+
+def save_data(filename, data):
+    """
+    data tiene que ser algo como:
+    data = [
+            left_lines_rho,
+            left_lines_theta,
+            right_lines_rho,
+            right_lines_theta,
+            e_rho,
+            e_theta,
+            sentido,
+            strng,
+            spd
+            ]
+    Ejemplo:
+    [
+        366.70001220703125,
+        1.3255774974822998,
+        208.63636779785156,
+        1.8222824335098267,
+        0.4289279584376855,
+        -0.02798258780041906,
+        C,
+        0.4155103862285614,
+        9.5
+        ]
+
+    para el sentido, así se dividen:
+      c: centro
+      l: izquierda
+      r: derecha
+    """
+    with open(filename, 'a') as f:
+        for d in data:
+            f.write(str(d) + ",")
+        f.write("\n")
+        f.close()
 
 def decide():
-    global left_lines, right_lines, const, speed_value, steering_value
-    spd_tmp = 9.4
+    global left_lines, right_lines, const, speed_value, steering_value, filename
+    spd_tmp = 0
     speed_value = 0.1
     steering_value = 0.0
     rho_left = 0
     theta_left = 0
     rho_right = 0
     theta_right = 0
+    data = []
+    sentido = ""
     if len(left_lines) == 2:
         rho_left = left_lines[0]
         theta_left = left_lines[1]
@@ -39,38 +81,54 @@ def decide():
         theta_right = right_lines[1]
         grad_right = theta_right * const
     if rho_left != 0 and rho_right != 0:
-        e_rho = ( 2.17737162539248 - error_rho(rho_left, rho_right) ) * 0.1
-        e_theta = ( 0.006019229902828 - error_theta(theta_left, theta_right) )
-        print(str(e_rho) + ", " + str(e_theta))
-        with open("values.csv", 'a') as f:
-            f.write(str(e_rho) + ", " + str(e_theta) + "\n")
-            f.close()
-        strng = (- ( e_rho + e_theta )) % .44
-        print("steering: " + str(strng))
-        spd = spd_tmp + .1
+        e_rho = error_rho(rho_left, rho_right)
+        e_theta = error_theta(theta_left, theta_right)
+        strng = -( e_rho + e_theta )
+        if strng >= .44:
+            strng = .44
+        elif strng <= .44:
+            strng = -.44
+        spd = spd_tmp
+        sentido = "C"
     elif rho_left != 0:
-        e_rho = ( 2.17737162539248 - error_rho(rho_left, rho_left) ) * 0.1
-        e_theta = ( 0.006019229902828 - error_theta(theta_left, theta_left) )
-        print(str(e_rho) + ", " + str(e_theta))
-        with open("values.csv", 'a') as f:
-            f.write(str(e_rho) + ", " + str(e_theta) + "n")
-            f.close()
-        strng = -( (( e_rho + e_theta ) * .1) % .44)
-        print("steering l: " + str(strng))
+        e_rho = error_rho(rho_left)
+        e_theta = error_theta(theta_left)
+        strng = -( e_rho + e_theta ) * .1
+        if strng >= .44:
+            strng = .44
+        elif strng <= .44:
+            strng = -.44
         spd = spd_tmp
+        sentido = "L"
     elif rho_right != 0:
-        e_rho = ( 2.17737162539248 - error_rho(rho_right, rho_right) ) * 0.1
-        e_theta = ( 0.006019229902828 - error_theta(theta_right, theta_right) )
-        print(str(e_rho) + ", " + str(e_theta))
-        with open("values.csv", 'a') as f:
-            f.write(str(e_rho) + ", " + str(e_theta) + "n")
-            f.close()
-        strng = -( ( ( e_rho + e_theta )  * .1) % .44)
-        print("steering r: " + str(strng))
+        e_rho = error_rho(rho_right, rho_right)
+        e_theta = error_theta(theta_right, theta_right)
+        strng = -( e_rho + e_theta ) * .1
+        if strng >= .44:
+            strng = .44
+        elif strng <= .44:
+            strng = -.44
         spd = spd_tmp
+        sentido = "R"
     else:
+        e_rho = 0
+        e_theta = 0
         strng = 0
         spd = spd_tmp
+    if len(left_lines) == 2 and len(right_lines) == 2:
+        data = [
+                left_lines[0],
+                left_lines[1],
+                right_lines[0],
+                right_lines[1],
+                e_rho,
+                e_theta,
+                sentido,
+                strng,
+                spd
+                ]
+    print([e_rho, e_theta])
+    save_data(filename, data)
     return spd, strng
 
 
@@ -83,7 +141,7 @@ def callback_right(msg):
     right_lines = msg.data
 
 def main():
-    global speed_value, steering_value
+    global speed_value, steering_value, filename
     print("INITIALIZING LANES CONTROL NODE...")
     rospy.init_node('hardware_control', anonymous=True)
     speed = rospy.Publisher('/speed', Float32, queue_size=10)

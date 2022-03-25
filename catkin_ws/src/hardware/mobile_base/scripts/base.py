@@ -49,6 +49,12 @@ def main():
     cap = cv2.VideoCapture(0)
     brdg = CvBridge()
     print("ALL SUCCESFULLY INITIALIZED")
+    dutySpeed, dutySteering=AngleToDuty(8.5, 0)
+    servo.ChangeDutyCycle(dutySteering)
+    motor.ChangeDutyCycle(dutySpeed)
+    dutySpeed, dutySteering=AngleToDuty(0, 0)
+    servo.ChangeDutyCycle(dutySteering)
+    motor.ChangeDutyCycle(dutySpeed)
     while not rospy.is_shutdown():
         dutySpeed, dutySteering=AngleToDuty(speed, steering)
         servo.ChangeDutyCycle(dutySteering)
@@ -56,7 +62,7 @@ def main():
         ret, frame = cap.read()
         if ret == True:
             img_publisher.publish(brdg.cv2_to_imgmsg(frame))
-        loop.sleep() 
+        loop.sleep()
     servo.stop()
     motor.stop()
     GPIO.cleanup()
