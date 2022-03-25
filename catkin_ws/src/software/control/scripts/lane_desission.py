@@ -13,15 +13,15 @@ left_lines = ""
 right_lines = ""
 const = 180/math.pi
 steering_value = Float32(0)
-speed_valie = Float32(0)
+speed_value = Float32(0)
 
-def error_rho(rho_left = 370.17645922990600, rho_right = 205.89647743100000):
-    e = ( 1/2 * (370.17645922990600 - rho_left) ) + ( 1/2 * (205.89647743100000 - rho_right) )
-    return e
+def error_rho(rho_left = 343.5, rho_right = 172.130432128906,):
+    e = ( 1/2 * (343.5 - rho_left) ) + ( 1/2 * (172.130432128906 - rho_right) )
+    return round(e, 3)
 
-def error_theta(theta_left = 1.32712506916856, theta_right = 1.82540516519209):
+def error_theta(theta_left = 1.33517694473267, theta_right = 1.82576608657837):
     e = ( 1/2 * (1.32712506916856 - theta_left) ) + ( 1/2 * (1.82540516519209 - theta_right) )
-    return e
+    return round(e, 3)
 
 def save_data(filename, data):
     """
@@ -63,8 +63,8 @@ def save_data(filename, data):
 
 def decide():
     global left_lines, right_lines, const, speed_value, steering_value, filename
-    spd_tmp = 0
-    speed_value = 0.1
+    spd_tmp = 9
+    speed_value = 0.2
     steering_value = 0.0
     rho_left = 0
     theta_left = 0
@@ -81,32 +81,32 @@ def decide():
         theta_right = right_lines[1]
         grad_right = theta_right * const
     if rho_left != 0 and rho_right != 0:
-        e_rho = error_rho(rho_left, rho_right)
+        e_rho = error_rho(rho_left, rho_right) * 0.1
         e_theta = error_theta(theta_left, theta_right)
-        strng = -( e_rho + e_theta )
+        strng = -( e_rho + (e_theta -0.010685840594791) ) * 12
         if strng >= .44:
             strng = .44
-        elif strng <= .44:
+        elif strng <= -.44:
             strng = -.44
         spd = spd_tmp
         sentido = "C"
     elif rho_left != 0:
-        e_rho = error_rho(rho_left)
+        e_rho = error_rho(rho_left) * 0.00072
         e_theta = error_theta(theta_left)
-        strng = -( e_rho + e_theta ) * .1
+        strng = -( e_rho + e_theta -0.010685840594791) * 5
         if strng >= .44:
             strng = .44
-        elif strng <= .44:
+        elif strng <= -.44:
             strng = -.44
         spd = spd_tmp
         sentido = "L"
     elif rho_right != 0:
-        e_rho = error_rho(rho_right, rho_right)
-        e_theta = error_theta(theta_right, theta_right)
-        strng = -( e_rho + e_theta ) * .1
+        e_rho = error_rho(rho_right = rho_right) * 0.00072
+        e_theta = error_theta(theta_left = theta_right)
+        strng = -( e_rho + e_theta -0.010685840594791) * 5
         if strng >= .44:
             strng = .44
-        elif strng <= .44:
+        elif strng <= -.44:
             strng = -.44
         spd = spd_tmp
         sentido = "R"
@@ -127,7 +127,6 @@ def decide():
                 strng,
                 spd
                 ]
-    print([e_rho, e_theta])
     save_data(filename, data)
     return spd, strng
 
