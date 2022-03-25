@@ -14,14 +14,26 @@ right_lines = ""
 const = 180/math.pi
 steering_value = Float32(0)
 speed_value = Float32(0)
+goal_left_rho = 0
+goal_left_theta = 0
+goal_right_rho = 0
+goal_right_theta = 0
+iterator = 0
+suma_left_rho = 0
+suma_left_theta = 0
+suma_right_rho = 0
+suma_right_theta = 0
 
-def error_rho(rho_left = 343.5, rho_right = 172.130432128906,):
-    e = ( 1/2 * (343.5 - rho_left) ) + ( 1/2 * (172.130432128906 - rho_right) )
+def error_rho(rho_left = goal_left_rho, rho_right = goal_right_rho):
+    global goal_left_rho, goal_right_rho
+    e = ( 1/2 * (goal_left_rho - rho_left) ) + ( 1/2 * (goal_right_rho - rho_right) )
     return round(e, 3)
 
-def error_theta(theta_left = 1.33517694473267, theta_right = 1.82576608657837):
-    e = ( 1/2 * (1.32712506916856 - theta_left) ) + ( 1/2 * (1.82540516519209 - theta_right) )
+def error_theta(theta_left = goal_left_theta, theta_right = goal_right_theta):
+    global goal_left_theta, goal_right_theta
+    e = ( 1/2 * (goal_left_theta - theta_left) ) + ( 1/2 * (goal_right_thtea - theta_right) )
     return round(e, 3)
+
 
 def save_data(filename, data):
     """
@@ -60,6 +72,18 @@ def save_data(filename, data):
             f.write(str(d) + ",")
         f.write("\n")
         f.close()
+
+def get_ideal_lanes():
+    global left_lines, right_lines, iterator, suma_left_rho, suma_left_theta, suma_right_rho, suma_right_theta, const
+    print("training")
+    if len(left_lines) == 2 and len(right_lines) == 2:
+        rho_left = left_lines[0]
+        theta_left = left_lines[1]
+        grad_left = theta_left * const
+        rho_right = right_lines[0]
+        theta_right = right_lines[1]
+        grad_right = theta_right * const
+        iterator += 1
 
 def decide():
     global left_lines, right_lines, const, speed_value, steering_value, filename
@@ -140,7 +164,7 @@ def callback_right(msg):
     right_lines = msg.data
 
 def main():
-    global speed_value, steering_value, filename
+    global speed_value, steering_value, filename, iterator, goal_left_rho, goal_left_theta, goal_right_rho, goal_right_theta, suma_left_rho, suma_left_theta, suma_right_rho, suma_right_theta
     print("INITIALIZING LANES CONTROL NODE...")
     rospy.init_node('hardware_control', anonymous=True)
     speed = rospy.Publisher('/speed', Float32, queue_size=10)
@@ -149,6 +173,13 @@ def main():
     rospy.Subscriber("/raw_lanes_right", Floats, callback_right)
     loop = rospy.Rate(60)
     print("NODE INITIALIZED SUCCESFULLY")
+    while not rospy.is_shutdown() and iterator < 100:
+        get_ideal_lanes()
+        loop.sleep()
+    goal_left_theta = suma_left_theta / iterator
+    goal_left_rho = suma_left_rho / iterator
+    goal_right_theta = suma_right_theta / iterator
+    goal_right_rho = suma_right_rho / iterator
     while not rospy.is_shutdown():
         speed_value, steering_value = decide()
         speed.publish(speed_value)
