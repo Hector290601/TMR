@@ -6,6 +6,7 @@ import serial
 import math
 import cv2
 import rospy
+import struct
 from std_msgs.msg import Float32
 from sensor_msgs.msg import LaserScan, Image
 from cv_bridge import CvBridge
@@ -35,7 +36,7 @@ def callback_speed(msg):
 def main():
     global steering, speed, flag_speed, flag_steering
     print("INITIALIZING HARDWARE CONTROL NODE...")
-    arduino = serial.Serial("/dev/ttyACM0", 115200)
+    arduino = serial.Serial("/dev/ttyUSB0", 115200)
     time.sleep(1)
     rospy.init_node("mobile_base")
     img_publisher = rospy.Publisher("/raw_image", Image, queue_size=10)
@@ -50,7 +51,11 @@ def main():
     while not rospy.is_shutdown():
         if flag_speed or flag_steering:
             dutySpeed, dutySteering=AngleToDuty(speed, steering)
-            arduino.write(bytes([dutySpeed, dutySteering]))
+            arduino.write(
+                    bytes(
+                        [dutySpeed, dutySteering]
+                    )
+            )
             flag_speed = False
             flag_steering = False
         ret, frame = cap.read()
