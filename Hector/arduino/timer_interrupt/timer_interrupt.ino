@@ -29,10 +29,14 @@ void loop(){
   if(Serial.available() > 0){
     vel1 = Serial.read();
     OCR0A = vel1;
+    Serial.print("vel1: ");
+    Serial.println(vel1);
   }
   if(Serial.available() > 0){
     vel2 = Serial.read();
     OCR2A = vel2;
+    Serial.print("vel2: ");
+    Serial.println(vel2);
   }
 }
 
