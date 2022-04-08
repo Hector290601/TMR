@@ -28,7 +28,11 @@ motor = [
             18
         ]
 
-motor = motor[::-1]
+motor = [
+        18,
+            13,
+        12, 11
+        ]
 
 servo = [
         22,
@@ -58,6 +62,7 @@ def diable_read():
 
 def write_motor_value(value):
     for pin in motor:
+        print(pin)
         p = ( value & 1 )
         GPIO.output(pin, p)
         print(p)
@@ -80,7 +85,6 @@ if True:
         velocidad = int(input("Velocidad del 0 a 64: "))
         enable_read()
         write_motor_value(velocidad)
-        time.sleep(0.01)
         diable_read()
 """
 except:
