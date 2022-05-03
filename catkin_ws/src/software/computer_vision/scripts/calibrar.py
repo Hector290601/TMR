@@ -14,6 +14,7 @@ import os
 lanes_to_publish_left = ""
 lanes_to_publish_right = ""
 lane_publisherL, lane_publisherR = "", ""
+degrees_publisher = ""
 help_msg = """
         Teclas:
         \t a) canny max_val += 10
@@ -92,7 +93,7 @@ def color_seg(frame_color, frame_gray, frame_interest):
     return ranged_frame
 
 def callback_raw_image(data):
-    global lanes_to_publish_left, lanes_to_publish_right, lane_publisherL, lane_publisherR, max_val, min_val, k_size_y, k_size_x, votes, degl, degr, tolerance
+    global lanes_to_publish_left, lanes_to_publish_right, lane_publisherL, lane_publisherR, degrees_publisher,max_val, min_val, k_size_y, k_size_x, votes, degl, degr, tolerance
     brdg = CvBridge()
     raw_frame = brdg.imgmsg_to_cv2(data)
     coppied_frame = np.copy(raw_frame)
@@ -103,6 +104,7 @@ def callback_raw_image(data):
     possible_lines = cv2.HoughLines(interest_frame, 1, np.pi/180, votes)
     linesL = []
     linesR = []
+    degrees = []
     if possible_lines is not None:
         const = 180 / math.pi
         l = 0
@@ -140,6 +142,7 @@ def callback_raw_image(data):
                     prom_left_rho,
                     prom_left_theta,
                     ]
+            degrees.append(round( prom_left_theta * const, 4))
         if r != 0:
             prom_right_rho = right_rho / r
             prom_right_theta = right_theta / r
@@ -156,8 +159,10 @@ def callback_raw_image(data):
                     prom_right_rho,
                     prom_right_theta
                     ]
+            degrees.append(round( prom_right_theta * const, 4))
     lanes_to_publish_left = np.array(linesL, dtype=np.float32)
     lanes_to_publish_right = np.array(linesR, dtype=np.float32)
+    degrees_to_publish = np.array(degrees, dtype=np.float32)
     #"""
     cv2.imshow("frame", raw_frame)
     cv2.imshow("Canny", interest_frame)
@@ -212,14 +217,16 @@ def callback_raw_image(data):
     #"""
     lane_publisherL.publish(lanes_to_publish_left)
     lane_publisherR.publish(lanes_to_publish_right)
+    degrees_publisher.publish(degrees_to_publish)
 
 def main():
     print("INITIALIZING NODE")
-    global lanes_to_publish_left, lanes_to_publish_right, lane_publisherL, lane_publisherR
+    global lanes_to_publish_left, lanes_to_publish_right, lane_publisherL, lane_publisherR, degrees_publisher
     rospy.init_node('raw_img_subscriber', anonymous = True)
     rospy.Subscriber('/raw_image', Image, callback_raw_image)
     lane_publisherL = rospy.Publisher("/raw_lanes_left", numpy_msg(Floats), queue_size=10)
     lane_publisherR = rospy.Publisher("/raw_lanes_right", numpy_msg(Floats), queue_size=10)
+    degrees_publisher = rospy.Publisher("/combined_degrees", numpy_msg(Floats), queue_size=10)
     loop = rospy.Rate(60)
     print("NODE INITIALIZED SUCCESFULLY")
     print(help_msg)
