@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python
 
 import rospy
 from sensor_msgs.msg import Image
@@ -9,7 +9,7 @@ def main():
     pub = rospy.Publisher("/raw_image", Image, queue_size=10)
     rospy.init_node("sample_image")
     rate = rospy.Rate(60)
-    cap = cv2.VideoCapture(3)
+    cap = cv2.VideoCapture(1)
     br = CvBridge()
     while not rospy.is_shutdown():
         ret, frame = cap.read()

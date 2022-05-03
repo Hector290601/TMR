@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python
 #-*- coding: utf-8 -*-
 
 import rospy
@@ -31,7 +31,8 @@ def error_rho(rho_left = goal_left_rho, rho_right = goal_right_rho):
 
 def error_theta(theta_left = goal_left_theta, theta_right = goal_right_theta):
     global goal_left_theta, goal_right_theta
-    e = ( 1/2 * (goal_left_theta - theta_left) ) + ( 1/2 * (goal_right_theta - theta_right) )
+    e = ( 0.5 * (goal_left_theta - theta_left) ) + ( 0.5 * (goal_right_theta - theta_right) )
+    print(e)
     return round(e, 3)
 
 
@@ -85,7 +86,7 @@ def get_ideal_lanes():
 
 def decide():
     global left_lines, right_lines, const, speed_value, steering_value, filename
-    spd_tmp = 9
+    spd_tmp = .2
     speed_value = 0.2
     steering_value = 0.0
     rho_left = 0
@@ -115,7 +116,7 @@ def decide():
         e_rho = error_rho(rho_right = rho_right) * 0.00072
         e_theta = error_theta(theta_left = theta_right)
         sentido = "R"
-    strng = e_theta * 10
+    strng = e_theta * 5
     if strng >= 30:
         strng = 30
     elif strng <= -30:
