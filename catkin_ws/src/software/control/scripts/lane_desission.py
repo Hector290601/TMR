@@ -31,7 +31,7 @@ def error_rho(rho_left = goal_left_rho, rho_right = goal_right_rho):
 
 def error_theta(theta_left = goal_left_theta, theta_right = goal_right_theta):
     global goal_left_theta, goal_right_theta
-    e = ( 1/2 * (goal_left_theta - theta_left) ) + ( 1/2 * (goal_right_thtea - theta_right) )
+    e = ( 1/2 * (goal_left_theta - theta_left) ) + ( 1/2 * (goal_right_theta - theta_right) )
     return round(e, 3)
 
 
@@ -77,12 +77,10 @@ def get_ideal_lanes():
     global left_lines, right_lines, iterator, suma_left_rho, suma_left_theta, suma_right_rho, suma_right_theta, const
     print("training")
     if len(left_lines) == 2 and len(right_lines) == 2:
-        rho_left = left_lines[0]
-        theta_left = left_lines[1]
-        grad_left = theta_left * const
-        rho_right = right_lines[0]
-        theta_right = right_lines[1]
-        grad_right = theta_right * const
+        suma_rho_left = left_lines[0]
+        suma_left_theta += left_lines[1] * const
+        suma_rho_right = right_lines[0]
+        suma_right_theta += right_lines[1] * const
         iterator += 1
 
 def decide():
@@ -99,29 +97,30 @@ def decide():
     if len(left_lines) == 2:
         rho_left = left_lines[0]
         theta_left = left_lines[1]
-        grad_left = theta_left * const
+        theta_left = theta_left * const
     if len(right_lines) == 2:
         rho_right = right_lines[0]
         theta_right = right_lines[1]
-        grad_right = theta_right * const
+        theta_right = theta_right * const
     if rho_left != 0 and rho_right != 0:
         e_rho = error_rho(rho_left, rho_right) * 0.1
         e_theta = error_theta(theta_left, theta_right)
-        strng = -( e_rho + (e_theta -0.010685840594791) ) * 12
-        if strng >= .44:
-            strng = .44
-        elif strng <= -.44:
-            strng = -.44
+        strng = e_theta * 10
+        if strng >= 30:
+            strng = 30
+        elif strng <= -30:
+            strng = -30
         spd = spd_tmp
         sentido = "C"
+    """
     elif rho_left != 0:
         e_rho = error_rho(rho_left) * 0.00072
         e_theta = error_theta(theta_left)
         strng = -( e_rho + e_theta -0.010685840594791) * 5
         if strng >= .44:
-            strng = .44
+            strng = .44 * const
         elif strng <= -.44:
-            strng = -.44
+            strng = -.44 * const
         spd = spd_tmp
         sentido = "L"
     elif rho_right != 0:
@@ -129,16 +128,17 @@ def decide():
         e_theta = error_theta(theta_left = theta_right)
         strng = -( e_rho + e_theta -0.010685840594791) * 5
         if strng >= .44:
-            strng = .44
+            strng = .44 * const
         elif strng <= -.44:
-            strng = -.44
+            strng = -.44 * const
         spd = spd_tmp
         sentido = "R"
     else:
         e_rho = 0
         e_theta = 0
-        strng = 0
+        strng = 0 * const
         spd = spd_tmp
+    """
     if len(left_lines) == 2 and len(right_lines) == 2:
         data = [
                 left_lines[0],
@@ -182,7 +182,7 @@ def main():
     goal_right_rho = suma_right_rho / iterator
     while not rospy.is_shutdown():
         speed_value, steering_value = decide()
-        speed.publish(speed_value)
+        #speed.publish(speed_value)
         steering.publish(steering_value)
         loop.sleep()
     speed.publish(0.0)
