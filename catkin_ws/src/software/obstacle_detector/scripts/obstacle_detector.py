@@ -2,7 +2,7 @@
 import rospy
 from sensor_msgs.msg import LaserScan 
 def callback_Laser(data):
-    print((data.angle_min))
+    print((data.ranges ))
     #rospy.loginfo(rospy.get_caller_id() + "ranges:", .data)     
 def listener():
      rospy.init_node('software_obstacle_detector', anonymous=True) 
