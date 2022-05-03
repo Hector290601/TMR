@@ -94,6 +94,7 @@ def decide():
     theta_right = 0
     data = []
     sentido = ""
+    e_theta = 0
     if len(left_lines) == 2:
         rho_left = left_lines[0]
         theta_left = left_lines[1]
@@ -105,40 +106,21 @@ def decide():
     if rho_left != 0 and rho_right != 0:
         e_rho = error_rho(rho_left, rho_right) * 0.1
         e_theta = error_theta(theta_left, theta_right)
-        strng = e_theta * 10
-        if strng >= 30:
-            strng = 30
-        elif strng <= -30:
-            strng = -30
-        spd = spd_tmp
         sentido = "C"
-    """
     elif rho_left != 0:
         e_rho = error_rho(rho_left) * 0.00072
         e_theta = error_theta(theta_left)
-        strng = -( e_rho + e_theta -0.010685840594791) * 5
-        if strng >= .44:
-            strng = .44 * const
-        elif strng <= -.44:
-            strng = -.44 * const
-        spd = spd_tmp
         sentido = "L"
     elif rho_right != 0:
         e_rho = error_rho(rho_right = rho_right) * 0.00072
         e_theta = error_theta(theta_left = theta_right)
-        strng = -( e_rho + e_theta -0.010685840594791) * 5
-        if strng >= .44:
-            strng = .44 * const
-        elif strng <= -.44:
-            strng = -.44 * const
-        spd = spd_tmp
         sentido = "R"
-    else:
-        e_rho = 0
-        e_theta = 0
-        strng = 0 * const
-        spd = spd_tmp
-    """
+    strng = e_theta * 10
+    if strng >= 30:
+        strng = 30
+    elif strng <= -30:
+        strng = -30
+    spd = spd_tmp
     if len(left_lines) == 2 and len(right_lines) == 2:
         data = [
                 left_lines[0],
