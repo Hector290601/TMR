@@ -33,7 +33,7 @@ help_msg = """
         \t g) right degrees range -= 1
         \t t) right degrees range += 1
         \t h) muestra este mensaje
-        \t p) imrpime los valores actuales en formato: 
+        \t q) imrpime los valores actuales en formato: 
         \t\t[
         \t\t\t canny: min_val, max_val, k_size_y, k_size_x,
         \t\t\t hough_lines: votes, degl, degr, tolerance
@@ -162,6 +162,7 @@ def callback_raw_image(data):
     cv2.imshow("frame", raw_frame)
     cv2.imshow("Canny", interest_frame)
     cv2.imshow("Blur", blured_frame)
+    k = 0
     k = cv2.waitKey(1)
     if k == ord('a'):
         max_val += 10
@@ -206,7 +207,7 @@ def callback_raw_image(data):
         degr += 1
     elif k == ord('h'):
         print(help_msg)
-    elif k == ord('p'):
+    elif k == ord('q'):
         print([min_val, max_val, k_size_y, k_size_x, votes, degl, degr, tolerance])
     #"""
     lane_publisherL.publish(lanes_to_publish_left)
