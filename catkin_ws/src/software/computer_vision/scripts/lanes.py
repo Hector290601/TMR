@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python
 
 import rospy
 import random
@@ -19,7 +19,7 @@ def canny_frame(frame_gray):
     blured_frame = cv2.GaussianBlur(frame_gray, (5, 5), 0)
     cannied_frame = cv2.Canny(blured_frame, 70, 120)
     return cannied_frame
-max_val = 50
+max_val = 250
 min_val = 100
 k_size_x = 5
 k_size_y = 5
@@ -31,14 +31,14 @@ def canny_frame(frame_gray):
     cannied_frame = cv2.Canny(blured_frame, min_val, max_val)
     return cannied_frame, blured_frame
 
-def crop_frame(frame_cannied):
+def crop_frame(frame_cannied, shp):
     polygon = np.array(
             [
                 [
-                    (0, 240),
-                    (0, 480),
-                    (640, 480),
-                    (640, 240)
+                    (0, shp[0] / 2),
+                    (0, shp[0]),
+                    (shp[1], shp[0]),
+                    (shp[1], shp[0] / 2)
                     ]
                 ]
             )
@@ -69,9 +69,9 @@ def callback_raw_image(data):
     coppied_frame = np.copy(raw_frame)
     gray_frame = cv2.cvtColor(raw_frame, cv2.COLOR_BGR2GRAY)
     cannied_frame, blured_frame = canny_frame(gray_frame) #10
-    interest_frame = crop_frame(cannied_frame) #15
+    interest_frame = crop_frame(cannied_frame, raw_frame.shape) #15
     #color_frame = color_seg(coppied_frame, gray_frame, interest_frame) #31
-    possible_lines = cv2.HoughLines(interest_frame, 1, np.pi/180, 50)
+    possible_lines = cv2.HoughLines(interest_frame, 1, np.pi/180, 25)
     linesL = []
     linesR = []
     if possible_lines is not None:
@@ -87,11 +87,11 @@ def callback_raw_image(data):
             grad = round( theta * const, 4)
             if grad < 180:
                 rho = line[0][0]
-                if 70 < grad and grad < 80:
+                if 55 < 65 and 65 < 75:
                     left_rho += rho
                     left_theta += theta
                     l += 1
-                elif 100 < grad and grad < 110:
+                elif 117 < 127 and 127 < 137:
                     right_rho += rho
                     right_theta += theta
                     r += 1

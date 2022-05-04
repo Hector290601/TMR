@@ -53,6 +53,7 @@ votes = 50
 degl = 80
 degr = 100
 tolerance = 10
+gui = True
 
 
 def canny_frame(frame_gray):
@@ -61,14 +62,14 @@ def canny_frame(frame_gray):
     cannied_frame = cv2.Canny(blured_frame, min_val, max_val)
     return cannied_frame, blured_frame
 
-def crop_frame(frame_cannied):
+def crop_frame(frame_cannied, shp):
     polygon = np.array(
             [
                 [
-                    (0, 240),
-                    (0, 480),
-                    (640, 480),
-                    (640, 240)
+                    (0, shp[0] / 2),
+                    (0, shp[0]),
+                    (shp[1], shp[0]),
+                    (shp[1], shp[0] / 2)
                     ]
                 ]
             )
@@ -93,13 +94,13 @@ def color_seg(frame_color, frame_gray, frame_interest):
     return ranged_frame
 
 def callback_raw_image(data):
-    global lanes_to_publish_left, lanes_to_publish_right, lane_publisherL, lane_publisherR, degrees_publisher,max_val, min_val, k_size_y, k_size_x, votes, degl, degr, tolerance
+    global lanes_to_publish_left, lanes_to_publish_right, lane_publisherL, lane_publisherR, degrees_publisher,max_val, min_val, k_size_y, k_size_x, votes, degl, degr, tolerance, gui
     brdg = CvBridge()
     raw_frame = brdg.imgmsg_to_cv2(data)
     coppied_frame = np.copy(raw_frame)
     gray_frame = cv2.cvtColor(raw_frame, cv2.COLOR_BGR2GRAY)
     cannied_frame, blured_frame = canny_frame(gray_frame) #10
-    interest_frame = crop_frame(cannied_frame) #15
+    interest_frame = crop_frame(cannied_frame, raw_frame.shape) #15
     #color_frame = color_seg(coppied_frame, gray_frame, interest_frame) #31
     possible_lines = cv2.HoughLines(interest_frame, 1, np.pi/180, votes)
     linesL = []
@@ -164,9 +165,10 @@ def callback_raw_image(data):
     lanes_to_publish_right = np.array(linesR, dtype=np.float32)
     degrees_to_publish = np.array(degrees, dtype=np.float32)
     #"""
-    cv2.imshow("frame", raw_frame)
-    cv2.imshow("Canny", interest_frame)
-    cv2.imshow("Blur", blured_frame)
+    if gui:
+        cv2.imshow("frame", raw_frame)
+        cv2.imshow("Canny", interest_frame)
+        #cv2.imshow("Blur", blured_frame)
     k = 0
     k = cv2.waitKey(1)
     if k == ord('a'):
@@ -214,6 +216,8 @@ def callback_raw_image(data):
         print(help_msg)
     elif k == ord('q'):
         print([min_val, max_val, k_size_y, k_size_x, votes, degl, degr, tolerance])
+    elif k == ord('z'):
+        gui = not gui
     #"""
     lane_publisherL.publish(lanes_to_publish_left)
     lane_publisherR.publish(lanes_to_publish_right)
