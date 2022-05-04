@@ -14,15 +14,46 @@ import os
 lanes_to_publish_left = ""
 lanes_to_publish_right = ""
 lane_publisherL, lane_publisherR = "", ""
-
+degrees_publisher = ""
+help_msg = """
+        Teclas:
+        \t a) canny max_val += 10
+        \t d) canny max_val -= 10
+        \t w) canny min_val += 10
+        \t s) canny min_val -= 10
+        \t i) canny k_size_y += 2
+        \t k) canny k_size_y -= 2
+        \t j) canny k_size_x -= 2
+        \t l) canny k_size += 2
+        \t v) hough_lines votes += 1
+        \t b) hough_lines votes -=1
+        \t o) hough_lines tolerance -= 1
+        \t p) hough_lines tolerance += 1
+        \t f) left degrees range -= 1
+        \t r) left degrees range += 1
+        \t g) right degrees range -= 1
+        \t t) right degrees range += 1
+        \t h) muestra este mensaje
+        \t q) imrpime los valores actuales en formato: 
+        \t\t[
+        \t\t\t canny: min_val, max_val, k_size_y, k_size_x,
+        \t\t\t hough_lines: votes, degl, degr, tolerance
+        \t\t]
+                """
 def canny_frame(frame_gray):
     blured_frame = cv2.GaussianBlur(frame_gray, (5, 5), 0)
     cannied_frame = cv2.Canny(blured_frame, 70, 120)
     return cannied_frame
-max_val = 250
+
+max_val = 50
 min_val = 100
 k_size_x = 5
 k_size_y = 5
+votes = 50
+degl = 80
+degr = 100
+tolerance = 10
+gui = True
 
 
 def canny_frame(frame_gray):
@@ -63,7 +94,7 @@ def color_seg(frame_color, frame_gray, frame_interest):
     return ranged_frame
 
 def callback_raw_image(data):
-    global lanes_to_publish_left, lanes_to_publish_right, lane_publisherL, lane_publisherR, max_val, min_val, k_size_y, k_size_x
+    global lanes_to_publish_left, lanes_to_publish_right, lane_publisherL, lane_publisherR, degrees_publisher,max_val, min_val, k_size_y, k_size_x, votes, degl, degr, tolerance, gui
     brdg = CvBridge()
     raw_frame = brdg.imgmsg_to_cv2(data)
     coppied_frame = np.copy(raw_frame)
@@ -71,9 +102,10 @@ def callback_raw_image(data):
     cannied_frame, blured_frame = canny_frame(gray_frame) #10
     interest_frame = crop_frame(cannied_frame, raw_frame.shape) #15
     #color_frame = color_seg(coppied_frame, gray_frame, interest_frame) #31
-    possible_lines = cv2.HoughLines(interest_frame, 1, np.pi/180, 25)
+    possible_lines = cv2.HoughLines(interest_frame, 1, np.pi/180, votes)
     linesL = []
     linesR = []
+    degrees = []
     if possible_lines is not None:
         const = 180 / math.pi
         l = 0
@@ -87,18 +119,18 @@ def callback_raw_image(data):
             grad = round( theta * const, 4)
             if grad < 180:
                 rho = line[0][0]
-                if 55 < 65 and 65 < 75:
+                if degl - tolerance < grad and grad < degl + tolerance:
                     left_rho += rho
                     left_theta += theta
                     l += 1
-                elif 117 < 127 and 127 < 137:
+                elif degr - tolerance < grad and grad < degr + tolerance:
                     right_rho += rho
                     right_theta += theta
                     r += 1
         if l != 0:
             prom_left_rho = left_rho / l
             prom_left_theta = left_theta / l
-            """
+            #"""
             a = math.cos(prom_left_theta)
             b = math.sin(prom_left_theta)
             x1 = a * prom_left_rho
@@ -111,10 +143,11 @@ def callback_raw_image(data):
                     prom_left_rho,
                     prom_left_theta,
                     ]
+            degrees.append(round( prom_left_theta * const, 4))
         if r != 0:
             prom_right_rho = right_rho / r
             prom_right_theta = right_theta / r
-            """
+            #"""
             a = math.cos(prom_right_theta)
             b = math.sin(prom_right_theta)
             x1 = a * prom_right_rho
@@ -127,12 +160,16 @@ def callback_raw_image(data):
                     prom_right_rho,
                     prom_right_theta
                     ]
+            degrees.append(round( prom_right_theta * const, 4))
     lanes_to_publish_left = np.array(linesL, dtype=np.float32)
     lanes_to_publish_right = np.array(linesR, dtype=np.float32)
-    """
-    cv2.imshow("frame", raw_frame)
-    cv2.imshow("Canny", interest_frame)
-    cv2.imshow("Blur", blured_frame)
+    degrees_to_publish = np.array(degrees, dtype=np.float32)
+    #"""
+    if gui:
+        cv2.imshow("frame", raw_frame)
+        cv2.imshow("Canny", interest_frame)
+        #cv2.imshow("Blur", blured_frame)
+    k = 0
     k = cv2.waitKey(1)
     if k == ord('a'):
         max_val += 10
@@ -156,21 +193,47 @@ def callback_raw_image(data):
             print("No es posible")
     elif k == ord('l'):
         k_size_x += 2
+    elif k == ord('v'):
+        votes += 1
+    elif k == ord('b'):
+        if votes > 1:
+            votes -= 1
+        else:
+            print("sometiing wrong")
+    elif k == ord('o'):
+        tolerance -= 1
     elif k == ord('p'):
-        print([min_val, max_val, k_size_y, k_size_x])
+        tolerance += 1
+    elif k == ord('f'):
+        degl -= 1
+    elif k == ord('r'):
+        degl += 1
+    elif k == ord('g'):
+        degr -= 1
+    elif k == ord('t'):
+        degr += 1
+    elif k == ord('h'):
+        print(help_msg)
+    elif k == ord('q'):
+        print([min_val, max_val, k_size_y, k_size_x, votes, degl, degr, tolerance])
+    elif k == ord('z'):
+        gui = not gui
     #"""
     lane_publisherL.publish(lanes_to_publish_left)
     lane_publisherR.publish(lanes_to_publish_right)
+    degrees_publisher.publish(degrees_to_publish)
 
 def main():
     print("INITIALIZING NODE")
-    global lanes_to_publish_left, lanes_to_publish_right, lane_publisherL, lane_publisherR
+    global lanes_to_publish_left, lanes_to_publish_right, lane_publisherL, lane_publisherR, degrees_publisher
     rospy.init_node('raw_img_subscriber', anonymous = True)
     rospy.Subscriber('/raw_image', Image, callback_raw_image)
     lane_publisherL = rospy.Publisher("/raw_lanes_left", numpy_msg(Floats), queue_size=10)
     lane_publisherR = rospy.Publisher("/raw_lanes_right", numpy_msg(Floats), queue_size=10)
+    degrees_publisher = rospy.Publisher("/combined_degrees", numpy_msg(Floats), queue_size=10)
     loop = rospy.Rate(60)
     print("NODE INITIALIZED SUCCESFULLY")
+    print(help_msg)
     while not rospy.is_shutdown():
         loop.sleep()
 
