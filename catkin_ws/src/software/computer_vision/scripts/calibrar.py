@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 import rospy
 import random
@@ -44,14 +44,15 @@ def canny_frame(frame_gray):
     blured_frame = cv2.GaussianBlur(frame_gray, (5, 5), 0)
     cannied_frame = cv2.Canny(blured_frame, 70, 120)
     return cannied_frame
+[100, 220, 23, 11, 48, 52, 126, 10]
 
-max_val = 50
 min_val = 100
-k_size_x = 5
-k_size_y = 5
-votes = 50
-degl = 80
-degr = 100
+max_val = 220
+k_size_y = 23
+k_size_x = 11
+votes = 48
+degl = 52
+degr = 126
 tolerance = 10
 gui = True
 
@@ -63,15 +64,17 @@ def canny_frame(frame_gray):
     return cannied_frame, blured_frame
 
 def crop_frame(frame_cannied, shp):
-    polygon = np.array(
-            [
+    polygon = np.int32(
+            np.array(
                 [
-                    (0, shp[0] / 2),
-                    (0, shp[0]),
-                    (shp[1], shp[0]),
-                    (shp[1], shp[0] / 2)
+                    [
+                        (0, shp[0] / 2),
+                        (0, shp[0]),
+                        (shp[1], shp[0]),
+                        (shp[1], shp[0] / 2)
+                        ]
                     ]
-                ]
+                )
             )
     zeros = np.zeros_like(frame_cannied)
     cv2.fillPoly(zeros, polygon, 255)

@@ -9,7 +9,7 @@ def main():
     pub = rospy.Publisher("/raw_image", Image, queue_size=10)
     rospy.init_node("sample_image")
     rate = rospy.Rate(60)
-    cap = cv2.VideoCapture(0)
+    cap = cv2.VideoCapture(2)
     br = CvBridge()
     while not rospy.is_shutdown():
         ret, frame = cap.read()
