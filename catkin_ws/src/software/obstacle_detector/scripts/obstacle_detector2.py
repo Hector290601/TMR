@@ -47,6 +47,11 @@ def listener():
     rospy.init_node ('software_obstacle_detector', anonymous=True)
     rospy.Subscriber("/scan", LaserScan, callback_Laser2)
     rospy.spin()
+def talker():
+    pub =rospy.Publisher("hola",LaserScan, queue_size=10)
+    rospy.init_node('talker',anonymous=True)
+    while not rospy.is_shutdown():
+       pub.publish()
 
 def main():
     print("Initializing node.....")
