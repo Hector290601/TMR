@@ -26,7 +26,7 @@ suma_right_theta = 0
 
 def error_rho(rho_left = goal_left_rho, rho_right = goal_right_rho):
     global goal_left_rho, goal_right_rho
-    e = ( 1/2 * (goal_left_rho - rho_left) ) + ( 1/2 * (goal_right_rho - rho_right) )
+    e = ( 0.5 * (goal_left_rho - rho_left) ) + ( 0.5 * (goal_right_rho - rho_right) )
     return round(e, 3)
 
 def error_theta(theta_left = goal_left_theta, theta_right = goal_right_theta):
@@ -104,7 +104,7 @@ def decide():
         theta_right = right_lines[1]
         theta_right = theta_right * const
     if rho_left != 0 and rho_right != 0:
-        e_rho = error_rho(rho_left, rho_right) * 0.1
+        e_rho = error_rho(rho_left, rho_right) * 0.0072
         e_theta = error_theta(theta_left, theta_right)
         sentido = "C"
     elif rho_left != 0:
