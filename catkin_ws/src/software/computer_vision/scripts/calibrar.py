@@ -169,8 +169,14 @@ def callback_raw_image(data):
     degrees_to_publish = np.array(degrees, dtype=np.float32)
     #"""
     if gui:
-        cv2.imshow("frame", raw_frame)
-        cv2.imshow("Canny", interest_frame)
+        scale_percent = 50 # percent of original size
+        width = int(len(raw_frame[1]) * scale_percent / 100)
+        height = int(len(raw_frame[0]) * scale_percent / 100)
+        dim = (width, height) 
+        resized = cv2.resize(raw_frame, dim, interpolation = cv2.INTER_AREA)
+        cv2.imshow("frame", resized)
+        resized = cv2.resize(interest_frame, dim, interpolation = cv2.INTER_AREA)
+        cv2.imshow("Canny", resized)
         #cv2.imshow("Blur", blured_frame)
     k = 0
     k = cv2.waitKey(1)
