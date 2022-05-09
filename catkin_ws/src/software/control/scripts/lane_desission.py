@@ -2,7 +2,7 @@
 #-*- coding: utf-8 -*-
 
 import rospy
-from std_msgs.msg import Float32
+from std_msgs.msg import Float64
 from rospy.numpy_msg import numpy_msg
 from rospy_tutorials.msg import Floats
 import math
@@ -11,9 +11,8 @@ now = datetime.now()
 filename = now.strftime("%d-%m-%Y-%H-%M-%S") + ".csv"
 left_lines = ""
 right_lines = ""
-const = 180/math.pi
-steering_value = Float32(0)
-speed_value = Float32(0)
+steering_value = Float64(0)
+speed_value = Float64(0)
 goal_left_rho = 0
 goal_left_theta = 0
 goal_right_rho = 0
@@ -74,18 +73,18 @@ def save_data(filename, data):
         f.close()
 
 def get_ideal_lanes():
-    global left_lines, right_lines, iterator, suma_left_rho, suma_left_theta, suma_right_rho, suma_right_theta, const
+    global left_lines, right_lines, iterator, suma_left_rho, suma_left_theta, suma_right_rho, suma_right_theta
     print("training")
     if len(left_lines) == 2 and len(right_lines) == 2:
         suma_rho_left = left_lines[0]
-        suma_left_theta += left_lines[1] * const
+        suma_left_theta += left_lines[1]
         suma_rho_right = right_lines[0]
-        suma_right_theta += right_lines[1] * const
+        suma_right_theta += right_lines[1]
         iterator += 1
 
 def decide():
-    global left_lines, right_lines, const, speed_value, steering_value, filename
-    spd_tmp = 0.005
+    global left_lines, right_lines, speed_value, steering_value, filename
+    spd_tmp = 10
     speed_value = 0.2
     steering_value = 0.0
     rho_left = 0
@@ -98,11 +97,11 @@ def decide():
     if len(left_lines) == 2:
         rho_left = left_lines[0]
         theta_left = left_lines[1]
-        theta_left = theta_left * const
+        theta_left = theta_left
     if len(right_lines) == 2:
         rho_right = right_lines[0]
         theta_right = right_lines[1]
-        theta_right = theta_right * const
+        theta_right = theta_right
     if rho_left != 0 and rho_right != 0:
         e_rho = error_rho(rho_left, rho_right) * 0.0072
         e_theta = error_theta(theta_left, theta_right)
@@ -116,10 +115,10 @@ def decide():
         e_theta = error_theta(theta_left = theta_right)
         sentido = "R"
     strng = e_theta * 10
-    if strng >= 30:
-        strng = 30
-    elif strng <= -30:
-        strng = -30
+    if strng >= 0.4:
+        strng = 0.4
+    elif strng <= -0.4:
+        strng = -0.4
     spd = spd_tmp
     if len(left_lines) == 2 and len(right_lines) == 2:
         data = [
@@ -149,8 +148,8 @@ def main():
     global speed_value, steering_value, filename, iterator, goal_left_rho, goal_left_theta, goal_right_rho, goal_right_theta, suma_left_rho, suma_left_theta, suma_right_rho, suma_right_theta
     print("INITIALIZING LANES CONTROL NODE...")
     rospy.init_node('hardware_control', anonymous=True)
-    speed = rospy.Publisher('/speed', Float32, queue_size=10)
-    steering = rospy.Publisher('/steering', Float32, queue_size=10)
+    speed = rospy.Publisher('/speed', Float64, queue_size=10)
+    steering = rospy.Publisher('/steering', Float64, queue_size=10)
     rospy.Subscriber("/raw_lanes_left", Floats, callback_left)
     rospy.Subscriber("/raw_lanes_right", Floats, callback_right)
     loop = rospy.Rate(60)

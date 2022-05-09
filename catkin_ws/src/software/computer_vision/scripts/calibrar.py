@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python
 
 import rospy
 import random
@@ -44,10 +44,11 @@ def canny_frame(frame_gray):
     blured_frame = cv2.GaussianBlur(frame_gray, (5, 5), 0)
     cannied_frame = cv2.Canny(blured_frame, 70, 120)
     return cannied_frame
-[100, 220, 23, 11, 48, 52, 126, 10]
+[0, 130, 23, 11, 48, 52, 126, 10]
 
-min_val = 100
-max_val = 220
+
+min_val = 0
+max_val = 130
 k_size_y = 23
 k_size_x = 11
 votes = 48
@@ -236,7 +237,7 @@ def main():
     print("INITIALIZING NODE")
     global lanes_to_publish_left, lanes_to_publish_right, lane_publisherL, lane_publisherR, degrees_publisher
     rospy.init_node('raw_img_subscriber', anonymous = True)
-    rospy.Subscriber('/raw_image', Image, callback_raw_image)
+    rospy.Subscriber('/camera/rgb/raw', Image, callback_raw_image)
     lane_publisherL = rospy.Publisher("/raw_lanes_left", numpy_msg(Floats), queue_size=10)
     lane_publisherR = rospy.Publisher("/raw_lanes_right", numpy_msg(Floats), queue_size=10)
     degrees_publisher = rospy.Publisher("/combined_degrees", numpy_msg(Floats), queue_size=10)
