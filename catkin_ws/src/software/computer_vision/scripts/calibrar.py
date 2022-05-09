@@ -40,17 +40,11 @@ help_msg = """
         \t\t\t hough_lines: votes, degl, degr, tolerance
         \t\t]
                 """
-def canny_frame(frame_gray):
-    blured_frame = cv2.GaussianBlur(frame_gray, (5, 5), 0)
-    cannied_frame = cv2.Canny(blured_frame, 70, 120)
-    return cannied_frame
-[0, 130, 23, 11, 48, 52, 126, 10]
 
-
-min_val = 0
+min_val = 10
 max_val = 130
-k_size_y = 23
-k_size_x = 11
+k_size_y = 3
+k_size_x = 3
 votes = 48
 degl = 52
 degr = 126
@@ -134,6 +128,9 @@ def callback_raw_image(data):
         if l != 0:
             prom_left_rho = left_rho / l
             prom_left_theta = left_theta / l
+            """
+            if prom_left_theta != 0:
+                degl = prom_left_theta
             #"""
             a = math.cos(prom_left_theta)
             b = math.sin(prom_left_theta)
@@ -151,6 +148,9 @@ def callback_raw_image(data):
         if r != 0:
             prom_right_rho = right_rho / r
             prom_right_theta = right_theta / r
+            """
+            if prom_right_theta != 0:
+                degr = prom_right_theta
             #"""
             a = math.cos(prom_right_theta)
             b = math.sin(prom_right_theta)
