@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python
 
 import rospy
 import random
@@ -40,16 +40,11 @@ help_msg = """
         \t\t\t hough_lines: votes, degl, degr, tolerance
         \t\t]
                 """
-def canny_frame(frame_gray):
-    blured_frame = cv2.GaussianBlur(frame_gray, (5, 5), 0)
-    cannied_frame = cv2.Canny(blured_frame, 70, 120)
-    return cannied_frame
-[100, 220, 23, 11, 48, 52, 126, 10]
 
-min_val = 100
-max_val = 220
-k_size_y = 23
-k_size_x = 11
+min_val = 10
+max_val = 130
+k_size_y = 3
+k_size_x = 3
 votes = 48
 degl = 52
 degr = 126
@@ -133,6 +128,9 @@ def callback_raw_image(data):
         if l != 0:
             prom_left_rho = left_rho / l
             prom_left_theta = left_theta / l
+            """
+            if prom_left_theta != 0:
+                degl = prom_left_theta
             #"""
             a = math.cos(prom_left_theta)
             b = math.sin(prom_left_theta)
@@ -150,6 +148,9 @@ def callback_raw_image(data):
         if r != 0:
             prom_right_rho = right_rho / r
             prom_right_theta = right_theta / r
+            """
+            if prom_right_theta != 0:
+                degr = prom_right_theta
             #"""
             a = math.cos(prom_right_theta)
             b = math.sin(prom_right_theta)
@@ -169,8 +170,14 @@ def callback_raw_image(data):
     degrees_to_publish = np.array(degrees, dtype=np.float32)
     #"""
     if gui:
-        cv2.imshow("frame", raw_frame)
-        cv2.imshow("Canny", interest_frame)
+        scale_percent = 50 # percent of original size
+        width = int(len(raw_frame[1]) * scale_percent / 100)
+        height = int(len(raw_frame[0]) * scale_percent / 100)
+        dim = (width, height) 
+        resized = cv2.resize(raw_frame, dim, interpolation = cv2.INTER_AREA)
+        cv2.imshow("frame", resized)
+        resized = cv2.resize(interest_frame, dim, interpolation = cv2.INTER_AREA)
+        cv2.imshow("Canny", resized)
         #cv2.imshow("Blur", blured_frame)
     k = 0
     k = cv2.waitKey(1)
@@ -230,7 +237,7 @@ def main():
     print("INITIALIZING NODE")
     global lanes_to_publish_left, lanes_to_publish_right, lane_publisherL, lane_publisherR, degrees_publisher
     rospy.init_node('raw_img_subscriber', anonymous = True)
-    rospy.Subscriber('/raw_image', Image, callback_raw_image)
+    rospy.Subscriber('/camera/rgb/raw', Image, callback_raw_image)
     lane_publisherL = rospy.Publisher("/raw_lanes_left", numpy_msg(Floats), queue_size=10)
     lane_publisherR = rospy.Publisher("/raw_lanes_right", numpy_msg(Floats), queue_size=10)
     degrees_publisher = rospy.Publisher("/combined_degrees", numpy_msg(Floats), queue_size=10)
