@@ -41,13 +41,13 @@ help_msg = """
         \t\t]
                 """
 
-min_val = 10
-max_val = 130
-k_size_y = 3
-k_size_x = 3
-votes = 48
-degl = 52
-degr = 126
+min_val = 33
+max_val = 112
+k_size_y = 5
+k_size_x = 5
+votes = 67
+degl = 43
+degr = 132
 tolerance = 10
 gui = True
 
@@ -182,13 +182,13 @@ def callback_raw_image(data):
     k = 0
     k = cv2.waitKey(1)
     if k == ord('a'):
-        max_val += 10
+        max_val += 1
     elif k == ord('d'):
-        max_val -= 10
+        max_val -= 1
     elif k == ord('w'):
-        min_val += 10
+        min_val += 1
     elif k == ord('s'):
-        min_val -= 10
+        min_val -= 1
     elif k == ord('i'):
         k_size_y += 2
     elif k == ord('k'):

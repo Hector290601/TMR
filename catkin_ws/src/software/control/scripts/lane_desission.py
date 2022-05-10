@@ -112,12 +112,13 @@ def decide():
         sentido = "L"
     elif rho_right != 0:
         e_rho = error_rho(rho_right = rho_right) * 0.00072
-        e_theta = error_theta(theta_left = theta_right)
+        e_theta = - error_theta(theta_left = theta_right)
         sentido = "R"
     else:
         e_theta = 0
+        e_rho = 0
         spd_tmp = 0
-    strng = e_theta * 10
+    strng = (e_theta * 10) - (0.1 * e_rho)
     if strng >= 0.4:
         strng = 0.4
     elif strng <= -0.4:
