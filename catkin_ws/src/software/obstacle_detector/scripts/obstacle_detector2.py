@@ -42,19 +42,26 @@ def callback_Laser2(data):
     #print(voto)
     #print(interes)
 
+noTope.publish(bandera)
 
-def listener():
+"def listener():
     rospy.init_node ('software_obstacle_detector', anonymous=True)
     rospy.Subscriber("/scan", LaserScan, callback_Laser2)
-    rospy.spin()
-def talker():
+    rospy.spin()"
+"def talker():
     pub =rospy.Publisher("hola",LaserScan, queue_size=10)
     rospy.init_node('talker',anonymous=True)
     while not rospy.is_shutdown():
        pub.publish()
-
+"
+    
 def main():
+    global noTopePub
     print("Initializing node.....")
-    listener()
+    rospy.init_node ('software_obstacle_detector',anonymous=True)
+    rospy.Suscriber("/scan", LaserScan, callback_Laser2)
+    noTopePub = rospy.Publisher("/obstacle_detected",Bool,queue_size=10)
+    print("Nodo exitosoooo!!.....")
+    rospy.spin()
 
 main()
