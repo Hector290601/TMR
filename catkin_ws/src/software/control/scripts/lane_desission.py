@@ -81,10 +81,11 @@ def get_ideal_lanes():
         suma_rho_right = right_lines[0]
         suma_right_theta += right_lines[1]
         iterator += 1
+        print([left_lines[0], right_lines[0]])
 
 def decide():
     global left_lines, right_lines, speed_value, steering_value, filename
-    spd_tmp = 10
+    spd_tmp = 30
     speed_value = 0.2
     steering_value = 0.0
     rho_left = 0
@@ -118,7 +119,7 @@ def decide():
         e_theta = 0
         e_rho = 0
         spd_tmp = 0
-    strng = (e_theta * 10) - (0.1 * e_rho)
+    strng = (e_theta * 2) - (0.1 * e_rho)
     if strng >= 0.4:
         strng = 0.4
     elif strng <= -0.4:
