@@ -31,8 +31,12 @@ help_msg = """
         \t p) hough_lines tolerance += 1
         \t f) left degrees range -= 1
         \t r) left degrees range += 1
+        \t n) left rho range -= 5
+        \t m) left rho range += 5
         \t g) right degrees range -= 1
         \t t) right degrees range += 1
+        \t z) right rho range -= 5
+        \t x) right rho range += 5
         \t h) muestra este mensaje
         \t q) imrpime los valores actuales en formato: 
         \t\t[
@@ -48,7 +52,10 @@ k_size_x = 5
 votes = 67
 degl = 43
 degr = 132
-tolerance = 10
+tolerance1 = 10
+tolerance2 = 20
+left_rho_goal = 392
+right_rho_goal = -12
 gui = True
 
 
@@ -92,12 +99,37 @@ def color_seg(frame_color, frame_gray, frame_interest):
     return ranged_frame
 
 def callback_raw_image(data):
-    global lanes_to_publish_left, lanes_to_publish_right, lane_publisherL, lane_publisherR, degrees_publisher,max_val, min_val, k_size_y, k_size_x, votes, degl, degr, tolerance, gui
+    global lanes_to_publish_left, lanes_to_publish_right, lane_publisherL, lane_publisherR, degrees_publisher,max_val, min_val, k_size_y, k_size_x, votes, degl, degr, tolerance1, tolerance2, gui, left_rho_goal, right_rho_goal
     brdg = CvBridge()
     raw_frame = brdg.imgmsg_to_cv2(data)
     coppied_frame = np.copy(raw_frame)
     gray_frame = cv2.cvtColor(raw_frame, cv2.COLOR_BGR2GRAY)
-    cannied_frame, blured_frame = canny_frame(gray_frame) #10
+    cannied_frame, blured_frame = canny_frame(gray_frame) #10i
+    kernel = np.ones((2, 1), np.uint8)
+    """
+    kernel = np.array(
+            [
+                [1, 0, 0, 0, 0, 0, 1],
+                [0, 1, 0, 0, 0, 1, 0],
+                [0, 0, 1, 0, 1, 0, 0],
+                [0, 0, 0, 1, 0, 0, 0],
+                [0, 0, 1, 0, 1, 0, 0],
+                [0, 1, 0, 0, 0, 1, 0],
+                [1, 0, 0, 0, 0, 0, 1]
+            ],
+            np.uint8
+    )
+    kernel = np.array(
+            [
+                [1, 0],
+                [0, 1],
+                ],
+            np.uint8
+            )
+    """
+    #cannied_frame = cv2.dilate(cannied_frame, kernel)
+    cannied_frame = cv2.erode(cannied_frame, kernel)
+    #cannied_frame = cv2.fastNlMeansDenoising(cannied_frame, None, 20, 7, 21)
     interest_frame = crop_frame(cannied_frame, raw_frame.shape) #15
     #color_frame = color_seg(coppied_frame, gray_frame, interest_frame) #31
     possible_lines = cv2.HoughLines(interest_frame, 1, np.pi/180, votes)
@@ -117,11 +149,13 @@ def callback_raw_image(data):
             grad = round( theta * const, 4)
             if grad < 180:
                 rho = line[0][0]
-                if degl - tolerance < grad and grad < degl + tolerance:
+                #if degl - tolerance1 < grad and grad < degl + tolerance1 and rho - tolerance2 < left_rho_goal and rho < left_rho_goal + tolerance2:
+                if degl - tolerance1 < grad and grad < degl + tolerance1:
                     left_rho += rho
                     left_theta += theta
                     l += 1
-                elif degr - tolerance < grad and grad < degr + tolerance:
+                #elif degr - tolerance1 < grad and grad < degr + tolerance1 and rho - tolerance2 < right_rho_goal and rho < right_rho_goal + tolerance2:
+                elif degr - tolerance1 < grad and grad < degr + tolerance1:
                     right_rho += rho
                     right_theta += theta
                     r += 1
@@ -225,9 +259,17 @@ def callback_raw_image(data):
     elif k == ord('h'):
         print(help_msg)
     elif k == ord('q'):
-        print([min_val, max_val, k_size_y, k_size_x, votes, degl, degr, tolerance])
+        print([min_val, max_val, k_size_y, k_size_x, votes, degl, degr, tolerance1, tolerance2])
     elif k == ord('z'):
         gui = not gui
+    elif k == ord('n'):
+        left_rho_goal -= 5
+    elif k == ord('m'):
+        left_rho_goal += 5
+    elif k == ord('x'):
+        right_rho_goal += 5
+    elif k == ord('z'):
+        right_rho_goal -= 5
     #"""
     lane_publisherL.publish(lanes_to_publish_left)
     lane_publisherR.publish(lanes_to_publish_right)
