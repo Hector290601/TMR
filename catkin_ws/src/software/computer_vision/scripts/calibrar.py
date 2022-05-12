@@ -104,7 +104,32 @@ def callback_raw_image(data):
     raw_frame = brdg.imgmsg_to_cv2(data)
     coppied_frame = np.copy(raw_frame)
     gray_frame = cv2.cvtColor(raw_frame, cv2.COLOR_BGR2GRAY)
-    cannied_frame, blured_frame = canny_frame(gray_frame) #10
+    cannied_frame, blured_frame = canny_frame(gray_frame) #10i
+    kernel = np.ones((2, 1), np.uint8)
+    """
+    kernel = np.array(
+            [
+                [1, 0, 0, 0, 0, 0, 1],
+                [0, 1, 0, 0, 0, 1, 0],
+                [0, 0, 1, 0, 1, 0, 0],
+                [0, 0, 0, 1, 0, 0, 0],
+                [0, 0, 1, 0, 1, 0, 0],
+                [0, 1, 0, 0, 0, 1, 0],
+                [1, 0, 0, 0, 0, 0, 1]
+            ],
+            np.uint8
+    )
+    kernel = np.array(
+            [
+                [1, 0],
+                [0, 1],
+                ],
+            np.uint8
+            )
+    """
+    #cannied_frame = cv2.dilate(cannied_frame, kernel)
+    cannied_frame = cv2.erode(cannied_frame, kernel)
+    #cannied_frame = cv2.fastNlMeansDenoising(cannied_frame, None, 20, 7, 21)
     interest_frame = crop_frame(cannied_frame, raw_frame.shape) #15
     #color_frame = color_seg(coppied_frame, gray_frame, interest_frame) #31
     possible_lines = cv2.HoughLines(interest_frame, 1, np.pi/180, votes)
@@ -124,11 +149,13 @@ def callback_raw_image(data):
             grad = round( theta * const, 4)
             if grad < 180:
                 rho = line[0][0]
-                if degl - tolerance1 < grad and grad < degl + tolerance1 and rho - tolerance2 < left_rho_goal and rho < left_rho_goal + tolerance2:
+                #if degl - tolerance1 < grad and grad < degl + tolerance1 and rho - tolerance2 < left_rho_goal and rho < left_rho_goal + tolerance2:
+                if degl - tolerance1 < grad and grad < degl + tolerance1:
                     left_rho += rho
                     left_theta += theta
                     l += 1
-                elif degr - tolerance1 < grad and grad < degr + tolerance1 and rho - tolerance2 < right_rho_goal and rho < right_rho_goal + tolerance2:
+                #elif degr - tolerance1 < grad and grad < degr + tolerance1 and rho - tolerance2 < right_rho_goal and rho < right_rho_goal + tolerance2:
+                elif degr - tolerance1 < grad and grad < degr + tolerance1:
                     right_rho += rho
                     right_theta += theta
                     r += 1
@@ -177,7 +204,7 @@ def callback_raw_image(data):
     degrees_to_publish = np.array(degrees, dtype=np.float32)
     #"""
     if gui:
-        scale_percent = 30 # percent of original size
+        scale_percent = 50 # percent of original size
         width = int(len(raw_frame[1]) * scale_percent / 100)
         height = int(len(raw_frame[0]) * scale_percent / 100)
         dim = (width, height) 
@@ -232,7 +259,7 @@ def callback_raw_image(data):
     elif k == ord('h'):
         print(help_msg)
     elif k == ord('q'):
-        print([min_val, max_val, k_size_y, k_size_x, votes, degl, degr, tolerance])
+        print([min_val, max_val, k_size_y, k_size_x, votes, degl, degr, tolerance1, tolerance2])
     elif k == ord('z'):
         gui = not gui
     elif k == ord('n'):

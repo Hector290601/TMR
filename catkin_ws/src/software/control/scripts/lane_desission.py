@@ -85,7 +85,7 @@ def get_ideal_lanes():
 
 def decide():
     global left_lines, right_lines, speed_value, steering_value, filename
-    spd_tmp = 30
+    spd_tmp = 45
     speed_value = 0.2
     steering_value = 0.0
     rho_left = 0
@@ -104,22 +104,26 @@ def decide():
         theta_right = right_lines[1]
         theta_right = theta_right
     if rho_left != 0 and rho_right != 0:
+        multiplier = 5
         e_rho = error_rho(rho_left, rho_right) * 0.0072
         e_theta = error_theta(theta_left, theta_right)
         sentido = "C"
     elif rho_left != 0:
+        multiplier = 10
         e_rho = error_rho(rho_left) * 0.00072
         e_theta = error_theta(theta_left)
         sentido = "L"
     elif rho_right != 0:
+        multiplier = 10
         e_rho = error_rho(rho_right = rho_right) * 0.00072
         e_theta = - error_theta(theta_left = theta_right)
         sentido = "R"
     else:
+        multiplier = 0
         e_theta = 0
         e_rho = 0
         spd_tmp = 0
-    strng = (e_theta * 2) - (0.1 * e_rho)
+    strng = (e_theta * multiplier) - (0.1 * e_rho)
     if strng >= 0.4:
         strng = 0.4
     elif strng <= -0.4:
