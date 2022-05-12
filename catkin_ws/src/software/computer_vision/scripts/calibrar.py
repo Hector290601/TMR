@@ -49,7 +49,7 @@ min_val = 33
 max_val = 112
 k_size_y = 5
 k_size_x = 5
-votes = 67
+votes = 35
 degl = 43
 degr = 132
 tolerance1 = 10
@@ -178,6 +178,9 @@ def callback_raw_image(data):
                     prom_left_rho,
                     prom_left_theta,
                     ]
+            if degl - tolerance1 * 2 < prom_left_theta and prom_left_theta < degl + tolerance1 * 2:
+                print("degl cambiado")
+                degl = prom_left_theta
             degrees.append(round( prom_left_theta * const, 4))
         if r != 0:
             prom_right_rho = right_rho / r
@@ -198,6 +201,9 @@ def callback_raw_image(data):
                     prom_right_rho,
                     prom_right_theta
                     ]
+            if prom_right_theta >= 100 and prom_right_theta <= 160:
+                print("degr cambiado")
+                degr = prom_right_theta
             degrees.append(round( prom_right_theta * const, 4))
     lanes_to_publish_left = np.array(linesL, dtype=np.float32)
     lanes_to_publish_right = np.array(linesR, dtype=np.float32)

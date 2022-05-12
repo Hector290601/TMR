@@ -25,12 +25,12 @@ suma_right_theta = 0
 
 def error_rho(rho_left = goal_left_rho, rho_right = goal_right_rho):
     global goal_left_rho, goal_right_rho
-    e = ( 0.5 * (goal_left_rho - rho_left) ) + ( 0.5 * (goal_right_rho - rho_right) )
+    e = ( 0.5 * (goal_left_rho - abs(rho_left)) ) + ( 0.5 * (goal_right_rho - abs(rho_right)) )
     return round(e, 3)
 
 def error_theta(theta_left = goal_left_theta, theta_right = goal_right_theta):
     global goal_left_theta, goal_right_theta
-    e = ( 0.5 * (goal_left_theta - theta_left) ) + ( 0.5 * (goal_right_theta - theta_right) )
+    e = ( 0.5 * (goal_left_theta - abs(theta_left)) ) + ( 0.5 * (goal_right_theta - abs(theta_right)) )
     return round(e, 3)
 
 
@@ -76,16 +76,15 @@ def get_ideal_lanes():
     global left_lines, right_lines, iterator, suma_left_rho, suma_left_theta, suma_right_rho, suma_right_theta
     print("training")
     if len(left_lines) == 2 and len(right_lines) == 2:
-        suma_rho_left = left_lines[0]
-        suma_left_theta += left_lines[1]
-        suma_rho_right = right_lines[0]
-        suma_right_theta += right_lines[1]
+        suma_rho_left = abs(left_lines[0])
+        suma_left_theta += abs(left_lines[1])
+        suma_rho_right = abs(right_lines[0])
+        suma_right_theta += abs(right_lines[1])
         iterator += 1
-        print([left_lines[0], right_lines[0]])
 
 def decide():
     global left_lines, right_lines, speed_value, steering_value, filename
-    spd_tmp = 45
+    spd_tmp = 30
     speed_value = 0.2
     steering_value = 0.0
     rho_left = 0
@@ -95,35 +94,40 @@ def decide():
     data = []
     sentido = ""
     e_theta = 0
-    if len(left_lines) == 2:
+    if len(left_lines) == 2 and len(right_lines) < 2:
         rho_left = left_lines[0]
         theta_left = left_lines[1]
         theta_left = theta_left
-    if len(right_lines) == 2:
+        multiplier = 0.05
+        e_rho = error_rho(rho_left)
+        e_theta = error_theta(theta_left)
+        sentido = "L"
+    elif len(left_lines) < 2 and len(right_lines) == 2:
         rho_right = right_lines[0]
         theta_right = right_lines[1]
         theta_right = theta_right
-    if rho_left != 0 and rho_right != 0:
-        multiplier = 5
-        e_rho = error_rho(rho_left, rho_right) * 0.0072
-        e_theta = error_theta(theta_left, theta_right)
-        sentido = "C"
-    elif rho_left != 0:
-        multiplier = 10
-        e_rho = error_rho(rho_left) * 0.00072
-        e_theta = error_theta(theta_left)
-        sentido = "L"
-    elif rho_right != 0:
-        multiplier = 10
-        e_rho = error_rho(rho_right = rho_right) * 0.00072
+        multiplier = - 0.05
+        e_rho = error_rho(rho_right = rho_right)
         e_theta = - error_theta(theta_left = theta_right)
         sentido = "R"
+    elif len(left_lines) == 2 and len(right_lines) == 2:
+        rho_left = left_lines[0]
+        theta_left = left_lines[1]
+        rho_right = right_lines[0]
+        theta_right = right_lines[1]
+        multiplier = 0.005
+        e_rho = error_rho(rho_left, rho_right)
+        e_theta = error_theta(theta_left, theta_right)
+        sentido = "C"
     else:
         multiplier = 0
         e_theta = 0
         e_rho = 0
         spd_tmp = 0
-    strng = (e_theta * multiplier) - (0.1 * e_rho)
+        sentido = "NA"
+    strng = (e_theta * multiplier) - (e_rho * multiplier * 2)
+    print(strng)
+    print(sentido)
     if strng >= 0.4:
         strng = 0.4
     elif strng <= -0.4:
