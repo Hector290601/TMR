@@ -135,15 +135,19 @@ def callback_raw_image(data):
     possible_lines = cv2.HoughLines(interest_frame, 1, np.pi/180, votes)
     linesL = []
     linesR = []
+    linesC = []
     degrees = []
     if possible_lines is not None:
         const = 180 / math.pi
         l = 0
         r = 0
+        c = 0
         left_rho = 0
         left_theta = 0
         right_rho = 0
         right_theta = 0
+        center_rho = 0
+        center_theta = 0
         for line in possible_lines:
             theta = line[0][1]
             grad = round( theta * const, 4)

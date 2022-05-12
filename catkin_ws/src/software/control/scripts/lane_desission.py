@@ -84,7 +84,6 @@ def get_ideal_lanes():
 
 def decide():
     global left_lines, right_lines, speed_value, steering_value, filename
-    spd_tmp = 30
     speed_value = 0.2
     steering_value = 0.0
     rho_left = 0
@@ -98,15 +97,15 @@ def decide():
         rho_left = left_lines[0]
         theta_left = left_lines[1]
         theta_left = theta_left
-        multiplier = 0.05
         e_rho = error_rho(rho_left)
+        spd = 15
         e_theta = error_theta(theta_left)
         sentido = "L"
     elif len(left_lines) < 2 and len(right_lines) == 2:
         rho_right = right_lines[0]
         theta_right = right_lines[1]
         theta_right = theta_right
-        multiplier = - 0.05
+        spd = 15
         e_rho = error_rho(rho_right = rho_right)
         e_theta = - error_theta(theta_left = theta_right)
         sentido = "R"
@@ -115,24 +114,21 @@ def decide():
         theta_left = left_lines[1]
         rho_right = right_lines[0]
         theta_right = right_lines[1]
-        multiplier = 0.005
         e_rho = error_rho(rho_left, rho_right)
         e_theta = error_theta(theta_left, theta_right)
+        spd = 30
         sentido = "C"
     else:
-        multiplier = 0
-        e_theta = 0
+        spd = 10
+        e_theta = .1
         e_rho = 0
         spd_tmp = 0
         sentido = "NA"
-    strng = (e_theta * multiplier) - (e_rho * multiplier * 2)
-    print(strng)
-    print(sentido)
+    strng = e_theta
     if strng >= 0.4:
         strng = 0.4
     elif strng <= -0.4:
         strng = -0.4
-    spd = spd_tmp
     if len(left_lines) == 2 and len(right_lines) == 2:
         data = [
                 left_lines[0],
