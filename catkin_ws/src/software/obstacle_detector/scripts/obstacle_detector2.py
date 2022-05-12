@@ -1,7 +1,9 @@
 #!/usr/bin/env python
 import rospy
 import numpy as np
-from sensor_msgs.msg import LaserScan
+from sensor_msgs.msg import PointCloud2
+from std_msgs.msg import Bool
+import ros_numpy
 
 def callback_Laser2(data):
     longitud= len(data.ranges)/2
@@ -42,9 +44,9 @@ def callback_Laser2(data):
     #print(voto)
     #print(interes)
 
-noTope.publish(bandera)
+#noTope.publish(bandera)
 
-"def listener():
+"""def listener():
     rospy.init_node ('software_obstacle_detector', anonymous=True)
     rospy.Subscriber("/scan", LaserScan, callback_Laser2)
     rospy.spin()"
@@ -53,13 +55,19 @@ noTope.publish(bandera)
     rospy.init_node('talker',anonymous=True)
     while not rospy.is_shutdown():
        pub.publish()
-"
+"""
+
+def callback_cloud(msg):
+    # print(msg.width)
+    arr = ros_numpy.point_cloud2.pointcloud2_to_array(msg)
+    print(arr[10000])
     
 def main():
     global noTopePub
     print("Initializing node.....")
     rospy.init_node ('software_obstacle_detector',anonymous=True)
-    rospy.Suscriber("/scan", LaserScan, callback_Laser2)
+    #rospy.Suscriber("/point_cloud", LaserScan, callback_Laser2)
+    rospy.Subscriber("/point_cloud", PointCloud2, callback_cloud)
     noTopePub = rospy.Publisher("/obstacle_detected",Bool,queue_size=10)
     print("Nodo exitosoooo!!.....")
     rospy.spin()
