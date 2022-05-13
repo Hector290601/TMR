@@ -98,14 +98,14 @@ def decide():
         theta_left = left_lines[1]
         theta_left = theta_left
         e_rho = error_rho(rho_left)
-        spd = 15
+        spd = 20
         e_theta = error_theta(theta_left)
         sentido = "L"
     elif len(left_lines) < 2 and len(right_lines) == 2:
         rho_right = right_lines[0]
         theta_right = right_lines[1]
         theta_right = theta_right
-        spd = 15
+        spd = 20
         e_rho = error_rho(rho_right = rho_right)
         e_theta = - error_theta(theta_left = theta_right)
         sentido = "R"
@@ -116,10 +116,10 @@ def decide():
         theta_right = right_lines[1]
         e_rho = error_rho(rho_left, rho_right)
         e_theta = error_theta(theta_left, theta_right)
-        spd = 30
+        spd = 40
         sentido = "C"
     else:
-        spd = 10
+        spd = 15
         e_theta = .1
         e_rho = 0
         spd_tmp = 0

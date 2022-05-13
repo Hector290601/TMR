@@ -10,7 +10,9 @@ import cv2
 import numpy as np
 import math
 import os
+import time
 
+start = time.time()
 lanes_to_publish_left = ""
 lanes_to_publish_right = ""
 lane_publisherL, lane_publisherR = "", ""
@@ -99,7 +101,7 @@ def color_seg(frame_color, frame_gray, frame_interest):
     return ranged_frame
 
 def callback_raw_image(data):
-    global lanes_to_publish_left, lanes_to_publish_right, lane_publisherL, lane_publisherR, degrees_publisher,max_val, min_val, k_size_y, k_size_x, votes, degl, degr, tolerance1, tolerance2, gui, left_rho_goal, right_rho_goal
+    global lanes_to_publish_left, lanes_to_publish_right, lane_publisherL, lane_publisherR, degrees_publisher,max_val, min_val, k_size_y, k_size_x, votes, degl, degr, tolerance1, tolerance2, gui, left_rho_goal, right_rho_goal, start
     brdg = CvBridge()
     raw_frame = brdg.imgmsg_to_cv2(data)
     coppied_frame = np.copy(raw_frame)
@@ -219,6 +221,7 @@ def callback_raw_image(data):
         height = int(len(raw_frame[0]) * scale_percent / 100)
         dim = (width, height) 
         resized = cv2.resize(raw_frame, dim, interpolation = cv2.INTER_AREA)
+        cv2.putText(resized, str(round(time.time() - start, 4)), (50, 50), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 2, cv2.LINE_AA)
         cv2.imshow("frame", resized)
         resized = cv2.resize(interest_frame, dim, interpolation = cv2.INTER_AREA)
         cv2.imshow("Canny", resized)
