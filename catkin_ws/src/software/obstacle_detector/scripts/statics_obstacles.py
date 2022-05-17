@@ -26,23 +26,31 @@ def callback_cloud(msg):
             x = point[0]
             y = point[1]
             z = point[2]
-            if -1.0 < x < 1.0 and -30.0 < z < -1.5 and -2 < y < -1.5:
+            if -1.5 < x < 1.5 and -30.0 < z < -1.5 and -1.7 < y < -1.5:
                 n_pos += 1
                 x_pos += x
                 y_pos += y
                 z_pos += z
         if n_pos > 0:
             z_pos /= n_pos
+        distance = -20.0
         print(z_pos)
-        distance = -15.0
-        if distance < z_pos < -10:
-            count += 1
-        else:
-            count -= 1
-        if count > 10:
+        if distance < z_pos < 0:
             pub.publish(True)
         else:
             pub.publish(False)
+        """
+            if count < 10:
+                count += 1
+        elif z_pos == 0:
+            pass
+        elif count > 0:
+            count -= 1
+        print(count)
+        if count > 10:
+            pub.publish(True)
+        else:
+        """
     else:
         pub.publish(False)
 

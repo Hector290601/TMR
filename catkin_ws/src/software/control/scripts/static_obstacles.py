@@ -61,14 +61,14 @@ def decide():
         theta_left = left_lines[1]
         theta_left = theta_left
         e_rho = error_rho(rho_left)
-        spd = 5
+        spd = 10
         e_theta = error_theta(theta_left)
         sentido = "L"
     elif len(left_lines) < 2 and len(right_lines) == 2:
         rho_right = right_lines[0]
         theta_right = right_lines[1]
         theta_right = theta_right
-        spd = 5
+        spd = 10
         e_rho = error_rho(rho_right = rho_right)
         e_theta = - error_theta(theta_left = theta_right)
         sentido = "R"
@@ -79,7 +79,7 @@ def decide():
         theta_right = right_lines[1]
         e_rho = error_rho(rho_left, rho_right)
         e_theta = error_theta(theta_left, theta_right)
-        spd = 15
+        spd = 20
         sentido = "C"
     else:
         spd = 10
@@ -128,20 +128,35 @@ def main():
     print("trained")
     iterator = 0
     while not rospy.is_shutdown():
-        if not flag:
-            print("1er if")
-            obstacle_flag.publish(True)
+        if not flag and iterator == 0:
+            iterator = 0
             speed_value, steering_value = decide()
-        elif flag:
-            if iterator < 100:
-                obstacle_flag.publish(False)
-                print("1er if anid")
-                speed_value = 0.0
+        elif flag or iterator < 1000:
+            print(iterator)
+            if iterator < 50:
+                speed_value = 20.0
+                steering_value = -.44
+                print("1")
+            elif 50 <= iterator < 89:
+                speed_value = 25.0
+                steering_value = 0.44
+                print("2")
+            elif 80 <= iterator < 180:
+                speed_value = 25.0
+                steering_value = 0.0
+                print("3")
+            elif 180 <= iterator < 219:
+                speed_value = 25.0
                 steering_value = .44
-            elif iterator == 0:
-                print("2do if anid")
-                #obstacle_flag.publish(True)
-                flag1 = False
+                print("4")
+            elif 219 <= iterator < 249:
+                speed_value = 20.0
+                steering_value = -.44
+                print("5")
+            else:
+                steering_value = 0.0
+                iterator = -1
+                print("6")
             iterator += 1
         speed.publish(speed_value)
         steering.publish(steering_value)
