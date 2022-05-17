@@ -7,7 +7,14 @@ import ros_numpy
 import os
 import math
 
+flag = 0
+last = 0
+delta = 0
+count = 0
+pub = 0
+
 def callback_cloud(msg):
+    global flag, delta, last, count, pub
     arr = ros_numpy.point_cloud2.pointcloud2_to_array(msg)
     x_pos = 0
     y_pos = 0
@@ -23,17 +30,39 @@ def callback_cloud(msg):
             x_pos += x
             y_pos += y
             z_pos += z
-    if n_pos > 0:
-        x_pos /= n_pos
-        y_pos /= n_pos
-        z_pos /= n_pos
-    print([x_pos, y_pos, z_pos])
+    delta = last - x_pos
+    if delta < -5 and not flag:
+        count +=1
+        flag = True
+        last = x_pos
+        if n_pos > 0:
+            x_pos /= n_pos
+            y_pos /= n_pos
+            z_pos /= n_pos
+    elif delta > 5 and flag:
+        count +=1
+        flag = False
+        last = x_pos
+        if n_pos > 0:
+            x_pos /= n_pos
+            y_pos /= n_pos
+            z_pos /= n_pos
+    if count >= 3:
+        print("parking")
+        pub.publish(True)
+    else:
+        pub.publish(False)
 
 def main():
+    global pub
     print("Initializing node.....")
     rospy.init_node ('software_obstacle_detector',anonymous=True)
     rospy.Subscriber("/point_cloud", PointCloud2, callback_cloud)
+    pub = rospy.Publisher("/parking_flag", Bool, queue_size=10)
+    loop = rospy.Rate(60)
     print("Nodo exitosoooo!!.....")
+    while not rospy.is_shutdown():
+        loop.sleep
     rospy.spin()
 
 main()

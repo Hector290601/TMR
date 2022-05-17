@@ -2,7 +2,7 @@
 #-*- coding: utf-8 -*-
 
 import rospy
-from std_msgs.msg import Float64
+from std_msgs.msg import Float64, Bool
 from rospy.numpy_msg import numpy_msg
 from rospy_tutorials.msg import Floats
 import math
@@ -59,14 +59,14 @@ def decide():
         theta_left = left_lines[1]
         theta_left = theta_left
         e_rho = error_rho(rho_left)
-        spd = 22
+        spd = 5
         e_theta = error_theta(theta_left)
         sentido = "L"
     elif len(left_lines) < 2 and len(right_lines) == 2:
         rho_right = right_lines[0]
         theta_right = right_lines[1]
         theta_right = theta_right
-        spd = 22
+        spd = 5
         e_rho = error_rho(rho_right = rho_right)
         e_theta = - error_theta(theta_left = theta_right)
         sentido = "R"
@@ -77,7 +77,7 @@ def decide():
         theta_right = right_lines[1]
         e_rho = error_rho(rho_left, rho_right)
         e_theta = error_theta(theta_left, theta_right)
-        spd = 50
+        spd = 15
         sentido = "C"
     else:
         spd = 10
@@ -92,7 +92,6 @@ def decide():
         strng = -0.4
     return spd, strng
 
-
 def callback_left(msg):
     global left_lines
     left_lines = msg.data
@@ -100,6 +99,10 @@ def callback_left(msg):
 def callback_right(msg):
     global right_lines
     right_lines = msg.data
+
+def callback_parking_flag(msg):
+    global flag
+    flag = msg.data
 
 def main():
     global speed_value, steering_value, filename, iterator, goal_left_rho, goal_left_theta, goal_right_rho, goal_right_theta, suma_left_rho, suma_left_theta, suma_right_rho, suma_right_theta
@@ -109,6 +112,7 @@ def main():
     steering = rospy.Publisher('/steering', Float64, queue_size=10)
     rospy.Subscriber("/raw_lanes_left", Floats, callback_left)
     rospy.Subscriber("/raw_lanes_right", Floats, callback_right)
+    rospy.Subscriber("/parking_flag", Bool, callback_parking_flag)
     loop = rospy.Rate(60)
     print("NODE INITIALIZED SUCCESFULLY")
     while not rospy.is_shutdown() and iterator < 100:
@@ -119,8 +123,27 @@ def main():
     goal_right_theta = suma_right_theta / iterator
     goal_right_rho = suma_right_rho / iterator
     print("trained")
+    iterator = 0
     while not rospy.is_shutdown():
-        speed_value, steering_value = decide()
+        if not flag:
+            speed_value, steering_value = decide()
+        else:
+            if iterator < 100:
+                speed_value = 0.0
+                steering_value = 0.0
+            elif 100 < iterator < 200:
+                speed_value = 0.0
+                steering_value = .44
+            elif 200 < iterator < 450:
+                speed_value = -5
+                steering_value = .44
+            elif 480 < iterator < 700:
+                speed_value = -5
+                steering_value = -.44
+            else:
+                speed_value = 0
+                steering_value = 0
+            iterator += 1
         speed.publish(speed_value)
         steering.publish(steering_value)
         loop.sleep()
