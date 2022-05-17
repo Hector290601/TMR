@@ -22,6 +22,8 @@ suma_left_rho = 0
 suma_left_theta = 0
 suma_right_rho = 0
 suma_right_theta = 0
+flag = False
+flag1 = True
 
 def error_rho(rho_left = goal_left_rho, rho_right = goal_right_rho):
     global goal_left_rho, goal_right_rho
@@ -105,14 +107,15 @@ def callback_parking_flag(msg):
     flag = msg.data
 
 def main():
-    global speed_value, steering_value, filename, iterator, goal_left_rho, goal_left_theta, goal_right_rho, goal_right_theta, suma_left_rho, suma_left_theta, suma_right_rho, suma_right_theta
+    global speed_value, steering_value, filename, iterator, goal_left_rho, goal_left_theta, goal_right_rho, goal_right_theta, suma_left_rho, suma_left_theta, suma_right_rho, suma_right_theta, flag1, flag, flag1
     print("INITIALIZING LANES CONTROL NODE...")
     rospy.init_node('hardware_control', anonymous=True)
     speed = rospy.Publisher('/speed', Float64, queue_size=10)
     steering = rospy.Publisher('/steering', Float64, queue_size=10)
+    obstacle_flag = rospy.Publisher('/rebased_flag', Bool, queue_size=10)
     rospy.Subscriber("/raw_lanes_left", Floats, callback_left)
     rospy.Subscriber("/raw_lanes_right", Floats, callback_right)
-    rospy.Subscriber("/parking_flag", Bool, callback_parking_flag)
+    rospy.Subscriber("/obstacle_flag", Bool, callback_parking_flag)
     loop = rospy.Rate(60)
     print("NODE INITIALIZED SUCCESFULLY")
     while not rospy.is_shutdown() and iterator < 100:
@@ -126,26 +129,19 @@ def main():
     iterator = 0
     while not rospy.is_shutdown():
         if not flag:
+            print("1er if")
+            obstacle_flag.publish(True)
             speed_value, steering_value = decide()
-        else:
-            if iterator < 150:
-                speed_value = 0.0
-                steering_value = 0.0
-            elif 150 < iterator < 250:
+        elif flag:
+            if iterator < 100:
+                obstacle_flag.publish(False)
+                print("1er if anid")
                 speed_value = 0.0
                 steering_value = .44
-            elif 250 < iterator < 500:
-                speed_value = -5
-                steering_value = .44
-            elif 500 < iterator < 750:
-                speed_value = -5
-                steering_value = -.44
-            elif 750 < iterator < 850:
-                speed_value = 5
-                steering_value = 0
-            else:
-                speed_value = 0
-                steering_value = 0
+            elif iterator == 0:
+                print("2do if anid")
+                #obstacle_flag.publish(True)
+                flag1 = False
             iterator += 1
         speed.publish(speed_value)
         steering.publish(steering_value)
