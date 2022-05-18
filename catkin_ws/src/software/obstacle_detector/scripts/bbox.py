@@ -20,16 +20,22 @@ def bounding_box(
         data, steps = 20
         ):
     grad_x = grad_y = grad_z = 0
+    n = 0
     for i in range(0, len(data), steps):
         x, y, z = data[i]
         if x_min < x < x_max and y_min < y < y_max and z_min < z < z_max:
             grad_x += x
             grad_y += y
             grad_z += z
-    data_len = len(data)
-    grad_x /= data_len
-    grad_y /= data_len
-    grad_z /= data_len
+            n += 1
+    if n > 0:
+        grad_x /= n
+        grad_y /= n
+        grad_z /= n
+    else:
+        grad_x = 0
+        grad_y = 0
+        grad_z = 0
     return grad_x, grad_y, grad_z
 
 def callback_cloud(msg):
@@ -40,30 +46,14 @@ def callback_cloud(msg):
     z_pos = 0
     n_pos = 0
     x_pos, y_pos, z_pos = bounding_box(
-            0.0, 4.0,
-            -2.0, 2.0,
-            -1.5, .5,
+            1.5, -1.5,
+            -1.5, -1.7,
+            -1.5, -30,
             arr
             )
-    delta = last - x_pos
-    if delta < -5 and not flag:
-        count +=1
-        flag = True
-        last = x_pos
-        if n_pos > 0:
-            x_pos /= n_pos
-            y_pos /= n_pos
-            z_pos /= n_pos
-    elif delta > 5 and flag:
-        count +=1
-        flag = False
-        last = x_pos
-        if n_pos > 0:
-            x_pos /= n_pos
-            y_pos /= n_pos
-            z_pos /= n_pos
-    if count >= 3:
-        print("parking")
+    print(z_pos)
+    distance = -20.0
+    if distance < z_pos < 0:
         pub.publish(True)
     else:
         pub.publish(False)
@@ -73,7 +63,7 @@ def main():
     print("Initializing node.....")
     rospy.init_node ('software_obstacle_detector',anonymous=True)
     rospy.Subscriber("/point_cloud", PointCloud2, callback_cloud)
-    pub = rospy.Publisher("/parking_flag", Bool, queue_size=10)
+    pub = rospy.Publisher("/obstacle_flag", Bool, queue_size=10)
     loop = rospy.Rate(60)
     print("Nodo exitosoooo!!.....")
     while not rospy.is_shutdown():
