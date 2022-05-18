@@ -1,0 +1,5 @@
+<launch>
+	<node name="vision" pkg="computer_vision" type="lanes.py" output="screen"/>
+	<node name="objects" pkg="obstacle_detector" type="statics_obstacles.py" output="screen"/>
+	<node name="control" pkg="control" type="static_obstacles.py" output="screen"/>
+</launch>
