@@ -7,6 +7,7 @@ from rospy.numpy_msg import numpy_msg
 from rospy_tutorials.msg import Floats
 import math
 from datetime import datetime
+import numpy as np
 
 now = datetime.now()
 filename = now.strftime("%d-%m-%Y-%H-%M-%S") + ".csv"
@@ -25,7 +26,9 @@ suma_right_rho = 0
 suma_right_theta = 0
 flag = False
 flag1 = True
-past = 0
+center = 0
+correction = 0
+ccorrection = 0
 
 def error_rho(rho_left = goal_left_rho, rho_right = goal_right_rho):
     global goal_left_rho, goal_right_rho
@@ -39,7 +42,6 @@ def error_theta(theta_left = goal_left_theta, theta_right = goal_right_theta):
 
 def get_ideal_lanes():
     global left_lines, right_lines, iterator, suma_left_rho, suma_left_theta, suma_right_rho, suma_right_theta
-    print("training")
     if len(left_lines) == 2 and len(right_lines) == 2:
         suma_rho_left = abs(left_lines[0])
         suma_left_theta += abs(left_lines[1])
@@ -48,7 +50,7 @@ def get_ideal_lanes():
         iterator += 1
 
 def decide():
-    global left_lines, right_lines, speed_value, steering_value, filename
+    global left_lines, right_lines, speed_value, steering_value, filename, correction
     speed_value = 0.2
     steering_value = 0.0
     rho_left = 0
@@ -108,18 +110,25 @@ def callback_parking_flag(msg):
     global flag
     flag = msg.data
 
+def callback_center(msg):
+    global center
+    center = msg.data
+
 def main():
-    global speed_value, steering_value, filename, iterator, goal_left_rho, goal_left_theta, goal_right_rho, goal_right_theta, suma_left_rho, suma_left_theta, suma_right_rho, suma_right_theta, flag1, flag, flag1, past
+    global speed_value, steering_value, filename, iterator, goal_left_rho, goal_left_theta, goal_right_rho, goal_right_theta, suma_left_rho, suma_left_theta, suma_right_rho, suma_right_theta, flag1, flag, flag1, center, correction, ccorrection
     print("INITIALIZING LANES CONTROL NODE...")
     rospy.init_node('hardware_control', anonymous=True)
     speed = rospy.Publisher('/speed', Float64, queue_size=10)
     steering = rospy.Publisher('/steering', Float64, queue_size=10)
     obstacle_flag = rospy.Publisher('/rebased_flag', Bool, queue_size=10)
+    bbox = rospy.Publisher('/bbox_values', numpy_msg(Floats), queue_size=10)
     rospy.Subscriber("/raw_lanes_left", Floats, callback_left)
     rospy.Subscriber("/raw_lanes_right", Floats, callback_right)
-    rospy.Subscriber("/obstacle_flag", Bool, callback_parking_flag)
+    rospy.Subscriber("/bbox_flag", Bool, callback_parking_flag)
+    rospy.Subscriber("/center_x", Float64, callback_center)
     loop = rospy.Rate(60)
     print("NODE INITIALIZED SUCCESFULLY")
+    print("training")
     while not rospy.is_shutdown() and iterator < 100:
         get_ideal_lanes()
         loop.sleep()
@@ -131,35 +140,53 @@ def main():
     iterator = 0
     while not rospy.is_shutdown():
         if not flag and iterator == 0:
+            bbox.publish(np.array([1, -3.5, -1.5, -1.7, -1.5, -10, -15.0], dtype=np.single))
             iterator = 0
             speed_value, steering_value = decide()
-            past = steering_value
-        elif flag or iterator < 1000:
+        elif flag or iterator > 0:
+            bbox.publish(np.array([-6.0, 6.0, -1.5, 1.5, -4.0, 4.0, 6.0]))
             print(iterator)
-            if iterator < 50:
+            if iterator < 64:
                 speed_value = 20.0
-                steering_value = -.44 + past
+                steering_value = -0.44
                 print("1")
-            elif 50 <= iterator < 89:
-                speed_value = 25.0
+            elif 64 <= iterator < 128:
+                #bbox.publish(np.array([13.0, 2.0, 0.5, -1.5, -9.0, -13.0]))
+                speed_value = 20.0
                 steering_value = 0.44
+                """
+                if abs(center) < .3:
+                    steering_value -= abs(center)
+                    correction -= abs(center)
+                    ccorrection += 1
+                    speed_value -= abs(center) * 10
+                else:
+                    steering_value -= .3
+                    speed_value -= 3
+                    correction -= abs(.3)
+                    ccorrection += 1
+                """
                 print("2")
-            elif 80 <= iterator < 180:
-                speed_value = 25.0
+            elif 128 <= iterator < 192:
+                speed_value = 40.0
                 steering_value = 0.0
                 print("3")
-            elif 180 <= iterator < 219:
-                speed_value = 25.0
+            elif 192 <= iterator < 256:
+                speed_value = 20.0
                 steering_value = .44
                 print("4")
-            elif 219 <= iterator < 249:
+            elif 256 <= iterator < 320:
                 speed_value = 20.0
-                steering_value = -.44 - past
+                steering_value = -.44
                 print("5")
             else:
+                correction = 0
+                ccorrection = 0
                 steering_value = 0.0
                 iterator = -1
                 print("6")
+            if flag and iterator > 0:
+                iterator -= 1
             iterator += 1
         speed.publish(speed_value)
         steering.publish(steering_value)

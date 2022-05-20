@@ -39,18 +39,6 @@ def callback_cloud(msg):
             pub.publish(True)
         else:
             pub.publish(False)
-        """
-            if count < 10:
-                count += 1
-        elif z_pos == 0:
-            pass
-        elif count > 0:
-            count -= 1
-        print(count)
-        if count > 10:
-            pub.publish(True)
-        else:
-        """
     else:
         pub.publish(False)
 
