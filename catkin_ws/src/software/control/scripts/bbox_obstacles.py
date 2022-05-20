@@ -9,8 +9,6 @@ import math
 from datetime import datetime
 import numpy as np
 
-now = datetime.now()
-filename = now.strftime("%d-%m-%Y-%H-%M-%S") + ".csv"
 left_lines = ""
 right_lines = ""
 steering_value = Float64(0)
@@ -27,26 +25,26 @@ suma_right_theta = 0
 flag = False
 flag1 = True
 center = 0
-correction = 0
 ccorrection = 0
+angulos = [0, 0, 0, 0]
 
 def error_rho(rho_left = goal_left_rho, rho_right = goal_right_rho):
     global goal_left_rho, goal_right_rho
-    e = ( 0.5 * (goal_left_rho - abs(rho_left)) ) + ( 0.5 * (goal_right_rho - abs(rho_right)) )
-    return round(e, 3)
+    e = ( 0.002 * (goal_left_rho - rho_left) ) + ( 0.002 * (goal_right_rho - rho_right) )
+    return e
 
 def error_theta(theta_left = goal_left_theta, theta_right = goal_right_theta):
     global goal_left_theta, goal_right_theta
-    e = ( 0.5 * (goal_left_theta - abs(theta_left)) ) + ( 0.5 * (goal_right_theta - abs(theta_right)) )
-    return round(e, 3)
+    e = ( 0.18 * (goal_left_theta - theta_left) ) + ( 0.18 * (goal_right_theta - theta_right) )
+    return e
 
 def get_ideal_lanes():
     global left_lines, right_lines, iterator, suma_left_rho, suma_left_theta, suma_right_rho, suma_right_theta
     if len(left_lines) == 2 and len(right_lines) == 2:
-        suma_rho_left = abs(left_lines[0])
-        suma_left_theta += abs(left_lines[1])
-        suma_rho_right = abs(right_lines[0])
-        suma_right_theta += abs(right_lines[1])
+        suma_left_rho += left_lines[0]
+        suma_left_theta += left_lines[1]
+        suma_right_rho += right_lines[0]
+        suma_right_theta += right_lines[1]
         iterator += 1
 
 def decide():
@@ -65,14 +63,14 @@ def decide():
         theta_left = left_lines[1]
         theta_left = theta_left
         e_rho = error_rho(rho_left)
-        spd = 10
+        spd = 15
         e_theta = error_theta(theta_left)
         sentido = "L"
     elif len(left_lines) < 2 and len(right_lines) == 2:
         rho_right = right_lines[0]
         theta_right = right_lines[1]
         theta_right = theta_right
-        spd = 10
+        spd = 15
         e_rho = error_rho(rho_right = rho_right)
         e_theta = - error_theta(theta_left = theta_right)
         sentido = "R"
@@ -86,8 +84,8 @@ def decide():
         spd = 20
         sentido = "C"
     else:
-        spd = 10
-        e_theta = .08
+        spd = 15
+        e_theta = .2
         e_rho = 0
         spd_tmp = 0
         sentido = "NA"
@@ -115,7 +113,7 @@ def callback_center(msg):
     center = msg.data
 
 def main():
-    global speed_value, steering_value, filename, iterator, goal_left_rho, goal_left_theta, goal_right_rho, goal_right_theta, suma_left_rho, suma_left_theta, suma_right_rho, suma_right_theta, flag1, flag, flag1, center, correction, ccorrection
+    global speed_value, steering_value, filename, iterator, goal_left_rho, goal_left_theta, goal_right_rho, goal_right_theta, suma_left_rho, suma_left_theta, suma_right_rho, suma_right_theta, flag1, flag, center, correction, ccorrection, left_lines, right_linesi
     print("INITIALIZING LANES CONTROL NODE...")
     rospy.init_node('hardware_control', anonymous=True)
     speed = rospy.Publisher('/speed', Float64, queue_size=10)
@@ -129,7 +127,7 @@ def main():
     loop = rospy.Rate(60)
     print("NODE INITIALIZED SUCCESFULLY")
     print("training")
-    while not rospy.is_shutdown() and iterator < 100:
+    while not rospy.is_shutdown() and iterator < 20:
         get_ideal_lanes()
         loop.sleep()
     goal_left_theta = suma_left_theta / iterator
@@ -140,44 +138,32 @@ def main():
     iterator = 0
     while not rospy.is_shutdown():
         if not flag and iterator == 0:
-            bbox.publish(np.array([1, -3.5, -1.5, -1.7, -1.5, -10, -15.0], dtype=np.single))
+            bbox.publish(np.array([2, -3.5, -1.5, -1.7, -1.5, -10, -10.0], dtype=np.single))
             iterator = 0
             speed_value, steering_value = decide()
+            correction = steering_value
+	    ccorrection = 0
         elif flag or iterator > 0:
-            bbox.publish(np.array([-6.0, 6.0, -1.5, 1.5, -4.0, 4.0, 6.0]))
-            print(iterator)
-            if iterator < 64:
+            bbox.publish(np.array([8.0, 0.0, 0.5, -1.5, 6.0, -15.0, -10.0], dtype=np.single))
+            if iterator < 60:
                 speed_value = 20.0
-                steering_value = -0.44
+                steering_value = -.6
                 print("1")
-            elif 64 <= iterator < 128:
-                #bbox.publish(np.array([13.0, 2.0, 0.5, -1.5, -9.0, -13.0]))
+            elif 60 <= iterator < 120:
                 speed_value = 20.0
-                steering_value = 0.44
-                """
-                if abs(center) < .3:
-                    steering_value -= abs(center)
-                    correction -= abs(center)
-                    ccorrection += 1
-                    speed_value -= abs(center) * 10
-                else:
-                    steering_value -= .3
-                    speed_value -= 3
-                    correction -= abs(.3)
-                    ccorrection += 1
-                """
+                steering_value = .6
                 print("2")
-            elif 128 <= iterator < 192:
-                speed_value = 40.0
-                steering_value = 0.0
+            elif 120 <= iterator < 250:
+		_, steering_value = decide()
+                speed_value = 25.0
                 print("3")
-            elif 192 <= iterator < 256:
-                speed_value = 20.0
+            elif 250 <= iterator < 310:
                 steering_value = .44
+                speed_value = 15.0
                 print("4")
-            elif 256 <= iterator < 320:
-                speed_value = 20.0
+            elif 310 <= iterator < 370:
                 steering_value = -.44
+                speed_value = 20.0
                 print("5")
             else:
                 correction = 0
@@ -185,9 +171,8 @@ def main():
                 steering_value = 0.0
                 iterator = -1
                 print("6")
-            if flag and iterator > 0:
-                iterator -= 1
             iterator += 1
+        print(steering_value)
         speed.publish(speed_value)
         steering.publish(steering_value)
         loop.sleep()
