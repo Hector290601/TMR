@@ -139,6 +139,7 @@ def callback_raw_image(data):
     linesR = []
     linesC = []
     degrees = []
+    circles = cv2.HoughCircles(gray_frame, cv2.HOUGH_GRADIENT, 1, 20, param1=50, param2=30, minRadius=300, maxRadius=350)
     if possible_lines is not None:
         const = 180 / math.pi
         l = 0
@@ -214,6 +215,12 @@ def callback_raw_image(data):
     lanes_to_publish_left = np.array(linesL, dtype=np.float32)
     lanes_to_publish_right = np.array(linesR, dtype=np.float32)
     degrees_to_publish = np.array(degrees, dtype=np.float32)
+    if circles is not None:
+        circles = np.uint16(np.around(circles))
+        for i in circles[0,:]:
+            cv2.circle(raw_frame, (i[0],i[1]), i[2], (0, 255, 0), 2)
+            cv2.circle(raw_frame, (i[0],i[1]), 2, (255, 255, 0), 2)
+        print(circles)
     #"""
     if gui:
         scale_percent = 50 # percent of original size
