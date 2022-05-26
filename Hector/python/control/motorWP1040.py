@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
 import time
@@ -6,16 +6,18 @@ import RPi.GPIO as GPIO
 GPIO.setmode(GPIO.BOARD)
 GPIO.setup(16, GPIO.OUT)
 
-p = GPIO.PWM(16, 60.2)  # channel=7 frequency=50Hz
-p.start(9)
+p = GPIO.PWM(16, 50) # 60.2
+p.start(7)
+time.sleep(1)
+p.ChangeDutyCycle(0)
 
 while 1:
-    """
     i = input("Porcentaje: ")
     if i == 'c':
         break
     i = float(i)
     print(i)
+    p.ChangeDutyCycle(i)
     """
     for i in range(0, 100, 1):
         p.ChangeDutyCycle(i)
@@ -27,4 +29,5 @@ while 1:
         time.sleep(1)
     p.stop()
     time.sleep(5)
+    """
 GPIO.cleanup()
