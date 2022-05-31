@@ -12,7 +12,7 @@ oled_reset = digitalio.DigitalInOut(board.D4)
 
 width = 128
 height = 64
-border = 5
+border = 1
 
 i2c = board.I2C()
 oled = adafruit_ssd1306.SSD1306_I2C(width, height, i2c, addr=0x3C, reset=oled_reset)
@@ -32,10 +32,13 @@ while True:
     draw.rectangle((0, 0, oled.width, oled.width), outline=0, fill=0)
     ip = "hostname -I"
     IP = subprocess.check_output(ip, shell=True)
-    ssid = "iwgetid"
-    SSID = subprocess.check_output(ssid, shell=True)
-    SSID = str(SSID, 'utf-8')
-    SSID = SSID[SSID.find("ESSID"):]
+    try:
+        ssid = "iwgetid"
+        SSID = subprocess.check_output(ssid, shell=True)
+        SSID = str(SSID, 'utf-8')
+        SSID = SSID[SSID.find("ESSID"):]
+    except:
+        SSID = "N/A"
     cpu = "sensors | head -n 3 | tail -n 1 | cut -d \" \" -f9"
     CPU = subprocess.check_output(cpu, shell=True)
     voltage = "dmesg | tail -n 1 | cut -d \" \" -f3,4"
