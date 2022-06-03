@@ -1,5 +1,3 @@
-# /usr/bon/python3
-
 from luma.core.interface.serial import i2c
 from luma.core.render import canvas
 from luma.oled.device import ssd1306, ssd1325, ssd1331, sh1106
@@ -7,6 +5,7 @@ from time import sleep
 import socket
 import busio
 import subprocess
+import cv2
 
 #decodigo.com
 
@@ -15,7 +14,11 @@ serial = i2c(port=1, address=0x3C)
 device = sh1106(serial, width=128, height=64, rotate=0)
 
 #device.capabilities(width=128, height=64, rotate=0)
-#print("size: " , device.bounding_box)
+print("size: " , device.bounding_box)
+
+img = cv2.imread("/home/ubuntu/TMR/Hector/python/GUI/oled/fi.png", -1)
+
+print(img.shape)
 
 while True:
     #device.clear()
