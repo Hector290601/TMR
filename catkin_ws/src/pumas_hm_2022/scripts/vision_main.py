@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 import rospy
 import random
@@ -85,7 +85,7 @@ def callback_raw_image(data):
     linesC = []
     degrees = []
     if possible_lines is not None:
-        if tolerance1 is not 10:
+        if tolerance1 != 10:
             tolerance1 = 10
         const = 180 / math.pi
         l = 0

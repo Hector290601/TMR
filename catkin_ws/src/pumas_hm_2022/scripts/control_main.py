@@ -115,10 +115,17 @@ def main():
     while not rospy.is_shutdown() and iterator < 100:
         get_ideal_lanes()
         loop.sleep()
-    goal_left_theta = suma_left_theta / iterator
-    goal_left_rho = suma_left_rho / iterator
-    goal_right_theta = suma_right_theta / iterator
-    goal_right_rho = suma_right_rho / iterator
+    if iterator > 0:
+        goal_left_theta = suma_left_theta / iterator
+        goal_left_rho = suma_left_rho / iterator
+        goal_right_theta = suma_right_theta / iterator
+        goal_right_rho = suma_right_rho / iterator
+    else:
+        goal_left_theta = 0
+        goal_left_rho = 0
+        goal_right_theta = 0
+        goal_right_rho = 0
+        return
     print("trained")
     while not rospy.is_shutdown():
         speed_value, steering_value = decide()
