@@ -14,12 +14,15 @@ project(computer_vision)
 ## sudo cp -rf /usr/include/opencv4/ /usr/include/opencv/ but this only works if you
 ## installed opencv correctly.
 find_package(catkin REQUIRED COMPONENTS
+  image_transport
   cv_bridge
   roscpp
   rospy
   std_msgs
+  OpenCV
 )
 
+find_package(OpenCV)
 ## System dependencies are found with CMake's conventions
 # find_package(Boost REQUIRED COMPONENTS system)
 
@@ -127,6 +130,10 @@ include_directories(
   ${catkin_INCLUDE_DIRS}
 )
 
+include_directories(
+	${OpenCV_INCLUDE_DIRS}
+)
+
 ## Declare a C++ library
 # add_library(${PROJECT_NAME}
 #   src/${PROJECT_NAME}/computer_vision.cpp
@@ -211,5 +218,5 @@ include_directories(
 
 ## Add folders to be run by python nosetests
 # catkin_add_nosetests(test)
-add_executable(simple_sub src/webCamSub.cpp)
-target_link_libraries(simple_sub ${catkin_LIBRARIES} ${OpencV_LIBRARIES})
+add_executable(webCamSub src/webCamSub.cpp)
+target_link_libraries(webCamSub ${catkin_LIBRARIES} ${OpencV_LIBRARIES})

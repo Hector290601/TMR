@@ -9,6 +9,7 @@ int main(int argc, char** argv){
 	ros::NodeHandle nh;
 	int camera_index = 0;
 	cv::VideoCapture capture(camera_index);
+		/*
 	if(!capture.isOpened()){
 		ROS_ERROR_STREAM("Failed to open camera" << camera_index << "!");
 		ros::shutdown();
@@ -17,7 +18,7 @@ int main(int argc, char** argv){
 	image_transport::Publisher pubFrame = it.advertise("camera", 1);
 	cv::Mat frame;
 	sensor_msgs::ImagePtr msg;
-	ros::Rate loopRate(10);
+	ros::Rate loopRate(60);
 	while(nh.ok()){
 		capture >> frame;
 		if(frame.empty()){
@@ -30,5 +31,6 @@ int main(int argc, char** argv){
 		ros::spinOnce();
 		loopRate.sleep();
 	}
+		*/
 	capture.release();
 }

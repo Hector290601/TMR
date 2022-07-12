@@ -8,6 +8,7 @@ project(mobile_base)
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
 ## is used, also find other catkin packages
 find_package(catkin REQUIRED COMPONENTS
+  image_transport
   cv_bridge
   geometry_msgs
   roscpp
@@ -15,9 +16,10 @@ find_package(catkin REQUIRED COMPONENTS
   sensor_msgs
   std_msgs
   tf
+  OpenCV
 )
 
-find_package(OpenCV REQUIRED)
+find_package(OpenCV)
 
 ## System dependencies are found with CMake's conventions
 # find_package(Boost REQUIRED COMPONENTS system)
@@ -212,5 +214,5 @@ include_directories(
 
 ## Add folders to be run by python nosetests
 # catkin_add_nosetests(test)
-add_executable(simple_pub src/webCamPub.cpp)
-target_link_libraries(simple_pub ${catkin_LIBRARIES} ${OpencV_LIBRARIRES})
+add_executable(webCamPub src/webCamPub.cpp)
+target_link_libraries(webCamPub ${catkin_LIBRARIES} ${OpenCV_LIBRARIRES})
