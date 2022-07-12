@@ -1,8 +1,0 @@
-0) importar las librerías
-1) abrir la cámara
-2) cambiar a escala de grises
-3) hacer el polígono
-4) recortar la imagen
-5) reconocer el blanco
-6) reconocer las líneas
-
