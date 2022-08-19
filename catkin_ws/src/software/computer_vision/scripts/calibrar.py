@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 import rospy
 import random
@@ -299,7 +299,7 @@ def main():
     print("INITIALIZING NODE")
     global lanes_to_publish_left, lanes_to_publish_right, lane_publisherL, lane_publisherR, degrees_publisher
     rospy.init_node('raw_img_subscriber', anonymous = True)
-    rospy.Subscriber('/camera/rgb/raw', Image, callback_raw_image)
+    rospy.Subscriber('/raw_image', Image, callback_raw_image)
     lane_publisherL = rospy.Publisher("/raw_lanes_left", numpy_msg(Floats), queue_size=10)
     lane_publisherR = rospy.Publisher("/raw_lanes_right", numpy_msg(Floats), queue_size=10)
     degrees_publisher = rospy.Publisher("/combined_degrees", numpy_msg(Floats), queue_size=10)
