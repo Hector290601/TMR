@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python
 #-*- coding: utf-8 -*-
 
 import RPi.GPIO as GPIO
@@ -9,14 +9,14 @@ import rospy
 from std_msgs.msg import Float32
 from sensor_msgs.msg import LaserScan, Image
 from cv_bridge import CvBridge
-from roboclaw_3 import Roboclaw
+from roboclaw import Roboclaw
 
 steering = 0
 speed = 0
 rbc = None
 
 def AngleToDuty(speed, steering):
-    return dutySpeed, dutySteering
+    return speed, steering
 
 def callback_steering(msg):
     global steering
@@ -24,7 +24,11 @@ def callback_steering(msg):
 
 def callback_speed(msg):
     global speed
-    speed = msg.data #Speed in percentage
+    speed = int(msg.data) #Speed in percentage
+    if speed > 127:
+        speed = 127
+    elif speed < 0:
+        speed = 0
 
 def main():
     global steering, speed
@@ -39,7 +43,7 @@ def main():
     cap = cv2.VideoCapture(0)
     brdg = CvBridge()
     main_motor = Roboclaw("/dev/ttyACM0", 115200)
-    if main_motor == 0:
+    if main_motor.Open() == 0:
         return False
     print("ALL SUCCESFULLY INITIALIZED")
     dutySpeed, dutySteering=AngleToDuty(8.5, 0)
