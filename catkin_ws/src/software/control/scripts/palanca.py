@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python
 #-*- coding: utf-8 -*-
 
 """
@@ -39,8 +39,8 @@ steering = ""
 def callback_joy(msg):
     global joyLeft, pub, speed, steering
     joyLeft = msg.axes[:2]
-    speed.publish(msg.axes[4] * .5)
-    steering.publish(msg.axes[0] * math.pi /6)
+    speed.publish(64 * msg.axes[1])
+    steering.publish(msg.axes[3] * math.pi /6)
 
 def main():
     global msgJoy, speed, steering
