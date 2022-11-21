@@ -1,7 +1,10 @@
 import serial
 
-arduino = serial.Serial("COM3", 115200)
+arduino = serial.Serial("COM5", 115200)
 
 while True:
-    value = int(input("Valor: "))
-    arduino.write(chr(value).encode())
+    for i in range(32, 126):
+        print(i, end=":")
+        print(chr(i))
+        arduino.write(chr(i).encode())
+        input()
