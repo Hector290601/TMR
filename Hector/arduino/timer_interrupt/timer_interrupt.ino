@@ -18,12 +18,14 @@ void setup(){
   pinMode(7,OUTPUT);
   Serial.begin(115200);
   cli();
+/*
   TCCR0A = 0;
   TCCR0B = 0;
   TCCR1A = 0;
   TCCR1B = 0;
   TCCR2A = 0;
   TCCR2B = 0;
+*/
   TCCR0B |= B00000011;
   TCCR1B |= B00000010;
   TCCR2B |= B00000100;
@@ -40,7 +42,8 @@ void loop(){
   while(Serial.available() == 0){
   }
   a = Serial.read();
-  OCR0A = int((2.71*a)-86.81);
+  //OCR0A = int((2.71*a)-86.81);
+  OCR0A = a;
 }
 
 
@@ -55,7 +58,8 @@ ISR(TIMER1_COMPA_vect){
   TCNT2 = 0;
   digitalWrite(7, 1);
 }
-
+/*
 ISR(TIMER2_COMPA_vect){
   TCNT2 = 0;
 }
+*/

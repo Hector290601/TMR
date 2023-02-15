@@ -1,26 +1,22 @@
 import serial
 import time
 
-arduino = serial.Serial("COM5", 115200)
+arduino = serial.Serial("/dev/ttyUSB0", 115200)
 
 while True:
     """
-    i = int(input("32~127: "))
-    arduino.write(chr(i).encode())
+    i = float(input("Steering: "))
+    arduino.write(('d' + str(i) + '\n').encode())
     """
     delay = 0.1
-    for i in range(95, 125):
-        print(i, end=":")
-        print(chr(i))
+    for i in range(5, 14, 1):
+        print(i*0.1)
         time.sleep(delay)
-        arduino.write(chr(i).encode())
-    for i in range(125, 75, -1):
-        print(i, end=":")
-        print(chr(i))
+        arduino.write(bytes([i*10]))
+    """
+    for i in range(14, 5, -1):
+        print(i*0.1)
         time.sleep(delay)
-        arduino.write(chr(i).encode())
-    for i in range(75, 95):
-        print(i, end=":")
-        print(chr(i))
-        time.sleep(delay)
-        arduino.write(chr(i).encode())
+        arduino.write((str(i*100) + '\n').encode())
+        print(type((str(i*100) + '\n').encode()))
+    """
