@@ -1,0 +1,5 @@
+<launch>
+	<node name="camera" pkg="mobile_base" type="camera.py" output="screen"/>
+	<node name="motor" pkg="mobile_base" type="motor_roboclaw.py" output="screen"/>
+	<node name="steering" pkg="mobile_base" type="steering_aruin_time.py" output="screen"/>
+</launch>
