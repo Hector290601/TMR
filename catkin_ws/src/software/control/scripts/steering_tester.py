@@ -2,21 +2,29 @@
 #-*- coding: utf-8 -*-
 
 import rospy
-from std_msgs.msg import Float32
+from std_msgs.msg import Float64
 import math
 
 def main():
-    global msgJoy, speed, steering
-    print("INITIALIZING JOY READER NODE...")
-    rospy.init_node('speed_talker', anonymous=True)
-    steering = rospy.Publisher('/steering', Float32, queue_size=10)
-    loop = rospy.Rate(2)
+    print("INITIALIZING STEERING TESTER NODE...")
+    rospy.init_node('steering_tester', anonymous=True)
+    steering = rospy.Publisher('/steering', Float64, queue_size=10)
+    loop = rospy.Rate(60)
+    angle = 1.5708
+    flag = True
     while not rospy.is_shutdown():
-        for i in range(70, 120, 1):
-            steering.publish(i)
-            loop.sleep()
-        for i in range(120, 70, -1):
-            steering.publish(i)
-            loop.sleep()
+        if flag:
+            angle += 0.01
+            if angle >= 2.0944:
+                flag = False
+            steering.publish(angle)
+            print(angle)
+        else:
+            angle -= 0.01
+            if angle <= 1.0472:
+                flag = True
+            steering.publish(angle)
+            print(angle)
+        loop.sleep()
 main()
 
