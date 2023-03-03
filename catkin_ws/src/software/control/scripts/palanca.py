@@ -3,14 +3,14 @@
 
 """
 axes[
-    -0.0 LX
-    -0.0 LY
-    1.0 LT
-    -0.0 RX
-    -0.0 RY
-    1.0 RT
-    0.0 CX
-    0.0 CY
+    -0.0 LX     0
+    -0.0 LY     1
+    1.0 LT      2
+    -0.0 RX     3
+    -0.0 RY     4
+    1.0 RT      5
+    0.0 CX      6
+    0.0 CY      7
     ]
 buttons[
     0 A
@@ -30,6 +30,7 @@ buttons[
 import rospy
 from sensor_msgs.msg import Joy
 from std_msgs.msg import Float32
+from std_msgs.msg import Float64
 import math
 
 joyLeft = ""
@@ -39,15 +40,15 @@ steering = ""
 def callback_joy(msg):
     global joyLeft, pub, speed, steering
     joyLeft = msg.axes[:2]
-    speed.publish(63.5 * (1 - msg.axes[5]))
-    steering.publish(95 + (20 * msg.axes[0]))
+    speed.publish((0.3 * msg.axes[4]) + (0.7 * (0.5 * ( 1 - msg.axes[5]))))
+    steering.publish(1.5 + ( msg.axes[3] * 0.4 ))
 
 def main():
     global msgJoy, speed, steering
     print("INITIALIZING JOY READER NODE...")
     rospy.init_node('speed_talker', anonymous=True)
     speed = rospy.Publisher('/speed', Float32, queue_size=10)
-    steering = rospy.Publisher('/steering', Float32, queue_size=10)
+    steering = rospy.Publisher('/steering', Float64, queue_size=10)
     rospy.Subscriber("/joy", Joy, callback_joy)
     loop = rospy.Rate(10)
     while not rospy.is_shutdown():
