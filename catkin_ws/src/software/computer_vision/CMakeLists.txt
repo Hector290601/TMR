@@ -8,13 +8,7 @@ project(computer_vision)
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
 ## is used, also find other catkin packages
 
-## If you have a problem with cv_bridge couldn´t found the /usr/include/opencv/,
-## you can ls the /usr/include/opencv* and copy your current version from opencv
-## e.j /usr/include/opencv4/ to simply opencv, tou just need to type:
-## sudo cp -rf /usr/include/opencv4/ /usr/include/opencv/ but this only works if you
-## installed opencv correctly.
 find_package(catkin REQUIRED COMPONENTS
-  cv_bridge
   roscpp
   rospy
   std_msgs
