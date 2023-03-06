@@ -1,3 +1,0 @@
-/home/ubuntu/TMR/Hector/cpp/basics/displayImage/CMakeFiles/rebuild_cache.dir
-/home/ubuntu/TMR/Hector/cpp/basics/displayImage/CMakeFiles/edit_cache.dir
-/home/ubuntu/TMR/Hector/cpp/basics/displayImage/CMakeFiles/displayImage.dir
