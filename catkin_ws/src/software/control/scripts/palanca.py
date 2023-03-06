@@ -39,9 +39,15 @@ steering = ""
 
 def callback_joy(msg):
     global joyLeft, pub, speed, steering
-    joyLeft = msg.axes[:2]
-    speed.publish((0.3 * msg.axes[4]) + (0.7 * (0.5 * ( 1 - msg.axes[5]))))
-    steering.publish(1.5 + ( msg.axes[3] * 0.4 ))
+    velocidad = msg.axes[4]
+    turbo = msg.axes[5]
+    if velocidad > 0:
+        speed.publish((0.3 * velocidad) + (0.7 * (0.5 * ( 1 - turbo))))
+    elif velocidad < 0:
+        speed.publish((0.3 * velocidad) - (0.7 * (0.5 * ( 1 - turbo))))
+    else:
+        speed.publish(0.0)
+    steering.publish(1.5 + ( msg.axes[3] * 0.5 ))
 
 def main():
     global msgJoy, speed, steering

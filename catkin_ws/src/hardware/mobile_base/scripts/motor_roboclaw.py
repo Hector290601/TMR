@@ -28,10 +28,13 @@ def main():
     loop = rospy.Rate(RATE)
     time_out = int(0.5 * RATE)
     speed = 0
-    main_motor = Roboclaw("/dev/justinaRC15", 115200)
-    if main_motor.Open() == 0:
+    main_motor = Roboclaw("/dev/mhaRC15", 115200)
+    i = 0
+    while main_motor.Open() == 0:
         print("ERROR")
-        return False
+        i += 1
+        if i ==10:
+            return False
     print("ALL SUCCESFULLY INITIALIZED")
     while not rospy.is_shutdown():
         if new_data:
@@ -39,15 +42,15 @@ def main():
             new_data = False
         time_out -= 1
         if time_out <= 0:
-            main_motor.ForwardM2(0x80, 0)
+            main_motor.ForwardM1(0x80, 0)
             time_out = 0
         else:
             if speed == 0:
-                main_motor.ForwardM2(0x80, 0)
+                main_motor.ForwardM1(0x80, 0)
             elif speed > 0:
-                main_motor.ForwardM2(0x80, speed)
+                main_motor.ForwardM1(0x80, speed)
             elif speed < 0:
-                main_motor.BackwardM2(0x80, 127-speed)
+                main_motor.BackwardM1(0x80, 127-speed)
         loop.sleep()
 
 if __name__ == '__main__':

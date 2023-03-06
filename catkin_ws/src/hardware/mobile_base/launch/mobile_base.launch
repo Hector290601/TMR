@@ -6,6 +6,6 @@
 		<param name="baud" value="57600" />
 	</node>
 	<node name="urg_node" pkg="urg_node" type="urg_node" output="screen">
-		<param name="port" value="/dev/justinaHokuyo_H1720191" />
+		<param name="port" value="/dev/mhaHokuyo" />
 	</node>
 </launch>
