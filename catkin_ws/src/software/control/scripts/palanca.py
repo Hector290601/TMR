@@ -42,12 +42,12 @@ def callback_joy(msg):
     velocidad = msg.axes[4]
     turbo = msg.axes[5]
     if velocidad > 0:
-        speed.publish((0.3 * velocidad) + (0.7 * (0.5 * ( 1 - turbo))))
+        speed.publish((0.2 * velocidad) + (0.8 * (0.5 * ( 1 - turbo))))
     elif velocidad < 0:
-        speed.publish((0.3 * velocidad) - (0.7 * (0.5 * ( 1 - turbo))))
+        speed.publish((0.2 * velocidad) - (0.8 * (0.5 * ( 1 - turbo))))
     else:
         speed.publish(0.0)
-    steering.publish(1.5 + ( msg.axes[3] * 0.5 ))
+    steering.publish(1.5 + ( msg.axes[3] * 0.6 ))
 
 def main():
     global msgJoy, speed, steering

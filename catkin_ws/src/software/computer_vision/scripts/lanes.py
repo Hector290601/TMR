@@ -76,6 +76,7 @@ def callback_raw_image(data):
     coppied_frame = np.copy(raw_frame)
     gray_frame = cv2.cvtColor(raw_frame, cv2.COLOR_BGR2GRAY)
     cannied_frame, blured_frame = canny_frame(gray_frame) #10i
+    cv2.imshow('frame', cannied_frame)
     kernel = np.ones((2, 1), np.uint8)
     cannied_frame = cv2.erode(cannied_frame, kernel)
     interest_frame = crop_frame(cannied_frame, raw_frame.shape) #15
@@ -141,7 +142,7 @@ def main():
     print("INITIALIZING NODE")
     global lanes_to_publish_left, lanes_to_publish_right, lane_publisherL, lane_publisherR, degrees_publisher
     rospy.init_node('raw_img_subscriber', anonymous = True)
-    rospy.Subscriber('/camera/rgb/raw', Image, callback_raw_image)
+    rospy.Subscriber('/raw_image', Image, callback_raw_image)
     lane_publisherL = rospy.Publisher("/raw_lanes_left", numpy_msg(Floats), queue_size=10)
     lane_publisherR = rospy.Publisher("/raw_lanes_right", numpy_msg(Floats), queue_size=10)
     degrees_publisher = rospy.Publisher("/combined_degrees", numpy_msg(Floats), queue_size=10)
