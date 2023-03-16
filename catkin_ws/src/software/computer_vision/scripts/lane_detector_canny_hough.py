@@ -146,7 +146,7 @@ def main():
     rospy.Subscriber('/raw_image', Image, callback_rgb_image)
     pub_left_lane  = rospy.Publisher("/demo/left_lane" , Float64MultiArray, queue_size=10)
     pub_right_lane = rospy.Publisher("/demo/right_lane", Float64MultiArray, queue_size=10)
-    rate = rospy.Rate(10)
+    rate = rospy.Rate(30)
     rospy.spin()
     
 
