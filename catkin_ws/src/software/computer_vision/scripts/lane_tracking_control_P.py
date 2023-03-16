@@ -42,25 +42,27 @@ def calculate_control(rho_l, theta_l, rho_r, theta_r, goal_rho_l, goal_theta_l, 
 def callback_left_lane(msg):
     global lane_rho_l, lane_theta_l
     lane_rho_l, lane_theta_l = msg.data
+    print("left: " + str(msg.data))
 
 def callback_right_lane(msg):
     global lane_rho_r, lane_theta_r
     lane_rho_r, lane_theta_r = msg.data
+    print("right: " + str(msg.data))
 
 def main():
     global lane_rho_l, lane_theta_l, lane_rho_r, lane_theta_r
     global max_speed, k_rho, k_theta
-    max_speed = 10
+    max_speed = 0.13
     k_rho   = 0.001
     k_theta = 0.01
     lane_rho_l   = 0
     lane_theta_l = 0
     lane_rho_r   = 0
     lane_theta_r = 0
-    goal_rho_l   = 370.0
-    goal_theta_l = 2.4
-    goal_rho_r   = 430.0
-    goal_theta_r = 0.895
+    goal_rho_l   = 186.0
+    goal_theta_l = 2.26
+    goal_rho_r   = 200.0
+    goal_theta_r = 0.77
     print('INITIALIZING LANE TRACKING NODE...')
     rospy.init_node('lane_tracking')
     rate = rospy.Rate(30)

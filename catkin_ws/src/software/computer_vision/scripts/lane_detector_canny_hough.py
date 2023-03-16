@@ -136,8 +136,8 @@ def callback_rgb_image(msg):
     pub_right_lane.publish(msg_right_lane)
     draw_normal_line(mean_rho_l, mean_theta_l, img.shape[0], img, (255,0,0))
     draw_normal_line(mean_rho_r, mean_theta_r, img.shape[0], img, (0,0,255))
-    #cv2.imshow("Region of interest", img)
-    #cv2.waitKey(10)
+    cv2.imshow("Region of interest", img)
+    cv2.waitKey(10)
 
 def main():
     global pub_left_lane, pub_right_lane
