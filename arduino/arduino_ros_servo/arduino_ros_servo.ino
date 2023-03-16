@@ -6,10 +6,11 @@ Servo servo; //declare servo
 
 void messageCb( const std_msgs::Float64& msg){ //msg callback
   float radian = msg.data; //load msg value to a float type variable
-  if(radian > 1.9){
-    radian = 1.9;
-  }else if(radian < 1.1){
-    radian = 1.1;
+  radian = radian + 1.5;
+  if(radian > 2.1){
+    radian = 2.1;
+  }else if(radian < 0.9){
+    radian = 0.9;
   }
   float deg = radian * (180/PI); //transform radians to degrees
   if(deg > 120){ //lower limit
