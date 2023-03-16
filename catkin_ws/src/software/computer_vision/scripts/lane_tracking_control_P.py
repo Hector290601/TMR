@@ -66,6 +66,7 @@ def main():
     global sum_rho_l, sum_theta_l, sum_rho_r, sum_theta_r
     global counter_l, counter_r, COUNTER_L, COUNTER_R
     sum_rho_l = sum_theta_l = sum_rho_r = sum_theta_r = 0
+    auto_calibrate = False
     counter_l = counter_r = 10
     max_speed = 0.13
     k_rho   = 0.001
@@ -91,6 +92,12 @@ def main():
         counter_l = rospy.get_param('~counter_l')
     if rospy.has_param('~counter_r'):
         counter_l = rospy.get_param('~counter_r')
+    if rospy.has_param('~auto_calibrate'):
+        auto_calibrate = rospy.get_param('~auto_calibrate')
+        if auto_calibrate == 1:
+            auto_calibrate = True
+        else:
+            auto_calibrate = False
     COUNTER_L = counter_l
     COUNTER_R = counter_r
     rospy.Subscriber("/demo/left_lane" , Float64MultiArray, callback_left_lane)
@@ -105,20 +112,28 @@ def main():
     print("K_rho: " + str(k_rho))
     print("K_theta: " + str(k_theta))
     while not rospy.is_shutdown():
-        if counter_l == 0 or counter_r == 0:
+        if auto_calibrate:
+            if counter_l == 0 or counter_r == 0:
+                speed, steering = calculate_control(lane_rho_l, lane_theta_l, lane_rho_r, lane_theta_r, goal_rho_l, goal_theta_l, goal_rho_r, goal_theta_r)
+                pub_speed.publish(speed)
+                pub_angle.publish(steering)
+                print("a")
+                rate.sleep()
+            elif counter_l == 1:
+                goal_theta_l = sum_theta_l / COUNTER_L
+                goal_rho_l = sum_rho_l / COUNTER_L
+                print('Tunned l @ ({},{})'.format(goal_theta_l, goal_rho_l))
+            elif counter_r == 1:
+                goal_theta_r = sum_theta_r / COUNTER_R
+                goal_rho_r = sum_rho_r / COUNTER_R
+                print('Tunned r @ ({},{})'.format(goal_theta_r, goal_rho_r))
+        else:
             speed, steering = calculate_control(lane_rho_l, lane_theta_l, lane_rho_r, lane_theta_r, goal_rho_l, goal_theta_l, goal_rho_r, goal_theta_r)
             pub_speed.publish(speed)
             pub_angle.publish(steering)
+            print("a")
             rate.sleep()
-        elif counter_l == 1:
-            goal_theta_l = sum_theta_l / COUNTER_L
-            goal_rho_l = sum_rho_l / COUNTER_L
-            print('Tunned l @ ({},{})'.format(goal_theta_l, goal_rho_l))
-        elif counter_r == 1:
-            goal_theta_r = sum_theta_r / COUNTER_R
-            goal_rho_r = sum_rho_r / COUNTER_R
-            print('Tunned r @ ({},{})'.format(goal_theta_r, goal_rho_r))
-    
+
 
 if __name__ == "__main__":
     main()
