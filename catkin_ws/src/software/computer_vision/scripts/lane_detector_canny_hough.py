@@ -119,6 +119,7 @@ def weighted_average(lines):
 #
 def callback_rgb_image(msg):
     global pub_left_lane, pub_right_lane
+    global debug
     bridge = CvBridge()
     img   = bridge.imgmsg_to_cv2(msg, 'bgr8')
     img   = img[int(0.4*img.shape[0]):int(0.97*img.shape[0]) ,:,:]
@@ -134,16 +135,23 @@ def callback_rgb_image(msg):
     msg_right_lane.data = [mean_rho_r, mean_theta_r]
     pub_left_lane.publish(msg_left_lane)
     pub_right_lane.publish(msg_right_lane)
-    draw_normal_line(mean_rho_l, mean_theta_l, img.shape[0], img, (255,0,0))
-    draw_normal_line(mean_rho_r, mean_theta_r, img.shape[0], img, (0,0,255))
-    cv2.imshow("Region of interest", img)
-    cv2.waitKey(10)
+    if debug:
+        draw_normal_line(mean_rho_l, mean_theta_l, img.shape[0], img, (255,0,0))
+        draw_normal_line(mean_rho_r, mean_theta_r, img.shape[0], img, (0,0,255))
+        cv2.imshow("Region of interest", img)
+        cv2.waitKey(10)
 
 def main():
     global pub_left_lane, pub_right_lane
+    global debug
     print("INITIALIZING LANE DETECTION DEMO...")
     rospy.init_node("lane_detector")
     rospy.Subscriber('/raw_image', Image, callback_rgb_image)
+    debug = False
+    if rospy.has_param('~debug'):
+        print(rospy.get_param('~debug'))
+        if rospy.get_param('~debug') == 1:
+            debug = True
     pub_left_lane  = rospy.Publisher("/demo/left_lane" , Float64MultiArray, queue_size=10)
     pub_right_lane = rospy.Publisher("/demo/right_lane", Float64MultiArray, queue_size=10)
     rate = rospy.Rate(30)
