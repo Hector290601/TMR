@@ -19,7 +19,9 @@ def main():
     while not rospy.is_shutdown():
         ret, frame = cap.read()
         if ret == True:
-            img_publisher.publish(brdg.cv2_to_imgmsg(frame))
+            img_msg = brdg.cv2_to_imgmsg(frame)
+            img_msg.encoding = "bgr8"
+            img_publisher.publish(img_msg)
         loop.sleep()
 
 if __name__ == '__main__':
