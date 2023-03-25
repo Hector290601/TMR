@@ -14,11 +14,11 @@ import rospy
 from std_msgs.msg import Float64MultiArray
 from sensor_msgs.msg import Image
 from cv_bridge import CvBridge
-
 #
 # Converts a line given by two points to the normal form (rho, theta) with
 # rho, the distance to origin and theta, the angle wrt positive x-axis
 #
+# To normal form {{{
 def to_normal_form(x1, y1, x2, y2):
     A = y2 - y1
     B = x1 - x2
@@ -29,6 +29,7 @@ def to_normal_form(x1, y1, x2, y2):
         theta += math.pi
         rho = -rho
     return numpy.asarray([rho, theta])
+# }}}
 
 #
 # In image coordinates, origin is in the top-left corner, nevertheless,
@@ -36,6 +37,7 @@ def to_normal_form(x1, y1, x2, y2):
 # as origin the center of the car-hood, which corresponds to the bottom-center
 # point in the image. This function makes such transformation.
 #
+#Translate lines to bottom center{{{
 def translate_lines_to_bottom_center(lines, x_center, y_center):
     if lines is None:
         return None
@@ -47,10 +49,12 @@ def translate_lines_to_bottom_center(lines, x_center, y_center):
         ny2 = y_center - y2
         new_lines.append([nx1, ny1, nx2, ny2])
     return new_lines
+# }}}
 
 #
 # Draws a line given in normal form, in coordinates wrt car's hood.
 #
+# Draw normal line{{{
 def draw_normal_line(rho, theta, length, img,color):
     if rho == 0 or theta == 0:
         return
@@ -61,23 +65,27 @@ def draw_normal_line(rho, theta, length, img,color):
     x2 = int(a*rho + b*length + img.shape[1]/2)
     y2 = int(img.shape[0] - (b*rho - a*length))
     cv2.line(img, (x1, y1), (x2, y2), color, 3, cv2.LINE_AA)
+#}}}
 
 #
 # Convert to grayscale              
 # Apply blur filter to reduce noise 
 # Canny edge detector               
 #
+# Detect edges{{{
 def detect_edges(img):
     gray = cv2.cvtColor(img, cv2.COLOR_RGB2GRAY) 
     blur = cv2.GaussianBlur(gray, (5, 5), 0)       
     canny = cv2.Canny(blur, 50, 150)               
     return canny
+#}}}
 
 #
 # This function removes all lines with slopes near to horizontal al vertical lines.
 # It returns lines in two sets: left-border lines and right-border lines.
 # Classification is made based only on angle theta
 #
+# filter lines {{{
 def filter_lines(lines):
     left_lines  = []
     right_lines = []
@@ -90,11 +98,13 @@ def filter_lines(lines):
     left_lines  = left_lines  if len(left_lines)  > 0 else None
     right_lines = right_lines if len(right_lines) > 0 else None
     return left_lines, right_lines
+#}}}
 
 #
 # Calculates a weighted average of all lines detected. Longer lines have greater weight.
 # Average is calculated using lines in normal form. 
 #
+# Wighted average{{{
 def weighted_average(lines):
     if lines is None or len(lines) == 0:
         return 0, 0
@@ -107,6 +117,7 @@ def weighted_average(lines):
         weighted_average[0] += rho*weights[i]
         weighted_average[1] += theta*weights[i]
     return weighted_average[0], weighted_average[1]
+#}}}
 
 #
 # Image callback. For detecting lane borders, the following steps are performed:
@@ -117,6 +128,7 @@ def weighted_average(lines):
 # - Perform a weighted average
 # - Publish detected lanes
 #
+# Image callback{{{
 def callback_rgb_image(msg):
     global pub_left_lane, pub_right_lane
     global debug
@@ -139,8 +151,11 @@ def callback_rgb_image(msg):
         draw_normal_line(mean_rho_l, mean_theta_l, img.shape[0], img, (255,0,0))
         draw_normal_line(mean_rho_r, mean_theta_r, img.shape[0], img, (0,0,255))
         cv2.imshow("Region of interest", img)
-        cv2.waitKey(10)
+        cv2.waitKey(1)
+#}}}
 
+#
+# Main{{{
 def main():
     global pub_left_lane, pub_right_lane
     global debug
@@ -156,7 +171,7 @@ def main():
     pub_right_lane = rospy.Publisher("/demo/right_lane", Float64MultiArray, queue_size=10)
     rate = rospy.Rate(30)
     rospy.spin()
-    
+#}}}
 
 if __name__ == "__main__":
     try:
