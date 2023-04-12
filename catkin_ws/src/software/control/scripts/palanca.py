@@ -36,18 +36,25 @@ import math
 joyLeft = ""
 speed = ""
 steering = ""
+max_speed =  0.15
+max_steering = 0.6
 
 def callback_joy(msg):
     global joyLeft, pub, speed, steering
     velocidad = msg.axes[4]
     turbo = msg.axes[5]
+    to_publish = 0.0
     if velocidad > 0:
-        speed.publish((0.2 * velocidad) + (0.8 * (0.5 * ( 1 - turbo))))
+        to_publish = (max_speed * velocidad) + ((1 - max_speed)*((1-turbo) / 2.0))
+        #speed.publish((0.1 * velocidad) + (0.9 * (0.5 * ( 1 - turbo))))
     elif velocidad < 0:
-        speed.publish((0.2 * velocidad) - (0.8 * (0.5 * ( 1 - turbo))))
+        to_publish = (max_speed * velocidad) - ((1 - max_speed)*((1-turbo) / 2.0))
+        #speed.publish((0.1 * velocidad) - (0.9 * (0.5 * ( 1 - turbo))))
+        #speed.publish((max_speed * velocidad) - ((1 - max_speed)*((1*turbo) / 2.0)))
     else:
-        speed.publish(0.0)
-    steering.publish(1.5 + ( msg.axes[3] * 0.6 ))
+        to_publish = 0.0
+    speed.publish(to_publish)
+    steering.publish(( msg.axes[3] * max_steering ))
 
 def main():
     global msgJoy, speed, steering
