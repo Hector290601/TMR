@@ -13,13 +13,7 @@ void messageCb( const std_msgs::Float64& msg){ //msg callback
     radian = 0.9;
   }
   float deg = radian * (180/PI); //transform radians to degrees
-  if(deg > 120){ //lower limit
-    servo.write(120); 
-  }else if(deg < 60){ //upper limit
-    servo.write(60);
-  }else{ //write readed value
-    servo.write(deg);
-  }
+  servo.write(deg);
 }
 
 ros::Subscriber<std_msgs::Float64> sub("/steering", messageCb ); //configure servo callback
