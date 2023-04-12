@@ -6,8 +6,8 @@ from cv_bridge import CvBridge
 import cv2
 import numpy as np
 
-upper_color = [124, 18, 182]
-lower_color = [81, 3, 134]
+upper_color = [179, 233, 255]
+lower_color = [170, 72, 127]
 
 def callback_raw_image(data):
     global upper_color, lower_color
