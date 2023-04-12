@@ -11,6 +11,8 @@ import math
 import cv2
 import numpy
 import rospy
+import numpy as np
+
 from std_msgs.msg import Float64MultiArray
 from sensor_msgs.msg import Image
 from cv_bridge import CvBridge
@@ -120,6 +122,19 @@ def weighted_average(lines):
 #}}}
 
 #
+#
+#
+# Color filter{{{
+def color_filter(frame):
+    lower_color = [244, 127, 128]
+    upper_color = [254, 128, 129]
+    lab = cv2.cvtColor(frame, cv2.COLOR_BGR2LAB)
+    mask = cv2.inRange(lab, np.array(lower_color), np.array(upper_color))
+    result = cv2.bitwise_and(frame, frame, mask = mask)
+    return result
+#}}}
+
+#
 # Image callback. For detecting lane borders, the following steps are performed:
 # - Crop image to consider only the part below horizon
 # - Conversion to grayscale, gaussian filtering and Canny border detection
@@ -135,6 +150,7 @@ def callback_rgb_image(msg):
     bridge = CvBridge()
     img   = bridge.imgmsg_to_cv2(msg, 'bgr8')
     img   = img[int(0.4*img.shape[0]):int(0.97*img.shape[0]) ,:,:]
+    img = color_filter(img)
     canny = detect_edges(img)
     lines = cv2.HoughLinesP(canny, 2, numpy.pi/180, 80, minLineLength=80, maxLineGap=100)[:,0]
     lines = translate_lines_to_bottom_center(lines, img.shape[1]/2, img.shape[0])
