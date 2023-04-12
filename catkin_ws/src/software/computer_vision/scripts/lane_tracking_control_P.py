@@ -22,6 +22,10 @@ from std_msgs.msg import Float64MultiArray, Float64, Float32
 # calculate_control {{{
 def calculate_control(rho_l, theta_l, rho_r, theta_r, goal_rho_l, goal_theta_l, goal_rho_r, goal_theta_r):
     global max_speed, k_rho, k_theta
+    error_rho_l = 0
+    error_theta_l = 0
+    error_rho_r = 0
+    error_theta_r = 0
     if rho_l == 0 or theta_l == 0:
         print("Left line missign")
     else:
@@ -32,7 +36,8 @@ def calculate_control(rho_l, theta_l, rho_r, theta_r, goal_rho_l, goal_theta_l, 
     else:
         error_rho_r   = rho_r   - goal_rho_r
         error_theta_r = theta_r - goal_theta_r
-    if rho_l != 0 and theta_l != 0 and rho_r != 0 and theta_r != 0:
+    if True: #rho_l != 0 and theta_l != 0 and rho_r != 0 and theta_r != 0
+        print("True: {} {} {} {}".format(rho_l, theta_l, rho_r, theta_r))
         if rho_l != 0 and rho_r != 0:
             error_rho   = (error_rho_l + error_rho_r)/2
             error_theta = (error_theta_l + error_theta_r)/2
@@ -42,16 +47,19 @@ def calculate_control(rho_l, theta_l, rho_r, theta_r, goal_rho_l, goal_theta_l, 
         else:
             error_rho   = error_rho_r
             error_theta = error_theta_r
+        print("True: {} {} {} {} {} {}".format(rho_l, theta_l, rho_r, theta_r, error_rho, error_theta))
         steering = -k_rho*error_rho - k_theta*error_theta
         speed = max_speed#*(1 - 1.5*abs(steering))
+        """
     elif rho_r == 0 or theta_r == 0 and rho_l != 0 and theta_l != 0:
         print('Right line missing')
-        steering = 2.1
-        speed = max_speed / 2
+        #steering = -0.6
+        #speed = max_speed / 2
     elif rho_l == 0 or theta_l == 0 and rho_r != 0 and theta_r != 0:
-        print('Right line missing')
-        steering = 2.1
-        speed = max_speed / 2
+        print('Left line missing')
+        #steering = 0.6
+        #speed = max_speed / 2
+        """
     else:
         steering = 0
         speed = -max_speed / 2
@@ -82,19 +90,20 @@ def callback_right_lane(msg):
         print('tunning r @ ' + str(counter_r))
 # }}}
 
-# set global params {{{
-def set_globa_params():
+# main{{{
+def main():
     global lane_rho_l, lane_theta_l, lane_rho_r, lane_theta_r
     global max_speed, k_rho, k_theta
     global goal_rho_l, global_theta_l, global_tho_r, global_theta_r
     global sum_rho_l, sum_theta_l, sum_rho_r, sum_theta_r
     global counter_l, counter_r, COUNTER_L, COUNTER_R, auto_calibrate
+    print('INITIALIZING LANE TRACKING NODE...')
     sum_rho_l = sum_theta_l = sum_rho_r = sum_theta_r = 0
     auto_calibrate = False
     counter_l = counter_r = 10
-    max_speed = 0.13
-    k_rho   = 0.001
-    k_theta = 0.01
+    max_speed = 0.2
+    k_rho   = 0.005
+    k_theta = 0.05
     lane_rho_l   = 0
     lane_theta_l = 0
     lane_rho_r   = 0
@@ -117,21 +126,11 @@ def set_globa_params():
             auto_calibrate = False
     COUNTER_L = counter_l
     COUNTER_R = counter_r
-# }}}
-
-# main{{{
-def main():
-    global lane_rho_l, lane_theta_l, lane_rho_r, lane_theta_r
-    global max_speed, k_rho, k_theta
-    global goal_rho_l, global_theta_l, global_tho_r, global_theta_r
-    global sum_rho_l, sum_theta_l, sum_rho_r, sum_theta_r
-    global counter_l, counter_r, COUNTER_L, COUNTER_R, auto_calibrate
-    print('INITIALIZING LANE TRACKING NODE...')
-    set_globa_params()
-    goal_rho_l   = 186.0
-    goal_theta_l = 2.26
-    goal_rho_r   = 200.0
-    goal_theta_r = 0.77
+    print(max_speed)
+    goal_rho_l   = 291.86
+    goal_theta_l = 2.22
+    goal_rho_r   = 286.35
+    goal_theta_r = 1.11
     rospy.init_node('lane_tracking')
     rate = rospy.Rate(30)
     rospy.Subscriber("/demo/left_lane" , Float64MultiArray, callback_left_lane)
@@ -164,10 +163,12 @@ def main():
             speed, steering = calculate_control(lane_rho_l, lane_theta_l, lane_rho_r, lane_theta_r, goal_rho_l, goal_theta_l, goal_rho_r, goal_theta_r)
             pub_speed.publish(speed)
             pub_angle.publish(steering)
+            """
             lane_rho_l = 0
             lane_theta_l = 0
             lane_rho_r = 0
             lane_theta_r = 0
+            """
             rate.sleep()
 # }}}
 
