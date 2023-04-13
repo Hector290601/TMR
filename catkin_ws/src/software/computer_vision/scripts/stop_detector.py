@@ -6,6 +6,8 @@ from cv_bridge import CvBridge
 import cv2
 import numpy as np
 
+stop = None
+
 lower_color = [0, 69, 120]
 upper_color = [5, 251, 152]
 
@@ -38,13 +40,17 @@ def callback_raw_image(data):
             radius = int(radius)
             cv2.circle(frame, center, radius, (0, 0, 255), 2)
             cv2.drawContours(frame, cnt, -1, (0,255,0), 3)
+            stop.publish(cnt)
     cv2.imshow('mask', mask)
     cv2.imshow('original', frame)
     cv2.waitKey(1)
 
 def main():
+    global stop
     rospy.init_node('raw_img_subscriber', anonymous = True)
     rospy.Subscriber('/raw_image', Image, callback_raw_image)
+    rospy.Subscriber('/raw_image', Image, callback_raw_image)
+    stop = rospy.Publisher("/stop", Float, queue_size=10)
     rospy.spin()
     cv2.destroyAllWindows()
 
