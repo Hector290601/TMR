@@ -64,7 +64,7 @@ def callback_raw_image(data):
     elif k == ord('p'):
         uh, us, uv = upper_color
         lh, ls, lv = lower_color
-        print("Lower: (H:{},S:{},V:{})\nUpper: (H:{},S:{},V:{})".format(
+        print("upper_color = [{}, {}, {}] \nlower_color = [{}, {}, {}]".format(
             lh, ls, lv,
             uh, us, uv
             )
