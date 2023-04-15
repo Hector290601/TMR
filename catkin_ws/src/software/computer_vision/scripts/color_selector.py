@@ -47,7 +47,7 @@ def callback_raw_image(data):
     brdg = CvBridge()
     frame = brdg.imgmsg_to_cv2(data)
     hsv = cv2.cvtColor(frame, cv2.COLOR_BGR2LAB)
-    mask = cv2.inRange(hsv, np.array(lower_color), np.array(upper_color))
+    mask = cv2.inRange(hsv, (lower_color[0], lower_color[1], lower_color[2]), (upper_color[0], upper_color[1], upper_color[2]))
     result = cv2.bitwise_and(frame, frame, mask = mask)
     #cv2.imshow('mask', mask)
     cv2.imshow("hsv", hsv)
@@ -64,7 +64,7 @@ def callback_raw_image(data):
     elif k == ord('p'):
         uh, us, uv = upper_color
         lh, ls, lv = lower_color
-        print("upper_color = [{}, {}, {}] \nlower_color = [{}, {}, {}]".format(
+        print("lower_color = [{}, {}, {}] \nupper_color = [{}, {}, {}]".format(
             lh, ls, lv,
             uh, us, uv
             )
