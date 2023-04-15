@@ -12,7 +12,7 @@ def main():
     rospy.init_node("camera")
     img_publisher = rospy.Publisher("/raw_image", Image, queue_size=10)
     loop = rospy.Rate(60)
-    cap = cv2.VideoCapture(2)
+    cap = cv2.VideoCapture(0)
     cap.set(cv2.CAP_PROP_FPS, 30)
     brdg = CvBridge()
     print("CAMERA PUBLISHER NODE INITIALIZED SUCCESFULLY")
