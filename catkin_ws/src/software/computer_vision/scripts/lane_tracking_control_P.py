@@ -10,7 +10,9 @@ set as a constant.
 import cv2
 import numpy
 import rospy
-from std_msgs.msg import Float64MultiArray, Float64, Float32
+from std_msgs.msg import Float64MultiArray, Float64, Float32, Bool
+
+stops = 0
 
 #
 # Steering is calculated proportional to two errors: distance error and angle error.
@@ -90,6 +92,17 @@ def callback_right_lane(msg):
         print('tunning r @ ' + str(counter_r))
 # }}}
 
+#
+#
+# stop callback{{{
+def callback_stop(msg):
+    global stops
+    if msg.data:
+        stops += 1
+    else:
+        stops = 0
+#}}}
+
 # main{{{
 def main():
     global lane_rho_l, lane_theta_l, lane_rho_r, lane_theta_r
@@ -98,10 +111,11 @@ def main():
     global sum_rho_l, sum_theta_l, sum_rho_r, sum_theta_r
     global counter_l, counter_r, COUNTER_L, COUNTER_R, auto_calibrate
     print('INITIALIZING LANE TRACKING NODE...')
+    rospy.init_node("lane_tracking")
     sum_rho_l = sum_theta_l = sum_rho_r = sum_theta_r = 0
     auto_calibrate = False
     counter_l = counter_r = 10
-    max_speed = 0.2
+    max_speed = 0.3
     k_rho   = 0.005
     k_theta = 0.05
     lane_rho_l   = 0
@@ -135,6 +149,7 @@ def main():
     rate = rospy.Rate(30)
     rospy.Subscriber("/demo/left_lane" , Float64MultiArray, callback_left_lane)
     rospy.Subscriber("/demo/right_lane", Float64MultiArray, callback_right_lane)
+    rospy.Subscriber("/stop", Bool, callback_stop)
     pub_speed = rospy.Publisher('/speed', Float32, queue_size=10)
     pub_angle = rospy.Publisher('/steering', Float64, queue_size=10)
     print("Waiting for lane detection...")
@@ -148,7 +163,10 @@ def main():
         if False:#auto_calibrate:
             if counter_l == 0 or counter_r == 0:
                 speed, steering = calculate_control(lane_rho_l, lane_theta_l, lane_rho_r, lane_theta_r, goal_rho_l, goal_theta_l, goal_rho_r, goal_theta_r)
-                pub_speed.publish(speed)
+                if stops < 2:
+                    pub_speed.publish(speed)
+                else:
+                    pub_speed.publish(0.0)
                 pub_angle.publish(steering)
                 rate.sleep()
             elif counter_l == 1:
@@ -161,7 +179,10 @@ def main():
                 print('Tunned r @ ({},{})'.format(goal_theta_r, goal_rho_r))
         else:
             speed, steering = calculate_control(lane_rho_l, lane_theta_l, lane_rho_r, lane_theta_r, goal_rho_l, goal_theta_l, goal_rho_r, goal_theta_r)
-            pub_speed.publish(speed)
+            if stops < 2:
+                pub_speed.publish(speed)
+            else:
+                pub_speed.publish(0.0)
             pub_angle.publish(steering)
             """
             lane_rho_l = 0

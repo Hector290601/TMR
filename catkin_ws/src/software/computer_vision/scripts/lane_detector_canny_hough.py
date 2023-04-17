@@ -126,8 +126,8 @@ def weighted_average(lines):
 #
 # Color filter{{{
 def color_filter(frame):
-    lower_color = [244, 127, 128]
-    upper_color = [254, 128, 129]
+    lower_color = [237,123,129]
+    upper_color = [255, 127, 141]
     lab = cv2.cvtColor(frame, cv2.COLOR_BGR2LAB)
     mask = cv2.inRange(lab, np.array(lower_color), np.array(upper_color))
     result = cv2.bitwise_and(frame, frame, mask = mask)
