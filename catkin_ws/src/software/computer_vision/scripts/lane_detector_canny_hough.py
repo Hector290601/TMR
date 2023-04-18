@@ -12,7 +12,6 @@ import cv2
 import numpy
 import rospy
 import numpy as np
-
 from std_msgs.msg import Float64MultiArray
 from sensor_msgs.msg import Image
 from cv_bridge import CvBridge
@@ -126,10 +125,10 @@ def weighted_average(lines):
 #
 # Color filter{{{
 def color_filter(frame):
-    lower_color = [237,123,129]
-    upper_color = [255, 127, 141]
-    lab = cv2.cvtColor(frame, cv2.COLOR_BGR2LAB)
-    mask = cv2.inRange(lab, np.array(lower_color), np.array(upper_color))
+    lower_color = [0, 0, 218] 
+    upper_color = [75, 33, 255]
+    hsv = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
+    mask = cv2.inRange(hsv, np.array(lower_color), np.array(upper_color))
     result = cv2.bitwise_and(frame, frame, mask = mask)
     return result
 #}}}
@@ -146,7 +145,7 @@ def color_filter(frame):
 # Image callback{{{
 def callback_rgb_image(msg):
     global pub_left_lane, pub_right_lane
-    global debug
+    global debug, img_publisher, brdg
     bridge = CvBridge()
     img   = bridge.imgmsg_to_cv2(msg, 'bgr8')
     img   = img[int(0.4*img.shape[0]):int(0.97*img.shape[0]) ,:,:]
@@ -163,9 +162,13 @@ def callback_rgb_image(msg):
     msg_right_lane.data = [mean_rho_r, mean_theta_r]
     pub_left_lane.publish(msg_left_lane)
     pub_right_lane.publish(msg_right_lane)
+    draw_normal_line(mean_rho_l, mean_theta_l, img.shape[0], img, (255,0,0))
+    draw_normal_line(mean_rho_r, mean_theta_r, img.shape[0], img, (0,0,255))
+    img_msg = brdg.cv2_to_imgmsg(img)
+    img_msg.encoding = "bgr8"
+    img_publisher.publish(img_msg)
     if debug:
-        draw_normal_line(mean_rho_l, mean_theta_l, img.shape[0], img, (255,0,0))
-        draw_normal_line(mean_rho_r, mean_theta_r, img.shape[0], img, (0,0,255))
+        print("publish")
         cv2.imshow("Region of interest", img)
         cv2.waitKey(1)
 #}}}
@@ -174,27 +177,23 @@ def callback_rgb_image(msg):
 # Main{{{
 def main():
     global pub_left_lane, pub_right_lane
-    global debug
+    global debug, img_publisher, brdg
     print("INITIALIZING LANE DETECTION DEMO...")
     rospy.init_node("lane_detector")
     rospy.Subscriber('/raw_image', Image, callback_rgb_image)
+    img_publisher = rospy.Publisher("/lane_image", Image, queue_size=10)
     debug = False
+    brdg = CvBridge()
     if rospy.has_param('~debug'):
-        print(rospy.get_param('~debug'))
         if rospy.get_param('~debug') == 1:
             debug = True
+    print(debug)
     pub_left_lane  = rospy.Publisher("/demo/left_lane" , Float64MultiArray, queue_size=10)
     pub_right_lane = rospy.Publisher("/demo/right_lane", Float64MultiArray, queue_size=10)
     rate = rospy.Rate(30)
-    rospy.spin()
+    while not rospy.is_shutdown():
+        rate.sleep()
 #}}}
 
 if __name__ == "__main__":
-    try:
-        main()
-    except:
-        rospy.ROSInterruptException
-        pass
-
-    
-
+    main()
