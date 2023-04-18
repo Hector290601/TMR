@@ -116,6 +116,7 @@ def main():
     global pub_left_lane, pub_right_lane, pub_parking_lane, img_pub
     print("INITIALIZING LANE DETECTION NODE...")
     rospy.init_node("lane_detector")
+    rospy.wait_for_message('/raw_image', Image)
     rospy.Subscriber('/raw_image', Image, callback_rgb_image)
     img_pub = rospy.Publisher('/camera/rgb/lanes', Image, queue_size=10)
     pub_left_lane  = rospy.Publisher("/left_lane" , Float64MultiArray, queue_size=10)

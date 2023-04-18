@@ -47,7 +47,7 @@ def main_callback(data):
     if(obst_sph):
         print(parking_lane, right_lane, left_lane, min(obst_sph, key=lambda x: x[0]))
 
-    if state == 'searching':
+"""    if state == 'searching':
         if obst_sph:
             obst_r_min = min(obst_sph, key=lambda x: x[0])
             if -1.6 < obst_r_min[1] < -1.25:
@@ -81,7 +81,7 @@ def main_callback(data):
             print('Succesfully parked')
     elif state == 'stopping':
         speed_pub.publish(0.0)
-        steering_pub.publish(0.0)
+        steering_pub.publish(0.0)"""
 
 def main():
     global speed_pub, steering_pub, state
@@ -97,14 +97,14 @@ def main():
     rospy.wait_for_message('/right_lane', Float64MultiArray)
     rospy.wait_for_message('/left_lane', Float64MultiArray)
     rospy.wait_for_message('/parking_lane', Float64MultiArray)
-    rospy.wait_for_message('/lane_speed', Float64)
+    rospy.wait_for_message('/lane_speed', Float32)
     rospy.wait_for_message('/lane_steering', Float64)
     rospy.wait_for_message('/obstacle_centroids', PointCloud2)
     
     rospy.Subscriber('/right_lane', Float64MultiArray, right_lane_callback)    
     rospy.Subscriber('/left_lane', Float64MultiArray, left_lane_callback)    
     rospy.Subscriber('/parking_lane', Float64MultiArray, parking_lane_callback)
-    rospy.Subscriber('/lane_speed', Float64, lane_speed_callback)
+    rospy.Subscriber('/lane_speed', Float32, lane_speed_callback)
     rospy.Subscriber('/lane_steering', Float64, lane_steering_callback)   
     rospy.Subscriber('/obstacle_centroids', PointCloud2, main_callback)
     
