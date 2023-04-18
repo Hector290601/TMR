@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<launch>
+  <include file="$(find mobile_base)/launch/mobile_base.launch" />
+  <node pkg="parking" type="obstacle_detection.py" name="obstacle_detection" output="screen"/>
+  <node pkg="parking" type="lane_detector_canny_hough.py" name="" output="screen"/>
+  <node pkg="parking" type="lane_tracking.py" name="" output="screen"/>
+  <node pkg="parking" type="parking.py" name="" output="screen"/>
+</launch>

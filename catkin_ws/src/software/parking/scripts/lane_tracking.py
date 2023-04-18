@@ -1,0 +1,57 @@
+#!/usr/bin/env python
+
+import rospy
+from std_msgs.msg import Float32, Float64, Float64MultiArray
+
+def calculate_control():
+    global max_speed, k_rho, k_theta, target_rho_l, target_theta_l, target_rho_r, target_theta_r, left_lane, right_lane
+
+    if left_lane.rho == 0 or left_lane.theta == 0:
+        rospy.logwarn("Left line missing")
+        return [0, 0]
+
+    if right_lane.rho == 0 or right_lane.theta == 0:
+        rospy.logwarn("Right line missing")
+        return [0, 0]
+
+    error_rho_l   = target_rho_l   - left_lane.rho
+    error_theta_l = target_theta_l - left_lane.theta
+    error_rho_r   = right_lane.rho   - target_rho_r
+    error_theta_r = right_lane.theta - target_theta_r
+
+    error_rho   = (error_rho_l + error_rho_r) / 2
+    error_theta = (error_theta_l + error_theta_r) / 2
+
+    steering = -k_rho*error_rho - k_theta*error_theta
+    speed = max_speed
+
+    return speed, steering
+
+def callback_left_lane(msg):
+    global left_lane
+    left_lane = msg
+
+def callback_right_lane(msg):
+    global right_lane
+    right_lane = msg
+    speed, steering = calculate_control()
+    pub_steering.publish(steering)
+    pub_speed.publish(speed)
+
+if __name__ == '__main__':
+    global max_speed, k_rho, k_theta, target_rho_l, target_rho_r, target_theta_l, target_theta_r
+    
+    max_speed = 0.3
+    k_rho = 0.005
+    k_theta = 0.05
+    target_rho_l   = 291.86
+    target_theta_l = 2.22
+    target_rho_r   = 286.35
+    target_theta_r = 1.11
+    
+    rospy.init_node("lane_tracking")
+    pub_speed = rospy.Publisher('/lane_speed', Float32, queue_size=10)
+    pub_steering = rospy.Publisher('/lane_steering', Float64, queue_size=10)
+    rospy.Subscriber("/left_lane", Float64MultiArray, callback_left_lane)
+    rospy.Subscriber("/right_lane", Float64MultiArray, callback_right_lane)
+    rospy.spin()
