@@ -7,12 +7,10 @@ def calculate_control():
     global max_speed, k_rho, k_theta, target_rho_l, target_theta_l, target_rho_r, target_theta_r, left_lane, right_lane
 
     if left_lane[0] == 0 or left_lane[1] == 0:
-        rospy.logwarn("Left line missing")
-        return [0, 0]
+        return [max_speed, 0.0]
 
     if right_lane[0] == 0 or right_lane[1] == 0:
-        rospy.logwarn("Right line missing")
-        return [0, 0]
+        return [max_speed, 0.0]
 
     error_rho_l   = target_rho_l   - left_lane[0]
     error_theta_l = target_theta_l - left_lane[1]

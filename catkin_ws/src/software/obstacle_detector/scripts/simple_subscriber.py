@@ -6,12 +6,16 @@ import numpy
 
 def callback_scan(msg):
     global obstacle
-    ranges = numpy.array(msg.ranges)
+    #print(dir(msg))
+    #print(type(msg.ranges))
+    #print(msg.ranges)
+    ranges = msg.ranges
     center = len(msg.ranges) // 2
-    ranges = ranges[234:400]
-    obstacle = len(ranges[(ranges > 0.2) & (ranges < 0.65)])
-    print(obstacle)
-    obstacle = obstacle > 20
+    ranges = ranges[center-20 : center + 20]
+    print(ranges)
+    #print(ranges)
+    #obstacle = len(ranges[(ranges > 0.2) & (ranges < 0.65)])
+    #obstacle = obstacle > 15
 
 def main():
     global obstacle

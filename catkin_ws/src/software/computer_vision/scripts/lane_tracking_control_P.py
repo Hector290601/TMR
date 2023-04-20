@@ -10,6 +10,7 @@ set as a constant.
 import cv2
 import numpy
 import rospy
+import time
 from std_msgs.msg import Float64MultiArray, Float64, Float32, Bool
 
 stops = 0
@@ -101,8 +102,6 @@ def callback_stop(msg):
     global stops
     if msg.data:
         stops += 1
-    else:
-        stops = 0
 #}}}
 
 # main{{{
@@ -112,7 +111,7 @@ def main():
     global goal_rho_l, global_theta_l, global_tho_r, global_theta_r
     global sum_rho_l, sum_theta_l, sum_rho_r, sum_theta_r
     global counter_l, counter_r, COUNTER_L, COUNTER_R, auto_calibrate
-    global obstacle
+    global obstacle, stops
     print('INITIALIZING LANE TRACKING NODE...')
     rospy.init_node("lane_tracking")
     obstacle = False
@@ -145,10 +144,10 @@ def main():
     COUNTER_L = counter_l
     COUNTER_R = counter_r
     print(max_speed)
-    goal_rho_l   = 180.71
-    goal_theta_l = 1.95
-    goal_rho_r   = 160
-    goal_theta_r = 1.05
+    goal_rho_l   = 301
+    goal_theta_l = 2.29
+    goal_rho_r   = 280
+    goal_theta_r = 0.95
     rospy.init_node('lane_tracking')
     rate = rospy.Rate(30)
     rospy.Subscriber("/demo/left_lane" , Float64MultiArray, callback_left_lane)
@@ -166,6 +165,7 @@ def main():
     print("K_theta: " + str(k_theta))
     while not rospy.is_shutdown():
         if False:#auto_calibrate:
+            #{{{
             if counter_l == 0 or counter_r == 0:
                 speed, steering = calculate_control(lane_rho_l, lane_theta_l, lane_rho_r, lane_theta_r, goal_rho_l, goal_theta_l, goal_rho_r, goal_theta_r)
                 if stops < 2:
@@ -180,13 +180,28 @@ def main():
             elif counter_r == 1:
                 goal_theta_r = sum_theta_r / COUNTER_R
                 goal_rho_r = sum_rho_r / COUNTER_R
+            #}}}
         else:
             speed, steering = calculate_control(lane_rho_l, lane_theta_l, lane_rho_r, lane_theta_r, goal_rho_l, goal_theta_l, goal_rho_r, goal_theta_r)
-
-            if not obstacle:
+            if not obstacle and stops < 2:
                 pub_speed.publish(speed)
-            else:
+            elif stops > 2:
                 pub_speed.publish(0.0)
+                time.sleep(1)
+                stops = -10
+            elif obstacle:
+                pub_angle.publish(-2)
+                pub_speed.publish(max_speed)
+                time.sleep(0.5)
+                pub_angle.publish(2)
+                pub_speed.publish(max_speed)
+                time.sleep(1)
+                pub_angle.publish(2)
+                pub_speed.publish(max_speed)
+                time.sleep(0.5)
+                pub_angle.publish(-2)
+                pub_speed.publish(max_speed)
+                obstacle = False
             pub_angle.publish(steering)
             """
             lane_rho_l = 0

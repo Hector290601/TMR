@@ -10,10 +10,8 @@ from std_msgs.msg import Bool
 stop = None
 kernel = None
 
-#lower_color = [0, 69, 120]
-lower_color = [0, 69, 70]
-#upper_color = [5, 251, 152]
-upper_color = [5, 255, 255]
+lower_color = [1, 93, 136] 
+upper_color = [11, 255, 203]
 
 def callback_raw_image(data):
     global upper_color, lower_color, kernel
@@ -27,9 +25,12 @@ def callback_raw_image(data):
     #imgray = cv2.cvtColor(img_dilation, cv2.COLOR_BGR2GRAY)
     #thresh = cv2.adaptiveThreshold(img_dilation,255,cv2.ADAPTIVE_THRESH_GAUSSIAN_C,cv2.THRESH_BINARY,11,2)
     contours, hierarchy = cv2.findContours(mask, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
+    if len(contours) < 1:
+        stop.publish(False)
+        return
     area = max([cv2.contourArea(cnt) for cnt in contours])
-    #print(area)
-    if area > 7000:# and area < 7000:
+    print(area)
+    if area > 1000:# and area < 7000:
         stop.publish(True)
     else:
         stop.publish(False)

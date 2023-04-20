@@ -15,6 +15,9 @@ import numpy as np
 from std_msgs.msg import Float64MultiArray
 from sensor_msgs.msg import Image
 from cv_bridge import CvBridge
+
+kernel = np.ones((5, 5), np.uint8)
+
 #
 # Converts a line given by two points to the normal form (rho, theta) with
 # rho, the distance to origin and theta, the angle wrt positive x-axis
@@ -125,8 +128,9 @@ def weighted_average(lines):
 #
 # Color filter{{{
 def color_filter(frame):
-    lower_color = [0, 0, 218] 
-    upper_color = [75, 33, 255]
+    global kernel, result
+    lower_color = [0, 0, 227] 
+    upper_color = [50, 38, 255]
     hsv = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
     mask = cv2.inRange(hsv, np.array(lower_color), np.array(upper_color))
     result = cv2.bitwise_and(frame, frame, mask = mask)
@@ -146,6 +150,7 @@ def color_filter(frame):
 def callback_rgb_image(msg):
     global pub_left_lane, pub_right_lane
     global debug, img_publisher, brdg
+    global result
     bridge = CvBridge()
     img   = bridge.imgmsg_to_cv2(msg, 'bgr8')
     img   = img[int(0.4*img.shape[0]):int(0.97*img.shape[0]) ,:,:]
@@ -168,7 +173,6 @@ def callback_rgb_image(msg):
     img_msg.encoding = "bgr8"
     img_publisher.publish(img_msg)
     if debug:
-        print("publish")
         cv2.imshow("Region of interest", img)
         cv2.waitKey(1)
 #}}}
@@ -187,7 +191,6 @@ def main():
     if rospy.has_param('~debug'):
         if rospy.get_param('~debug') == 1:
             debug = True
-    print(debug)
     pub_left_lane  = rospy.Publisher("/demo/left_lane" , Float64MultiArray, queue_size=10)
     pub_right_lane = rospy.Publisher("/demo/right_lane", Float64MultiArray, queue_size=10)
     rate = rospy.Rate(30)
