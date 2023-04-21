@@ -41,7 +41,7 @@ if __name__ == '__main__':
 
     left_lane = [0, 0]
     right_lane = [0, 0]    
-    max_speed = 0.3
+    max_speed = 0.2
     k_rho = 0.005
     k_theta = 0.05
     target_rho_l   = 291.86

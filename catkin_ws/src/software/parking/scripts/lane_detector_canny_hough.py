@@ -91,26 +91,29 @@ def callback_rgb_image(msg):
     img   = bridge.imgmsg_to_cv2(msg, 'bgr8')
     img = color_filter(img)
     canny = detect_edges(img)
-    lines = cv2.HoughLinesP(canny, 2, numpy.pi/180, 80, minLineLength=80, maxLineGap=100)[:,0]
-    lines = translate_lines_to_bottom_center(lines, img.shape[1]/2, img.shape[0])
-    left_lines, right_lines, extra_lines = filter_lines(lines)
-    mean_rho_l, mean_theta_l = weighted_average(left_lines)
-    mean_rho_r, mean_theta_r = weighted_average(right_lines)
-    mean_rho_e, mean_theta_e = weighted_average(extra_lines)
-    msg_left_lane  = Float64MultiArray()
-    msg_right_lane = Float64MultiArray()
-    msg_parking_lane = Float64MultiArray()
-    msg_left_lane.data  = [mean_rho_l, mean_theta_l]
-    msg_right_lane.data = [mean_rho_r, mean_theta_r]
-    msg_parking_lane.data = [mean_rho_e, mean_theta_e]
-    pub_left_lane.publish(msg_left_lane)
-    pub_right_lane.publish(msg_right_lane)
-    pub_parking_lane.publish(msg_parking_lane)
-    draw_normal_line(mean_rho_l, mean_theta_l, img.shape[0], img, (255,0,0))
-    draw_normal_line(mean_rho_r, mean_theta_r, img.shape[0], img, (0,0,255))
-    draw_normal_line(mean_rho_e, mean_theta_e, img.shape[0], img, (0,255,255))
-    ros_img = bridge.cv2_to_imgmsg(img, encoding="passthrough")
-    img_pub.publish(ros_img)
+    try:
+        lines = cv2.HoughLinesP(canny, 2, numpy.pi/180, 80, minLineLength=80, maxLineGap=100)[:,0]
+        lines = translate_lines_to_bottom_center(lines, img.shape[1]/2, img.shape[0])
+        left_lines, right_lines, extra_lines = filter_lines(lines)
+        mean_rho_l, mean_theta_l = weighted_average(left_lines)
+        mean_rho_r, mean_theta_r = weighted_average(right_lines)
+        mean_rho_e, mean_theta_e = weighted_average(extra_lines)
+        msg_left_lane  = Float64MultiArray()
+        msg_right_lane = Float64MultiArray()
+        msg_parking_lane = Float64MultiArray()
+        msg_left_lane.data  = [mean_rho_l, mean_theta_l]
+        msg_right_lane.data = [mean_rho_r, mean_theta_r]
+        msg_parking_lane.data = [mean_rho_e, mean_theta_e]
+        pub_left_lane.publish(msg_left_lane)
+        pub_right_lane.publish(msg_right_lane)
+        pub_parking_lane.publish(msg_parking_lane)
+        draw_normal_line(mean_rho_l, mean_theta_l, img.shape[0], img, (255,0,0))
+        draw_normal_line(mean_rho_r, mean_theta_r, img.shape[0], img, (0,0,255))
+        draw_normal_line(mean_rho_e, mean_theta_e, img.shape[0], img, (0,255,255))
+        ros_img = bridge.cv2_to_imgmsg(img, encoding="passthrough")
+        img_pub.publish(ros_img)
+    except:
+        pass
 
 def main():
     global pub_left_lane, pub_right_lane, pub_parking_lane, img_pub
