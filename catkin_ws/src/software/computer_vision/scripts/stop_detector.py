@@ -10,8 +10,10 @@ from std_msgs.msg import Bool
 stop = None
 kernel = None
 
-lower_color = [1, 93, 136] 
-upper_color = [11, 255, 203]
+
+lower_color = [0, 198, 96] 
+upper_color = [3, 227, 112]
+
 
 def callback_raw_image(data):
     global upper_color, lower_color, kernel
@@ -30,7 +32,7 @@ def callback_raw_image(data):
         return
     area = max([cv2.contourArea(cnt) for cnt in contours])
     print(area)
-    if area > 1000:# and area < 7000:
+    if area > 500:# and area < 7000:
         stop.publish(True)
     else:
         stop.publish(False)

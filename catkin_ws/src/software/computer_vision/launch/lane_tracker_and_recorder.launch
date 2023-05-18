@@ -1,0 +1,4 @@
+<launch>
+	<node name="lane_tracker" pkg="computer_vision" type="lane_tracking_control_P.py" output="screen"/>
+	<node name="recorder" pkg="computer_vision" type="recorder.py" output="screen"/>
+</launch>

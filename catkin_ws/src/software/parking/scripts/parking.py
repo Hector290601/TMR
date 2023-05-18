@@ -31,7 +31,7 @@ def main_callback(data):
         if 0.0 < centroid_x < 0.25 and centroid_y != 0.0:
             print('Searching space to park')
             state = 'searching_space'
-            speed_pub.publish(lane_speed*0.8)
+            speed_pub.publish(lane_speed*0.85)
             steering_pub.publish(lane_steering)
         else:
             speed_pub.publish(lane_speed)
@@ -42,9 +42,9 @@ def main_callback(data):
             state = 'parking'
             start = rospy.get_time()
             rate = rospy.Rate(10)
-            while rospy.get_time() - start < 3.3:
-                speed_pub.publish(lane_speed*0.75)
-                steering_pub.publish(0.4)
+            while rospy.get_time() - start < 1.8:
+                speed_pub.publish(lane_speed*0.9)
+                steering_pub.publish(0.5)
                 rate.sleep()
             speed_pub.publish(0.0)
             steering_pub.publish(0.0)
@@ -54,9 +54,9 @@ def main_callback(data):
     elif state == 'parking':
         start = rospy.get_time()
         rate = rospy.Rate(10)
-        while rospy.get_time() - start < 2.75:
+        while rospy.get_time() - start < 2.95:
             speed_pub.publish(-lane_speed)
-            steering_pub.publish(-0.4)
+            steering_pub.publish(-0.85)
             rate.sleep()
         speed_pub.publish(0.0)        	
         steering_pub.publish(0.0)
