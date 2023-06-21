@@ -1,0 +1,107 @@
+.
+├── CMakeLists.txt -> /opt/ros/melodic/share/catkin/cmake/toplevel.cmake
+├── hardware
+│   └── mobile_base
+│       ├── CMakeLists.txt
+│       ├── launch
+│       │   ├── lane_detector.launch
+│       │   ├── mobile_base.launch
+│       │   ├── no_obstacles.launch
+│       │   ├── obstacle_detector.launch
+│       │   ├── simple_hardware.launch
+│       │   └── stop.launch
+│       ├── package.xml
+│       ├── scripts
+│       │   ├── base_compressed.py
+│       │   ├── base.py
+│       │   ├── base_roboclaw.py
+│       │   ├── base_serial.py
+│       │   ├── camera.py
+│       │   ├── motor_roboclaw.py
+│       │   ├── roboclaw_3.py
+│       │   ├── roboclaw_bareminimum.py
+│       │   ├── roboclaw_mixedpwm.py
+│       │   ├── roboclaw_mixedspeedaccel.py
+│       │   ├── roboclaw_position.py
+│       │   ├── roboclaw.py
+│       │   ├── roboclaw.pyc
+│       │   ├── roboclaw_readeeprom.py
+│       │   ├── roboclaw_read.py
+│       │   ├── roboclaw_readversion.py
+│       │   ├── roboclaw_simplepwm.py
+│       │   ├── roboclaw_speedacceldistance.py
+│       │   ├── roboclaw_speedaccel.py
+│       │   ├── roboclaw_speeddistance.py
+│       │   ├── roboclaw_speed.py
+│       │   ├── roboclaw_writeeeprom.py
+│       │   ├── steering_arduin_time.py
+│       │   └── test.py
+│       └── src
+│           ├── camera_node.cpp
+│           └── camera_node.cpp~
+├── software
+│   ├── computer_vision
+│   │   ├── CMakeLists.txt
+│   │   ├── launch
+│   │   │   └── lane_tracker_and_recorder.launch
+│   │   ├── package.xml
+│   │   ├── scripts
+│   │   │   ├── calibrar.py
+│   │   │   ├── color_selector.py
+│   │   │   ├── color_trainer.py
+│   │   │   ├── contour_trainer.py
+│   │   │   ├── get_img.py
+│   │   │   ├── lane_detector_canny_hough.py
+│   │   │   ├── lanes_compressed.py
+│   │   │   ├── lanes.py
+│   │   │   ├── lane_tracking_control_P.py
+│   │   │   ├── recorder.py
+│   │   │   ├── sample_img.py
+│   │   │   ├── sample_pub.py
+│   │   │   ├── stop_detector.py
+│   │   │   └── test_lanes.jpeg
+│   │   └── src
+│   ├── control
+│   │   ├── CMakeLists.txt
+│   │   ├── package.xml
+│   │   └── scripts
+│   │       ├── bbox_obstacles.py
+│   │       ├── lane_desission.py
+│   │       ├── mapeo.py
+│   │       ├── palanca.py
+│   │       ├── parking.py
+│   │       ├── speed_tester.py
+│   │       ├── static_obstacles.py
+│   │       ├── steering_tester.py
+│   │       └── test_serial.py
+│   ├── obstacle_detector
+│   │   ├── CMakeLists.txt
+│   │   ├── launch
+│   │   │   ├── bbox.launch
+│   │   │   ├── dynamic_objects.launch
+│   │   │   ├── parking.launch
+│   │   │   └── static_objects.launch
+│   │   ├── package.xml
+│   │   └── scripts
+│   │       ├── bbox.py
+│   │       ├── obstacle_detector2.py
+│   │       ├── obstacle_detector3.py
+│   │       ├── obstacle_detector.py
+│   │       ├── parking.py
+│   │       ├── simple_subscriber.py
+│   │       └── statics_obstacles.py
+│   └── parking
+│       ├── CMakeLists.txt
+│       ├── launch
+│       │   ├── parking.launch
+│       │   └── test_parking.launch
+│       ├── package.xml
+│       ├── scripts
+│       │   ├── lane_detector_canny_hough.py
+│       │   ├── lane_tracking.py
+│       │   ├── obstacle_detection.py
+│       │   └── parking.py
+│       └── src
+└── TODO.txt
+
+19 directories, 85 files
