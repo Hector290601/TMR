@@ -42,12 +42,12 @@ if __name__ == '__main__':
     left_lane = [0, 0]
     right_lane = [0, 0]    
     max_speed = 0.2
-    k_rho = 0.005
+    k_rho = 0.0055
     k_theta = 0.04
-    target_rho_l   = 312.67
-    target_theta_l = 2.12
-    target_rho_r   = 175.22
-    target_theta_r = 0.64
+    target_rho_l   = 250.75
+    target_theta_l = 2.14
+    target_rho_r   = 201.01
+    target_theta_r = 0.85
     
     rospy.init_node("lane_tracking")
     pub_speed = rospy.Publisher('/lane_speed', Float32, queue_size=10)
