@@ -177,46 +177,6 @@ def box_finder(img):
     return box
 
 #
-#
-#
-# New zone{{{
-def new_zone(img):
-    box = []
-    left_img = np.zeros_like(img)
-    right_img = np.zeros_like(img)
-    left_img[:, :int(0.5 * img.shape[1]), :] = img[:, :int(0.5 * img.shape[1]), :]
-    right_img[:, int(0.5 * img.shape[1]):, :] = img[:, int(0.5 * img.shape[1]):, :]
-    left_box = box_finder(left_img)
-    right_box = box_finder(right_img)
-    return left_box, right_box
-    #print(box)
-#}}}
-
-#
-#
-#
-# New color filters{{{
-def new_color_filters(img, l_box, r_box):
-    global lower_color, upper_color
-    mask = np.zeros(img.shape[:2], np.uint8)
-    cv2.drawContours(mask, [l_box], -1, 255, -1)
-    cv2.drawContours(mask, [r_box], -1, 255, -1)
-    mean, stdev = cv2.meanStdDev(cv2.cvtColor(img, cv2.COLOR_BGR2HSV), mask)
-    channel = 1
-    for channel in [0, 1]:
-        lower = int(mean[channel][0] - (stdev[channel][0]))
-        upper = int(mean[channel][0] + (stdev[channel][0]))
-        if lower < 0:
-            lower = 0
-        if upper > 255:
-            upper = 255
-        lower_color[channel] = lower
-        print("Changed lower value:{}".format(lower_color))
-        upper_color[channel] = upper
-        print("Changed upper value:{}".format(upper_color))
-#}}}
-
-#
 # Image callback. For detecting lane borders, the following steps are performed:
 # - Crop image to consider only the part below horizon
 # - Conversion to grayscale, gaussian filtering and Canny border detection
@@ -249,16 +209,12 @@ def callback_rgb_image(msg):
     pub_right_lane.publish(msg_right_lane)
     draw_normal_line(mean_rho_l, mean_theta_l, frame.shape[0], frame, (255,0,0))
     draw_normal_line(mean_rho_r, mean_theta_r, frame.shape[0], frame, (0,0,255))
-    l_box, r_box = new_zone(img)
-    new_color_filters(frame, l_box, r_box)
-    cv2.drawContours(img, [l_box], 0, (255, 0, 0), 2)
-    cv2.drawContours(img, [r_box], 0, (0, 0, 255), 2)
     img_msg = brdg.cv2_to_imgmsg(img)
     img_msg.encoding = "bgr8"
     img_publisher.publish(img_msg)
     if debug:
-        cv2.imshow("New region of interest", frame)
-        cv2.imshow("New filter", img)
+        cv2.imshow("Old region of interest", frame)
+        cv2.imshow("Old filter", img)
         cv2.waitKey(1)
 #}}}
 
@@ -268,9 +224,9 @@ def main():
     global pub_left_lane, pub_right_lane
     global debug, img_publisher, brdg
     print("INITIALIZING LANE DETECTION DEMO...")
-    rospy.init_node("lane_detector")
+    rospy.init_node("lane_detector_old")
     rospy.Subscriber('/toxic/main_camera', Image, callback_rgb_image)
-    img_publisher = rospy.Publisher("/lane_image", Image, queue_size=10)
+    img_publisher = rospy.Publisher("/lane_image_old", Image, queue_size=10)
     debug = False
     brdg = CvBridge()
     if rospy.has_param('~debug'):

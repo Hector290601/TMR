@@ -67,7 +67,7 @@ def callback_raw_image(data):
 
 def main():
     rospy.init_node('raw_img_subscriber', anonymous = True)
-    rospy.Subscriber('/raw_image', Image, callback_raw_image)
+    rospy.Subscriber('/toxic/main_camera', Image, callback_raw_image)
     rospy.spin()
     cv2.destroyAllWindows()
 
