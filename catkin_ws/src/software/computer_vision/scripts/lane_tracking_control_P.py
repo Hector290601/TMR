@@ -146,10 +146,10 @@ def main():
     COUNTER_L = counter_l
     COUNTER_R = counter_r
     print(max_speed)
-    goal_rho_l   = 326.8
-    goal_theta_l = 2.14
-    goal_rho_r   = 241.97
-    goal_theta_r = 0.75
+    goal_rho_l   = 257.31
+    goal_theta_l = 2.20
+    goal_rho_r   = 220.87
+    goal_theta_r = 0.84
     """
     goal_rho_l   = 295.42
     goal_theta_l = 2.08

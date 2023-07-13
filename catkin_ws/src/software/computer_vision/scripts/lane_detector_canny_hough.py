@@ -154,7 +154,13 @@ def weighted_average(lines):
 #
 # Color filter{{{
 def color_filter(frame):
+<<<<<<< HEAD
     global kernel, result, lower_color, upper_color
+=======
+    global kernel, result
+    lower_color = [113, 44, 0] 
+    upper_color = [120, 174, 150]
+>>>>>>> 213803c05f05dfb73ca521e4be24887a11fdcfb8
     hsv = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
     mask = cv2.inRange(hsv, np.array(lower_color), np.array(upper_color))
     result = cv2.bitwise_and(frame, frame, mask = mask)
@@ -231,11 +237,20 @@ def callback_rgb_image(msg):
     global debug, img_publisher, brdg
     global result
     bridge = CvBridge()
+    print("Bridge")
     img   = bridge.imgmsg_to_cv2(msg, 'bgr8')
+<<<<<<< HEAD
     img   = img[int(0.4*img.shape[0]):int(0.9*img.shape[0]) ,:,:]
     frame = img.copy()
     img = color_filter(img)
+=======
+    print("img1")
+    img   = img[int(0.4*img.shape[0]):int(0.97*img.shape[0]) ,:,:]
+    print("crop")
+    #img = color_filter(img)
+>>>>>>> 213803c05f05dfb73ca521e4be24887a11fdcfb8
     canny = detect_edges(img)
+    print("canny")
     lines = cv2.HoughLinesP(canny, 2, numpy.pi/180, 80, minLineLength=80, maxLineGap=100)[:,0]
     lines = translate_lines_to_bottom_center(lines, img.shape[1]/2, img.shape[0])
     left_lines, right_lines = filter_lines(lines)
