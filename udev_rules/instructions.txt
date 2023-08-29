@@ -1,9 +1,0 @@
-You need to copy the 80-mha-Robot.rules to the /etc/udev/rules.d/ folder, you can do it with:
-
-sudo cp 80-mhaRobot.rules /etc/udev/rules.d/
-
-Next, you need to reolad your udevrules on the system, using:
-
-sudo udevadm control --reload-rules && sudo service udev restart && sudo udevadm trigger
-
-Then, the roboclaw and the hokuyo will be recognized with symlinks.

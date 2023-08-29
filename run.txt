@@ -1,1 +1,0 @@
-rosrun computer_vision lane_tracking_control_P.py _k_rho:=0.01 _auto_calibrate:=0 _max_speed:=0.13
