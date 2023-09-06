@@ -31,18 +31,24 @@ class ControlSubscriber(Node):
                 (7.2 + (normalized_value*((10-5)/2)))
                 )
 
-    def speed(self, normalized_speed):
-        print(1-normalized_speed)
-        current_speed = 1 - normalized_speed
+    def speed(self, normalized_fw_speed, normalized_bw_speed):
         global roboclaw
-        roboclaw.ForwardM1(0x80, int(32 * current_speed))
+        current_fw_speed = 1 - normalized_fw_speed
+        current_bw_speed = 1 - normalized_bw_speed
+        if int(current_fw_speed) > 0:
+            roboclaw.ForwardM1(0x80, int(32 * current_fw_speed))
+        elif int(current_bw_speed) > 0:
+            roboclaw.BackwardM1(0x80, int(32 * current_bw_speed))
+        else:
+            roboclaw.ForwardM1(0x80, 0)
 
     def control_callback(self, data):
         #msg_speed = data.axes[]
         normalized_steering = data.axes[0]
-        normalized_speed = data.axes[5]
+        normalized_fw_speed = data.axes[5]
+        normalized_bw_speed = data.axes[2]
         self.steering(normalized_steering)
-        self.speed(normalized_speed)
+        self.speed(normalized_fw_speed, normalized_bw_speed)
 
 def main(args=None):
     rclpy.init(args=args)
