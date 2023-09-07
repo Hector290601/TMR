@@ -1,0 +1,324 @@
+.TH "toxic_hardware.roboclaw_3.Roboclaw" 3 "Wed Sep 6 2023" "The Toxic" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+toxic_hardware.roboclaw_3.Roboclaw
+.SH SYNOPSIS
+.br
+.PP
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "class \fBCmd\fP"
+.br
+.in -1c
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "def \fB__init__\fP (self, comport, rate, timeout=0\&.01, retries=3)"
+.br
+.ti -1c
+.RI "def \fBcrc_clear\fP (self)"
+.br
+.ti -1c
+.RI "def \fBcrc_update\fP (self, data)"
+.br
+.ti -1c
+.RI "def \fBSendRandomData\fP (self, cnt)"
+.br
+.ti -1c
+.RI "def \fBForwardM1\fP (self, address, val)"
+.br
+.ti -1c
+.RI "def \fBBackwardM1\fP (self, address, val)"
+.br
+.ti -1c
+.RI "def \fBSetMinVoltageMainBattery\fP (self, address, val)"
+.br
+.ti -1c
+.RI "def \fBSetMaxVoltageMainBattery\fP (self, address, val)"
+.br
+.ti -1c
+.RI "def \fBForwardM2\fP (self, address, val)"
+.br
+.ti -1c
+.RI "def \fBBackwardM2\fP (self, address, val)"
+.br
+.ti -1c
+.RI "def \fBForwardBackwardM1\fP (self, address, val)"
+.br
+.ti -1c
+.RI "def \fBForwardBackwardM2\fP (self, address, val)"
+.br
+.ti -1c
+.RI "def \fBForwardMixed\fP (self, address, val)"
+.br
+.ti -1c
+.RI "def \fBBackwardMixed\fP (self, address, val)"
+.br
+.ti -1c
+.RI "def \fBTurnRightMixed\fP (self, address, val)"
+.br
+.ti -1c
+.RI "def \fBTurnLeftMixed\fP (self, address, val)"
+.br
+.ti -1c
+.RI "def \fBForwardBackwardMixed\fP (self, address, val)"
+.br
+.ti -1c
+.RI "def \fBLeftRightMixed\fP (self, address, val)"
+.br
+.ti -1c
+.RI "def \fBReadEncM1\fP (self, address)"
+.br
+.ti -1c
+.RI "def \fBReadEncM2\fP (self, address)"
+.br
+.ti -1c
+.RI "def \fBReadSpeedM1\fP (self, address)"
+.br
+.ti -1c
+.RI "def \fBReadSpeedM2\fP (self, address)"
+.br
+.ti -1c
+.RI "def \fBResetEncoders\fP (self, address)"
+.br
+.ti -1c
+.RI "def \fBReadVersion\fP (self, address)"
+.br
+.ti -1c
+.RI "def \fBSetEncM1\fP (self, address, cnt)"
+.br
+.ti -1c
+.RI "def \fBSetEncM2\fP (self, address, cnt)"
+.br
+.ti -1c
+.RI "def \fBReadMainBatteryVoltage\fP (self, address)"
+.br
+.ti -1c
+.RI "def \fBReadLogicBatteryVoltage\fP (self, address)"
+.br
+.ti -1c
+.RI "def \fBSetMinVoltageLogicBattery\fP (self, address, val)"
+.br
+.ti -1c
+.RI "def \fBSetMaxVoltageLogicBattery\fP (self, address, val)"
+.br
+.ti -1c
+.RI "def \fBSetM1VelocityPID\fP (self, address, p, i, d, qpps)"
+.br
+.ti -1c
+.RI "def \fBSetM2VelocityPID\fP (self, address, p, i, d, qpps)"
+.br
+.ti -1c
+.RI "def \fBReadISpeedM1\fP (self, address)"
+.br
+.ti -1c
+.RI "def \fBReadISpeedM2\fP (self, address)"
+.br
+.ti -1c
+.RI "def \fBDutyM1\fP (self, address, val)"
+.br
+.ti -1c
+.RI "def \fBDutyM2\fP (self, address, val)"
+.br
+.ti -1c
+.RI "def \fBDutyM1M2\fP (self, address, m1, m2)"
+.br
+.ti -1c
+.RI "def \fBSpeedM1\fP (self, address, val)"
+.br
+.ti -1c
+.RI "def \fBSpeedM2\fP (self, address, val)"
+.br
+.ti -1c
+.RI "def \fBSpeedM1M2\fP (self, address, m1, m2)"
+.br
+.ti -1c
+.RI "def \fBSpeedAccelM1\fP (self, address, accel, speed)"
+.br
+.ti -1c
+.RI "def \fBSpeedAccelM2\fP (self, address, accel, speed)"
+.br
+.ti -1c
+.RI "def \fBSpeedAccelM1M2\fP (self, address, accel, speed1, speed2)"
+.br
+.ti -1c
+.RI "def \fBSpeedDistanceM1\fP (self, address, speed, distance, buffer)"
+.br
+.ti -1c
+.RI "def \fBSpeedDistanceM2\fP (self, address, speed, distance, buffer)"
+.br
+.ti -1c
+.RI "def \fBSpeedDistanceM1M2\fP (self, address, speed1, distance1, speed2, distance2, buffer)"
+.br
+.ti -1c
+.RI "def \fBSpeedAccelDistanceM1\fP (self, address, accel, speed, distance, buffer)"
+.br
+.ti -1c
+.RI "def \fBSpeedAccelDistanceM2\fP (self, address, accel, speed, distance, buffer)"
+.br
+.ti -1c
+.RI "def \fBSpeedAccelDistanceM1M2\fP (self, address, accel, speed1, distance1, speed2, distance2, buffer)"
+.br
+.ti -1c
+.RI "def \fBReadBuffers\fP (self, address)"
+.br
+.ti -1c
+.RI "def \fBReadPWMs\fP (self, address)"
+.br
+.ti -1c
+.RI "def \fBReadCurrents\fP (self, address)"
+.br
+.ti -1c
+.RI "def \fBSpeedAccelM1M2_2\fP (self, address, accel1, speed1, accel2, speed2)"
+.br
+.ti -1c
+.RI "def \fBSpeedAccelDistanceM1M2_2\fP (self, address, accel1, speed1, distance1, accel2, speed2, distance2, buffer)"
+.br
+.ti -1c
+.RI "def \fBDutyAccelM1\fP (self, address, accel, duty)"
+.br
+.ti -1c
+.RI "def \fBDutyAccelM2\fP (self, address, accel, duty)"
+.br
+.ti -1c
+.RI "def \fBDutyAccelM1M2\fP (self, address, accel1, duty1, accel2, duty2)"
+.br
+.ti -1c
+.RI "def \fBReadM1VelocityPID\fP (self, address)"
+.br
+.ti -1c
+.RI "def \fBReadM2VelocityPID\fP (self, address)"
+.br
+.ti -1c
+.RI "def \fBSetMainVoltages\fP (self, address, min, max)"
+.br
+.ti -1c
+.RI "def \fBSetLogicVoltages\fP (self, address, min, max)"
+.br
+.ti -1c
+.RI "def \fBReadMinMaxMainVoltages\fP (self, address)"
+.br
+.ti -1c
+.RI "def \fBReadMinMaxLogicVoltages\fP (self, address)"
+.br
+.ti -1c
+.RI "def \fBSetM1PositionPID\fP (self, address, kp, ki, kd, kimax, deadzone, min, max)"
+.br
+.ti -1c
+.RI "def \fBSetM2PositionPID\fP (self, address, kp, ki, kd, kimax, deadzone, min, max)"
+.br
+.ti -1c
+.RI "def \fBReadM1PositionPID\fP (self, address)"
+.br
+.ti -1c
+.RI "def \fBReadM2PositionPID\fP (self, address)"
+.br
+.ti -1c
+.RI "def \fBSpeedAccelDeccelPositionM1\fP (self, address, accel, speed, deccel, position, buffer)"
+.br
+.ti -1c
+.RI "def \fBSpeedAccelDeccelPositionM2\fP (self, address, accel, speed, deccel, position, buffer)"
+.br
+.ti -1c
+.RI "def \fBSpeedAccelDeccelPositionM1M2\fP (self, address, accel1, speed1, deccel1, position1, accel2, speed2, deccel2, position2, buffer)"
+.br
+.ti -1c
+.RI "def \fBSetM1DefaultAccel\fP (self, address, accel)"
+.br
+.ti -1c
+.RI "def \fBSetM2DefaultAccel\fP (self, address, accel)"
+.br
+.ti -1c
+.RI "def \fBSetPinFunctions\fP (self, address, S3mode, S4mode, S5mode)"
+.br
+.ti -1c
+.RI "def \fBReadPinFunctions\fP (self, address)"
+.br
+.ti -1c
+.RI "def \fBSetDeadBand\fP (self, address, min, max)"
+.br
+.ti -1c
+.RI "def \fBGetDeadBand\fP (self, address)"
+.br
+.ti -1c
+.RI "def \fBRestoreDefaults\fP (self, address)"
+.br
+.ti -1c
+.RI "def \fBReadTemp\fP (self, address)"
+.br
+.ti -1c
+.RI "def \fBReadTemp2\fP (self, address)"
+.br
+.ti -1c
+.RI "def \fBReadError\fP (self, address)"
+.br
+.ti -1c
+.RI "def \fBReadEncoderModes\fP (self, address)"
+.br
+.ti -1c
+.RI "def \fBSetM1EncoderMode\fP (self, address, mode)"
+.br
+.ti -1c
+.RI "def \fBSetM2EncoderMode\fP (self, address, mode)"
+.br
+.ti -1c
+.RI "def \fBWriteNVM\fP (self, address)"
+.br
+.ti -1c
+.RI "def \fBReadNVM\fP (self, address)"
+.br
+.ti -1c
+.RI "def \fBSetConfig\fP (self, address, config)"
+.br
+.ti -1c
+.RI "def \fBGetConfig\fP (self, address)"
+.br
+.ti -1c
+.RI "def \fBSetM1MaxCurrent\fP (self, address, max)"
+.br
+.ti -1c
+.RI "def \fBSetM2MaxCurrent\fP (self, address, max)"
+.br
+.ti -1c
+.RI "def \fBReadM1MaxCurrent\fP (self, address)"
+.br
+.ti -1c
+.RI "def \fBReadM2MaxCurrent\fP (self, address)"
+.br
+.ti -1c
+.RI "def \fBSetPWMMode\fP (self, address, mode)"
+.br
+.ti -1c
+.RI "def \fBReadPWMMode\fP (self, address)"
+.br
+.ti -1c
+.RI "def \fBReadEeprom\fP (self, address, ee_address)"
+.br
+.ti -1c
+.RI "def \fBWriteEeprom\fP (self, address, ee_address, ee_word)"
+.br
+.ti -1c
+.RI "def \fBOpen\fP (self)"
+.br
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fBcomport\fP"
+.br
+.ti -1c
+.RI "\fBrate\fP"
+.br
+.ti -1c
+.RI "\fBtimeout\fP"
+.br
+.in -1c
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for The Toxic from the source code\&.

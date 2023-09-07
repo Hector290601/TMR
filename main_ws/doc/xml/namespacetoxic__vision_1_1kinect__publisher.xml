@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="namespacetoxic__vision_1_1kinect__publisher" kind="namespace" language="Python">
+    <compoundname>toxic_vision::kinect_publisher</compoundname>
+    <innerclass refid="classtoxic__vision_1_1kinect__publisher_1_1_image_publisher" prot="public">toxic_vision::kinect_publisher::ImagePublisher</innerclass>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="kinect__publisher_8py_1a9502325ae36328ab995b05768a688d79" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def toxic_vision.kinect_publisher.main</definition>
+        <argsstring>(args=None)</argsstring>
+        <name>main</name>
+        <param>
+          <type>args</type>
+          <defname>args</defname>
+          <defval>None</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/hector/TMR/main_ws/src/toxic_vision/toxic_vision/kinect_publisher.py" line="24" column="1" bodyfile="/home/hector/TMR/main_ws/src/toxic_vision/toxic_vision/kinect_publisher.py" bodystart="24" bodyend="30"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/hector/TMR/main_ws/src/toxic_vision/toxic_vision/kinect_publisher.py" line="1" column="1"/>
+  </compounddef>
+</doxygen>

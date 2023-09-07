@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="namespacetoxic__vision" kind="namespace" language="Python">
+    <compoundname>toxic_vision</compoundname>
+    <innernamespace refid="namespacetoxic__vision_1_1async__kinect__publisher">toxic_vision::async_kinect_publisher</innernamespace>
+    <innernamespace refid="namespacetoxic__vision_1_1kinect__publisher">toxic_vision::kinect_publisher</innernamespace>
+    <innernamespace refid="namespacetoxic__vision_1_1kinect__subscriber">toxic_vision::kinect_subscriber</innernamespace>
+    <innernamespace refid="namespacetoxic__vision_1_1lane__detector">toxic_vision::lane_detector</innernamespace>
+    <innernamespace refid="namespacetoxic__vision_1_1webcam__pub">toxic_vision::webcam_pub</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/hector/TMR/main_ws/src/toxic_vision/toxic_vision/__init__.py" line="1" column="1"/>
+  </compounddef>
+</doxygen>

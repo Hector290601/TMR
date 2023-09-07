@@ -1,0 +1,132 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classtoxic__vision_1_1kinect__publisher_1_1_image_publisher" kind="class" language="Python" prot="public">
+    <compoundname>toxic_vision::kinect_publisher::ImagePublisher</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Node</basecompoundref>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classtoxic__vision_1_1kinect__publisher_1_1_image_publisher_1ab7762235c1a365b1ef6a04afefd3bc2b" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>toxic_vision.kinect_publisher.ImagePublisher::publisher_</definition>
+        <argsstring></argsstring>
+        <name>publisher_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/hector/TMR/main_ws/src/toxic_vision/toxic_vision/kinect_publisher.py" line="13" column="1" bodyfile="/home/hector/TMR/main_ws/src/toxic_vision/toxic_vision/kinect_publisher.py" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classtoxic__vision_1_1kinect__publisher_1_1_image_publisher_1ae756b6efa90715172860deffb4697a99" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>toxic_vision.kinect_publisher.ImagePublisher::timer</definition>
+        <argsstring></argsstring>
+        <name>timer</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/hector/TMR/main_ws/src/toxic_vision/toxic_vision/kinect_publisher.py" line="15" column="1" bodyfile="/home/hector/TMR/main_ws/src/toxic_vision/toxic_vision/kinect_publisher.py" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classtoxic__vision_1_1kinect__publisher_1_1_image_publisher_1ae8ba44e45de14d5378eb7682b143c0c8" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>toxic_vision.kinect_publisher.ImagePublisher::bgr_frame</definition>
+        <argsstring></argsstring>
+        <name>bgr_frame</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/hector/TMR/main_ws/src/toxic_vision/toxic_vision/kinect_publisher.py" line="16" column="1" bodyfile="/home/hector/TMR/main_ws/src/toxic_vision/toxic_vision/kinect_publisher.py" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classtoxic__vision_1_1kinect__publisher_1_1_image_publisher_1a04a775d5946b02745941d4957de9b256" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>toxic_vision.kinect_publisher.ImagePublisher::br</definition>
+        <argsstring></argsstring>
+        <name>br</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/hector/TMR/main_ws/src/toxic_vision/toxic_vision/kinect_publisher.py" line="17" column="1" bodyfile="/home/hector/TMR/main_ws/src/toxic_vision/toxic_vision/kinect_publisher.py" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classtoxic__vision_1_1kinect__publisher_1_1_image_publisher_1aed01cad4aa0c0ea35dcd029e71f84f63" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def toxic_vision.kinect_publisher.ImagePublisher.__init__</definition>
+        <argsstring>(self)</argsstring>
+        <name>__init__</name>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/hector/TMR/main_ws/src/toxic_vision/toxic_vision/kinect_publisher.py" line="11" column="1" bodyfile="/home/hector/TMR/main_ws/src/toxic_vision/toxic_vision/kinect_publisher.py" bodystart="11" bodyend="18"/>
+      </memberdef>
+      <memberdef kind="function" id="classtoxic__vision_1_1kinect__publisher_1_1_image_publisher_1ac9a7a1cc952a1c21e953d64850bc45db" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def toxic_vision.kinect_publisher.ImagePublisher.timer_callback</definition>
+        <argsstring>(self)</argsstring>
+        <name>timer_callback</name>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/hector/TMR/main_ws/src/toxic_vision/toxic_vision/kinect_publisher.py" line="19" column="1" bodyfile="/home/hector/TMR/main_ws/src/toxic_vision/toxic_vision/kinect_publisher.py" bodystart="19" bodyend="23"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>Node</label>
+      </node>
+      <node id="1">
+        <label>toxic_vision.kinect_publisher.ImagePublisher</label>
+        <link refid="classtoxic__vision_1_1kinect__publisher_1_1_image_publisher"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>Node</label>
+      </node>
+      <node id="1">
+        <label>toxic_vision.kinect_publisher.ImagePublisher</label>
+        <link refid="classtoxic__vision_1_1kinect__publisher_1_1_image_publisher"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/home/hector/TMR/main_ws/src/toxic_vision/toxic_vision/kinect_publisher.py" line="10" column="1" bodyfile="/home/hector/TMR/main_ws/src/toxic_vision/toxic_vision/kinect_publisher.py" bodystart="10" bodyend="24"/>
+    <listofallmembers>
+      <member refid="classtoxic__vision_1_1kinect__publisher_1_1_image_publisher_1aed01cad4aa0c0ea35dcd029e71f84f63" prot="public" virt="non-virtual"><scope>toxic_vision::kinect_publisher::ImagePublisher</scope><name>__init__</name></member>
+      <member refid="classtoxic__vision_1_1kinect__publisher_1_1_image_publisher_1ae8ba44e45de14d5378eb7682b143c0c8" prot="public" virt="non-virtual"><scope>toxic_vision::kinect_publisher::ImagePublisher</scope><name>bgr_frame</name></member>
+      <member refid="classtoxic__vision_1_1kinect__publisher_1_1_image_publisher_1a04a775d5946b02745941d4957de9b256" prot="public" virt="non-virtual"><scope>toxic_vision::kinect_publisher::ImagePublisher</scope><name>br</name></member>
+      <member refid="classtoxic__vision_1_1kinect__publisher_1_1_image_publisher_1ab7762235c1a365b1ef6a04afefd3bc2b" prot="public" virt="non-virtual"><scope>toxic_vision::kinect_publisher::ImagePublisher</scope><name>publisher_</name></member>
+      <member refid="classtoxic__vision_1_1kinect__publisher_1_1_image_publisher_1ae756b6efa90715172860deffb4697a99" prot="public" virt="non-virtual"><scope>toxic_vision::kinect_publisher::ImagePublisher</scope><name>timer</name></member>
+      <member refid="classtoxic__vision_1_1kinect__publisher_1_1_image_publisher_1ac9a7a1cc952a1c21e953d64850bc45db" prot="public" virt="non-virtual"><scope>toxic_vision::kinect_publisher::ImagePublisher</scope><name>timer_callback</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="namespacecv__basics" kind="namespace" language="Python">
+    <compoundname>cv_basics</compoundname>
+    <innernamespace refid="namespacecv__basics_1_1webcam__pub">cv_basics::webcam_pub</innernamespace>
+    <innernamespace refid="namespacecv__basics_1_1webcam__sub">cv_basics::webcam_sub</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/hector/TMR/main_ws/src/cv_basics/cv_basics/__init__.py" line="1" column="1"/>
+  </compounddef>
+</doxygen>

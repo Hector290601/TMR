@@ -1,0 +1,1395 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd" kind="class" language="Python" prot="public">
+    <compoundname>toxic_hardware::roboclaw_3::Roboclaw::Cmd</compoundname>
+      <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1ae5accf3bc2c56d72ca0289c1dce128ee" prot="public" static="yes" mutable="no">
+        <type>int</type>
+        <definition>int toxic_hardware.roboclaw_3.Roboclaw.Cmd::M1FORWARD</definition>
+        <argsstring></argsstring>
+        <name>M1FORWARD</name>
+        <initializer>=  0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/hector/TMR/main_ws/src/toxic_hardware/toxic_hardware/roboclaw_3.py" line="18" column="1" bodyfile="/home/hector/TMR/main_ws/src/toxic_hardware/toxic_hardware/roboclaw_3.py" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1a3241dfbf5bf96fe738634e01f3b868ec" prot="public" static="yes" mutable="no">
+        <type>int</type>
+        <definition>int toxic_hardware.roboclaw_3.Roboclaw.Cmd::M1BACKWARD</definition>
+        <argsstring></argsstring>
+        <name>M1BACKWARD</name>
+        <initializer>=  1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/hector/TMR/main_ws/src/toxic_hardware/toxic_hardware/roboclaw_3.py" line="19" column="1" bodyfile="/home/hector/TMR/main_ws/src/toxic_hardware/toxic_hardware/roboclaw_3.py" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1adba4d514b4ab2836e445dc7234bd5bad" prot="public" static="yes" mutable="no">
+        <type>int</type>
+        <definition>int toxic_hardware.roboclaw_3.Roboclaw.Cmd::SETMINMB</definition>
+        <argsstring></argsstring>
+        <name>SETMINMB</name>
+        <initializer>=  2</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/hector/TMR/main_ws/src/toxic_hardware/toxic_hardware/roboclaw_3.py" line="20" column="1" bodyfile="/home/hector/TMR/main_ws/src/toxic_hardware/toxic_hardware/roboclaw_3.py" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1ad34cb54dffa4b49e57531dd3ed63e4dd" prot="public" static="yes" mutable="no">
+        <type>int</type>
+        <definition>int toxic_hardware.roboclaw_3.Roboclaw.Cmd::SETMAXMB</definition>
+        <argsstring></argsstring>
+        <name>SETMAXMB</name>
+        <initializer>=  3</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/hector/TMR/main_ws/src/toxic_hardware/toxic_hardware/roboclaw_3.py" line="21" column="1" bodyfile="/home/hector/TMR/main_ws/src/toxic_hardware/toxic_hardware/roboclaw_3.py" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1acc8e7439e46550fb950f655157d3b2a3" prot="public" static="yes" mutable="no">
+        <type>int</type>
+        <definition>int toxic_hardware.roboclaw_3.Roboclaw.Cmd::M2FORWARD</definition>
+        <argsstring></argsstring>
+        <name>M2FORWARD</name>
+        <initializer>=  4</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/hector/TMR/main_ws/src/toxic_hardware/toxic_hardware/roboclaw_3.py" line="22" column="1" bodyfile="/home/hector/TMR/main_ws/src/toxic_hardware/toxic_hardware/roboclaw_3.py" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1aa32b5d8a1015b99fca827fe4bd8be6e5" prot="public" static="yes" mutable="no">
+        <type>int</type>
+        <definition>int toxic_hardware.roboclaw_3.Roboclaw.Cmd::M2BACKWARD</definition>
+        <argsstring></argsstring>
+        <name>M2BACKWARD</name>
+        <initializer>=  5</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/hector/TMR/main_ws/src/toxic_hardware/toxic_hardware/roboclaw_3.py" line="23" column="1" bodyfile="/home/hector/TMR/main_ws/src/toxic_hardware/toxic_hardware/roboclaw_3.py" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1a7a91fb3913901579ee02798b3798fab4" prot="public" static="yes" mutable="no">
+        <type>int</type>
+        <definition>int toxic_hardware.roboclaw_3.Roboclaw.Cmd::M17BIT</definition>
+        <argsstring></argsstring>
+        <name>M17BIT</name>
+        <initializer>=  6</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/hector/TMR/main_ws/src/toxic_hardware/toxic_hardware/roboclaw_3.py" line="24" column="1" bodyfile="/home/hector/TMR/main_ws/src/toxic_hardware/toxic_hardware/roboclaw_3.py" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1ab63803cd2aa9d31d0b0094fe5c1f26a1" prot="public" static="yes" mutable="no">
+        <type>int</type>
+        <definition>int toxic_hardware.roboclaw_3.Roboclaw.Cmd::M27BIT</definition>
+        <argsstring></argsstring>
+        <name>M27BIT</name>
+        <initializer>=  7</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/hector/TMR/main_ws/src/toxic_hardware/toxic_hardware/roboclaw_3.py" line="25" column="1" bodyfile="/home/hector/TMR/main_ws/src/toxic_hardware/toxic_hardware/roboclaw_3.py" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1adc14d33d7da1b268c717bd3e33cf1606" prot="public" static="yes" mutable="no">
+        <type>int</type>
+        <definition>int toxic_hardware.roboclaw_3.Roboclaw.Cmd::MIXEDFORWARD</definition>
+        <argsstring></argsstring>
+        <name>MIXEDFORWARD</name>
+        <initializer>=  8</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/hector/TMR/main_ws/src/toxic_hardware/toxic_hardware/roboclaw_3.py" line="26" column="1" bodyfile="/home/hector/TMR/main_ws/src/toxic_hardware/toxic_hardware/roboclaw_3.py" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1a1d644819677b9fdc425b826e0296aa40" prot="public" static="yes" mutable="no">
+        <type>int</type>
+        <definition>int toxic_hardware.roboclaw_3.Roboclaw.Cmd::MIXEDBACKWARD</definition>
+        <argsstring></argsstring>
+        <name>MIXEDBACKWARD</name>
+        <initializer>=  9</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/hector/TMR/main_ws/src/toxic_hardware/toxic_hardware/roboclaw_3.py" line="27" column="1" bodyfile="/home/hector/TMR/main_ws/src/toxic_hardware/toxic_hardware/roboclaw_3.py" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1a2f4c6517bd7779a8853f5c401cf09693" prot="public" static="yes" mutable="no">
+        <type>int</type>
+        <definition>int toxic_hardware.roboclaw_3.Roboclaw.Cmd::MIXEDRIGHT</definition>
+        <argsstring></argsstring>
+        <name>MIXEDRIGHT</name>
+        <initializer>=  10</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/hector/TMR/main_ws/src/toxic_hardware/toxic_hardware/roboclaw_3.py" line="28" column="1" bodyfile="/home/hector/TMR/main_ws/src/toxic_hardware/toxic_hardware/roboclaw_3.py" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1a9af53827cd510e0eb51607f971a4c66a" prot="public" static="yes" mutable="no">
+        <type>int</type>
+        <definition>int toxic_hardware.roboclaw_3.Roboclaw.Cmd::MIXEDLEFT</definition>
+        <argsstring></argsstring>
+        <name>MIXEDLEFT</name>
+        <initializer>=  11</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/hector/TMR/main_ws/src/toxic_hardware/toxic_hardware/roboclaw_3.py" line="29" column="1" bodyfile="/home/hector/TMR/main_ws/src/toxic_hardware/toxic_hardware/roboclaw_3.py" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1abc224f62b083ad0857dab70d0f1ab479" prot="public" static="yes" mutable="no">
+        <type>int</type>
+        <definition>int toxic_hardware.roboclaw_3.Roboclaw.Cmd::MIXEDFB</definition>
+        <argsstring></argsstring>
+        <name>MIXEDFB</name>
+        <initializer>=  12</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/hector/TMR/main_ws/src/toxic_hardware/toxic_hardware/roboclaw_3.py" line="30" column="1" bodyfile="/home/hector/TMR/main_ws/src/toxic_hardware/toxic_hardware/roboclaw_3.py" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1a2a456e5718e568be94b6079da2ee43ec" prot="public" static="yes" mutable="no">
+        <type>int</type>
+        <definition>int toxic_hardware.roboclaw_3.Roboclaw.Cmd::MIXEDLR</definition>
+        <argsstring></argsstring>
+        <name>MIXEDLR</name>
+        <initializer>=  13</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/hector/TMR/main_ws/src/toxic_hardware/toxic_hardware/roboclaw_3.py" line="31" column="1" bodyfile="/home/hector/TMR/main_ws/src/toxic_hardware/toxic_hardware/roboclaw_3.py" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1a111c95fb1056d04cbabc0e14f892ad63" prot="public" static="yes" mutable="no">
+        <type>int</type>
+        <definition>int toxic_hardware.roboclaw_3.Roboclaw.Cmd::GETM1ENC</definition>
+        <argsstring></argsstring>
+        <name>GETM1ENC</name>
+        <initializer>=  16</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/hector/TMR/main_ws/src/toxic_hardware/toxic_hardware/roboclaw_3.py" line="32" column="1" bodyfile="/home/hector/TMR/main_ws/src/toxic_hardware/toxic_hardware/roboclaw_3.py" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1abfd87fa8ee9c8bdc3803a062a2bb2f6c" prot="public" static="yes" mutable="no">
+        <type>int</type>
+        <definition>int toxic_hardware.roboclaw_3.Roboclaw.Cmd::GETM2ENC</definition>
+        <argsstring></argsstring>
+        <name>GETM2ENC</name>
+        <initializer>=  17</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/hector/TMR/main_ws/src/toxic_hardware/toxic_hardware/roboclaw_3.py" line="33" column="1" bodyfile="/home/hector/TMR/main_ws/src/toxic_hardware/toxic_hardware/roboclaw_3.py" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1ad1d8802eeedcd9c0ae1e115f8baa2ef6" prot="public" static="yes" mutable="no">
+        <type>int</type>
+        <definition>int toxic_hardware.roboclaw_3.Roboclaw.Cmd::GETM1SPEED</definition>
+        <argsstring></argsstring>
+        <name>GETM1SPEED</name>
+        <initializer>=  18</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/hector/TMR/main_ws/src/toxic_hardware/toxic_hardware/roboclaw_3.py" line="34" column="1" bodyfile="/home/hector/TMR/main_ws/src/toxic_hardware/toxic_hardware/roboclaw_3.py" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1aa9afe27a4f32a2182898393dbab45c73" prot="public" static="yes" mutable="no">
+        <type>int</type>
+        <definition>int toxic_hardware.roboclaw_3.Roboclaw.Cmd::GETM2SPEED</definition>
+        <argsstring></argsstring>
+        <name>GETM2SPEED</name>
+        <initializer>=  19</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/hector/TMR/main_ws/src/toxic_hardware/toxic_hardware/roboclaw_3.py" line="35" column="1" bodyfile="/home/hector/TMR/main_ws/src/toxic_hardware/toxic_hardware/roboclaw_3.py" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1aae851a96f9cfc2cc8dcea059fe89c9bd" prot="public" static="yes" mutable="no">
+        <type>int</type>
+        <definition>int toxic_hardware.roboclaw_3.Roboclaw.Cmd::RESETENC</definition>
+        <argsstring></argsstring>
+        <name>RESETENC</name>
+        <initializer>=  20</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/hector/TMR/main_ws/src/toxic_hardware/toxic_hardware/roboclaw_3.py" line="36" column="1" bodyfile="/home/hector/TMR/main_ws/src/toxic_hardware/toxic_hardware/roboclaw_3.py" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1a98f0126eaaab32ce95761de48f6ca4cc" prot="public" static="yes" mutable="no">
+        <type>int</type>
+        <definition>int toxic_hardware.roboclaw_3.Roboclaw.Cmd::GETVERSION</definition>
+        <argsstring></argsstring>
+        <name>GETVERSION</name>
+        <initializer>=  21</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/hector/TMR/main_ws/src/toxic_hardware/toxic_hardware/roboclaw_3.py" line="37" column="1" bodyfile="/home/hector/TMR/main_ws/src/toxic_hardware/toxic_hardware/roboclaw_3.py" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1aa24744d60db1bbef973a59194df8d77f" prot="public" static="yes" mutable="no">
+        <type>int</type>
+        <definition>int toxic_hardware.roboclaw_3.Roboclaw.Cmd::SETM1ENCCOUNT</definition>
+        <argsstring></argsstring>
+        <name>SETM1ENCCOUNT</name>
+        <initializer>=  22</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/hector/TMR/main_ws/src/toxic_hardware/toxic_hardware/roboclaw_3.py" line="38" column="1" bodyfile="/home/hector/TMR/main_ws/src/toxic_hardware/toxic_hardware/roboclaw_3.py" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1a2187b457ae1eb0382f15b937bbab48ab" prot="public" static="yes" mutable="no">
+        <type>int</type>
+        <definition>int toxic_hardware.roboclaw_3.Roboclaw.Cmd::SETM2ENCCOUNT</definition>
+        <argsstring></argsstring>
+        <name>SETM2ENCCOUNT</name>
+        <initializer>=  23</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/hector/TMR/main_ws/src/toxic_hardware/toxic_hardware/roboclaw_3.py" line="39" column="1" bodyfile="/home/hector/TMR/main_ws/src/toxic_hardware/toxic_hardware/roboclaw_3.py" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1a2cad400580c9b65646785dc3d7937485" prot="public" static="yes" mutable="no">
+        <type>int</type>
+        <definition>int toxic_hardware.roboclaw_3.Roboclaw.Cmd::GETMBATT</definition>
+        <argsstring></argsstring>
+        <name>GETMBATT</name>
+        <initializer>=  24</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/hector/TMR/main_ws/src/toxic_hardware/toxic_hardware/roboclaw_3.py" line="40" column="1" bodyfile="/home/hector/TMR/main_ws/src/toxic_hardware/toxic_hardware/roboclaw_3.py" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1ac3af16ea0da1336d530b7750b45b2a0f" prot="public" static="yes" mutable="no">
+        <type>int</type>
+        <definition>int toxic_hardware.roboclaw_3.Roboclaw.Cmd::GETLBATT</definition>
+        <argsstring></argsstring>
+        <name>GETLBATT</name>
+        <initializer>=  25</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/hector/TMR/main_ws/src/toxic_hardware/toxic_hardware/roboclaw_3.py" line="41" column="1" bodyfile="/home/hector/TMR/main_ws/src/toxic_hardware/toxic_hardware/roboclaw_3.py" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1a6e4d2030518fe14e96816080508c274d" prot="public" static="yes" mutable="no">
+        <type>int</type>
+        <definition>int toxic_hardware.roboclaw_3.Roboclaw.Cmd::SETMINLB</definition>
+        <argsstring></argsstring>
+        <name>SETMINLB</name>
+        <initializer>=  26</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/hector/TMR/main_ws/src/toxic_hardware/toxic_hardware/roboclaw_3.py" line="42" column="1" bodyfile="/home/hector/TMR/main_ws/src/toxic_hardware/toxic_hardware/roboclaw_3.py" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1ab4222633629080da9c4d6644b656ba56" prot="public" static="yes" mutable="no">
+        <type>int</type>
+        <definition>int toxic_hardware.roboclaw_3.Roboclaw.Cmd::SETMAXLB</definition>
+        <argsstring></argsstring>
+        <name>SETMAXLB</name>
+        <initializer>=  27</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/hector/TMR/main_ws/src/toxic_hardware/toxic_hardware/roboclaw_3.py" line="43" column="1" bodyfile="/home/hector/TMR/main_ws/src/toxic_hardware/toxic_hardware/roboclaw_3.py" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1acfb43c9482531524bed711cb83abe244" prot="public" static="yes" mutable="no">
+        <type>int</type>
+        <definition>int toxic_hardware.roboclaw_3.Roboclaw.Cmd::SETM1PID</definition>
+        <argsstring></argsstring>
+        <name>SETM1PID</name>
+        <initializer>=  28</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/hector/TMR/main_ws/src/toxic_hardware/toxic_hardware/roboclaw_3.py" line="44" column="1" bodyfile="/home/hector/TMR/main_ws/src/toxic_hardware/toxic_hardware/roboclaw_3.py" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1afc55d94d95b473f9609fa98634778f9b" prot="public" static="yes" mutable="no">
+        <type>int</type>
+        <definition>int toxic_hardware.roboclaw_3.Roboclaw.Cmd::SETM2PID</definition>
+        <argsstring></argsstring>
+        <name>SETM2PID</name>
+        <initializer>=  29</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/hector/TMR/main_ws/src/toxic_hardware/toxic_hardware/roboclaw_3.py" line="45" column="1" bodyfile="/home/hector/TMR/main_ws/src/toxic_hardware/toxic_hardware/roboclaw_3.py" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1a988b93b2b83c36c10cb66752e516c5e5" prot="public" static="yes" mutable="no">
+        <type>int</type>
+        <definition>int toxic_hardware.roboclaw_3.Roboclaw.Cmd::GETM1ISPEED</definition>
+        <argsstring></argsstring>
+        <name>GETM1ISPEED</name>
+        <initializer>=  30</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/hector/TMR/main_ws/src/toxic_hardware/toxic_hardware/roboclaw_3.py" line="46" column="1" bodyfile="/home/hector/TMR/main_ws/src/toxic_hardware/toxic_hardware/roboclaw_3.py" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1a1be79fc71082cb9726d57f458380aebd" prot="public" static="yes" mutable="no">
+        <type>int</type>
+        <definition>int toxic_hardware.roboclaw_3.Roboclaw.Cmd::GETM2ISPEED</definition>
+        <argsstring></argsstring>
+        <name>GETM2ISPEED</name>
+        <initializer>=  31</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/hector/TMR/main_ws/src/toxic_hardware/toxic_hardware/roboclaw_3.py" line="47" column="1" bodyfile="/home/hector/TMR/main_ws/src/toxic_hardware/toxic_hardware/roboclaw_3.py" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1ac37b699db0288e9ecfcd456b4d56baac" prot="public" static="yes" mutable="no">
+        <type>int</type>
+        <definition>int toxic_hardware.roboclaw_3.Roboclaw.Cmd::M1DUTY</definition>
+        <argsstring></argsstring>
+        <name>M1DUTY</name>
+        <initializer>=  32</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/hector/TMR/main_ws/src/toxic_hardware/toxic_hardware/roboclaw_3.py" line="48" column="1" bodyfile="/home/hector/TMR/main_ws/src/toxic_hardware/toxic_hardware/roboclaw_3.py" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1a77b12e7a43ab85906964cb636ac34c91" prot="public" static="yes" mutable="no">
+        <type>int</type>
+        <definition>int toxic_hardware.roboclaw_3.Roboclaw.Cmd::M2DUTY</definition>
+        <argsstring></argsstring>
+        <name>M2DUTY</name>
+        <initializer>=  33</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/hector/TMR/main_ws/src/toxic_hardware/toxic_hardware/roboclaw_3.py" line="49" column="1" bodyfile="/home/hector/TMR/main_ws/src/toxic_hardware/toxic_hardware/roboclaw_3.py" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1abc5901940eba3955f979546316ca86af" prot="public" static="yes" mutable="no">
+        <type>int</type>
+        <definition>int toxic_hardware.roboclaw_3.Roboclaw.Cmd::MIXEDDUTY</definition>
+        <argsstring></argsstring>
+        <name>MIXEDDUTY</name>
+        <initializer>=  34</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/hector/TMR/main_ws/src/toxic_hardware/toxic_hardware/roboclaw_3.py" line="50" column="1" bodyfile="/home/hector/TMR/main_ws/src/toxic_hardware/toxic_hardware/roboclaw_3.py" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1a09db05ff4a9397aff1ee5a9dcf77df22" prot="public" static="yes" mutable="no">
+        <type>int</type>
+        <definition>int toxic_hardware.roboclaw_3.Roboclaw.Cmd::M1SPEED</definition>
+        <argsstring></argsstring>
+        <name>M1SPEED</name>
+        <initializer>=  35</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/hector/TMR/main_ws/src/toxic_hardware/toxic_hardware/roboclaw_3.py" line="51" column="1" bodyfile="/home/hector/TMR/main_ws/src/toxic_hardware/toxic_hardware/roboclaw_3.py" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1a2c5cbc4663823b2867df7c35dbeb5adc" prot="public" static="yes" mutable="no">
+        <type>int</type>
+        <definition>int toxic_hardware.roboclaw_3.Roboclaw.Cmd::M2SPEED</definition>
+        <argsstring></argsstring>
+        <name>M2SPEED</name>
+        <initializer>=  36</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/hector/TMR/main_ws/src/toxic_hardware/toxic_hardware/roboclaw_3.py" line="52" column="1" bodyfile="/home/hector/TMR/main_ws/src/toxic_hardware/toxic_hardware/roboclaw_3.py" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1afd9f5ac7cd219952bd01a394c6c12afc" prot="public" static="yes" mutable="no">
+        <type>int</type>
+        <definition>int toxic_hardware.roboclaw_3.Roboclaw.Cmd::MIXEDSPEED</definition>
+        <argsstring></argsstring>
+        <name>MIXEDSPEED</name>
+        <initializer>=  37</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/hector/TMR/main_ws/src/toxic_hardware/toxic_hardware/roboclaw_3.py" line="53" column="1" bodyfile="/home/hector/TMR/main_ws/src/toxic_hardware/toxic_hardware/roboclaw_3.py" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1a16600d20ed216f9e2a120cd2fd4d06a6" prot="public" static="yes" mutable="no">
+        <type>int</type>
+        <definition>int toxic_hardware.roboclaw_3.Roboclaw.Cmd::M1SPEEDACCEL</definition>
+        <argsstring></argsstring>
+        <name>M1SPEEDACCEL</name>
+        <initializer>=  38</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/hector/TMR/main_ws/src/toxic_hardware/toxic_hardware/roboclaw_3.py" line="54" column="1" bodyfile="/home/hector/TMR/main_ws/src/toxic_hardware/toxic_hardware/roboclaw_3.py" bodystart="54" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1ad8b0120137353739656a4d5d3c5dcfd6" prot="public" static="yes" mutable="no">
+        <type>int</type>
+        <definition>int toxic_hardware.roboclaw_3.Roboclaw.Cmd::M2SPEEDACCEL</definition>
+        <argsstring></argsstring>
+        <name>M2SPEEDACCEL</name>
+        <initializer>=  39</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/hector/TMR/main_ws/src/toxic_hardware/toxic_hardware/roboclaw_3.py" line="55" column="1" bodyfile="/home/hector/TMR/main_ws/src/toxic_hardware/toxic_hardware/roboclaw_3.py" bodystart="55" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1a82e0b8aeb9dbe61026cf78cb735896ed" prot="public" static="yes" mutable="no">
+        <type>int</type>
+        <definition>int toxic_hardware.roboclaw_3.Roboclaw.Cmd::MIXEDSPEEDACCEL</definition>
+        <argsstring></argsstring>
+        <name>MIXEDSPEEDACCEL</name>
+        <initializer>=  40</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/hector/TMR/main_ws/src/toxic_hardware/toxic_hardware/roboclaw_3.py" line="56" column="1" bodyfile="/home/hector/TMR/main_ws/src/toxic_hardware/toxic_hardware/roboclaw_3.py" bodystart="56" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1a54084848c0ae9f5add632435e1a229f3" prot="public" static="yes" mutable="no">
+        <type>int</type>
+        <definition>int toxic_hardware.roboclaw_3.Roboclaw.Cmd::M1SPEEDDIST</definition>
+        <argsstring></argsstring>
+        <name>M1SPEEDDIST</name>
+        <initializer>=  41</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/hector/TMR/main_ws/src/toxic_hardware/toxic_hardware/roboclaw_3.py" line="57" column="1" bodyfile="/home/hector/TMR/main_ws/src/toxic_hardware/toxic_hardware/roboclaw_3.py" bodystart="57" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1af091fabf404cd34e798e548bf28be6b5" prot="public" static="yes" mutable="no">
+        <type>int</type>
+        <definition>int toxic_hardware.roboclaw_3.Roboclaw.Cmd::M2SPEEDDIST</definition>
+        <argsstring></argsstring>
+        <name>M2SPEEDDIST</name>
+        <initializer>=  42</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/hector/TMR/main_ws/src/toxic_hardware/toxic_hardware/roboclaw_3.py" line="58" column="1" bodyfile="/home/hector/TMR/main_ws/src/toxic_hardware/toxic_hardware/roboclaw_3.py" bodystart="58" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1a51d5b7c859d6561979f84196efc1d8de" prot="public" static="yes" mutable="no">
+        <type>int</type>
+        <definition>int toxic_hardware.roboclaw_3.Roboclaw.Cmd::MIXEDSPEEDDIST</definition>
+        <argsstring></argsstring>
+        <name>MIXEDSPEEDDIST</name>
+        <initializer>=  43</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/hector/TMR/main_ws/src/toxic_hardware/toxic_hardware/roboclaw_3.py" line="59" column="1" bodyfile="/home/hector/TMR/main_ws/src/toxic_hardware/toxic_hardware/roboclaw_3.py" bodystart="59" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1af4c639c6384cb28c9ccd7f485d33f1ba" prot="public" static="yes" mutable="no">
+        <type>int</type>
+        <definition>int toxic_hardware.roboclaw_3.Roboclaw.Cmd::M1SPEEDACCELDIST</definition>
+        <argsstring></argsstring>
+        <name>M1SPEEDACCELDIST</name>
+        <initializer>=  44</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/hector/TMR/main_ws/src/toxic_hardware/toxic_hardware/roboclaw_3.py" line="60" column="1" bodyfile="/home/hector/TMR/main_ws/src/toxic_hardware/toxic_hardware/roboclaw_3.py" bodystart="60" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1aabffdf61dd14127d3a0c9f4d308e7ef7" prot="public" static="yes" mutable="no">
+        <type>int</type>
+        <definition>int toxic_hardware.roboclaw_3.Roboclaw.Cmd::M2SPEEDACCELDIST</definition>
+        <argsstring></argsstring>
+        <name>M2SPEEDACCELDIST</name>
+        <initializer>=  45</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/hector/TMR/main_ws/src/toxic_hardware/toxic_hardware/roboclaw_3.py" line="61" column="1" bodyfile="/home/hector/TMR/main_ws/src/toxic_hardware/toxic_hardware/roboclaw_3.py" bodystart="61" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1a063d45bcdea4caa85ae6d96c6cbc285f" prot="public" static="yes" mutable="no">
+        <type>int</type>
+        <definition>int toxic_hardware.roboclaw_3.Roboclaw.Cmd::MIXEDSPEEDACCELDIST</definition>
+        <argsstring></argsstring>
+        <name>MIXEDSPEEDACCELDIST</name>
+        <initializer>=  46</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/hector/TMR/main_ws/src/toxic_hardware/toxic_hardware/roboclaw_3.py" line="62" column="1" bodyfile="/home/hector/TMR/main_ws/src/toxic_hardware/toxic_hardware/roboclaw_3.py" bodystart="62" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1aa1ca8947a935cedd12e73d6a27f36784" prot="public" static="yes" mutable="no">
+        <type>int</type>
+        <definition>int toxic_hardware.roboclaw_3.Roboclaw.Cmd::GETBUFFERS</definition>
+        <argsstring></argsstring>
+        <name>GETBUFFERS</name>
+        <initializer>=  47</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/hector/TMR/main_ws/src/toxic_hardware/toxic_hardware/roboclaw_3.py" line="63" column="1" bodyfile="/home/hector/TMR/main_ws/src/toxic_hardware/toxic_hardware/roboclaw_3.py" bodystart="63" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1a59d182a4a8b89af28f61c2d3248182b9" prot="public" static="yes" mutable="no">
+        <type>int</type>
+        <definition>int toxic_hardware.roboclaw_3.Roboclaw.Cmd::GETPWMS</definition>
+        <argsstring></argsstring>
+        <name>GETPWMS</name>
+        <initializer>=  48</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/hector/TMR/main_ws/src/toxic_hardware/toxic_hardware/roboclaw_3.py" line="64" column="1" bodyfile="/home/hector/TMR/main_ws/src/toxic_hardware/toxic_hardware/roboclaw_3.py" bodystart="64" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1acbb53759ce7155f8d72fe63bd1091f52" prot="public" static="yes" mutable="no">
+        <type>int</type>
+        <definition>int toxic_hardware.roboclaw_3.Roboclaw.Cmd::GETCURRENTS</definition>
+        <argsstring></argsstring>
+        <name>GETCURRENTS</name>
+        <initializer>=  49</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/hector/TMR/main_ws/src/toxic_hardware/toxic_hardware/roboclaw_3.py" line="65" column="1" bodyfile="/home/hector/TMR/main_ws/src/toxic_hardware/toxic_hardware/roboclaw_3.py" bodystart="65" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1a96faaada7a7820c46a2715e4cebf8231" prot="public" static="yes" mutable="no">
+        <type>int</type>
+        <definition>int toxic_hardware.roboclaw_3.Roboclaw.Cmd::MIXEDSPEED2ACCEL</definition>
+        <argsstring></argsstring>
+        <name>MIXEDSPEED2ACCEL</name>
+        <initializer>=  50</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/hector/TMR/main_ws/src/toxic_hardware/toxic_hardware/roboclaw_3.py" line="66" column="1" bodyfile="/home/hector/TMR/main_ws/src/toxic_hardware/toxic_hardware/roboclaw_3.py" bodystart="66" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1afdfddbb75c888bba6b7a516a3edf1f19" prot="public" static="yes" mutable="no">
+        <type>int</type>
+        <definition>int toxic_hardware.roboclaw_3.Roboclaw.Cmd::MIXEDSPEED2ACCELDIST</definition>
+        <argsstring></argsstring>
+        <name>MIXEDSPEED2ACCELDIST</name>
+        <initializer>=  51</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/hector/TMR/main_ws/src/toxic_hardware/toxic_hardware/roboclaw_3.py" line="67" column="1" bodyfile="/home/hector/TMR/main_ws/src/toxic_hardware/toxic_hardware/roboclaw_3.py" bodystart="67" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1a4336e315d03abb963303204e46df39a7" prot="public" static="yes" mutable="no">
+        <type>int</type>
+        <definition>int toxic_hardware.roboclaw_3.Roboclaw.Cmd::M1DUTYACCEL</definition>
+        <argsstring></argsstring>
+        <name>M1DUTYACCEL</name>
+        <initializer>=  52</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/hector/TMR/main_ws/src/toxic_hardware/toxic_hardware/roboclaw_3.py" line="68" column="1" bodyfile="/home/hector/TMR/main_ws/src/toxic_hardware/toxic_hardware/roboclaw_3.py" bodystart="68" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1a26c30122cd101df2bfc3828abca02321" prot="public" static="yes" mutable="no">
+        <type>int</type>
+        <definition>int toxic_hardware.roboclaw_3.Roboclaw.Cmd::M2DUTYACCEL</definition>
+        <argsstring></argsstring>
+        <name>M2DUTYACCEL</name>
+        <initializer>=  53</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/hector/TMR/main_ws/src/toxic_hardware/toxic_hardware/roboclaw_3.py" line="69" column="1" bodyfile="/home/hector/TMR/main_ws/src/toxic_hardware/toxic_hardware/roboclaw_3.py" bodystart="69" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1afc21bdf344e4624d0cf8af64c242856d" prot="public" static="yes" mutable="no">
+        <type>int</type>
+        <definition>int toxic_hardware.roboclaw_3.Roboclaw.Cmd::MIXEDDUTYACCEL</definition>
+        <argsstring></argsstring>
+        <name>MIXEDDUTYACCEL</name>
+        <initializer>=  54</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/hector/TMR/main_ws/src/toxic_hardware/toxic_hardware/roboclaw_3.py" line="70" column="1" bodyfile="/home/hector/TMR/main_ws/src/toxic_hardware/toxic_hardware/roboclaw_3.py" bodystart="70" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1ad37f51c814f42ebeb2897946aa40934d" prot="public" static="yes" mutable="no">
+        <type>int</type>
+        <definition>int toxic_hardware.roboclaw_3.Roboclaw.Cmd::READM1PID</definition>
+        <argsstring></argsstring>
+        <name>READM1PID</name>
+        <initializer>=  55</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/hector/TMR/main_ws/src/toxic_hardware/toxic_hardware/roboclaw_3.py" line="71" column="1" bodyfile="/home/hector/TMR/main_ws/src/toxic_hardware/toxic_hardware/roboclaw_3.py" bodystart="71" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1af7c3d55807969c8bb77f109f7fed9565" prot="public" static="yes" mutable="no">
+        <type>int</type>
+        <definition>int toxic_hardware.roboclaw_3.Roboclaw.Cmd::READM2PID</definition>
+        <argsstring></argsstring>
+        <name>READM2PID</name>
+        <initializer>=  56</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/hector/TMR/main_ws/src/toxic_hardware/toxic_hardware/roboclaw_3.py" line="72" column="1" bodyfile="/home/hector/TMR/main_ws/src/toxic_hardware/toxic_hardware/roboclaw_3.py" bodystart="72" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1a5fc32f67adce5811e9197da7669ae9bd" prot="public" static="yes" mutable="no">
+        <type>int</type>
+        <definition>int toxic_hardware.roboclaw_3.Roboclaw.Cmd::SETMAINVOLTAGES</definition>
+        <argsstring></argsstring>
+        <name>SETMAINVOLTAGES</name>
+        <initializer>=  57</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/hector/TMR/main_ws/src/toxic_hardware/toxic_hardware/roboclaw_3.py" line="73" column="1" bodyfile="/home/hector/TMR/main_ws/src/toxic_hardware/toxic_hardware/roboclaw_3.py" bodystart="73" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1a9ba5e049493cb95e4ad4a40e7abe4d65" prot="public" static="yes" mutable="no">
+        <type>int</type>
+        <definition>int toxic_hardware.roboclaw_3.Roboclaw.Cmd::SETLOGICVOLTAGES</definition>
+        <argsstring></argsstring>
+        <name>SETLOGICVOLTAGES</name>
+        <initializer>=  58</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/hector/TMR/main_ws/src/toxic_hardware/toxic_hardware/roboclaw_3.py" line="74" column="1" bodyfile="/home/hector/TMR/main_ws/src/toxic_hardware/toxic_hardware/roboclaw_3.py" bodystart="74" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1acf094176a10541af4d3eb26ed8b02ac9" prot="public" static="yes" mutable="no">
+        <type>int</type>
+        <definition>int toxic_hardware.roboclaw_3.Roboclaw.Cmd::GETMINMAXMAINVOLTAGES</definition>
+        <argsstring></argsstring>
+        <name>GETMINMAXMAINVOLTAGES</name>
+        <initializer>=  59</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/hector/TMR/main_ws/src/toxic_hardware/toxic_hardware/roboclaw_3.py" line="75" column="1" bodyfile="/home/hector/TMR/main_ws/src/toxic_hardware/toxic_hardware/roboclaw_3.py" bodystart="75" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1acee20af4cd21268058cc614ec920acd6" prot="public" static="yes" mutable="no">
+        <type>int</type>
+        <definition>int toxic_hardware.roboclaw_3.Roboclaw.Cmd::GETMINMAXLOGICVOLTAGES</definition>
+        <argsstring></argsstring>
+        <name>GETMINMAXLOGICVOLTAGES</name>
+        <initializer>=  60</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/hector/TMR/main_ws/src/toxic_hardware/toxic_hardware/roboclaw_3.py" line="76" column="1" bodyfile="/home/hector/TMR/main_ws/src/toxic_hardware/toxic_hardware/roboclaw_3.py" bodystart="76" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1a358969d7999acc0329ecab8eb8b37394" prot="public" static="yes" mutable="no">
+        <type>int</type>
+        <definition>int toxic_hardware.roboclaw_3.Roboclaw.Cmd::SETM1POSPID</definition>
+        <argsstring></argsstring>
+        <name>SETM1POSPID</name>
+        <initializer>=  61</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/hector/TMR/main_ws/src/toxic_hardware/toxic_hardware/roboclaw_3.py" line="77" column="1" bodyfile="/home/hector/TMR/main_ws/src/toxic_hardware/toxic_hardware/roboclaw_3.py" bodystart="77" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1ab96dbc6e64094c8ce89c6d953f05f942" prot="public" static="yes" mutable="no">
+        <type>int</type>
+        <definition>int toxic_hardware.roboclaw_3.Roboclaw.Cmd::SETM2POSPID</definition>
+        <argsstring></argsstring>
+        <name>SETM2POSPID</name>
+        <initializer>=  62</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/hector/TMR/main_ws/src/toxic_hardware/toxic_hardware/roboclaw_3.py" line="78" column="1" bodyfile="/home/hector/TMR/main_ws/src/toxic_hardware/toxic_hardware/roboclaw_3.py" bodystart="78" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1aef5b53ff0919981f54bc6a19ad5037a7" prot="public" static="yes" mutable="no">
+        <type>int</type>
+        <definition>int toxic_hardware.roboclaw_3.Roboclaw.Cmd::READM1POSPID</definition>
+        <argsstring></argsstring>
+        <name>READM1POSPID</name>
+        <initializer>=  63</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/hector/TMR/main_ws/src/toxic_hardware/toxic_hardware/roboclaw_3.py" line="79" column="1" bodyfile="/home/hector/TMR/main_ws/src/toxic_hardware/toxic_hardware/roboclaw_3.py" bodystart="79" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1a7f3e71069d5d9059a090be6002c373d8" prot="public" static="yes" mutable="no">
+        <type>int</type>
+        <definition>int toxic_hardware.roboclaw_3.Roboclaw.Cmd::READM2POSPID</definition>
+        <argsstring></argsstring>
+        <name>READM2POSPID</name>
+        <initializer>=  64</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/hector/TMR/main_ws/src/toxic_hardware/toxic_hardware/roboclaw_3.py" line="80" column="1" bodyfile="/home/hector/TMR/main_ws/src/toxic_hardware/toxic_hardware/roboclaw_3.py" bodystart="80" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1acbfff02a950cd496f90acb61d41f06a5" prot="public" static="yes" mutable="no">
+        <type>int</type>
+        <definition>int toxic_hardware.roboclaw_3.Roboclaw.Cmd::M1SPEEDACCELDECCELPOS</definition>
+        <argsstring></argsstring>
+        <name>M1SPEEDACCELDECCELPOS</name>
+        <initializer>=  65</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/hector/TMR/main_ws/src/toxic_hardware/toxic_hardware/roboclaw_3.py" line="81" column="1" bodyfile="/home/hector/TMR/main_ws/src/toxic_hardware/toxic_hardware/roboclaw_3.py" bodystart="81" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1aaed56644583bf79cb5a8ac524a1840fe" prot="public" static="yes" mutable="no">
+        <type>int</type>
+        <definition>int toxic_hardware.roboclaw_3.Roboclaw.Cmd::M2SPEEDACCELDECCELPOS</definition>
+        <argsstring></argsstring>
+        <name>M2SPEEDACCELDECCELPOS</name>
+        <initializer>=  66</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/hector/TMR/main_ws/src/toxic_hardware/toxic_hardware/roboclaw_3.py" line="82" column="1" bodyfile="/home/hector/TMR/main_ws/src/toxic_hardware/toxic_hardware/roboclaw_3.py" bodystart="82" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1a1f13642d0cbe61cac8c37933db3caaa9" prot="public" static="yes" mutable="no">
+        <type>int</type>
+        <definition>int toxic_hardware.roboclaw_3.Roboclaw.Cmd::MIXEDSPEEDACCELDECCELPOS</definition>
+        <argsstring></argsstring>
+        <name>MIXEDSPEEDACCELDECCELPOS</name>
+        <initializer>=  67</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/hector/TMR/main_ws/src/toxic_hardware/toxic_hardware/roboclaw_3.py" line="83" column="1" bodyfile="/home/hector/TMR/main_ws/src/toxic_hardware/toxic_hardware/roboclaw_3.py" bodystart="83" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1a898502c25733fb8c6600d1f7fe1ed878" prot="public" static="yes" mutable="no">
+        <type>int</type>
+        <definition>int toxic_hardware.roboclaw_3.Roboclaw.Cmd::SETM1DEFAULTACCEL</definition>
+        <argsstring></argsstring>
+        <name>SETM1DEFAULTACCEL</name>
+        <initializer>=  68</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/hector/TMR/main_ws/src/toxic_hardware/toxic_hardware/roboclaw_3.py" line="84" column="1" bodyfile="/home/hector/TMR/main_ws/src/toxic_hardware/toxic_hardware/roboclaw_3.py" bodystart="84" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1aef523fcaaccb0d4b46c454aad8409f6b" prot="public" static="yes" mutable="no">
+        <type>int</type>
+        <definition>int toxic_hardware.roboclaw_3.Roboclaw.Cmd::SETM2DEFAULTACCEL</definition>
+        <argsstring></argsstring>
+        <name>SETM2DEFAULTACCEL</name>
+        <initializer>=  69</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/hector/TMR/main_ws/src/toxic_hardware/toxic_hardware/roboclaw_3.py" line="85" column="1" bodyfile="/home/hector/TMR/main_ws/src/toxic_hardware/toxic_hardware/roboclaw_3.py" bodystart="85" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1a21de1355402084592bf9011dd1dd685c" prot="public" static="yes" mutable="no">
+        <type>int</type>
+        <definition>int toxic_hardware.roboclaw_3.Roboclaw.Cmd::SETPINFUNCTIONS</definition>
+        <argsstring></argsstring>
+        <name>SETPINFUNCTIONS</name>
+        <initializer>=  74</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/hector/TMR/main_ws/src/toxic_hardware/toxic_hardware/roboclaw_3.py" line="86" column="1" bodyfile="/home/hector/TMR/main_ws/src/toxic_hardware/toxic_hardware/roboclaw_3.py" bodystart="86" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1affd5c91a77f76ff08e174f7be142e9eb" prot="public" static="yes" mutable="no">
+        <type>int</type>
+        <definition>int toxic_hardware.roboclaw_3.Roboclaw.Cmd::GETPINFUNCTIONS</definition>
+        <argsstring></argsstring>
+        <name>GETPINFUNCTIONS</name>
+        <initializer>=  75</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/hector/TMR/main_ws/src/toxic_hardware/toxic_hardware/roboclaw_3.py" line="87" column="1" bodyfile="/home/hector/TMR/main_ws/src/toxic_hardware/toxic_hardware/roboclaw_3.py" bodystart="87" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1a360255e78cdf2698ef935e1aec23ea1a" prot="public" static="yes" mutable="no">
+        <type>int</type>
+        <definition>int toxic_hardware.roboclaw_3.Roboclaw.Cmd::SETDEADBAND</definition>
+        <argsstring></argsstring>
+        <name>SETDEADBAND</name>
+        <initializer>=  76</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/hector/TMR/main_ws/src/toxic_hardware/toxic_hardware/roboclaw_3.py" line="88" column="1" bodyfile="/home/hector/TMR/main_ws/src/toxic_hardware/toxic_hardware/roboclaw_3.py" bodystart="88" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1abb63602ce7ad66ed6508a34b7de63199" prot="public" static="yes" mutable="no">
+        <type>int</type>
+        <definition>int toxic_hardware.roboclaw_3.Roboclaw.Cmd::GETDEADBAND</definition>
+        <argsstring></argsstring>
+        <name>GETDEADBAND</name>
+        <initializer>=  77</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/hector/TMR/main_ws/src/toxic_hardware/toxic_hardware/roboclaw_3.py" line="89" column="1" bodyfile="/home/hector/TMR/main_ws/src/toxic_hardware/toxic_hardware/roboclaw_3.py" bodystart="89" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1aac722480a92502985d440290fbde1ab4" prot="public" static="yes" mutable="no">
+        <type>int</type>
+        <definition>int toxic_hardware.roboclaw_3.Roboclaw.Cmd::RESTOREDEFAULTS</definition>
+        <argsstring></argsstring>
+        <name>RESTOREDEFAULTS</name>
+        <initializer>=  80</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/hector/TMR/main_ws/src/toxic_hardware/toxic_hardware/roboclaw_3.py" line="90" column="1" bodyfile="/home/hector/TMR/main_ws/src/toxic_hardware/toxic_hardware/roboclaw_3.py" bodystart="90" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1a7e82fb157825293cceff4b18c3f5cfa8" prot="public" static="yes" mutable="no">
+        <type>int</type>
+        <definition>int toxic_hardware.roboclaw_3.Roboclaw.Cmd::GETTEMP</definition>
+        <argsstring></argsstring>
+        <name>GETTEMP</name>
+        <initializer>=  82</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/hector/TMR/main_ws/src/toxic_hardware/toxic_hardware/roboclaw_3.py" line="91" column="1" bodyfile="/home/hector/TMR/main_ws/src/toxic_hardware/toxic_hardware/roboclaw_3.py" bodystart="91" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1a4e5f0e214776e920d3dd49e0a30fae25" prot="public" static="yes" mutable="no">
+        <type>int</type>
+        <definition>int toxic_hardware.roboclaw_3.Roboclaw.Cmd::GETTEMP2</definition>
+        <argsstring></argsstring>
+        <name>GETTEMP2</name>
+        <initializer>=  83</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/hector/TMR/main_ws/src/toxic_hardware/toxic_hardware/roboclaw_3.py" line="92" column="1" bodyfile="/home/hector/TMR/main_ws/src/toxic_hardware/toxic_hardware/roboclaw_3.py" bodystart="92" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1af8e397f649987ab40d86b9a6c1cfdccc" prot="public" static="yes" mutable="no">
+        <type>int</type>
+        <definition>int toxic_hardware.roboclaw_3.Roboclaw.Cmd::GETERROR</definition>
+        <argsstring></argsstring>
+        <name>GETERROR</name>
+        <initializer>=  90</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/hector/TMR/main_ws/src/toxic_hardware/toxic_hardware/roboclaw_3.py" line="93" column="1" bodyfile="/home/hector/TMR/main_ws/src/toxic_hardware/toxic_hardware/roboclaw_3.py" bodystart="93" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1a9e6c1afdc1f26e5a950937f01357b116" prot="public" static="yes" mutable="no">
+        <type>int</type>
+        <definition>int toxic_hardware.roboclaw_3.Roboclaw.Cmd::GETENCODERMODE</definition>
+        <argsstring></argsstring>
+        <name>GETENCODERMODE</name>
+        <initializer>=  91</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/hector/TMR/main_ws/src/toxic_hardware/toxic_hardware/roboclaw_3.py" line="94" column="1" bodyfile="/home/hector/TMR/main_ws/src/toxic_hardware/toxic_hardware/roboclaw_3.py" bodystart="94" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1a06fd231779d004fdb3987d69e8147a08" prot="public" static="yes" mutable="no">
+        <type>int</type>
+        <definition>int toxic_hardware.roboclaw_3.Roboclaw.Cmd::SETM1ENCODERMODE</definition>
+        <argsstring></argsstring>
+        <name>SETM1ENCODERMODE</name>
+        <initializer>=  92</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/hector/TMR/main_ws/src/toxic_hardware/toxic_hardware/roboclaw_3.py" line="95" column="1" bodyfile="/home/hector/TMR/main_ws/src/toxic_hardware/toxic_hardware/roboclaw_3.py" bodystart="95" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1a5bf4d6a39c0a827fc4bb0063e1abb1dc" prot="public" static="yes" mutable="no">
+        <type>int</type>
+        <definition>int toxic_hardware.roboclaw_3.Roboclaw.Cmd::SETM2ENCODERMODE</definition>
+        <argsstring></argsstring>
+        <name>SETM2ENCODERMODE</name>
+        <initializer>=  93</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/hector/TMR/main_ws/src/toxic_hardware/toxic_hardware/roboclaw_3.py" line="96" column="1" bodyfile="/home/hector/TMR/main_ws/src/toxic_hardware/toxic_hardware/roboclaw_3.py" bodystart="96" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1a066d106aab25d1154ee3d8ce1f13b810" prot="public" static="yes" mutable="no">
+        <type>int</type>
+        <definition>int toxic_hardware.roboclaw_3.Roboclaw.Cmd::WRITENVM</definition>
+        <argsstring></argsstring>
+        <name>WRITENVM</name>
+        <initializer>=  94</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/hector/TMR/main_ws/src/toxic_hardware/toxic_hardware/roboclaw_3.py" line="97" column="1" bodyfile="/home/hector/TMR/main_ws/src/toxic_hardware/toxic_hardware/roboclaw_3.py" bodystart="97" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1af401626d5962109d1165e5f3b352f79d" prot="public" static="yes" mutable="no">
+        <type>int</type>
+        <definition>int toxic_hardware.roboclaw_3.Roboclaw.Cmd::READNVM</definition>
+        <argsstring></argsstring>
+        <name>READNVM</name>
+        <initializer>=  95</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/hector/TMR/main_ws/src/toxic_hardware/toxic_hardware/roboclaw_3.py" line="98" column="1" bodyfile="/home/hector/TMR/main_ws/src/toxic_hardware/toxic_hardware/roboclaw_3.py" bodystart="98" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1a2b1c9f9888927348fafe4a18b8946018" prot="public" static="yes" mutable="no">
+        <type>int</type>
+        <definition>int toxic_hardware.roboclaw_3.Roboclaw.Cmd::SETCONFIG</definition>
+        <argsstring></argsstring>
+        <name>SETCONFIG</name>
+        <initializer>=  98</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/hector/TMR/main_ws/src/toxic_hardware/toxic_hardware/roboclaw_3.py" line="99" column="1" bodyfile="/home/hector/TMR/main_ws/src/toxic_hardware/toxic_hardware/roboclaw_3.py" bodystart="99" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1a088f90733ce706daaab417f9e5e59ff8" prot="public" static="yes" mutable="no">
+        <type>int</type>
+        <definition>int toxic_hardware.roboclaw_3.Roboclaw.Cmd::GETCONFIG</definition>
+        <argsstring></argsstring>
+        <name>GETCONFIG</name>
+        <initializer>=  99</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/hector/TMR/main_ws/src/toxic_hardware/toxic_hardware/roboclaw_3.py" line="100" column="1" bodyfile="/home/hector/TMR/main_ws/src/toxic_hardware/toxic_hardware/roboclaw_3.py" bodystart="100" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1a07b08af329f4d291fcc5d9f40cd4bd1f" prot="public" static="yes" mutable="no">
+        <type>int</type>
+        <definition>int toxic_hardware.roboclaw_3.Roboclaw.Cmd::SETM1MAXCURRENT</definition>
+        <argsstring></argsstring>
+        <name>SETM1MAXCURRENT</name>
+        <initializer>=  133</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/hector/TMR/main_ws/src/toxic_hardware/toxic_hardware/roboclaw_3.py" line="101" column="1" bodyfile="/home/hector/TMR/main_ws/src/toxic_hardware/toxic_hardware/roboclaw_3.py" bodystart="101" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1a1283c68f9019a59b0058bbec03fc008c" prot="public" static="yes" mutable="no">
+        <type>int</type>
+        <definition>int toxic_hardware.roboclaw_3.Roboclaw.Cmd::SETM2MAXCURRENT</definition>
+        <argsstring></argsstring>
+        <name>SETM2MAXCURRENT</name>
+        <initializer>=  134</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/hector/TMR/main_ws/src/toxic_hardware/toxic_hardware/roboclaw_3.py" line="102" column="1" bodyfile="/home/hector/TMR/main_ws/src/toxic_hardware/toxic_hardware/roboclaw_3.py" bodystart="102" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1a031b148ac704691da05afe659ffcf175" prot="public" static="yes" mutable="no">
+        <type>int</type>
+        <definition>int toxic_hardware.roboclaw_3.Roboclaw.Cmd::GETM1MAXCURRENT</definition>
+        <argsstring></argsstring>
+        <name>GETM1MAXCURRENT</name>
+        <initializer>=  135</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/hector/TMR/main_ws/src/toxic_hardware/toxic_hardware/roboclaw_3.py" line="103" column="1" bodyfile="/home/hector/TMR/main_ws/src/toxic_hardware/toxic_hardware/roboclaw_3.py" bodystart="103" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1a86be758f9ca74212cad0adcc08c720c9" prot="public" static="yes" mutable="no">
+        <type>int</type>
+        <definition>int toxic_hardware.roboclaw_3.Roboclaw.Cmd::GETM2MAXCURRENT</definition>
+        <argsstring></argsstring>
+        <name>GETM2MAXCURRENT</name>
+        <initializer>=  136</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/hector/TMR/main_ws/src/toxic_hardware/toxic_hardware/roboclaw_3.py" line="104" column="1" bodyfile="/home/hector/TMR/main_ws/src/toxic_hardware/toxic_hardware/roboclaw_3.py" bodystart="104" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1a8a73a4398ee35a68b37e221f4ec974a9" prot="public" static="yes" mutable="no">
+        <type>int</type>
+        <definition>int toxic_hardware.roboclaw_3.Roboclaw.Cmd::SETPWMMODE</definition>
+        <argsstring></argsstring>
+        <name>SETPWMMODE</name>
+        <initializer>=  148</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/hector/TMR/main_ws/src/toxic_hardware/toxic_hardware/roboclaw_3.py" line="105" column="1" bodyfile="/home/hector/TMR/main_ws/src/toxic_hardware/toxic_hardware/roboclaw_3.py" bodystart="105" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1af4d5eb77d0a8dd96659b0cf531bc950b" prot="public" static="yes" mutable="no">
+        <type>int</type>
+        <definition>int toxic_hardware.roboclaw_3.Roboclaw.Cmd::GETPWMMODE</definition>
+        <argsstring></argsstring>
+        <name>GETPWMMODE</name>
+        <initializer>=  149</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/hector/TMR/main_ws/src/toxic_hardware/toxic_hardware/roboclaw_3.py" line="106" column="1" bodyfile="/home/hector/TMR/main_ws/src/toxic_hardware/toxic_hardware/roboclaw_3.py" bodystart="106" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1a83c3f5cb754e6e3aebeca177d015106f" prot="public" static="yes" mutable="no">
+        <type>int</type>
+        <definition>int toxic_hardware.roboclaw_3.Roboclaw.Cmd::READEEPROM</definition>
+        <argsstring></argsstring>
+        <name>READEEPROM</name>
+        <initializer>=  252</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/hector/TMR/main_ws/src/toxic_hardware/toxic_hardware/roboclaw_3.py" line="107" column="1" bodyfile="/home/hector/TMR/main_ws/src/toxic_hardware/toxic_hardware/roboclaw_3.py" bodystart="107" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1a4dcca8d3f4003c17ffb5c82a7c1ef63f" prot="public" static="yes" mutable="no">
+        <type>int</type>
+        <definition>int toxic_hardware.roboclaw_3.Roboclaw.Cmd::WRITEEEPROM</definition>
+        <argsstring></argsstring>
+        <name>WRITEEEPROM</name>
+        <initializer>=  253</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/hector/TMR/main_ws/src/toxic_hardware/toxic_hardware/roboclaw_3.py" line="108" column="1" bodyfile="/home/hector/TMR/main_ws/src/toxic_hardware/toxic_hardware/roboclaw_3.py" bodystart="108" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1aab75358b95fc658690c3b2b018a0d22b" prot="public" static="yes" mutable="no">
+        <type>int</type>
+        <definition>int toxic_hardware.roboclaw_3.Roboclaw.Cmd::FLAGBOOTLOADER</definition>
+        <argsstring></argsstring>
+        <name>FLAGBOOTLOADER</name>
+        <initializer>=  255</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/hector/TMR/main_ws/src/toxic_hardware/toxic_hardware/roboclaw_3.py" line="109" column="1" bodyfile="/home/hector/TMR/main_ws/src/toxic_hardware/toxic_hardware/roboclaw_3.py" bodystart="109" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/hector/TMR/main_ws/src/toxic_hardware/toxic_hardware/roboclaw_3.py" line="17" column="1" bodyfile="/home/hector/TMR/main_ws/src/toxic_hardware/toxic_hardware/roboclaw_3.py" bodystart="17" bodyend="110"/>
+    <listofallmembers>
+      <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1aab75358b95fc658690c3b2b018a0d22b" prot="public" virt="non-virtual"><scope>toxic_hardware::roboclaw_3::Roboclaw::Cmd</scope><name>FLAGBOOTLOADER</name></member>
+      <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1aa1ca8947a935cedd12e73d6a27f36784" prot="public" virt="non-virtual"><scope>toxic_hardware::roboclaw_3::Roboclaw::Cmd</scope><name>GETBUFFERS</name></member>
+      <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1a088f90733ce706daaab417f9e5e59ff8" prot="public" virt="non-virtual"><scope>toxic_hardware::roboclaw_3::Roboclaw::Cmd</scope><name>GETCONFIG</name></member>
+      <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1acbb53759ce7155f8d72fe63bd1091f52" prot="public" virt="non-virtual"><scope>toxic_hardware::roboclaw_3::Roboclaw::Cmd</scope><name>GETCURRENTS</name></member>
+      <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1abb63602ce7ad66ed6508a34b7de63199" prot="public" virt="non-virtual"><scope>toxic_hardware::roboclaw_3::Roboclaw::Cmd</scope><name>GETDEADBAND</name></member>
+      <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1a9e6c1afdc1f26e5a950937f01357b116" prot="public" virt="non-virtual"><scope>toxic_hardware::roboclaw_3::Roboclaw::Cmd</scope><name>GETENCODERMODE</name></member>
+      <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1af8e397f649987ab40d86b9a6c1cfdccc" prot="public" virt="non-virtual"><scope>toxic_hardware::roboclaw_3::Roboclaw::Cmd</scope><name>GETERROR</name></member>
+      <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1ac3af16ea0da1336d530b7750b45b2a0f" prot="public" virt="non-virtual"><scope>toxic_hardware::roboclaw_3::Roboclaw::Cmd</scope><name>GETLBATT</name></member>
+      <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1a111c95fb1056d04cbabc0e14f892ad63" prot="public" virt="non-virtual"><scope>toxic_hardware::roboclaw_3::Roboclaw::Cmd</scope><name>GETM1ENC</name></member>
+      <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1a988b93b2b83c36c10cb66752e516c5e5" prot="public" virt="non-virtual"><scope>toxic_hardware::roboclaw_3::Roboclaw::Cmd</scope><name>GETM1ISPEED</name></member>
+      <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1a031b148ac704691da05afe659ffcf175" prot="public" virt="non-virtual"><scope>toxic_hardware::roboclaw_3::Roboclaw::Cmd</scope><name>GETM1MAXCURRENT</name></member>
+      <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1ad1d8802eeedcd9c0ae1e115f8baa2ef6" prot="public" virt="non-virtual"><scope>toxic_hardware::roboclaw_3::Roboclaw::Cmd</scope><name>GETM1SPEED</name></member>
+      <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1abfd87fa8ee9c8bdc3803a062a2bb2f6c" prot="public" virt="non-virtual"><scope>toxic_hardware::roboclaw_3::Roboclaw::Cmd</scope><name>GETM2ENC</name></member>
+      <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1a1be79fc71082cb9726d57f458380aebd" prot="public" virt="non-virtual"><scope>toxic_hardware::roboclaw_3::Roboclaw::Cmd</scope><name>GETM2ISPEED</name></member>
+      <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1a86be758f9ca74212cad0adcc08c720c9" prot="public" virt="non-virtual"><scope>toxic_hardware::roboclaw_3::Roboclaw::Cmd</scope><name>GETM2MAXCURRENT</name></member>
+      <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1aa9afe27a4f32a2182898393dbab45c73" prot="public" virt="non-virtual"><scope>toxic_hardware::roboclaw_3::Roboclaw::Cmd</scope><name>GETM2SPEED</name></member>
+      <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1a2cad400580c9b65646785dc3d7937485" prot="public" virt="non-virtual"><scope>toxic_hardware::roboclaw_3::Roboclaw::Cmd</scope><name>GETMBATT</name></member>
+      <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1acee20af4cd21268058cc614ec920acd6" prot="public" virt="non-virtual"><scope>toxic_hardware::roboclaw_3::Roboclaw::Cmd</scope><name>GETMINMAXLOGICVOLTAGES</name></member>
+      <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1acf094176a10541af4d3eb26ed8b02ac9" prot="public" virt="non-virtual"><scope>toxic_hardware::roboclaw_3::Roboclaw::Cmd</scope><name>GETMINMAXMAINVOLTAGES</name></member>
+      <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1affd5c91a77f76ff08e174f7be142e9eb" prot="public" virt="non-virtual"><scope>toxic_hardware::roboclaw_3::Roboclaw::Cmd</scope><name>GETPINFUNCTIONS</name></member>
+      <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1af4d5eb77d0a8dd96659b0cf531bc950b" prot="public" virt="non-virtual"><scope>toxic_hardware::roboclaw_3::Roboclaw::Cmd</scope><name>GETPWMMODE</name></member>
+      <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1a59d182a4a8b89af28f61c2d3248182b9" prot="public" virt="non-virtual"><scope>toxic_hardware::roboclaw_3::Roboclaw::Cmd</scope><name>GETPWMS</name></member>
+      <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1a7e82fb157825293cceff4b18c3f5cfa8" prot="public" virt="non-virtual"><scope>toxic_hardware::roboclaw_3::Roboclaw::Cmd</scope><name>GETTEMP</name></member>
+      <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1a4e5f0e214776e920d3dd49e0a30fae25" prot="public" virt="non-virtual"><scope>toxic_hardware::roboclaw_3::Roboclaw::Cmd</scope><name>GETTEMP2</name></member>
+      <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1a98f0126eaaab32ce95761de48f6ca4cc" prot="public" virt="non-virtual"><scope>toxic_hardware::roboclaw_3::Roboclaw::Cmd</scope><name>GETVERSION</name></member>
+      <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1a7a91fb3913901579ee02798b3798fab4" prot="public" virt="non-virtual"><scope>toxic_hardware::roboclaw_3::Roboclaw::Cmd</scope><name>M17BIT</name></member>
+      <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1a3241dfbf5bf96fe738634e01f3b868ec" prot="public" virt="non-virtual"><scope>toxic_hardware::roboclaw_3::Roboclaw::Cmd</scope><name>M1BACKWARD</name></member>
+      <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1ac37b699db0288e9ecfcd456b4d56baac" prot="public" virt="non-virtual"><scope>toxic_hardware::roboclaw_3::Roboclaw::Cmd</scope><name>M1DUTY</name></member>
+      <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1a4336e315d03abb963303204e46df39a7" prot="public" virt="non-virtual"><scope>toxic_hardware::roboclaw_3::Roboclaw::Cmd</scope><name>M1DUTYACCEL</name></member>
+      <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1ae5accf3bc2c56d72ca0289c1dce128ee" prot="public" virt="non-virtual"><scope>toxic_hardware::roboclaw_3::Roboclaw::Cmd</scope><name>M1FORWARD</name></member>
+      <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1a09db05ff4a9397aff1ee5a9dcf77df22" prot="public" virt="non-virtual"><scope>toxic_hardware::roboclaw_3::Roboclaw::Cmd</scope><name>M1SPEED</name></member>
+      <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1a16600d20ed216f9e2a120cd2fd4d06a6" prot="public" virt="non-virtual"><scope>toxic_hardware::roboclaw_3::Roboclaw::Cmd</scope><name>M1SPEEDACCEL</name></member>
+      <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1acbfff02a950cd496f90acb61d41f06a5" prot="public" virt="non-virtual"><scope>toxic_hardware::roboclaw_3::Roboclaw::Cmd</scope><name>M1SPEEDACCELDECCELPOS</name></member>
+      <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1af4c639c6384cb28c9ccd7f485d33f1ba" prot="public" virt="non-virtual"><scope>toxic_hardware::roboclaw_3::Roboclaw::Cmd</scope><name>M1SPEEDACCELDIST</name></member>
+      <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1a54084848c0ae9f5add632435e1a229f3" prot="public" virt="non-virtual"><scope>toxic_hardware::roboclaw_3::Roboclaw::Cmd</scope><name>M1SPEEDDIST</name></member>
+      <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1ab63803cd2aa9d31d0b0094fe5c1f26a1" prot="public" virt="non-virtual"><scope>toxic_hardware::roboclaw_3::Roboclaw::Cmd</scope><name>M27BIT</name></member>
+      <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1aa32b5d8a1015b99fca827fe4bd8be6e5" prot="public" virt="non-virtual"><scope>toxic_hardware::roboclaw_3::Roboclaw::Cmd</scope><name>M2BACKWARD</name></member>
+      <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1a77b12e7a43ab85906964cb636ac34c91" prot="public" virt="non-virtual"><scope>toxic_hardware::roboclaw_3::Roboclaw::Cmd</scope><name>M2DUTY</name></member>
+      <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1a26c30122cd101df2bfc3828abca02321" prot="public" virt="non-virtual"><scope>toxic_hardware::roboclaw_3::Roboclaw::Cmd</scope><name>M2DUTYACCEL</name></member>
+      <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1acc8e7439e46550fb950f655157d3b2a3" prot="public" virt="non-virtual"><scope>toxic_hardware::roboclaw_3::Roboclaw::Cmd</scope><name>M2FORWARD</name></member>
+      <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1a2c5cbc4663823b2867df7c35dbeb5adc" prot="public" virt="non-virtual"><scope>toxic_hardware::roboclaw_3::Roboclaw::Cmd</scope><name>M2SPEED</name></member>
+      <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1ad8b0120137353739656a4d5d3c5dcfd6" prot="public" virt="non-virtual"><scope>toxic_hardware::roboclaw_3::Roboclaw::Cmd</scope><name>M2SPEEDACCEL</name></member>
+      <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1aaed56644583bf79cb5a8ac524a1840fe" prot="public" virt="non-virtual"><scope>toxic_hardware::roboclaw_3::Roboclaw::Cmd</scope><name>M2SPEEDACCELDECCELPOS</name></member>
+      <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1aabffdf61dd14127d3a0c9f4d308e7ef7" prot="public" virt="non-virtual"><scope>toxic_hardware::roboclaw_3::Roboclaw::Cmd</scope><name>M2SPEEDACCELDIST</name></member>
+      <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1af091fabf404cd34e798e548bf28be6b5" prot="public" virt="non-virtual"><scope>toxic_hardware::roboclaw_3::Roboclaw::Cmd</scope><name>M2SPEEDDIST</name></member>
+      <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1a1d644819677b9fdc425b826e0296aa40" prot="public" virt="non-virtual"><scope>toxic_hardware::roboclaw_3::Roboclaw::Cmd</scope><name>MIXEDBACKWARD</name></member>
+      <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1abc5901940eba3955f979546316ca86af" prot="public" virt="non-virtual"><scope>toxic_hardware::roboclaw_3::Roboclaw::Cmd</scope><name>MIXEDDUTY</name></member>
+      <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1afc21bdf344e4624d0cf8af64c242856d" prot="public" virt="non-virtual"><scope>toxic_hardware::roboclaw_3::Roboclaw::Cmd</scope><name>MIXEDDUTYACCEL</name></member>
+      <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1abc224f62b083ad0857dab70d0f1ab479" prot="public" virt="non-virtual"><scope>toxic_hardware::roboclaw_3::Roboclaw::Cmd</scope><name>MIXEDFB</name></member>
+      <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1adc14d33d7da1b268c717bd3e33cf1606" prot="public" virt="non-virtual"><scope>toxic_hardware::roboclaw_3::Roboclaw::Cmd</scope><name>MIXEDFORWARD</name></member>
+      <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1a9af53827cd510e0eb51607f971a4c66a" prot="public" virt="non-virtual"><scope>toxic_hardware::roboclaw_3::Roboclaw::Cmd</scope><name>MIXEDLEFT</name></member>
+      <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1a2a456e5718e568be94b6079da2ee43ec" prot="public" virt="non-virtual"><scope>toxic_hardware::roboclaw_3::Roboclaw::Cmd</scope><name>MIXEDLR</name></member>
+      <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1a2f4c6517bd7779a8853f5c401cf09693" prot="public" virt="non-virtual"><scope>toxic_hardware::roboclaw_3::Roboclaw::Cmd</scope><name>MIXEDRIGHT</name></member>
+      <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1afd9f5ac7cd219952bd01a394c6c12afc" prot="public" virt="non-virtual"><scope>toxic_hardware::roboclaw_3::Roboclaw::Cmd</scope><name>MIXEDSPEED</name></member>
+      <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1a96faaada7a7820c46a2715e4cebf8231" prot="public" virt="non-virtual"><scope>toxic_hardware::roboclaw_3::Roboclaw::Cmd</scope><name>MIXEDSPEED2ACCEL</name></member>
+      <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1afdfddbb75c888bba6b7a516a3edf1f19" prot="public" virt="non-virtual"><scope>toxic_hardware::roboclaw_3::Roboclaw::Cmd</scope><name>MIXEDSPEED2ACCELDIST</name></member>
+      <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1a82e0b8aeb9dbe61026cf78cb735896ed" prot="public" virt="non-virtual"><scope>toxic_hardware::roboclaw_3::Roboclaw::Cmd</scope><name>MIXEDSPEEDACCEL</name></member>
+      <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1a1f13642d0cbe61cac8c37933db3caaa9" prot="public" virt="non-virtual"><scope>toxic_hardware::roboclaw_3::Roboclaw::Cmd</scope><name>MIXEDSPEEDACCELDECCELPOS</name></member>
+      <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1a063d45bcdea4caa85ae6d96c6cbc285f" prot="public" virt="non-virtual"><scope>toxic_hardware::roboclaw_3::Roboclaw::Cmd</scope><name>MIXEDSPEEDACCELDIST</name></member>
+      <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1a51d5b7c859d6561979f84196efc1d8de" prot="public" virt="non-virtual"><scope>toxic_hardware::roboclaw_3::Roboclaw::Cmd</scope><name>MIXEDSPEEDDIST</name></member>
+      <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1a83c3f5cb754e6e3aebeca177d015106f" prot="public" virt="non-virtual"><scope>toxic_hardware::roboclaw_3::Roboclaw::Cmd</scope><name>READEEPROM</name></member>
+      <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1ad37f51c814f42ebeb2897946aa40934d" prot="public" virt="non-virtual"><scope>toxic_hardware::roboclaw_3::Roboclaw::Cmd</scope><name>READM1PID</name></member>
+      <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1aef5b53ff0919981f54bc6a19ad5037a7" prot="public" virt="non-virtual"><scope>toxic_hardware::roboclaw_3::Roboclaw::Cmd</scope><name>READM1POSPID</name></member>
+      <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1af7c3d55807969c8bb77f109f7fed9565" prot="public" virt="non-virtual"><scope>toxic_hardware::roboclaw_3::Roboclaw::Cmd</scope><name>READM2PID</name></member>
+      <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1a7f3e71069d5d9059a090be6002c373d8" prot="public" virt="non-virtual"><scope>toxic_hardware::roboclaw_3::Roboclaw::Cmd</scope><name>READM2POSPID</name></member>
+      <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1af401626d5962109d1165e5f3b352f79d" prot="public" virt="non-virtual"><scope>toxic_hardware::roboclaw_3::Roboclaw::Cmd</scope><name>READNVM</name></member>
+      <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1aae851a96f9cfc2cc8dcea059fe89c9bd" prot="public" virt="non-virtual"><scope>toxic_hardware::roboclaw_3::Roboclaw::Cmd</scope><name>RESETENC</name></member>
+      <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1aac722480a92502985d440290fbde1ab4" prot="public" virt="non-virtual"><scope>toxic_hardware::roboclaw_3::Roboclaw::Cmd</scope><name>RESTOREDEFAULTS</name></member>
+      <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1a2b1c9f9888927348fafe4a18b8946018" prot="public" virt="non-virtual"><scope>toxic_hardware::roboclaw_3::Roboclaw::Cmd</scope><name>SETCONFIG</name></member>
+      <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1a360255e78cdf2698ef935e1aec23ea1a" prot="public" virt="non-virtual"><scope>toxic_hardware::roboclaw_3::Roboclaw::Cmd</scope><name>SETDEADBAND</name></member>
+      <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1a9ba5e049493cb95e4ad4a40e7abe4d65" prot="public" virt="non-virtual"><scope>toxic_hardware::roboclaw_3::Roboclaw::Cmd</scope><name>SETLOGICVOLTAGES</name></member>
+      <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1a898502c25733fb8c6600d1f7fe1ed878" prot="public" virt="non-virtual"><scope>toxic_hardware::roboclaw_3::Roboclaw::Cmd</scope><name>SETM1DEFAULTACCEL</name></member>
+      <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1aa24744d60db1bbef973a59194df8d77f" prot="public" virt="non-virtual"><scope>toxic_hardware::roboclaw_3::Roboclaw::Cmd</scope><name>SETM1ENCCOUNT</name></member>
+      <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1a06fd231779d004fdb3987d69e8147a08" prot="public" virt="non-virtual"><scope>toxic_hardware::roboclaw_3::Roboclaw::Cmd</scope><name>SETM1ENCODERMODE</name></member>
+      <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1a07b08af329f4d291fcc5d9f40cd4bd1f" prot="public" virt="non-virtual"><scope>toxic_hardware::roboclaw_3::Roboclaw::Cmd</scope><name>SETM1MAXCURRENT</name></member>
+      <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1acfb43c9482531524bed711cb83abe244" prot="public" virt="non-virtual"><scope>toxic_hardware::roboclaw_3::Roboclaw::Cmd</scope><name>SETM1PID</name></member>
+      <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1a358969d7999acc0329ecab8eb8b37394" prot="public" virt="non-virtual"><scope>toxic_hardware::roboclaw_3::Roboclaw::Cmd</scope><name>SETM1POSPID</name></member>
+      <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1aef523fcaaccb0d4b46c454aad8409f6b" prot="public" virt="non-virtual"><scope>toxic_hardware::roboclaw_3::Roboclaw::Cmd</scope><name>SETM2DEFAULTACCEL</name></member>
+      <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1a2187b457ae1eb0382f15b937bbab48ab" prot="public" virt="non-virtual"><scope>toxic_hardware::roboclaw_3::Roboclaw::Cmd</scope><name>SETM2ENCCOUNT</name></member>
+      <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1a5bf4d6a39c0a827fc4bb0063e1abb1dc" prot="public" virt="non-virtual"><scope>toxic_hardware::roboclaw_3::Roboclaw::Cmd</scope><name>SETM2ENCODERMODE</name></member>
+      <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1a1283c68f9019a59b0058bbec03fc008c" prot="public" virt="non-virtual"><scope>toxic_hardware::roboclaw_3::Roboclaw::Cmd</scope><name>SETM2MAXCURRENT</name></member>
+      <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1afc55d94d95b473f9609fa98634778f9b" prot="public" virt="non-virtual"><scope>toxic_hardware::roboclaw_3::Roboclaw::Cmd</scope><name>SETM2PID</name></member>
+      <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1ab96dbc6e64094c8ce89c6d953f05f942" prot="public" virt="non-virtual"><scope>toxic_hardware::roboclaw_3::Roboclaw::Cmd</scope><name>SETM2POSPID</name></member>
+      <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1a5fc32f67adce5811e9197da7669ae9bd" prot="public" virt="non-virtual"><scope>toxic_hardware::roboclaw_3::Roboclaw::Cmd</scope><name>SETMAINVOLTAGES</name></member>
+      <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1ab4222633629080da9c4d6644b656ba56" prot="public" virt="non-virtual"><scope>toxic_hardware::roboclaw_3::Roboclaw::Cmd</scope><name>SETMAXLB</name></member>
+      <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1ad34cb54dffa4b49e57531dd3ed63e4dd" prot="public" virt="non-virtual"><scope>toxic_hardware::roboclaw_3::Roboclaw::Cmd</scope><name>SETMAXMB</name></member>
+      <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1a6e4d2030518fe14e96816080508c274d" prot="public" virt="non-virtual"><scope>toxic_hardware::roboclaw_3::Roboclaw::Cmd</scope><name>SETMINLB</name></member>
+      <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1adba4d514b4ab2836e445dc7234bd5bad" prot="public" virt="non-virtual"><scope>toxic_hardware::roboclaw_3::Roboclaw::Cmd</scope><name>SETMINMB</name></member>
+      <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1a21de1355402084592bf9011dd1dd685c" prot="public" virt="non-virtual"><scope>toxic_hardware::roboclaw_3::Roboclaw::Cmd</scope><name>SETPINFUNCTIONS</name></member>
+      <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1a8a73a4398ee35a68b37e221f4ec974a9" prot="public" virt="non-virtual"><scope>toxic_hardware::roboclaw_3::Roboclaw::Cmd</scope><name>SETPWMMODE</name></member>
+      <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1a4dcca8d3f4003c17ffb5c82a7c1ef63f" prot="public" virt="non-virtual"><scope>toxic_hardware::roboclaw_3::Roboclaw::Cmd</scope><name>WRITEEEPROM</name></member>
+      <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1a066d106aab25d1154ee3d8ce1f13b810" prot="public" virt="non-virtual"><scope>toxic_hardware::roboclaw_3::Roboclaw::Cmd</scope><name>WRITENVM</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>
