@@ -20,7 +20,9 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-            'joy_subscriber = toxic_hardware.controller:main'
+            'joy_subscriber = toxic_hardware.controller:main',
+            'motor_interface = toxic_hardware.motor_interface:main',
+            'servo_interface = toxic_hardware.servo_interface:main'
         ],
     },
 )

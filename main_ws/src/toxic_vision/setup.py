@@ -23,6 +23,8 @@ setup(
             'kinect_publisher = toxic_vision.kinect_publisher:main',
             'async_kinect_publisher = toxic_vision.async_kinect_publisher:main',
             'kinect_subscriber = toxic_vision.kinect_subscriber:main',
+            'webcam_subscriber = toxic_vision.webcam_sub:main',
+            'webcam_publisher = toxic_vision.webcam_pub:main',
         ],
     },
 )

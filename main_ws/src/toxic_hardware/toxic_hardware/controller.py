@@ -3,7 +3,9 @@ import rclpy
 from rclpy.node import Node
 import lgpio
 from sensor_msgs.msg import Joy
-sys.path.insert(1, '/home/pumas/roboclaw_python/roboclaw_python/')
+from std_msgs.msg import Float64
+sys.path.append('/home/ubuntu/roboclaw_python/')
+print(sys.path)
 from roboclaw_3 import Roboclaw
 
 interface = lgpio.gpiochip_open(0)
@@ -20,35 +22,20 @@ class ControlSubscriber(Node):
                 self.control_callback,
                 60
                 )
+        self.speed_publisher = self.create_publisher(Float64, '/speed', 60)
+        self.steering_publisher = self.create_publisher(Float64, '/steering', 60)
         self.subscription
-
-    def steering(self, normalized_value):
-        global interface
-        lgpio.tx_pwm(
-                interface,
-                18,
-                50,
-                (7.2 + (normalized_value*((10-5)/2)))
-                )
-
-    def speed(self, normalized_fw_speed, normalized_bw_speed):
-        global roboclaw
-        current_fw_speed = 1 - normalized_fw_speed
-        current_bw_speed = 1 - normalized_bw_speed
-        if int(current_fw_speed) > 0:
-            roboclaw.ForwardM1(0x80, int(32 * current_fw_speed))
-        elif int(current_bw_speed) > 0:
-            roboclaw.BackwardM1(0x80, int(32 * current_bw_speed))
-        else:
-            roboclaw.ForwardM1(0x80, 0)
+        self.steering_publisher
+        self.speed_publisher
 
     def control_callback(self, data):
-        #msg_speed = data.axes[]
         normalized_steering = data.axes[0]
         normalized_fw_speed = data.axes[5]
         normalized_bw_speed = data.axes[2]
-        self.steering(normalized_steering)
-        self.speed(normalized_fw_speed, normalized_bw_speed)
+        print(normalized_steering)
+        print(normalized_fw_speed)
+        self.steering_publisher.publish(Float64(normalized_steering))
+        self.speed_publisher.publish(Float64(normalized_fw_speed + normalized_bw_speed))
 
 def main(args=None):
     rclpy.init(args=args)
