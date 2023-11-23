@@ -9,7 +9,7 @@ class ImageSubscriber(Node):
     super().__init__('image_subscriber')
     self.subscription = self.create_subscription(
       Image, 
-      '/band_filter', 
+      '/raw_rgb', 
       self.listener_callback, 
       25
       )

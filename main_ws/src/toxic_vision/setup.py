@@ -26,6 +26,7 @@ setup(
             'webcam_subscriber = toxic_vision.webcam_sub:main',
             'webcam_publisher = toxic_vision.webcam_pub:main',
             'color_selector = toxic_vision.color_selector:main',
+            'lane_detector = toxic_vision.lane_detector:main',
         ],
     },
 )
