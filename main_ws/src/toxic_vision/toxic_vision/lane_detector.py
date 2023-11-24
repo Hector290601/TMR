@@ -6,8 +6,8 @@ import cv2
 import numpy as np
 import math
 
-upper_color = [120, 235, 107]                                          
-lower_color = [0, 0, 9]  
+upper_color = [110, 25, 255]                                           
+lower_color = [0, 0, 230] 
 
 frame = []
 
@@ -70,15 +70,16 @@ class ImageSubscriber(Node):
       return hsv
   
   def line_finder(self):
-      global band_pass, frame
-      kernel = np.ones((3, 3), np.uint8) 
-      band_pass = cv2.morphologyEx(band_pass, cv2.MORPH_OPEN, kernel, iterations=1) 
+      global band_pass, frame, dst
+      kernel = np.ones((5, 3), np.uint8) 
+      band_pass = cv2.morphologyEx(band_pass, cv2.MORPH_OPEN, kernel, iterations=2)
       dst = cv2.Canny(band_pass, 100, 100, None, 3)
-      lines = cv2.HoughLines(dst, 1, np.pi / 180, 150, None, 50, 10)
+      lines = cv2.HoughLines(dst, 1, np.pi / 180, 150, None, 0, 0)
+      print(lines)
       if lines is not None:
           for i in range(0, len(lines)):
               rho = lines[i][0][0]
-              theta = lines[i][0][0]
+              theta = lines[i][0][1]
               a = math.cos(theta)
               b = math.sin(theta)
               x0 = a * rho
@@ -86,18 +87,20 @@ class ImageSubscriber(Node):
               pt1 = (int(x0 + 1000*(-b)), int(y0 + 1000*(a)))
               pt2 = (int(x0 - 1000*(-b)), int(y0 - 1000*(a)))
               cv2.line(frame, pt1, pt2, (0,0,255), 3, cv2.LINE_AA)
+              print([pt1, pt2])
 
   def listener_callback(self, data):
-    global frame, band_pass
-    current_frame = self.br.imgmsg_to_cv2(data)
+    global frame, band_pass, dst
+    current_frame = self.br.imgmsg_to_cv2(data)[240:, :, :]
     frame = current_frame
     hsv = self.process_image()
     band_pass = self.range_finder()
     self.line_finder()
-    cv2.imshow("camera", current_frame)
+    cv2.imshow("camera", frame)
     cv2.imshow("band_filter", band_pass)
+    cv2.imshow("dst", dst)
     cv2.setMouseCallback("camera", mouse_callback)
-    cv2.setMouseCallback("band_filter", mouse_callback)
+    cv2.setMouseCallback("dst", mouse_callback)
     cv2.waitKey(1)
   
 def main(args=None):
