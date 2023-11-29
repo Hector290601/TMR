@@ -6,10 +6,21 @@ import cv2
 import numpy as np
 import math
 
-upper_color = [110, 25, 255]                                           
+upper_color = [115, 25, 255]                                           
 lower_color = [0, 0, 230] 
 
 frame = []
+
+def to_normal_form(x1, y1, x2, y2):
+    A = y2 - y1
+    B = x1 - x2
+    C = A*x1 + B*y1
+    theta = math.atan2(B,A)
+    rho   = C/math.sqrt(A*A + B*B)
+    if rho < 0:
+        theta += math.pi
+        rho = -rho
+    return np.asarray([rho, theta])
 
 def mouse_callback(event, x, y, flags, param):
     global where, upper_color, lower_color
@@ -17,7 +28,6 @@ def mouse_callback(event, x, y, flags, param):
         hu, su, vu = upper_color
         hl, sl, vl = lower_color
         hc, sc, vc = where[y, x]
-        print([lower_color, where[y, x], upper_color])
         if hu < hc:
             hu = int(hc)
         if su < sc:
@@ -32,7 +42,6 @@ def mouse_callback(event, x, y, flags, param):
             vl = int(vc)
         upper_color = [hu, su, vu]
         lower_color = [hl, sl, vl]
-        print([lower_color, where[y, x], upper_color])
     elif event == cv2.EVENT_RBUTTONDOWN:
         upper_color = [0, 0, 0]
         lower_color = [255, 255, 255]
@@ -72,22 +81,14 @@ class ImageSubscriber(Node):
   def line_finder(self):
       global band_pass, frame, dst
       kernel = np.ones((5, 3), np.uint8) 
-      band_pass = cv2.morphologyEx(band_pass, cv2.MORPH_OPEN, kernel, iterations=2)
+      band_pass = cv2.morphologyEx(band_pass, cv2.MORPH_OPEN, kernel, iterations=1)
       dst = cv2.Canny(band_pass, 100, 100, None, 3)
-      lines = cv2.HoughLines(dst, 1, np.pi / 180, 150, None, 0, 0)
-      print(lines)
+      lines = cv2.HoughLinesP(dst, 3, np.pi/90, 80, minLineLength=100, maxLineGap=100)[:, 0]
       if lines is not None:
           for i in range(0, len(lines)):
-              rho = lines[i][0][0]
-              theta = lines[i][0][1]
-              a = math.cos(theta)
-              b = math.sin(theta)
-              x0 = a * rho
-              y0 = a * rho
-              pt1 = (int(x0 + 1000*(-b)), int(y0 + 1000*(a)))
-              pt2 = (int(x0 - 1000*(-b)), int(y0 - 1000*(a)))
-              cv2.line(frame, pt1, pt2, (0,0,255), 3, cv2.LINE_AA)
-              print([pt1, pt2])
+              l = lines[i]
+              cv2.line(frame, (l[0], l[1]), (l[2], l[3]), (0,0,255), 3, cv2.LINE_AA)
+              print(to_normal_form(l[0], l[1], l[2], l[3]))
 
   def listener_callback(self, data):
     global frame, band_pass, dst
@@ -101,6 +102,7 @@ class ImageSubscriber(Node):
     cv2.imshow("dst", dst)
     cv2.setMouseCallback("camera", mouse_callback)
     cv2.setMouseCallback("dst", mouse_callback)
+    cv2.setMouseCallback("band_filter", mouse_callback)
     cv2.waitKey(1)
   
 def main(args=None):
