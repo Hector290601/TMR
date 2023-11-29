@@ -83,12 +83,37 @@ class ImageSubscriber(Node):
       kernel = np.ones((5, 3), np.uint8) 
       band_pass = cv2.morphologyEx(band_pass, cv2.MORPH_OPEN, kernel, iterations=1)
       dst = cv2.Canny(band_pass, 100, 100, None, 3)
-      lines = cv2.HoughLinesP(dst, 3, np.pi/90, 80, minLineLength=100, maxLineGap=100)[:, 0]
+      lines = cv2.HoughLinesP(dst, 3, np.pi/90, 80, minLineLength=150, maxLineGap=100)[:, 0]
       if lines is not None:
+          sum_theta_left = 0
+          sum_rho_left = 0
+          sum_theta_right = 0
+          sum_rho_right = 0
+          count_left = 0
+          count_right = 0
+          average_rho_left = 0
+          average_theta_left = 0
+          average_rho_right = 0
+          average_theta_right = 0
           for i in range(0, len(lines)):
               l = lines[i]
-              cv2.line(frame, (l[0], l[1]), (l[2], l[3]), (0,0,255), 3, cv2.LINE_AA)
-              print(to_normal_form(l[0], l[1], l[2], l[3]))
+              rho, theta = to_normal_form(l[0], l[1], l[2], l[3])
+              if 0.7 < theta < 1:
+	              cv2.line(frame, (l[0], l[1]), (l[2], l[3]), (0,0,255), 3, cv2.LINE_AA)
+                  sum_theta_right += theta
+                  sum_rho_right += rho
+                  count_right += 1
+              elif -1 < theta < -0.7:
+	              cv2.line(frame, (l[0], l[1]), (l[2], l[3]), (255,0,0), 3, cv2.LINE_AA)
+                  sum_theta_left += theta
+                  sum_rho_left += rho
+                  count_left += 1
+        if count_left > 0:
+            average_rho_left = sum_rho_left / count_left
+            average_theta_left = sum_theta_left / count_left
+        if count_left > 0:
+            average_rho_right = sum_rho_right / count_right
+            average_theta_right = sum_theta_right / count_right
 
   def listener_callback(self, data):
     global frame, band_pass, dst
