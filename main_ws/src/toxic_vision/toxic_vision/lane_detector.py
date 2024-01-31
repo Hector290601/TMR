@@ -6,9 +6,10 @@ import cv2
 import numpy as np
 import math
 from std_msgs.msg import Float64MultiArray
+import os
 
-upper_color = [130, 29, 255]
-lower_color = [0, 0, 222]
+upper_color = [130, 254, 255]
+lower_color = [0, 216, 0]
 
 left_min = 0.7
 left_max = 1
@@ -88,7 +89,7 @@ class ImageSubscriber(Node):
 
   def process_image(self):
       global frame, where
-      hsv = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
+      hsv = cv2.cvtColor(frame, cv2.COLOR_BGR2HLS)
       where = hsv
       return hsv
   
@@ -105,7 +106,7 @@ class ImageSubscriber(Node):
 
 
   def line_finder(self):
-      global band_pass, frame, dst, right_min, right_max, left_min, left_max, lower, upper, lefter, righter
+      global band_pass, frame, dst, right_min, right_max, left_min, left_max, lower, upper, lefter, righter, upper_color, lower_color
       kernel = np.ones((3, 5), np.uint8) 
       band_pass = cv2.morphologyEx(band_pass, cv2.MORPH_OPEN, kernel, iterations=1)
       dst = cv2.Canny(band_pass, 100, 100, 3, None)
@@ -123,6 +124,9 @@ class ImageSubscriber(Node):
           average_theta_left = 0
           average_rho_right = 0
           average_theta_right = 0
+          h = []
+          s = []
+          v = []
           for i in range(0, len(lines)):
               l = lines[i]
               if upper < l[1]:
@@ -147,6 +151,20 @@ class ImageSubscriber(Node):
                   sum_theta_right += theta
                   sum_rho_right += rho
                   count_right += 1
+                  left1_tmp = l[0] - 20
+                  left2_tmp = l[2] - 20
+                  right1_tmp = l[0] + 20
+                  right2_tmp = l[2] + 20
+                  roi_left = right1_tmp if right1_tmp < left1_tmp else left1_tmp
+                  roi_right = right2_tmp if right2_tmp < left2_tmp else left2_tmp
+                  roi_upper = l[1] if l[1] > l[3] else l[3]
+                  roi_lower = l[1] if l[1] < l[3] else l[3]
+                  colors = frame[roi_lower:roi_upper, roi_left:roi_right, :]
+                  for row in colors:
+                      for col in row:
+                          h.append(col[0])
+                          s.append(col[1])
+                          v.append(col[2])
               elif left_min < theta < left_max:
                   cv2.line(frame, (l[0], l[1]), (l[2], l[3]), (255,0,0), 3, cv2.LINE_AA)
                   sum_theta_left += theta
@@ -166,9 +184,6 @@ class ImageSubscriber(Node):
                   x4 = x1 - delta
                   x5 = x2 + delta
                   x6 = x2 - delta
-                  cv2.line(frame, (x1, y1), (x2, y2), (0,0,255), 3, cv2.LINE_AA)
-                  cv2.line(frame, (x3, y1), (x5, y2), (0,0,255), 3, cv2.LINE_AA)
-                  cv2.line(frame, (x4, y1), (x6, y2), (0,0,255), 3, cv2.LINE_AA)
               except:
                   pass
           if count_right > 0:
@@ -182,19 +197,24 @@ class ImageSubscriber(Node):
                   x4 = x1 - delta
                   x5 = x2 + delta
                   x6 = x2 - delta
-                  cv2.line(frame, (x1, y1), (x2, y2), (255,0,0), 3, cv2.LINE_AA)
-                  #cv2.line(frame, (x3, y1), (x5, y2), (255,0,0), 3, cv2.LINE_AA)
-                  #cv2.line(frame, (x4, y1), (x6, y2), (255,0,0), 3, cv2.LINE_AA)
               except:
                   pass
-          cv2.line(frame, (0, upper), (1000, upper), (0,255,0), 3, cv2.LINE_AA)
-          cv2.line(frame, (0, lower), (1000, lower), (0,255,0), 3, cv2.LINE_AA)
-          cv2.line(frame, (lefter, 0), (lefter, 1000), (0,255,0), 3, cv2.LINE_AA)
-          cv2.line(frame, (righter, 0), (righter, 1000), (0,255,0), 3, cv2.LINE_AA)
           upper = -1
           lower = 1000
           lefter = 1000
           righter = -1
+          std_h = np.std(np.array(h))
+          std_s = np.std(np.array(s))
+          std_v = np.std(np.array(v))
+          avg_h = np.average(h)
+          avg_s = np.average(s)
+          avg_v = np.average(v)
+          #upper_color = [130, 29, 255]
+          #lower_color = [0, 0, 222]
+          #print([avg_h, avg_s, avg_v])
+          os.system("clear")
+          print([std_h, std_s, std_v])
+
 
   def listener_callback(self, data):
     global frame, band_pass, dst
