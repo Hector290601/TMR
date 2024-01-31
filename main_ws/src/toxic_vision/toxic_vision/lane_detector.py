@@ -106,11 +106,11 @@ class ImageSubscriber(Node):
 
 
   def line_finder(self):
-      global band_pass, frame, dst, right_min, right_max, left_min, left_max, lower, upper, lefter, righter, upper_color, lower_color
+      global band_pass, frame, dst, right_min, right_max, left_min, left_max, lower, upper, lefter, righter, upper_color, lower_color, color_delta
       kernel = np.ones((3, 5), np.uint8) 
       band_pass = cv2.morphologyEx(band_pass, cv2.MORPH_OPEN, kernel, iterations=1)
       dst = cv2.Canny(band_pass, 100, 100, 3, None)
-      lines = cv2.HoughLinesP(dst, 3, np.pi/90, 80, minLineLength=25, maxLineGap=5)
+      lines = cv2.HoughLinesP(dst, 3, np.pi/90, 80, minLineLength=25, maxLineGap=1)
       if lines is not None:
           lines = lines[:, 0]
       if lines is not None:
@@ -129,47 +129,47 @@ class ImageSubscriber(Node):
           v = []
           for i in range(0, len(lines)):
               l = lines[i]
-              if upper < l[1]:
-                  upper = l[1]
-              if upper < l[3]:
-                  upper = l[3]
-              if lower > l[1]:
-                  lower = l[1]
-              if lower > l[3]:
-                  lower = l[3]
-              if lefter > l[0]:
-                  lefter = l[0]
-              if lefter > l[2]:
-                  lefter = l[2]
-              if righter < l[0]:
-                  righter = l[0]
-              if righter < l[2]:
-                  righter = l[2]
               rho, theta = to_normal_form(l[0], l[1], l[2], l[3])
               if right_min < theta < right_max:
-                  cv2.line(frame, (l[0], l[1]), (l[2], l[3]), (0,0,255), 3, cv2.LINE_AA)
+                  #cv2.line(frame, (l[0], l[1]), (l[2], l[3]), (0,0,255), 3, cv2.LINE_AA)
                   sum_theta_right += theta
                   sum_rho_right += rho
                   count_right += 1
-                  left1_tmp = l[0] - 20
-                  left2_tmp = l[2] - 20
-                  right1_tmp = l[0] + 20
-                  right2_tmp = l[2] + 20
+                  left1_tmp = l[0] - 5
+                  left2_tmp = l[2] - 5
+                  right1_tmp = l[0] + 5
+                  right2_tmp = l[2] + 5
                   roi_left = right1_tmp if right1_tmp < left1_tmp else left1_tmp
                   roi_right = right2_tmp if right2_tmp < left2_tmp else left2_tmp
                   roi_upper = l[1] if l[1] > l[3] else l[3]
                   roi_lower = l[1] if l[1] < l[3] else l[3]
                   colors = frame[roi_lower:roi_upper, roi_left:roi_right, :]
+                  #frame = cv2.rectangle(frame, (roi_left, roi_upper), (roi_right, roi_lower), (255, 0, 0), 0)
                   for row in colors:
                       for col in row:
-                          h.append(col[0])
-                          s.append(col[1])
-                          v.append(col[2])
+                          if (lower_color[0] < col[0] < upper_color[0]) and (lower_color[1] < col[1] < upper_color[1]):
+                              h.append(col[0])
+                              s.append(col[1])
               elif left_min < theta < left_max:
-                  cv2.line(frame, (l[0], l[1]), (l[2], l[3]), (255,0,0), 3, cv2.LINE_AA)
+                  #cv2.line(frame, (l[0], l[1]), (l[2], l[3]), (255,0,0), 3, cv2.LINE_AA)
                   sum_theta_left += theta
                   sum_rho_left += rho
                   count_left += 1
+                  left1_tmp = l[0] - 5
+                  left2_tmp = l[2] - 5
+                  right1_tmp = l[0] + 5
+                  right2_tmp = l[2] + 5
+                  roi_left = right1_tmp if right1_tmp < left1_tmp else left1_tmp
+                  roi_right = right2_tmp if right2_tmp < left2_tmp else left2_tmp
+                  roi_upper = l[1] if l[1] > l[3] else l[3]
+                  roi_lower = l[1] if l[1] < l[3] else l[3]
+                  colors = frame[roi_lower:roi_upper, roi_left:roi_right, :]
+                  #frame = cv2.rectangle(frame, (roi_left, roi_upper), (roi_right, roi_lower), (255, 0, 0), 0)
+                  for row in colors:
+                      for col in row:
+                          if (lower_color[0] < col[0] < upper_color[0]) and (lower_color[1] < col[1] < upper_color[1]):
+                              h.append(col[0])
+                              s.append(col[1])
           if count_left > 0:
               average_rho_left = sum_rho_left / count_left
               average_theta_left = sum_theta_left / count_left
@@ -184,6 +184,7 @@ class ImageSubscriber(Node):
                   x4 = x1 - delta
                   x5 = x2 + delta
                   x6 = x2 - delta
+                  cv2.line(frame, (x1, y1), (x2, y2), (255,0,0), 3, cv2.LINE_AA)
               except:
                   pass
           if count_right > 0:
@@ -197,6 +198,7 @@ class ImageSubscriber(Node):
                   x4 = x1 - delta
                   x5 = x2 + delta
                   x6 = x2 - delta
+                  cv2.line(frame, (x1, y1), (x2, y2), (0,0,255), 3, cv2.LINE_AA)
               except:
                   pass
           upper = -1
@@ -209,11 +211,24 @@ class ImageSubscriber(Node):
           avg_h = np.average(h)
           avg_s = np.average(s)
           avg_v = np.average(v)
-          #upper_color = [130, 29, 255]
-          #lower_color = [0, 0, 222]
-          #print([avg_h, avg_s, avg_v])
+          new_h_up = avg_h + 130 if len(h) != 0 else upper_color[0]
+          new_s_up = avg_s + 40 if len(s) != 0 else upper_color[1]
+          new_h_low = avg_h - 130 if len(h) != 0 else lower_color[0]
+          new_s_low = avg_s - 40 if len(s) != 0 else lower_color[1]
+          """
+          upper_color = [
+                  int(new_h_up),
+                  int(new_s_up),
+                  255
+                  ]
+          lower_color = [
+                  int(new_h_low),
+                  int(new_s_low),
+                  0
+                  ]
           os.system("clear")
           print([std_h, std_s, std_v])
+          """
 
 
   def listener_callback(self, data):
