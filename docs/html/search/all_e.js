@@ -35,7 +35,6 @@ var searchData=
   ['readtemp',['ReadTemp',['../d9/dbb/classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw.html#a4d3216ee6c9260f2ebd116bf6c057d0c',1,'toxic_hardware::roboclaw_3::Roboclaw']]],
   ['readtemp2',['ReadTemp2',['../d9/dbb/classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw.html#a2ad329a177d6b02dfd1cd59163c129c5',1,'toxic_hardware::roboclaw_3::Roboclaw']]],
   ['readversion',['ReadVersion',['../d9/dbb/classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw.html#ab0622e3f1cf0d537b1b4b73bde02fbe1',1,'toxic_hardware::roboclaw_3::Roboclaw']]],
-  ['reason',['reason',['../d0/d36/namespacetest__copyright.html#a144a3f0ab0553569e546510e66e93766',1,'test_copyright']]],
   ['resetenc',['RESETENC',['../df/dcf/classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_1_1Cmd.html#ad8c64e5070504bfe803b7966aa0775e0',1,'toxic_hardware::roboclaw_3::Roboclaw::Cmd']]],
   ['resetencoders',['ResetEncoders',['../d9/dbb/classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw.html#ad6017e671abf27badfd65aa559a80681',1,'toxic_hardware::roboclaw_3::Roboclaw']]],
   ['restoredefaults',['RESTOREDEFAULTS',['../df/dcf/classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_1_1Cmd.html#ae3df67bf8e3c9bf14b5c6aef9d06430e',1,'toxic_hardware.roboclaw_3.Roboclaw.Cmd.RESTOREDEFAULTS()'],['../d9/dbb/classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw.html#ae963de53e2a3be675dc00949c099140a',1,'toxic_hardware.roboclaw_3.Roboclaw.RestoreDefaults()']]],

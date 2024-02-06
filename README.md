@@ -40,7 +40,6 @@ timeline alongside all the project, since the main team to the current team.
 
 - 2020
   - The project start on the first months (I know the first commit has June
-date, but it's because we hasn't good practices and used folders to control
 version), the team was:
   - [Robles, Héctor](https://github.com/Hector290601). (Team leader)
   - [Ruíz, Iñaki](https://github.com/Ricardo-Inaqui). (Mechanic deisgner)

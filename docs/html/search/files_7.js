@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['servo_5finterface_2epy',['servo_interface.py',['../dc/dbb/servo__interface_8py.html',1,'']]],
-  ['setup_2epy',['setup.py',['../dc/dac/toxic__hardware_2setup_8py.html',1,'(Global Namespace)'],['../d2/ddf/toxic__vision_2setup_8py.html',1,'(Global Namespace)']]]
+  ['webcam_5fpub_2epy',['webcam_pub.py',['../d7/de5/webcam__pub_8py.html',1,'']]],
+  ['webcam_5fsub_2epy',['webcam_sub.py',['../d7/da7/webcam__sub_8py.html',1,'']]]
 ];

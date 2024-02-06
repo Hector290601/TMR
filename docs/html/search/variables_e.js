@@ -7,7 +7,6 @@ var searchData=
   ['readm2pid',['READM2PID',['../df/dcf/classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_1_1Cmd.html#afcb1ce02ede2d4a11ef044017b7df62b',1,'toxic_hardware::roboclaw_3::Roboclaw::Cmd']]],
   ['readm2pospid',['READM2POSPID',['../df/dcf/classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_1_1Cmd.html#a3a94ad96d31a215bc7edf68001ed3be2',1,'toxic_hardware::roboclaw_3::Roboclaw::Cmd']]],
   ['readnvm',['READNVM',['../df/dcf/classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_1_1Cmd.html#ad70382e38639bfa11c90f3b92e3b9dfe',1,'toxic_hardware::roboclaw_3::Roboclaw::Cmd']]],
-  ['reason',['reason',['../d0/d36/namespacetest__copyright.html#a144a3f0ab0553569e546510e66e93766',1,'test_copyright']]],
   ['resetenc',['RESETENC',['../df/dcf/classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_1_1Cmd.html#ad8c64e5070504bfe803b7966aa0775e0',1,'toxic_hardware::roboclaw_3::Roboclaw::Cmd']]],
   ['restoredefaults',['RESTOREDEFAULTS',['../df/dcf/classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_1_1Cmd.html#ae3df67bf8e3c9bf14b5c6aef9d06430e',1,'toxic_hardware::roboclaw_3::Roboclaw::Cmd']]],
   ['right_5fmax',['right_max',['../d5/d6e/namespacetoxic__vision_1_1lane__detector.html#a8e996d0c25ae835103533fb069c1b76c',1,'toxic_vision::lane_detector']]],
