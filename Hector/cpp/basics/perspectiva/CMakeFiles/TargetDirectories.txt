@@ -1,3 +1,0 @@
-/home/ubuntu/TMR/Hector/cpp/basics/perspectiva/CMakeFiles/rebuild_cache.dir
-/home/ubuntu/TMR/Hector/cpp/basics/perspectiva/CMakeFiles/edit_cache.dir
-/home/ubuntu/TMR/Hector/cpp/basics/perspectiva/CMakeFiles/perspectiva.dir

@@ -1,4 +1,0 @@
-- Control nodes - Héctor
-- Obstacle detection
-- Others cars detection
-
