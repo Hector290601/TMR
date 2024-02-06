@@ -30,7 +30,7 @@ something like that to help me to make more accurate this list.
 - Ros2 Iron
 - OpenCv 4.8.1
 
-## 
+## Relevant pkgs.
 
 ## Robot history.
 Along the project lifecycle, there are many authors, so I'll try to make a
