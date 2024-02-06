@@ -53,11 +53,11 @@ to team
 remote simulated league, anyway, we won the
 [3rd](https://femexrobotica.org/tmr2022/resultados/) place.
   - Romero, Melania lefted to team due to time issues.
-  - [Guerrero, Daniel](https://github.com/danguer3) (Programmer) helped us and
   - Negrete, Marco helped us to join to
 [biorobotics lab](https://biorobotics.fi-p.unam.mx/es/) on the
 [Facultad de Ingeniería](https://www.ingenieria.unam.mx/),
 [UNAM](https://www.unam.mx/).
+  - [Guerrero, Daniel](https://github.com/danguer3) (Programmer) helped us and
 share his ideas with us.
   - Delgado, Emilio (Programmer) joined to team.
   - Marín, Gustavo (Programmer) joined to team.
