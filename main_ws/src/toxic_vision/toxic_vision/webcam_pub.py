@@ -1,3 +1,14 @@
+##
+# @file webcam_pub.py
+#
+# @brief Main image publisher as /raw_rgb node.
+#
+# @section detailed_webcam_pub Detail
+# This script create the image publisher as "/raw_rgb", open the
+# camera, read the camera and publish frames as Ros2 OpenCv messages, to be able
+# to all nodes to subscribe to te current frames to process it.
+#
+
 import rclpy
 from rclpy.node import Node
 from sensor_msgs.msg import Image

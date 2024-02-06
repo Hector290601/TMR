@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['_5fcrc',['_crc',['../d9/dbb/classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw.html#a426d38f8c32b01dd95371848ec59a637',1,'toxic_hardware::roboclaw_3::Roboclaw']]],
-  ['_5fport',['_port',['../d9/dbb/classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw.html#a8a594e470266972798e6036301198819',1,'toxic_hardware::roboclaw_3::Roboclaw']]],
-  ['_5ftrystimeout',['_trystimeout',['../d9/dbb/classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw.html#ad38ba788711533025f36a3c309e7cd05',1,'toxic_hardware::roboclaw_3::Roboclaw']]]
+  ['_5fcrc',['_crc',['../d9/dbb/classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw.html#a23587ce1375b80348b7931530929ce09',1,'toxic_hardware::roboclaw_3::Roboclaw']]],
+  ['_5fport',['_port',['../d9/dbb/classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw.html#a4baa700b692cd73d8441df1046fdc239',1,'toxic_hardware::roboclaw_3::Roboclaw']]],
+  ['_5ftrystimeout',['_trystimeout',['../d9/dbb/classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw.html#a968cac0c8e9cc6a07cba51e294251240',1,'toxic_hardware::roboclaw_3::Roboclaw']]]
 ];

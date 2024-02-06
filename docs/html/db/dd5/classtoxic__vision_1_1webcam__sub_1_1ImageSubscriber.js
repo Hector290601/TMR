@@ -1,7 +1,7 @@
 var classtoxic__vision_1_1webcam__sub_1_1ImageSubscriber =
 [
-    [ "__init__", "db/dd5/classtoxic__vision_1_1webcam__sub_1_1ImageSubscriber.html#a8fb8c073ff5ad63af8124cbb1a7374d0", null ],
-    [ "listener_callback", "db/dd5/classtoxic__vision_1_1webcam__sub_1_1ImageSubscriber.html#a8a4b1b1676ae3adb9a90315b9e82a0d3", null ],
-    [ "br", "db/dd5/classtoxic__vision_1_1webcam__sub_1_1ImageSubscriber.html#a599b397d81ccc1969f159fe3563d272c", null ],
-    [ "subscription", "db/dd5/classtoxic__vision_1_1webcam__sub_1_1ImageSubscriber.html#acafc58605e5f56862a1d83c4dfb5bf8a", null ]
+    [ "__init__", "db/dd5/classtoxic__vision_1_1webcam__sub_1_1ImageSubscriber.html#ae64f0875afe3067b97ba370b354b9213", null ],
+    [ "listener_callback", "db/dd5/classtoxic__vision_1_1webcam__sub_1_1ImageSubscriber.html#a23dd9943cb7cb7be2a6e7022a85a1684", null ],
+    [ "br", "db/dd5/classtoxic__vision_1_1webcam__sub_1_1ImageSubscriber.html#a88f0860257ba6bdc089557444f5cdd16", null ],
+    [ "subscription", "db/dd5/classtoxic__vision_1_1webcam__sub_1_1ImageSubscriber.html#a4b0698733c4dfaffe8e2b4cd952b6f82", null ]
 ];

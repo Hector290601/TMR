@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['image',['image',['../dd/d55/namespacetoxic__hardware_1_1oled__interface.html#adaad3157e9032049ecca2c4ee24cfdb8',1,'toxic_hardware::oled_interface']]],
-  ['install_5frequires',['install_requires',['../dd/dc4/namespacesetup.html#abead4f26b530856f858f0d44c7cf2588',1,'setup']]],
-  ['interface',['interface',['../dd/dbc/namespacetoxic__hardware_1_1controller.html#aad059999a7b9fd3d9c1c8d089be1c11d',1,'toxic_hardware::controller']]]
+  ['image',['image',['../dd/d55/namespacetoxic__hardware_1_1oled__interface.html#a42cb5f5737262947250c709931232c69',1,'toxic_hardware::oled_interface']]],
+  ['install_5frequires',['install_requires',['../dd/dc4/namespacesetup.html#a047d4e9f7b152e767f7bd459218fe1fd',1,'setup']]],
+  ['interface',['interface',['../dd/dbc/namespacetoxic__hardware_1_1controller.html#ae6deea6e7d03b5d4db98ea209159e57f',1,'toxic_hardware::controller']]]
 ];

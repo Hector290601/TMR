@@ -25,9 +25,9 @@ var NAVTREE =
 [
   [ "El Tóxico", "index.html", [
     [ "TMR", "index.html", null ],
-    [ "Packages", "namespaces.html", [
-      [ "Packages", "namespaces.html", "namespaces_dup" ],
-      [ "Package Functions", "namespacemembers.html", [
+    [ "Namespaces", "namespaces.html", [
+      [ "Namespace List", "namespaces.html", "namespaces_dup" ],
+      [ "Namespace Members", "namespacemembers.html", [
         [ "All", "namespacemembers.html", null ],
         [ "Functions", "namespacemembers_func.html", null ],
         [ "Variables", "namespacemembers_vars.html", null ]
@@ -52,7 +52,7 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"d9/dbb/classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw.html#afe709148cc406a6e0792a3acd68de50e"
+"d9/dbb/classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw.html#afd7c4865f7e4c723f66b5b51ce8069d3"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';
