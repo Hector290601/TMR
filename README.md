@@ -39,19 +39,26 @@ timeline alongside all the project, since the main team to the current team.
   - The project start on the first months (I know the first commit has June
 date, but it's because we hasn't good practices and used folders to control
 version), the team was:
-    - [Robles, Héctor](https://github.com/Hector290601). (Team leader)
-    - [Ruíz, Iñaki](https://github.com/Ricardo-Inaqui). (Mechanic deisgner)
-    - [Solano, Jorge](https://github.com/jrg-sln). (Team responsable)
+  - [Robles, Héctor](https://github.com/Hector290601). (Team leader)
+  - [Ruíz, Iñaki](https://github.com/Ricardo-Inaqui). (Mechanic deisgner)
+  - [Solano, Jorge](https://github.com/jrg-sln). (Team responsable)
 - 2021
-  - The project has some team changes, which includes.
-    - Ruíz, Iñaki lefted to team.
-    - [Romero, Melania](https://github.com/melaniaromero) (Programmer) joined to team.
-    - [Negrete, Marco](https://github.com/mnegretev) (Technical guide) joined to team
+  - Ruíz, Iñaki lefted to team.
+  - [Romero, Melania](https://github.com/melaniaromero) (Programmer) joined
+to team.
+  - [Negrete, Marco](https://github.com/mnegretev) (Technical guide) joined
+to team
 - 2022
   - This's the first year which the robot's inscribed to the TMR, but on the
 remote simulated league, anyway, we won the
 [3rd](https://femexrobotica.org/tmr2022/resultados/) place.
   - Romero, Melania lefted to team due to time issues.
+  - [Guerrero, Daniel](https://github.com/danguer3) (Programmer) helped us and
+  - Negrete, Marco helped us to join to
+[biorobotics lab](https://biorobotics.fi-p.unam.mx/es/) on the
+[Facultad de Ingeniería](https://www.ingenieria.unam.mx/),
+[UNAM](https://www.unam.mx/).
+share his ideas with us.
   - Delgado, Emilio (Programmer) joined to team.
   - Marín, Gustavo (Programmer) joined to team.
 - 2023
@@ -60,6 +67,7 @@ remote simulated league, anyway, we won the
 - 2024
   - Delgado, Emilio lefted to team.
   - Marín, Gustavo lefted to team.
+  - Guerrero, Daniel lefted to team
 
 ## Current team.
 The current team's pefrormed by.
