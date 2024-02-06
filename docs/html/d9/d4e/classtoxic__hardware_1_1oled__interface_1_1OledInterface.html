@@ -132,7 +132,7 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
+<div class="fragment"><div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keyword">def </span>__init__(self):</div><div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        super().__init__(<span class="stringliteral">&#39;oled_interface&#39;</span>)</div><div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        self.subscription = self.create_subscription(</div><div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;                String,</div><div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;                <span class="stringliteral">&#39;/message&#39;</span>,</div><div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;                self.oled_callback,</div><div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;                60</div><div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        )</div><div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div></div><!-- fragment -->
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
@@ -161,7 +161,7 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
+<div class="fragment"><div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keyword">def </span>oled_callback(self, data):</div><div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        <span class="keyword">global</span> draw, image</div><div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        draw.rectangle((0,0,width,height), outline=0, fill=0)</div><div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        msg_content = data.data</div><div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        draw.text((x, top), msg_content,  font=font, fill=255)</div><div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        disp.image(image)</div><div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        disp.display()</div><div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;</div></div><!-- fragment -->
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>

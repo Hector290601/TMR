@@ -55,6 +55,16 @@ int \mbox{\hyperlink{namespacetoxic__hardware_1_1oled__interface_a6150e0515f7202
 {\footnotesize\ttfamily def toxic\+\_\+hardware.\+oled\+\_\+interface.\+main (\begin{DoxyParamCaption}\item[{}]{args = {\ttfamily None} }\end{DoxyParamCaption})}
 
 
+\begin{DoxyCode}
+56 \textcolor{keyword}{def }\mbox{\hyperlink{namespacetoxic__hardware_1_1oled__interface_accb1149d5c8c645c307fcb16452ac121}{main}}(args=None):
+57     rclpy.init(args=args)
+58     oledInterface = OledInterface()
+59     rclpy.spin(oledInterface)
+60     oledInterface.destroy\_node()
+61     rclpy.shutdown()
+62 
+\end{DoxyCode}
+
 
 \subsection{Variable Documentation}
 \mbox{\Hypertarget{namespacetoxic__hardware_1_1oled__interface_a323a7064fba6e15e3e542e34fb19764e}\label{namespacetoxic__hardware_1_1oled__interface_a323a7064fba6e15e3e542e34fb19764e}} 

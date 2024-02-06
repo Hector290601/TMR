@@ -103,6 +103,7 @@ Classes</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a0d57aeae4d44f1dcb33eed5082cf3c87"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d66/namespacetoxic__vision_1_1webcam__pub.html#a0d57aeae4d44f1dcb33eed5082cf3c87">main</a> (args=None)</td></tr>
+<tr class="memdesc:a0d57aeae4d44f1dcb33eed5082cf3c87"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function create the publisher node, the image publisher object and starts to run the publisher.  <a href="#a0d57aeae4d44f1dcb33eed5082cf3c87">More...</a><br /></td></tr>
 <tr class="separator:a0d57aeae4d44f1dcb33eed5082cf3c87"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
@@ -122,6 +123,9 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>This function create the publisher node, the image publisher object and starts to run the publisher. </p>
+<div class="fragment"><div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;<span class="keyword">def </span><a class="code" href="../../de/d66/namespacetoxic__vision_1_1webcam__pub.html#a0d57aeae4d44f1dcb33eed5082cf3c87">main</a>(args=None):</div><div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    </div><div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    rclpy.init(args=args) <span class="comment"># Init the node</span></div><div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    image_publisher = ImagePublisher() <span class="comment"># Create a new ImagePublisher object.</span></div><div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    rclpy.spin(image_publisher) <span class="comment"># Keeps alive the node.</span></div><div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    image_publisher.destroy_node() <span class="comment"># Destroy the node once the node execution </span></div><div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    <span class="comment"># has ended</span></div><div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    rclpy.shutdown() <span class="comment"># Kills the node.</span></div><div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;  </div><div class="ttc" id="namespacetoxic__vision_1_1webcam__pub_html_a0d57aeae4d44f1dcb33eed5082cf3c87"><div class="ttname"><a href="../../de/d66/namespacetoxic__vision_1_1webcam__pub.html#a0d57aeae4d44f1dcb33eed5082cf3c87">toxic_vision.webcam_pub.main</a></div><div class="ttdeci">def main(args=None)</div><div class="ttdoc">This function create the publisher node, the image publisher object and starts to run the publisher...</div><div class="ttdef"><b>Definition:</b> webcam_pub.py:91</div></div>
+</div><!-- fragment -->
 </div>
 </div>
 </div><!-- contents -->

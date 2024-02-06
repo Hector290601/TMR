@@ -112,14 +112,46 @@ Namespaces</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a0d57aeae4d44f1dcb33eed5082cf3c87"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d66/namespacetoxic__vision_1_1webcam__pub.html#a0d57aeae4d44f1dcb33eed5082cf3c87">main</a> (args=None)</td></tr>
+<tr class="memdesc:a0d57aeae4d44f1dcb33eed5082cf3c87"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function create the publisher node, the image publisher object and starts to run the publisher.  <a href="../../de/d66/namespacetoxic__vision_1_1webcam__pub.html#a0d57aeae4d44f1dcb33eed5082cf3c87">More...</a><br /></td></tr>
 <tr class="separator:a0d57aeae4d44f1dcb33eed5082cf3c87"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Main image publisher as /raw_rgb node. </p>
 <h1><a class="anchor" id="detailed_webcam_pub"></a>
 Detail</h1>
-<p>This script create the image publisher as "/raw_rgb", open the camera, read the camera and publish frames as Ros2 OpenCv messages, to be able to all nodes to subscribe to te current frames to process it. </p>
-</div></div><!-- contents -->
+<p>This script create the image publisher as "/raw_rgb", open the camera, read the camera and publish frames as Ros2 OpenCv messages, to be able to all nodes to subscribe to te current frames to process it.</p>
+<h1><a class="anchor" id="parameters_webcam_publisher"></a>
+Important parameters to change.</h1>
+<p>On this code, you'll change the camera int ID to select the camera you'll want opencv to open, read ad publish on the line: </p><div class="fragment"><div class="line">self.cap = cv2.VideoCapture(0)</div></div><!-- fragment --><h1><a class="anchor" id="dependences_webcam_pub"></a>
+Dependences.</h1>
+<ul>
+<li>rclpy<ul>
+<li>Used to node manipulation.</li>
+</ul>
+</li>
+<li>rclpy.node<ul>
+<li>Used to node manipulation. (really idk why we don't import only this or the above library)</li>
+</ul>
+</li>
+<li>sensor_msgs.msg.Image<ul>
+<li>Used to be able to use the Image message type (very self-explained, I think)</li>
+</ul>
+</li>
+<li>cvBridge.cvBridge<ul>
+<li>Used to parse cv2 frame (like a numpy's multidimensional array) to ROS2's Image type</li>
+</ul>
+</li>
+<li>cv2<ul>
+<li>In this case it's just used to open the camera, grab the image and read it from the buffer</li>
+</ul>
+</li>
+</ul>
+<h1><a class="anchor" id="rights_webcam_pub"></a>
+Copyright</h1>
+<p>This script conforms part from 'El tóxico' and it's licenced unser GPL 3V0.</p>
+<h1><a class="anchor" id="code_webcam_publisher"></a>
+Code Spinnet.</h1>
+<div class="fragment"></div><!-- fragment --> </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->

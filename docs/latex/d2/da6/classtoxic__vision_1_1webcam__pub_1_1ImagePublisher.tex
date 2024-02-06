@@ -10,7 +10,7 @@ Inheritance diagram for Image\+Publisher\+:\begin{figure}[H]
 \begin{DoxyCompactItemize}
 \item 
 def \mbox{\hyperlink{classtoxic__vision_1_1webcam__pub_1_1ImagePublisher_ae64f0875afe3067b97ba370b354b9213}{\+\_\+\+\_\+init\+\_\+\+\_\+}} (self)
-\item 
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classtoxic__vision_1_1webcam__pub_1_1ImagePublisher}{Image\+Publisher}} object to grab the live camera image and publish to a R\+O\+S2 Node as Cv\+Bridge message type. \end{DoxyCompactList}\item 
 def \mbox{\hyperlink{classtoxic__vision_1_1webcam__pub_1_1ImagePublisher_a9692d7a212fa89bc61dacc687e826097}{timer\+\_\+callback}} (self)
 \end{DoxyCompactItemize}
 \subsection*{Public Attributes}
@@ -35,6 +35,43 @@ def \mbox{\hyperlink{classtoxic__vision_1_1webcam__pub_1_1ImagePublisher_a9692d7
 
 
 
+\mbox{\hyperlink{classtoxic__vision_1_1webcam__pub_1_1ImagePublisher}{Image\+Publisher}} object to grab the live camera image and publish to a R\+O\+S2 Node as Cv\+Bridge message type. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Node} & The R\+O\+S2 Node where the image publisher\textquotesingle{}ll be able to read/write (this time, just write)\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None, keeps running and alive while the camera\textquotesingle{}s oppened. \mbox{\hyperlink{classtoxic__vision_1_1webcam__pub_1_1ImagePublisher}{Image\+Publisher}} object init def (or constructor function, under a Java\textquotesingle{}s O\+OP context)
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em self} & Self contained object like a \textquotesingle{}this\textquotesingle{} reference, jus to read, write, and generally access object\textquotesingle{}s attributes.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Image\+Publisher\+New\+Object returns a new image publisher object 
+\end{DoxyReturn}
+
+\begin{DoxyCode}
+64     \textcolor{keyword}{def }\_\_init\_\_(self):
+65         
+74         super().\_\_init\_\_(\textcolor{stringliteral}{'image\_publisher'}) \textcolor{comment}{# Edit source Node attributes.}
+75         self.publisher\_ = self.create\_publisher(Image, \textcolor{stringliteral}{'/raw\_rgb'}, 1) \textcolor{comment}{# Create}
+76         \textcolor{comment}{# the new publisher where the image'll published.}
+77         timer\_period = 0.033 \textcolor{comment}{# Something like 1/30 to achieve a FPS rate near}
+78         \textcolor{comment}{# to the 30 FPS}
+79         self.timer = self.create\_timer(timer\_period, self.timer\_callback)
+80         self.cap = cv2.VideoCapture(0)
+81         self.cap.set(cv2.CAP\_PROP\_FRAME\_WIDTH, 640)
+82         self.cap.set(cv2.CAP\_PROP\_FRAME\_HEIGHT, 480)
+83         self.cap.set(cv2.CAP\_PROP\_FPS, 30)
+84         self.br = CvBridge()
+85 
+\end{DoxyCode}
+
+
 \subsection{Member Function Documentation}
 \mbox{\Hypertarget{classtoxic__vision_1_1webcam__pub_1_1ImagePublisher_a9692d7a212fa89bc61dacc687e826097}\label{classtoxic__vision_1_1webcam__pub_1_1ImagePublisher_a9692d7a212fa89bc61dacc687e826097}} 
 \index{toxic\+\_\+vision\+::webcam\+\_\+pub\+::\+Image\+Publisher@{toxic\+\_\+vision\+::webcam\+\_\+pub\+::\+Image\+Publisher}!timer\+\_\+callback@{timer\+\_\+callback}}
@@ -42,6 +79,14 @@ def \mbox{\hyperlink{classtoxic__vision_1_1webcam__pub_1_1ImagePublisher_a9692d7
 \subsubsection{\texorpdfstring{timer\+\_\+callback()}{timer\_callback()}}
 {\footnotesize\ttfamily def timer\+\_\+callback (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
 
+
+\begin{DoxyCode}
+86     \textcolor{keyword}{def }timer\_callback(self):
+87         ret, frame = self.cap.read()
+88         \textcolor{keywordflow}{if} ret:
+89             self.publisher\_.publish(self.br.cv2\_to\_imgmsg(frame))
+90 
+\end{DoxyCode}
 
 
 \subsection{Member Data Documentation}

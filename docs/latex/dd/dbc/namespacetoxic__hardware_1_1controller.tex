@@ -27,6 +27,16 @@ def \mbox{\hyperlink{namespacetoxic__hardware_1_1controller_aac60e1fb14a23592e00
 {\footnotesize\ttfamily def toxic\+\_\+hardware.\+controller.\+main (\begin{DoxyParamCaption}\item[{}]{args = {\ttfamily None} }\end{DoxyParamCaption})}
 
 
+\begin{DoxyCode}
+40 \textcolor{keyword}{def }\mbox{\hyperlink{namespacetoxic__hardware_1_1controller_aac60e1fb14a23592e007ebec1efc50a4}{main}}(args=None):
+41     rclpy.init(args=args)
+42     control\_subscriber = ControlSubscriber()
+43     rclpy.spin(control\_subscriber)
+44     control\_subscriber.destroy\_node()
+45     rclpy.shutdown()
+46 
+\end{DoxyCode}
+
 
 \subsection{Variable Documentation}
 \mbox{\Hypertarget{namespacetoxic__hardware_1_1controller_ae6deea6e7d03b5d4db98ea209159e57f}\label{namespacetoxic__hardware_1_1controller_ae6deea6e7d03b5d4db98ea209159e57f}} 

@@ -9,7 +9,7 @@ class \mbox{\hyperlink{classtoxic__vision_1_1webcam__pub_1_1ImagePublisher}{Imag
 \begin{DoxyCompactItemize}
 \item 
 def \mbox{\hyperlink{namespacetoxic__vision_1_1webcam__pub_a0d57aeae4d44f1dcb33eed5082cf3c87}{main}} (args=None)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em This function create the publisher node, the image publisher object and starts to run the publisher. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Function Documentation}
@@ -19,3 +19,19 @@ def \mbox{\hyperlink{namespacetoxic__vision_1_1webcam__pub_a0d57aeae4d44f1dcb33e
 \subsubsection{\texorpdfstring{main()}{main()}}
 {\footnotesize\ttfamily def toxic\+\_\+vision.\+webcam\+\_\+pub.\+main (\begin{DoxyParamCaption}\item[{}]{args = {\ttfamily None} }\end{DoxyParamCaption})}
 
+
+
+This function create the publisher node, the image publisher object and starts to run the publisher. 
+
+
+\begin{DoxyCode}
+91 \textcolor{keyword}{def }\mbox{\hyperlink{namespacetoxic__vision_1_1webcam__pub_a0d57aeae4d44f1dcb33eed5082cf3c87}{main}}(args=None):
+92     
+96     rclpy.init(args=args) \textcolor{comment}{# Init the node}
+97     image\_publisher = ImagePublisher() \textcolor{comment}{# Create a new ImagePublisher object.}
+98     rclpy.spin(image\_publisher) \textcolor{comment}{# Keeps alive the node.}
+99     image\_publisher.destroy\_node() \textcolor{comment}{# Destroy the node once the node execution }
+100     \textcolor{comment}{# has ended}
+101     rclpy.shutdown() \textcolor{comment}{# Kills the node.}
+102   
+\end{DoxyCode}

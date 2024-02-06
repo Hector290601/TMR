@@ -28,6 +28,19 @@ def \mbox{\hyperlink{classtoxic__hardware_1_1blinkers__interface_1_1BlinkersInte
 {\footnotesize\ttfamily def \+\_\+\+\_\+init\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
 
 
+\begin{DoxyCode}
+11     \textcolor{keyword}{def }\_\_init\_\_(self):
+12         super().\_\_init\_\_(\textcolor{stringliteral}{'blinkers\_interface'})
+13         self.subscription = self.create\_subscription(
+14                 Int8,
+15                 \textcolor{stringliteral}{'/blinkers'},
+16                 self.blinkers\_callback,
+17                 2
+18                 )
+19         self.subscription
+20 
+\end{DoxyCode}
+
 
 \subsection{Member Function Documentation}
 \mbox{\Hypertarget{classtoxic__hardware_1_1blinkers__interface_1_1BlinkersInterface_a74f43bc48b49ce4860b4fe27ab96fdda}\label{classtoxic__hardware_1_1blinkers__interface_1_1BlinkersInterface_a74f43bc48b49ce4860b4fe27ab96fdda}} 
@@ -36,6 +49,34 @@ def \mbox{\hyperlink{classtoxic__hardware_1_1blinkers__interface_1_1BlinkersInte
 \subsubsection{\texorpdfstring{blinkers\+\_\+callback()}{blinkers\_callback()}}
 {\footnotesize\ttfamily def blinkers\+\_\+callback (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{data }\end{DoxyParamCaption})}
 
+
+\begin{DoxyCode}
+21     \textcolor{keyword}{def }blinkers\_callback(self, data):
+22         \textcolor{keyword}{global} gpio\_pin
+23         recived = data.data
+24         \textcolor{keywordflow}{if} recived == 0:
+25             lgpio.gpio\_write(gpio\_pin, 17, 0)
+26             lgpio.gpio\_write(gpio\_pin, 27, 0)
+27         \textcolor{keywordflow}{elif} recived == 1:
+28             lgpio.gpio\_write(gpio\_pin, 17, 1)
+29             time.sleep(0.5)
+30             lgpio.gpio\_write(gpio\_pin, 17, 0)
+31             time.sleep(0.5)
+32         \textcolor{keywordflow}{elif} recived == -1:
+33             lgpio.gpio\_write(gpio\_pin, 27, 1)
+34             time.sleep(0.5)
+35             lgpio.gpio\_write(gpio\_pin, 27, 0)
+36             time.sleep(0.5)
+37         \textcolor{keywordflow}{else}:
+38             lgpio.gpio\_write(gpio\_pin, 17, 1)
+39             lgpio.gpio\_write(gpio\_pin, 27, 1)
+40             time.sleep(0.5)
+41             lgpio.gpio\_write(gpio\_pin, 17, 0)
+42             lgpio.gpio\_write(gpio\_pin, 27, 0)
+43             time.sleep(0.5)
+44 
+45 
+\end{DoxyCode}
 
 
 \subsection{Member Data Documentation}

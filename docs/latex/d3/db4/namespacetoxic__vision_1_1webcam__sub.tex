@@ -19,3 +19,13 @@ def \mbox{\hyperlink{namespacetoxic__vision_1_1webcam__sub_ae5a86a4c83b069a7d8ab
 \subsubsection{\texorpdfstring{main()}{main()}}
 {\footnotesize\ttfamily def toxic\+\_\+vision.\+webcam\+\_\+sub.\+main (\begin{DoxyParamCaption}\item[{}]{args = {\ttfamily None} }\end{DoxyParamCaption})}
 
+
+\begin{DoxyCode}
+24 \textcolor{keyword}{def }\mbox{\hyperlink{namespacetoxic__vision_1_1webcam__sub_ae5a86a4c83b069a7d8ab88d2836d2e6e}{main}}(args=None):
+25   rclpy.init(args=args)
+26   image\_subscriber = ImageSubscriber()
+27   rclpy.spin(image\_subscriber)
+28   image\_subscriber.destroy\_node()
+29   rclpy.shutdown()
+30   
+\end{DoxyCode}

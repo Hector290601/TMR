@@ -107,6 +107,7 @@ Inheritance diagram for ImagePublisher:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:ae64f0875afe3067b97ba370b354b9213"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/da6/classtoxic__vision_1_1webcam__pub_1_1ImagePublisher.html#ae64f0875afe3067b97ba370b354b9213">__init__</a> (self)</td></tr>
+<tr class="memdesc:ae64f0875afe3067b97ba370b354b9213"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="../../d2/da6/classtoxic__vision_1_1webcam__pub_1_1ImagePublisher.html">ImagePublisher</a> object to grab the live camera image and publish to a ROS2 Node as CvBridge message type.  <a href="#ae64f0875afe3067b97ba370b354b9213">More...</a><br /></td></tr>
 <tr class="separator:ae64f0875afe3067b97ba370b354b9213"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9692d7a212fa89bc61dacc687e826097"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/da6/classtoxic__vision_1_1webcam__pub_1_1ImagePublisher.html#a9692d7a212fa89bc61dacc687e826097">timer_callback</a> (self)</td></tr>
 <tr class="separator:a9692d7a212fa89bc61dacc687e826097"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -139,6 +140,22 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p><a class="el" href="../../d2/da6/classtoxic__vision_1_1webcam__pub_1_1ImagePublisher.html">ImagePublisher</a> object to grab the live camera image and publish to a ROS2 Node as CvBridge message type. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Node</td><td>The ROS2 Node where the image publisher'll be able to read/write (this time, just write)</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>None, keeps running and alive while the camera's oppened. <a class="el" href="../../d2/da6/classtoxic__vision_1_1webcam__pub_1_1ImagePublisher.html">ImagePublisher</a> object init def (or constructor function, under a Java's OOP context)</dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">self</td><td>Self contained object like a 'this' reference, jus to read, write, and generally access object's attributes.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>ImagePublisherNewObject returns a new image publisher object </dd></dl>
+<div class="fragment"><div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keyword">def </span>__init__(self):</div><div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        </div><div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        super().__init__(<span class="stringliteral">&#39;image_publisher&#39;</span>) <span class="comment"># Edit source Node attributes.</span></div><div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        self.publisher_ = self.create_publisher(Image, <span class="stringliteral">&#39;/raw_rgb&#39;</span>, 1) <span class="comment"># Create</span></div><div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        <span class="comment"># the new publisher where the image&#39;ll published.</span></div><div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        timer_period = 0.033 <span class="comment"># Something like 1/30 to achieve a FPS rate near</span></div><div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        <span class="comment"># to the 30 FPS</span></div><div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        self.timer = self.create_timer(timer_period, self.timer_callback)</div><div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        self.cap = cv2.VideoCapture(0)</div><div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        self.cap.set(cv2.CAP_PROP_FRAME_WIDTH, 640)</div><div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        self.cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 480)</div><div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        self.cap.set(cv2.CAP_PROP_FPS, 30)</div><div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        self.br = CvBridge()</div><div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;</div></div><!-- fragment -->
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
@@ -157,7 +174,7 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
+<div class="fragment"><div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    <span class="keyword">def </span>timer_callback(self):</div><div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        ret, frame = self.cap.read()</div><div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        <span class="keywordflow">if</span> ret:</div><div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;            self.publisher_.publish(self.br.cv2_to_imgmsg(frame))</div><div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;</div></div><!-- fragment -->
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>

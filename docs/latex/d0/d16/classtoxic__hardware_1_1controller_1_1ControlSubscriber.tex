@@ -32,6 +32,23 @@ def \mbox{\hyperlink{classtoxic__hardware_1_1controller_1_1ControlSubscriber_a33
 {\footnotesize\ttfamily def \+\_\+\+\_\+init\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
 
 
+\begin{DoxyCode}
+17     \textcolor{keyword}{def }\_\_init\_\_(self):
+18         super().\_\_init\_\_(\textcolor{stringliteral}{'control\_toxic\_subscriber'})
+19         self.subscription = self.create\_subscription(
+20                 Joy,
+21                 \textcolor{stringliteral}{'/joy'},
+22                 self.control\_callback,
+23                 60
+24                 )
+25         self.speed\_publisher = self.create\_publisher(Float64, \textcolor{stringliteral}{'/speed'}, 60)
+26         self.steering\_publisher = self.create\_publisher(Float64, \textcolor{stringliteral}{'/steering'}, 60)
+27         self.subscription
+28         self.steering\_publisher
+29         self.speed\_publisher
+30 
+\end{DoxyCode}
+
 
 \subsection{Member Function Documentation}
 \mbox{\Hypertarget{classtoxic__hardware_1_1controller_1_1ControlSubscriber_a33e86027586e42bbaff819e19bef44d7}\label{classtoxic__hardware_1_1controller_1_1ControlSubscriber_a33e86027586e42bbaff819e19bef44d7}} 
@@ -40,6 +57,18 @@ def \mbox{\hyperlink{classtoxic__hardware_1_1controller_1_1ControlSubscriber_a33
 \subsubsection{\texorpdfstring{control\+\_\+callback()}{control\_callback()}}
 {\footnotesize\ttfamily def control\+\_\+callback (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{data }\end{DoxyParamCaption})}
 
+
+\begin{DoxyCode}
+31     \textcolor{keyword}{def }control\_callback(self, data):
+32         normalized\_steering = data.axes[0]
+33         normalized\_fw\_speed = data.axes[5]
+34         normalized\_bw\_speed = data.axes[2]
+35         print(normalized\_steering)
+36         print(normalized\_fw\_speed)
+37         self.steering\_publisher.publish(Float64(normalized\_steering))
+38         self.speed\_publisher.publish(Float64(normalized\_fw\_speed + normalized\_bw\_speed))
+39 
+\end{DoxyCode}
 
 
 \subsection{Member Data Documentation}

@@ -323,6 +323,16 @@ def \mbox{\hyperlink{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_addae6fb16d
 {\footnotesize\ttfamily def \+\_\+\+\_\+init\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{comport,  }\item[{}]{rate,  }\item[{}]{timeout = {\ttfamily 0.01},  }\item[{}]{retries = {\ttfamily 3} }\end{DoxyParamCaption})}
 
 
+\begin{DoxyCode}
+9     \textcolor{keyword}{def }\_\_init\_\_(self, comport, rate, timeout=0.01, retries=3):
+10         self.comport = comport
+11         self.rate = rate
+12         self.timeout = timeout;
+13         self.\_trystimeout = retries
+14         self.\_crc = 0;
+15 
+\end{DoxyCode}
+
 
 \subsection{Member Function Documentation}
 \mbox{\Hypertarget{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_a37f6c14f4919eada2b0985cd324f523f}\label{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_a37f6c14f4919eada2b0985cd324f523f}} 
@@ -331,846 +341,2244 @@ def \mbox{\hyperlink{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_addae6fb16d
 \subsubsection{\texorpdfstring{\+\_\+read1()}{\_read1()}}
 {\footnotesize\ttfamily def \+\_\+read1 (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{address,  }\item[{}]{cmd }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
 
+
+\begin{DoxyCode}
+203     \textcolor{keyword}{def }\_read1(self,address,cmd):
+204         trys = self.\_trystimeout
+205         \textcolor{keywordflow}{while} 1:
+206             self.\_port.flushInput()
+207             self.\_sendcommand(address,cmd)
+208             val1 = self.\_readbyte()
+209             \textcolor{keywordflow}{if} val1[0]:
+210                 crc = self.\_readchecksumword()
+211                 \textcolor{keywordflow}{if} crc[0]:
+212                     \textcolor{keywordflow}{if} self.\_crc&0xFFFF!=crc[1]&0xFFFF:
+213                         \textcolor{keywordflow}{return} (0,0)
+214                     \textcolor{keywordflow}{return} (1,val1[1])
+215             trys-=1
+216             \textcolor{keywordflow}{if} trys==0:
+217                 \textcolor{keywordflow}{break}
+218         \textcolor{keywordflow}{return} (0,0)
+219 
+\end{DoxyCode}
 \mbox{\Hypertarget{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_a865ec63bfaf45dc74af6fc1738d86551}\label{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_a865ec63bfaf45dc74af6fc1738d86551}} 
 \index{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}!\+\_\+read2@{\+\_\+read2}}
 \index{\+\_\+read2@{\+\_\+read2}!toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}}
 \subsubsection{\texorpdfstring{\+\_\+read2()}{\_read2()}}
 {\footnotesize\ttfamily def \+\_\+read2 (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{address,  }\item[{}]{cmd }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
 
+
+\begin{DoxyCode}
+220     \textcolor{keyword}{def }\_read2(self,address,cmd):
+221         trys = self.\_trystimeout
+222         \textcolor{keywordflow}{while} 1:
+223             self.\_port.flushInput()
+224             self.\_sendcommand(address,cmd)
+225             val1 = self.\_readword()
+226             \textcolor{keywordflow}{if} val1[0]:
+227                 crc = self.\_readchecksumword()
+228                 \textcolor{keywordflow}{if} crc[0]:
+229                     \textcolor{keywordflow}{if} self.\_crc&0xFFFF!=crc[1]&0xFFFF:
+230                         \textcolor{keywordflow}{return} (0,0)
+231                     \textcolor{keywordflow}{return} (1,val1[1])
+232             trys-=1
+233             \textcolor{keywordflow}{if} trys==0:
+234                 \textcolor{keywordflow}{break}
+235         \textcolor{keywordflow}{return} (0,0)
+236 
+\end{DoxyCode}
 \mbox{\Hypertarget{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_ab914d94db06afb55cd43bd797ee5938a}\label{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_ab914d94db06afb55cd43bd797ee5938a}} 
 \index{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}!\+\_\+read4@{\+\_\+read4}}
 \index{\+\_\+read4@{\+\_\+read4}!toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}}
 \subsubsection{\texorpdfstring{\+\_\+read4()}{\_read4()}}
 {\footnotesize\ttfamily def \+\_\+read4 (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{address,  }\item[{}]{cmd }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
 
+
+\begin{DoxyCode}
+237     \textcolor{keyword}{def }\_read4(self,address,cmd):
+238         trys = self.\_trystimeout
+239         \textcolor{keywordflow}{while} 1:
+240             self.\_port.flushInput()
+241             self.\_sendcommand(address,cmd)
+242             val1 = self.\_readlong()
+243             \textcolor{keywordflow}{if} val1[0]:
+244                 crc = self.\_readchecksumword()
+245                 \textcolor{keywordflow}{if} crc[0]:
+246                     \textcolor{keywordflow}{if} self.\_crc&0xFFFF!=crc[1]&0xFFFF:
+247                         \textcolor{keywordflow}{return} (0,0)
+248                     \textcolor{keywordflow}{return} (1,val1[1])
+249             trys-=1
+250             \textcolor{keywordflow}{if} trys==0:
+251                 \textcolor{keywordflow}{break}
+252         \textcolor{keywordflow}{return} (0,0)
+253 
+\end{DoxyCode}
 \mbox{\Hypertarget{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_a3bb41979a524d23c5330db2b445a4a6f}\label{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_a3bb41979a524d23c5330db2b445a4a6f}} 
 \index{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}!\+\_\+read4\+\_\+1@{\+\_\+read4\+\_\+1}}
 \index{\+\_\+read4\+\_\+1@{\+\_\+read4\+\_\+1}!toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}}
 \subsubsection{\texorpdfstring{\+\_\+read4\+\_\+1()}{\_read4\_1()}}
 {\footnotesize\ttfamily def \+\_\+read4\+\_\+1 (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{address,  }\item[{}]{cmd }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
 
+
+\begin{DoxyCode}
+254     \textcolor{keyword}{def }\_read4\_1(self,address,cmd):
+255         trys = self.\_trystimeout
+256         \textcolor{keywordflow}{while} 1:
+257             self.\_port.flushInput()
+258             self.\_sendcommand(address,cmd)
+259             val1 = self.\_readslong()
+260             \textcolor{keywordflow}{if} val1[0]:
+261                 val2 = self.\_readbyte()
+262                 \textcolor{keywordflow}{if} val2[0]:
+263                     crc = self.\_readchecksumword()
+264                     \textcolor{keywordflow}{if} crc[0]:
+265                         \textcolor{keywordflow}{if} self.\_crc&0xFFFF!=crc[1]&0xFFFF:
+266                             \textcolor{keywordflow}{return} (0,0)
+267                         \textcolor{keywordflow}{return} (1,val1[1],val2[1])
+268             trys-=1
+269             \textcolor{keywordflow}{if} trys==0:
+270                 \textcolor{keywordflow}{break}
+271         \textcolor{keywordflow}{return} (0,0)
+272 
+\end{DoxyCode}
 \mbox{\Hypertarget{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_a6758fe3e66445946e27903a47e330d5b}\label{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_a6758fe3e66445946e27903a47e330d5b}} 
 \index{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}!\+\_\+read\+\_\+n@{\+\_\+read\+\_\+n}}
 \index{\+\_\+read\+\_\+n@{\+\_\+read\+\_\+n}!toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}}
 \subsubsection{\texorpdfstring{\+\_\+read\+\_\+n()}{\_read\_n()}}
 {\footnotesize\ttfamily def \+\_\+read\+\_\+n (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{address,  }\item[{}]{cmd,  }\item[{}]{args }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
 
+
+\begin{DoxyCode}
+273     \textcolor{keyword}{def }\_read\_n(self,address,cmd,args):
+274         trys = self.\_trystimeout
+275         \textcolor{keywordflow}{while} 1:
+276             self.\_port.flushInput()
+277             trys-=1
+278             \textcolor{keywordflow}{if} trys==0:
+279                 \textcolor{keywordflow}{break}
+280             failed=\textcolor{keyword}{False}
+281             self.\_sendcommand(address,cmd)
+282             data = [1,]
+283             \textcolor{keywordflow}{for} i \textcolor{keywordflow}{in} range(0,args):
+284                 val = self.\_readlong()
+285                 \textcolor{keywordflow}{if} val[0]==0:
+286                     failed=\textcolor{keyword}{True}
+287                     \textcolor{keywordflow}{break}
+288                 data.append(val[1])
+289             \textcolor{keywordflow}{if} failed:
+290                 \textcolor{keywordflow}{continue}
+291             crc = self.\_readchecksumword()
+292             \textcolor{keywordflow}{if} crc[0]:
+293                 \textcolor{keywordflow}{if} self.\_crc&0xFFFF==crc[1]&0xFFFF:
+294                     \textcolor{keywordflow}{return} (data);
+295         \textcolor{keywordflow}{return} (0,0,0,0,0)
+296 
+\end{DoxyCode}
 \mbox{\Hypertarget{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_aa44404ef49547768501e8a0ac6cb0fcd}\label{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_aa44404ef49547768501e8a0ac6cb0fcd}} 
 \index{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}!\+\_\+readbyte@{\+\_\+readbyte}}
 \index{\+\_\+readbyte@{\+\_\+readbyte}!toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}}
 \subsubsection{\texorpdfstring{\+\_\+readbyte()}{\_readbyte()}}
 {\footnotesize\ttfamily def \+\_\+readbyte (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
 
+
+\begin{DoxyCode}
+143     \textcolor{keyword}{def }\_readbyte(self):
+144         data = self.\_port.read(1)
+145         \textcolor{keywordflow}{if} len(data):
+146             val = ord(data)
+147             self.crc\_update(val)
+148             \textcolor{keywordflow}{return} (1,val)  
+149         \textcolor{keywordflow}{return} (0,0)
+150         
+\end{DoxyCode}
 \mbox{\Hypertarget{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_a28d7d81001704ec45abf4ac3067328eb}\label{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_a28d7d81001704ec45abf4ac3067328eb}} 
 \index{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}!\+\_\+readchecksumword@{\+\_\+readchecksumword}}
 \index{\+\_\+readchecksumword@{\+\_\+readchecksumword}!toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}}
 \subsubsection{\texorpdfstring{\+\_\+readchecksumword()}{\_readchecksumword()}}
 {\footnotesize\ttfamily def \+\_\+readchecksumword (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
 
+
+\begin{DoxyCode}
+135     \textcolor{keyword}{def }\_readchecksumword(self):
+136         data = self.\_port.read(2)
+137         \textcolor{keywordflow}{if} len(data)==2:
+138 \textcolor{comment}{#           crc = (ord(data[0])<<8) | ord(data[1])}
+139             crc = (data[0]<<8) | data[1]
+140             \textcolor{keywordflow}{return} (1,crc)  
+141         \textcolor{keywordflow}{return} (0,0)
+142         
+\end{DoxyCode}
 \mbox{\Hypertarget{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_a8d66ae6d6beb1bb126eb600db81d99ec}\label{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_a8d66ae6d6beb1bb126eb600db81d99ec}} 
 \index{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}!\+\_\+readlong@{\+\_\+readlong}}
 \index{\+\_\+readlong@{\+\_\+readlong}!toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}}
 \subsubsection{\texorpdfstring{\+\_\+readlong()}{\_readlong()}}
 {\footnotesize\ttfamily def \+\_\+readlong (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
 
+
+\begin{DoxyCode}
+159     \textcolor{keyword}{def }\_readlong(self):
+160         val1 = self.\_readbyte()
+161         \textcolor{keywordflow}{if} val1[0]:
+162             val2 = self.\_readbyte()
+163             \textcolor{keywordflow}{if} val2[0]:
+164                 val3 = self.\_readbyte()
+165                 \textcolor{keywordflow}{if} val3[0]:
+166                     val4 = self.\_readbyte()
+167                     \textcolor{keywordflow}{if} val4[0]:
+168                         \textcolor{keywordflow}{return} (1,val1[1]<<24|val2[1]<<16|val3[1]<<8|val4[1])
+169         \textcolor{keywordflow}{return} (0,0)    
+170 
+\end{DoxyCode}
 \mbox{\Hypertarget{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_a406e62b0f169ff15d7dd3304b7d18fc3}\label{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_a406e62b0f169ff15d7dd3304b7d18fc3}} 
 \index{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}!\+\_\+readslong@{\+\_\+readslong}}
 \index{\+\_\+readslong@{\+\_\+readslong}!toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}}
 \subsubsection{\texorpdfstring{\+\_\+readslong()}{\_readslong()}}
 {\footnotesize\ttfamily def \+\_\+readslong (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
 
+
+\begin{DoxyCode}
+171     \textcolor{keyword}{def }\_readslong(self):
+172         val = self.\_readlong()
+173         \textcolor{keywordflow}{if} val[0]:
+174             \textcolor{keywordflow}{if} val[1]&0x80000000:
+175                 \textcolor{keywordflow}{return} (val[0],val[1]-0x100000000)
+176             \textcolor{keywordflow}{return} (val[0],val[1])
+177         \textcolor{keywordflow}{return} (0,0)
+178 
+\end{DoxyCode}
 \mbox{\Hypertarget{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_ab108cec36d976e3c49fbcba8b1406ff3}\label{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_ab108cec36d976e3c49fbcba8b1406ff3}} 
 \index{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}!\+\_\+readword@{\+\_\+readword}}
 \index{\+\_\+readword@{\+\_\+readword}!toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}}
 \subsubsection{\texorpdfstring{\+\_\+readword()}{\_readword()}}
 {\footnotesize\ttfamily def \+\_\+readword (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
 
+
+\begin{DoxyCode}
+151     \textcolor{keyword}{def }\_readword(self):
+152         val1 = self.\_readbyte()
+153         \textcolor{keywordflow}{if} val1[0]:
+154             val2 = self.\_readbyte()
+155             \textcolor{keywordflow}{if} val2[0]:
+156                 \textcolor{keywordflow}{return} (1,val1[1]<<8|val2[1])
+157         \textcolor{keywordflow}{return} (0,0)
+158 
+\end{DoxyCode}
 \mbox{\Hypertarget{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_a90f7346f5ad7ac6e783798a1f755d6e9}\label{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_a90f7346f5ad7ac6e783798a1f755d6e9}} 
 \index{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}!\+\_\+sendcommand@{\+\_\+sendcommand}}
 \index{\+\_\+sendcommand@{\+\_\+sendcommand}!toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}}
 \subsubsection{\texorpdfstring{\+\_\+sendcommand()}{\_sendcommand()}}
 {\footnotesize\ttfamily def \+\_\+sendcommand (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{address,  }\item[{}]{command }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
 
+
+\begin{DoxyCode}
+125     \textcolor{keyword}{def }\_sendcommand(self,address,command):
+126         self.crc\_clear()
+127         self.crc\_update(address)
+128 \textcolor{comment}{#       self.\_port.write(chr(address))}
+129         self.\_port.write(address.to\_bytes(1, \textcolor{stringliteral}{'big'}))
+130         self.crc\_update(command)
+131 \textcolor{comment}{#       self.\_port.write(chr(command))}
+132         self.\_port.write(command.to\_bytes(1, \textcolor{stringliteral}{'big'}))
+133         \textcolor{keywordflow}{return}
+134 
+\end{DoxyCode}
 \mbox{\Hypertarget{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_a53e66b2abf6128eab409cb25dcf5f39b}\label{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_a53e66b2abf6128eab409cb25dcf5f39b}} 
 \index{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}!\+\_\+write0@{\+\_\+write0}}
 \index{\+\_\+write0@{\+\_\+write0}!toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}}
 \subsubsection{\texorpdfstring{\+\_\+write0()}{\_write0()}}
 {\footnotesize\ttfamily def \+\_\+write0 (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{address,  }\item[{}]{cmd }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
 
+
+\begin{DoxyCode}
+305     \textcolor{keyword}{def }\_write0(self,address,cmd):
+306         trys=self.\_trystimeout
+307         \textcolor{keywordflow}{while} trys:
+308             self.\_sendcommand(address,cmd)
+309             \textcolor{keywordflow}{if} self.\_writechecksum():
+310                 \textcolor{keywordflow}{return} \textcolor{keyword}{True}
+311             trys=trys-1
+312         \textcolor{keywordflow}{return} \textcolor{keyword}{False}
+313 
+\end{DoxyCode}
 \mbox{\Hypertarget{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_a3a71ce5bc0ecf964d3b920c8bef96436}\label{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_a3a71ce5bc0ecf964d3b920c8bef96436}} 
 \index{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}!\+\_\+write1@{\+\_\+write1}}
 \index{\+\_\+write1@{\+\_\+write1}!toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}}
 \subsubsection{\texorpdfstring{\+\_\+write1()}{\_write1()}}
 {\footnotesize\ttfamily def \+\_\+write1 (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{address,  }\item[{}]{cmd,  }\item[{}]{val }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
 
+
+\begin{DoxyCode}
+314     \textcolor{keyword}{def }\_write1(self,address,cmd,val):
+315         trys=self.\_trystimeout
+316         \textcolor{keywordflow}{while} trys:
+317             self.\_sendcommand(address,cmd)
+318             self.\_writebyte(val)
+319             \textcolor{keywordflow}{if} self.\_writechecksum():
+320                 \textcolor{keywordflow}{return} \textcolor{keyword}{True}
+321             trys=trys-1
+322         \textcolor{keywordflow}{return} \textcolor{keyword}{False}
+323 
+\end{DoxyCode}
 \mbox{\Hypertarget{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_a583baf56af1846dfe43c7b76ed20784c}\label{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_a583baf56af1846dfe43c7b76ed20784c}} 
 \index{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}!\+\_\+write11@{\+\_\+write11}}
 \index{\+\_\+write11@{\+\_\+write11}!toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}}
 \subsubsection{\texorpdfstring{\+\_\+write11()}{\_write11()}}
 {\footnotesize\ttfamily def \+\_\+write11 (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{address,  }\item[{}]{cmd,  }\item[{}]{val1,  }\item[{}]{val2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
 
+
+\begin{DoxyCode}
+324     \textcolor{keyword}{def }\_write11(self,address,cmd,val1,val2):
+325         trys=self.\_trystimeout
+326         \textcolor{keywordflow}{while} trys:
+327             self.\_sendcommand(address,cmd)
+328             self.\_writebyte(val1)
+329             self.\_writebyte(val2)
+330             \textcolor{keywordflow}{if} self.\_writechecksum():
+331                 \textcolor{keywordflow}{return} \textcolor{keyword}{True}
+332             trys=trys-1
+333         \textcolor{keywordflow}{return} \textcolor{keyword}{False}
+334 
+\end{DoxyCode}
 \mbox{\Hypertarget{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_ac0745e9d0910b3a66157a45cf3142dee}\label{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_ac0745e9d0910b3a66157a45cf3142dee}} 
 \index{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}!\+\_\+write111@{\+\_\+write111}}
 \index{\+\_\+write111@{\+\_\+write111}!toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}}
 \subsubsection{\texorpdfstring{\+\_\+write111()}{\_write111()}}
 {\footnotesize\ttfamily def \+\_\+write111 (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{address,  }\item[{}]{cmd,  }\item[{}]{val1,  }\item[{}]{val2,  }\item[{}]{val3 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
 
+
+\begin{DoxyCode}
+335     \textcolor{keyword}{def }\_write111(self,address,cmd,val1,val2,val3):
+336         trys=self.\_trystimeout
+337         \textcolor{keywordflow}{while} trys:
+338             self.\_sendcommand(address,cmd)
+339             self.\_writebyte(val1)
+340             self.\_writebyte(val2)
+341             self.\_writebyte(val3)
+342             \textcolor{keywordflow}{if} self.\_writechecksum():
+343                 \textcolor{keywordflow}{return} \textcolor{keyword}{True}
+344             trys=trys-1
+345         \textcolor{keywordflow}{return} \textcolor{keyword}{False}
+346 
+\end{DoxyCode}
 \mbox{\Hypertarget{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_a88de3e54ecc50437eb3799d53d4aba3f}\label{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_a88de3e54ecc50437eb3799d53d4aba3f}} 
 \index{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}!\+\_\+write2@{\+\_\+write2}}
 \index{\+\_\+write2@{\+\_\+write2}!toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}}
 \subsubsection{\texorpdfstring{\+\_\+write2()}{\_write2()}}
 {\footnotesize\ttfamily def \+\_\+write2 (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{address,  }\item[{}]{cmd,  }\item[{}]{val }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
 
+
+\begin{DoxyCode}
+347     \textcolor{keyword}{def }\_write2(self,address,cmd,val):
+348         trys=self.\_trystimeout
+349         \textcolor{keywordflow}{while} trys:
+350             self.\_sendcommand(address,cmd)
+351             self.\_writeword(val)
+352             \textcolor{keywordflow}{if} self.\_writechecksum():
+353                 \textcolor{keywordflow}{return} \textcolor{keyword}{True}
+354             trys=trys-1
+355         \textcolor{keywordflow}{return} \textcolor{keyword}{False}
+356 
+\end{DoxyCode}
 \mbox{\Hypertarget{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_ae4eb5de67308bec37b6fe995cb88a091}\label{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_ae4eb5de67308bec37b6fe995cb88a091}} 
 \index{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}!\+\_\+write22@{\+\_\+write22}}
 \index{\+\_\+write22@{\+\_\+write22}!toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}}
 \subsubsection{\texorpdfstring{\+\_\+write22()}{\_write22()}}
 {\footnotesize\ttfamily def \+\_\+write22 (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{address,  }\item[{}]{cmd,  }\item[{}]{val1,  }\item[{}]{val2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
 
+
+\begin{DoxyCode}
+367     \textcolor{keyword}{def }\_write22(self,address,cmd,val1,val2):
+368         trys=self.\_trystimeout
+369         \textcolor{keywordflow}{while} trys:
+370             self.\_sendcommand(address,cmd)
+371             self.\_writeword(val1)
+372             self.\_writeword(val2)
+373             \textcolor{keywordflow}{if} self.\_writechecksum():
+374                 \textcolor{keywordflow}{return} \textcolor{keyword}{True}
+375             trys=trys-1
+376         \textcolor{keywordflow}{return} \textcolor{keyword}{False}
+377 
+\end{DoxyCode}
 \mbox{\Hypertarget{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_ab234c49f09cd0b5634795fcf665336ac}\label{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_ab234c49f09cd0b5634795fcf665336ac}} 
 \index{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}!\+\_\+write4@{\+\_\+write4}}
 \index{\+\_\+write4@{\+\_\+write4}!toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}}
 \subsubsection{\texorpdfstring{\+\_\+write4()}{\_write4()}}
 {\footnotesize\ttfamily def \+\_\+write4 (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{address,  }\item[{}]{cmd,  }\item[{}]{val }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
 
+
+\begin{DoxyCode}
+424     \textcolor{keyword}{def }\_write4(self,address,cmd,val):
+425         trys=self.\_trystimeout
+426         \textcolor{keywordflow}{while} trys:
+427             self.\_sendcommand(address,cmd)
+428             self.\_writelong(val)
+429             \textcolor{keywordflow}{if} self.\_writechecksum():
+430                 \textcolor{keywordflow}{return} \textcolor{keyword}{True}
+431             trys=trys-1
+432         \textcolor{keywordflow}{return} \textcolor{keyword}{False}
+433 
+\end{DoxyCode}
 \mbox{\Hypertarget{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_a9c08af5c10d3a64f8fe7fc9ad06b0264}\label{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_a9c08af5c10d3a64f8fe7fc9ad06b0264}} 
 \index{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}!\+\_\+write44@{\+\_\+write44}}
 \index{\+\_\+write44@{\+\_\+write44}!toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}}
 \subsubsection{\texorpdfstring{\+\_\+write44()}{\_write44()}}
 {\footnotesize\ttfamily def \+\_\+write44 (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{address,  }\item[{}]{cmd,  }\item[{}]{val1,  }\item[{}]{val2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
 
+
+\begin{DoxyCode}
+444     \textcolor{keyword}{def }\_write44(self,address,cmd,val1,val2):
+445         trys=self.\_trystimeout
+446         \textcolor{keywordflow}{while} trys:
+447             self.\_sendcommand(address,cmd)
+448             self.\_writelong(val1)
+449             self.\_writelong(val2)
+450             \textcolor{keywordflow}{if} self.\_writechecksum():
+451                 \textcolor{keywordflow}{return} \textcolor{keyword}{True}
+452             trys=trys-1
+453         \textcolor{keywordflow}{return} \textcolor{keyword}{False}
+454 
+\end{DoxyCode}
 \mbox{\Hypertarget{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_a27bbed81507d1f977f95c828e84e807d}\label{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_a27bbed81507d1f977f95c828e84e807d}} 
 \index{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}!\+\_\+write441@{\+\_\+write441}}
 \index{\+\_\+write441@{\+\_\+write441}!toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}}
 \subsubsection{\texorpdfstring{\+\_\+write441()}{\_write441()}}
 {\footnotesize\ttfamily def \+\_\+write441 (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{address,  }\item[{}]{cmd,  }\item[{}]{val1,  }\item[{}]{val2,  }\item[{}]{val3 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
 
+
+\begin{DoxyCode}
+477     \textcolor{keyword}{def }\_write441(self,address,cmd,val1,val2,val3):
+478         trys=self.\_trystimeout
+479         \textcolor{keywordflow}{while} trys:
+480             self.\_sendcommand(address,cmd)
+481             self.\_writelong(val1)
+482             self.\_writelong(val2)
+483             self.\_writebyte(val3)
+484             \textcolor{keywordflow}{if} self.\_writechecksum():
+485                 \textcolor{keywordflow}{return} \textcolor{keyword}{True}
+486             trys=trys-1
+487         \textcolor{keywordflow}{return} \textcolor{keyword}{False}
+488 
+\end{DoxyCode}
 \mbox{\Hypertarget{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_a24d6c8ebb8ad82ebb15ca810cd9fdb07}\label{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_a24d6c8ebb8ad82ebb15ca810cd9fdb07}} 
 \index{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}!\+\_\+write4444@{\+\_\+write4444}}
 \index{\+\_\+write4444@{\+\_\+write4444}!toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}}
 \subsubsection{\texorpdfstring{\+\_\+write4444()}{\_write4444()}}
 {\footnotesize\ttfamily def \+\_\+write4444 (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{address,  }\item[{}]{cmd,  }\item[{}]{val1,  }\item[{}]{val2,  }\item[{}]{val3,  }\item[{}]{val4 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
 
+
+\begin{DoxyCode}
+526     \textcolor{keyword}{def }\_write4444(self,address,cmd,val1,val2,val3,val4):
+527         trys=self.\_trystimeout
+528         \textcolor{keywordflow}{while} trys:
+529             self.\_sendcommand(address,cmd)
+530             self.\_writelong(val1)
+531             self.\_writelong(val2)
+532             self.\_writelong(val3)
+533             self.\_writelong(val4)
+534             \textcolor{keywordflow}{if} self.\_writechecksum():
+535                 \textcolor{keywordflow}{return} \textcolor{keyword}{True}
+536             trys=trys-1
+537         \textcolor{keywordflow}{return} \textcolor{keyword}{False}
+538 
+\end{DoxyCode}
 \mbox{\Hypertarget{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_a3276351c3285e97da9390e30d85ea855}\label{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_a3276351c3285e97da9390e30d85ea855}} 
 \index{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}!\+\_\+write44441@{\+\_\+write44441}}
 \index{\+\_\+write44441@{\+\_\+write44441}!toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}}
 \subsubsection{\texorpdfstring{\+\_\+write44441()}{\_write44441()}}
 {\footnotesize\ttfamily def \+\_\+write44441 (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{address,  }\item[{}]{cmd,  }\item[{}]{val1,  }\item[{}]{val2,  }\item[{}]{val3,  }\item[{}]{val4,  }\item[{}]{val5 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
 
+
+\begin{DoxyCode}
+552     \textcolor{keyword}{def }\_write44441(self,address,cmd,val1,val2,val3,val4,val5):
+553         trys=self.\_trystimeout
+554         \textcolor{keywordflow}{while} trys:
+555             self.\_sendcommand(address,cmd)
+556             self.\_writelong(val1)
+557             self.\_writelong(val2)
+558             self.\_writelong(val3)
+559             self.\_writelong(val4)
+560             self.\_writebyte(val5)
+561             \textcolor{keywordflow}{if} self.\_writechecksum():
+562                 \textcolor{keywordflow}{return} \textcolor{keyword}{True}
+563             trys=trys-1
+564         \textcolor{keywordflow}{return} \textcolor{keyword}{False}
+565 
+\end{DoxyCode}
 \mbox{\Hypertarget{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_aa81bec5ecefa606fbf18f4549051f6aa}\label{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_aa81bec5ecefa606fbf18f4549051f6aa}} 
 \index{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}!\+\_\+write4444444@{\+\_\+write4444444}}
 \index{\+\_\+write4444444@{\+\_\+write4444444}!toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}}
 \subsubsection{\texorpdfstring{\+\_\+write4444444()}{\_write4444444()}}
 {\footnotesize\ttfamily def \+\_\+write4444444 (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{address,  }\item[{}]{cmd,  }\item[{}]{val1,  }\item[{}]{val2,  }\item[{}]{val3,  }\item[{}]{val4,  }\item[{}]{val5,  }\item[{}]{val6,  }\item[{}]{val7 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
 
+
+\begin{DoxyCode}
+611     \textcolor{keyword}{def }\_write4444444(self,address,cmd,val1,val2,val3,val4,val5,val6,val7):
+612         trys=self.\_trystimeout
+613         \textcolor{keywordflow}{while} trys:
+614             self.\_sendcommand(address,cmd)
+615             self.\_writelong(val1)
+616             self.\_writelong(val2)
+617             self.\_writelong(val3)
+618             self.\_writelong(val4)
+619             self.\_writelong(val5)
+620             self.\_writelong(val6)
+621             self.\_writelong(val7)
+622             \textcolor{keywordflow}{if} self.\_writechecksum():
+623                 \textcolor{keywordflow}{return} \textcolor{keyword}{True}
+624             trys=trys-1
+625         \textcolor{keywordflow}{return} \textcolor{keyword}{False}
+626 
+\end{DoxyCode}
 \mbox{\Hypertarget{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_addae6fb16d10ba717d3863227aa9eb16}\label{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_addae6fb16d10ba717d3863227aa9eb16}} 
 \index{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}!\+\_\+write444444441@{\+\_\+write444444441}}
 \index{\+\_\+write444444441@{\+\_\+write444444441}!toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}}
 \subsubsection{\texorpdfstring{\+\_\+write444444441()}{\_write444444441()}}
 {\footnotesize\ttfamily def \+\_\+write444444441 (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{address,  }\item[{}]{cmd,  }\item[{}]{val1,  }\item[{}]{val2,  }\item[{}]{val3,  }\item[{}]{val4,  }\item[{}]{val5,  }\item[{}]{val6,  }\item[{}]{val7,  }\item[{}]{val8,  }\item[{}]{val9 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
 
+
+\begin{DoxyCode}
+627     \textcolor{keyword}{def }\_write444444441(self,address,cmd,val1,val2,val3,val4,val5,val6,val7,val8,val9):
+628         trys=self.\_trystimeout
+629         \textcolor{keywordflow}{while} trys:
+630             self.\_sendcommand(address,cmd)
+631             self.\_writelong(val1)
+632             self.\_writelong(val2)
+633             self.\_writelong(val3)
+634             self.\_writelong(val4)
+635             self.\_writelong(val5)
+636             self.\_writelong(val6)
+637             self.\_writelong(val7)
+638             self.\_writelong(val8)
+639             self.\_writebyte(val9)
+640             \textcolor{keywordflow}{if} self.\_writechecksum():
+641                 \textcolor{keywordflow}{return} \textcolor{keyword}{True}
+642             trys=trys-1
+643         \textcolor{keywordflow}{return} \textcolor{keyword}{False}
+644 
+\end{DoxyCode}
 \mbox{\Hypertarget{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_a605ee94779f3b9b2b6a940f418379c19}\label{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_a605ee94779f3b9b2b6a940f418379c19}} 
 \index{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}!\+\_\+write4\+S4@{\+\_\+write4\+S4}}
 \index{\+\_\+write4\+S4@{\+\_\+write4\+S4}!toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}}
 \subsubsection{\texorpdfstring{\+\_\+write4\+S4()}{\_write4S4()}}
 {\footnotesize\ttfamily def \+\_\+write4\+S4 (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{address,  }\item[{}]{cmd,  }\item[{}]{val1,  }\item[{}]{val2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
 
+
+\begin{DoxyCode}
+455     \textcolor{keyword}{def }\_write4S4(self,address,cmd,val1,val2):
+456         trys=self.\_trystimeout
+457         \textcolor{keywordflow}{while} trys:
+458             self.\_sendcommand(address,cmd)
+459             self.\_writelong(val1)
+460             self.\_writeslong(val2)
+461             \textcolor{keywordflow}{if} self.\_writechecksum():
+462                 \textcolor{keywordflow}{return} \textcolor{keyword}{True}
+463             trys=trys-1
+464         \textcolor{keywordflow}{return} \textcolor{keyword}{False}
+465 
+\end{DoxyCode}
 \mbox{\Hypertarget{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_ac5229f360d098694a67971eab10d5e66}\label{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_ac5229f360d098694a67971eab10d5e66}} 
 \index{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}!\+\_\+write4\+S441@{\+\_\+write4\+S441}}
 \index{\+\_\+write4\+S441@{\+\_\+write4\+S441}!toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}}
 \subsubsection{\texorpdfstring{\+\_\+write4\+S441()}{\_write4S441()}}
 {\footnotesize\ttfamily def \+\_\+write4\+S441 (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{address,  }\item[{}]{cmd,  }\item[{}]{val1,  }\item[{}]{val2,  }\item[{}]{val3,  }\item[{}]{val4 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
 
+
+\begin{DoxyCode}
+513     \textcolor{keyword}{def }\_write4S441(self,address,cmd,val1,val2,val3,val4):
+514         trys=self.\_trystimeout
+515         \textcolor{keywordflow}{while} trys:
+516             self.\_sendcommand(address,cmd)
+517             self.\_writelong(val1)
+518             self.\_writeslong(val2)
+519             self.\_writelong(val3)
+520             self.\_writebyte(val4)
+521             \textcolor{keywordflow}{if} self.\_writechecksum():
+522                 \textcolor{keywordflow}{return} \textcolor{keyword}{True}
+523             trys=trys-1
+524         \textcolor{keywordflow}{return} \textcolor{keyword}{False}
+525 
+\end{DoxyCode}
 \mbox{\Hypertarget{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_ab245d118d96ac56d918b3e9a76315aac}\label{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_ab245d118d96ac56d918b3e9a76315aac}} 
 \index{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}!\+\_\+write4\+S444\+S441@{\+\_\+write4\+S444\+S441}}
 \index{\+\_\+write4\+S444\+S441@{\+\_\+write4\+S444\+S441}!toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}}
 \subsubsection{\texorpdfstring{\+\_\+write4\+S444\+S441()}{\_write4S444S441()}}
 {\footnotesize\ttfamily def \+\_\+write4\+S444\+S441 (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{address,  }\item[{}]{cmd,  }\item[{}]{val1,  }\item[{}]{val2,  }\item[{}]{val3,  }\item[{}]{val4,  }\item[{}]{val5,  }\item[{}]{val6,  }\item[{}]{val7 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
 
+
+\begin{DoxyCode}
+595     \textcolor{keyword}{def }\_write4S444S441(self,address,cmd,val1,val2,val3,val4,val5,val6,val7):
+596         trys=self.\_trystimeout
+597         \textcolor{keywordflow}{while} trys:
+598             self.\_sendcommand(self,address,cmd)
+599             self.\_writelong(val1)
+600             self.\_writeslong(val2)
+601             self.\_writelong(val3)
+602             self.\_writelong(val4)
+603             self.\_writeslong(val5)
+604             self.\_writelong(val6)
+605             self.\_writebyte(val7)
+606             \textcolor{keywordflow}{if} self.\_writechecksum():
+607                 \textcolor{keywordflow}{return} \textcolor{keyword}{True}
+608             trys=trys-1
+609         \textcolor{keywordflow}{return} \textcolor{keyword}{False}
+610 
+\end{DoxyCode}
 \mbox{\Hypertarget{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_afc692daccdef6d41332b2c9f4063cad5}\label{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_afc692daccdef6d41332b2c9f4063cad5}} 
 \index{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}!\+\_\+write4\+S44\+S4@{\+\_\+write4\+S44\+S4}}
 \index{\+\_\+write4\+S44\+S4@{\+\_\+write4\+S44\+S4}!toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}}
 \subsubsection{\texorpdfstring{\+\_\+write4\+S44\+S4()}{\_write4S44S4()}}
 {\footnotesize\ttfamily def \+\_\+write4\+S44\+S4 (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{address,  }\item[{}]{cmd,  }\item[{}]{val1,  }\item[{}]{val2,  }\item[{}]{val3,  }\item[{}]{val4 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
 
+
+\begin{DoxyCode}
+539     \textcolor{keyword}{def }\_write4S44S4(self,address,cmd,val1,val2,val3,val4):
+540         trys=self.\_trystimeout
+541         \textcolor{keywordflow}{while} trys:
+542             self.\_sendcommand(address,cmd)
+543             self.\_writelong(val1)
+544             self.\_writeslong(val2)
+545             self.\_writelong(val3)
+546             self.\_writeslong(val4)
+547             \textcolor{keywordflow}{if} self.\_writechecksum():
+548                 \textcolor{keywordflow}{return} \textcolor{keyword}{True}
+549             trys=trys-1
+550         \textcolor{keywordflow}{return} \textcolor{keyword}{False}
+551 
+\end{DoxyCode}
 \mbox{\Hypertarget{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_a9e7a5eedc686f4e157db9c01b9b09371}\label{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_a9e7a5eedc686f4e157db9c01b9b09371}} 
 \index{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}!\+\_\+write4\+S44\+S441@{\+\_\+write4\+S44\+S441}}
 \index{\+\_\+write4\+S44\+S441@{\+\_\+write4\+S44\+S441}!toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}}
 \subsubsection{\texorpdfstring{\+\_\+write4\+S44\+S441()}{\_write4S44S441()}}
 {\footnotesize\ttfamily def \+\_\+write4\+S44\+S441 (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{address,  }\item[{}]{cmd,  }\item[{}]{val1,  }\item[{}]{val2,  }\item[{}]{val3,  }\item[{}]{val4,  }\item[{}]{val5,  }\item[{}]{val6 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
 
+
+\begin{DoxyCode}
+580     \textcolor{keyword}{def }\_write4S44S441(self,address,cmd,val1,val2,val3,val4,val5,val6):
+581         trys=self.\_trystimeout
+582         \textcolor{keywordflow}{while} trys:
+583             self.\_sendcommand(address,cmd)
+584             self.\_writelong(val1)
+585             self.\_writeslong(val2)
+586             self.\_writelong(val3)
+587             self.\_writeslong(val4)
+588             self.\_writelong(val5)
+589             self.\_writebyte(val6)
+590             \textcolor{keywordflow}{if} self.\_writechecksum():
+591                 \textcolor{keywordflow}{return} \textcolor{keyword}{True}
+592             trys=trys-1
+593         \textcolor{keywordflow}{return} \textcolor{keyword}{False}
+594 
+\end{DoxyCode}
 \mbox{\Hypertarget{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_a3cd6f858935eaf1dcb0563bd81e97cc0}\label{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_a3cd6f858935eaf1dcb0563bd81e97cc0}} 
 \index{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}!\+\_\+write4\+S4\+S4@{\+\_\+write4\+S4\+S4}}
 \index{\+\_\+write4\+S4\+S4@{\+\_\+write4\+S4\+S4}!toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}}
 \subsubsection{\texorpdfstring{\+\_\+write4\+S4\+S4()}{\_write4S4S4()}}
 {\footnotesize\ttfamily def \+\_\+write4\+S4\+S4 (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{address,  }\item[{}]{cmd,  }\item[{}]{val1,  }\item[{}]{val2,  }\item[{}]{val3 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
 
+
+\begin{DoxyCode}
+501     \textcolor{keyword}{def }\_write4S4S4(self,address,cmd,val1,val2,val3):
+502         trys=self.\_trystimeout
+503         \textcolor{keywordflow}{while} trys:
+504             self.\_sendcommand(address,cmd)
+505             self.\_writelong(val1)
+506             self.\_writeslong(val2)
+507             self.\_writeslong(val3)
+508             \textcolor{keywordflow}{if} self.\_writechecksum():
+509                 \textcolor{keywordflow}{return} \textcolor{keyword}{True}
+510             trys=trys-1
+511         \textcolor{keywordflow}{return} \textcolor{keyword}{False}
+512 
+\end{DoxyCode}
 \mbox{\Hypertarget{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_a20ef100ec6c3b82b97d4763f61ae785b}\label{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_a20ef100ec6c3b82b97d4763f61ae785b}} 
 \index{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}!\+\_\+writebyte@{\+\_\+writebyte}}
 \index{\+\_\+writebyte@{\+\_\+writebyte}!toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}}
 \subsubsection{\texorpdfstring{\+\_\+writebyte()}{\_writebyte()}}
 {\footnotesize\ttfamily def \+\_\+writebyte (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{val }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
 
+
+\begin{DoxyCode}
+179     \textcolor{keyword}{def }\_writebyte(self,val):
+180         self.crc\_update(val&0xFF)
+181 \textcolor{comment}{#       self.\_port.write(chr(val&0xFF))}
+182         self.\_port.write(val.to\_bytes(1, \textcolor{stringliteral}{'big'}))
+183 
+\end{DoxyCode}
 \mbox{\Hypertarget{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_af64933c3b7db755b6709d9aaba340aec}\label{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_af64933c3b7db755b6709d9aaba340aec}} 
 \index{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}!\+\_\+writechecksum@{\+\_\+writechecksum}}
 \index{\+\_\+writechecksum@{\+\_\+writechecksum}!toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}}
 \subsubsection{\texorpdfstring{\+\_\+writechecksum()}{\_writechecksum()}}
 {\footnotesize\ttfamily def \+\_\+writechecksum (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
 
+
+\begin{DoxyCode}
+297     \textcolor{keyword}{def }\_writechecksum(self):
+298         self.\_writeword(self.\_crc&0xFFFF)
+299         val = self.\_readbyte()
+300         if(len(val)>0):
+301             \textcolor{keywordflow}{if} val[0]:
+302                 \textcolor{keywordflow}{return} \textcolor{keyword}{True}
+303         \textcolor{keywordflow}{return} \textcolor{keyword}{False}
+304 
+\end{DoxyCode}
 \mbox{\Hypertarget{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_a2f43b35acbde35e3d8584dcc5ca878d3}\label{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_a2f43b35acbde35e3d8584dcc5ca878d3}} 
 \index{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}!\+\_\+writelong@{\+\_\+writelong}}
 \index{\+\_\+writelong@{\+\_\+writelong}!toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}}
 \subsubsection{\texorpdfstring{\+\_\+writelong()}{\_writelong()}}
 {\footnotesize\ttfamily def \+\_\+writelong (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{val }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
 
+
+\begin{DoxyCode}
+194     \textcolor{keyword}{def }\_writelong(self,val):
+195         self.\_writebyte((val>>24)&0xFF)
+196         self.\_writebyte((val>>16)&0xFF)
+197         self.\_writebyte((val>>8)&0xFF)
+198         self.\_writebyte(val&0xFF)
+199 
+\end{DoxyCode}
 \mbox{\Hypertarget{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_a33f4f881d630c20a3ba1e023dd2251e9}\label{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_a33f4f881d630c20a3ba1e023dd2251e9}} 
 \index{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}!\+\_\+write\+S2@{\+\_\+write\+S2}}
 \index{\+\_\+write\+S2@{\+\_\+write\+S2}!toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}}
 \subsubsection{\texorpdfstring{\+\_\+write\+S2()}{\_writeS2()}}
 {\footnotesize\ttfamily def \+\_\+write\+S2 (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{address,  }\item[{}]{cmd,  }\item[{}]{val }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
 
+
+\begin{DoxyCode}
+357     \textcolor{keyword}{def }\_writeS2(self,address,cmd,val):
+358         trys=self.\_trystimeout
+359         \textcolor{keywordflow}{while} trys:
+360             self.\_sendcommand(address,cmd)
+361             self.\_writesword(val)
+362             \textcolor{keywordflow}{if} self.\_writechecksum():
+363                 \textcolor{keywordflow}{return} \textcolor{keyword}{True}
+364             trys=trys-1
+365         \textcolor{keywordflow}{return} \textcolor{keyword}{False}
+366 
+\end{DoxyCode}
 \mbox{\Hypertarget{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_afb7691607c5a92004503e91af4ed905b}\label{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_afb7691607c5a92004503e91af4ed905b}} 
 \index{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}!\+\_\+write\+S22@{\+\_\+write\+S22}}
 \index{\+\_\+write\+S22@{\+\_\+write\+S22}!toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}}
 \subsubsection{\texorpdfstring{\+\_\+write\+S22()}{\_writeS22()}}
 {\footnotesize\ttfamily def \+\_\+write\+S22 (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{address,  }\item[{}]{cmd,  }\item[{}]{val1,  }\item[{}]{val2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
 
+
+\begin{DoxyCode}
+378     \textcolor{keyword}{def }\_writeS22(self,address,cmd,val1,val2):
+379         trys=self.\_trystimeout
+380         \textcolor{keywordflow}{while} trys:
+381             self.\_sendcommand(address,cmd)
+382             self.\_writesword(val1)
+383             self.\_writeword(val2)
+384             \textcolor{keywordflow}{if} self.\_writechecksum():
+385                 \textcolor{keywordflow}{return} \textcolor{keyword}{True}
+386             trys=trys-1
+387         \textcolor{keywordflow}{return} \textcolor{keyword}{False}
+388 
+\end{DoxyCode}
 \mbox{\Hypertarget{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_a2acfdb332e8c1ae4d0cca985f2d690bf}\label{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_a2acfdb332e8c1ae4d0cca985f2d690bf}} 
 \index{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}!\+\_\+write\+S24@{\+\_\+write\+S24}}
 \index{\+\_\+write\+S24@{\+\_\+write\+S24}!toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}}
 \subsubsection{\texorpdfstring{\+\_\+write\+S24()}{\_writeS24()}}
 {\footnotesize\ttfamily def \+\_\+write\+S24 (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{address,  }\item[{}]{cmd,  }\item[{}]{val1,  }\item[{}]{val2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
 
+
+\begin{DoxyCode}
+400     \textcolor{keyword}{def }\_writeS24(self,address,cmd,val1,val2):
+401         trys=self.\_trystimeout
+402         \textcolor{keywordflow}{while} trys:
+403             self.\_sendcommand(address,cmd)
+404             self.\_writesword(val1)
+405             self.\_writelong(val2)
+406             \textcolor{keywordflow}{if} self.\_writechecksum():
+407                 \textcolor{keywordflow}{return} \textcolor{keyword}{True}
+408             trys=trys-1
+409         \textcolor{keywordflow}{return} \textcolor{keyword}{False}
+410 
+\end{DoxyCode}
 \mbox{\Hypertarget{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_ab9a1f183de43e1f3bc9e6193a3a507b6}\label{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_ab9a1f183de43e1f3bc9e6193a3a507b6}} 
 \index{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}!\+\_\+write\+S24\+S24@{\+\_\+write\+S24\+S24}}
 \index{\+\_\+write\+S24\+S24@{\+\_\+write\+S24\+S24}!toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}}
 \subsubsection{\texorpdfstring{\+\_\+write\+S24\+S24()}{\_writeS24S24()}}
 {\footnotesize\ttfamily def \+\_\+write\+S24\+S24 (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{address,  }\item[{}]{cmd,  }\item[{}]{val1,  }\item[{}]{val2,  }\item[{}]{val3,  }\item[{}]{val4 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
 
+
+\begin{DoxyCode}
+411     \textcolor{keyword}{def }\_writeS24S24(self,address,cmd,val1,val2,val3,val4):
+412         trys=self.\_trystimeout
+413         \textcolor{keywordflow}{while} trys:
+414             self.\_sendcommand(address,cmd)
+415             self.\_writesword(val1)
+416             self.\_writelong(val2)
+417             self.\_writesword(val3)
+418             self.\_writelong(val4)
+419             \textcolor{keywordflow}{if} self.\_writechecksum():
+420                 \textcolor{keywordflow}{return} \textcolor{keyword}{True}
+421             trys=trys-1
+422         \textcolor{keywordflow}{return} \textcolor{keyword}{False}
+423 
+\end{DoxyCode}
 \mbox{\Hypertarget{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_ae7f3cc692531430614dd0f95fe2be1a9}\label{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_ae7f3cc692531430614dd0f95fe2be1a9}} 
 \index{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}!\+\_\+write\+S2\+S2@{\+\_\+write\+S2\+S2}}
 \index{\+\_\+write\+S2\+S2@{\+\_\+write\+S2\+S2}!toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}}
 \subsubsection{\texorpdfstring{\+\_\+write\+S2\+S2()}{\_writeS2S2()}}
 {\footnotesize\ttfamily def \+\_\+write\+S2\+S2 (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{address,  }\item[{}]{cmd,  }\item[{}]{val1,  }\item[{}]{val2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
 
+
+\begin{DoxyCode}
+389     \textcolor{keyword}{def }\_writeS2S2(self,address,cmd,val1,val2):
+390         trys=self.\_trystimeout
+391         \textcolor{keywordflow}{while} trys:
+392             self.\_sendcommand(address,cmd)
+393             self.\_writesword(val1)
+394             self.\_writesword(val2)
+395             \textcolor{keywordflow}{if} self.\_writechecksum():
+396                 \textcolor{keywordflow}{return} \textcolor{keyword}{True}
+397             trys=trys-1
+398         \textcolor{keywordflow}{return} \textcolor{keyword}{False}
+399 
+\end{DoxyCode}
 \mbox{\Hypertarget{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_a34b9b9300afab1efbbc42d181c56d4b7}\label{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_a34b9b9300afab1efbbc42d181c56d4b7}} 
 \index{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}!\+\_\+write\+S4@{\+\_\+write\+S4}}
 \index{\+\_\+write\+S4@{\+\_\+write\+S4}!toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}}
 \subsubsection{\texorpdfstring{\+\_\+write\+S4()}{\_writeS4()}}
 {\footnotesize\ttfamily def \+\_\+write\+S4 (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{address,  }\item[{}]{cmd,  }\item[{}]{val }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
 
+
+\begin{DoxyCode}
+434     \textcolor{keyword}{def }\_writeS4(self,address,cmd,val):
+435         trys=self.\_trystimeout
+436         \textcolor{keywordflow}{while} trys:
+437             self.\_sendcommand(address,cmd)
+438             self.\_writeslong(val)
+439             \textcolor{keywordflow}{if} self.\_writechecksum():
+440                 \textcolor{keywordflow}{return} \textcolor{keyword}{True}
+441             trys=trys-1
+442         \textcolor{keywordflow}{return} \textcolor{keyword}{False}
+443 
+\end{DoxyCode}
 \mbox{\Hypertarget{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_ad31595fb54ad1158569552405f74a6cf}\label{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_ad31595fb54ad1158569552405f74a6cf}} 
 \index{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}!\+\_\+write\+S441@{\+\_\+write\+S441}}
 \index{\+\_\+write\+S441@{\+\_\+write\+S441}!toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}}
 \subsubsection{\texorpdfstring{\+\_\+write\+S441()}{\_writeS441()}}
 {\footnotesize\ttfamily def \+\_\+write\+S441 (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{address,  }\item[{}]{cmd,  }\item[{}]{val1,  }\item[{}]{val2,  }\item[{}]{val3 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
 
+
+\begin{DoxyCode}
+489     \textcolor{keyword}{def }\_writeS441(self,address,cmd,val1,val2,val3):
+490         trys=self.\_trystimeout
+491         \textcolor{keywordflow}{while} trys:
+492             self.\_sendcommand(address,cmd)
+493             self.\_writeslong(val1)
+494             self.\_writelong(val2)
+495             self.\_writebyte(val3)
+496             \textcolor{keywordflow}{if} self.\_writechecksum():
+497                 \textcolor{keywordflow}{return} \textcolor{keyword}{True}
+498             trys=trys-1
+499         \textcolor{keywordflow}{return} \textcolor{keyword}{False}
+500 
+\end{DoxyCode}
 \mbox{\Hypertarget{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_a960511b0293744d9f64a79f38d944a60}\label{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_a960511b0293744d9f64a79f38d944a60}} 
 \index{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}!\+\_\+write\+S44\+S441@{\+\_\+write\+S44\+S441}}
 \index{\+\_\+write\+S44\+S441@{\+\_\+write\+S44\+S441}!toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}}
 \subsubsection{\texorpdfstring{\+\_\+write\+S44\+S441()}{\_writeS44S441()}}
 {\footnotesize\ttfamily def \+\_\+write\+S44\+S441 (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{address,  }\item[{}]{cmd,  }\item[{}]{val1,  }\item[{}]{val2,  }\item[{}]{val3,  }\item[{}]{val4,  }\item[{}]{val5 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
 
+
+\begin{DoxyCode}
+566     \textcolor{keyword}{def }\_writeS44S441(self,address,cmd,val1,val2,val3,val4,val5):
+567         trys=self.\_trystimeout
+568         \textcolor{keywordflow}{while} trys:
+569             self.\_sendcommand(address,cmd)
+570             self.\_writeslong(val1)
+571             self.\_writelong(val2)
+572             self.\_writeslong(val3)
+573             self.\_writelong(val4)
+574             self.\_writebyte(val5)
+575             \textcolor{keywordflow}{if} self.\_writechecksum():
+576                 \textcolor{keywordflow}{return} \textcolor{keyword}{True}
+577             trys=trys-1
+578         \textcolor{keywordflow}{return} \textcolor{keyword}{False}
+579 
+\end{DoxyCode}
 \mbox{\Hypertarget{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_a68c18336b966db584c4af7ca9a7270c5}\label{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_a68c18336b966db584c4af7ca9a7270c5}} 
 \index{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}!\+\_\+write\+S4\+S4@{\+\_\+write\+S4\+S4}}
 \index{\+\_\+write\+S4\+S4@{\+\_\+write\+S4\+S4}!toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}}
 \subsubsection{\texorpdfstring{\+\_\+write\+S4\+S4()}{\_writeS4S4()}}
 {\footnotesize\ttfamily def \+\_\+write\+S4\+S4 (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{address,  }\item[{}]{cmd,  }\item[{}]{val1,  }\item[{}]{val2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
 
+
+\begin{DoxyCode}
+466     \textcolor{keyword}{def }\_writeS4S4(self,address,cmd,val1,val2):
+467         trys=self.\_trystimeout
+468         \textcolor{keywordflow}{while} trys:
+469             self.\_sendcommand(address,cmd)
+470             self.\_writeslong(val1)
+471             self.\_writeslong(val2)
+472             \textcolor{keywordflow}{if} self.\_writechecksum():
+473                 \textcolor{keywordflow}{return} \textcolor{keyword}{True}
+474             trys=trys-1
+475         \textcolor{keywordflow}{return} \textcolor{keyword}{False}
+476 
+\end{DoxyCode}
 \mbox{\Hypertarget{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_a45ce0518a91d2d3c7bcf75353f0f2362}\label{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_a45ce0518a91d2d3c7bcf75353f0f2362}} 
 \index{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}!\+\_\+writesbyte@{\+\_\+writesbyte}}
 \index{\+\_\+writesbyte@{\+\_\+writesbyte}!toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}}
 \subsubsection{\texorpdfstring{\+\_\+writesbyte()}{\_writesbyte()}}
 {\footnotesize\ttfamily def \+\_\+writesbyte (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{val }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
 
+
+\begin{DoxyCode}
+184     \textcolor{keyword}{def }\_writesbyte(self,val):
+185         self.\_writebyte(val)
+186 
+\end{DoxyCode}
 \mbox{\Hypertarget{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_acaaa45f1f55d2636dbb2caf92b08a2ce}\label{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_acaaa45f1f55d2636dbb2caf92b08a2ce}} 
 \index{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}!\+\_\+writeslong@{\+\_\+writeslong}}
 \index{\+\_\+writeslong@{\+\_\+writeslong}!toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}}
 \subsubsection{\texorpdfstring{\+\_\+writeslong()}{\_writeslong()}}
 {\footnotesize\ttfamily def \+\_\+writeslong (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{val }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
 
+
+\begin{DoxyCode}
+200     \textcolor{keyword}{def }\_writeslong(self,val):
+201         self.\_writelong(val)
+202 
+\end{DoxyCode}
 \mbox{\Hypertarget{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_ad8aa9bb8d610b9a0aec769dd6bb83a67}\label{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_ad8aa9bb8d610b9a0aec769dd6bb83a67}} 
 \index{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}!\+\_\+writesword@{\+\_\+writesword}}
 \index{\+\_\+writesword@{\+\_\+writesword}!toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}}
 \subsubsection{\texorpdfstring{\+\_\+writesword()}{\_writesword()}}
 {\footnotesize\ttfamily def \+\_\+writesword (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{val }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
 
+
+\begin{DoxyCode}
+191     \textcolor{keyword}{def }\_writesword(self,val):
+192         self.\_writeword(val)
+193 
+\end{DoxyCode}
 \mbox{\Hypertarget{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_aede49d17f176ee71f8dac86e4d7a41d5}\label{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_aede49d17f176ee71f8dac86e4d7a41d5}} 
 \index{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}!\+\_\+writeword@{\+\_\+writeword}}
 \index{\+\_\+writeword@{\+\_\+writeword}!toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}}
 \subsubsection{\texorpdfstring{\+\_\+writeword()}{\_writeword()}}
 {\footnotesize\ttfamily def \+\_\+writeword (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{val }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
 
+
+\begin{DoxyCode}
+187     \textcolor{keyword}{def }\_writeword(self,val):
+188         self.\_writebyte((val>>8)&0xFF)
+189         self.\_writebyte(val&0xFF)
+190         
+\end{DoxyCode}
 \mbox{\Hypertarget{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_a33caa5eb9a19e9d3dc648bd1e49cf5ea}\label{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_a33caa5eb9a19e9d3dc648bd1e49cf5ea}} 
 \index{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}!Backward\+M1@{Backward\+M1}}
 \index{Backward\+M1@{Backward\+M1}!toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}}
 \subsubsection{\texorpdfstring{Backward\+M1()}{BackwardM1()}}
 {\footnotesize\ttfamily def Backward\+M1 (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{address,  }\item[{}]{val }\end{DoxyParamCaption})}
 
+
+\begin{DoxyCode}
+656     \textcolor{keyword}{def }BackwardM1(self,address,val):
+657         \textcolor{keywordflow}{return} self.\_write1(address,self.Cmd.M1BACKWARD,val)
+658 
+\end{DoxyCode}
 \mbox{\Hypertarget{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_a291d3a943191a562dd0c726430a45c9c}\label{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_a291d3a943191a562dd0c726430a45c9c}} 
 \index{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}!Backward\+M2@{Backward\+M2}}
 \index{Backward\+M2@{Backward\+M2}!toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}}
 \subsubsection{\texorpdfstring{Backward\+M2()}{BackwardM2()}}
 {\footnotesize\ttfamily def Backward\+M2 (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{address,  }\item[{}]{val }\end{DoxyParamCaption})}
 
+
+\begin{DoxyCode}
+668     \textcolor{keyword}{def }BackwardM2(self,address,val):
+669         \textcolor{keywordflow}{return} self.\_write1(address,self.Cmd.M2BACKWARD,val)
+670 
+\end{DoxyCode}
 \mbox{\Hypertarget{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_a72ca8ef69781031cffede46595df8426}\label{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_a72ca8ef69781031cffede46595df8426}} 
 \index{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}!Backward\+Mixed@{Backward\+Mixed}}
 \index{Backward\+Mixed@{Backward\+Mixed}!toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}}
 \subsubsection{\texorpdfstring{Backward\+Mixed()}{BackwardMixed()}}
 {\footnotesize\ttfamily def Backward\+Mixed (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{address,  }\item[{}]{val }\end{DoxyParamCaption})}
 
+
+\begin{DoxyCode}
+680     \textcolor{keyword}{def }BackwardMixed(self,address,val):
+681         \textcolor{keywordflow}{return} self.\_write1(address,self.Cmd.MIXEDBACKWARD,val)
+682 
+\end{DoxyCode}
 \mbox{\Hypertarget{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_a13d25f23765d6d691a12540125b17108}\label{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_a13d25f23765d6d691a12540125b17108}} 
 \index{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}!crc\+\_\+clear@{crc\+\_\+clear}}
 \index{crc\+\_\+clear@{crc\+\_\+clear}!toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}}
 \subsubsection{\texorpdfstring{crc\+\_\+clear()}{crc\_clear()}}
 {\footnotesize\ttfamily def crc\+\_\+clear (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
 
+
+\begin{DoxyCode}
+112     \textcolor{keyword}{def }crc\_clear(self):
+113         self.\_crc = 0
+114         \textcolor{keywordflow}{return}
+115         
+\end{DoxyCode}
 \mbox{\Hypertarget{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_ab0194da7d3b1e01752a7d24dee8c7b55}\label{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_ab0194da7d3b1e01752a7d24dee8c7b55}} 
 \index{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}!crc\+\_\+update@{crc\+\_\+update}}
 \index{crc\+\_\+update@{crc\+\_\+update}!toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}}
 \subsubsection{\texorpdfstring{crc\+\_\+update()}{crc\_update()}}
 {\footnotesize\ttfamily def crc\+\_\+update (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{data }\end{DoxyParamCaption})}
 
+
+\begin{DoxyCode}
+116     \textcolor{keyword}{def }crc\_update(self,data):
+117         self.\_crc = self.\_crc ^ (data << 8)
+118         \textcolor{keywordflow}{for} bit \textcolor{keywordflow}{in} range(0, 8):
+119             \textcolor{keywordflow}{if} (self.\_crc&0x8000)  == 0x8000:
+120                 self.\_crc = ((self.\_crc << 1) ^ 0x1021)
+121             \textcolor{keywordflow}{else}:
+122                 self.\_crc = self.\_crc << 1
+123         \textcolor{keywordflow}{return}
+124 
+\end{DoxyCode}
 \mbox{\Hypertarget{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_a9a743669aa5263257f5443fc24d171fe}\label{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_a9a743669aa5263257f5443fc24d171fe}} 
 \index{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}!Duty\+Accel\+M1@{Duty\+Accel\+M1}}
 \index{Duty\+Accel\+M1@{Duty\+Accel\+M1}!toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}}
 \subsubsection{\texorpdfstring{Duty\+Accel\+M1()}{DutyAccelM1()}}
 {\footnotesize\ttfamily def Duty\+Accel\+M1 (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{address,  }\item[{}]{accel,  }\item[{}]{duty }\end{DoxyParamCaption})}
 
+
+\begin{DoxyCode}
+854     \textcolor{keyword}{def }DutyAccelM1(self,address,accel,duty):
+855         \textcolor{keywordflow}{return} self.\_writeS24(address,self.Cmd.M1DUTYACCEL,duty,accel)
+856 
+\end{DoxyCode}
 \mbox{\Hypertarget{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_a2aba2edd06d47a93e81ec7f3f3619f59}\label{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_a2aba2edd06d47a93e81ec7f3f3619f59}} 
 \index{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}!Duty\+Accel\+M1\+M2@{Duty\+Accel\+M1\+M2}}
 \index{Duty\+Accel\+M1\+M2@{Duty\+Accel\+M1\+M2}!toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}}
 \subsubsection{\texorpdfstring{Duty\+Accel\+M1\+M2()}{DutyAccelM1M2()}}
 {\footnotesize\ttfamily def Duty\+Accel\+M1\+M2 (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{address,  }\item[{}]{accel1,  }\item[{}]{duty1,  }\item[{}]{accel2,  }\item[{}]{duty2 }\end{DoxyParamCaption})}
 
+
+\begin{DoxyCode}
+860     \textcolor{keyword}{def }DutyAccelM1M2(self,address,accel1,duty1,accel2,duty2):
+861         \textcolor{keywordflow}{return} self.\_writeS24S24(address,self.Cmd.MIXEDDUTYACCEL,duty1,accel1,duty2,accel2)
+862         
+\end{DoxyCode}
 \mbox{\Hypertarget{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_a881053800292742cd8419a6158fe36ca}\label{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_a881053800292742cd8419a6158fe36ca}} 
 \index{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}!Duty\+Accel\+M2@{Duty\+Accel\+M2}}
 \index{Duty\+Accel\+M2@{Duty\+Accel\+M2}!toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}}
 \subsubsection{\texorpdfstring{Duty\+Accel\+M2()}{DutyAccelM2()}}
 {\footnotesize\ttfamily def Duty\+Accel\+M2 (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{address,  }\item[{}]{accel,  }\item[{}]{duty }\end{DoxyParamCaption})}
 
+
+\begin{DoxyCode}
+857     \textcolor{keyword}{def }DutyAccelM2(self,address,accel,duty):
+858         \textcolor{keywordflow}{return} self.\_writeS24(address,self.Cmd.M2DUTYACCEL,duty,accel)
+859 
+\end{DoxyCode}
 \mbox{\Hypertarget{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_afd7c4865f7e4c723f66b5b51ce8069d3}\label{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_afd7c4865f7e4c723f66b5b51ce8069d3}} 
 \index{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}!Duty\+M1@{Duty\+M1}}
 \index{Duty\+M1@{Duty\+M1}!toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}}
 \subsubsection{\texorpdfstring{Duty\+M1()}{DutyM1()}}
 {\footnotesize\ttfamily def Duty\+M1 (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{address,  }\item[{}]{val }\end{DoxyParamCaption})}
 
+
+\begin{DoxyCode}
+773     \textcolor{keyword}{def }DutyM1(self,address,val):
+774         \textcolor{keywordflow}{return} self.\_writeS2(address,self.Cmd.M1DUTY,val)
+775 
+\end{DoxyCode}
 \mbox{\Hypertarget{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_a3f7c1baa59d28bf69d9beb6a83deab5f}\label{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_a3f7c1baa59d28bf69d9beb6a83deab5f}} 
 \index{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}!Duty\+M1\+M2@{Duty\+M1\+M2}}
 \index{Duty\+M1\+M2@{Duty\+M1\+M2}!toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}}
 \subsubsection{\texorpdfstring{Duty\+M1\+M2()}{DutyM1M2()}}
 {\footnotesize\ttfamily def Duty\+M1\+M2 (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{address,  }\item[{}]{m1,  }\item[{}]{m2 }\end{DoxyParamCaption})}
 
+
+\begin{DoxyCode}
+779     \textcolor{keyword}{def }DutyM1M2(self,address,m1,m2):
+780         \textcolor{keywordflow}{return} self.\_writeS2S2(address,self.Cmd.MIXEDDUTY,m1,m2)
+781 
+\end{DoxyCode}
 \mbox{\Hypertarget{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_a99a7bb8b0e944f465bbeb1b6722ef22c}\label{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_a99a7bb8b0e944f465bbeb1b6722ef22c}} 
 \index{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}!Duty\+M2@{Duty\+M2}}
 \index{Duty\+M2@{Duty\+M2}!toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}}
 \subsubsection{\texorpdfstring{Duty\+M2()}{DutyM2()}}
 {\footnotesize\ttfamily def Duty\+M2 (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{address,  }\item[{}]{val }\end{DoxyParamCaption})}
 
+
+\begin{DoxyCode}
+776     \textcolor{keyword}{def }DutyM2(self,address,val):
+777         \textcolor{keywordflow}{return} self.\_writeS2(address,self.Cmd.M2DUTY,val)
+778 
+\end{DoxyCode}
 \mbox{\Hypertarget{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_aa2371adb932a68762fe3996c2be8a3ba}\label{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_aa2371adb932a68762fe3996c2be8a3ba}} 
 \index{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}!Forward\+Backward\+M1@{Forward\+Backward\+M1}}
 \index{Forward\+Backward\+M1@{Forward\+Backward\+M1}!toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}}
 \subsubsection{\texorpdfstring{Forward\+Backward\+M1()}{ForwardBackwardM1()}}
 {\footnotesize\ttfamily def Forward\+Backward\+M1 (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{address,  }\item[{}]{val }\end{DoxyParamCaption})}
 
+
+\begin{DoxyCode}
+671     \textcolor{keyword}{def }ForwardBackwardM1(self,address,val):
+672         \textcolor{keywordflow}{return} self.\_write1(address,self.Cmd.M17BIT,val)
+673 
+\end{DoxyCode}
 \mbox{\Hypertarget{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_a72bcc49b759cda4a3de15a6292a28296}\label{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_a72bcc49b759cda4a3de15a6292a28296}} 
 \index{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}!Forward\+Backward\+M2@{Forward\+Backward\+M2}}
 \index{Forward\+Backward\+M2@{Forward\+Backward\+M2}!toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}}
 \subsubsection{\texorpdfstring{Forward\+Backward\+M2()}{ForwardBackwardM2()}}
 {\footnotesize\ttfamily def Forward\+Backward\+M2 (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{address,  }\item[{}]{val }\end{DoxyParamCaption})}
 
+
+\begin{DoxyCode}
+674     \textcolor{keyword}{def }ForwardBackwardM2(self,address,val):
+675         \textcolor{keywordflow}{return} self.\_write1(address,self.Cmd.M27BIT,val)
+676 
+\end{DoxyCode}
 \mbox{\Hypertarget{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_a1895e1f56aaf7909852db2e576f59d2d}\label{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_a1895e1f56aaf7909852db2e576f59d2d}} 
 \index{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}!Forward\+Backward\+Mixed@{Forward\+Backward\+Mixed}}
 \index{Forward\+Backward\+Mixed@{Forward\+Backward\+Mixed}!toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}}
 \subsubsection{\texorpdfstring{Forward\+Backward\+Mixed()}{ForwardBackwardMixed()}}
 {\footnotesize\ttfamily def Forward\+Backward\+Mixed (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{address,  }\item[{}]{val }\end{DoxyParamCaption})}
 
+
+\begin{DoxyCode}
+689     \textcolor{keyword}{def }ForwardBackwardMixed(self,address,val):
+690         \textcolor{keywordflow}{return} self.\_write1(address,self.Cmd.MIXEDFB,val)
+691 
+\end{DoxyCode}
 \mbox{\Hypertarget{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_adf9ab5d77d53912be9929f7ed8e6e05f}\label{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_adf9ab5d77d53912be9929f7ed8e6e05f}} 
 \index{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}!Forward\+M1@{Forward\+M1}}
 \index{Forward\+M1@{Forward\+M1}!toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}}
 \subsubsection{\texorpdfstring{Forward\+M1()}{ForwardM1()}}
 {\footnotesize\ttfamily def Forward\+M1 (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{address,  }\item[{}]{val }\end{DoxyParamCaption})}
 
+
+\begin{DoxyCode}
+653     \textcolor{keyword}{def }ForwardM1(self,address,val):
+654         \textcolor{keywordflow}{return} self.\_write1(address,self.Cmd.M1FORWARD,val)
+655 
+\end{DoxyCode}
 \mbox{\Hypertarget{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_abce41d003f6c4583a79616837749db3f}\label{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_abce41d003f6c4583a79616837749db3f}} 
 \index{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}!Forward\+M2@{Forward\+M2}}
 \index{Forward\+M2@{Forward\+M2}!toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}}
 \subsubsection{\texorpdfstring{Forward\+M2()}{ForwardM2()}}
 {\footnotesize\ttfamily def Forward\+M2 (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{address,  }\item[{}]{val }\end{DoxyParamCaption})}
 
+
+\begin{DoxyCode}
+665     \textcolor{keyword}{def }ForwardM2(self,address,val):
+666         \textcolor{keywordflow}{return} self.\_write1(address,self.Cmd.M2FORWARD,val)
+667 
+\end{DoxyCode}
 \mbox{\Hypertarget{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_acf82a90e2bcb68c83166a1be4978a556}\label{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_acf82a90e2bcb68c83166a1be4978a556}} 
 \index{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}!Forward\+Mixed@{Forward\+Mixed}}
 \index{Forward\+Mixed@{Forward\+Mixed}!toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}}
 \subsubsection{\texorpdfstring{Forward\+Mixed()}{ForwardMixed()}}
 {\footnotesize\ttfamily def Forward\+Mixed (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{address,  }\item[{}]{val }\end{DoxyParamCaption})}
 
+
+\begin{DoxyCode}
+677     \textcolor{keyword}{def }ForwardMixed(self,address,val):
+678         \textcolor{keywordflow}{return} self.\_write1(address,self.Cmd.MIXEDFORWARD,val)
+679 
+\end{DoxyCode}
 \mbox{\Hypertarget{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_afc1b66a8f32fe623ab34d0fdfef9186c}\label{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_afc1b66a8f32fe623ab34d0fdfef9186c}} 
 \index{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}!Get\+Config@{Get\+Config}}
 \index{Get\+Config@{Get\+Config}!toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}}
 \subsubsection{\texorpdfstring{Get\+Config()}{GetConfig()}}
 {\footnotesize\ttfamily def Get\+Config (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{address }\end{DoxyParamCaption})}
 
+
+\begin{DoxyCode}
+1015     \textcolor{keyword}{def }GetConfig(self,address):
+1016         \textcolor{keywordflow}{return} self.\_read2(address,self.Cmd.GETCONFIG)
+1017 
+\end{DoxyCode}
 \mbox{\Hypertarget{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_afc265149c1e2c828615710da9984db1a}\label{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_afc265149c1e2c828615710da9984db1a}} 
 \index{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}!Get\+Dead\+Band@{Get\+Dead\+Band}}
 \index{Get\+Dead\+Band@{Get\+Dead\+Band}!toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}}
 \subsubsection{\texorpdfstring{Get\+Dead\+Band()}{GetDeadBand()}}
 {\footnotesize\ttfamily def Get\+Dead\+Band (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{address }\end{DoxyParamCaption})}
 
+
+\begin{DoxyCode}
+970     \textcolor{keyword}{def }GetDeadBand(self,address):
+971         val = self.\_read2(address,self.Cmd.GETDEADBAND)
+972         \textcolor{keywordflow}{if} val[0]:
+973             \textcolor{keywordflow}{return} (1,val[1]>>8,val[1]&0xFF)
+974         \textcolor{keywordflow}{return} (0,0,0)
+975         
+\end{DoxyCode}
 \mbox{\Hypertarget{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_ab1b403df0c19b03fa19fc6e6944b5bac}\label{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_ab1b403df0c19b03fa19fc6e6944b5bac}} 
 \index{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}!Left\+Right\+Mixed@{Left\+Right\+Mixed}}
 \index{Left\+Right\+Mixed@{Left\+Right\+Mixed}!toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}}
 \subsubsection{\texorpdfstring{Left\+Right\+Mixed()}{LeftRightMixed()}}
 {\footnotesize\ttfamily def Left\+Right\+Mixed (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{address,  }\item[{}]{val }\end{DoxyParamCaption})}
 
+
+\begin{DoxyCode}
+692     \textcolor{keyword}{def }LeftRightMixed(self,address,val):
+693         \textcolor{keywordflow}{return} self.\_write1(address,self.Cmd.MIXEDLR,val)
+694 
+\end{DoxyCode}
 \mbox{\Hypertarget{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_aae16cc4d3c7c4ec0126729d49ebb92cb}\label{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_aae16cc4d3c7c4ec0126729d49ebb92cb}} 
 \index{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}!Open@{Open}}
 \index{Open@{Open}!toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}}
 \subsubsection{\texorpdfstring{Open()}{Open()}}
 {\footnotesize\ttfamily def Open (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
 
+
+\begin{DoxyCode}
+1076     \textcolor{keyword}{def }Open(self):
+1077         \textcolor{keywordflow}{try}:
+1078             self.\_port = serial.Serial(port=self.comport, baudrate=self.rate, timeout=1, interCharTimeout=
+      self.timeout)
+1079             \textcolor{comment}{#self.\_port = serial.Serial(port=self.comport, baudrate=self.rate, timeout=1,
+       interCharTimeout=self.timeout)}
+1080         \textcolor{keywordflow}{except}:
+1081             \textcolor{keywordflow}{return} 0
+1082         \textcolor{keywordflow}{return} 1
+1083 
+1084 \end{DoxyCode}
 \mbox{\Hypertarget{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_a0ccc774bd702e611c98c01313707b8fe}\label{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_a0ccc774bd702e611c98c01313707b8fe}} 
 \index{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}!Read\+Buffers@{Read\+Buffers}}
 \index{Read\+Buffers@{Read\+Buffers}!toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}}
 \subsubsection{\texorpdfstring{Read\+Buffers()}{ReadBuffers()}}
 {\footnotesize\ttfamily def Read\+Buffers (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{address }\end{DoxyParamCaption})}
 
+
+\begin{DoxyCode}
+818     \textcolor{keyword}{def }ReadBuffers(self,address):
+819         val = self.\_read2(address,self.Cmd.GETBUFFERS)
+820         \textcolor{keywordflow}{if} val[0]:
+821             \textcolor{keywordflow}{return} (1,val[1]>>8,val[1]&0xFF)
+822         \textcolor{keywordflow}{return} (0,0,0)
+823 
+\end{DoxyCode}
 \mbox{\Hypertarget{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_ac9359f88c9e1b9b23e09ba962bc2774e}\label{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_ac9359f88c9e1b9b23e09ba962bc2774e}} 
 \index{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}!Read\+Currents@{Read\+Currents}}
 \index{Read\+Currents@{Read\+Currents}!toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}}
 \subsubsection{\texorpdfstring{Read\+Currents()}{ReadCurrents()}}
 {\footnotesize\ttfamily def Read\+Currents (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{address }\end{DoxyParamCaption})}
 
+
+\begin{DoxyCode}
+836     \textcolor{keyword}{def }ReadCurrents(self,address):
+837         val = self.\_read4(address,self.Cmd.GETCURRENTS)
+838         \textcolor{keywordflow}{if} val[0]:
+839             cur1 = val[1]>>16
+840             cur2 = val[1]&0xFFFF
+841             \textcolor{keywordflow}{if} cur1&0x8000:
+842                 cur1-=0x10000
+843             \textcolor{keywordflow}{if} cur2&0x8000:
+844                 cur2-=0x10000
+845             \textcolor{keywordflow}{return} (1,cur1,cur2)
+846         \textcolor{keywordflow}{return} (0,0,0)
+847 
+\end{DoxyCode}
 \mbox{\Hypertarget{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_a3a5b1ed034fb270714ac6a8e05d02cfa}\label{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_a3a5b1ed034fb270714ac6a8e05d02cfa}} 
 \index{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}!Read\+Eeprom@{Read\+Eeprom}}
 \index{Read\+Eeprom@{Read\+Eeprom}!toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}}
 \subsubsection{\texorpdfstring{Read\+Eeprom()}{ReadEeprom()}}
 {\footnotesize\ttfamily def Read\+Eeprom (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{address,  }\item[{}]{ee\+\_\+address }\end{DoxyParamCaption})}
 
+
+\begin{DoxyCode}
+1042     \textcolor{keyword}{def }ReadEeprom(self,address,ee\_address):
+1043         trys = self.\_trystimeout
+1044         \textcolor{keywordflow}{while} 1:
+1045             self.\_port.flushInput()
+1046             self.\_sendcommand(address,self.Cmd.READEEPROM)
+1047             self.crc\_update(ee\_address)
+1048             self.\_port.write(chr(ee\_address))
+1049             val1 = self.\_readword()
+1050             \textcolor{keywordflow}{if} val1[0]:
+1051                 crc = self.\_readchecksumword()
+1052                 \textcolor{keywordflow}{if} crc[0]:
+1053                     \textcolor{keywordflow}{if} self.\_crc&0xFFFF!=crc[1]&0xFFFF:
+1054                         \textcolor{keywordflow}{return} (0,0)
+1055                     \textcolor{keywordflow}{return} (1,val1[1])
+1056             trys-=1
+1057             \textcolor{keywordflow}{if} trys==0:
+1058                 \textcolor{keywordflow}{break}
+1059         \textcolor{keywordflow}{return} (0,0)
+1060 
+\end{DoxyCode}
 \mbox{\Hypertarget{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_a912ba280064ac04e9d69e7333da9c143}\label{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_a912ba280064ac04e9d69e7333da9c143}} 
 \index{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}!Read\+Enc\+M1@{Read\+Enc\+M1}}
 \index{Read\+Enc\+M1@{Read\+Enc\+M1}!toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}}
 \subsubsection{\texorpdfstring{Read\+Enc\+M1()}{ReadEncM1()}}
 {\footnotesize\ttfamily def Read\+Enc\+M1 (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{address }\end{DoxyParamCaption})}
 
+
+\begin{DoxyCode}
+695     \textcolor{keyword}{def }ReadEncM1(self,address):
+696         \textcolor{keywordflow}{return} self.\_read4\_1(address,self.Cmd.GETM1ENC)
+697 
+\end{DoxyCode}
 \mbox{\Hypertarget{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_a070a811f611cd1b8c86c375eac24cd71}\label{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_a070a811f611cd1b8c86c375eac24cd71}} 
 \index{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}!Read\+Enc\+M2@{Read\+Enc\+M2}}
 \index{Read\+Enc\+M2@{Read\+Enc\+M2}!toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}}
 \subsubsection{\texorpdfstring{Read\+Enc\+M2()}{ReadEncM2()}}
 {\footnotesize\ttfamily def Read\+Enc\+M2 (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{address }\end{DoxyParamCaption})}
 
+
+\begin{DoxyCode}
+698     \textcolor{keyword}{def }ReadEncM2(self,address):
+699         \textcolor{keywordflow}{return} self.\_read4\_1(address,self.Cmd.GETM2ENC)
+700 
+\end{DoxyCode}
 \mbox{\Hypertarget{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_a1cef86af310cc021bdf421bd4d02adf3}\label{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_a1cef86af310cc021bdf421bd4d02adf3}} 
 \index{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}!Read\+Encoder\+Modes@{Read\+Encoder\+Modes}}
 \index{Read\+Encoder\+Modes@{Read\+Encoder\+Modes}!toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}}
 \subsubsection{\texorpdfstring{Read\+Encoder\+Modes()}{ReadEncoderModes()}}
 {\footnotesize\ttfamily def Read\+Encoder\+Modes (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{address }\end{DoxyParamCaption})}
 
+
+\begin{DoxyCode}
+989     \textcolor{keyword}{def }ReadEncoderModes(self,address):
+990         val = self.\_read2(address,self.Cmd.GETENCODERMODE)
+991         \textcolor{keywordflow}{if} val[0]:
+992             \textcolor{keywordflow}{return} (1,val[1]>>8,val[1]&0xFF)
+993         \textcolor{keywordflow}{return} (0,0,0)
+994         
+\end{DoxyCode}
 \mbox{\Hypertarget{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_a72e3c01c236d0507a5bbe51dbc4cab7c}\label{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_a72e3c01c236d0507a5bbe51dbc4cab7c}} 
 \index{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}!Read\+Error@{Read\+Error}}
 \index{Read\+Error@{Read\+Error}!toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}}
 \subsubsection{\texorpdfstring{Read\+Error()}{ReadError()}}
 {\footnotesize\ttfamily def Read\+Error (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{address }\end{DoxyParamCaption})}
 
+
+\begin{DoxyCode}
+986     \textcolor{keyword}{def }ReadError(self,address):
+987         \textcolor{keywordflow}{return} self.\_read4(address,self.Cmd.GETERROR)
+988 
+\end{DoxyCode}
 \mbox{\Hypertarget{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_a26242513f458febf217714b304956f11}\label{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_a26242513f458febf217714b304956f11}} 
 \index{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}!Read\+I\+Speed\+M1@{Read\+I\+Speed\+M1}}
 \index{Read\+I\+Speed\+M1@{Read\+I\+Speed\+M1}!toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}}
 \subsubsection{\texorpdfstring{Read\+I\+Speed\+M1()}{ReadISpeedM1()}}
 {\footnotesize\ttfamily def Read\+I\+Speed\+M1 (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{address }\end{DoxyParamCaption})}
 
+
+\begin{DoxyCode}
+767     \textcolor{keyword}{def }ReadISpeedM1(self,address):
+768         \textcolor{keywordflow}{return} self.\_read4\_1(address,self.Cmd.GETM1ISPEED)
+769 
+\end{DoxyCode}
 \mbox{\Hypertarget{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_aaac3abe9920b64707f1697b870bd16fd}\label{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_aaac3abe9920b64707f1697b870bd16fd}} 
 \index{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}!Read\+I\+Speed\+M2@{Read\+I\+Speed\+M2}}
 \index{Read\+I\+Speed\+M2@{Read\+I\+Speed\+M2}!toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}}
 \subsubsection{\texorpdfstring{Read\+I\+Speed\+M2()}{ReadISpeedM2()}}
 {\footnotesize\ttfamily def Read\+I\+Speed\+M2 (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{address }\end{DoxyParamCaption})}
 
+
+\begin{DoxyCode}
+770     \textcolor{keyword}{def }ReadISpeedM2(self,address):
+771         \textcolor{keywordflow}{return} self.\_read4\_1(address,self.Cmd.GETM2ISPEED)
+772 
+\end{DoxyCode}
 \mbox{\Hypertarget{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_aac164c773247f222999594aba2deae95}\label{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_aac164c773247f222999594aba2deae95}} 
 \index{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}!Read\+Logic\+Battery\+Voltage@{Read\+Logic\+Battery\+Voltage}}
 \index{Read\+Logic\+Battery\+Voltage@{Read\+Logic\+Battery\+Voltage}!toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}}
 \subsubsection{\texorpdfstring{Read\+Logic\+Battery\+Voltage()}{ReadLogicBatteryVoltage()}}
 {\footnotesize\ttfamily def Read\+Logic\+Battery\+Voltage (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{address }\end{DoxyParamCaption})}
 
+
+\begin{DoxyCode}
+750     \textcolor{keyword}{def }ReadLogicBatteryVoltage(self,address,):
+751         \textcolor{keywordflow}{return} self.\_read2(address,self.Cmd.GETLBATT)
+752 
+\end{DoxyCode}
 \mbox{\Hypertarget{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_a9893d61828707709b8e6808729feca96}\label{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_a9893d61828707709b8e6808729feca96}} 
 \index{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}!Read\+M1\+Max\+Current@{Read\+M1\+Max\+Current}}
 \index{Read\+M1\+Max\+Current@{Read\+M1\+Max\+Current}!toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}}
 \subsubsection{\texorpdfstring{Read\+M1\+Max\+Current()}{ReadM1MaxCurrent()}}
 {\footnotesize\ttfamily def Read\+M1\+Max\+Current (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{address }\end{DoxyParamCaption})}
 
+
+\begin{DoxyCode}
+1024     \textcolor{keyword}{def }ReadM1MaxCurrent(self,address):
+1025         data = self.\_read\_n(address,self.Cmd.GETM1MAXCURRENT,2)
+1026         \textcolor{keywordflow}{if} data[0]:
+1027             \textcolor{keywordflow}{return} (1,data[1])
+1028         \textcolor{keywordflow}{return} (0,0)
+1029 
+\end{DoxyCode}
 \mbox{\Hypertarget{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_a570e8879933adbcb33e90eb45091fc31}\label{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_a570e8879933adbcb33e90eb45091fc31}} 
 \index{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}!Read\+M1\+Position\+P\+ID@{Read\+M1\+Position\+P\+ID}}
 \index{Read\+M1\+Position\+P\+ID@{Read\+M1\+Position\+P\+ID}!toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}}
 \subsubsection{\texorpdfstring{Read\+M1\+Position\+P\+I\+D()}{ReadM1PositionPID()}}
 {\footnotesize\ttfamily def Read\+M1\+Position\+P\+ID (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{address }\end{DoxyParamCaption})}
 
+
+\begin{DoxyCode}
+911     \textcolor{keyword}{def }ReadM1PositionPID(self,address):
+912         data = self.\_read\_n(address,self.Cmd.READM1POSPID,7)
+913         \textcolor{keywordflow}{if} data[0]:
+914             data[1]/=1024.0
+915             data[2]/=1024.0
+916             data[3]/=1024.0
+917             \textcolor{keywordflow}{return} data
+918         \textcolor{keywordflow}{return} (0,0,0,0,0,0,0,0)
+919         
+\end{DoxyCode}
 \mbox{\Hypertarget{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_a7d6b9aed2767ac9e9a7df14cde48efe8}\label{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_a7d6b9aed2767ac9e9a7df14cde48efe8}} 
 \index{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}!Read\+M1\+Velocity\+P\+ID@{Read\+M1\+Velocity\+P\+ID}}
 \index{Read\+M1\+Velocity\+P\+ID@{Read\+M1\+Velocity\+P\+ID}!toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}}
 \subsubsection{\texorpdfstring{Read\+M1\+Velocity\+P\+I\+D()}{ReadM1VelocityPID()}}
 {\footnotesize\ttfamily def Read\+M1\+Velocity\+P\+ID (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{address }\end{DoxyParamCaption})}
 
+
+\begin{DoxyCode}
+863     \textcolor{keyword}{def }ReadM1VelocityPID(self,address):
+864         data = self.\_read\_n(address,self.Cmd.READM1PID,4)
+865         \textcolor{keywordflow}{if} data[0]:
+866             data[1]/=65536.0
+867             data[2]/=65536.0
+868             data[3]/=65536.0
+869             \textcolor{keywordflow}{return} data
+870         \textcolor{keywordflow}{return} (0,0,0,0,0)
+871 
+\end{DoxyCode}
 \mbox{\Hypertarget{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_a47f42d6846681c541c4f609d91020238}\label{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_a47f42d6846681c541c4f609d91020238}} 
 \index{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}!Read\+M2\+Max\+Current@{Read\+M2\+Max\+Current}}
 \index{Read\+M2\+Max\+Current@{Read\+M2\+Max\+Current}!toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}}
 \subsubsection{\texorpdfstring{Read\+M2\+Max\+Current()}{ReadM2MaxCurrent()}}
 {\footnotesize\ttfamily def Read\+M2\+Max\+Current (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{address }\end{DoxyParamCaption})}
 
+
+\begin{DoxyCode}
+1030     \textcolor{keyword}{def }ReadM2MaxCurrent(self,address):
+1031         data = self.\_read\_n(address,self.Cmd.GETM2MAXCURRENT,2)
+1032         \textcolor{keywordflow}{if} data[0]:
+1033             \textcolor{keywordflow}{return} (1,data[1])
+1034         \textcolor{keywordflow}{return} (0,0)
+1035 
+\end{DoxyCode}
 \mbox{\Hypertarget{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_a88fdebf9a672c22ff3789719b39dd994}\label{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_a88fdebf9a672c22ff3789719b39dd994}} 
 \index{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}!Read\+M2\+Position\+P\+ID@{Read\+M2\+Position\+P\+ID}}
 \index{Read\+M2\+Position\+P\+ID@{Read\+M2\+Position\+P\+ID}!toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}}
 \subsubsection{\texorpdfstring{Read\+M2\+Position\+P\+I\+D()}{ReadM2PositionPID()}}
 {\footnotesize\ttfamily def Read\+M2\+Position\+P\+ID (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{address }\end{DoxyParamCaption})}
 
+
+\begin{DoxyCode}
+920     \textcolor{keyword}{def }ReadM2PositionPID(self,address):
+921         data = self.\_read\_n(address,self.Cmd.READM2POSPID,7)
+922         \textcolor{keywordflow}{if} data[0]:
+923             data[1]/=1024.0
+924             data[2]/=1024.0
+925             data[3]/=1024.0
+926             \textcolor{keywordflow}{return} data
+927         \textcolor{keywordflow}{return} (0,0,0,0,0,0,0,0)
+928 
+\end{DoxyCode}
 \mbox{\Hypertarget{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_a6130b63fbb5a30686b1f356a3429f0c2}\label{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_a6130b63fbb5a30686b1f356a3429f0c2}} 
 \index{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}!Read\+M2\+Velocity\+P\+ID@{Read\+M2\+Velocity\+P\+ID}}
 \index{Read\+M2\+Velocity\+P\+ID@{Read\+M2\+Velocity\+P\+ID}!toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}}
 \subsubsection{\texorpdfstring{Read\+M2\+Velocity\+P\+I\+D()}{ReadM2VelocityPID()}}
 {\footnotesize\ttfamily def Read\+M2\+Velocity\+P\+ID (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{address }\end{DoxyParamCaption})}
 
+
+\begin{DoxyCode}
+872     \textcolor{keyword}{def }ReadM2VelocityPID(self,address):
+873         data = self.\_read\_n(address,self.Cmd.READM2PID,4)
+874         \textcolor{keywordflow}{if} data[0]:
+875             data[1]/=65536.0
+876             data[2]/=65536.0
+877             data[3]/=65536.0
+878             \textcolor{keywordflow}{return} data
+879         \textcolor{keywordflow}{return} (0,0,0,0,0)
+880 
+\end{DoxyCode}
 \mbox{\Hypertarget{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_abb5901cba752131303b0378bbaf59c38}\label{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_abb5901cba752131303b0378bbaf59c38}} 
 \index{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}!Read\+Main\+Battery\+Voltage@{Read\+Main\+Battery\+Voltage}}
 \index{Read\+Main\+Battery\+Voltage@{Read\+Main\+Battery\+Voltage}!toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}}
 \subsubsection{\texorpdfstring{Read\+Main\+Battery\+Voltage()}{ReadMainBatteryVoltage()}}
 {\footnotesize\ttfamily def Read\+Main\+Battery\+Voltage (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{address }\end{DoxyParamCaption})}
 
+
+\begin{DoxyCode}
+747     \textcolor{keyword}{def }ReadMainBatteryVoltage(self,address):
+748         \textcolor{keywordflow}{return} self.\_read2(address,self.Cmd.GETMBATT)
+749 
+\end{DoxyCode}
 \mbox{\Hypertarget{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_a6b08f6579fda6d73bc23b5ebe628f952}\label{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_a6b08f6579fda6d73bc23b5ebe628f952}} 
 \index{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}!Read\+Min\+Max\+Logic\+Voltages@{Read\+Min\+Max\+Logic\+Voltages}}
 \index{Read\+Min\+Max\+Logic\+Voltages@{Read\+Min\+Max\+Logic\+Voltages}!toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}}
 \subsubsection{\texorpdfstring{Read\+Min\+Max\+Logic\+Voltages()}{ReadMinMaxLogicVoltages()}}
 {\footnotesize\ttfamily def Read\+Min\+Max\+Logic\+Voltages (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{address }\end{DoxyParamCaption})}
 
+
+\begin{DoxyCode}
+895     \textcolor{keyword}{def }ReadMinMaxLogicVoltages(self,address):
+896         val = self.\_read4(address,self.Cmd.GETMINMAXLOGICVOLTAGES)
+897         \textcolor{keywordflow}{if} val[0]:
+898             min = val[1]>>16
+899             max = val[1]&0xFFFF
+900             \textcolor{keywordflow}{return} (1,min,max)
+901         \textcolor{keywordflow}{return} (0,0,0)
+902 
+\end{DoxyCode}
 \mbox{\Hypertarget{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_a5ca4a184f6501b75d547c6bdcbf3735f}\label{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_a5ca4a184f6501b75d547c6bdcbf3735f}} 
 \index{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}!Read\+Min\+Max\+Main\+Voltages@{Read\+Min\+Max\+Main\+Voltages}}
 \index{Read\+Min\+Max\+Main\+Voltages@{Read\+Min\+Max\+Main\+Voltages}!toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}}
 \subsubsection{\texorpdfstring{Read\+Min\+Max\+Main\+Voltages()}{ReadMinMaxMainVoltages()}}
 {\footnotesize\ttfamily def Read\+Min\+Max\+Main\+Voltages (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{address }\end{DoxyParamCaption})}
 
+
+\begin{DoxyCode}
+887     \textcolor{keyword}{def }ReadMinMaxMainVoltages(self,address):
+888         val = self.\_read4(address,self.Cmd.GETMINMAXMAINVOLTAGES)
+889         \textcolor{keywordflow}{if} val[0]:
+890             min = val[1]>>16
+891             max = val[1]&0xFFFF
+892             \textcolor{keywordflow}{return} (1,min,max)
+893         \textcolor{keywordflow}{return} (0,0,0)
+894 
+\end{DoxyCode}
 \mbox{\Hypertarget{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_a9758a592cc718d5ccc89d45e785d9662}\label{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_a9758a592cc718d5ccc89d45e785d9662}} 
 \index{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}!Read\+N\+VM@{Read\+N\+VM}}
 \index{Read\+N\+VM@{Read\+N\+VM}!toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}}
 \subsubsection{\texorpdfstring{Read\+N\+V\+M()}{ReadNVM()}}
 {\footnotesize\ttfamily def Read\+N\+VM (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{address }\end{DoxyParamCaption})}
 
+
+\begin{DoxyCode}
+1007     \textcolor{keyword}{def }ReadNVM(self,address):
+1008         \textcolor{keywordflow}{return} self.\_write0(address,self.Cmd.READNVM)
+1009 
+\end{DoxyCode}
 \mbox{\Hypertarget{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_a514dcfe31df7d312ed3d2a45666500c3}\label{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_a514dcfe31df7d312ed3d2a45666500c3}} 
 \index{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}!Read\+Pin\+Functions@{Read\+Pin\+Functions}}
 \index{Read\+Pin\+Functions@{Read\+Pin\+Functions}!toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}}
 \subsubsection{\texorpdfstring{Read\+Pin\+Functions()}{ReadPinFunctions()}}
 {\footnotesize\ttfamily def Read\+Pin\+Functions (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{address }\end{DoxyParamCaption})}
 
+
+\begin{DoxyCode}
+947     \textcolor{keyword}{def }ReadPinFunctions(self,address):
+948         trys = self.\_trystimeout
+949         \textcolor{keywordflow}{while} 1:
+950             self.\_sendcommand(address,self.Cmd.GETPINFUNCTIONS)
+951             val1 = self.\_readbyte()
+952             \textcolor{keywordflow}{if} val1[0]:
+953                 val2 = self.\_readbyte()
+954                 \textcolor{keywordflow}{if} val1[0]:
+955                     val3 = self.\_readbyte()
+956                     \textcolor{keywordflow}{if} val1[0]:
+957                         crc = self.\_readchecksumword()
+958                         \textcolor{keywordflow}{if} crc[0]:
+959                             \textcolor{keywordflow}{if} self.\_crc&0xFFFF!=crc[1]&0xFFFF:
+960                                 \textcolor{keywordflow}{return} (0,0)
+961                             \textcolor{keywordflow}{return} (1,val1[1],val2[1],val3[1])
+962             trys-=1
+963             \textcolor{keywordflow}{if} trys==0:
+964                 \textcolor{keywordflow}{break}
+965         \textcolor{keywordflow}{return} (0,0)
+966 
+\end{DoxyCode}
 \mbox{\Hypertarget{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_a3d8822116c10f298f220bcf6bff9ef82}\label{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_a3d8822116c10f298f220bcf6bff9ef82}} 
 \index{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}!Read\+P\+W\+M\+Mode@{Read\+P\+W\+M\+Mode}}
 \index{Read\+P\+W\+M\+Mode@{Read\+P\+W\+M\+Mode}!toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}}
 \subsubsection{\texorpdfstring{Read\+P\+W\+M\+Mode()}{ReadPWMMode()}}
 {\footnotesize\ttfamily def Read\+P\+W\+M\+Mode (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{address }\end{DoxyParamCaption})}
 
+
+\begin{DoxyCode}
+1039     \textcolor{keyword}{def }ReadPWMMode(self,address):
+1040         \textcolor{keywordflow}{return} self.\_read1(address,self.Cmd.GETPWMMODE)
+1041 
+\end{DoxyCode}
 \mbox{\Hypertarget{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_ad6694602dd7294a517f29dfcbf0a3068}\label{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_ad6694602dd7294a517f29dfcbf0a3068}} 
 \index{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}!Read\+P\+W\+Ms@{Read\+P\+W\+Ms}}
 \index{Read\+P\+W\+Ms@{Read\+P\+W\+Ms}!toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}}
 \subsubsection{\texorpdfstring{Read\+P\+W\+Ms()}{ReadPWMs()}}
 {\footnotesize\ttfamily def Read\+P\+W\+Ms (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{address }\end{DoxyParamCaption})}
 
+
+\begin{DoxyCode}
+824     \textcolor{keyword}{def }ReadPWMs(self,address):
+825         val = self.\_read4(address,self.Cmd.GETPWMS)
+826         \textcolor{keywordflow}{if} val[0]:
+827             pwm1 = val[1]>>16
+828             pwm2 = val[1]&0xFFFF
+829             \textcolor{keywordflow}{if} pwm1&0x8000:
+830                 pwm1-=0x10000
+831             \textcolor{keywordflow}{if} pwm2&0x8000:
+832                 pwm2-=0x10000
+833             \textcolor{keywordflow}{return} (1,pwm1,pwm2)
+834         \textcolor{keywordflow}{return} (0,0,0)
+835 
+\end{DoxyCode}
 \mbox{\Hypertarget{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_a4f1e923998c2561bbb86a04bc32df602}\label{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_a4f1e923998c2561bbb86a04bc32df602}} 
 \index{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}!Read\+Speed\+M1@{Read\+Speed\+M1}}
 \index{Read\+Speed\+M1@{Read\+Speed\+M1}!toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}}
 \subsubsection{\texorpdfstring{Read\+Speed\+M1()}{ReadSpeedM1()}}
 {\footnotesize\ttfamily def Read\+Speed\+M1 (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{address }\end{DoxyParamCaption})}
 
+
+\begin{DoxyCode}
+701     \textcolor{keyword}{def }ReadSpeedM1(self,address):
+702         \textcolor{keywordflow}{return} self.\_read4\_1(address,self.Cmd.GETM1SPEED)
+703 
+\end{DoxyCode}
 \mbox{\Hypertarget{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_a9336d97afea54d955d7d241ac930bd18}\label{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_a9336d97afea54d955d7d241ac930bd18}} 
 \index{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}!Read\+Speed\+M2@{Read\+Speed\+M2}}
 \index{Read\+Speed\+M2@{Read\+Speed\+M2}!toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}}
 \subsubsection{\texorpdfstring{Read\+Speed\+M2()}{ReadSpeedM2()}}
 {\footnotesize\ttfamily def Read\+Speed\+M2 (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{address }\end{DoxyParamCaption})}
 
+
+\begin{DoxyCode}
+704     \textcolor{keyword}{def }ReadSpeedM2(self,address):
+705         \textcolor{keywordflow}{return} self.\_read4\_1(address,self.Cmd.GETM2SPEED)
+706 
+\end{DoxyCode}
 \mbox{\Hypertarget{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_a4d3216ee6c9260f2ebd116bf6c057d0c}\label{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_a4d3216ee6c9260f2ebd116bf6c057d0c}} 
 \index{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}!Read\+Temp@{Read\+Temp}}
 \index{Read\+Temp@{Read\+Temp}!toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}}
 \subsubsection{\texorpdfstring{Read\+Temp()}{ReadTemp()}}
 {\footnotesize\ttfamily def Read\+Temp (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{address }\end{DoxyParamCaption})}
 
+
+\begin{DoxyCode}
+980     \textcolor{keyword}{def }ReadTemp(self,address):
+981         \textcolor{keywordflow}{return} self.\_read2(address,self.Cmd.GETTEMP)
+982 
+\end{DoxyCode}
 \mbox{\Hypertarget{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_a2ad329a177d6b02dfd1cd59163c129c5}\label{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_a2ad329a177d6b02dfd1cd59163c129c5}} 
 \index{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}!Read\+Temp2@{Read\+Temp2}}
 \index{Read\+Temp2@{Read\+Temp2}!toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}}
 \subsubsection{\texorpdfstring{Read\+Temp2()}{ReadTemp2()}}
 {\footnotesize\ttfamily def Read\+Temp2 (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{address }\end{DoxyParamCaption})}
 
+
+\begin{DoxyCode}
+983     \textcolor{keyword}{def }ReadTemp2(self,address):
+984         \textcolor{keywordflow}{return} self.\_read2(address,self.Cmd.GETTEMP2)
+985 
+\end{DoxyCode}
 \mbox{\Hypertarget{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_ab0622e3f1cf0d537b1b4b73bde02fbe1}\label{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_ab0622e3f1cf0d537b1b4b73bde02fbe1}} 
 \index{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}!Read\+Version@{Read\+Version}}
 \index{Read\+Version@{Read\+Version}!toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}}
 \subsubsection{\texorpdfstring{Read\+Version()}{ReadVersion()}}
 {\footnotesize\ttfamily def Read\+Version (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{address }\end{DoxyParamCaption})}
 
+
+\begin{DoxyCode}
+710     \textcolor{keyword}{def }ReadVersion(self,address):
+711         trys=self.\_trystimeout
+712         \textcolor{keywordflow}{while} 1:
+713             self.\_port.flushInput()
+714             self.\_sendcommand(address,self.Cmd.GETVERSION)
+715             str = \textcolor{stringliteral}{""}
+716             passed = \textcolor{keyword}{True}
+717             \textcolor{keywordflow}{for} i \textcolor{keywordflow}{in} range(0,48):
+718                 data = self.\_port.read(1)
+719                 \textcolor{keywordflow}{if} len(data):
+720                     val = ord(data)
+721                     self.crc\_update(val)
+722                     if(val==0):
+723                         \textcolor{keywordflow}{break}
+724 \textcolor{comment}{#                   str+=data[0]}
+725                     str+=chr(data[0])
+726                 \textcolor{keywordflow}{else}:
+727                     passed = \textcolor{keyword}{False}
+728                     \textcolor{keywordflow}{break}
+729             \textcolor{keywordflow}{if} passed:
+730                 crc = self.\_readchecksumword()
+731                 \textcolor{keywordflow}{if} crc[0]:
+732                     \textcolor{keywordflow}{if} self.\_crc&0xFFFF==crc[1]&0xFFFF:
+733                         \textcolor{keywordflow}{return} (1,str)
+734                     \textcolor{keywordflow}{else}:
+735                         time.sleep(0.01)
+736             trys-=1
+737             \textcolor{keywordflow}{if} trys==0:
+738                 \textcolor{keywordflow}{break}
+739         \textcolor{keywordflow}{return} (0,0)
+740 
+\end{DoxyCode}
 \mbox{\Hypertarget{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_ad6017e671abf27badfd65aa559a80681}\label{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_ad6017e671abf27badfd65aa559a80681}} 
 \index{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}!Reset\+Encoders@{Reset\+Encoders}}
 \index{Reset\+Encoders@{Reset\+Encoders}!toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}}
 \subsubsection{\texorpdfstring{Reset\+Encoders()}{ResetEncoders()}}
 {\footnotesize\ttfamily def Reset\+Encoders (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{address }\end{DoxyParamCaption})}
 
+
+\begin{DoxyCode}
+707     \textcolor{keyword}{def }ResetEncoders(self,address):
+708         \textcolor{keywordflow}{return} self.\_write0(address,self.Cmd.RESETENC)
+709 
+\end{DoxyCode}
 \mbox{\Hypertarget{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_ae963de53e2a3be675dc00949c099140a}\label{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_ae963de53e2a3be675dc00949c099140a}} 
 \index{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}!Restore\+Defaults@{Restore\+Defaults}}
 \index{Restore\+Defaults@{Restore\+Defaults}!toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}}
 \subsubsection{\texorpdfstring{Restore\+Defaults()}{RestoreDefaults()}}
 {\footnotesize\ttfamily def Restore\+Defaults (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{address }\end{DoxyParamCaption})}
 
+
+\begin{DoxyCode}
+977     \textcolor{keyword}{def }RestoreDefaults(self,address):
+978         \textcolor{keywordflow}{return} self.\_write0(address,self.Cmd.RESTOREDEFAULTS)
+979 
+\end{DoxyCode}
 \mbox{\Hypertarget{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_ae99acedd53fe667ff7bed5d38a6859bd}\label{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_ae99acedd53fe667ff7bed5d38a6859bd}} 
 \index{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}!Send\+Random\+Data@{Send\+Random\+Data}}
 \index{Send\+Random\+Data@{Send\+Random\+Data}!toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}}
 \subsubsection{\texorpdfstring{Send\+Random\+Data()}{SendRandomData()}}
 {\footnotesize\ttfamily def Send\+Random\+Data (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{cnt }\end{DoxyParamCaption})}
 
+
+\begin{DoxyCode}
+646     \textcolor{keyword}{def }SendRandomData(self,cnt):
+647         \textcolor{keywordflow}{for} i \textcolor{keywordflow}{in} range(0,cnt):
+648             byte = random.getrandbits(8)
+649 \textcolor{comment}{#           self.\_port.write(chr(byte))}
+650             self.\_port.write(byte.to\_bytes(1, \textcolor{stringliteral}{'big'}))
+651         \textcolor{keywordflow}{return}
+652 
+\end{DoxyCode}
 \mbox{\Hypertarget{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_a28cd21a66d7035f83fc68d761c630a85}\label{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_a28cd21a66d7035f83fc68d761c630a85}} 
 \index{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}!Set\+Config@{Set\+Config}}
 \index{Set\+Config@{Set\+Config}!toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}}
 \subsubsection{\texorpdfstring{Set\+Config()}{SetConfig()}}
 {\footnotesize\ttfamily def Set\+Config (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{address,  }\item[{}]{config }\end{DoxyParamCaption})}
 
+
+\begin{DoxyCode}
+1012     \textcolor{keyword}{def }SetConfig(self,address,config):
+1013         \textcolor{keywordflow}{return} self.\_write2(address,self.Cmd.SETCONFIG,config)
+1014 
+\end{DoxyCode}
 \mbox{\Hypertarget{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_a5c7b72a7a931b568bb6598b3c9c88dde}\label{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_a5c7b72a7a931b568bb6598b3c9c88dde}} 
 \index{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}!Set\+Dead\+Band@{Set\+Dead\+Band}}
 \index{Set\+Dead\+Band@{Set\+Dead\+Band}!toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}}
 \subsubsection{\texorpdfstring{Set\+Dead\+Band()}{SetDeadBand()}}
 {\footnotesize\ttfamily def Set\+Dead\+Band (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{address,  }\item[{}]{min,  }\item[{}]{max }\end{DoxyParamCaption})}
 
+
+\begin{DoxyCode}
+967     \textcolor{keyword}{def }SetDeadBand(self,address,min,max):
+968         \textcolor{keywordflow}{return} self.\_write11(address,self.Cmd.SETDEADBAND,min,max)
+969 
+\end{DoxyCode}
 \mbox{\Hypertarget{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_a534607e041ee0ebe7cc66261071b537d}\label{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_a534607e041ee0ebe7cc66261071b537d}} 
 \index{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}!Set\+Enc\+M1@{Set\+Enc\+M1}}
 \index{Set\+Enc\+M1@{Set\+Enc\+M1}!toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}}
 \subsubsection{\texorpdfstring{Set\+Enc\+M1()}{SetEncM1()}}
 {\footnotesize\ttfamily def Set\+Enc\+M1 (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{address,  }\item[{}]{cnt }\end{DoxyParamCaption})}
 
+
+\begin{DoxyCode}
+741     \textcolor{keyword}{def }SetEncM1(self,address,cnt):
+742         \textcolor{keywordflow}{return} self.\_write4(address,self.Cmd.SETM1ENCCOUNT,cnt)
+743 
+\end{DoxyCode}
 \mbox{\Hypertarget{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_a8b54c048cc6b6aa19d4123f3d78dfb54}\label{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_a8b54c048cc6b6aa19d4123f3d78dfb54}} 
 \index{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}!Set\+Enc\+M2@{Set\+Enc\+M2}}
 \index{Set\+Enc\+M2@{Set\+Enc\+M2}!toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}}
 \subsubsection{\texorpdfstring{Set\+Enc\+M2()}{SetEncM2()}}
 {\footnotesize\ttfamily def Set\+Enc\+M2 (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{address,  }\item[{}]{cnt }\end{DoxyParamCaption})}
 
+
+\begin{DoxyCode}
+744     \textcolor{keyword}{def }SetEncM2(self,address,cnt):
+745         \textcolor{keywordflow}{return} self.\_write4(address,self.Cmd.SETM2ENCCOUNT,cnt)
+746 
+\end{DoxyCode}
 \mbox{\Hypertarget{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_a9a09e4eb5551bbd1738c4bec30c9519a}\label{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_a9a09e4eb5551bbd1738c4bec30c9519a}} 
 \index{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}!Set\+Logic\+Voltages@{Set\+Logic\+Voltages}}
 \index{Set\+Logic\+Voltages@{Set\+Logic\+Voltages}!toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}}
 \subsubsection{\texorpdfstring{Set\+Logic\+Voltages()}{SetLogicVoltages()}}
 {\footnotesize\ttfamily def Set\+Logic\+Voltages (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{address,  }\item[{}]{min,  }\item[{}]{max }\end{DoxyParamCaption})}
 
+
+\begin{DoxyCode}
+884     \textcolor{keyword}{def }SetLogicVoltages(self,address,min, max):
+885         \textcolor{keywordflow}{return} self.\_write22(address,self.Cmd.SETLOGICVOLTAGES,min,max)
+886         
+\end{DoxyCode}
 \mbox{\Hypertarget{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_a23dc1a25b115d6e1cecdfacdaef1a723}\label{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_a23dc1a25b115d6e1cecdfacdaef1a723}} 
 \index{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}!Set\+M1\+Default\+Accel@{Set\+M1\+Default\+Accel}}
 \index{Set\+M1\+Default\+Accel@{Set\+M1\+Default\+Accel}!toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}}
 \subsubsection{\texorpdfstring{Set\+M1\+Default\+Accel()}{SetM1DefaultAccel()}}
 {\footnotesize\ttfamily def Set\+M1\+Default\+Accel (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{address,  }\item[{}]{accel }\end{DoxyParamCaption})}
 
+
+\begin{DoxyCode}
+938     \textcolor{keyword}{def }SetM1DefaultAccel(self,address,accel):
+939         \textcolor{keywordflow}{return} self.\_write4(address,self.Cmd.SETM1DEFAULTACCEL,accel)
+940 
+\end{DoxyCode}
 \mbox{\Hypertarget{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_ac32404cfafd3dd0c49983b724717945b}\label{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_ac32404cfafd3dd0c49983b724717945b}} 
 \index{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}!Set\+M1\+Encoder\+Mode@{Set\+M1\+Encoder\+Mode}}
 \index{Set\+M1\+Encoder\+Mode@{Set\+M1\+Encoder\+Mode}!toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}}
 \subsubsection{\texorpdfstring{Set\+M1\+Encoder\+Mode()}{SetM1EncoderMode()}}
 {\footnotesize\ttfamily def Set\+M1\+Encoder\+Mode (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{address,  }\item[{}]{mode }\end{DoxyParamCaption})}
 
+
+\begin{DoxyCode}
+995     \textcolor{keyword}{def }SetM1EncoderMode(self,address,mode):
+996         \textcolor{keywordflow}{return} self.\_write1(address,self.Cmd.SETM1ENCODERMODE,mode)
+997 
+\end{DoxyCode}
 \mbox{\Hypertarget{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_a753f6a7ecb157eb9cdaf3a6f4b83fb93}\label{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_a753f6a7ecb157eb9cdaf3a6f4b83fb93}} 
 \index{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}!Set\+M1\+Max\+Current@{Set\+M1\+Max\+Current}}
 \index{Set\+M1\+Max\+Current@{Set\+M1\+Max\+Current}!toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}}
 \subsubsection{\texorpdfstring{Set\+M1\+Max\+Current()}{SetM1MaxCurrent()}}
 {\footnotesize\ttfamily def Set\+M1\+Max\+Current (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{address,  }\item[{}]{max }\end{DoxyParamCaption})}
 
+
+\begin{DoxyCode}
+1018     \textcolor{keyword}{def }SetM1MaxCurrent(self,address,max):
+1019         \textcolor{keywordflow}{return} self.\_write44(address,self.Cmd.SETM1MAXCURRENT,max,0)
+1020 
+\end{DoxyCode}
 \mbox{\Hypertarget{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_a86e5bc8af684f784abe72eac70851f3e}\label{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_a86e5bc8af684f784abe72eac70851f3e}} 
 \index{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}!Set\+M1\+Position\+P\+ID@{Set\+M1\+Position\+P\+ID}}
 \index{Set\+M1\+Position\+P\+ID@{Set\+M1\+Position\+P\+ID}!toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}}
 \subsubsection{\texorpdfstring{Set\+M1\+Position\+P\+I\+D()}{SetM1PositionPID()}}
 {\footnotesize\ttfamily def Set\+M1\+Position\+P\+ID (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{address,  }\item[{}]{kp,  }\item[{}]{ki,  }\item[{}]{kd,  }\item[{}]{kimax,  }\item[{}]{deadzone,  }\item[{}]{min,  }\item[{}]{max }\end{DoxyParamCaption})}
 
+
+\begin{DoxyCode}
+903     \textcolor{keyword}{def }SetM1PositionPID(self,address,kp,ki,kd,kimax,deadzone,min,max):
+904 \textcolor{comment}{#       return
+       self.\_write4444444(address,self.Cmd.SETM1POSPID,long(kd*1024),long(kp*1024),long(ki*1024),kimax,deadzone,min,max)}
+905         \textcolor{keywordflow}{return} self.\_write4444444(address,self.Cmd.SETM1POSPID,kd*1024,kp*1024,ki*1024,kimax,deadzone,min,
+      max)
+906 
+\end{DoxyCode}
 \mbox{\Hypertarget{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_a8ea4c0748b43e086bf7326ec1cd1d8f5}\label{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_a8ea4c0748b43e086bf7326ec1cd1d8f5}} 
 \index{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}!Set\+M1\+Velocity\+P\+ID@{Set\+M1\+Velocity\+P\+ID}}
 \index{Set\+M1\+Velocity\+P\+ID@{Set\+M1\+Velocity\+P\+ID}!toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}}
 \subsubsection{\texorpdfstring{Set\+M1\+Velocity\+P\+I\+D()}{SetM1VelocityPID()}}
 {\footnotesize\ttfamily def Set\+M1\+Velocity\+P\+ID (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{address,  }\item[{}]{p,  }\item[{}]{i,  }\item[{}]{d,  }\item[{}]{qpps }\end{DoxyParamCaption})}
 
+
+\begin{DoxyCode}
+759     \textcolor{keyword}{def }SetM1VelocityPID(self,address,p,i,d,qpps):
+760 \textcolor{comment}{#       return self.\_write4444(address,self.Cmd.SETM1PID,long(d*65536),long(p*65536),long(i*65536),qpps)}
+761         \textcolor{keywordflow}{return} self.\_write4444(address,self.Cmd.SETM1PID,d*65536,p*65536,i*65536,qpps)
+762 
+\end{DoxyCode}
 \mbox{\Hypertarget{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_a039c9127b396a47d39682cf528d66fd4}\label{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_a039c9127b396a47d39682cf528d66fd4}} 
 \index{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}!Set\+M2\+Default\+Accel@{Set\+M2\+Default\+Accel}}
 \index{Set\+M2\+Default\+Accel@{Set\+M2\+Default\+Accel}!toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}}
 \subsubsection{\texorpdfstring{Set\+M2\+Default\+Accel()}{SetM2DefaultAccel()}}
 {\footnotesize\ttfamily def Set\+M2\+Default\+Accel (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{address,  }\item[{}]{accel }\end{DoxyParamCaption})}
 
+
+\begin{DoxyCode}
+941     \textcolor{keyword}{def }SetM2DefaultAccel(self,address,accel):
+942         \textcolor{keywordflow}{return} self.\_write4(address,self.Cmd.SETM2DEFAULTACCEL,accel)
+943 
+\end{DoxyCode}
 \mbox{\Hypertarget{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_abc897b52a6653ae79b5c7c193a88345c}\label{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_abc897b52a6653ae79b5c7c193a88345c}} 
 \index{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}!Set\+M2\+Encoder\+Mode@{Set\+M2\+Encoder\+Mode}}
 \index{Set\+M2\+Encoder\+Mode@{Set\+M2\+Encoder\+Mode}!toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}}
 \subsubsection{\texorpdfstring{Set\+M2\+Encoder\+Mode()}{SetM2EncoderMode()}}
 {\footnotesize\ttfamily def Set\+M2\+Encoder\+Mode (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{address,  }\item[{}]{mode }\end{DoxyParamCaption})}
 
+
+\begin{DoxyCode}
+998     \textcolor{keyword}{def }SetM2EncoderMode(self,address,mode):
+999         \textcolor{keywordflow}{return} self.\_write1(address,self.Cmd.SETM2ENCODERMODE,mode)
+1000 
+\end{DoxyCode}
 \mbox{\Hypertarget{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_a863297bf33c9dcec1d3c73c835a3d18d}\label{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_a863297bf33c9dcec1d3c73c835a3d18d}} 
 \index{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}!Set\+M2\+Max\+Current@{Set\+M2\+Max\+Current}}
 \index{Set\+M2\+Max\+Current@{Set\+M2\+Max\+Current}!toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}}
 \subsubsection{\texorpdfstring{Set\+M2\+Max\+Current()}{SetM2MaxCurrent()}}
 {\footnotesize\ttfamily def Set\+M2\+Max\+Current (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{address,  }\item[{}]{max }\end{DoxyParamCaption})}
 
+
+\begin{DoxyCode}
+1021     \textcolor{keyword}{def }SetM2MaxCurrent(self,address,max):
+1022         \textcolor{keywordflow}{return} self.\_write44(address,self.Cmd.SETM2MAXCURRENT,max,0)
+1023 
+\end{DoxyCode}
 \mbox{\Hypertarget{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_af20c35ba0d15081a0fe691601b7457e7}\label{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_af20c35ba0d15081a0fe691601b7457e7}} 
 \index{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}!Set\+M2\+Position\+P\+ID@{Set\+M2\+Position\+P\+ID}}
 \index{Set\+M2\+Position\+P\+ID@{Set\+M2\+Position\+P\+ID}!toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}}
 \subsubsection{\texorpdfstring{Set\+M2\+Position\+P\+I\+D()}{SetM2PositionPID()}}
 {\footnotesize\ttfamily def Set\+M2\+Position\+P\+ID (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{address,  }\item[{}]{kp,  }\item[{}]{ki,  }\item[{}]{kd,  }\item[{}]{kimax,  }\item[{}]{deadzone,  }\item[{}]{min,  }\item[{}]{max }\end{DoxyParamCaption})}
 
+
+\begin{DoxyCode}
+907     \textcolor{keyword}{def }SetM2PositionPID(self,address,kp,ki,kd,kimax,deadzone,min,max):
+908 \textcolor{comment}{#       return
+       self.\_write4444444(address,self.Cmd.SETM2POSPID,long(kd*1024),long(kp*1024),long(ki*1024),kimax,deadzone,min,max)}
+909         \textcolor{keywordflow}{return} self.\_write4444444(address,self.Cmd.SETM2POSPID,kd*1024,kp*1024,ki*1024,kimax,deadzone,min,
+      max)
+910 
+\end{DoxyCode}
 \mbox{\Hypertarget{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_aea08bdecff46652920d96fc6239ae604}\label{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_aea08bdecff46652920d96fc6239ae604}} 
 \index{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}!Set\+M2\+Velocity\+P\+ID@{Set\+M2\+Velocity\+P\+ID}}
 \index{Set\+M2\+Velocity\+P\+ID@{Set\+M2\+Velocity\+P\+ID}!toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}}
 \subsubsection{\texorpdfstring{Set\+M2\+Velocity\+P\+I\+D()}{SetM2VelocityPID()}}
 {\footnotesize\ttfamily def Set\+M2\+Velocity\+P\+ID (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{address,  }\item[{}]{p,  }\item[{}]{i,  }\item[{}]{d,  }\item[{}]{qpps }\end{DoxyParamCaption})}
 
+
+\begin{DoxyCode}
+763     \textcolor{keyword}{def }SetM2VelocityPID(self,address,p,i,d,qpps):
+764 \textcolor{comment}{#       return self.\_write4444(address,self.Cmd.SETM2PID,long(d*65536),long(p*65536),long(i*65536),qpps)}
+765         \textcolor{keywordflow}{return} self.\_write4444(address,self.Cmd.SETM2PID,d*65536,p*65536,i*65536,qpps)
+766 
+\end{DoxyCode}
 \mbox{\Hypertarget{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_acd85be507ba58fcd9d3456519c8aff9e}\label{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_acd85be507ba58fcd9d3456519c8aff9e}} 
 \index{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}!Set\+Main\+Voltages@{Set\+Main\+Voltages}}
 \index{Set\+Main\+Voltages@{Set\+Main\+Voltages}!toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}}
 \subsubsection{\texorpdfstring{Set\+Main\+Voltages()}{SetMainVoltages()}}
 {\footnotesize\ttfamily def Set\+Main\+Voltages (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{address,  }\item[{}]{min,  }\item[{}]{max }\end{DoxyParamCaption})}
 
+
+\begin{DoxyCode}
+881     \textcolor{keyword}{def }SetMainVoltages(self,address,min, max):
+882         \textcolor{keywordflow}{return} self.\_write22(address,self.Cmd.SETMAINVOLTAGES,min,max)
+883         
+\end{DoxyCode}
 \mbox{\Hypertarget{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_a726fe4e542430464c2fc2bf14f5142a3}\label{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_a726fe4e542430464c2fc2bf14f5142a3}} 
 \index{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}!Set\+Max\+Voltage\+Logic\+Battery@{Set\+Max\+Voltage\+Logic\+Battery}}
 \index{Set\+Max\+Voltage\+Logic\+Battery@{Set\+Max\+Voltage\+Logic\+Battery}!toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}}
 \subsubsection{\texorpdfstring{Set\+Max\+Voltage\+Logic\+Battery()}{SetMaxVoltageLogicBattery()}}
 {\footnotesize\ttfamily def Set\+Max\+Voltage\+Logic\+Battery (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{address,  }\item[{}]{val }\end{DoxyParamCaption})}
 
+
+\begin{DoxyCode}
+756     \textcolor{keyword}{def }SetMaxVoltageLogicBattery(self,address,val):
+757         \textcolor{keywordflow}{return} self.\_write1(address,self.Cmd.SETMAXLB,val)
+758 
+\end{DoxyCode}
 \mbox{\Hypertarget{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_ad2c3c89aa38f0d616778f71128a6ca08}\label{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_ad2c3c89aa38f0d616778f71128a6ca08}} 
 \index{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}!Set\+Max\+Voltage\+Main\+Battery@{Set\+Max\+Voltage\+Main\+Battery}}
 \index{Set\+Max\+Voltage\+Main\+Battery@{Set\+Max\+Voltage\+Main\+Battery}!toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}}
 \subsubsection{\texorpdfstring{Set\+Max\+Voltage\+Main\+Battery()}{SetMaxVoltageMainBattery()}}
 {\footnotesize\ttfamily def Set\+Max\+Voltage\+Main\+Battery (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{address,  }\item[{}]{val }\end{DoxyParamCaption})}
 
+
+\begin{DoxyCode}
+662     \textcolor{keyword}{def }SetMaxVoltageMainBattery(self,address,val):
+663         \textcolor{keywordflow}{return} self.\_write1(address,self.Cmd.SETMAXMB,val)
+664 
+\end{DoxyCode}
 \mbox{\Hypertarget{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_adb683d1e84a0432cca192f662407904f}\label{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_adb683d1e84a0432cca192f662407904f}} 
 \index{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}!Set\+Min\+Voltage\+Logic\+Battery@{Set\+Min\+Voltage\+Logic\+Battery}}
 \index{Set\+Min\+Voltage\+Logic\+Battery@{Set\+Min\+Voltage\+Logic\+Battery}!toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}}
 \subsubsection{\texorpdfstring{Set\+Min\+Voltage\+Logic\+Battery()}{SetMinVoltageLogicBattery()}}
 {\footnotesize\ttfamily def Set\+Min\+Voltage\+Logic\+Battery (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{address,  }\item[{}]{val }\end{DoxyParamCaption})}
 
+
+\begin{DoxyCode}
+753     \textcolor{keyword}{def }SetMinVoltageLogicBattery(self,address,val):
+754         \textcolor{keywordflow}{return} self.\_write1(address,self.Cmd.SETMINLB,val)
+755 
+\end{DoxyCode}
 \mbox{\Hypertarget{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_a7e011acf85a7b17384719def6997dde8}\label{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_a7e011acf85a7b17384719def6997dde8}} 
 \index{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}!Set\+Min\+Voltage\+Main\+Battery@{Set\+Min\+Voltage\+Main\+Battery}}
 \index{Set\+Min\+Voltage\+Main\+Battery@{Set\+Min\+Voltage\+Main\+Battery}!toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}}
 \subsubsection{\texorpdfstring{Set\+Min\+Voltage\+Main\+Battery()}{SetMinVoltageMainBattery()}}
 {\footnotesize\ttfamily def Set\+Min\+Voltage\+Main\+Battery (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{address,  }\item[{}]{val }\end{DoxyParamCaption})}
 
+
+\begin{DoxyCode}
+659     \textcolor{keyword}{def }SetMinVoltageMainBattery(self,address,val):
+660         \textcolor{keywordflow}{return} self.\_write1(address,self.Cmd.SETMINMB,val)
+661 
+\end{DoxyCode}
 \mbox{\Hypertarget{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_ac54b2cb80b2ab567fb290a6c376c07a7}\label{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_ac54b2cb80b2ab567fb290a6c376c07a7}} 
 \index{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}!Set\+Pin\+Functions@{Set\+Pin\+Functions}}
 \index{Set\+Pin\+Functions@{Set\+Pin\+Functions}!toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}}
 \subsubsection{\texorpdfstring{Set\+Pin\+Functions()}{SetPinFunctions()}}
 {\footnotesize\ttfamily def Set\+Pin\+Functions (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{address,  }\item[{}]{S3mode,  }\item[{}]{S4mode,  }\item[{}]{S5mode }\end{DoxyParamCaption})}
 
+
+\begin{DoxyCode}
+944     \textcolor{keyword}{def }SetPinFunctions(self,address,S3mode,S4mode,S5mode):
+945         \textcolor{keywordflow}{return} self.\_write111(address,self.Cmd.SETPINFUNCTIONS,S3mode,S4mode,S5mode)
+946 
+\end{DoxyCode}
 \mbox{\Hypertarget{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_aadb6c9818880f6971fe75cb9bdaeeac1}\label{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_aadb6c9818880f6971fe75cb9bdaeeac1}} 
 \index{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}!Set\+P\+W\+M\+Mode@{Set\+P\+W\+M\+Mode}}
 \index{Set\+P\+W\+M\+Mode@{Set\+P\+W\+M\+Mode}!toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}}
 \subsubsection{\texorpdfstring{Set\+P\+W\+M\+Mode()}{SetPWMMode()}}
 {\footnotesize\ttfamily def Set\+P\+W\+M\+Mode (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{address,  }\item[{}]{mode }\end{DoxyParamCaption})}
 
+
+\begin{DoxyCode}
+1036     \textcolor{keyword}{def }SetPWMMode(self,address,mode):
+1037         \textcolor{keywordflow}{return} self.\_write1(address,self.Cmd.SETPWMMODE,mode)
+1038 
+\end{DoxyCode}
 \mbox{\Hypertarget{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_a1b4d92f94801f58a9890c9587bd028af}\label{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_a1b4d92f94801f58a9890c9587bd028af}} 
 \index{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}!Speed\+Accel\+Deccel\+Position\+M1@{Speed\+Accel\+Deccel\+Position\+M1}}
 \index{Speed\+Accel\+Deccel\+Position\+M1@{Speed\+Accel\+Deccel\+Position\+M1}!toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}}
 \subsubsection{\texorpdfstring{Speed\+Accel\+Deccel\+Position\+M1()}{SpeedAccelDeccelPositionM1()}}
 {\footnotesize\ttfamily def Speed\+Accel\+Deccel\+Position\+M1 (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{address,  }\item[{}]{accel,  }\item[{}]{speed,  }\item[{}]{deccel,  }\item[{}]{position,  }\item[{}]{buffer }\end{DoxyParamCaption})}
 
+
+\begin{DoxyCode}
+929     \textcolor{keyword}{def }SpeedAccelDeccelPositionM1(self,address,accel,speed,deccel,position,buffer):
+930         \textcolor{keywordflow}{return} self.\_write44441(address,self.Cmd.M1SPEEDACCELDECCELPOS,accel,speed,deccel,position,buffer)
+931 
+\end{DoxyCode}
 \mbox{\Hypertarget{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_a67d7a0f215dd04abdc264e6f86186542}\label{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_a67d7a0f215dd04abdc264e6f86186542}} 
 \index{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}!Speed\+Accel\+Deccel\+Position\+M1\+M2@{Speed\+Accel\+Deccel\+Position\+M1\+M2}}
 \index{Speed\+Accel\+Deccel\+Position\+M1\+M2@{Speed\+Accel\+Deccel\+Position\+M1\+M2}!toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}}
 \subsubsection{\texorpdfstring{Speed\+Accel\+Deccel\+Position\+M1\+M2()}{SpeedAccelDeccelPositionM1M2()}}
 {\footnotesize\ttfamily def Speed\+Accel\+Deccel\+Position\+M1\+M2 (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{address,  }\item[{}]{accel1,  }\item[{}]{speed1,  }\item[{}]{deccel1,  }\item[{}]{position1,  }\item[{}]{accel2,  }\item[{}]{speed2,  }\item[{}]{deccel2,  }\item[{}]{position2,  }\item[{}]{buffer }\end{DoxyParamCaption})}
 
+
+\begin{DoxyCode}
+935     \textcolor{keyword}{def }SpeedAccelDeccelPositionM1M2(
+      self,address,accel1,speed1,deccel1,position1,accel2,speed2,deccel2,position2,buffer):
+936         \textcolor{keywordflow}{return} self.\_write444444441(address,self.Cmd.MIXEDSPEEDACCELDECCELPOS,accel1,speed1,deccel1,
+      position1,accel2,speed2,deccel2,position2,buffer)
+937 
+\end{DoxyCode}
 \mbox{\Hypertarget{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_ae7008907206f5accff98fe60a85dc124}\label{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_ae7008907206f5accff98fe60a85dc124}} 
 \index{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}!Speed\+Accel\+Deccel\+Position\+M2@{Speed\+Accel\+Deccel\+Position\+M2}}
 \index{Speed\+Accel\+Deccel\+Position\+M2@{Speed\+Accel\+Deccel\+Position\+M2}!toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}}
 \subsubsection{\texorpdfstring{Speed\+Accel\+Deccel\+Position\+M2()}{SpeedAccelDeccelPositionM2()}}
 {\footnotesize\ttfamily def Speed\+Accel\+Deccel\+Position\+M2 (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{address,  }\item[{}]{accel,  }\item[{}]{speed,  }\item[{}]{deccel,  }\item[{}]{position,  }\item[{}]{buffer }\end{DoxyParamCaption})}
 
+
+\begin{DoxyCode}
+932     \textcolor{keyword}{def }SpeedAccelDeccelPositionM2(self,address,accel,speed,deccel,position,buffer):
+933         \textcolor{keywordflow}{return} self.\_write44441(address,self.Cmd.M2SPEEDACCELDECCELPOS,accel,speed,deccel,position,buffer)
+934 
+\end{DoxyCode}
 \mbox{\Hypertarget{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_a111c7779f07f5757ba9ba7e93b0edb39}\label{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_a111c7779f07f5757ba9ba7e93b0edb39}} 
 \index{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}!Speed\+Accel\+Distance\+M1@{Speed\+Accel\+Distance\+M1}}
 \index{Speed\+Accel\+Distance\+M1@{Speed\+Accel\+Distance\+M1}!toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}}
 \subsubsection{\texorpdfstring{Speed\+Accel\+Distance\+M1()}{SpeedAccelDistanceM1()}}
 {\footnotesize\ttfamily def Speed\+Accel\+Distance\+M1 (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{address,  }\item[{}]{accel,  }\item[{}]{speed,  }\item[{}]{distance,  }\item[{}]{buffer }\end{DoxyParamCaption})}
 
+
+\begin{DoxyCode}
+809     \textcolor{keyword}{def }SpeedAccelDistanceM1(self,address,accel,speed,distance,buffer):
+810         \textcolor{keywordflow}{return} self.\_write4S441(address,self.Cmd.M1SPEEDACCELDIST,accel,speed,distance,buffer)
+811 
+\end{DoxyCode}
 \mbox{\Hypertarget{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_ac2b210f5288d22c653c019bd60ee7fda}\label{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_ac2b210f5288d22c653c019bd60ee7fda}} 
 \index{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}!Speed\+Accel\+Distance\+M1\+M2@{Speed\+Accel\+Distance\+M1\+M2}}
 \index{Speed\+Accel\+Distance\+M1\+M2@{Speed\+Accel\+Distance\+M1\+M2}!toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}}
 \subsubsection{\texorpdfstring{Speed\+Accel\+Distance\+M1\+M2()}{SpeedAccelDistanceM1M2()}}
 {\footnotesize\ttfamily def Speed\+Accel\+Distance\+M1\+M2 (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{address,  }\item[{}]{accel,  }\item[{}]{speed1,  }\item[{}]{distance1,  }\item[{}]{speed2,  }\item[{}]{distance2,  }\item[{}]{buffer }\end{DoxyParamCaption})}
 
+
+\begin{DoxyCode}
+815     \textcolor{keyword}{def }SpeedAccelDistanceM1M2(self,address,accel,speed1,distance1,speed2,distance2,buffer):
+816         \textcolor{keywordflow}{return} self.\_write4S44S441(address,self.Cmd.MIXEDSPEEDACCELDIST,accel,speed1,distance1,speed2,
+      distance2,buffer)
+817 
+\end{DoxyCode}
 \mbox{\Hypertarget{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_a2cf733613d498449053cbb0ddc964205}\label{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_a2cf733613d498449053cbb0ddc964205}} 
 \index{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}!Speed\+Accel\+Distance\+M1\+M2\+\_\+2@{Speed\+Accel\+Distance\+M1\+M2\+\_\+2}}
 \index{Speed\+Accel\+Distance\+M1\+M2\+\_\+2@{Speed\+Accel\+Distance\+M1\+M2\+\_\+2}!toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}}
 \subsubsection{\texorpdfstring{Speed\+Accel\+Distance\+M1\+M2\+\_\+2()}{SpeedAccelDistanceM1M2\_2()}}
 {\footnotesize\ttfamily def Speed\+Accel\+Distance\+M1\+M2\+\_\+2 (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{address,  }\item[{}]{accel1,  }\item[{}]{speed1,  }\item[{}]{distance1,  }\item[{}]{accel2,  }\item[{}]{speed2,  }\item[{}]{distance2,  }\item[{}]{buffer }\end{DoxyParamCaption})}
 
+
+\begin{DoxyCode}
+851     \textcolor{keyword}{def }SpeedAccelDistanceM1M2\_2(self,address,accel1,speed1,distance1,accel2,speed2,distance2,buffer):
+852         \textcolor{keywordflow}{return} self.\_write4S444S441(address,self.Cmd.MIXEDSPEED2ACCELDIST,accel1,speed1,distance1,accel2,
+      speed2,distance2,buffer)
+853 
+\end{DoxyCode}
 \mbox{\Hypertarget{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_a445110f8fd4f9bbf61bcd9c4a5144ad7}\label{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_a445110f8fd4f9bbf61bcd9c4a5144ad7}} 
 \index{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}!Speed\+Accel\+Distance\+M2@{Speed\+Accel\+Distance\+M2}}
 \index{Speed\+Accel\+Distance\+M2@{Speed\+Accel\+Distance\+M2}!toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}}
 \subsubsection{\texorpdfstring{Speed\+Accel\+Distance\+M2()}{SpeedAccelDistanceM2()}}
 {\footnotesize\ttfamily def Speed\+Accel\+Distance\+M2 (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{address,  }\item[{}]{accel,  }\item[{}]{speed,  }\item[{}]{distance,  }\item[{}]{buffer }\end{DoxyParamCaption})}
 
+
+\begin{DoxyCode}
+812     \textcolor{keyword}{def }SpeedAccelDistanceM2(self,address,accel,speed,distance,buffer):
+813         \textcolor{keywordflow}{return} self.\_write4S441(address,self.Cmd.M2SPEEDACCELDIST,accel,speed,distance,buffer)
+814 
+\end{DoxyCode}
 \mbox{\Hypertarget{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_aed66489886b7cfdaaeb2be6cda59427c}\label{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_aed66489886b7cfdaaeb2be6cda59427c}} 
 \index{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}!Speed\+Accel\+M1@{Speed\+Accel\+M1}}
 \index{Speed\+Accel\+M1@{Speed\+Accel\+M1}!toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}}
 \subsubsection{\texorpdfstring{Speed\+Accel\+M1()}{SpeedAccelM1()}}
 {\footnotesize\ttfamily def Speed\+Accel\+M1 (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{address,  }\item[{}]{accel,  }\item[{}]{speed }\end{DoxyParamCaption})}
 
+
+\begin{DoxyCode}
+791     \textcolor{keyword}{def }SpeedAccelM1(self,address,accel,speed):
+792         \textcolor{keywordflow}{return} self.\_write4S4(address,self.Cmd.M1SPEEDACCEL,accel,speed)
+793 
+\end{DoxyCode}
 \mbox{\Hypertarget{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_a5e5e1072e698207b50ecf2f6adf5e367}\label{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_a5e5e1072e698207b50ecf2f6adf5e367}} 
 \index{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}!Speed\+Accel\+M1\+M2@{Speed\+Accel\+M1\+M2}}
 \index{Speed\+Accel\+M1\+M2@{Speed\+Accel\+M1\+M2}!toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}}
 \subsubsection{\texorpdfstring{Speed\+Accel\+M1\+M2()}{SpeedAccelM1M2()}}
 {\footnotesize\ttfamily def Speed\+Accel\+M1\+M2 (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{address,  }\item[{}]{accel,  }\item[{}]{speed1,  }\item[{}]{speed2 }\end{DoxyParamCaption})}
 
+
+\begin{DoxyCode}
+797     \textcolor{keyword}{def }SpeedAccelM1M2(self,address,accel,speed1,speed2):
+798         \textcolor{keywordflow}{return} self.\_write4S4S4(address,self.Cmd.MIXEDSPEEDACCEL,accel,speed1,speed2)
+799 
+\end{DoxyCode}
 \mbox{\Hypertarget{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_ab9eb6d09f652e887dd9d6b8d1300d919}\label{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_ab9eb6d09f652e887dd9d6b8d1300d919}} 
 \index{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}!Speed\+Accel\+M1\+M2\+\_\+2@{Speed\+Accel\+M1\+M2\+\_\+2}}
 \index{Speed\+Accel\+M1\+M2\+\_\+2@{Speed\+Accel\+M1\+M2\+\_\+2}!toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}}
 \subsubsection{\texorpdfstring{Speed\+Accel\+M1\+M2\+\_\+2()}{SpeedAccelM1M2\_2()}}
 {\footnotesize\ttfamily def Speed\+Accel\+M1\+M2\+\_\+2 (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{address,  }\item[{}]{accel1,  }\item[{}]{speed1,  }\item[{}]{accel2,  }\item[{}]{speed2 }\end{DoxyParamCaption})}
 
+
+\begin{DoxyCode}
+848     \textcolor{keyword}{def }SpeedAccelM1M2\_2(self,address,accel1,speed1,accel2,speed2):
+849         \textcolor{keywordflow}{return} self.\_write4S44S4(address,self.Cmd.MIXEDSPEED2ACCEL,accel,speed1,accel2,speed2)
+850 
+\end{DoxyCode}
 \mbox{\Hypertarget{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_ac9b5288bf09d899fb2891fa4a1cb5326}\label{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_ac9b5288bf09d899fb2891fa4a1cb5326}} 
 \index{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}!Speed\+Accel\+M2@{Speed\+Accel\+M2}}
 \index{Speed\+Accel\+M2@{Speed\+Accel\+M2}!toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}}
 \subsubsection{\texorpdfstring{Speed\+Accel\+M2()}{SpeedAccelM2()}}
 {\footnotesize\ttfamily def Speed\+Accel\+M2 (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{address,  }\item[{}]{accel,  }\item[{}]{speed }\end{DoxyParamCaption})}
 
+
+\begin{DoxyCode}
+794     \textcolor{keyword}{def }SpeedAccelM2(self,address,accel,speed):
+795         \textcolor{keywordflow}{return} self.\_write4S4(address,self.Cmd.M2SPEEDACCEL,accel,speed)
+796 
+\end{DoxyCode}
 \mbox{\Hypertarget{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_a6664490ee5bec1b0c496b148c9b3f4c7}\label{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_a6664490ee5bec1b0c496b148c9b3f4c7}} 
 \index{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}!Speed\+Distance\+M1@{Speed\+Distance\+M1}}
 \index{Speed\+Distance\+M1@{Speed\+Distance\+M1}!toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}}
 \subsubsection{\texorpdfstring{Speed\+Distance\+M1()}{SpeedDistanceM1()}}
 {\footnotesize\ttfamily def Speed\+Distance\+M1 (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{address,  }\item[{}]{speed,  }\item[{}]{distance,  }\item[{}]{buffer }\end{DoxyParamCaption})}
 
+
+\begin{DoxyCode}
+800     \textcolor{keyword}{def }SpeedDistanceM1(self,address,speed,distance,buffer):
+801         \textcolor{keywordflow}{return} self.\_writeS441(address,self.Cmd.M1SPEEDDIST,speed,distance,buffer)
+802 
+\end{DoxyCode}
 \mbox{\Hypertarget{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_ac0664ea79d863b5f153a7a3dac18222d}\label{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_ac0664ea79d863b5f153a7a3dac18222d}} 
 \index{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}!Speed\+Distance\+M1\+M2@{Speed\+Distance\+M1\+M2}}
 \index{Speed\+Distance\+M1\+M2@{Speed\+Distance\+M1\+M2}!toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}}
 \subsubsection{\texorpdfstring{Speed\+Distance\+M1\+M2()}{SpeedDistanceM1M2()}}
 {\footnotesize\ttfamily def Speed\+Distance\+M1\+M2 (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{address,  }\item[{}]{speed1,  }\item[{}]{distance1,  }\item[{}]{speed2,  }\item[{}]{distance2,  }\item[{}]{buffer }\end{DoxyParamCaption})}
 
+
+\begin{DoxyCode}
+806     \textcolor{keyword}{def }SpeedDistanceM1M2(self,address,speed1,distance1,speed2,distance2,buffer):
+807         \textcolor{keywordflow}{return} self.\_writeS44S441(address,self.Cmd.MIXEDSPEEDDIST,speed1,distance1,speed2,distance2,buffer)
+808 
+\end{DoxyCode}
 \mbox{\Hypertarget{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_a6469781a5630e53aa70f19cf603cfcc0}\label{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_a6469781a5630e53aa70f19cf603cfcc0}} 
 \index{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}!Speed\+Distance\+M2@{Speed\+Distance\+M2}}
 \index{Speed\+Distance\+M2@{Speed\+Distance\+M2}!toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}}
 \subsubsection{\texorpdfstring{Speed\+Distance\+M2()}{SpeedDistanceM2()}}
 {\footnotesize\ttfamily def Speed\+Distance\+M2 (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{address,  }\item[{}]{speed,  }\item[{}]{distance,  }\item[{}]{buffer }\end{DoxyParamCaption})}
 
+
+\begin{DoxyCode}
+803     \textcolor{keyword}{def }SpeedDistanceM2(self,address,speed,distance,buffer):
+804         \textcolor{keywordflow}{return} self.\_writeS441(address,self.Cmd.M2SPEEDDIST,speed,distance,buffer)
+805 
+\end{DoxyCode}
 \mbox{\Hypertarget{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_af4f6babccd668312895a4a4b04a262d4}\label{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_af4f6babccd668312895a4a4b04a262d4}} 
 \index{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}!Speed\+M1@{Speed\+M1}}
 \index{Speed\+M1@{Speed\+M1}!toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}}
 \subsubsection{\texorpdfstring{Speed\+M1()}{SpeedM1()}}
 {\footnotesize\ttfamily def Speed\+M1 (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{address,  }\item[{}]{val }\end{DoxyParamCaption})}
 
+
+\begin{DoxyCode}
+782     \textcolor{keyword}{def }SpeedM1(self,address,val):
+783         \textcolor{keywordflow}{return} self.\_writeS4(address,self.Cmd.M1SPEED,val)
+784 
+\end{DoxyCode}
 \mbox{\Hypertarget{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_ae8f0e90249e078ce5de6930dbabb338d}\label{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_ae8f0e90249e078ce5de6930dbabb338d}} 
 \index{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}!Speed\+M1\+M2@{Speed\+M1\+M2}}
 \index{Speed\+M1\+M2@{Speed\+M1\+M2}!toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}}
 \subsubsection{\texorpdfstring{Speed\+M1\+M2()}{SpeedM1M2()}}
 {\footnotesize\ttfamily def Speed\+M1\+M2 (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{address,  }\item[{}]{m1,  }\item[{}]{m2 }\end{DoxyParamCaption})}
 
+
+\begin{DoxyCode}
+788     \textcolor{keyword}{def }SpeedM1M2(self,address,m1,m2):
+789         \textcolor{keywordflow}{return} self.\_writeS4S4(address,self.Cmd.MIXEDSPEED,m1,m2)
+790 
+\end{DoxyCode}
 \mbox{\Hypertarget{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_afa7cb556973974794bc2d040eabde676}\label{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_afa7cb556973974794bc2d040eabde676}} 
 \index{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}!Speed\+M2@{Speed\+M2}}
 \index{Speed\+M2@{Speed\+M2}!toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}}
 \subsubsection{\texorpdfstring{Speed\+M2()}{SpeedM2()}}
 {\footnotesize\ttfamily def Speed\+M2 (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{address,  }\item[{}]{val }\end{DoxyParamCaption})}
 
+
+\begin{DoxyCode}
+785     \textcolor{keyword}{def }SpeedM2(self,address,val):
+786         \textcolor{keywordflow}{return} self.\_writeS4(address,self.Cmd.M2SPEED,val)
+787 
+\end{DoxyCode}
 \mbox{\Hypertarget{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_aafa3ee25f590d5f4b0259f38b32bd626}\label{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_aafa3ee25f590d5f4b0259f38b32bd626}} 
 \index{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}!Turn\+Left\+Mixed@{Turn\+Left\+Mixed}}
 \index{Turn\+Left\+Mixed@{Turn\+Left\+Mixed}!toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}}
 \subsubsection{\texorpdfstring{Turn\+Left\+Mixed()}{TurnLeftMixed()}}
 {\footnotesize\ttfamily def Turn\+Left\+Mixed (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{address,  }\item[{}]{val }\end{DoxyParamCaption})}
 
+
+\begin{DoxyCode}
+686     \textcolor{keyword}{def }TurnLeftMixed(self,address,val):
+687         \textcolor{keywordflow}{return} self.\_write1(address,self.Cmd.MIXEDLEFT,val)
+688 
+\end{DoxyCode}
 \mbox{\Hypertarget{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_ad05d76efd4822a8f8ee8a558820083c8}\label{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_ad05d76efd4822a8f8ee8a558820083c8}} 
 \index{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}!Turn\+Right\+Mixed@{Turn\+Right\+Mixed}}
 \index{Turn\+Right\+Mixed@{Turn\+Right\+Mixed}!toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}}
 \subsubsection{\texorpdfstring{Turn\+Right\+Mixed()}{TurnRightMixed()}}
 {\footnotesize\ttfamily def Turn\+Right\+Mixed (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{address,  }\item[{}]{val }\end{DoxyParamCaption})}
 
+
+\begin{DoxyCode}
+683     \textcolor{keyword}{def }TurnRightMixed(self,address,val):
+684         \textcolor{keywordflow}{return} self.\_write1(address,self.Cmd.MIXEDRIGHT,val)
+685 
+\end{DoxyCode}
 \mbox{\Hypertarget{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_a6e8d1950fa135f3841c1aed277643c2e}\label{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_a6e8d1950fa135f3841c1aed277643c2e}} 
 \index{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}!Write\+Eeprom@{Write\+Eeprom}}
 \index{Write\+Eeprom@{Write\+Eeprom}!toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}}
 \subsubsection{\texorpdfstring{Write\+Eeprom()}{WriteEeprom()}}
 {\footnotesize\ttfamily def Write\+Eeprom (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{address,  }\item[{}]{ee\+\_\+address,  }\item[{}]{ee\+\_\+word }\end{DoxyParamCaption})}
 
+
+\begin{DoxyCode}
+1061     \textcolor{keyword}{def }WriteEeprom(self,address,ee\_address,ee\_word):
+1062         retval = self.\_write111(address,self.Cmd.WRITEEEPROM,ee\_address,ee\_word>>8,ee\_word&0xFF)
+1063         \textcolor{keywordflow}{if} retval==\textcolor{keyword}{True}:
+1064             trys = self.\_trystimeout
+1065             \textcolor{keywordflow}{while} 1:
+1066                 self.\_port.flushInput()
+1067                 val1 = self.\_readbyte()
+1068                 \textcolor{keywordflow}{if} val1[0]:
+1069                     \textcolor{keywordflow}{if} val1[1]==0xaa:
+1070                         \textcolor{keywordflow}{return} \textcolor{keyword}{True}
+1071                 trys-=1
+1072                 \textcolor{keywordflow}{if} trys==0:
+1073                     \textcolor{keywordflow}{break}
+1074         \textcolor{keywordflow}{return} \textcolor{keyword}{False}    
+1075         
+\end{DoxyCode}
 \mbox{\Hypertarget{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_ab727e2cb1e1d5962f9d52c7af8524ede}\label{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_ab727e2cb1e1d5962f9d52c7af8524ede}} 
 \index{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}!Write\+N\+VM@{Write\+N\+VM}}
 \index{Write\+N\+VM@{Write\+N\+VM}!toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw@{toxic\+\_\+hardware\+::roboclaw\+\_\+3\+::\+Roboclaw}}
 \subsubsection{\texorpdfstring{Write\+N\+V\+M()}{WriteNVM()}}
 {\footnotesize\ttfamily def Write\+N\+VM (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{address }\end{DoxyParamCaption})}
 
+
+\begin{DoxyCode}
+1002     \textcolor{keyword}{def }WriteNVM(self,address):
+1003         \textcolor{keywordflow}{return} self.\_write4(address,self.Cmd.WRITENVM,0xE22EAB7A)
+1004 
+\end{DoxyCode}
 
 
 \subsection{Member Data Documentation}

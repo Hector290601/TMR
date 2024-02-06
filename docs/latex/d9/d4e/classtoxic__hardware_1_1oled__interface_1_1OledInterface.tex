@@ -28,6 +28,18 @@ def \mbox{\hyperlink{classtoxic__hardware_1_1oled__interface_1_1OledInterface_a9
 {\footnotesize\ttfamily def \+\_\+\+\_\+init\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
 
 
+\begin{DoxyCode}
+39     \textcolor{keyword}{def }\_\_init\_\_(self):
+40         super().\_\_init\_\_(\textcolor{stringliteral}{'oled\_interface'})
+41         self.subscription = self.create\_subscription(
+42                 String,
+43                 \textcolor{stringliteral}{'/message'},
+44                 self.oled\_callback,
+45                 60
+46         )
+47 
+\end{DoxyCode}
+
 
 \subsection{Member Function Documentation}
 \mbox{\Hypertarget{classtoxic__hardware_1_1oled__interface_1_1OledInterface_a956e7ab59d12fa1dc3e975c2fba46296}\label{classtoxic__hardware_1_1oled__interface_1_1OledInterface_a956e7ab59d12fa1dc3e975c2fba46296}} 
@@ -36,6 +48,17 @@ def \mbox{\hyperlink{classtoxic__hardware_1_1oled__interface_1_1OledInterface_a9
 \subsubsection{\texorpdfstring{oled\+\_\+callback()}{oled\_callback()}}
 {\footnotesize\ttfamily def oled\+\_\+callback (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{data }\end{DoxyParamCaption})}
 
+
+\begin{DoxyCode}
+48     \textcolor{keyword}{def }oled\_callback(self, data):
+49         \textcolor{keyword}{global} draw, image
+50         draw.rectangle((0,0,width,height), outline=0, fill=0)
+51         msg\_content = data.data
+52         draw.text((x, top), msg\_content,  font=font, fill=255)
+53         disp.image(image)
+54         disp.display()
+55 
+\end{DoxyCode}
 
 
 \subsection{Member Data Documentation}

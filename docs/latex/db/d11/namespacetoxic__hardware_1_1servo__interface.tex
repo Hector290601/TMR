@@ -25,6 +25,16 @@ def \mbox{\hyperlink{namespacetoxic__hardware_1_1servo__interface_a2278d6779516e
 {\footnotesize\ttfamily def toxic\+\_\+hardware.\+servo\+\_\+interface.\+main (\begin{DoxyParamCaption}\item[{}]{args = {\ttfamily None} }\end{DoxyParamCaption})}
 
 
+\begin{DoxyCode}
+33 \textcolor{keyword}{def }\mbox{\hyperlink{namespacetoxic__hardware_1_1servo__interface_a2278d6779516e4e6c64047946e8e9595}{main}}(args=None):
+34     rclpy.init(args=args)
+35     steeringInterface = SteeringInterface()
+36     rclpy.spin(steeringInterface)
+37     steeringInterface.destroy\_node()
+38     rclpy.shutdown()
+39 
+\end{DoxyCode}
+
 
 \subsection{Variable Documentation}
 \mbox{\Hypertarget{namespacetoxic__hardware_1_1servo__interface_ab818b24a3670d4f46c31af185e3cb93c}\label{namespacetoxic__hardware_1_1servo__interface_ab818b24a3670d4f46c31af185e3cb93c}} 
