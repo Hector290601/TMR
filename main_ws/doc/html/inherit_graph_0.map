@@ -1,0 +1,10 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node1" title=" " alt="" coords="5,209,61,235"/>
+<area shape="rect" id="node2" href="$classcv__basics_1_1webcam__pub_1_1_image_publisher.html" title=" " alt="" coords="119,5,339,47"/>
+<area shape="rect" id="node3" href="$classcv__basics_1_1webcam__sub_1_1_image_subscriber.html" title=" " alt="" coords="120,71,339,112"/>
+<area shape="rect" id="node4" href="$classtoxic__hardware_1_1controller_1_1_control_subscriber.html" title=" " alt="" coords="134,136,325,177"/>
+<area shape="rect" id="node5" href="$classtoxic__vision_1_1async__kinect__publisher_1_1_image_publisher.html" title=" " alt="" coords="109,201,349,243"/>
+<area shape="rect" id="node6" href="$classtoxic__vision_1_1kinect__publisher_1_1_image_publisher.html" title=" " alt="" coords="133,267,326,308"/>
+<area shape="rect" id="node7" href="$classtoxic__vision_1_1kinect__subscriber_1_1_image_subscriber.html" title=" " alt="" coords="125,332,333,373"/>
+<area shape="rect" id="node8" href="$classtoxic__vision_1_1webcam__pub_1_1_image_publisher.html" title=" " alt="" coords="150,397,309,439"/>
+</map>

@@ -1,0 +1,108 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classcv__basics_1_1webcam__sub_1_1_image_subscriber" kind="class" language="Python" prot="public">
+    <compoundname>cv_basics::webcam_sub::ImageSubscriber</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Node</basecompoundref>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classcv__basics_1_1webcam__sub_1_1_image_subscriber_1a0a0ec08016f80d019b95e176f73c93d3" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>cv_basics.webcam_sub.ImageSubscriber::subscription</definition>
+        <argsstring></argsstring>
+        <name>subscription</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/hector/TMR/main_ws/src/cv_basics/cv_basics/webcam_sub.py" line="10" column="1" bodyfile="/home/hector/TMR/main_ws/src/cv_basics/cv_basics/webcam_sub.py" bodystart="10" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classcv__basics_1_1webcam__sub_1_1_image_subscriber_1aa4561ad9c23bbad6f19667bd409fe1a7" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>cv_basics.webcam_sub.ImageSubscriber::br</definition>
+        <argsstring></argsstring>
+        <name>br</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/hector/TMR/main_ws/src/cv_basics/cv_basics/webcam_sub.py" line="16" column="1" bodyfile="/home/hector/TMR/main_ws/src/cv_basics/cv_basics/webcam_sub.py" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classcv__basics_1_1webcam__sub_1_1_image_subscriber_1aa592192e7eb292375677dd7a7372e75b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def cv_basics.webcam_sub.ImageSubscriber.__init__</definition>
+        <argsstring>(self)</argsstring>
+        <name>__init__</name>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/hector/TMR/main_ws/src/cv_basics/cv_basics/webcam_sub.py" line="8" column="1" bodyfile="/home/hector/TMR/main_ws/src/cv_basics/cv_basics/webcam_sub.py" bodystart="8" bodyend="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classcv__basics_1_1webcam__sub_1_1_image_subscriber_1a68060dc8d864a3fe4810bf1a94ff1579" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def cv_basics.webcam_sub.ImageSubscriber.listener_callback</definition>
+        <argsstring>(self, data)</argsstring>
+        <name>listener_callback</name>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>data</type>
+          <defname>data</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/hector/TMR/main_ws/src/cv_basics/cv_basics/webcam_sub.py" line="18" column="1" bodyfile="/home/hector/TMR/main_ws/src/cv_basics/cv_basics/webcam_sub.py" bodystart="18" bodyend="22"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>cv_basics.webcam_sub.ImageSubscriber</label>
+        <link refid="classcv__basics_1_1webcam__sub_1_1_image_subscriber"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Node</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>cv_basics.webcam_sub.ImageSubscriber</label>
+        <link refid="classcv__basics_1_1webcam__sub_1_1_image_subscriber"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Node</label>
+      </node>
+    </collaborationgraph>
+    <location file="/home/hector/TMR/main_ws/src/cv_basics/cv_basics/webcam_sub.py" line="7" column="1" bodyfile="/home/hector/TMR/main_ws/src/cv_basics/cv_basics/webcam_sub.py" bodystart="7" bodyend="24"/>
+    <listofallmembers>
+      <member refid="classcv__basics_1_1webcam__sub_1_1_image_subscriber_1aa592192e7eb292375677dd7a7372e75b" prot="public" virt="non-virtual"><scope>cv_basics::webcam_sub::ImageSubscriber</scope><name>__init__</name></member>
+      <member refid="classcv__basics_1_1webcam__sub_1_1_image_subscriber_1aa4561ad9c23bbad6f19667bd409fe1a7" prot="public" virt="non-virtual"><scope>cv_basics::webcam_sub::ImageSubscriber</scope><name>br</name></member>
+      <member refid="classcv__basics_1_1webcam__sub_1_1_image_subscriber_1a68060dc8d864a3fe4810bf1a94ff1579" prot="public" virt="non-virtual"><scope>cv_basics::webcam_sub::ImageSubscriber</scope><name>listener_callback</name></member>
+      <member refid="classcv__basics_1_1webcam__sub_1_1_image_subscriber_1a0a0ec08016f80d019b95e176f73c93d3" prot="public" virt="non-virtual"><scope>cv_basics::webcam_sub::ImageSubscriber</scope><name>subscription</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

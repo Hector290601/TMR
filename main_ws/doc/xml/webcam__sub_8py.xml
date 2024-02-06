@@ -1,0 +1,59 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="webcam__sub_8py" kind="file" language="Python">
+    <compoundname>webcam_sub.py</compoundname>
+    <innerclass refid="classcv__basics_1_1webcam__sub_1_1_image_subscriber" prot="public">cv_basics::webcam_sub::ImageSubscriber</innerclass>
+    <innernamespace refid="namespacecv__basics_1_1webcam__sub">cv_basics::webcam_sub</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">import</highlight><highlight class="normal"><sp/>rclpy<sp/></highlight><highlight class="comment">#<sp/>Python<sp/>library<sp/>for<sp/>ROS<sp/>2</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="keyword">from</highlight><highlight class="normal"><sp/>rclpy.node<sp/></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>Node<sp/></highlight><highlight class="comment">#<sp/>Handles<sp/>the<sp/>creation<sp/>of<sp/>nodes</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">from</highlight><highlight class="normal"><sp/>sensor_msgs.msg<sp/></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>Image<sp/></highlight><highlight class="comment">#<sp/>Image<sp/>is<sp/>the<sp/>message<sp/>type</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">from</highlight><highlight class="normal"><sp/>cv_bridge<sp/></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>CvBridge<sp/></highlight><highlight class="comment">#<sp/>Package<sp/>to<sp/>convert<sp/>between<sp/>ROS<sp/>and<sp/>OpenCV<sp/>Images</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>cv2<sp/></highlight><highlight class="comment">#<sp/>OpenCV<sp/>library</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"><sp/></highlight></codeline>
+<codeline lineno="7" refid="classcv__basics_1_1webcam__sub_1_1_image_subscriber" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classcv__basics_1_1webcam__sub_1_1_image_subscriber" kindref="compound">ImageSubscriber</ref>(Node):</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">def<sp/></highlight><highlight class="normal">__init__(self):</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"><sp/><sp/><sp/><sp/>super().__init__(</highlight><highlight class="stringliteral">&apos;image_subscriber&apos;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"><sp/><sp/><sp/><sp/>self.<ref refid="classcv__basics_1_1webcam__sub_1_1_image_subscriber_1a0a0ec08016f80d019b95e176f73c93d3" kindref="member">subscription</ref>subscription<sp/>=<sp/>self.create_subscription(</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>Image,<sp/></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&apos;/raw_rgb&apos;</highlight><highlight class="normal">,<sp/></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>self.<ref refid="classcv__basics_1_1webcam__sub_1_1_image_subscriber_1a68060dc8d864a3fe4810bf1a94ff1579" kindref="member">listener_callback</ref>listener_callback,<sp/></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>25)</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/>self.<ref refid="classcv__basics_1_1webcam__sub_1_1_image_subscriber_1a0a0ec08016f80d019b95e176f73c93d3" kindref="member">subscription</ref>subscription<sp/></highlight><highlight class="comment">#<sp/>prevent<sp/>unused<sp/>variable<sp/>warning</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/>self.<ref refid="classcv__basics_1_1webcam__sub_1_1_image_subscriber_1aa4561ad9c23bbad6f19667bd409fe1a7" kindref="member">br</ref>br<sp/>=<sp/>CvBridge()</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">def<sp/></highlight><highlight class="normal">listener_callback(self,<sp/>data):</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/>self.get_logger().info(</highlight><highlight class="stringliteral">&apos;Receiving<sp/>video<sp/>frame&apos;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/>current_frame<sp/>=<sp/>self.<ref refid="classcv__basics_1_1webcam__sub_1_1_image_subscriber_1aa4561ad9c23bbad6f19667bd409fe1a7" kindref="member">br</ref>br.imgmsg_to_cv2(data)</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/>cv2.imshow(</highlight><highlight class="stringliteral">&quot;camera&quot;</highlight><highlight class="normal">,<sp/>current_frame)</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/>cv2.waitKey(1)</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="keyword">def<sp/></highlight><highlight class="normal">main(args=None):</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">#<sp/>Initialize<sp/>the<sp/>rclpy<sp/>library</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/>rclpy.init(args=args)</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">#<sp/>Create<sp/>the<sp/>node</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/>image_subscriber<sp/>=<sp/><ref refid="classcv__basics_1_1webcam__sub_1_1_image_subscriber" kindref="compound">ImageSubscriber</ref>()</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">#<sp/>Spin<sp/>the<sp/>node<sp/>so<sp/>the<sp/>callback<sp/>function<sp/>is<sp/>called.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/>rclpy.spin(image_subscriber)</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">#<sp/>Destroy<sp/>the<sp/>node<sp/>explicitly</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">#<sp/>(optional<sp/>-<sp/>otherwise<sp/>it<sp/>will<sp/>be<sp/>done<sp/>automatically</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">#<sp/>when<sp/>the<sp/>garbage<sp/>collector<sp/>destroys<sp/>the<sp/>node<sp/>object)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/>image_subscriber.destroy_node()</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">#<sp/>Shutdown<sp/>the<sp/>ROS<sp/>client<sp/>library<sp/>for<sp/>Python</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/>rclpy.shutdown()</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>__name__<sp/>==<sp/></highlight><highlight class="stringliteral">&apos;__main__&apos;</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/>main()</highlight></codeline>
+    </programlisting>
+    <location file="/home/hector/TMR/main_ws/src/cv_basics/cv_basics/webcam_sub.py"/>
+  </compounddef>
+</doxygen>

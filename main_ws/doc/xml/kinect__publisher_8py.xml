@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="kinect__publisher_8py" kind="file" language="Python">
+    <compoundname>kinect_publisher.py</compoundname>
+    <innerclass refid="classtoxic__vision_1_1kinect__publisher_1_1_image_publisher" prot="public">toxic_vision::kinect_publisher::ImagePublisher</innerclass>
+    <innernamespace refid="namespacetoxic__vision_1_1kinect__publisher">toxic_vision::kinect_publisher</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">#import<sp/>the<sp/>necessary<sp/>modules</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>rclpy</highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">from</highlight><highlight class="normal"><sp/>rclpy.node<sp/></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>Node</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">from</highlight><highlight class="normal"><sp/>sensor_msgs.msg<sp/></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>Image</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">from</highlight><highlight class="normal"><sp/>cv_bridge<sp/></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>CvBridge</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>freenect</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>cv2</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>numpy<sp/></highlight><highlight class="keyword">as</highlight><highlight class="normal"><sp/>np</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10" refid="classtoxic__vision_1_1kinect__publisher_1_1_image_publisher" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classtoxic__vision_1_1kinect__publisher_1_1_image_publisher" kindref="compound">ImagePublisher</ref>(Node):</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">def<sp/></highlight><highlight class="normal">__init__(self):</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>super().__init__(</highlight><highlight class="stringliteral">&apos;kinect_rgb_publisher&apos;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>self.<ref refid="classtoxic__vision_1_1kinect__publisher_1_1_image_publisher_1ab7762235c1a365b1ef6a04afefd3bc2b" kindref="member">publisher_</ref>publisher_<sp/>=<sp/>self.create_publisher(Image,<sp/></highlight><highlight class="stringliteral">&quot;kinect/rgb/raw&quot;</highlight><highlight class="normal">,<sp/>30)</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>timer<sp/>=<sp/>0.03</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>self.<ref refid="classtoxic__vision_1_1kinect__publisher_1_1_image_publisher_1ae756b6efa90715172860deffb4697a99" kindref="member">timer</ref>timer<sp/>=<sp/>self.create_timer(timer,<sp/>self.<ref refid="classtoxic__vision_1_1kinect__publisher_1_1_image_publisher_1ac9a7a1cc952a1c21e953d64850bc45db" kindref="member">timer_callback</ref>timer_callback)</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>self.<ref refid="classtoxic__vision_1_1kinect__publisher_1_1_image_publisher_1ae8ba44e45de14d5378eb7682b143c0c8" kindref="member">bgr_frame</ref>bgr_frame<sp/>=<sp/>np.zeros((480,<sp/>640,<sp/>3),<sp/>dtype<sp/>=<sp/>np.uint8)</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>self.<ref refid="classtoxic__vision_1_1kinect__publisher_1_1_image_publisher_1a04a775d5946b02745941d4957de9b256" kindref="member">br</ref>br<sp/>=<sp/>CvBridge()</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">def<sp/></highlight><highlight class="normal">timer_callback(self):</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>frame,<sp/>_<sp/>=<sp/>freenect.sync_get_video()</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>frame<sp/>=<sp/>cv2.cvtColor(frame,<sp/>cv2.COLOR_RGB2BGR)</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>self.<ref refid="classtoxic__vision_1_1kinect__publisher_1_1_image_publisher_1ab7762235c1a365b1ef6a04afefd3bc2b" kindref="member">publisher_</ref>publisher_.publish(self.<ref refid="classtoxic__vision_1_1kinect__publisher_1_1_image_publisher_1a04a775d5946b02745941d4957de9b256" kindref="member">br</ref>br.cv2_to_imgmsg(frame))</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="keyword">def<sp/></highlight><highlight class="normal">main(args=None):</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/>rclpy.init(args=args)</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/>image_publisher<sp/>=<sp/><ref refid="classtoxic__vision_1_1kinect__publisher_1_1_image_publisher" kindref="compound">ImagePublisher</ref>()</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/>rclpy.spin(image_publisher)</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/>image_publisher.destroy_node()</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/>rclp.shutdown()</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>__name__<sp/>==<sp/></highlight><highlight class="stringliteral">&apos;__main__&apos;</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/>main()</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="/home/hector/TMR/main_ws/src/toxic_vision/toxic_vision/kinect_publisher.py"/>
+  </compounddef>
+</doxygen>

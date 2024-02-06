@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="namespacecv__basics_1_1webcam__pub" kind="namespace" language="Python">
+    <compoundname>cv_basics::webcam_pub</compoundname>
+    <innerclass refid="classcv__basics_1_1webcam__pub_1_1_image_publisher" prot="public">cv_basics::webcam_pub::ImagePublisher</innerclass>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="cv__basics_2cv__basics_2webcam__pub_8py_1af10a7bf96b7b64bb80e14f4e162012fd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def cv_basics.webcam_pub.main</definition>
+        <argsstring>(args=None)</argsstring>
+        <name>main</name>
+        <param>
+          <type>args</type>
+          <defname>args</defname>
+          <defval>None</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/hector/TMR/main_ws/src/cv_basics/cv_basics/webcam_pub.py" line="25" column="1" bodyfile="/home/hector/TMR/main_ws/src/cv_basics/cv_basics/webcam_pub.py" bodystart="25" bodyend="31"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/hector/TMR/main_ws/src/cv_basics/cv_basics/webcam_pub.py" line="1" column="1"/>
+  </compounddef>
+</doxygen>

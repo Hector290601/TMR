@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="dir_80db70d0f7ed3c180c6cb60fa9d95ab9" kind="dir">
+    <compoundname>/home/hector/TMR/main_ws/src/toxic_hardware/toxic_hardware</compoundname>
+    <innerfile refid="toxic__hardware_2toxic__hardware_2____init_____8py">__init__.py</innerfile>
+    <innerfile refid="controller_8py">controller.py</innerfile>
+    <innerfile refid="roboclaw__3_8py">roboclaw_3.py</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/hector/TMR/main_ws/src/toxic_hardware/toxic_hardware/"/>
+  </compounddef>
+</doxygen>

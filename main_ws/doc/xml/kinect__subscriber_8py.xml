@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="kinect__subscriber_8py" kind="file" language="Python">
+    <compoundname>kinect_subscriber.py</compoundname>
+    <innerclass refid="classtoxic__vision_1_1kinect__subscriber_1_1_image_subscriber" prot="public">toxic_vision::kinect_subscriber::ImageSubscriber</innerclass>
+    <innernamespace refid="namespacetoxic__vision_1_1kinect__subscriber">toxic_vision::kinect_subscriber</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">import</highlight><highlight class="normal"><sp/>rclpy</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="keyword">from</highlight><highlight class="normal"><sp/>rclpy.node<sp/></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>Node</highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">from</highlight><highlight class="normal"><sp/>sensor_msgs.msg<sp/></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>Image</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">from</highlight><highlight class="normal"><sp/>cv_bridge<sp/></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>CvBridge</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>cv2</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight></codeline>
+<codeline lineno="7" refid="classtoxic__vision_1_1kinect__subscriber_1_1_image_subscriber" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classtoxic__vision_1_1kinect__subscriber_1_1_image_subscriber" kindref="compound">ImageSubscriber</ref>(Node):</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">def<sp/></highlight><highlight class="normal">__init__(self):</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>super().__init__(</highlight><highlight class="stringliteral">&apos;kinect_rgb_raw_subscriber&apos;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>self.<ref refid="classtoxic__vision_1_1kinect__subscriber_1_1_image_subscriber_1a174e942eb08565a8338bd6a9082ab0d2" kindref="member">subscription</ref>subscription<sp/>=<sp/>self.create_subscription(</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Image,</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&apos;/kinect/rgb/raw&apos;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>self.<ref refid="classtoxic__vision_1_1kinect__subscriber_1_1_image_subscriber_1a3eaa2d601129465f5b0bd294b83609e3" kindref="member">listener_callback</ref>listener_callback,</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>30)</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>self.<ref refid="classtoxic__vision_1_1kinect__subscriber_1_1_image_subscriber_1a174e942eb08565a8338bd6a9082ab0d2" kindref="member">subscription</ref>subscription</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>self.<ref refid="classtoxic__vision_1_1kinect__subscriber_1_1_image_subscriber_1ac4517dc96963b3a0acda79ad9831f422" kindref="member">br</ref>br<sp/>=<sp/>CvBridge()</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">def<sp/></highlight><highlight class="normal">listener_callback(self,<sp/>data):</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>self.get_logger().info(</highlight><highlight class="stringliteral">&apos;Receiving<sp/>kinect<sp/>rgb<sp/>frame&apos;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>current_frame<sp/>=<sp/>self.<ref refid="classtoxic__vision_1_1kinect__subscriber_1_1_image_subscriber_1ac4517dc96963b3a0acda79ad9831f422" kindref="member">br</ref>br.imgmsg_to_cv2(data)</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>cv2.imshow(</highlight><highlight class="stringliteral">&quot;kinect&quot;</highlight><highlight class="normal">,<sp/>current_frame)</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>cv2.waitKey(1)</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="keyword">def<sp/></highlight><highlight class="normal">main(args=None):</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/>rclpy.init(args=args)</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/>image_subscriber<sp/>=<sp/><ref refid="classtoxic__vision_1_1kinect__subscriber_1_1_image_subscriber" kindref="compound">ImageSubscriber</ref>()</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/>rclpy.spin(image_subscriber)</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/>image_subscriber.destroy_node()</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/>rclpy.shutdown()</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>__name__<sp/>==<sp/></highlight><highlight class="stringliteral">&apos;__main__&apos;</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/>main()</highlight></codeline>
+    </programlisting>
+    <location file="/home/hector/TMR/main_ws/src/toxic_vision/toxic_vision/kinect_subscriber.py"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,426 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.9.1" xml:lang="en-US">
+  <compound refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd" kind="class"><name>toxic_hardware::roboclaw_3::Roboclaw::Cmd</name>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1ae5accf3bc2c56d72ca0289c1dce128ee" kind="variable"><name>M1FORWARD</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1a3241dfbf5bf96fe738634e01f3b868ec" kind="variable"><name>M1BACKWARD</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1adba4d514b4ab2836e445dc7234bd5bad" kind="variable"><name>SETMINMB</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1ad34cb54dffa4b49e57531dd3ed63e4dd" kind="variable"><name>SETMAXMB</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1acc8e7439e46550fb950f655157d3b2a3" kind="variable"><name>M2FORWARD</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1aa32b5d8a1015b99fca827fe4bd8be6e5" kind="variable"><name>M2BACKWARD</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1a7a91fb3913901579ee02798b3798fab4" kind="variable"><name>M17BIT</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1ab63803cd2aa9d31d0b0094fe5c1f26a1" kind="variable"><name>M27BIT</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1adc14d33d7da1b268c717bd3e33cf1606" kind="variable"><name>MIXEDFORWARD</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1a1d644819677b9fdc425b826e0296aa40" kind="variable"><name>MIXEDBACKWARD</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1a2f4c6517bd7779a8853f5c401cf09693" kind="variable"><name>MIXEDRIGHT</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1a9af53827cd510e0eb51607f971a4c66a" kind="variable"><name>MIXEDLEFT</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1abc224f62b083ad0857dab70d0f1ab479" kind="variable"><name>MIXEDFB</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1a2a456e5718e568be94b6079da2ee43ec" kind="variable"><name>MIXEDLR</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1a111c95fb1056d04cbabc0e14f892ad63" kind="variable"><name>GETM1ENC</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1abfd87fa8ee9c8bdc3803a062a2bb2f6c" kind="variable"><name>GETM2ENC</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1ad1d8802eeedcd9c0ae1e115f8baa2ef6" kind="variable"><name>GETM1SPEED</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1aa9afe27a4f32a2182898393dbab45c73" kind="variable"><name>GETM2SPEED</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1aae851a96f9cfc2cc8dcea059fe89c9bd" kind="variable"><name>RESETENC</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1a98f0126eaaab32ce95761de48f6ca4cc" kind="variable"><name>GETVERSION</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1aa24744d60db1bbef973a59194df8d77f" kind="variable"><name>SETM1ENCCOUNT</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1a2187b457ae1eb0382f15b937bbab48ab" kind="variable"><name>SETM2ENCCOUNT</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1a2cad400580c9b65646785dc3d7937485" kind="variable"><name>GETMBATT</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1ac3af16ea0da1336d530b7750b45b2a0f" kind="variable"><name>GETLBATT</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1a6e4d2030518fe14e96816080508c274d" kind="variable"><name>SETMINLB</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1ab4222633629080da9c4d6644b656ba56" kind="variable"><name>SETMAXLB</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1acfb43c9482531524bed711cb83abe244" kind="variable"><name>SETM1PID</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1afc55d94d95b473f9609fa98634778f9b" kind="variable"><name>SETM2PID</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1a988b93b2b83c36c10cb66752e516c5e5" kind="variable"><name>GETM1ISPEED</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1a1be79fc71082cb9726d57f458380aebd" kind="variable"><name>GETM2ISPEED</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1ac37b699db0288e9ecfcd456b4d56baac" kind="variable"><name>M1DUTY</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1a77b12e7a43ab85906964cb636ac34c91" kind="variable"><name>M2DUTY</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1abc5901940eba3955f979546316ca86af" kind="variable"><name>MIXEDDUTY</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1a09db05ff4a9397aff1ee5a9dcf77df22" kind="variable"><name>M1SPEED</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1a2c5cbc4663823b2867df7c35dbeb5adc" kind="variable"><name>M2SPEED</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1afd9f5ac7cd219952bd01a394c6c12afc" kind="variable"><name>MIXEDSPEED</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1a16600d20ed216f9e2a120cd2fd4d06a6" kind="variable"><name>M1SPEEDACCEL</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1ad8b0120137353739656a4d5d3c5dcfd6" kind="variable"><name>M2SPEEDACCEL</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1a82e0b8aeb9dbe61026cf78cb735896ed" kind="variable"><name>MIXEDSPEEDACCEL</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1a54084848c0ae9f5add632435e1a229f3" kind="variable"><name>M1SPEEDDIST</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1af091fabf404cd34e798e548bf28be6b5" kind="variable"><name>M2SPEEDDIST</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1a51d5b7c859d6561979f84196efc1d8de" kind="variable"><name>MIXEDSPEEDDIST</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1af4c639c6384cb28c9ccd7f485d33f1ba" kind="variable"><name>M1SPEEDACCELDIST</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1aabffdf61dd14127d3a0c9f4d308e7ef7" kind="variable"><name>M2SPEEDACCELDIST</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1a063d45bcdea4caa85ae6d96c6cbc285f" kind="variable"><name>MIXEDSPEEDACCELDIST</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1aa1ca8947a935cedd12e73d6a27f36784" kind="variable"><name>GETBUFFERS</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1a59d182a4a8b89af28f61c2d3248182b9" kind="variable"><name>GETPWMS</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1acbb53759ce7155f8d72fe63bd1091f52" kind="variable"><name>GETCURRENTS</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1a96faaada7a7820c46a2715e4cebf8231" kind="variable"><name>MIXEDSPEED2ACCEL</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1afdfddbb75c888bba6b7a516a3edf1f19" kind="variable"><name>MIXEDSPEED2ACCELDIST</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1a4336e315d03abb963303204e46df39a7" kind="variable"><name>M1DUTYACCEL</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1a26c30122cd101df2bfc3828abca02321" kind="variable"><name>M2DUTYACCEL</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1afc21bdf344e4624d0cf8af64c242856d" kind="variable"><name>MIXEDDUTYACCEL</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1ad37f51c814f42ebeb2897946aa40934d" kind="variable"><name>READM1PID</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1af7c3d55807969c8bb77f109f7fed9565" kind="variable"><name>READM2PID</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1a5fc32f67adce5811e9197da7669ae9bd" kind="variable"><name>SETMAINVOLTAGES</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1a9ba5e049493cb95e4ad4a40e7abe4d65" kind="variable"><name>SETLOGICVOLTAGES</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1acf094176a10541af4d3eb26ed8b02ac9" kind="variable"><name>GETMINMAXMAINVOLTAGES</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1acee20af4cd21268058cc614ec920acd6" kind="variable"><name>GETMINMAXLOGICVOLTAGES</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1a358969d7999acc0329ecab8eb8b37394" kind="variable"><name>SETM1POSPID</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1ab96dbc6e64094c8ce89c6d953f05f942" kind="variable"><name>SETM2POSPID</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1aef5b53ff0919981f54bc6a19ad5037a7" kind="variable"><name>READM1POSPID</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1a7f3e71069d5d9059a090be6002c373d8" kind="variable"><name>READM2POSPID</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1acbfff02a950cd496f90acb61d41f06a5" kind="variable"><name>M1SPEEDACCELDECCELPOS</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1aaed56644583bf79cb5a8ac524a1840fe" kind="variable"><name>M2SPEEDACCELDECCELPOS</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1a1f13642d0cbe61cac8c37933db3caaa9" kind="variable"><name>MIXEDSPEEDACCELDECCELPOS</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1a898502c25733fb8c6600d1f7fe1ed878" kind="variable"><name>SETM1DEFAULTACCEL</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1aef523fcaaccb0d4b46c454aad8409f6b" kind="variable"><name>SETM2DEFAULTACCEL</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1a21de1355402084592bf9011dd1dd685c" kind="variable"><name>SETPINFUNCTIONS</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1affd5c91a77f76ff08e174f7be142e9eb" kind="variable"><name>GETPINFUNCTIONS</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1a360255e78cdf2698ef935e1aec23ea1a" kind="variable"><name>SETDEADBAND</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1abb63602ce7ad66ed6508a34b7de63199" kind="variable"><name>GETDEADBAND</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1aac722480a92502985d440290fbde1ab4" kind="variable"><name>RESTOREDEFAULTS</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1a7e82fb157825293cceff4b18c3f5cfa8" kind="variable"><name>GETTEMP</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1a4e5f0e214776e920d3dd49e0a30fae25" kind="variable"><name>GETTEMP2</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1af8e397f649987ab40d86b9a6c1cfdccc" kind="variable"><name>GETERROR</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1a9e6c1afdc1f26e5a950937f01357b116" kind="variable"><name>GETENCODERMODE</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1a06fd231779d004fdb3987d69e8147a08" kind="variable"><name>SETM1ENCODERMODE</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1a5bf4d6a39c0a827fc4bb0063e1abb1dc" kind="variable"><name>SETM2ENCODERMODE</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1a066d106aab25d1154ee3d8ce1f13b810" kind="variable"><name>WRITENVM</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1af401626d5962109d1165e5f3b352f79d" kind="variable"><name>READNVM</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1a2b1c9f9888927348fafe4a18b8946018" kind="variable"><name>SETCONFIG</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1a088f90733ce706daaab417f9e5e59ff8" kind="variable"><name>GETCONFIG</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1a07b08af329f4d291fcc5d9f40cd4bd1f" kind="variable"><name>SETM1MAXCURRENT</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1a1283c68f9019a59b0058bbec03fc008c" kind="variable"><name>SETM2MAXCURRENT</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1a031b148ac704691da05afe659ffcf175" kind="variable"><name>GETM1MAXCURRENT</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1a86be758f9ca74212cad0adcc08c720c9" kind="variable"><name>GETM2MAXCURRENT</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1a8a73a4398ee35a68b37e221f4ec974a9" kind="variable"><name>SETPWMMODE</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1af4d5eb77d0a8dd96659b0cf531bc950b" kind="variable"><name>GETPWMMODE</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1a83c3f5cb754e6e3aebeca177d015106f" kind="variable"><name>READEEPROM</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1a4dcca8d3f4003c17ffb5c82a7c1ef63f" kind="variable"><name>WRITEEEPROM</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1_1_cmd_1aab75358b95fc658690c3b2b018a0d22b" kind="variable"><name>FLAGBOOTLOADER</name></member>
+  </compound>
+  <compound refid="classtoxic__hardware_1_1controller_1_1_control_subscriber" kind="class"><name>toxic_hardware::controller::ControlSubscriber</name>
+    <member refid="classtoxic__hardware_1_1controller_1_1_control_subscriber_1a40606153bdcf4badb2dc06f740fe38b3" kind="variable"><name>subscription</name></member>
+    <member refid="classtoxic__hardware_1_1controller_1_1_control_subscriber_1a4bfacc2feeb25a3f8bdd36a53f4603f6" kind="function"><name>__init__</name></member>
+    <member refid="classtoxic__hardware_1_1controller_1_1_control_subscriber_1a5dd8ea4966e0b8c21cef50f04d8fd8b3" kind="function"><name>steering</name></member>
+    <member refid="classtoxic__hardware_1_1controller_1_1_control_subscriber_1a940fb566d436f05a34d6d2f95143153f" kind="function"><name>speed</name></member>
+    <member refid="classtoxic__hardware_1_1controller_1_1_control_subscriber_1a5b6cbacda977aa6262f17de1211f43c2" kind="function"><name>control_callback</name></member>
+  </compound>
+  <compound refid="classcv__basics_1_1webcam__pub_1_1_image_publisher" kind="class"><name>cv_basics::webcam_pub::ImagePublisher</name>
+    <member refid="classcv__basics_1_1webcam__pub_1_1_image_publisher_1a8838638bb6532cdebe759c3f3bce963e" kind="variable"><name>publisher_</name></member>
+    <member refid="classcv__basics_1_1webcam__pub_1_1_image_publisher_1a7022ee54a3ef6628686e9861f209dff1" kind="variable"><name>timer</name></member>
+    <member refid="classcv__basics_1_1webcam__pub_1_1_image_publisher_1a0dcc48410e8fc2f602bdb61e38533f5e" kind="variable"><name>cap</name></member>
+    <member refid="classcv__basics_1_1webcam__pub_1_1_image_publisher_1aa9228f1bd3cf40a7b82f4dfd6f04b893" kind="variable"><name>br</name></member>
+    <member refid="classcv__basics_1_1webcam__pub_1_1_image_publisher_1a5ff170f43115b616a2652e03134d0d77" kind="function"><name>__init__</name></member>
+    <member refid="classcv__basics_1_1webcam__pub_1_1_image_publisher_1ae2ff770dcfe1daffa5b28ed9f576be13" kind="function"><name>timer_callback</name></member>
+  </compound>
+  <compound refid="classtoxic__vision_1_1async__kinect__publisher_1_1_image_publisher" kind="class"><name>toxic_vision::async_kinect_publisher::ImagePublisher</name>
+    <member refid="classtoxic__vision_1_1async__kinect__publisher_1_1_image_publisher_1a14662026df1aa4bb615f90ae0ee4f163" kind="variable"><name>publisher_</name></member>
+    <member refid="classtoxic__vision_1_1async__kinect__publisher_1_1_image_publisher_1a34da879f43e0877d43ec62dc5f8bbdde" kind="variable"><name>frame</name></member>
+    <member refid="classtoxic__vision_1_1async__kinect__publisher_1_1_image_publisher_1ae3f4751fb18b778f76b395a13caf31db" kind="variable"><name>timer</name></member>
+    <member refid="classtoxic__vision_1_1async__kinect__publisher_1_1_image_publisher_1a8b947d3d5179a58d79720ecde6d56e8a" kind="variable"><name>bgr_frame</name></member>
+    <member refid="classtoxic__vision_1_1async__kinect__publisher_1_1_image_publisher_1ae58e3ef3c295b6039d6182aa42d339ee" kind="variable"><name>br</name></member>
+    <member refid="classtoxic__vision_1_1async__kinect__publisher_1_1_image_publisher_1a0e2470813b200a2ff454a61cdc2e2180" kind="function"><name>__init__</name></member>
+    <member refid="classtoxic__vision_1_1async__kinect__publisher_1_1_image_publisher_1adb482b9d6bc263df5096957661e83856" kind="function"><name>timer_callback</name></member>
+  </compound>
+  <compound refid="classtoxic__vision_1_1kinect__publisher_1_1_image_publisher" kind="class"><name>toxic_vision::kinect_publisher::ImagePublisher</name>
+    <member refid="classtoxic__vision_1_1kinect__publisher_1_1_image_publisher_1ab7762235c1a365b1ef6a04afefd3bc2b" kind="variable"><name>publisher_</name></member>
+    <member refid="classtoxic__vision_1_1kinect__publisher_1_1_image_publisher_1ae756b6efa90715172860deffb4697a99" kind="variable"><name>timer</name></member>
+    <member refid="classtoxic__vision_1_1kinect__publisher_1_1_image_publisher_1ae8ba44e45de14d5378eb7682b143c0c8" kind="variable"><name>bgr_frame</name></member>
+    <member refid="classtoxic__vision_1_1kinect__publisher_1_1_image_publisher_1a04a775d5946b02745941d4957de9b256" kind="variable"><name>br</name></member>
+    <member refid="classtoxic__vision_1_1kinect__publisher_1_1_image_publisher_1aed01cad4aa0c0ea35dcd029e71f84f63" kind="function"><name>__init__</name></member>
+    <member refid="classtoxic__vision_1_1kinect__publisher_1_1_image_publisher_1ac9a7a1cc952a1c21e953d64850bc45db" kind="function"><name>timer_callback</name></member>
+  </compound>
+  <compound refid="classtoxic__vision_1_1webcam__pub_1_1_image_publisher" kind="class"><name>toxic_vision::webcam_pub::ImagePublisher</name>
+    <member refid="classtoxic__vision_1_1webcam__pub_1_1_image_publisher_1a34e6179507877abfe947cbe448f184eb" kind="variable"><name>publisher_</name></member>
+    <member refid="classtoxic__vision_1_1webcam__pub_1_1_image_publisher_1a278015e0d7ea896193603a3ad5400b56" kind="variable"><name>timer</name></member>
+    <member refid="classtoxic__vision_1_1webcam__pub_1_1_image_publisher_1aa33fab3b1d7089dfc849b765bba7d194" kind="variable"><name>cap</name></member>
+    <member refid="classtoxic__vision_1_1webcam__pub_1_1_image_publisher_1a370d3c79435256163a600004bc744498" kind="variable"><name>br</name></member>
+    <member refid="classtoxic__vision_1_1webcam__pub_1_1_image_publisher_1a93ec3d951e9aa3a3be5bd1b466027f45" kind="function"><name>__init__</name></member>
+    <member refid="classtoxic__vision_1_1webcam__pub_1_1_image_publisher_1a6e41491a3257eac8e8fa3c47eac9c04d" kind="function"><name>timer_callback</name></member>
+  </compound>
+  <compound refid="classcv__basics_1_1webcam__sub_1_1_image_subscriber" kind="class"><name>cv_basics::webcam_sub::ImageSubscriber</name>
+    <member refid="classcv__basics_1_1webcam__sub_1_1_image_subscriber_1a0a0ec08016f80d019b95e176f73c93d3" kind="variable"><name>subscription</name></member>
+    <member refid="classcv__basics_1_1webcam__sub_1_1_image_subscriber_1aa4561ad9c23bbad6f19667bd409fe1a7" kind="variable"><name>br</name></member>
+    <member refid="classcv__basics_1_1webcam__sub_1_1_image_subscriber_1aa592192e7eb292375677dd7a7372e75b" kind="function"><name>__init__</name></member>
+    <member refid="classcv__basics_1_1webcam__sub_1_1_image_subscriber_1a68060dc8d864a3fe4810bf1a94ff1579" kind="function"><name>listener_callback</name></member>
+  </compound>
+  <compound refid="classtoxic__vision_1_1kinect__subscriber_1_1_image_subscriber" kind="class"><name>toxic_vision::kinect_subscriber::ImageSubscriber</name>
+    <member refid="classtoxic__vision_1_1kinect__subscriber_1_1_image_subscriber_1a174e942eb08565a8338bd6a9082ab0d2" kind="variable"><name>subscription</name></member>
+    <member refid="classtoxic__vision_1_1kinect__subscriber_1_1_image_subscriber_1ac4517dc96963b3a0acda79ad9831f422" kind="variable"><name>br</name></member>
+    <member refid="classtoxic__vision_1_1kinect__subscriber_1_1_image_subscriber_1a6d6be5c0efe3feb0a8092f87862e6fad" kind="function"><name>__init__</name></member>
+    <member refid="classtoxic__vision_1_1kinect__subscriber_1_1_image_subscriber_1a3eaa2d601129465f5b0bd294b83609e3" kind="function"><name>listener_callback</name></member>
+  </compound>
+  <compound refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw" kind="class"><name>toxic_hardware::roboclaw_3::Roboclaw</name>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1afe709148cc406a6e0792a3acd68de50e" kind="variable"><name>comport</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1a823cdc6a792969a1c38973ef9b5fc1b4" kind="variable"><name>rate</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1a67cef4a084cee785a5dd2c81e51acb70" kind="variable"><name>timeout</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1ad38ba788711533025f36a3c309e7cd05" kind="variable"><name>_trystimeout</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1a426d38f8c32b01dd95371848ec59a637" kind="variable"><name>_crc</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1a8a594e470266972798e6036301198819" kind="variable"><name>_port</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1ad5239ef3a4454827740060ab5c1e0c9c" kind="function"><name>__init__</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1a01d4e39c86c2bde8ad9cd6ef89b6b8dd" kind="function"><name>crc_clear</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1a86c78fbd3a90e9a3438d78564f3190ab" kind="function"><name>crc_update</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1a3bad8c87d9c83b7edb784b5c668bda8d" kind="function"><name>SendRandomData</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1ae4af4af7532d8a6573e92515ffcf92da" kind="function"><name>ForwardM1</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1a735777bc9e6358f2538b3140d999cab4" kind="function"><name>BackwardM1</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1a0e841f4d237fab70600d34fffd70055c" kind="function"><name>SetMinVoltageMainBattery</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1ae94d8b42df3fa9e046cb03ee1cb1d11e" kind="function"><name>SetMaxVoltageMainBattery</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1ac8ab255e7c48b4f1ac11d6822a61eb39" kind="function"><name>ForwardM2</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1a5d222e7bbad5ec6ec17c2fddd036bad7" kind="function"><name>BackwardM2</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1a310b31d26af0cb05464522cf153a08cc" kind="function"><name>ForwardBackwardM1</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1ad6306d67157bd2157c6ea1fa77012bb4" kind="function"><name>ForwardBackwardM2</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1a3fd878eb1fbefd161f882dace09674eb" kind="function"><name>ForwardMixed</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1a54e4de9df31a65db32165fbb4c4cfdce" kind="function"><name>BackwardMixed</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1ab492f6d06fdd74bfb935eb106f67c1df" kind="function"><name>TurnRightMixed</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1aef1735f64e5a8821ea53e8c2802ed5c1" kind="function"><name>TurnLeftMixed</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1ac733bf5b66aecf0217c17a361fc19833" kind="function"><name>ForwardBackwardMixed</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1af13532aeabaffc5f8539071a6786dc73" kind="function"><name>LeftRightMixed</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1a9910a2d9de2c937112ecb54895ac2a15" kind="function"><name>ReadEncM1</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1a9b97c9bb14ca132e64c1bdd26d476593" kind="function"><name>ReadEncM2</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1ab0c1e59469b147fef685ca5d2dd5cc08" kind="function"><name>ReadSpeedM1</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1a82d0bdbc232ab844d2f413a7bf6f5cc9" kind="function"><name>ReadSpeedM2</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1ada4a23991195ccec05c704e8fbf9f536" kind="function"><name>ResetEncoders</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1ab53d1f17fa69f6c3118eb54fd2ec3954" kind="function"><name>ReadVersion</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1a51fd7b01037c33d8110a488320345077" kind="function"><name>SetEncM1</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1ad56efca8ac84b62cbe49277e817531fd" kind="function"><name>SetEncM2</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1ab482c449401cb4c5544f79c526874605" kind="function"><name>ReadMainBatteryVoltage</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1ae75e459718100e766de7a3bed8590540" kind="function"><name>ReadLogicBatteryVoltage</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1a7f8f846062bf3f16e1f973e47f057959" kind="function"><name>SetMinVoltageLogicBattery</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1a9adc230e2d7ebbb15c0ede60f1fb634e" kind="function"><name>SetMaxVoltageLogicBattery</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1abee646d10546f0e4f5eaf71b2c57fcd7" kind="function"><name>SetM1VelocityPID</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1a7259be4b5175df4c6192fd8284149911" kind="function"><name>SetM2VelocityPID</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1a4b490cc3659d99d39ebc15688c47ce56" kind="function"><name>ReadISpeedM1</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1afd8cb73570b22b81fcd73b7ee06fb887" kind="function"><name>ReadISpeedM2</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1a6034a0675ee9fa84a7b8612f4ca58f2e" kind="function"><name>DutyM1</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1aa6c8d3f2eded41f79aa4d0a54487a91d" kind="function"><name>DutyM2</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1a53f95c68c9291318fb7b96258be4297f" kind="function"><name>DutyM1M2</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1a81e68c3b9e3b5bf68f6705da7a31fb9c" kind="function"><name>SpeedM1</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1ab242a7b2c3280147281cc7e2a163e1e6" kind="function"><name>SpeedM2</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1a424b0f413de3417ce5366e7baaa7258c" kind="function"><name>SpeedM1M2</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1a808d9e2e771ec6e9e1ddfc3f6d037d53" kind="function"><name>SpeedAccelM1</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1aa1ea7b6e240492550bedda7a4d4b4d02" kind="function"><name>SpeedAccelM2</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1a79374c8b011c304cff568bee27a53871" kind="function"><name>SpeedAccelM1M2</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1a625f74cfbfcc1d23552cc32073b6bdac" kind="function"><name>SpeedDistanceM1</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1a413895339f5c4c7b81a3a3275378c734" kind="function"><name>SpeedDistanceM2</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1a0ab2528100dde6a8ac03e7d8cd380530" kind="function"><name>SpeedDistanceM1M2</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1a19124958957ce9019aee69c7882944d0" kind="function"><name>SpeedAccelDistanceM1</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1a517dde606ac755d633d998b139dc19b0" kind="function"><name>SpeedAccelDistanceM2</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1a7dc5a98b596f61c379da5c725d7db7e4" kind="function"><name>SpeedAccelDistanceM1M2</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1ae5f18d889f7971d1d6cf50439a925c8d" kind="function"><name>ReadBuffers</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1a653e61e60b85b4d9eb48b6b83d91245e" kind="function"><name>ReadPWMs</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1ab13eb39a37dcc4e30f70b702e48b40c5" kind="function"><name>ReadCurrents</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1aec8e361da8050e7687485939866af28d" kind="function"><name>SpeedAccelM1M2_2</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1a262f702618078f6dc8c7d2613c4770c4" kind="function"><name>SpeedAccelDistanceM1M2_2</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1a3e8db4c3a64d8230578ccc0dce9c2caf" kind="function"><name>DutyAccelM1</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1adc795ecad66a7f319294de40403b625b" kind="function"><name>DutyAccelM2</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1a1a6f60c733025ed6a721f300006ae2bf" kind="function"><name>DutyAccelM1M2</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1a6f554fdc1a5eb500becfa0671e74c1bd" kind="function"><name>ReadM1VelocityPID</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1a495861b7a7488d55617c0547113a4c19" kind="function"><name>ReadM2VelocityPID</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1a797048ba29a08f145dba4109c6bc8dc7" kind="function"><name>SetMainVoltages</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1a23f46409e7e8fe2d593d936323988fa3" kind="function"><name>SetLogicVoltages</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1ab40f8380e6392ae794fd63cec88a59a5" kind="function"><name>ReadMinMaxMainVoltages</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1a479e429da4c5b9232c1879630ba7bb68" kind="function"><name>ReadMinMaxLogicVoltages</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1a1c1454fcbcafb085c745d018c4814896" kind="function"><name>SetM1PositionPID</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1a33050c23f208c758c84beba976e75a9a" kind="function"><name>SetM2PositionPID</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1a8a5a872acaf7ced3a1d9c233b05cf888" kind="function"><name>ReadM1PositionPID</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1ac6718bf05cbe1ff37b2b05b341459872" kind="function"><name>ReadM2PositionPID</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1a1510dc6c5cbe0c390ec1e538d6090c0e" kind="function"><name>SpeedAccelDeccelPositionM1</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1a96c1f185e48895c26e6641574845ff26" kind="function"><name>SpeedAccelDeccelPositionM2</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1aa835c77821627c7563e526958234f449" kind="function"><name>SpeedAccelDeccelPositionM1M2</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1a5ae7220529d87348145fdabd3df72de0" kind="function"><name>SetM1DefaultAccel</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1a661c32ff7926faf80aec24b03ae9bc9c" kind="function"><name>SetM2DefaultAccel</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1ad962057c5f0a46776cd604dc8520733f" kind="function"><name>SetPinFunctions</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1a183e44ddc340c26c333d3fa10146cdc3" kind="function"><name>ReadPinFunctions</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1af71f79e6f601255b8c7139bd549d6495" kind="function"><name>SetDeadBand</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1ae455abe83fda6552bcc0ccabfeab39f6" kind="function"><name>GetDeadBand</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1ad7242cc93a8d1eaa0dab6b7607dda518" kind="function"><name>RestoreDefaults</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1a85bd1deb23edd2d5167a374f4cf96ffe" kind="function"><name>ReadTemp</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1af77edd445ded527a2b618fe9378caea5" kind="function"><name>ReadTemp2</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1acc2231b738fad390bcfd430add32435a" kind="function"><name>ReadError</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1a09e645ade7c39bf20c26b40b220c6076" kind="function"><name>ReadEncoderModes</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1a5730ead83a1a548202c4a8b036eb998d" kind="function"><name>SetM1EncoderMode</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1ad1f7e57fd7f9850785d6409501ccdd10" kind="function"><name>SetM2EncoderMode</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1a64cdc36cd76da7bf618caa9289f8f6a0" kind="function"><name>WriteNVM</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1aef169dbf1d75179644ccbcac477bd764" kind="function"><name>ReadNVM</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1ac40b29aa97e536fecfb6ef38db3c4105" kind="function"><name>SetConfig</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1a3c8c1a712ae9ad645ea78ceb1ff5eb1e" kind="function"><name>GetConfig</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1a3573d1ecc437b240ec464369e5b0fc5d" kind="function"><name>SetM1MaxCurrent</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1a04b33d51c8c047765a89e5b4f39a5718" kind="function"><name>SetM2MaxCurrent</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1ab3c998c03f0356059004d5d386dce074" kind="function"><name>ReadM1MaxCurrent</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1a46a0528d6f092608c9c613b9253d2fda" kind="function"><name>ReadM2MaxCurrent</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1a98fd64ce1c25ea837a7c589469810d39" kind="function"><name>SetPWMMode</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1a57da6f3e34a97060746c1146231c0e12" kind="function"><name>ReadPWMMode</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1af0b73281534befe652ee9c8d1e5369d6" kind="function"><name>ReadEeprom</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1a2682f7ef9027b31c259024be424d9f7a" kind="function"><name>WriteEeprom</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1a5da54dc661c4be70932cdc510cb09daf" kind="function"><name>Open</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1a6eeaf80eced8977d667baf023ff2a905" kind="function"><name>_sendcommand</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1ae14e39969d97e2bd383910c901b593ff" kind="function"><name>_readchecksumword</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1aaab6fa1b9720eb8b78d0d57a45c02032" kind="function"><name>_readbyte</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1a8c648ca4e24d0a959c90677c8ac03e88" kind="function"><name>_readword</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1a9e23af11d26d2d33dd658cb7a7b78928" kind="function"><name>_readlong</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1af0ad830d41db11cc0dd7dec47587c519" kind="function"><name>_readslong</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1a99730dc9e171fcb65808ececc0812606" kind="function"><name>_writebyte</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1a5a9c4bb4e63148e6e869b7167c2a6a74" kind="function"><name>_writesbyte</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1af2fb4548fa94ba05b6100a388dda3a9a" kind="function"><name>_writeword</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1ac0300d32fed22af4c4f6209e55948945" kind="function"><name>_writesword</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1a55b4350073a8309de410ec012ab43017" kind="function"><name>_writelong</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1aaa5c516daee87007730a2a7d2e266ed5" kind="function"><name>_writeslong</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1ae29c826e30e87b5e941189d47dc64561" kind="function"><name>_read1</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1a919ba025a36abeed59c6796241f20aae" kind="function"><name>_read2</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1a3961ead7995b0041917cb683860b8988" kind="function"><name>_read4</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1add9dfd27fac297cd62471d951e483242" kind="function"><name>_read4_1</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1a81393dfbfeb90da31268d1c0637bc8d7" kind="function"><name>_read_n</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1a9d1b09b36576cb2666868a50d6ab2d8d" kind="function"><name>_writechecksum</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1afae53b50ecfd65be213fd04fa10f8ed1" kind="function"><name>_write0</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1ae1dccf585edb67bb9f112e166226d8b1" kind="function"><name>_write1</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1a0177784176cd441bffdd4052b19387d2" kind="function"><name>_write11</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1a9c6be0d5ee6ad35f690c6cef134b0bbb" kind="function"><name>_write111</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1a8d6760321f0e158a39568ef061112c4f" kind="function"><name>_write2</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1a0fc76d80246786b74d7e5b7871e82733" kind="function"><name>_writeS2</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1aba67d9079729e4e6cb6b8aff61435d12" kind="function"><name>_write22</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1a73cb52edc8e25d6b49eea531c0aa5534" kind="function"><name>_writeS22</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1adcaec09c9193050e8af3f8c58e91d6e9" kind="function"><name>_writeS2S2</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1a626812fa3aa87efaef986cf255ad3d22" kind="function"><name>_writeS24</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1a1fa9d2a82fa174514bd5f3ef367b73c5" kind="function"><name>_writeS24S24</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1aca015407f298b555fcdcf7e381accdbb" kind="function"><name>_write4</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1a81fb1afe5e1466ca8b5c0ac843f0bf0e" kind="function"><name>_writeS4</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1a3a4108034185a5eb8a7b80c5422012ff" kind="function"><name>_write44</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1a6a6d3dfaaf28bc1d51257fc17dfd934b" kind="function"><name>_write4S4</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1a729449205a77a93c07e03c1d6bdab3d2" kind="function"><name>_writeS4S4</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1a108e6195c3b84aecafb43469fa4ca13d" kind="function"><name>_write441</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1af1265254474337f9be3ae0c19d5d9c57" kind="function"><name>_writeS441</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1a41876cbc689dfbf668e00769fd7d39d3" kind="function"><name>_write4S4S4</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1a1615d812660e27101d979cd487844650" kind="function"><name>_write4S441</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1ad330056e61340b729bcbbeb8f7e2cd9a" kind="function"><name>_write4444</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1a670a9338a7f3c6ba48f586f57ea3f6c8" kind="function"><name>_write4S44S4</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1ac6f91d4533d55b3faed87d62e3ec1321" kind="function"><name>_write44441</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1a223badc14ed6eedd81f59a68f1f1d21d" kind="function"><name>_writeS44S441</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1a3c4820cb8ef2162259547e1dfd96ba09" kind="function"><name>_write4S44S441</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1a77dcad54ad7bca7a423b39b09da13c8f" kind="function"><name>_write4S444S441</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1a8591ada3df39b3c4f7f4174457a6ced9" kind="function"><name>_write4444444</name></member>
+    <member refid="classtoxic__hardware_1_1roboclaw__3_1_1_roboclaw_1ace678d3b56bccfea26d0aceb3ba7125a" kind="function"><name>_write444444441</name></member>
+  </compound>
+  <compound refid="namespacecv__basics" kind="namespace"><name>cv_basics</name>
+  </compound>
+  <compound refid="namespacecv__basics_1_1webcam__pub" kind="namespace"><name>cv_basics::webcam_pub</name>
+    <member refid="cv__basics_2cv__basics_2webcam__pub_8py_1af10a7bf96b7b64bb80e14f4e162012fd" kind="function"><name>main</name></member>
+  </compound>
+  <compound refid="namespacecv__basics_1_1webcam__sub" kind="namespace"><name>cv_basics::webcam_sub</name>
+    <member refid="webcam__sub_8py_1a22713f1b40fa86363277423c3253fa46" kind="function"><name>main</name></member>
+  </compound>
+  <compound refid="namespacesetup" kind="namespace"><name>setup</name>
+    <member refid="cv__basics_2setup_8py_1a0e848632aafcba2ad3a320ab609dd6ab" kind="variable"><name>package_name</name></member>
+    <member refid="cv__basics_2setup_8py_1ab3a7a0638d76a01367c5bc3cc699447f" kind="variable"><name>name</name></member>
+    <member refid="cv__basics_2setup_8py_1a2aa722b36a933088812b50ea79b97a5c" kind="variable"><name>version</name></member>
+    <member refid="cv__basics_2setup_8py_1aff2375a361fd5865c77bd9aa093be747" kind="variable"><name>packages</name></member>
+    <member refid="cv__basics_2setup_8py_1ad027a8e9452da003dca32bf7467bd16e" kind="variable"><name>data_files</name></member>
+    <member refid="cv__basics_2setup_8py_1abead4f26b530856f858f0d44c7cf2588" kind="variable"><name>install_requires</name></member>
+    <member refid="cv__basics_2setup_8py_1a13510753661cb74083a0c664db11dde9" kind="variable"><name>zip_safe</name></member>
+    <member refid="cv__basics_2setup_8py_1aa1a7cf9bbf76004bb72697dc00bbee9d" kind="variable"><name>maintainer</name></member>
+    <member refid="cv__basics_2setup_8py_1a92a81adbfdd219564d5246ce8d77f869" kind="variable"><name>maintainer_email</name></member>
+    <member refid="cv__basics_2setup_8py_1aedf461ec52a946bda975938ba0b93ec0" kind="variable"><name>description</name></member>
+    <member refid="cv__basics_2setup_8py_1a8ed6f50a28bd6a8794f8e1153baa6de9" kind="variable"><name>license</name></member>
+    <member refid="cv__basics_2setup_8py_1a6369bb060267ccf90b93519796e7cc2c" kind="variable"><name>tests_require</name></member>
+    <member refid="cv__basics_2setup_8py_1ada7058afc98897f073d3f3b8b9157059" kind="variable"><name>entry_points</name></member>
+  </compound>
+  <compound refid="namespacetest__copyright" kind="namespace"><name>test_copyright</name>
+    <member refid="cv__basics_2test_2test__copyright_8py_1a1e85a46f013c8478a2deddb97f25bdf6" kind="function"><name>test_copyright</name></member>
+  </compound>
+  <compound refid="namespacetest__flake8" kind="namespace"><name>test_flake8</name>
+    <member refid="cv__basics_2test_2test__flake8_8py_1a5f7134c66c7d67087a308de33b8203a0" kind="function"><name>test_flake8</name></member>
+  </compound>
+  <compound refid="namespacetest__pep257" kind="namespace"><name>test_pep257</name>
+    <member refid="cv__basics_2test_2test__pep257_8py_1ab3bd2c3967386ec5043276860b678e09" kind="function"><name>test_pep257</name></member>
+  </compound>
+  <compound refid="namespacetoxic__hardware" kind="namespace"><name>toxic_hardware</name>
+  </compound>
+  <compound refid="namespacetoxic__hardware_1_1controller" kind="namespace"><name>toxic_hardware::controller</name>
+    <member refid="controller_8py_1aad059999a7b9fd3d9c1c8d089be1c11d" kind="variable"><name>interface</name></member>
+    <member refid="controller_8py_1a04dd192562404771fdbc6d100eaa3566" kind="variable"><name>roboclaw</name></member>
+    <member refid="controller_8py_1aac60e1fb14a23592e007ebec1efc50a4" kind="function"><name>main</name></member>
+  </compound>
+  <compound refid="namespacetoxic__hardware_1_1roboclaw__3" kind="namespace"><name>toxic_hardware::roboclaw_3</name>
+  </compound>
+  <compound refid="namespacetoxic__vision" kind="namespace"><name>toxic_vision</name>
+  </compound>
+  <compound refid="namespacetoxic__vision_1_1async__kinect__publisher" kind="namespace"><name>toxic_vision::async_kinect_publisher</name>
+    <member refid="async__kinect__publisher_8py_1a4e1b953a10d3bbb5c22b59099c2fa374" kind="function"><name>video_cback</name></member>
+    <member refid="async__kinect__publisher_8py_1a2c3c8a8e3bcddb23b4ed765f3122ef30" kind="function"><name>kinect_async</name></member>
+    <member refid="async__kinect__publisher_8py_1a04f35ae2a68c8973194630c14c0a86ea" kind="function"><name>main</name></member>
+  </compound>
+  <compound refid="namespacetoxic__vision_1_1kinect__publisher" kind="namespace"><name>toxic_vision::kinect_publisher</name>
+    <member refid="kinect__publisher_8py_1a9502325ae36328ab995b05768a688d79" kind="function"><name>main</name></member>
+  </compound>
+  <compound refid="namespacetoxic__vision_1_1kinect__subscriber" kind="namespace"><name>toxic_vision::kinect_subscriber</name>
+    <member refid="kinect__subscriber_8py_1a26c76d26519cfebd00abda4769308543" kind="function"><name>main</name></member>
+  </compound>
+  <compound refid="namespacetoxic__vision_1_1lane__detector" kind="namespace"><name>toxic_vision::lane_detector</name>
+  </compound>
+  <compound refid="namespacetoxic__vision_1_1webcam__pub" kind="namespace"><name>toxic_vision::webcam_pub</name>
+    <member refid="toxic__vision_2toxic__vision_2webcam__pub_8py_1a0d57aeae4d44f1dcb33eed5082cf3c87" kind="function"><name>main</name></member>
+  </compound>
+  <compound refid="cv__basics_2cv__basics_2____init_____8py" kind="file"><name>__init__.py</name>
+  </compound>
+  <compound refid="toxic__hardware_2toxic__hardware_2____init_____8py" kind="file"><name>__init__.py</name>
+  </compound>
+  <compound refid="toxic__vision_2toxic__vision_2____init_____8py" kind="file"><name>__init__.py</name>
+  </compound>
+  <compound refid="cv__basics_2cv__basics_2webcam__pub_8py" kind="file"><name>webcam_pub.py</name>
+  </compound>
+  <compound refid="toxic__vision_2toxic__vision_2webcam__pub_8py" kind="file"><name>webcam_pub.py</name>
+  </compound>
+  <compound refid="webcam__sub_8py" kind="file"><name>webcam_sub.py</name>
+  </compound>
+  <compound refid="cv__basics_2setup_8py" kind="file"><name>setup.py</name>
+  </compound>
+  <compound refid="toxic__hardware_2setup_8py" kind="file"><name>setup.py</name>
+  </compound>
+  <compound refid="toxic__vision_2setup_8py" kind="file"><name>setup.py</name>
+  </compound>
+  <compound refid="cv__basics_2test_2test__copyright_8py" kind="file"><name>test_copyright.py</name>
+  </compound>
+  <compound refid="toxic__hardware_2test_2test__copyright_8py" kind="file"><name>test_copyright.py</name>
+  </compound>
+  <compound refid="toxic__vision_2test_2test__copyright_8py" kind="file"><name>test_copyright.py</name>
+  </compound>
+  <compound refid="cv__basics_2test_2test__flake8_8py" kind="file"><name>test_flake8.py</name>
+  </compound>
+  <compound refid="toxic__hardware_2test_2test__flake8_8py" kind="file"><name>test_flake8.py</name>
+  </compound>
+  <compound refid="toxic__vision_2test_2test__flake8_8py" kind="file"><name>test_flake8.py</name>
+  </compound>
+  <compound refid="cv__basics_2test_2test__pep257_8py" kind="file"><name>test_pep257.py</name>
+  </compound>
+  <compound refid="toxic__hardware_2test_2test__pep257_8py" kind="file"><name>test_pep257.py</name>
+  </compound>
+  <compound refid="toxic__vision_2test_2test__pep257_8py" kind="file"><name>test_pep257.py</name>
+  </compound>
+  <compound refid="controller_8py" kind="file"><name>controller.py</name>
+  </compound>
+  <compound refid="roboclaw__3_8py" kind="file"><name>roboclaw_3.py</name>
+  </compound>
+  <compound refid="async__kinect__publisher_8py" kind="file"><name>async_kinect_publisher.py</name>
+  </compound>
+  <compound refid="kinect__publisher_8py" kind="file"><name>kinect_publisher.py</name>
+  </compound>
+  <compound refid="kinect__subscriber_8py" kind="file"><name>kinect_subscriber.py</name>
+  </compound>
+  <compound refid="lane__detector_8py" kind="file"><name>lane_detector.py</name>
+  </compound>
+  <compound refid="dir_ace908c9b98a8fc73c982d933671107b" kind="dir"><name>/home/hector/TMR/main_ws/src/cv_basics</name>
+  </compound>
+  <compound refid="dir_4c7b8f836f956299b423589c57a7e2a6" kind="dir"><name>/home/hector/TMR/main_ws/src/cv_basics/cv_basics</name>
+  </compound>
+  <compound refid="dir_68267d1309a1af8e8297ef4c3efbcdba" kind="dir"><name>/home/hector/TMR/main_ws/src</name>
+  </compound>
+  <compound refid="dir_1524793029cbc4e54f80d1a581ade6e5" kind="dir"><name>/home/hector/TMR/main_ws/src/cv_basics/test</name>
+  </compound>
+  <compound refid="dir_9918460cbe42bf3e3c9bbc4b94058b04" kind="dir"><name>/home/hector/TMR/main_ws/src/toxic_hardware/test</name>
+  </compound>
+  <compound refid="dir_0ef6c5f0f59607b892257a1c7500a700" kind="dir"><name>/home/hector/TMR/main_ws/src/toxic_vision/test</name>
+  </compound>
+  <compound refid="dir_50e6637e2481883a0a8c8bd04e324347" kind="dir"><name>/home/hector/TMR/main_ws/src/toxic_hardware</name>
+  </compound>
+  <compound refid="dir_80db70d0f7ed3c180c6cb60fa9d95ab9" kind="dir"><name>/home/hector/TMR/main_ws/src/toxic_hardware/toxic_hardware</name>
+  </compound>
+  <compound refid="dir_0d24994a5b9f2f4d099c4d529f337eef" kind="dir"><name>/home/hector/TMR/main_ws/src/toxic_vision</name>
+  </compound>
+  <compound refid="dir_04fcb1cb3241aaf5685b81d7fae43815" kind="dir"><name>/home/hector/TMR/main_ws/src/toxic_vision/toxic_vision</name>
+  </compound>
+</doxygenindex>
