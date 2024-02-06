@@ -49,13 +49,14 @@ version), the team was:
     - [Negrete, Marco](https://github.com/mnegretev) (Technical guide) joined to team
 - 2022
   - This's the first year which the robot's inscribed to the TMR, but on the
-remote simulated league, anyway, we won the 3rd place.
+remote simulated league, anyway, we won the
+[3rd](https://femexrobotica.org/tmr2022/resultados/) place.
   - Romero, Melania lefted to team due to time issues.
   - Delgado, Emilio (Programmer) joined to team.
   - Marín, Gustavo (Programmer) joined to team.
 - 2023
   - This's the first year we could run on the phisical tournament, we won the
-1st place.
+[1st](https://femexrobotica.org/tmr2023/resultados/) place.
 - 2024
   - Delgado, Emilio lefted to team.
   - Marín, Gustavo lefted to team.
