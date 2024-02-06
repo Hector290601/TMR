@@ -30,6 +30,8 @@ something like that to help me to make more accurate this list.
 - Ros2 Iron
 - OpenCv 4.8.1
 
+## 
+
 ## Robot history.
 Along the project lifecycle, there are many authors, so I'll try to make a
 timeline alongside all the project, since the main team to the current team.  
@@ -37,14 +39,14 @@ timeline alongside all the project, since the main team to the current team.
   - The project start on the first months (I know the first commit has June
 date, but it's because we hasn't good practices and used folders to control
 version), the team was:
-    - Robles, Héctor. (Team leader)
-    - Ruíz, Iñaki. (Mechanic deisgner)
-    - Solano, Jorge. (Team responsable)
+    - [Robles, Héctor](https://github.com/Hector290601). (Team leader)
+    - [Ruíz, Iñaki](https://github.com/Ricardo-Inaqui). (Mechanic deisgner)
+    - [Solano, Jorge](https://github.com/jrg-sln). (Team responsable)
 - 2021
   - The project has some team changes, which includes.
     - Ruíz, Iñaki lefted to team.
-    - Romero, Melania (Programmer) joined to team.
-    - Negrete, Marco (Technical guide) joined to team
+    - [Romero, Melania](https://github.com/melaniaromero) (Programmer) joined to team.
+    - [Negrete, Marco](https://github.com/mnegretev) (Technical guide) joined to team
 - 2022
   - This's the first year which the robot's inscribed to the TMR, but on the
 remote simulated league, anyway, we won the 3rd place.
@@ -60,13 +62,13 @@ remote simulated league, anyway, we won the 3rd place.
 
 ## Current team.
 The current team's pefrormed by.
-- Robles, Héctor (Team Leader)
-- Negrte, Marco (Technical guide)
-- Solano, Jorge (Team responsable)
+- [Robles, Héctor](https://github.com/Hector290601) (Team Leader)
+- [Negrte, Marco](https://github.com/mnegretev) (Technical guide)
+- [Solano, Jorge](https://github.com/jrg-sln) (Team responsable)
 
 ## Team core.
 The team core's performed by.
-- Robles, Héctor (Team Leader)
-- Negrte, Marco (Technical guide)
-- Solano, Jorge (Team responsable)
+- [Robles, Héctor](https://github.com/Hector290601) (Team Leader)
+- [Negrte, Marco](https://github.com/mnegretev) (Technical guide)
+- [Solano, Jorge](https://github.com/jrg-sln) (Team responsable)
 
