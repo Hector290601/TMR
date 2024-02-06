@@ -14,10 +14,59 @@ The hardware where the robot car run, and is designed to run, has a large list
 of changes, but i'll put here the more actual hardware (stable only,
 obviously).  
 So, the current list is the next.  
-- Raspberry pi 4B 8GB.
+- Raspberry pi 4 Model B Rev 1.4 8GB.
 - Roboclaw 2x30A.
 - Servomotor Hexfly 60Kg.
 - Redcat Racing Lighting Exp Drift (only the chasis).
 - Personalized 3D printed parts.
 
+## Software Requeriments.
+The software requeriments're more complicated to write correctly, because the
+current OS has a lot of installed packages, currently we haven't a lis from
+all this packages, configurations or something like that, tat's because I'll
+write only the main dependences, but you could open a request, discussion or
+something like that to help me to make more accurate this list.  
+- Ubuntu 22.04.3 LTS
+- Ros2 Iron
+- OpenCv 4.8.1
+
+## Robot history.
+Along the project lifecycle, there are many authors, so I'll try to make a
+timeline alongside all the project, since the main team to the current team.  
+- 2020
+  - The project start on the first months (I know the first commit has June
+date, but it's because we hasn't good practices and used folders to control
+version), the team was:
+    - Robles, Héctor. (Team leader)
+    - Ruíz, Iñaki. (Mechanic deisgner)
+    - Solano, Jorge. (Team responsable)
+- 2021
+  - The project has some team changes, which includes.
+    - Ruíz, Iñaki lefted to team.
+    - Romero, Melania (Programmer) joined to team.
+    - Negrete, Marco (Technical guide) joined to team
+- 2022
+  - This's the first year which the robot's inscribed to the TMR, but on the
+remote simulated league, anyway, we won the 3rd place.
+  - Romero, Melania lefted to team due to time issues.
+  - Delgado, Emilio (Programmer) joined to team.
+  - Marín, Gustavo (Programmer) joined to team.
+- 2023
+  - This's the first year we could run on the phisical tournament, we won the
+1st place.
+- 2024
+  - Delgado, Emilio lefted to team.
+  - Marín, Gustavo lefted to team.
+
+## Current team.
+The current team's pefrormed by.
+- Robles, Héctor (Team Leader)
+- Negrte, Marco (Technical guide)
+- Solano, Jorge (Team responsable)
+
+## Team core.
+The team core's performed by.
+- Robles, Héctor (Team Leader)
+- Negrte, Marco (Technical guide)
+- Solano, Jorge (Team responsable)
 
