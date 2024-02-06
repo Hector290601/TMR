@@ -75,14 +75,14 @@ share his ideas with us.
 ## Current team.
 The current team's pefrormed by.
 
-- [Robles, Héctor](https://github.com/Hector290601) (Team Leader)
 - [Negrte, Marco](https://github.com/mnegretev) (Technical guide)
+- [Robles, Héctor](https://github.com/Hector290601) (Team Leader)
 - [Solano, Jorge](https://github.com/jrg-sln) (Team responsable)
 
 ## Team core.
 The team core's performed by.
 
-- [Robles, Héctor](https://github.com/Hector290601) (Team Leader)
 - [Negrte, Marco](https://github.com/mnegretev) (Technical guide)
+- [Robles, Héctor](https://github.com/Hector290601) (Team Leader)
 - [Solano, Jorge](https://github.com/jrg-sln) (Team responsable)
 
