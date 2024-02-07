@@ -107,6 +107,7 @@ Inheritance diagram for ImageSubscriber:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:ae64f0875afe3067b97ba370b354b9213"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/dd5/classtoxic__vision_1_1webcam__sub_1_1ImageSubscriber.html#ae64f0875afe3067b97ba370b354b9213">__init__</a> (self)</td></tr>
+<tr class="memdesc:ae64f0875afe3067b97ba370b354b9213"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="../../db/dd5/classtoxic__vision_1_1webcam__sub_1_1ImageSubscriber.html">ImageSubscriber</a> object to grab the currently published frame in a ROS2 Topic (this time, it's '/raw_rgb', but you can change it) and display in a GUI window.  <a href="#ae64f0875afe3067b97ba370b354b9213">More...</a><br /></td></tr>
 <tr class="separator:ae64f0875afe3067b97ba370b354b9213"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a23dd9943cb7cb7be2a6e7022a85a1684"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/dd5/classtoxic__vision_1_1webcam__sub_1_1ImageSubscriber.html#a23dd9943cb7cb7be2a6e7022a85a1684">listener_callback</a> (self, data)</td></tr>
 <tr class="separator:a23dd9943cb7cb7be2a6e7022a85a1684"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -134,7 +135,22 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;  <span class="keyword">def </span>__init__(self):</div><div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    super().__init__(<span class="stringliteral">&#39;image_subscriber&#39;</span>)</div><div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    self.subscription = self.create_subscription(</div><div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;      Image, </div><div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;      <span class="stringliteral">&#39;/raw_rgb&#39;</span>, </div><div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;      self.listener_callback, </div><div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;      25</div><div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;      )</div><div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    self.subscription</div><div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    self.br = CvBridge()</div><div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;   </div></div><!-- fragment -->
+
+<p><a class="el" href="../../db/dd5/classtoxic__vision_1_1webcam__sub_1_1ImageSubscriber.html">ImageSubscriber</a> object to grab the currently published frame in a ROS2 Topic (this time, it's '/raw_rgb', but you can change it) and display in a GUI window. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Node</td><td>The ROS2 Node where the image publisher'll be able to read/write (this time, just read)</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>None, keeps running and alive until it's user cancelled. <a class="el" href="../../db/dd5/classtoxic__vision_1_1webcam__sub_1_1ImageSubscriber.html">ImageSubscriber</a> obtect init def (or constructor, under a Java´s OOP context)</dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">self,Self</td><td>contained object, like a 'this' reference just to read, write and genereally access object's attributes. </td></tr>
+  </table>
+  </dd>
+</dl>
+<div class="fragment"><div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keyword">def </span>__init__(self):</div><div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        </div><div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        super().__init__(<span class="stringliteral">&#39;image_subscriber&#39;</span>)</div><div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        self.subscription = self.create_subscription(</div><div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;                Image, </div><div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;                <span class="stringliteral">&#39;/raw_rgb&#39;</span>, </div><div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;                self.listener_callback, </div><div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;                25</div><div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;                )</div><div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        self.subscription</div><div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        self.br = CvBridge()</div><div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    </div></div><!-- fragment -->
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
@@ -163,7 +179,7 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;  <span class="keyword">def </span>listener_callback(self, data):</div><div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    current_frame = self.br.imgmsg_to_cv2(data)</div><div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    cv2.imshow(<span class="stringliteral">&quot;band_filter_sub&quot;</span>, current_frame)</div><div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    cv2.waitKey(1)</div></div><!-- fragment -->
+<div class="fragment"><div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <span class="keyword">def </span>listener_callback(self, data):</div><div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        current_frame = self.br.imgmsg_to_cv2(data)</div><div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        cv2.imshow(<span class="stringliteral">&quot;band_filter_sub&quot;</span>, current_frame)</div><div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        cv2.waitKey(1)</div></div><!-- fragment -->
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>

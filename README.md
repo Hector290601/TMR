@@ -61,6 +61,7 @@ remote simulated league, anyway, we won the
 [UNAM](https://www.unam.mx/).
   - [Guerrero, Daniel](https://github.com/danguer3) (Programmer) helped us and
 share his ideas with us.
+  - [Rosario, Omar](https://github.com/OmarRosCar) (Mechanical designer) joined the team.
   - Delgado, Emilio (Programmer) joined to team.
   - Marín, Gustavo (Programmer) joined to team.
 - 2023
@@ -70,6 +71,8 @@ share his ideas with us.
   - Delgado, Emilio lefted to team.
   - Marín, Gustavo lefted to team.
   - Guerrero, Daniel lefted to team
+  - [Vasquez, Jair](https://github.com/JAIRVASQUEZTORRES) (Helper) Joined the
+team.
 
 ## Current team.
 The current team's pefrormed by.

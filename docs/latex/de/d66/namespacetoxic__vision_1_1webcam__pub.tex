@@ -25,13 +25,15 @@ This function create the publisher node, the image publisher object and starts t
 
 
 \begin{DoxyCode}
-91 \textcolor{keyword}{def }\mbox{\hyperlink{namespacetoxic__vision_1_1webcam__pub_a0d57aeae4d44f1dcb33eed5082cf3c87}{main}}(args=None):
-92     
-96     rclpy.init(args=args) \textcolor{comment}{# Init the node}
-97     image\_publisher = ImagePublisher() \textcolor{comment}{# Create a new ImagePublisher object.}
-98     rclpy.spin(image\_publisher) \textcolor{comment}{# Keeps alive the node.}
-99     image\_publisher.destroy\_node() \textcolor{comment}{# Destroy the node once the node execution }
-100     \textcolor{comment}{# has ended}
-101     rclpy.shutdown() \textcolor{comment}{# Kills the node.}
-102   
+115 \textcolor{keyword}{def }\mbox{\hyperlink{namespacetoxic__vision_1_1webcam__pub_a0d57aeae4d44f1dcb33eed5082cf3c87}{main}}(args=None):
+116     
+120     rclpy.init(args=args) \textcolor{comment}{# Init the node}
+121     image\_publisher = ImagePublisher() \textcolor{comment}{# Create a new ImagePublisher object.}
+122     rclpy.spin(image\_publisher) \textcolor{comment}{# Keeps alive the node.}
+123     image\_publisher.destroy\_node() \textcolor{comment}{# Destroy the node once the node execution }
+124     \textcolor{comment}{# has ended}
+125     rclpy.shutdown() \textcolor{comment}{# Kills the node.}
+126   
+127   \textcolor{comment}{# Just verify the node's running itself or it's being imported as a third-part}
+128   \textcolor{comment}{# library}
 \end{DoxyCode}

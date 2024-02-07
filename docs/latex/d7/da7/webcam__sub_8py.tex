@@ -1,5 +1,10 @@
 \hypertarget{webcam__sub_8py}{}\section{main\+\_\+ws/src/toxic\+\_\+vision/toxic\+\_\+vision/webcam\+\_\+sub.py File Reference}
 \label{webcam__sub_8py}\index{main\+\_\+ws/src/toxic\+\_\+vision/toxic\+\_\+vision/webcam\+\_\+sub.\+py@{main\+\_\+ws/src/toxic\+\_\+vision/toxic\+\_\+vision/webcam\+\_\+sub.\+py}}
+
+
+Very simple image subscriber to /raw\+\_\+rgb node.  
+
+
 \subsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
@@ -15,3 +20,39 @@ class \mbox{\hyperlink{classtoxic__vision_1_1webcam__sub_1_1ImageSubscriber}{Ima
 \item 
 def \mbox{\hyperlink{namespacetoxic__vision_1_1webcam__sub_ae5a86a4c83b069a7d8ab88d2836d2e6e}{main}} (args=None)
 \end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Very simple image subscriber to /raw\+\_\+rgb node. 
+
+\hypertarget{webcam__sub_8py_detailed_webcam_pub}{}\subsection{Detail}\label{webcam__sub_8py_detailed_webcam_pub}
+This script create an image subscriber to \char`\"{}/raw\+\_\+rgb\char`\"{} and draw the recived frame, this node\textquotesingle{}s used just as test to verify the image publisher and nodes communication performance.\hypertarget{webcam__sub_8py_parameters_webcam_subscriber}{}\subsection{Important parameters to change.}\label{webcam__sub_8py_parameters_webcam_subscriber}
+On this code, you don\textquotesingle{}r need to change anything, except if you\textquotesingle{}ve changed the name of the image publisher node, or just wanna check another node.\hypertarget{webcam__sub_8py_dependences_webcam_sub}{}\subsection{Dependences.}\label{webcam__sub_8py_dependences_webcam_sub}
+
+\begin{DoxyItemize}
+\item rclpy
+\begin{DoxyItemize}
+\item Used to node manipulation.
+\end{DoxyItemize}
+\item rclpy.\+node
+\begin{DoxyItemize}
+\item Used to node manipulation. (really idk why we don\textquotesingle{}t import only this or the above library)
+\end{DoxyItemize}
+\item sensor\+\_\+msgs.\+msg.\+Image
+\begin{DoxyItemize}
+\item Used to be able to use the Image message type (very self-\/explained, I think)
+\end{DoxyItemize}
+\item cv\+Bridge.\+cv\+Bridge
+\begin{DoxyItemize}
+\item Used to parse a R\+O\+S2\textquotesingle{}s Image type to Open\+Cv Frame type
+\end{DoxyItemize}
+\item cv2
+\begin{DoxyItemize}
+\item In this case it\textquotesingle{}s just used to draw the image in a frame.
+\end{DoxyItemize}
+\end{DoxyItemize}\hypertarget{webcam__sub_8py_rights_webcam_Sub}{}\subsection{Copyright}\label{webcam__sub_8py_rights_webcam_Sub}
+This script conforms part from \textquotesingle{}El tóxico\textquotesingle{} and it\textquotesingle{}s licenced unser G\+PL 3\+V0.\hypertarget{webcam__sub_8py_code_webcam_subscriber}{}\subsection{Code Spinnet.}\label{webcam__sub_8py_code_webcam_subscriber}
+
+\begin{DoxyCodeInclude}
+\end{DoxyCodeInclude}
+ 

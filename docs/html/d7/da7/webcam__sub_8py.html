@@ -95,6 +95,9 @@ $(document).ready(function(){initNavTree('d7/da7/webcam__sub_8py.html','../../')
 <div class="title">webcam_sub.py File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Very simple image subscriber to /raw_rgb node.  
+<a href="#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
@@ -111,7 +114,44 @@ Functions</h2></td></tr>
 <tr class="memitem:ae5a86a4c83b069a7d8ab88d2836d2e6e"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/db4/namespacetoxic__vision_1_1webcam__sub.html#ae5a86a4c83b069a7d8ab88d2836d2e6e">main</a> (args=None)</td></tr>
 <tr class="separator:ae5a86a4c83b069a7d8ab88d2836d2e6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-</div><!-- contents -->
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Very simple image subscriber to /raw_rgb node. </p>
+<h1><a class="anchor" id="detailed_webcam_pub"></a>
+Detail</h1>
+<p>This script create an image subscriber to "/raw_rgb" and draw the recived frame, this node's used just as test to verify the image publisher and nodes communication performance.</p>
+<h1><a class="anchor" id="parameters_webcam_subscriber"></a>
+Important parameters to change.</h1>
+<p>On this code, you don'r need to change anything, except if you've changed the name of the image publisher node, or just wanna check another node.</p>
+<h1><a class="anchor" id="dependences_webcam_sub"></a>
+Dependences.</h1>
+<ul>
+<li>rclpy<ul>
+<li>Used to node manipulation.</li>
+</ul>
+</li>
+<li>rclpy.node<ul>
+<li>Used to node manipulation. (really idk why we don't import only this or the above library)</li>
+</ul>
+</li>
+<li>sensor_msgs.msg.Image<ul>
+<li>Used to be able to use the Image message type (very self-explained, I think)</li>
+</ul>
+</li>
+<li>cvBridge.cvBridge<ul>
+<li>Used to parse a ROS2's Image type to OpenCv Frame type</li>
+</ul>
+</li>
+<li>cv2<ul>
+<li>In this case it's just used to draw the image in a frame.</li>
+</ul>
+</li>
+</ul>
+<h1><a class="anchor" id="rights_webcam_Sub"></a>
+Copyright</h1>
+<p>This script conforms part from 'El tóxico' and it's licenced unser GPL 3V0.</p>
+<h1><a class="anchor" id="code_webcam_subscriber"></a>
+Code Spinnet.</h1>
+<div class="fragment"></div><!-- fragment --> </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->

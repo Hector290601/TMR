@@ -12,7 +12,7 @@ Inheritance diagram for Image\+Publisher\+:\begin{figure}[H]
 def \mbox{\hyperlink{classtoxic__vision_1_1webcam__pub_1_1ImagePublisher_ae64f0875afe3067b97ba370b354b9213}{\+\_\+\+\_\+init\+\_\+\+\_\+}} (self)
 \begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classtoxic__vision_1_1webcam__pub_1_1ImagePublisher}{Image\+Publisher}} object to grab the live camera image and publish to a R\+O\+S2 Node as Cv\+Bridge message type. \end{DoxyCompactList}\item 
 def \mbox{\hyperlink{classtoxic__vision_1_1webcam__pub_1_1ImagePublisher_a9692d7a212fa89bc61dacc687e826097}{timer\+\_\+callback}} (self)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Timer callback to publish the image, everytime the timer achieve the desired time, this callback\textquotesingle{}ll run. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
@@ -43,32 +43,41 @@ def \mbox{\hyperlink{classtoxic__vision_1_1webcam__pub_1_1ImagePublisher_a9692d7
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-None, keeps running and alive while the camera\textquotesingle{}s oppened. \mbox{\hyperlink{classtoxic__vision_1_1webcam__pub_1_1ImagePublisher}{Image\+Publisher}} object init def (or constructor function, under a Java\textquotesingle{}s O\+OP context)
+None, keeps running and alive while the camera\textquotesingle{}s oppened. \mbox{\hyperlink{classtoxic__vision_1_1webcam__pub_1_1ImagePublisher}{Image\+Publisher}} object init def (or constructor function, under a Java\textquotesingle{}s O\+OP context).
 \end{DoxyReturn}
 
 \begin{DoxyParams}{Parameters}
-{\em self} & Self contained object like a \textquotesingle{}this\textquotesingle{} reference, jus to read, write, and generally access object\textquotesingle{}s attributes.\\
+{\em self} & Self contained object like a \textquotesingle{}this\textquotesingle{} reference, just to read, write, and generally access object\textquotesingle{}s attributes.\\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-Image\+Publisher\+New\+Object returns a new image publisher object 
+Image\+Publisher\+New\+Object returns a new image publisher object. 
 \end{DoxyReturn}
 
 \begin{DoxyCode}
-64     \textcolor{keyword}{def }\_\_init\_\_(self):
-65         
-74         super().\_\_init\_\_(\textcolor{stringliteral}{'image\_publisher'}) \textcolor{comment}{# Edit source Node attributes.}
-75         self.publisher\_ = self.create\_publisher(Image, \textcolor{stringliteral}{'/raw\_rgb'}, 1) \textcolor{comment}{# Create}
-76         \textcolor{comment}{# the new publisher where the image'll published.}
-77         timer\_period = 0.033 \textcolor{comment}{# Something like 1/30 to achieve a FPS rate near}
-78         \textcolor{comment}{# to the 30 FPS}
-79         self.timer = self.create\_timer(timer\_period, self.timer\_callback)
-80         self.cap = cv2.VideoCapture(0)
-81         self.cap.set(cv2.CAP\_PROP\_FRAME\_WIDTH, 640)
-82         self.cap.set(cv2.CAP\_PROP\_FRAME\_HEIGHT, 480)
-83         self.cap.set(cv2.CAP\_PROP\_FPS, 30)
-84         self.br = CvBridge()
-85 
+65     \textcolor{keyword}{def }\_\_init\_\_(self):
+66         
+75 
+76         \textcolor{comment}{# Edit source Node attributes.}
+77         super().\_\_init\_\_(\textcolor{stringliteral}{'image\_publisher'}) \textcolor{comment}{# Edit source Node attributes.}
+78         \textcolor{comment}{# Create the new publisher where the image'll published.}
+79         self.publisher\_ = self.create\_publisher(Image, \textcolor{stringliteral}{'/raw\_rgb'}, 1)
+80         \textcolor{comment}{# Something like 1/30 to achieve a FPS rate near to the 30FPS.}
+81         timer\_period = 0.033
+82         \textcolor{comment}{# Set and start running the timer.}
+83         self.timer = self.create\_timer(timer\_period, self.timer\_callback)
+84         \textcolor{comment}{# Open the webcam and store the object to interact as a VideoCapture}
+85         \textcolor{comment}{# object}
+86         self.cap = cv2.VideoCapture(0)
+87         \textcolor{comment}{# Set the desired frame width}
+88         self.cap.set(cv2.CAP\_PROP\_FRAME\_WIDTH, 640)
+89         \textcolor{comment}{# Set the desired frame height}
+90         self.cap.set(cv2.CAP\_PROP\_FRAME\_HEIGHT, 480)
+91         \textcolor{comment}{# Set the desired framerate}
+92         self.cap.set(cv2.CAP\_PROP\_FPS, 30)
+93         \textcolor{comment}{# Create the Ros2 to OpenCv Bridge}
+94         self.br = CvBridge()
+95 
 \end{DoxyCode}
 
 
@@ -80,12 +89,30 @@ Image\+Publisher\+New\+Object returns a new image publisher object
 {\footnotesize\ttfamily def timer\+\_\+callback (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
 
 
+
+Timer callback to publish the image, everytime the timer achieve the desired time, this callback\textquotesingle{}ll run. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em self} & Self contained object like a \textquotesingle{}this\textquotesingle{} reference, jus to read, write, and generally access object\textquotesingle{}s attributes.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None, just publish the current frame. 
+\end{DoxyReturn}
+
 \begin{DoxyCode}
-86     \textcolor{keyword}{def }timer\_callback(self):
-87         ret, frame = self.cap.read()
-88         \textcolor{keywordflow}{if} ret:
-89             self.publisher\_.publish(self.br.cv2\_to\_imgmsg(frame))
-90 
+96     \textcolor{keyword}{def }timer\_callback(self):
+97         
+106 
+107         \textcolor{comment}{# Read the current frame.}
+108         ret, frame = self.cap.read()
+109         \textcolor{comment}{# Validate there's a new image}
+110         \textcolor{keywordflow}{if} ret:
+111             \textcolor{comment}{# If there's a new image, parse the frame to ROS2 image message}
+112             \textcolor{comment}{# type and publish to the node}
+113             self.publisher\_.publish(self.br.cv2\_to\_imgmsg(frame))
+114 
 \end{DoxyCode}
 
 

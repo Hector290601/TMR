@@ -10,7 +10,7 @@ Inheritance diagram for Image\+Subscriber\+:\begin{figure}[H]
 \begin{DoxyCompactItemize}
 \item 
 def \mbox{\hyperlink{classtoxic__vision_1_1webcam__sub_1_1ImageSubscriber_ae64f0875afe3067b97ba370b354b9213}{\+\_\+\+\_\+init\+\_\+\+\_\+}} (self)
-\item 
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classtoxic__vision_1_1webcam__sub_1_1ImageSubscriber}{Image\+Subscriber}} object to grab the currently published frame in a R\+O\+S2 Topic (this time, it\textquotesingle{}s \textquotesingle{}/raw\+\_\+rgb\textquotesingle{}, but you can change it) and display in a G\+UI window. \end{DoxyCompactList}\item 
 def \mbox{\hyperlink{classtoxic__vision_1_1webcam__sub_1_1ImageSubscriber_a23dd9943cb7cb7be2a6e7022a85a1684}{listener\+\_\+callback}} (self, data)
 \end{DoxyCompactItemize}
 \subsection*{Public Attributes}
@@ -30,18 +30,36 @@ def \mbox{\hyperlink{classtoxic__vision_1_1webcam__sub_1_1ImageSubscriber_a23dd9
 {\footnotesize\ttfamily def \+\_\+\+\_\+init\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
 
 
+
+\mbox{\hyperlink{classtoxic__vision_1_1webcam__sub_1_1ImageSubscriber}{Image\+Subscriber}} object to grab the currently published frame in a R\+O\+S2 Topic (this time, it\textquotesingle{}s \textquotesingle{}/raw\+\_\+rgb\textquotesingle{}, but you can change it) and display in a G\+UI window. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Node} & The R\+O\+S2 Node where the image publisher\textquotesingle{}ll be able to read/write (this time, just read)\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None, keeps running and alive until it\textquotesingle{}s user cancelled. \mbox{\hyperlink{classtoxic__vision_1_1webcam__sub_1_1ImageSubscriber}{Image\+Subscriber}} obtect init def (or constructor, under a Java´s O\+OP context)
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em self,Self} & contained object, like a \textquotesingle{}this\textquotesingle{} reference just to read, write and genereally access object\textquotesingle{}s attributes. \\
+\hline
+\end{DoxyParams}
+
 \begin{DoxyCode}
-8   \textcolor{keyword}{def }\_\_init\_\_(self):
-9     super().\_\_init\_\_(\textcolor{stringliteral}{'image\_subscriber'})
-10     self.subscription = self.create\_subscription(
-11       Image, 
-12       \textcolor{stringliteral}{'/raw\_rgb'}, 
-13       self.listener\_callback, 
-14       25
-15       )
-16     self.subscription
-17     self.br = CvBridge()
-18    
+60     \textcolor{keyword}{def }\_\_init\_\_(self):
+61         
+68         super().\_\_init\_\_(\textcolor{stringliteral}{'image\_subscriber'})
+69         self.subscription = self.create\_subscription(
+70                 Image, 
+71                 \textcolor{stringliteral}{'/raw\_rgb'}, 
+72                 self.listener\_callback, 
+73                 25
+74                 )
+75         self.subscription
+76         self.br = CvBridge()
+77     
 \end{DoxyCode}
 
 
@@ -54,10 +72,10 @@ def \mbox{\hyperlink{classtoxic__vision_1_1webcam__sub_1_1ImageSubscriber_a23dd9
 
 
 \begin{DoxyCode}
-19   \textcolor{keyword}{def }listener\_callback(self, data):
-20     current\_frame = self.br.imgmsg\_to\_cv2(data)
-21     cv2.imshow(\textcolor{stringliteral}{"band\_filter\_sub"}, current\_frame)
-22     cv2.waitKey(1)
+78     \textcolor{keyword}{def }listener\_callback(self, data):
+79         current\_frame = self.br.imgmsg\_to\_cv2(data)
+80         cv2.imshow(\textcolor{stringliteral}{"band\_filter\_sub"}, current\_frame)
+81         cv2.waitKey(1)
 \end{DoxyCode}
 
 
