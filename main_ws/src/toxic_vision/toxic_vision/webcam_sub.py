@@ -65,6 +65,8 @@ class ImageSubscriber(Node):
         # @param self, Self contained object, like a 'this' reference just to
         # read, write and genereally access object's attributes.
         #
+        
+        # Edit source Node attributes
         super().__init__('image_subscriber')
         self.subscription = self.create_subscription(
                 Image, 
