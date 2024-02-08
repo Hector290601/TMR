@@ -1,5 +1,8 @@
 # TMR
+
 ## Why this branch
-This branch is created to remake all the code and functions in order to update
-the ROS and Ubuntu version from ROS Noetic to ROS2 and from ubuntu 18 to ubuntu
-20.
+This is the unstable and leatest features, very experimental, for stable and
+tested features, we encourage you to go to the main branch, where all the
+stable and documented features'll be stored.
+
+Anyway, if you're here, enjoy testing

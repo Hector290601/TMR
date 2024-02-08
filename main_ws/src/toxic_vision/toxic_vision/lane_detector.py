@@ -75,6 +75,7 @@ class ImageSubscriber(Node):
       1
       )
     self.left_lane_publisher = self.create_publisher(Float64MultiArray, '/lines/left', 1)
+    self.right_lane_publisher = self.create_publisher(Float64MultiArray, '/lines/right', 1)
     self.subscription
     self.br = CvBridge()
 
@@ -124,9 +125,9 @@ class ImageSubscriber(Node):
           average_theta_left = 0
           average_rho_right = 0
           average_theta_right = 0
-          h = []
-          s = []
-          v = []
+          h = 0
+          s = 0
+          counter_color = 0
           for i in range(0, len(lines)):
               l = lines[i]
               rho, theta = to_normal_form(l[0], l[1], l[2], l[3])
@@ -135,41 +136,57 @@ class ImageSubscriber(Node):
                   sum_theta_right += theta
                   sum_rho_right += rho
                   count_right += 1
-                  left1_tmp = l[0] - 5
-                  left2_tmp = l[2] - 5
-                  right1_tmp = l[0] + 5
-                  right2_tmp = l[2] + 5
+                  left1_tmp = l[0] - 0
+                  left2_tmp = l[2] - 0
+                  right1_tmp = l[0] + 0
+                  right2_tmp = l[2] + 0
                   roi_left = right1_tmp if right1_tmp < left1_tmp else left1_tmp
                   roi_right = right2_tmp if right2_tmp < left2_tmp else left2_tmp
                   roi_upper = l[1] if l[1] > l[3] else l[3]
                   roi_lower = l[1] if l[1] < l[3] else l[3]
                   colors = frame[roi_lower:roi_upper, roi_left:roi_right, :]
+                  colorsh = frame[roi_lower:roi_upper, roi_left:roi_right, 0]
+                  print(colorsh.shape)
+                  print(colorsh)
+                  for row in colorsh:
+                      for col in row:
+                          print(col)
                   #frame = cv2.rectangle(frame, (roi_left, roi_upper), (roi_right, roi_lower), (255, 0, 0), 0)
+                  """
                   for row in colors:
                       for col in row:
                           if (lower_color[0] < col[0] < upper_color[0]) and (lower_color[1] < col[1] < upper_color[1]):
-                              h.append(col[0])
-                              s.append(col[1])
+                              #h.append(col[0])
+                              #s.append(col[1])
+                              h += col[0]
+                              s += col[1]
+                              counter_color += 1
+                  #"""
               elif left_min < theta < left_max:
                   #cv2.line(frame, (l[0], l[1]), (l[2], l[3]), (255,0,0), 3, cv2.LINE_AA)
                   sum_theta_left += theta
                   sum_rho_left += rho
                   count_left += 1
-                  left1_tmp = l[0] - 5
-                  left2_tmp = l[2] - 5
-                  right1_tmp = l[0] + 5
-                  right2_tmp = l[2] + 5
+                  left1_tmp = l[0] - 3
+                  left2_tmp = l[2] - 3
+                  right1_tmp = l[0] + 3
+                  right2_tmp = l[2] + 3
                   roi_left = right1_tmp if right1_tmp < left1_tmp else left1_tmp
                   roi_right = right2_tmp if right2_tmp < left2_tmp else left2_tmp
                   roi_upper = l[1] if l[1] > l[3] else l[3]
                   roi_lower = l[1] if l[1] < l[3] else l[3]
                   colors = frame[roi_lower:roi_upper, roi_left:roi_right, :]
                   #frame = cv2.rectangle(frame, (roi_left, roi_upper), (roi_right, roi_lower), (255, 0, 0), 0)
+                  """
                   for row in colors:
                       for col in row:
                           if (lower_color[0] < col[0] < upper_color[0]) and (lower_color[1] < col[1] < upper_color[1]):
-                              h.append(col[0])
-                              s.append(col[1])
+                              #h.append(col[0])
+                              #s.append(col[1])
+                              h += col[0]
+                              s += col[1]
+                              counter_color += 1
+                  #"""
           if count_left > 0:
               average_rho_left = sum_rho_left / count_left
               average_theta_left = sum_theta_left / count_left
@@ -178,6 +195,7 @@ class ImageSubscriber(Node):
               message = Float64MultiArray()
               message.data = [average_rho_left, average_theta_left]
               self.left_lane_publisher.publish(message)
+              """
               try:
                   x1, y1, x2, y2 = self.two_dots_line(average_rho_left, average_theta_left, frame)
                   x3 = x1 + delta
@@ -187,11 +205,16 @@ class ImageSubscriber(Node):
                   cv2.line(frame, (x1, y1), (x2, y2), (255,0,0), 3, cv2.LINE_AA)
               except:
                   pass
+              #"""
           if count_right > 0:
               average_rho_right = sum_rho_right / count_right
               average_theta_right = sum_theta_right / count_right
               right_min = average_theta_right - variance
               right_max = average_theta_right + variance
+              message = Float64MultiArray()
+              message.data = [average_rho_right, average_theta_right]
+              self.right_lane_publisher.publish(message)
+              """
               try:
                   x1, y1, x2, y2 = self.two_dots_line(average_rho_right, average_theta_right, frame)
                   x3 = x1 + delta
@@ -201,34 +224,17 @@ class ImageSubscriber(Node):
                   cv2.line(frame, (x1, y1), (x2, y2), (0,0,255), 3, cv2.LINE_AA)
               except:
                   pass
-          upper = -1
-          lower = 1000
-          lefter = 1000
-          righter = -1
-          std_h = np.std(np.array(h))
-          std_s = np.std(np.array(s))
-          std_v = np.std(np.array(v))
-          avg_h = np.average(h)
-          avg_s = np.average(s)
-          avg_v = np.average(v)
-          new_h_up = avg_h + 130 if len(h) != 0 else upper_color[0]
-          new_s_up = avg_s + 40 if len(s) != 0 else upper_color[1]
-          new_h_low = avg_h - 130 if len(h) != 0 else lower_color[0]
-          new_s_low = avg_s - 40 if len(s) != 0 else lower_color[1]
-          """
-          upper_color = [
-                  int(new_h_up),
-                  int(new_s_up),
-                  255
-                  ]
-          lower_color = [
-                  int(new_h_low),
-                  int(new_s_low),
-                  0
-                  ]
-          os.system("clear")
-          print([std_h, std_s, std_v])
-          """
+              #"""
+          if counter_color != 0:
+              avg_h = h // counter_color
+              avg_s = s // counter_color
+          h = 0
+          s = 0
+          counter_color = 0
+          new_h_up = avg_h + 130 if h != 0 else upper_color[0]
+          new_s_up = avg_s + 40 if s != 0 else upper_color[1]
+          new_h_low = avg_h - 130 if h != 0 else lower_color[0]
+          new_s_low = avg_s - 40 if s != 0 else lower_color[1]
 
 
   def listener_callback(self, data):
@@ -238,13 +244,13 @@ class ImageSubscriber(Node):
     hsv = self.process_image()
     band_pass = self.range_finder()
     self.line_finder()
-    cv2.imshow("camera", frame)
-    cv2.imshow("band_filter", band_pass)
-    cv2.imshow("dst", dst)
-    cv2.setMouseCallback("camera", mouse_callback)
-    cv2.setMouseCallback("dst", mouse_callback)
-    cv2.setMouseCallback("band_filter", mouse_callback)
-    cv2.waitKey(1)
+    #cv2.imshow("camera", frame)
+    #cv2.imshow("band_filter", band_pass)
+    #cv2.imshow("dst", dst)
+    #cv2.setMouseCallback("camera", mouse_callback)
+    #cv2.setMouseCallback("dst", mouse_callback)
+    #cv2.setMouseCallback("band_filter", mouse_callback)
+    #cv2.waitKey(1)
   
 def main(args=None):
   rclpy.init(args=args)
