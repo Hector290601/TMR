@@ -1,4 +1,5 @@
 # TMR
+[![wakatime](https://wakatime.com/badge/user/d1ba7a4d-46ef-44e2-b690-b0f9a744bcc7/project/018bf7bd-7efd-4fc0-897a-61dd82d4afb0.svg)](https://wakatime.com/badge/user/d1ba7a4d-46ef-44e2-b690-b0f9a744bcc7/project/018bf7bd-7efd-4fc0-897a-61dd82d4afb0) [![wakatime](https://wakatime.com/badge/user/d1ba7a4d-46ef-44e2-b690-b0f9a744bcc7/project/a3c94e8d-31ed-4410-941f-117db7cdcb11.svg)](https://wakatime.com/badge/user/d1ba7a4d-46ef-44e2-b690-b0f9a744bcc7/project/a3c94e8d-31ed-4410-941f-117db7cdcb11) [![wakatime](https://wakatime.com/badge/user/d1ba7a4d-46ef-44e2-b690-b0f9a744bcc7/project/a74132e0-c0c2-4ea7-81d0-21f509fbf73f.svg)](https://wakatime.com/badge/user/d1ba7a4d-46ef-44e2-b690-b0f9a744bcc7/project/a74132e0-c0c2-4ea7-81d0-21f509fbf73f) [![wakatime](https://wakatime.com/badge/user/d1ba7a4d-46ef-44e2-b690-b0f9a744bcc7/project/c9cdaa12-63d4-488b-b679-9d529c04ba20.svg)](https://wakatime.com/badge/user/d1ba7a4d-46ef-44e2-b690-b0f9a744bcc7/project/c9cdaa12-63d4-488b-b679-9d529c04ba20)
 
 ## Stable branch.
 On this branch'll be all the fancy code to compile and run, so this branch will
