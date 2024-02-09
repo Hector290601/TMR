@@ -1,0 +1,4 @@
+<launch>
+		<node pkg="toxic_vision" exec="webcam_publisher" name="webcam_publisher" namespace="toxic_vision"/>
+		<node pkg="toxic_vision" exec="lane_detector" name="lane_detector" namespace="toxic_vision"/>
+</launch>
