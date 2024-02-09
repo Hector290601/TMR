@@ -1,0 +1,32 @@
+\hypertarget{namespacetoxic__vision_1_1kinect__publisher}{}\doxysection{toxic\+\_\+vision.\+kinect\+\_\+publisher Namespace Reference}
+\label{namespacetoxic__vision_1_1kinect__publisher}\index{toxic\_vision.kinect\_publisher@{toxic\_vision.kinect\_publisher}}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classtoxic__vision_1_1kinect__publisher_1_1ImagePublisher}{Image\+Publisher}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{namespacetoxic__vision_1_1kinect__publisher_a9502325ae36328ab995b05768a688d79}{main}} (args=None)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{namespacetoxic__vision_1_1kinect__publisher_a9502325ae36328ab995b05768a688d79}\label{namespacetoxic__vision_1_1kinect__publisher_a9502325ae36328ab995b05768a688d79}} 
+\index{toxic\_vision.kinect\_publisher@{toxic\_vision.kinect\_publisher}!main@{main}}
+\index{main@{main}!toxic\_vision.kinect\_publisher@{toxic\_vision.kinect\_publisher}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily def toxic\+\_\+vision.\+kinect\+\_\+publisher.\+main (\begin{DoxyParamCaption}\item[{}]{args = {\ttfamily None} }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{24 \textcolor{keyword}{def }\mbox{\hyperlink{namespacetoxic__vision_1_1kinect__publisher_a9502325ae36328ab995b05768a688d79}{main}}(args=None):}
+\DoxyCodeLine{25     rclpy.init(args=args)}
+\DoxyCodeLine{26     image\_publisher = ImagePublisher()}
+\DoxyCodeLine{27     rclpy.spin(image\_publisher)}
+\DoxyCodeLine{28     image\_publisher.destroy\_node()}
+\DoxyCodeLine{29     rclp.shutdown()}
+\DoxyCodeLine{30 }
+
+\end{DoxyCode}

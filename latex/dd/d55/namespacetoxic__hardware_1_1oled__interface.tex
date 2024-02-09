@@ -1,0 +1,166 @@
+\hypertarget{namespacetoxic__hardware_1_1oled__interface}{}\doxysection{toxic\+\_\+hardware.\+oled\+\_\+interface Namespace Reference}
+\label{namespacetoxic__hardware_1_1oled__interface}\index{toxic\_hardware.oled\_interface@{toxic\_hardware.oled\_interface}}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classtoxic__hardware_1_1oled__interface_1_1OledInterface}{Oled\+Interface}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{namespacetoxic__hardware_1_1oled__interface_acb5075a1c586e00088ef12d5117d3902}{main}} (args=None)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespacetoxic__hardware_1_1oled__interface_a3a9e2efeaf89528d45ac9a55c0aa0592}{RST}} = None
+\item 
+int \mbox{\hyperlink{namespacetoxic__hardware_1_1oled__interface_a64c09f22bf1aaf06930f11f70d69b426}{DC}} = 23
+\item 
+int \mbox{\hyperlink{namespacetoxic__hardware_1_1oled__interface_aa08462d1cbc1c0ce2462199881e1515c}{SPI\+\_\+\+PORT}} = 0
+\item 
+int \mbox{\hyperlink{namespacetoxic__hardware_1_1oled__interface_ae08d18f8f9a415753075d220a1bba561}{SPI\+\_\+\+DEVICE}} = 0
+\item 
+\mbox{\hyperlink{namespacetoxic__hardware_1_1oled__interface_a4e72583d972515f4f5e30d98ce1eb739}{disp}} = Adafruit\+\_\+\+SSD1306.\+SSD1306\+\_\+128\+\_\+64(rst=\mbox{\hyperlink{namespacetoxic__hardware_1_1oled__interface_a3a9e2efeaf89528d45ac9a55c0aa0592}{RST}})
+\item 
+\mbox{\hyperlink{namespacetoxic__hardware_1_1oled__interface_a5558ace5433f9aabbf0a0ec059900d94}{width}} = disp.\+width
+\item 
+\mbox{\hyperlink{namespacetoxic__hardware_1_1oled__interface_a509290c21d570ff479c1b9d9b1fe8810}{height}} = disp.\+height
+\item 
+\mbox{\hyperlink{namespacetoxic__hardware_1_1oled__interface_a42cb5f5737262947250c709931232c69}{image}} = Image.\+new(\textquotesingle{}1\textquotesingle{}, (\mbox{\hyperlink{namespacetoxic__hardware_1_1oled__interface_a5558ace5433f9aabbf0a0ec059900d94}{width}}, \mbox{\hyperlink{namespacetoxic__hardware_1_1oled__interface_a509290c21d570ff479c1b9d9b1fe8810}{height}}))
+\item 
+\mbox{\hyperlink{namespacetoxic__hardware_1_1oled__interface_a349ab7af971a4dba55c235814bbc3a9b}{draw}} = Image\+Draw.\+Draw(\mbox{\hyperlink{namespacetoxic__hardware_1_1oled__interface_a42cb5f5737262947250c709931232c69}{image}})
+\item 
+\mbox{\hyperlink{namespacetoxic__hardware_1_1oled__interface_a8d9e59eab21bcca5dfbf02faabf38f29}{outline}}
+\item 
+\mbox{\hyperlink{namespacetoxic__hardware_1_1oled__interface_a23b3ecc690a716b53e9d0146b78d5ef2}{fill}}
+\item 
+int \mbox{\hyperlink{namespacetoxic__hardware_1_1oled__interface_a78dca952886227190969e885fbdd4fb4}{padding}} = -\/2
+\item 
+int \mbox{\hyperlink{namespacetoxic__hardware_1_1oled__interface_af93f4f37fc2ad9c37af4a715423b110c}{top}} = \mbox{\hyperlink{namespacetoxic__hardware_1_1oled__interface_a78dca952886227190969e885fbdd4fb4}{padding}}
+\item 
+int \mbox{\hyperlink{namespacetoxic__hardware_1_1oled__interface_a323a7064fba6e15e3e542e34fb19764e}{bottom}} = \mbox{\hyperlink{namespacetoxic__hardware_1_1oled__interface_a509290c21d570ff479c1b9d9b1fe8810}{height}}-\/\mbox{\hyperlink{namespacetoxic__hardware_1_1oled__interface_a78dca952886227190969e885fbdd4fb4}{padding}}
+\item 
+int \mbox{\hyperlink{namespacetoxic__hardware_1_1oled__interface_a6150e0515f7202e2fb518f7206ed97dc}{x}} = 0
+\item 
+\mbox{\hyperlink{namespacetoxic__hardware_1_1oled__interface_af18bb9025627467c42857f6b57902a47}{font}} = Image\+Font.\+load\+\_\+default()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{namespacetoxic__hardware_1_1oled__interface_acb5075a1c586e00088ef12d5117d3902}\label{namespacetoxic__hardware_1_1oled__interface_acb5075a1c586e00088ef12d5117d3902}} 
+\index{toxic\_hardware.oled\_interface@{toxic\_hardware.oled\_interface}!main@{main}}
+\index{main@{main}!toxic\_hardware.oled\_interface@{toxic\_hardware.oled\_interface}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily def main (\begin{DoxyParamCaption}\item[{}]{args = {\ttfamily None} }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{56 \textcolor{keyword}{def }\mbox{\hyperlink{namespacetoxic__hardware_1_1oled__interface_acb5075a1c586e00088ef12d5117d3902}{main}}(args=None):}
+\DoxyCodeLine{57     rclpy.init(args=args)}
+\DoxyCodeLine{58     oledInterface = OledInterface()}
+\DoxyCodeLine{59     rclpy.spin(oledInterface)}
+\DoxyCodeLine{60     oledInterface.destroy\_node()}
+\DoxyCodeLine{61     rclpy.shutdown()}
+\DoxyCodeLine{62 }
+
+\end{DoxyCode}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{namespacetoxic__hardware_1_1oled__interface_a323a7064fba6e15e3e542e34fb19764e}\label{namespacetoxic__hardware_1_1oled__interface_a323a7064fba6e15e3e542e34fb19764e}} 
+\index{toxic\_hardware.oled\_interface@{toxic\_hardware.oled\_interface}!bottom@{bottom}}
+\index{bottom@{bottom}!toxic\_hardware.oled\_interface@{toxic\_hardware.oled\_interface}}
+\doxysubsubsection{\texorpdfstring{bottom}{bottom}}
+{\footnotesize\ttfamily int bottom = \mbox{\hyperlink{namespacetoxic__hardware_1_1oled__interface_a509290c21d570ff479c1b9d9b1fe8810}{height}}-\/\mbox{\hyperlink{namespacetoxic__hardware_1_1oled__interface_a78dca952886227190969e885fbdd4fb4}{padding}}}
+
+\mbox{\Hypertarget{namespacetoxic__hardware_1_1oled__interface_a64c09f22bf1aaf06930f11f70d69b426}\label{namespacetoxic__hardware_1_1oled__interface_a64c09f22bf1aaf06930f11f70d69b426}} 
+\index{toxic\_hardware.oled\_interface@{toxic\_hardware.oled\_interface}!DC@{DC}}
+\index{DC@{DC}!toxic\_hardware.oled\_interface@{toxic\_hardware.oled\_interface}}
+\doxysubsubsection{\texorpdfstring{DC}{DC}}
+{\footnotesize\ttfamily int DC = 23}
+
+\mbox{\Hypertarget{namespacetoxic__hardware_1_1oled__interface_a4e72583d972515f4f5e30d98ce1eb739}\label{namespacetoxic__hardware_1_1oled__interface_a4e72583d972515f4f5e30d98ce1eb739}} 
+\index{toxic\_hardware.oled\_interface@{toxic\_hardware.oled\_interface}!disp@{disp}}
+\index{disp@{disp}!toxic\_hardware.oled\_interface@{toxic\_hardware.oled\_interface}}
+\doxysubsubsection{\texorpdfstring{disp}{disp}}
+{\footnotesize\ttfamily disp = Adafruit\+\_\+\+SSD1306.\+SSD1306\+\_\+128\+\_\+64(rst=\mbox{\hyperlink{namespacetoxic__hardware_1_1oled__interface_a3a9e2efeaf89528d45ac9a55c0aa0592}{RST}})}
+
+\mbox{\Hypertarget{namespacetoxic__hardware_1_1oled__interface_a349ab7af971a4dba55c235814bbc3a9b}\label{namespacetoxic__hardware_1_1oled__interface_a349ab7af971a4dba55c235814bbc3a9b}} 
+\index{toxic\_hardware.oled\_interface@{toxic\_hardware.oled\_interface}!draw@{draw}}
+\index{draw@{draw}!toxic\_hardware.oled\_interface@{toxic\_hardware.oled\_interface}}
+\doxysubsubsection{\texorpdfstring{draw}{draw}}
+{\footnotesize\ttfamily draw = Image\+Draw.\+Draw(\mbox{\hyperlink{namespacetoxic__hardware_1_1oled__interface_a42cb5f5737262947250c709931232c69}{image}})}
+
+\mbox{\Hypertarget{namespacetoxic__hardware_1_1oled__interface_a23b3ecc690a716b53e9d0146b78d5ef2}\label{namespacetoxic__hardware_1_1oled__interface_a23b3ecc690a716b53e9d0146b78d5ef2}} 
+\index{toxic\_hardware.oled\_interface@{toxic\_hardware.oled\_interface}!fill@{fill}}
+\index{fill@{fill}!toxic\_hardware.oled\_interface@{toxic\_hardware.oled\_interface}}
+\doxysubsubsection{\texorpdfstring{fill}{fill}}
+{\footnotesize\ttfamily fill}
+
+\mbox{\Hypertarget{namespacetoxic__hardware_1_1oled__interface_af18bb9025627467c42857f6b57902a47}\label{namespacetoxic__hardware_1_1oled__interface_af18bb9025627467c42857f6b57902a47}} 
+\index{toxic\_hardware.oled\_interface@{toxic\_hardware.oled\_interface}!font@{font}}
+\index{font@{font}!toxic\_hardware.oled\_interface@{toxic\_hardware.oled\_interface}}
+\doxysubsubsection{\texorpdfstring{font}{font}}
+{\footnotesize\ttfamily font = Image\+Font.\+load\+\_\+default()}
+
+\mbox{\Hypertarget{namespacetoxic__hardware_1_1oled__interface_a509290c21d570ff479c1b9d9b1fe8810}\label{namespacetoxic__hardware_1_1oled__interface_a509290c21d570ff479c1b9d9b1fe8810}} 
+\index{toxic\_hardware.oled\_interface@{toxic\_hardware.oled\_interface}!height@{height}}
+\index{height@{height}!toxic\_hardware.oled\_interface@{toxic\_hardware.oled\_interface}}
+\doxysubsubsection{\texorpdfstring{height}{height}}
+{\footnotesize\ttfamily height = disp.\+height}
+
+\mbox{\Hypertarget{namespacetoxic__hardware_1_1oled__interface_a42cb5f5737262947250c709931232c69}\label{namespacetoxic__hardware_1_1oled__interface_a42cb5f5737262947250c709931232c69}} 
+\index{toxic\_hardware.oled\_interface@{toxic\_hardware.oled\_interface}!image@{image}}
+\index{image@{image}!toxic\_hardware.oled\_interface@{toxic\_hardware.oled\_interface}}
+\doxysubsubsection{\texorpdfstring{image}{image}}
+{\footnotesize\ttfamily image = Image.\+new(\textquotesingle{}1\textquotesingle{}, (\mbox{\hyperlink{namespacetoxic__hardware_1_1oled__interface_a5558ace5433f9aabbf0a0ec059900d94}{width}}, \mbox{\hyperlink{namespacetoxic__hardware_1_1oled__interface_a509290c21d570ff479c1b9d9b1fe8810}{height}}))}
+
+\mbox{\Hypertarget{namespacetoxic__hardware_1_1oled__interface_a8d9e59eab21bcca5dfbf02faabf38f29}\label{namespacetoxic__hardware_1_1oled__interface_a8d9e59eab21bcca5dfbf02faabf38f29}} 
+\index{toxic\_hardware.oled\_interface@{toxic\_hardware.oled\_interface}!outline@{outline}}
+\index{outline@{outline}!toxic\_hardware.oled\_interface@{toxic\_hardware.oled\_interface}}
+\doxysubsubsection{\texorpdfstring{outline}{outline}}
+{\footnotesize\ttfamily outline}
+
+\mbox{\Hypertarget{namespacetoxic__hardware_1_1oled__interface_a78dca952886227190969e885fbdd4fb4}\label{namespacetoxic__hardware_1_1oled__interface_a78dca952886227190969e885fbdd4fb4}} 
+\index{toxic\_hardware.oled\_interface@{toxic\_hardware.oled\_interface}!padding@{padding}}
+\index{padding@{padding}!toxic\_hardware.oled\_interface@{toxic\_hardware.oled\_interface}}
+\doxysubsubsection{\texorpdfstring{padding}{padding}}
+{\footnotesize\ttfamily int padding = -\/2}
+
+\mbox{\Hypertarget{namespacetoxic__hardware_1_1oled__interface_a3a9e2efeaf89528d45ac9a55c0aa0592}\label{namespacetoxic__hardware_1_1oled__interface_a3a9e2efeaf89528d45ac9a55c0aa0592}} 
+\index{toxic\_hardware.oled\_interface@{toxic\_hardware.oled\_interface}!RST@{RST}}
+\index{RST@{RST}!toxic\_hardware.oled\_interface@{toxic\_hardware.oled\_interface}}
+\doxysubsubsection{\texorpdfstring{RST}{RST}}
+{\footnotesize\ttfamily RST = None}
+
+\mbox{\Hypertarget{namespacetoxic__hardware_1_1oled__interface_ae08d18f8f9a415753075d220a1bba561}\label{namespacetoxic__hardware_1_1oled__interface_ae08d18f8f9a415753075d220a1bba561}} 
+\index{toxic\_hardware.oled\_interface@{toxic\_hardware.oled\_interface}!SPI\_DEVICE@{SPI\_DEVICE}}
+\index{SPI\_DEVICE@{SPI\_DEVICE}!toxic\_hardware.oled\_interface@{toxic\_hardware.oled\_interface}}
+\doxysubsubsection{\texorpdfstring{SPI\_DEVICE}{SPI\_DEVICE}}
+{\footnotesize\ttfamily int SPI\+\_\+\+DEVICE = 0}
+
+\mbox{\Hypertarget{namespacetoxic__hardware_1_1oled__interface_aa08462d1cbc1c0ce2462199881e1515c}\label{namespacetoxic__hardware_1_1oled__interface_aa08462d1cbc1c0ce2462199881e1515c}} 
+\index{toxic\_hardware.oled\_interface@{toxic\_hardware.oled\_interface}!SPI\_PORT@{SPI\_PORT}}
+\index{SPI\_PORT@{SPI\_PORT}!toxic\_hardware.oled\_interface@{toxic\_hardware.oled\_interface}}
+\doxysubsubsection{\texorpdfstring{SPI\_PORT}{SPI\_PORT}}
+{\footnotesize\ttfamily int SPI\+\_\+\+PORT = 0}
+
+\mbox{\Hypertarget{namespacetoxic__hardware_1_1oled__interface_af93f4f37fc2ad9c37af4a715423b110c}\label{namespacetoxic__hardware_1_1oled__interface_af93f4f37fc2ad9c37af4a715423b110c}} 
+\index{toxic\_hardware.oled\_interface@{toxic\_hardware.oled\_interface}!top@{top}}
+\index{top@{top}!toxic\_hardware.oled\_interface@{toxic\_hardware.oled\_interface}}
+\doxysubsubsection{\texorpdfstring{top}{top}}
+{\footnotesize\ttfamily int top = \mbox{\hyperlink{namespacetoxic__hardware_1_1oled__interface_a78dca952886227190969e885fbdd4fb4}{padding}}}
+
+\mbox{\Hypertarget{namespacetoxic__hardware_1_1oled__interface_a5558ace5433f9aabbf0a0ec059900d94}\label{namespacetoxic__hardware_1_1oled__interface_a5558ace5433f9aabbf0a0ec059900d94}} 
+\index{toxic\_hardware.oled\_interface@{toxic\_hardware.oled\_interface}!width@{width}}
+\index{width@{width}!toxic\_hardware.oled\_interface@{toxic\_hardware.oled\_interface}}
+\doxysubsubsection{\texorpdfstring{width}{width}}
+{\footnotesize\ttfamily width = disp.\+width}
+
+\mbox{\Hypertarget{namespacetoxic__hardware_1_1oled__interface_a6150e0515f7202e2fb518f7206ed97dc}\label{namespacetoxic__hardware_1_1oled__interface_a6150e0515f7202e2fb518f7206ed97dc}} 
+\index{toxic\_hardware.oled\_interface@{toxic\_hardware.oled\_interface}!x@{x}}
+\index{x@{x}!toxic\_hardware.oled\_interface@{toxic\_hardware.oled\_interface}}
+\doxysubsubsection{\texorpdfstring{x}{x}}
+{\footnotesize\ttfamily int x = 0}
+

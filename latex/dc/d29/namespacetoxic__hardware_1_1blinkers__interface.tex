@@ -1,0 +1,46 @@
+\hypertarget{namespacetoxic__hardware_1_1blinkers__interface}{}\doxysection{toxic\+\_\+hardware.\+blinkers\+\_\+interface Namespace Reference}
+\label{namespacetoxic__hardware_1_1blinkers__interface}\index{toxic\_hardware.blinkers\_interface@{toxic\_hardware.blinkers\_interface}}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classtoxic__hardware_1_1blinkers__interface_1_1BlinkersInterface}{Blinkers\+Interface}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{namespacetoxic__hardware_1_1blinkers__interface_acb5075a1c586e00088ef12d5117d3902}{main}} (args=None)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespacetoxic__hardware_1_1blinkers__interface_a6fd15ce64110e98b208bfe7a4ed33f52}{gpio\+\_\+pin}} = lgpio.\+gpiochip\+\_\+open(0)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{namespacetoxic__hardware_1_1blinkers__interface_acb5075a1c586e00088ef12d5117d3902}\label{namespacetoxic__hardware_1_1blinkers__interface_acb5075a1c586e00088ef12d5117d3902}} 
+\index{toxic\_hardware.blinkers\_interface@{toxic\_hardware.blinkers\_interface}!main@{main}}
+\index{main@{main}!toxic\_hardware.blinkers\_interface@{toxic\_hardware.blinkers\_interface}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily def main (\begin{DoxyParamCaption}\item[{}]{args = {\ttfamily None} }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{46 \textcolor{keyword}{def }\mbox{\hyperlink{namespacetoxic__hardware_1_1blinkers__interface_acb5075a1c586e00088ef12d5117d3902}{main}}(args=None):}
+\DoxyCodeLine{47     rclpy.init(args=args)}
+\DoxyCodeLine{48     blinkersInterface = BlinkersInterface()}
+\DoxyCodeLine{49     rclpy.spin(blinkersInterface)}
+\DoxyCodeLine{50     blinkersInterface.destroy\_node()}
+\DoxyCodeLine{51     rclpy.shutdown()}
+\DoxyCodeLine{52 }
+
+\end{DoxyCode}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{namespacetoxic__hardware_1_1blinkers__interface_a6fd15ce64110e98b208bfe7a4ed33f52}\label{namespacetoxic__hardware_1_1blinkers__interface_a6fd15ce64110e98b208bfe7a4ed33f52}} 
+\index{toxic\_hardware.blinkers\_interface@{toxic\_hardware.blinkers\_interface}!gpio\_pin@{gpio\_pin}}
+\index{gpio\_pin@{gpio\_pin}!toxic\_hardware.blinkers\_interface@{toxic\_hardware.blinkers\_interface}}
+\doxysubsubsection{\texorpdfstring{gpio\_pin}{gpio\_pin}}
+{\footnotesize\ttfamily gpio\+\_\+pin = lgpio.\+gpiochip\+\_\+open(0)}
+

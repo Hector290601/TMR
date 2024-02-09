@@ -1,0 +1,46 @@
+\hypertarget{namespacetoxic__hardware_1_1servo__interface}{}\doxysection{toxic\+\_\+hardware.\+servo\+\_\+interface Namespace Reference}
+\label{namespacetoxic__hardware_1_1servo__interface}\index{toxic\_hardware.servo\_interface@{toxic\_hardware.servo\_interface}}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classtoxic__hardware_1_1servo__interface_1_1SteeringInterface}{Steering\+Interface}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{namespacetoxic__hardware_1_1servo__interface_acb5075a1c586e00088ef12d5117d3902}{main}} (args=None)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespacetoxic__hardware_1_1servo__interface_ab818b24a3670d4f46c31af185e3cb93c}{servo\+\_\+pin}} = lgpio.\+gpiochip\+\_\+open(0)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{namespacetoxic__hardware_1_1servo__interface_acb5075a1c586e00088ef12d5117d3902}\label{namespacetoxic__hardware_1_1servo__interface_acb5075a1c586e00088ef12d5117d3902}} 
+\index{toxic\_hardware.servo\_interface@{toxic\_hardware.servo\_interface}!main@{main}}
+\index{main@{main}!toxic\_hardware.servo\_interface@{toxic\_hardware.servo\_interface}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily def main (\begin{DoxyParamCaption}\item[{}]{args = {\ttfamily None} }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{33 \textcolor{keyword}{def }\mbox{\hyperlink{namespacetoxic__hardware_1_1servo__interface_acb5075a1c586e00088ef12d5117d3902}{main}}(args=None):}
+\DoxyCodeLine{34     rclpy.init(args=args)}
+\DoxyCodeLine{35     steeringInterface = SteeringInterface()}
+\DoxyCodeLine{36     rclpy.spin(steeringInterface)}
+\DoxyCodeLine{37     steeringInterface.destroy\_node()}
+\DoxyCodeLine{38     rclpy.shutdown()}
+\DoxyCodeLine{39 }
+
+\end{DoxyCode}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{namespacetoxic__hardware_1_1servo__interface_ab818b24a3670d4f46c31af185e3cb93c}\label{namespacetoxic__hardware_1_1servo__interface_ab818b24a3670d4f46c31af185e3cb93c}} 
+\index{toxic\_hardware.servo\_interface@{toxic\_hardware.servo\_interface}!servo\_pin@{servo\_pin}}
+\index{servo\_pin@{servo\_pin}!toxic\_hardware.servo\_interface@{toxic\_hardware.servo\_interface}}
+\doxysubsubsection{\texorpdfstring{servo\_pin}{servo\_pin}}
+{\footnotesize\ttfamily servo\+\_\+pin = lgpio.\+gpiochip\+\_\+open(0)}
+

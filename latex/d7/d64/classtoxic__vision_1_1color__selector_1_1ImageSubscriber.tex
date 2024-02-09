@@ -1,0 +1,143 @@
+\hypertarget{classtoxic__vision_1_1color__selector_1_1ImageSubscriber}{}\doxysection{Image\+Subscriber Class Reference}
+\label{classtoxic__vision_1_1color__selector_1_1ImageSubscriber}\index{ImageSubscriber@{ImageSubscriber}}
+Inheritance diagram for Image\+Subscriber\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{d7/d64/classtoxic__vision_1_1color__selector_1_1ImageSubscriber}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{classtoxic__vision_1_1color__selector_1_1ImageSubscriber_ae64f0875afe3067b97ba370b354b9213}{\+\_\+\+\_\+init\+\_\+\+\_\+}} (self)
+\item 
+def \mbox{\hyperlink{classtoxic__vision_1_1color__selector_1_1ImageSubscriber_a876735be946e8770790a53a398cbab17}{range\+\_\+finder}} (self)
+\item 
+def \mbox{\hyperlink{classtoxic__vision_1_1color__selector_1_1ImageSubscriber_a69f776519af775d0e6b8ef2bf9b2a37f}{process\+\_\+image}} (self)
+\item 
+def \mbox{\hyperlink{classtoxic__vision_1_1color__selector_1_1ImageSubscriber_a23dd9943cb7cb7be2a6e7022a85a1684}{listener\+\_\+callback}} (self, data)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classtoxic__vision_1_1color__selector_1_1ImageSubscriber_a4b0698733c4dfaffe8e2b4cd952b6f82}{subscription}}
+\item 
+\mbox{\hyperlink{classtoxic__vision_1_1color__selector_1_1ImageSubscriber_a7277d205751fbcdc6753d41e2d151ee3}{publisher}}
+\item 
+\mbox{\hyperlink{classtoxic__vision_1_1color__selector_1_1ImageSubscriber_a88f0860257ba6bdc089557444f5cdd16}{br}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classtoxic__vision_1_1color__selector_1_1ImageSubscriber_ae64f0875afe3067b97ba370b354b9213}\label{classtoxic__vision_1_1color__selector_1_1ImageSubscriber_ae64f0875afe3067b97ba370b354b9213}} 
+\index{ImageSubscriber@{ImageSubscriber}!\_\_init\_\_@{\_\_init\_\_}}
+\index{\_\_init\_\_@{\_\_init\_\_}!ImageSubscriber@{ImageSubscriber}}
+\doxysubsubsection{\texorpdfstring{\_\_init\_\_()}{\_\_init\_\_()}}
+{\footnotesize\ttfamily def \+\_\+\+\_\+init\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{45   \textcolor{keyword}{def }\_\_init\_\_(self):}
+\DoxyCodeLine{46     super().\_\_init\_\_(\textcolor{stringliteral}{'image\_subscriber'})}
+\DoxyCodeLine{47     self.subscription = self.create\_subscription(}
+\DoxyCodeLine{48       Image, }
+\DoxyCodeLine{49       \textcolor{stringliteral}{'/raw\_rgb'}, }
+\DoxyCodeLine{50       self.listener\_callback, }
+\DoxyCodeLine{51       30}
+\DoxyCodeLine{52       )}
+\DoxyCodeLine{53     self.publisher = self.create\_publisher(Image, \textcolor{stringliteral}{'/band\_filter'}, 30)}
+\DoxyCodeLine{54     self.subscription}
+\DoxyCodeLine{55     self.br = CvBridge()}
+\DoxyCodeLine{56 }
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classtoxic__vision_1_1color__selector_1_1ImageSubscriber_a23dd9943cb7cb7be2a6e7022a85a1684}\label{classtoxic__vision_1_1color__selector_1_1ImageSubscriber_a23dd9943cb7cb7be2a6e7022a85a1684}} 
+\index{ImageSubscriber@{ImageSubscriber}!listener\_callback@{listener\_callback}}
+\index{listener\_callback@{listener\_callback}!ImageSubscriber@{ImageSubscriber}}
+\doxysubsubsection{\texorpdfstring{listener\_callback()}{listener\_callback()}}
+{\footnotesize\ttfamily def listener\+\_\+callback (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{data }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{72   \textcolor{keyword}{def }listener\_callback(self, data):}
+\DoxyCodeLine{73     \textcolor{keyword}{global} frame}
+\DoxyCodeLine{74     current\_frame = self.br.imgmsg\_to\_cv2(data)}
+\DoxyCodeLine{75     frame = current\_frame}
+\DoxyCodeLine{76     hsv = self.process\_image()}
+\DoxyCodeLine{77     band\_pass = self.range\_finder()}
+\DoxyCodeLine{78     cv2.imshow(\textcolor{stringliteral}{"{}camera"{}}, current\_frame)}
+\DoxyCodeLine{79     cv2.imshow(\textcolor{stringliteral}{"{}hsv"{}}, hsv)}
+\DoxyCodeLine{80     cv2.imshow(\textcolor{stringliteral}{"{}band\_filter"{}}, band\_pass)}
+\DoxyCodeLine{81     \textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{82 \textcolor{stringliteral}{    cv2.setMouseCallback("{}camera"{}, mouse\_callback)}}
+\DoxyCodeLine{83 \textcolor{stringliteral}{    cv2.setMouseCallback("{}hsv"{}, mouse\_callback)}}
+\DoxyCodeLine{84 \textcolor{stringliteral}{    cv2.setMouseCallback("{}band\_filter"{}, mouse\_callback)}}
+\DoxyCodeLine{85 \textcolor{stringliteral}{    "{}"{}"{}}}
+\DoxyCodeLine{86     cv2.waitKey(1)}
+\DoxyCodeLine{87     self.publisher.publish(self.br.cv2\_to\_imgmsg(band\_pass))}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classtoxic__vision_1_1color__selector_1_1ImageSubscriber_a69f776519af775d0e6b8ef2bf9b2a37f}\label{classtoxic__vision_1_1color__selector_1_1ImageSubscriber_a69f776519af775d0e6b8ef2bf9b2a37f}} 
+\index{ImageSubscriber@{ImageSubscriber}!process\_image@{process\_image}}
+\index{process\_image@{process\_image}!ImageSubscriber@{ImageSubscriber}}
+\doxysubsubsection{\texorpdfstring{process\_image()}{process\_image()}}
+{\footnotesize\ttfamily def process\+\_\+image (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{66   \textcolor{keyword}{def }process\_image(self):}
+\DoxyCodeLine{67       \textcolor{keyword}{global} frame, where}
+\DoxyCodeLine{68       hsv = cv2.cvtColor(frame, cv2.COLOR\_BGR2HSV)}
+\DoxyCodeLine{69       where = hsv}
+\DoxyCodeLine{70       \textcolor{keywordflow}{return} hsv}
+\DoxyCodeLine{71    }
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classtoxic__vision_1_1color__selector_1_1ImageSubscriber_a876735be946e8770790a53a398cbab17}\label{classtoxic__vision_1_1color__selector_1_1ImageSubscriber_a876735be946e8770790a53a398cbab17}} 
+\index{ImageSubscriber@{ImageSubscriber}!range\_finder@{range\_finder}}
+\index{range\_finder@{range\_finder}!ImageSubscriber@{ImageSubscriber}}
+\doxysubsubsection{\texorpdfstring{range\_finder()}{range\_finder()}}
+{\footnotesize\ttfamily def range\+\_\+finder (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{57   \textcolor{keyword}{def }range\_finder(self):}
+\DoxyCodeLine{58     \textcolor{keyword}{global} lower\_color, upper\_color, where}
+\DoxyCodeLine{59     band\_filter = cv2.inRange(}
+\DoxyCodeLine{60                 where,}
+\DoxyCodeLine{61             np.array(lower\_color),}
+\DoxyCodeLine{62             np.array(upper\_color)}
+\DoxyCodeLine{63         )}
+\DoxyCodeLine{64     \textcolor{keywordflow}{return} band\_filter}
+\DoxyCodeLine{65 }
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classtoxic__vision_1_1color__selector_1_1ImageSubscriber_a88f0860257ba6bdc089557444f5cdd16}\label{classtoxic__vision_1_1color__selector_1_1ImageSubscriber_a88f0860257ba6bdc089557444f5cdd16}} 
+\index{ImageSubscriber@{ImageSubscriber}!br@{br}}
+\index{br@{br}!ImageSubscriber@{ImageSubscriber}}
+\doxysubsubsection{\texorpdfstring{br}{br}}
+{\footnotesize\ttfamily br}
+
+\mbox{\Hypertarget{classtoxic__vision_1_1color__selector_1_1ImageSubscriber_a7277d205751fbcdc6753d41e2d151ee3}\label{classtoxic__vision_1_1color__selector_1_1ImageSubscriber_a7277d205751fbcdc6753d41e2d151ee3}} 
+\index{ImageSubscriber@{ImageSubscriber}!publisher@{publisher}}
+\index{publisher@{publisher}!ImageSubscriber@{ImageSubscriber}}
+\doxysubsubsection{\texorpdfstring{publisher}{publisher}}
+{\footnotesize\ttfamily publisher}
+
+\mbox{\Hypertarget{classtoxic__vision_1_1color__selector_1_1ImageSubscriber_a4b0698733c4dfaffe8e2b4cd952b6f82}\label{classtoxic__vision_1_1color__selector_1_1ImageSubscriber_a4b0698733c4dfaffe8e2b4cd952b6f82}} 
+\index{ImageSubscriber@{ImageSubscriber}!subscription@{subscription}}
+\index{subscription@{subscription}!ImageSubscriber@{ImageSubscriber}}
+\doxysubsubsection{\texorpdfstring{subscription}{subscription}}
+{\footnotesize\ttfamily subscription}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+main\+\_\+ws/build/toxic\+\_\+vision/build/lib/toxic\+\_\+vision/\mbox{\hyperlink{color__selector_8py}{color\+\_\+selector.\+py}}\end{DoxyCompactItemize}

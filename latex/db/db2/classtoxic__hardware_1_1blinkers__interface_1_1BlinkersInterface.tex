@@ -1,0 +1,154 @@
+\hypertarget{classtoxic__hardware_1_1blinkers__interface_1_1BlinkersInterface}{}\doxysection{Blinkers\+Interface Class Reference}
+\label{classtoxic__hardware_1_1blinkers__interface_1_1BlinkersInterface}\index{BlinkersInterface@{BlinkersInterface}}
+Inheritance diagram for Blinkers\+Interface\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{db/db2/classtoxic__hardware_1_1blinkers__interface_1_1BlinkersInterface}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{classtoxic__hardware_1_1blinkers__interface_1_1BlinkersInterface_ae64f0875afe3067b97ba370b354b9213}{\+\_\+\+\_\+init\+\_\+\+\_\+}} (self)
+\item 
+def \mbox{\hyperlink{classtoxic__hardware_1_1blinkers__interface_1_1BlinkersInterface_a74f43bc48b49ce4860b4fe27ab96fdda}{blinkers\+\_\+callback}} (self, data)
+\item 
+def \mbox{\hyperlink{classtoxic__hardware_1_1blinkers__interface_1_1BlinkersInterface_ae64f0875afe3067b97ba370b354b9213}{\+\_\+\+\_\+init\+\_\+\+\_\+}} (self)
+\item 
+def \mbox{\hyperlink{classtoxic__hardware_1_1blinkers__interface_1_1BlinkersInterface_a74f43bc48b49ce4860b4fe27ab96fdda}{blinkers\+\_\+callback}} (self, data)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classtoxic__hardware_1_1blinkers__interface_1_1BlinkersInterface_a4b0698733c4dfaffe8e2b4cd952b6f82}{subscription}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classtoxic__hardware_1_1blinkers__interface_1_1BlinkersInterface_ae64f0875afe3067b97ba370b354b9213}\label{classtoxic__hardware_1_1blinkers__interface_1_1BlinkersInterface_ae64f0875afe3067b97ba370b354b9213}} 
+\index{BlinkersInterface@{BlinkersInterface}!\_\_init\_\_@{\_\_init\_\_}}
+\index{\_\_init\_\_@{\_\_init\_\_}!BlinkersInterface@{BlinkersInterface}}
+\doxysubsubsection{\texorpdfstring{\_\_init\_\_()}{\_\_init\_\_()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily def \+\_\+\+\_\+init\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{11     \textcolor{keyword}{def }\_\_init\_\_(self):}
+\DoxyCodeLine{12         super().\_\_init\_\_(\textcolor{stringliteral}{'blinkers\_interface'})}
+\DoxyCodeLine{13         self.subscription = self.create\_subscription(}
+\DoxyCodeLine{14                 Int8,}
+\DoxyCodeLine{15                 \textcolor{stringliteral}{'/blinkers'},}
+\DoxyCodeLine{16                 self.blinkers\_callback,}
+\DoxyCodeLine{17                 2}
+\DoxyCodeLine{18                 )}
+\DoxyCodeLine{19         self.subscription}
+\DoxyCodeLine{20 }
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classtoxic__hardware_1_1blinkers__interface_1_1BlinkersInterface_ae64f0875afe3067b97ba370b354b9213}\label{classtoxic__hardware_1_1blinkers__interface_1_1BlinkersInterface_ae64f0875afe3067b97ba370b354b9213}} 
+\index{BlinkersInterface@{BlinkersInterface}!\_\_init\_\_@{\_\_init\_\_}}
+\index{\_\_init\_\_@{\_\_init\_\_}!BlinkersInterface@{BlinkersInterface}}
+\doxysubsubsection{\texorpdfstring{\_\_init\_\_()}{\_\_init\_\_()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily def \+\_\+\+\_\+init\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{11     \textcolor{keyword}{def }\_\_init\_\_(self):}
+\DoxyCodeLine{12         super().\_\_init\_\_(\textcolor{stringliteral}{'blinkers\_interface'})}
+\DoxyCodeLine{13         self.subscription = self.create\_subscription(}
+\DoxyCodeLine{14                 Int8,}
+\DoxyCodeLine{15                 \textcolor{stringliteral}{'/blinkers'},}
+\DoxyCodeLine{16                 self.blinkers\_callback,}
+\DoxyCodeLine{17                 2}
+\DoxyCodeLine{18                 )}
+\DoxyCodeLine{19         self.subscription}
+\DoxyCodeLine{20 }
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classtoxic__hardware_1_1blinkers__interface_1_1BlinkersInterface_a74f43bc48b49ce4860b4fe27ab96fdda}\label{classtoxic__hardware_1_1blinkers__interface_1_1BlinkersInterface_a74f43bc48b49ce4860b4fe27ab96fdda}} 
+\index{BlinkersInterface@{BlinkersInterface}!blinkers\_callback@{blinkers\_callback}}
+\index{blinkers\_callback@{blinkers\_callback}!BlinkersInterface@{BlinkersInterface}}
+\doxysubsubsection{\texorpdfstring{blinkers\_callback()}{blinkers\_callback()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily def blinkers\+\_\+callback (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{data }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{21     \textcolor{keyword}{def }blinkers\_callback(self, data):}
+\DoxyCodeLine{22         \textcolor{keyword}{global} gpio\_pin}
+\DoxyCodeLine{23         recived = data.data}
+\DoxyCodeLine{24         \textcolor{keywordflow}{if} recived == 0:}
+\DoxyCodeLine{25             lgpio.gpio\_write(gpio\_pin, 17, 0)}
+\DoxyCodeLine{26             lgpio.gpio\_write(gpio\_pin, 27, 0)}
+\DoxyCodeLine{27         \textcolor{keywordflow}{elif} recived == 1:}
+\DoxyCodeLine{28             lgpio.gpio\_write(gpio\_pin, 17, 1)}
+\DoxyCodeLine{29             time.sleep(0.5)}
+\DoxyCodeLine{30             lgpio.gpio\_write(gpio\_pin, 17, 0)}
+\DoxyCodeLine{31             time.sleep(0.5)}
+\DoxyCodeLine{32         \textcolor{keywordflow}{elif} recived == -\/1:}
+\DoxyCodeLine{33             lgpio.gpio\_write(gpio\_pin, 27, 1)}
+\DoxyCodeLine{34             time.sleep(0.5)}
+\DoxyCodeLine{35             lgpio.gpio\_write(gpio\_pin, 27, 0)}
+\DoxyCodeLine{36             time.sleep(0.5)}
+\DoxyCodeLine{37         \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{38             lgpio.gpio\_write(gpio\_pin, 17, 1)}
+\DoxyCodeLine{39             lgpio.gpio\_write(gpio\_pin, 27, 1)}
+\DoxyCodeLine{40             time.sleep(0.5)}
+\DoxyCodeLine{41             lgpio.gpio\_write(gpio\_pin, 17, 0)}
+\DoxyCodeLine{42             lgpio.gpio\_write(gpio\_pin, 27, 0)}
+\DoxyCodeLine{43             time.sleep(0.5)}
+\DoxyCodeLine{44 }
+\DoxyCodeLine{45 }
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classtoxic__hardware_1_1blinkers__interface_1_1BlinkersInterface_a74f43bc48b49ce4860b4fe27ab96fdda}\label{classtoxic__hardware_1_1blinkers__interface_1_1BlinkersInterface_a74f43bc48b49ce4860b4fe27ab96fdda}} 
+\index{BlinkersInterface@{BlinkersInterface}!blinkers\_callback@{blinkers\_callback}}
+\index{blinkers\_callback@{blinkers\_callback}!BlinkersInterface@{BlinkersInterface}}
+\doxysubsubsection{\texorpdfstring{blinkers\_callback()}{blinkers\_callback()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily def blinkers\+\_\+callback (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{data }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{21     \textcolor{keyword}{def }blinkers\_callback(self, data):}
+\DoxyCodeLine{22         \textcolor{keyword}{global} gpio\_pin}
+\DoxyCodeLine{23         recived = data.data}
+\DoxyCodeLine{24         \textcolor{keywordflow}{if} recived == 0:}
+\DoxyCodeLine{25             lgpio.gpio\_write(gpio\_pin, 17, 0)}
+\DoxyCodeLine{26             lgpio.gpio\_write(gpio\_pin, 27, 0)}
+\DoxyCodeLine{27         \textcolor{keywordflow}{elif} recived == 1:}
+\DoxyCodeLine{28             lgpio.gpio\_write(gpio\_pin, 17, 1)}
+\DoxyCodeLine{29             time.sleep(0.5)}
+\DoxyCodeLine{30             lgpio.gpio\_write(gpio\_pin, 17, 0)}
+\DoxyCodeLine{31             time.sleep(0.5)}
+\DoxyCodeLine{32         \textcolor{keywordflow}{elif} recived == -\/1:}
+\DoxyCodeLine{33             lgpio.gpio\_write(gpio\_pin, 27, 1)}
+\DoxyCodeLine{34             time.sleep(0.5)}
+\DoxyCodeLine{35             lgpio.gpio\_write(gpio\_pin, 27, 0)}
+\DoxyCodeLine{36             time.sleep(0.5)}
+\DoxyCodeLine{37         \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{38             lgpio.gpio\_write(gpio\_pin, 17, 1)}
+\DoxyCodeLine{39             lgpio.gpio\_write(gpio\_pin, 27, 1)}
+\DoxyCodeLine{40             time.sleep(0.5)}
+\DoxyCodeLine{41             lgpio.gpio\_write(gpio\_pin, 17, 0)}
+\DoxyCodeLine{42             lgpio.gpio\_write(gpio\_pin, 27, 0)}
+\DoxyCodeLine{43             time.sleep(0.5)}
+\DoxyCodeLine{44 }
+\DoxyCodeLine{45 }
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classtoxic__hardware_1_1blinkers__interface_1_1BlinkersInterface_a4b0698733c4dfaffe8e2b4cd952b6f82}\label{classtoxic__hardware_1_1blinkers__interface_1_1BlinkersInterface_a4b0698733c4dfaffe8e2b4cd952b6f82}} 
+\index{BlinkersInterface@{BlinkersInterface}!subscription@{subscription}}
+\index{subscription@{subscription}!BlinkersInterface@{BlinkersInterface}}
+\doxysubsubsection{\texorpdfstring{subscription}{subscription}}
+{\footnotesize\ttfamily subscription}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+main\+\_\+ws/build/toxic\+\_\+hardware/build/lib/toxic\+\_\+hardware/\mbox{\hyperlink{build_2toxic__hardware_2build_2lib_2toxic__hardware_2blinkers__interface_8py}{blinkers\+\_\+interface.\+py}}\end{DoxyCompactItemize}

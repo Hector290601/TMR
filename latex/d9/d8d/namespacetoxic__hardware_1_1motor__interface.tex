@@ -1,0 +1,47 @@
+\hypertarget{namespacetoxic__hardware_1_1motor__interface}{}\doxysection{toxic\+\_\+hardware.\+motor\+\_\+interface Namespace Reference}
+\label{namespacetoxic__hardware_1_1motor__interface}\index{toxic\_hardware.motor\_interface@{toxic\_hardware.motor\_interface}}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classtoxic__hardware_1_1motor__interface_1_1MotorInterface}{Motor\+Interface}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{namespacetoxic__hardware_1_1motor__interface_acb5075a1c586e00088ef12d5117d3902}{main}} (args=None)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespacetoxic__hardware_1_1motor__interface_a257386444c3afd4030922ffb828f85fe}{roboclaw}} = \mbox{\hyperlink{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw}{Roboclaw}}(\char`\"{}/dev/tty\+ACM0\char`\"{}, 115200)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{namespacetoxic__hardware_1_1motor__interface_acb5075a1c586e00088ef12d5117d3902}\label{namespacetoxic__hardware_1_1motor__interface_acb5075a1c586e00088ef12d5117d3902}} 
+\index{toxic\_hardware.motor\_interface@{toxic\_hardware.motor\_interface}!main@{main}}
+\index{main@{main}!toxic\_hardware.motor\_interface@{toxic\_hardware.motor\_interface}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily def main (\begin{DoxyParamCaption}\item[{}]{args = {\ttfamily None} }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{36 \textcolor{keyword}{def }\mbox{\hyperlink{namespacetoxic__hardware_1_1motor__interface_acb5075a1c586e00088ef12d5117d3902}{main}}(args=None):}
+\DoxyCodeLine{37     print(roboclaw.Open())}
+\DoxyCodeLine{38     rclpy.init(args=args)}
+\DoxyCodeLine{39     motorInterface = MotorInterface()}
+\DoxyCodeLine{40     rclpy.spin(motorInterface)}
+\DoxyCodeLine{41     motorInterface.destroy\_node()}
+\DoxyCodeLine{42     rclpy.shutdown()}
+\DoxyCodeLine{43 }
+
+\end{DoxyCode}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{namespacetoxic__hardware_1_1motor__interface_a257386444c3afd4030922ffb828f85fe}\label{namespacetoxic__hardware_1_1motor__interface_a257386444c3afd4030922ffb828f85fe}} 
+\index{toxic\_hardware.motor\_interface@{toxic\_hardware.motor\_interface}!roboclaw@{roboclaw}}
+\index{roboclaw@{roboclaw}!toxic\_hardware.motor\_interface@{toxic\_hardware.motor\_interface}}
+\doxysubsubsection{\texorpdfstring{roboclaw}{roboclaw}}
+{\footnotesize\ttfamily roboclaw = \mbox{\hyperlink{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw}{Roboclaw}}(\char`\"{}/dev/tty\+ACM0\char`\"{}, 115200)}
+

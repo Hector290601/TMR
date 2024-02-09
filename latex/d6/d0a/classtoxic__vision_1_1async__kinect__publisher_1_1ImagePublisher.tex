@@ -1,0 +1,105 @@
+\hypertarget{classtoxic__vision_1_1async__kinect__publisher_1_1ImagePublisher}{}\doxysection{Image\+Publisher Class Reference}
+\label{classtoxic__vision_1_1async__kinect__publisher_1_1ImagePublisher}\index{ImagePublisher@{ImagePublisher}}
+Inheritance diagram for Image\+Publisher\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{d6/d0a/classtoxic__vision_1_1async__kinect__publisher_1_1ImagePublisher}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{classtoxic__vision_1_1async__kinect__publisher_1_1ImagePublisher_ae64f0875afe3067b97ba370b354b9213}{\+\_\+\+\_\+init\+\_\+\+\_\+}} (self)
+\item 
+def \mbox{\hyperlink{classtoxic__vision_1_1async__kinect__publisher_1_1ImagePublisher_a9692d7a212fa89bc61dacc687e826097}{timer\+\_\+callback}} (self)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classtoxic__vision_1_1async__kinect__publisher_1_1ImagePublisher_a2ab19359a5607f32a7b39d6d9f61c3b5}{publisher\+\_\+}}
+\item 
+\mbox{\hyperlink{classtoxic__vision_1_1async__kinect__publisher_1_1ImagePublisher_a943f49763dd36e31fc7ea8604fcad789}{frame}}
+\item 
+\mbox{\hyperlink{classtoxic__vision_1_1async__kinect__publisher_1_1ImagePublisher_a9fabcf6aa0647a2414f7cb1a2ab2634a}{timer}}
+\item 
+\mbox{\hyperlink{classtoxic__vision_1_1async__kinect__publisher_1_1ImagePublisher_a164f5f680c2311f62878497696432805}{bgr\+\_\+frame}}
+\item 
+\mbox{\hyperlink{classtoxic__vision_1_1async__kinect__publisher_1_1ImagePublisher_a88f0860257ba6bdc089557444f5cdd16}{br}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classtoxic__vision_1_1async__kinect__publisher_1_1ImagePublisher_ae64f0875afe3067b97ba370b354b9213}\label{classtoxic__vision_1_1async__kinect__publisher_1_1ImagePublisher_ae64f0875afe3067b97ba370b354b9213}} 
+\index{ImagePublisher@{ImagePublisher}!\_\_init\_\_@{\_\_init\_\_}}
+\index{\_\_init\_\_@{\_\_init\_\_}!ImagePublisher@{ImagePublisher}}
+\doxysubsubsection{\texorpdfstring{\_\_init\_\_()}{\_\_init\_\_()}}
+{\footnotesize\ttfamily def \+\_\+\+\_\+init\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{12     \textcolor{keyword}{def }\_\_init\_\_(self):}
+\DoxyCodeLine{13         super().\_\_init\_\_(\textcolor{stringliteral}{'kinect\_rgb\_publisher'})}
+\DoxyCodeLine{14         self.publisher\_ = self.create\_publisher(Image, \textcolor{stringliteral}{"{}kinect/rgb/raw"{}}, 30)}
+\DoxyCodeLine{15         self.frame = np.zeros((480, 640, 3), dtype = np.uint8)}
+\DoxyCodeLine{16         timer = 0.03}
+\DoxyCodeLine{17         self.timer = self.create\_timer(timer, self.timer\_callback)}
+\DoxyCodeLine{18         self.bgr\_frame = np.zeros((480, 640, 3), dtype = np.uint8)}
+\DoxyCodeLine{19         self.br = CvBridge()}
+\DoxyCodeLine{20 }
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classtoxic__vision_1_1async__kinect__publisher_1_1ImagePublisher_a9692d7a212fa89bc61dacc687e826097}\label{classtoxic__vision_1_1async__kinect__publisher_1_1ImagePublisher_a9692d7a212fa89bc61dacc687e826097}} 
+\index{ImagePublisher@{ImagePublisher}!timer\_callback@{timer\_callback}}
+\index{timer\_callback@{timer\_callback}!ImagePublisher@{ImagePublisher}}
+\doxysubsubsection{\texorpdfstring{timer\_callback()}{timer\_callback()}}
+{\footnotesize\ttfamily def timer\+\_\+callback (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{21     \textcolor{keyword}{def }timer\_callback(self):}
+\DoxyCodeLine{22         frame = self.frame}
+\DoxyCodeLine{23         self.publisher\_.publish(self.br.cv2\_to\_imgmsg(frame))}
+\DoxyCodeLine{24 }
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classtoxic__vision_1_1async__kinect__publisher_1_1ImagePublisher_a164f5f680c2311f62878497696432805}\label{classtoxic__vision_1_1async__kinect__publisher_1_1ImagePublisher_a164f5f680c2311f62878497696432805}} 
+\index{ImagePublisher@{ImagePublisher}!bgr\_frame@{bgr\_frame}}
+\index{bgr\_frame@{bgr\_frame}!ImagePublisher@{ImagePublisher}}
+\doxysubsubsection{\texorpdfstring{bgr\_frame}{bgr\_frame}}
+{\footnotesize\ttfamily bgr\+\_\+frame}
+
+\mbox{\Hypertarget{classtoxic__vision_1_1async__kinect__publisher_1_1ImagePublisher_a88f0860257ba6bdc089557444f5cdd16}\label{classtoxic__vision_1_1async__kinect__publisher_1_1ImagePublisher_a88f0860257ba6bdc089557444f5cdd16}} 
+\index{ImagePublisher@{ImagePublisher}!br@{br}}
+\index{br@{br}!ImagePublisher@{ImagePublisher}}
+\doxysubsubsection{\texorpdfstring{br}{br}}
+{\footnotesize\ttfamily br}
+
+\mbox{\Hypertarget{classtoxic__vision_1_1async__kinect__publisher_1_1ImagePublisher_a943f49763dd36e31fc7ea8604fcad789}\label{classtoxic__vision_1_1async__kinect__publisher_1_1ImagePublisher_a943f49763dd36e31fc7ea8604fcad789}} 
+\index{ImagePublisher@{ImagePublisher}!frame@{frame}}
+\index{frame@{frame}!ImagePublisher@{ImagePublisher}}
+\doxysubsubsection{\texorpdfstring{frame}{frame}}
+{\footnotesize\ttfamily frame}
+
+\mbox{\Hypertarget{classtoxic__vision_1_1async__kinect__publisher_1_1ImagePublisher_a2ab19359a5607f32a7b39d6d9f61c3b5}\label{classtoxic__vision_1_1async__kinect__publisher_1_1ImagePublisher_a2ab19359a5607f32a7b39d6d9f61c3b5}} 
+\index{ImagePublisher@{ImagePublisher}!publisher\_@{publisher\_}}
+\index{publisher\_@{publisher\_}!ImagePublisher@{ImagePublisher}}
+\doxysubsubsection{\texorpdfstring{publisher\_}{publisher\_}}
+{\footnotesize\ttfamily publisher\+\_\+}
+
+\mbox{\Hypertarget{classtoxic__vision_1_1async__kinect__publisher_1_1ImagePublisher_a9fabcf6aa0647a2414f7cb1a2ab2634a}\label{classtoxic__vision_1_1async__kinect__publisher_1_1ImagePublisher_a9fabcf6aa0647a2414f7cb1a2ab2634a}} 
+\index{ImagePublisher@{ImagePublisher}!timer@{timer}}
+\index{timer@{timer}!ImagePublisher@{ImagePublisher}}
+\doxysubsubsection{\texorpdfstring{timer}{timer}}
+{\footnotesize\ttfamily timer}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+main\+\_\+ws/build/toxic\+\_\+vision/build/lib/toxic\+\_\+vision/\mbox{\hyperlink{async__kinect__publisher_8py}{async\+\_\+kinect\+\_\+publisher.\+py}}\end{DoxyCompactItemize}

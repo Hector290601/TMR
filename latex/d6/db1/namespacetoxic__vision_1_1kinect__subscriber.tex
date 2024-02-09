@@ -1,0 +1,32 @@
+\hypertarget{namespacetoxic__vision_1_1kinect__subscriber}{}\doxysection{toxic\+\_\+vision.\+kinect\+\_\+subscriber Namespace Reference}
+\label{namespacetoxic__vision_1_1kinect__subscriber}\index{toxic\_vision.kinect\_subscriber@{toxic\_vision.kinect\_subscriber}}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classtoxic__vision_1_1kinect__subscriber_1_1ImageSubscriber}{Image\+Subscriber}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{namespacetoxic__vision_1_1kinect__subscriber_a26c76d26519cfebd00abda4769308543}{main}} (args=None)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{namespacetoxic__vision_1_1kinect__subscriber_a26c76d26519cfebd00abda4769308543}\label{namespacetoxic__vision_1_1kinect__subscriber_a26c76d26519cfebd00abda4769308543}} 
+\index{toxic\_vision.kinect\_subscriber@{toxic\_vision.kinect\_subscriber}!main@{main}}
+\index{main@{main}!toxic\_vision.kinect\_subscriber@{toxic\_vision.kinect\_subscriber}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily def toxic\+\_\+vision.\+kinect\+\_\+subscriber.\+main (\begin{DoxyParamCaption}\item[{}]{args = {\ttfamily None} }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{24 \textcolor{keyword}{def }\mbox{\hyperlink{namespacetoxic__vision_1_1kinect__subscriber_a26c76d26519cfebd00abda4769308543}{main}}(args=None):}
+\DoxyCodeLine{25     rclpy.init(args=args)}
+\DoxyCodeLine{26     image\_subscriber = ImageSubscriber()}
+\DoxyCodeLine{27     rclpy.spin(image\_subscriber)}
+\DoxyCodeLine{28     image\_subscriber.destroy\_node()}
+\DoxyCodeLine{29     rclpy.shutdown()}
+\DoxyCodeLine{30 }
+
+\end{DoxyCode}
