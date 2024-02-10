@@ -56,9 +56,17 @@ def mouse_callback(event, x, y, flags, param):
             vl = int(vc)
         upper_color = [hu, su, vu]
         lower_color = [hl, sl, vl]
+        print("upper_color = {}\nlower_color = {}".format(
+            upper_color, lower_color
+            )
+            )
     elif event == cv2.EVENT_RBUTTONDOWN:
         upper_color = [0, 0, 0]
         lower_color = [255, 255, 255]
+        print("upper_color = {}\nlower_color = {}".format(
+            upper_color, lower_color
+            )
+            )
     elif event == cv2.EVENT_MOUSEWHEEL:
         print("upper_color = {}\nlower_color = {}".format(
             upper_color, lower_color
@@ -148,9 +156,11 @@ class ImageSubscriber(Node):
                   colorsh = frame[roi_lower:roi_upper, roi_left:roi_right, 0]
                   print(colorsh.shape)
                   print(colorsh)
+                  """
                   for row in colorsh:
                       for col in row:
                           print(col)
+                  """
                   #frame = cv2.rectangle(frame, (roi_left, roi_upper), (roi_right, roi_lower), (255, 0, 0), 0)
                   """
                   for row in colors:
