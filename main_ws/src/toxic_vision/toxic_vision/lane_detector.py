@@ -154,8 +154,8 @@ class ImageSubscriber(Node):
                   roi_lower = l[1] if l[1] < l[3] else l[3]
                   colors = frame[roi_lower:roi_upper, roi_left:roi_right, :]
                   colorsh = frame[roi_lower:roi_upper, roi_left:roi_right, 0]
-                  print(colorsh.shape)
-                  print(colorsh)
+                  #print(colorsh.shape)
+                  #print(colorsh)
                   """
                   for row in colorsh:
                       for col in row:
