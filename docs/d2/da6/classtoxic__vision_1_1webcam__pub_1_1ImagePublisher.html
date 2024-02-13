@@ -143,7 +143,7 @@ Public Attributes</h2></td></tr>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    self.publisher_ = self.create_publisher(Image, <span class="stringliteral">&#39;/raw_rgb&#39;</span>, 1)</div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    timer_period = 0.033</div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    self.timer = self.create_timer(timer_period, self.timer_callback)</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    self.cap = cv2.VideoCapture(5)</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    self.cap = cv2.VideoCapture(4)</div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <span class="stringliteral">&quot;&quot;&quot;</span></div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="stringliteral">    self.cap.set(cv2.CAP_PROP_FOURCC, cv2.VideoWriter_fourcc(&#39;M&#39;, &#39;J&#39;, &#39;P&#39;, &#39;G&#39;))</span></div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="stringliteral">    &quot;&quot;&quot;</span></div>

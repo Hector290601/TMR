@@ -19,6 +19,7 @@ var hierarchy =
       [ "ImageSubscriber", "df/d47/classtoxic__vision_1_1kinect__subscriber_1_1ImageSubscriber.html", null ],
       [ "ImageSubscriber", "d8/d32/classtoxic__vision_1_1lane__detector_1_1ImageSubscriber.html", null ],
       [ "ImageSubscriber", "d8/d32/classtoxic__vision_1_1lane__detector_1_1ImageSubscriber.html", null ],
+      [ "ControllerNode", "d8/d40/classtoxic__vision_1_1lane__tracker__p_1_1ControllerNode.html", null ],
       [ "ImagePublisher", "d2/da6/classtoxic__vision_1_1webcam__pub_1_1ImagePublisher.html", null ],
       [ "ImagePublisher", "d2/da6/classtoxic__vision_1_1webcam__pub_1_1ImagePublisher.html", null ],
       [ "ImageSubscriber", "db/dd5/classtoxic__vision_1_1webcam__sub_1_1ImageSubscriber.html", null ],

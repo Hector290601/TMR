@@ -143,13 +143,13 @@ def \mbox{\hyperlink{classtoxic__vision_1_1lane__detector_1_1ImageSubscriber_a23
 \DoxyCodeLine{146                   roi\_lower = l[1] \textcolor{keywordflow}{if} l[1] < l[3] \textcolor{keywordflow}{else} l[3]}
 \DoxyCodeLine{147                   colors = frame[roi\_lower:roi\_upper, roi\_left:roi\_right, :]}
 \DoxyCodeLine{148                   colorsh = frame[roi\_lower:roi\_upper, roi\_left:roi\_right, 0]}
-\DoxyCodeLine{149                   print(colorsh.shape)}
-\DoxyCodeLine{150                   print(colorsh)}
-\DoxyCodeLine{151                   \textcolor{keywordflow}{for} row \textcolor{keywordflow}{in} colorsh:}
-\DoxyCodeLine{152                       \textcolor{keywordflow}{for} col \textcolor{keywordflow}{in} row:}
-\DoxyCodeLine{153                           print(col)}
-\DoxyCodeLine{154                   \textcolor{comment}{\#frame = cv2.rectangle(frame, (roi\_left, roi\_upper), (roi\_right, roi\_lower), (255, 0, 0), 0)}}
-\DoxyCodeLine{155                   \textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{149                   \textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{150 \textcolor{stringliteral}{                  print(colorsh.shape)}}
+\DoxyCodeLine{151 \textcolor{stringliteral}{                  print(colorsh)}}
+\DoxyCodeLine{152 \textcolor{stringliteral}{                  for row in colorsh:}}
+\DoxyCodeLine{153 \textcolor{stringliteral}{                      for col in row:}}
+\DoxyCodeLine{154 \textcolor{stringliteral}{                          print(col)}}
+\DoxyCodeLine{155 \textcolor{stringliteral}{                  \#frame = cv2.rectangle(frame, (roi\_left, roi\_upper), (roi\_right, roi\_lower), (255, 0, 0), 0)}}
 \DoxyCodeLine{156 \textcolor{stringliteral}{                  for row in colors:}}
 \DoxyCodeLine{157 \textcolor{stringliteral}{                      for col in row:}}
 \DoxyCodeLine{158 \textcolor{stringliteral}{                          if (lower\_color[0] < col[0] < upper\_color[0]) and (lower\_color[1] < col[1] < upper\_color[1]):}}
@@ -192,17 +192,17 @@ def \mbox{\hyperlink{classtoxic__vision_1_1lane__detector_1_1ImageSubscriber_a23
 \DoxyCodeLine{195               message = Float64MultiArray()}
 \DoxyCodeLine{196               message.data = [average\_rho\_left, average\_theta\_left]}
 \DoxyCodeLine{197               self.left\_lane\_publisher.publish(message)}
-\DoxyCodeLine{198               \textcolor{stringliteral}{"{}"{}"{}}}
-\DoxyCodeLine{199 \textcolor{stringliteral}{              try:}}
-\DoxyCodeLine{200 \textcolor{stringliteral}{                  x1, y1, x2, y2 = self.two\_dots\_line(average\_rho\_left, average\_theta\_left, frame)}}
-\DoxyCodeLine{201 \textcolor{stringliteral}{                  x3 = x1 + delta}}
-\DoxyCodeLine{202 \textcolor{stringliteral}{                  x4 = x1 -\/ delta}}
-\DoxyCodeLine{203 \textcolor{stringliteral}{                  x5 = x2 + delta}}
-\DoxyCodeLine{204 \textcolor{stringliteral}{                  x6 = x2 -\/ delta}}
-\DoxyCodeLine{205 \textcolor{stringliteral}{                  cv2.line(frame, (x1, y1), (x2, y2), (255,0,0), 3, cv2.LINE\_AA)}}
-\DoxyCodeLine{206 \textcolor{stringliteral}{              except:}}
-\DoxyCodeLine{207 \textcolor{stringliteral}{                  pass}}
-\DoxyCodeLine{208 \textcolor{stringliteral}{              \#"{}"{}"{}}}
+\DoxyCodeLine{198               \textcolor{comment}{\#"{}"{}"{}}}
+\DoxyCodeLine{199               \textcolor{keywordflow}{try}:}
+\DoxyCodeLine{200                   x1, y1, x2, y2 = self.two\_dots\_line(average\_rho\_left, average\_theta\_left, frame)}
+\DoxyCodeLine{201                   x3 = x1 + delta}
+\DoxyCodeLine{202                   x4 = x1 -\/ delta}
+\DoxyCodeLine{203                   x5 = x2 + delta}
+\DoxyCodeLine{204                   x6 = x2 -\/ delta}
+\DoxyCodeLine{205                   cv2.line(frame, (x1, y1), (x2, y2), (255,0,0), 3, cv2.LINE\_AA)}
+\DoxyCodeLine{206               \textcolor{keywordflow}{except}:}
+\DoxyCodeLine{207                   \textcolor{keywordflow}{pass}}
+\DoxyCodeLine{208               \textcolor{comment}{\#"{}"{}"{}}}
 \DoxyCodeLine{209           \textcolor{keywordflow}{if} count\_right > 0:}
 \DoxyCodeLine{210               average\_rho\_right = sum\_rho\_right / count\_right}
 \DoxyCodeLine{211               average\_theta\_right = sum\_theta\_right / count\_right}
@@ -211,17 +211,17 @@ def \mbox{\hyperlink{classtoxic__vision_1_1lane__detector_1_1ImageSubscriber_a23
 \DoxyCodeLine{214               message = Float64MultiArray()}
 \DoxyCodeLine{215               message.data = [average\_rho\_right, average\_theta\_right]}
 \DoxyCodeLine{216               self.right\_lane\_publisher.publish(message)}
-\DoxyCodeLine{217               \textcolor{stringliteral}{"{}"{}"{}}}
-\DoxyCodeLine{218 \textcolor{stringliteral}{              try:}}
-\DoxyCodeLine{219 \textcolor{stringliteral}{                  x1, y1, x2, y2 = self.two\_dots\_line(average\_rho\_right, average\_theta\_right, frame)}}
-\DoxyCodeLine{220 \textcolor{stringliteral}{                  x3 = x1 + delta}}
-\DoxyCodeLine{221 \textcolor{stringliteral}{                  x4 = x1 -\/ delta}}
-\DoxyCodeLine{222 \textcolor{stringliteral}{                  x5 = x2 + delta}}
-\DoxyCodeLine{223 \textcolor{stringliteral}{                  x6 = x2 -\/ delta}}
-\DoxyCodeLine{224 \textcolor{stringliteral}{                  cv2.line(frame, (x1, y1), (x2, y2), (0,0,255), 3, cv2.LINE\_AA)}}
-\DoxyCodeLine{225 \textcolor{stringliteral}{              except:}}
-\DoxyCodeLine{226 \textcolor{stringliteral}{                  pass}}
-\DoxyCodeLine{227 \textcolor{stringliteral}{              \#"{}"{}"{}}}
+\DoxyCodeLine{217               \textcolor{comment}{\#"{}"{}"{}}}
+\DoxyCodeLine{218               \textcolor{keywordflow}{try}:}
+\DoxyCodeLine{219                   x1, y1, x2, y2 = self.two\_dots\_line(average\_rho\_right, average\_theta\_right, frame)}
+\DoxyCodeLine{220                   x3 = x1 + delta}
+\DoxyCodeLine{221                   x4 = x1 -\/ delta}
+\DoxyCodeLine{222                   x5 = x2 + delta}
+\DoxyCodeLine{223                   x6 = x2 -\/ delta}
+\DoxyCodeLine{224                   cv2.line(frame, (x1, y1), (x2, y2), (0,0,255), 3, cv2.LINE\_AA)}
+\DoxyCodeLine{225               \textcolor{keywordflow}{except}:}
+\DoxyCodeLine{226                   \textcolor{keywordflow}{pass}}
+\DoxyCodeLine{227               \textcolor{comment}{\#"{}"{}"{}}}
 \DoxyCodeLine{228           \textcolor{keywordflow}{if} counter\_color != 0:}
 \DoxyCodeLine{229               avg\_h = h // counter\_color}
 \DoxyCodeLine{230               avg\_s = s // counter\_color}
@@ -387,13 +387,13 @@ def \mbox{\hyperlink{classtoxic__vision_1_1lane__detector_1_1ImageSubscriber_a23
 \DoxyCodeLine{244     hsv = self.process\_image()}
 \DoxyCodeLine{245     band\_pass = self.range\_finder()}
 \DoxyCodeLine{246     self.line\_finder()}
-\DoxyCodeLine{247     \textcolor{comment}{\#cv2.imshow("{}camera"{}, frame)}}
-\DoxyCodeLine{248     \textcolor{comment}{\#cv2.imshow("{}band\_filter"{}, band\_pass)}}
-\DoxyCodeLine{249     \textcolor{comment}{\#cv2.imshow("{}dst"{}, dst)}}
-\DoxyCodeLine{250     \textcolor{comment}{\#cv2.setMouseCallback("{}camera"{}, mouse\_callback)}}
-\DoxyCodeLine{251     \textcolor{comment}{\#cv2.setMouseCallback("{}dst"{}, mouse\_callback)}}
-\DoxyCodeLine{252     \textcolor{comment}{\#cv2.setMouseCallback("{}band\_filter"{}, mouse\_callback)}}
-\DoxyCodeLine{253     \textcolor{comment}{\#cv2.waitKey(1)}}
+\DoxyCodeLine{247     cv2.imshow(\textcolor{stringliteral}{"{}camera"{}}, frame)}
+\DoxyCodeLine{248     cv2.imshow(\textcolor{stringliteral}{"{}band\_filter"{}}, band\_pass)}
+\DoxyCodeLine{249     cv2.imshow(\textcolor{stringliteral}{"{}dst"{}}, dst)}
+\DoxyCodeLine{250     cv2.setMouseCallback(\textcolor{stringliteral}{"{}camera"{}}, mouse\_callback)}
+\DoxyCodeLine{251     cv2.setMouseCallback(\textcolor{stringliteral}{"{}dst"{}}, mouse\_callback)}
+\DoxyCodeLine{252     cv2.setMouseCallback(\textcolor{stringliteral}{"{}band\_filter"{}}, mouse\_callback)}
+\DoxyCodeLine{253     cv2.waitKey(1)}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{classtoxic__vision_1_1lane__detector_1_1ImageSubscriber_a23dd9943cb7cb7be2a6e7022a85a1684}\label{classtoxic__vision_1_1lane__detector_1_1ImageSubscriber_a23dd9943cb7cb7be2a6e7022a85a1684}} 

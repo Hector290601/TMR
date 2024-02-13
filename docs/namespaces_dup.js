@@ -34,6 +34,7 @@ var namespaces_dup =
       [ "kinect_publisher", "d6/dbc/namespacetoxic__vision_1_1kinect__publisher.html", "d6/dbc/namespacetoxic__vision_1_1kinect__publisher" ],
       [ "kinect_subscriber", "d6/db1/namespacetoxic__vision_1_1kinect__subscriber.html", "d6/db1/namespacetoxic__vision_1_1kinect__subscriber" ],
       [ "lane_detector", "d5/d6e/namespacetoxic__vision_1_1lane__detector.html", "d5/d6e/namespacetoxic__vision_1_1lane__detector" ],
+      [ "lane_tracker_p", "df/d72/namespacetoxic__vision_1_1lane__tracker__p.html", "df/d72/namespacetoxic__vision_1_1lane__tracker__p" ],
       [ "webcam_pub", "de/d66/namespacetoxic__vision_1_1webcam__pub.html", "de/d66/namespacetoxic__vision_1_1webcam__pub" ],
       [ "webcam_sub", "d3/db4/namespacetoxic__vision_1_1webcam__sub.html", "d3/db4/namespacetoxic__vision_1_1webcam__sub" ]
     ] ]

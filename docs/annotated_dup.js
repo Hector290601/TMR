@@ -36,6 +36,9 @@ var annotated_dup =
       [ "lane_detector", "d5/d6e/namespacetoxic__vision_1_1lane__detector.html", [
         [ "ImageSubscriber", "d8/d32/classtoxic__vision_1_1lane__detector_1_1ImageSubscriber.html", "d8/d32/classtoxic__vision_1_1lane__detector_1_1ImageSubscriber" ]
       ] ],
+      [ "lane_tracker_p", "df/d72/namespacetoxic__vision_1_1lane__tracker__p.html", [
+        [ "ControllerNode", "d8/d40/classtoxic__vision_1_1lane__tracker__p_1_1ControllerNode.html", "d8/d40/classtoxic__vision_1_1lane__tracker__p_1_1ControllerNode" ]
+      ] ],
       [ "webcam_pub", "de/d66/namespacetoxic__vision_1_1webcam__pub.html", [
         [ "ImagePublisher", "d2/da6/classtoxic__vision_1_1webcam__pub_1_1ImagePublisher.html", "d2/da6/classtoxic__vision_1_1webcam__pub_1_1ImagePublisher" ]
       ] ],

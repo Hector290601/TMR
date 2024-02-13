@@ -62,7 +62,8 @@ remote simulated league, anyway, we won the
 [UNAM](https://www.unam.mx/).
   - [Guerrero, Daniel](https://github.com/danguer3) (Programmer) helped us and
 share his ideas with us.
-  - [Rosario, Omar](https://github.com/OmarRosCar) (Mechanical designer) joined the team.
+  - [Rosario, Omar](https://github.com/OmarRosCar) (Mechanical designer) joined
+the team.
   - Delgado, Emilio (Programmer) joined to team.
   - Marín, Gustavo (Programmer) joined to team.
 - 2023
@@ -81,6 +82,16 @@ The current team's pefrormed by.
 - [Negrte, Marco](https://github.com/mnegretev) (Technical guide)
 - [Robles, Héctor](https://github.com/Hector290601) (Team Leader)
 - [Solano, Jorge](https://github.com/jrg-sln) (Team responsable)
+
+## Sponsors.
+Currently we don't have more sponsors than de UNAM, but if you want to become a
+sponsor to this project, you cand sendus an e-mail to the next emails.
+- [Offficial Mail](mailto:pumasautomodelcar@gmail.com)
+- [Hector Robles](mailto:robletes062901@gmail.com)
+
+Or anyother mail in our github's profiles.
+You can check our porpouse on the following presentation.
+<iframe src="https://docs.google.com/presentation/d/e/2PACX-1vSj9YTXaojkPzcQOfL-8TyMmTMtzJ04-P1fGeStNJMkl2imKWvjCU_sJmCA23A_Dyrqo8bxcCkdcvh5/embed?start=false&loop=true&delayms=5000" frameborder="0" width="960" height="569" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
 
 ## Team core.
 The team core's performed by.
