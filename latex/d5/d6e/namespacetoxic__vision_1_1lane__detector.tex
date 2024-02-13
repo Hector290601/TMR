@@ -8,11 +8,11 @@ class \mbox{\hyperlink{classtoxic__vision_1_1lane__detector_1_1ImageSubscriber}{
 \doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-def \mbox{\hyperlink{namespacetoxic__vision_1_1lane__detector_aa4be97423f37fa16aeb32aa712034d54}{to\+\_\+normal\+\_\+form}} (x1, y1, x2, y2)
+def \mbox{\hyperlink{namespacetoxic__vision_1_1lane__detector_ae3bdbfab97718df7c906f65d19f10dfd}{to\+\_\+normal\+\_\+form}} (x1, y1, x2, y2)
 \item 
-def \mbox{\hyperlink{namespacetoxic__vision_1_1lane__detector_ad5f2e12af3f6f8a9125c22d01315ad74}{mouse\+\_\+callback}} (event, x, y, flags, param)
+def \mbox{\hyperlink{namespacetoxic__vision_1_1lane__detector_a365ec8dd4fef50dc9623183b3e39e22d}{mouse\+\_\+callback}} (event, x, y, flags, param)
 \item 
-def \mbox{\hyperlink{namespacetoxic__vision_1_1lane__detector_acb5075a1c586e00088ef12d5117d3902}{main}} (args=None)
+def \mbox{\hyperlink{namespacetoxic__vision_1_1lane__detector_a7a56502e886845d86ce39e37d087b5a8}{main}} (args=None)
 \end{DoxyCompactItemize}
 \doxysubsection*{Variables}
 \begin{DoxyCompactItemize}
@@ -46,15 +46,15 @@ list \mbox{\hyperlink{namespacetoxic__vision_1_1lane__detector_a9c845a56c4d49b65
 
 
 \doxysubsection{Function Documentation}
-\mbox{\Hypertarget{namespacetoxic__vision_1_1lane__detector_acb5075a1c586e00088ef12d5117d3902}\label{namespacetoxic__vision_1_1lane__detector_acb5075a1c586e00088ef12d5117d3902}} 
+\mbox{\Hypertarget{namespacetoxic__vision_1_1lane__detector_a7a56502e886845d86ce39e37d087b5a8}\label{namespacetoxic__vision_1_1lane__detector_a7a56502e886845d86ce39e37d087b5a8}} 
 \index{toxic\_vision.lane\_detector@{toxic\_vision.lane\_detector}!main@{main}}
 \index{main@{main}!toxic\_vision.lane\_detector@{toxic\_vision.lane\_detector}}
 \doxysubsubsection{\texorpdfstring{main()}{main()}}
-{\footnotesize\ttfamily def main (\begin{DoxyParamCaption}\item[{}]{args = {\ttfamily None} }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily def toxic\+\_\+vision.\+lane\+\_\+detector.\+main (\begin{DoxyParamCaption}\item[{}]{args = {\ttfamily None} }\end{DoxyParamCaption})}
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{255 \textcolor{keyword}{def }\mbox{\hyperlink{namespacetoxic__vision_1_1lane__detector_acb5075a1c586e00088ef12d5117d3902}{main}}(args=None):}
+\DoxyCodeLine{255 \textcolor{keyword}{def }\mbox{\hyperlink{namespacetoxic__vision_1_1lane__detector_a7a56502e886845d86ce39e37d087b5a8}{main}}(args=None):}
 \DoxyCodeLine{256   rclpy.init(args=args)}
 \DoxyCodeLine{257   image\_subscriber = ImageSubscriber()}
 \DoxyCodeLine{258   rclpy.spin(image\_subscriber)}
@@ -63,15 +63,15 @@ list \mbox{\hyperlink{namespacetoxic__vision_1_1lane__detector_a9c845a56c4d49b65
 \DoxyCodeLine{261   }
 
 \end{DoxyCode}
-\mbox{\Hypertarget{namespacetoxic__vision_1_1lane__detector_ad5f2e12af3f6f8a9125c22d01315ad74}\label{namespacetoxic__vision_1_1lane__detector_ad5f2e12af3f6f8a9125c22d01315ad74}} 
+\mbox{\Hypertarget{namespacetoxic__vision_1_1lane__detector_a365ec8dd4fef50dc9623183b3e39e22d}\label{namespacetoxic__vision_1_1lane__detector_a365ec8dd4fef50dc9623183b3e39e22d}} 
 \index{toxic\_vision.lane\_detector@{toxic\_vision.lane\_detector}!mouse\_callback@{mouse\_callback}}
 \index{mouse\_callback@{mouse\_callback}!toxic\_vision.lane\_detector@{toxic\_vision.lane\_detector}}
 \doxysubsubsection{\texorpdfstring{mouse\_callback()}{mouse\_callback()}}
-{\footnotesize\ttfamily def mouse\+\_\+callback (\begin{DoxyParamCaption}\item[{}]{event,  }\item[{}]{x,  }\item[{}]{y,  }\item[{}]{flags,  }\item[{}]{param }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily def toxic\+\_\+vision.\+lane\+\_\+detector.\+mouse\+\_\+callback (\begin{DoxyParamCaption}\item[{}]{event,  }\item[{}]{x,  }\item[{}]{y,  }\item[{}]{flags,  }\item[{}]{param }\end{DoxyParamCaption})}
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{39 \textcolor{keyword}{def }\mbox{\hyperlink{namespacetoxic__vision_1_1lane__detector_ad5f2e12af3f6f8a9125c22d01315ad74}{mouse\_callback}}(event, x, y, flags, param):}
+\DoxyCodeLine{39 \textcolor{keyword}{def }\mbox{\hyperlink{namespacetoxic__vision_1_1lane__detector_a365ec8dd4fef50dc9623183b3e39e22d}{mouse\_callback}}(event, x, y, flags, param):}
 \DoxyCodeLine{40     \textcolor{keyword}{global} where, upper\_color, lower\_color}
 \DoxyCodeLine{41     \textcolor{keywordflow}{if} event == cv2.EVENT\_LBUTTONDOWN:}
 \DoxyCodeLine{42         hu, su, vu = upper\_color}
@@ -102,15 +102,15 @@ list \mbox{\hyperlink{namespacetoxic__vision_1_1lane__detector_a9c845a56c4d49b65
 \DoxyCodeLine{67 }
 
 \end{DoxyCode}
-\mbox{\Hypertarget{namespacetoxic__vision_1_1lane__detector_aa4be97423f37fa16aeb32aa712034d54}\label{namespacetoxic__vision_1_1lane__detector_aa4be97423f37fa16aeb32aa712034d54}} 
+\mbox{\Hypertarget{namespacetoxic__vision_1_1lane__detector_ae3bdbfab97718df7c906f65d19f10dfd}\label{namespacetoxic__vision_1_1lane__detector_ae3bdbfab97718df7c906f65d19f10dfd}} 
 \index{toxic\_vision.lane\_detector@{toxic\_vision.lane\_detector}!to\_normal\_form@{to\_normal\_form}}
 \index{to\_normal\_form@{to\_normal\_form}!toxic\_vision.lane\_detector@{toxic\_vision.lane\_detector}}
 \doxysubsubsection{\texorpdfstring{to\_normal\_form()}{to\_normal\_form()}}
-{\footnotesize\ttfamily def to\+\_\+normal\+\_\+form (\begin{DoxyParamCaption}\item[{}]{x1,  }\item[{}]{y1,  }\item[{}]{x2,  }\item[{}]{y2 }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily def toxic\+\_\+vision.\+lane\+\_\+detector.\+to\+\_\+normal\+\_\+form (\begin{DoxyParamCaption}\item[{}]{x1,  }\item[{}]{y1,  }\item[{}]{x2,  }\item[{}]{y2 }\end{DoxyParamCaption})}
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{28 \textcolor{keyword}{def }\mbox{\hyperlink{namespacetoxic__vision_1_1lane__detector_aa4be97423f37fa16aeb32aa712034d54}{to\_normal\_form}}(x1, y1, x2, y2):}
+\DoxyCodeLine{28 \textcolor{keyword}{def }\mbox{\hyperlink{namespacetoxic__vision_1_1lane__detector_ae3bdbfab97718df7c906f65d19f10dfd}{to\_normal\_form}}(x1, y1, x2, y2):}
 \DoxyCodeLine{29     A = y2 -\/ y1}
 \DoxyCodeLine{30     B = x1 -\/ x2}
 \DoxyCodeLine{31     C = A*x1 + B*y1}

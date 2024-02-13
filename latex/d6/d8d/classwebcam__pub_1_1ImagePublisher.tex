@@ -1,0 +1,152 @@
+\hypertarget{classwebcam__pub_1_1ImagePublisher}{}\doxysection{Image\+Publisher Class Reference}
+\label{classwebcam__pub_1_1ImagePublisher}\index{ImagePublisher@{ImagePublisher}}
+Inheritance diagram for Image\+Publisher\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{d6/d8d/classwebcam__pub_1_1ImagePublisher}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{classwebcam__pub_1_1ImagePublisher_ae64f0875afe3067b97ba370b354b9213}{\+\_\+\+\_\+init\+\_\+\+\_\+}} (self)
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classwebcam__pub_1_1ImagePublisher}{Image\+Publisher}} object to grab the live camera image and publish to a ROS2 Node as Cv\+Bridge message type. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classwebcam__pub_1_1ImagePublisher_a9692d7a212fa89bc61dacc687e826097}{timer\+\_\+callback}} (self)
+\begin{DoxyCompactList}\small\item\em Timer callback to publish the image, everytime the timer achieve the desired time, this callback\textquotesingle{}ll run. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classwebcam__pub_1_1ImagePublisher_a2ab19359a5607f32a7b39d6d9f61c3b5}{publisher\+\_\+}}
+\item 
+\mbox{\hyperlink{classwebcam__pub_1_1ImagePublisher_a9fabcf6aa0647a2414f7cb1a2ab2634a}{timer}}
+\item 
+\mbox{\hyperlink{classwebcam__pub_1_1ImagePublisher_a9499a5c7f196d66c6afe0222bd5a9219}{cap}}
+\item 
+\mbox{\hyperlink{classwebcam__pub_1_1ImagePublisher_a88f0860257ba6bdc089557444f5cdd16}{br}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classwebcam__pub_1_1ImagePublisher_ae64f0875afe3067b97ba370b354b9213}\label{classwebcam__pub_1_1ImagePublisher_ae64f0875afe3067b97ba370b354b9213}} 
+\index{ImagePublisher@{ImagePublisher}!\_\_init\_\_@{\_\_init\_\_}}
+\index{\_\_init\_\_@{\_\_init\_\_}!ImagePublisher@{ImagePublisher}}
+\doxysubsubsection{\texorpdfstring{\_\_init\_\_()}{\_\_init\_\_()}}
+{\footnotesize\ttfamily def \+\_\+\+\_\+init\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+
+\mbox{\hyperlink{classwebcam__pub_1_1ImagePublisher}{Image\+Publisher}} object to grab the live camera image and publish to a ROS2 Node as Cv\+Bridge message type. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Node} & The ROS2 Node where the image publisher\textquotesingle{}ll be able to read/write (this time, just write)\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None, keeps running and alive while the camera\textquotesingle{}s oppened.
+\end{DoxyReturn}
+\mbox{\hyperlink{classwebcam__pub_1_1ImagePublisher}{Image\+Publisher}} object init def (or constructor function, under a Java\textquotesingle{}s OOP context).
+
+
+\begin{DoxyParams}{Parameters}
+{\em self} & Self contained object like a \textquotesingle{}this\textquotesingle{} reference, just to read, write, and generally access object\textquotesingle{}s attributes.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Image\+Publisher\+New\+Object returns a new image publisher object. 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{65     \textcolor{keyword}{def }\_\_init\_\_(self):}
+\DoxyCodeLine{66         }
+\DoxyCodeLine{75 }
+\DoxyCodeLine{76         \textcolor{comment}{\# Edit source Node attributes.}}
+\DoxyCodeLine{77         super().\_\_init\_\_(\textcolor{stringliteral}{'image\_publisher'}) \textcolor{comment}{\# Edit source Node attributes.}}
+\DoxyCodeLine{78         \textcolor{comment}{\# Create the new publisher where the image'll published.}}
+\DoxyCodeLine{79         self.publisher\_ = self.create\_publisher(Image, \textcolor{stringliteral}{'/raw\_rgb'}, 1)}
+\DoxyCodeLine{80         \textcolor{comment}{\# Something like 1/30 to achieve a FPS rate near to the 30FPS.}}
+\DoxyCodeLine{81         timer\_period = 0.033}
+\DoxyCodeLine{82         \textcolor{comment}{\# Set and start running the timer.}}
+\DoxyCodeLine{83         self.timer = self.create\_timer(timer\_period, self.timer\_callback)}
+\DoxyCodeLine{84         \textcolor{comment}{\# Open the webcam and store the object to interact as a VideoCapture}}
+\DoxyCodeLine{85         \textcolor{comment}{\# object}}
+\DoxyCodeLine{86         self.cap = cv2.VideoCapture(0)}
+\DoxyCodeLine{87         \textcolor{comment}{\# Set the desired frame width}}
+\DoxyCodeLine{88         self.cap.set(cv2.CAP\_PROP\_FRAME\_WIDTH, 640)}
+\DoxyCodeLine{89         \textcolor{comment}{\# Set the desired frame height}}
+\DoxyCodeLine{90         self.cap.set(cv2.CAP\_PROP\_FRAME\_HEIGHT, 480)}
+\DoxyCodeLine{91         \textcolor{comment}{\# Set the desired framerate}}
+\DoxyCodeLine{92         self.cap.set(cv2.CAP\_PROP\_FPS, 30)}
+\DoxyCodeLine{93         \textcolor{comment}{\# Create the Ros2 to OpenCv Bridge}}
+\DoxyCodeLine{94         self.br = CvBridge()}
+\DoxyCodeLine{95 }
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classwebcam__pub_1_1ImagePublisher_a9692d7a212fa89bc61dacc687e826097}\label{classwebcam__pub_1_1ImagePublisher_a9692d7a212fa89bc61dacc687e826097}} 
+\index{ImagePublisher@{ImagePublisher}!timer\_callback@{timer\_callback}}
+\index{timer\_callback@{timer\_callback}!ImagePublisher@{ImagePublisher}}
+\doxysubsubsection{\texorpdfstring{timer\_callback()}{timer\_callback()}}
+{\footnotesize\ttfamily def timer\+\_\+callback (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+
+Timer callback to publish the image, everytime the timer achieve the desired time, this callback\textquotesingle{}ll run. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em self} & Self contained object like a \textquotesingle{}this\textquotesingle{} reference, jus to read, write, and generally access object\textquotesingle{}s attributes.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None, just publish the current frame. 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{96     \textcolor{keyword}{def }timer\_callback(self):}
+\DoxyCodeLine{97         }
+\DoxyCodeLine{106 }
+\DoxyCodeLine{107         \textcolor{comment}{\# Read the current frame.}}
+\DoxyCodeLine{108         ret, frame = self.cap.read()}
+\DoxyCodeLine{109         \textcolor{comment}{\# Validate there's a new image}}
+\DoxyCodeLine{110         \textcolor{keywordflow}{if} ret:}
+\DoxyCodeLine{111             \textcolor{comment}{\# If there's a new image, parse the frame to ROS2 image message}}
+\DoxyCodeLine{112             \textcolor{comment}{\# type and publish to the node}}
+\DoxyCodeLine{113             self.publisher\_.publish(self.br.cv2\_to\_imgmsg(frame))}
+\DoxyCodeLine{114 }
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classwebcam__pub_1_1ImagePublisher_a88f0860257ba6bdc089557444f5cdd16}\label{classwebcam__pub_1_1ImagePublisher_a88f0860257ba6bdc089557444f5cdd16}} 
+\index{ImagePublisher@{ImagePublisher}!br@{br}}
+\index{br@{br}!ImagePublisher@{ImagePublisher}}
+\doxysubsubsection{\texorpdfstring{br}{br}}
+{\footnotesize\ttfamily br}
+
+\mbox{\Hypertarget{classwebcam__pub_1_1ImagePublisher_a9499a5c7f196d66c6afe0222bd5a9219}\label{classwebcam__pub_1_1ImagePublisher_a9499a5c7f196d66c6afe0222bd5a9219}} 
+\index{ImagePublisher@{ImagePublisher}!cap@{cap}}
+\index{cap@{cap}!ImagePublisher@{ImagePublisher}}
+\doxysubsubsection{\texorpdfstring{cap}{cap}}
+{\footnotesize\ttfamily cap}
+
+\mbox{\Hypertarget{classwebcam__pub_1_1ImagePublisher_a2ab19359a5607f32a7b39d6d9f61c3b5}\label{classwebcam__pub_1_1ImagePublisher_a2ab19359a5607f32a7b39d6d9f61c3b5}} 
+\index{ImagePublisher@{ImagePublisher}!publisher\_@{publisher\_}}
+\index{publisher\_@{publisher\_}!ImagePublisher@{ImagePublisher}}
+\doxysubsubsection{\texorpdfstring{publisher\_}{publisher\_}}
+{\footnotesize\ttfamily publisher\+\_\+}
+
+\mbox{\Hypertarget{classwebcam__pub_1_1ImagePublisher_a9fabcf6aa0647a2414f7cb1a2ab2634a}\label{classwebcam__pub_1_1ImagePublisher_a9fabcf6aa0647a2414f7cb1a2ab2634a}} 
+\index{ImagePublisher@{ImagePublisher}!timer@{timer}}
+\index{timer@{timer}!ImagePublisher@{ImagePublisher}}
+\doxysubsubsection{\texorpdfstring{timer}{timer}}
+{\footnotesize\ttfamily timer}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+main\+\_\+ws/src/toxic\+\_\+vision/toxic\+\_\+vision/\mbox{\hyperlink{src_2toxic__vision_2toxic__vision_2webcam__pub_8py}{webcam\+\_\+pub.\+py}}\end{DoxyCompactItemize}

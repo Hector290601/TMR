@@ -37,5 +37,7 @@ var namespaces_dup =
       [ "lane_tracker_p", "df/d72/namespacetoxic__vision_1_1lane__tracker__p.html", "df/d72/namespacetoxic__vision_1_1lane__tracker__p" ],
       [ "webcam_pub", "de/d66/namespacetoxic__vision_1_1webcam__pub.html", "de/d66/namespacetoxic__vision_1_1webcam__pub" ],
       [ "webcam_sub", "d3/db4/namespacetoxic__vision_1_1webcam__sub.html", "d3/db4/namespacetoxic__vision_1_1webcam__sub" ]
-    ] ]
+    ] ],
+    [ "webcam_pub", "d9/d01/namespacewebcam__pub.html", "d9/d01/namespacewebcam__pub" ],
+    [ "webcam_sub", "d6/d27/namespacewebcam__sub.html", "d6/d27/namespacewebcam__sub" ]
 ];

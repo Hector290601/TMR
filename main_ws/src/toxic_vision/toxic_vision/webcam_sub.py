@@ -68,26 +68,55 @@ class ImageSubscriber(Node):
         
         # Edit source Node attributes
         super().__init__('image_subscriber')
+        # Create the new node subscriptor, with a 25 hz framerate, you can
+        # change this value if you want.
         self.subscription = self.create_subscription(
-                Image, 
-                '/raw_rgb', 
-                self.listener_callback, 
-                25
+                Image, # Subscriptor type
+                '/raw_rgb', # Where the node'll subscribe
+                self.listener_callback, # Defines callback to grab images.
+                25 # Defines framerate in hz
                 )
+        # Required by Ros2.
         self.subscription
+        # Create bridge object to parse Image messages to OpenCv's image type.
         self.br = CvBridge()
     
     def listener_callback(self, data):
+        ##
+        # @brief Listener callback to grab the first buffer's image and process
+        # it.
+        #
+        # @param self Self contained object like a 'this' reference, just to
+        # read, write and generally access to object's attributes.
+        #
+        # @param data Current message (first buffer's data)
+        #
+        # @return None, properly just displays the image.
+        #
+
+        # Read the image and parse from imgmsg type to cv2 image type.
         current_frame = self.br.imgmsg_to_cv2(data)
+        # Displays the image on a 'band_filter_sub' called window.
         cv2.imshow("band_filter_sub", current_frame)
+        # Refresh the window.
         cv2.waitKey(1)
   
 def main(args=None):
+    ##
+    # @brief This function create the subscriber and execute it.
+    #
+
+    # Init node.
     rclpy.init(args=args)
+    # Create ImageSubscriber's new npde
     image_subscriber = ImageSubscriber()
+    # Keep node alive.
     rclpy.spin(image_subscriber)
+    # Destroy the node once the execution has been finished.
     image_subscriber.destroy_node()
+    # Shutdown ros2 instance.
     rclpy.shutdown()
   
 if __name__ == '__main__':
+    # Execute main if it's called as main progra
     main()

@@ -18,11 +18,10 @@ var hierarchy =
       [ "ImagePublisher", "d9/d94/classtoxic__vision_1_1kinect__publisher_1_1ImagePublisher.html", null ],
       [ "ImageSubscriber", "df/d47/classtoxic__vision_1_1kinect__subscriber_1_1ImageSubscriber.html", null ],
       [ "ImageSubscriber", "d8/d32/classtoxic__vision_1_1lane__detector_1_1ImageSubscriber.html", null ],
-      [ "ImageSubscriber", "d8/d32/classtoxic__vision_1_1lane__detector_1_1ImageSubscriber.html", null ],
       [ "ControllerNode", "d8/d40/classtoxic__vision_1_1lane__tracker__p_1_1ControllerNode.html", null ],
       [ "ImagePublisher", "d2/da6/classtoxic__vision_1_1webcam__pub_1_1ImagePublisher.html", null ],
-      [ "ImagePublisher", "d2/da6/classtoxic__vision_1_1webcam__pub_1_1ImagePublisher.html", null ],
       [ "ImageSubscriber", "db/dd5/classtoxic__vision_1_1webcam__sub_1_1ImageSubscriber.html", null ],
-      [ "ImageSubscriber", "db/dd5/classtoxic__vision_1_1webcam__sub_1_1ImageSubscriber.html", null ]
+      [ "ImagePublisher", "d6/d8d/classwebcam__pub_1_1ImagePublisher.html", null ],
+      [ "ImageSubscriber", "d0/df0/classwebcam__sub_1_1ImageSubscriber.html", null ]
     ] ]
 ];

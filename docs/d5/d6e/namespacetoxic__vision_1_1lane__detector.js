@@ -1,9 +1,9 @@
 var namespacetoxic__vision_1_1lane__detector =
 [
     [ "ImageSubscriber", "d8/d32/classtoxic__vision_1_1lane__detector_1_1ImageSubscriber.html", "d8/d32/classtoxic__vision_1_1lane__detector_1_1ImageSubscriber" ],
-    [ "main", "d5/d6e/namespacetoxic__vision_1_1lane__detector.html#acb5075a1c586e00088ef12d5117d3902", null ],
-    [ "mouse_callback", "d5/d6e/namespacetoxic__vision_1_1lane__detector.html#ad5f2e12af3f6f8a9125c22d01315ad74", null ],
-    [ "to_normal_form", "d5/d6e/namespacetoxic__vision_1_1lane__detector.html#aa4be97423f37fa16aeb32aa712034d54", null ],
+    [ "main", "d5/d6e/namespacetoxic__vision_1_1lane__detector.html#a7a56502e886845d86ce39e37d087b5a8", null ],
+    [ "mouse_callback", "d5/d6e/namespacetoxic__vision_1_1lane__detector.html#a365ec8dd4fef50dc9623183b3e39e22d", null ],
+    [ "to_normal_form", "d5/d6e/namespacetoxic__vision_1_1lane__detector.html#ae3bdbfab97718df7c906f65d19f10dfd", null ],
     [ "delta", "d5/d6e/namespacetoxic__vision_1_1lane__detector.html#a1dfcb70b9229f2da17dd5922b87ecf2c", null ],
     [ "frame", "d5/d6e/namespacetoxic__vision_1_1lane__detector.html#a9c845a56c4d49b65dea74d4e4f9df6d1", null ],
     [ "left_max", "d5/d6e/namespacetoxic__vision_1_1lane__detector.html#a67e59ed32e1bd6ac26bd569779b86c04", null ],

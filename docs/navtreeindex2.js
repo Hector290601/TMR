@@ -1,5 +1,7 @@
 var NAVTREEINDEX2 =
 {
+"dc/dac/toxic__hardware_2setup_8py.html#a2661f439a4a94ffdcd5e47ae1da0bb1d":[3,0,0,1,0,1,1],
+"dc/dac/toxic__hardware_2setup_8py.html#a270a33302dcfe1b60738df9ebbfb2103":[3,0,0,1,0,1,12],
 "dc/dac/toxic__hardware_2setup_8py.html#a3fc04e51dfecacd97621c848af907697":[3,0,0,1,0,1,6],
 "dc/dac/toxic__hardware_2setup_8py.html#a4c7a521b8f1a0769c09bfa4a1fca7dab":[3,0,0,1,0,1,11],
 "dc/dac/toxic__hardware_2setup_8py.html#a4e659be027e258b72df12349200a263e":[3,0,0,1,0,1,4],
@@ -79,7 +81,7 @@ var NAVTREEINDEX2 =
 "de/d10/namespacetoxic__vision_1_1async__kinect__publisher.html#a2c3c8a8e3bcddb23b4ed765f3122ef30":[1,0,3,0,1],
 "de/d10/namespacetoxic__vision_1_1async__kinect__publisher.html#a4e1b953a10d3bbb5c22b59099c2fa374":[1,0,3,0,3],
 "de/d66/namespacetoxic__vision_1_1webcam__pub.html":[1,0,3,6],
-"de/d66/namespacetoxic__vision_1_1webcam__pub.html#acb5075a1c586e00088ef12d5117d3902":[1,0,3,6,1],
+"de/d66/namespacetoxic__vision_1_1webcam__pub.html#a0d57aeae4d44f1dcb33eed5082cf3c87":[1,0,3,6,1],
 "de/d72/toxic__vision_2colcon__command__prefix__setup__py_8sh.html":[3,0,0,0,1,2],
 "de/de6/src_2toxic__hardware_2toxic__hardware_2blinkers__interface_8py.html":[3,0,0,1,0,0,0],
 "de/de6/src_2toxic__hardware_2toxic__hardware_2blinkers__interface_8py.html#acb5075a1c586e00088ef12d5117d3902":[3,0,0,1,0,0,0,1],
@@ -115,8 +117,8 @@ var NAVTREEINDEX2 =
 "dir_e13c601980536106e86cf00175b679ee.html":[3,0,0,0,1,0],
 "dir_ebdecce296a1b3a7b62e54c7b5706210.html":[3,0,0,0,1,0,0,0],
 "files.html":[3,0],
-"functions.html":[2,3,0,0],
 "functions.html":[2,3,0],
+"functions.html":[2,3,0,0],
 "functions_b.html":[2,3,0,1],
 "functions_c.html":[2,3,0,2],
 "functions_d.html":[2,3,0,3],

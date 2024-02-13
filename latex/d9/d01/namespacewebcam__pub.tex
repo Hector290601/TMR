@@ -1,0 +1,40 @@
+\hypertarget{namespacewebcam__pub}{}\doxysection{webcam\+\_\+pub Namespace Reference}
+\label{namespacewebcam__pub}\index{webcam\_pub@{webcam\_pub}}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classwebcam__pub_1_1ImagePublisher}{Image\+Publisher}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{namespacewebcam__pub_a3bb6e66e64f616458bdcfdd001e01149}{main}} (args=None)
+\begin{DoxyCompactList}\small\item\em This function create the publisher node, the image publisher object and starts to run the publisher. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{namespacewebcam__pub_a3bb6e66e64f616458bdcfdd001e01149}\label{namespacewebcam__pub_a3bb6e66e64f616458bdcfdd001e01149}} 
+\index{webcam\_pub@{webcam\_pub}!main@{main}}
+\index{main@{main}!webcam\_pub@{webcam\_pub}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily def webcam\+\_\+pub.\+main (\begin{DoxyParamCaption}\item[{}]{args = {\ttfamily None} }\end{DoxyParamCaption})}
+
+
+
+This function create the publisher node, the image publisher object and starts to run the publisher. 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{115 \textcolor{keyword}{def }\mbox{\hyperlink{namespacewebcam__pub_a3bb6e66e64f616458bdcfdd001e01149}{main}}(args=None):}
+\DoxyCodeLine{116     }
+\DoxyCodeLine{120     rclpy.init(args=args) \textcolor{comment}{\# Init the node}}
+\DoxyCodeLine{121     image\_publisher = ImagePublisher() \textcolor{comment}{\# Create a new ImagePublisher object.}}
+\DoxyCodeLine{122     rclpy.spin(image\_publisher) \textcolor{comment}{\# Keeps alive the node.}}
+\DoxyCodeLine{123     image\_publisher.destroy\_node() \textcolor{comment}{\# Destroy the node once the node execution }}
+\DoxyCodeLine{124     \textcolor{comment}{\# has ended}}
+\DoxyCodeLine{125     rclpy.shutdown() \textcolor{comment}{\# Kills the node.}}
+\DoxyCodeLine{126   }
+\DoxyCodeLine{127   \textcolor{comment}{\# Just verify the node's running itself or it's being imported as a third-\/part}}
+\DoxyCodeLine{128   \textcolor{comment}{\# library}}
+
+\end{DoxyCode}

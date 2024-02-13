@@ -45,5 +45,11 @@ var annotated_dup =
       [ "webcam_sub", "d3/db4/namespacetoxic__vision_1_1webcam__sub.html", [
         [ "ImageSubscriber", "db/dd5/classtoxic__vision_1_1webcam__sub_1_1ImageSubscriber.html", "db/dd5/classtoxic__vision_1_1webcam__sub_1_1ImageSubscriber" ]
       ] ]
+    ] ],
+    [ "webcam_pub", "d9/d01/namespacewebcam__pub.html", [
+      [ "ImagePublisher", "d6/d8d/classwebcam__pub_1_1ImagePublisher.html", "d6/d8d/classwebcam__pub_1_1ImagePublisher" ]
+    ] ],
+    [ "webcam_sub", "d6/d27/namespacewebcam__sub.html", [
+      [ "ImageSubscriber", "d0/df0/classwebcam__sub_1_1ImageSubscriber.html", "d0/df0/classwebcam__sub_1_1ImageSubscriber" ]
     ] ]
 ];
