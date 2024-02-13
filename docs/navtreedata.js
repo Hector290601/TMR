@@ -52,9 +52,9 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"annotated.html",
-"d9/dbb/classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw.html#a5c7b72a7a931b568bb6598b3c9c88dde",
-"dc/dac/toxic__hardware_2setup_8py.html#a4e659be027e258b72df12349200a263e"
+"",
+"d9/dbb/classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw.html#a583baf56af1846dfe43c7b76ed20784c",
+"dc/dac/toxic__hardware_2setup_8py.html#a3fc04e51dfecacd97621c848af907697"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';
