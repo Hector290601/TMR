@@ -4,14 +4,6 @@ from rclpy.node import Node
 import lgpio
 from sensor_msgs.msg import Joy
 from std_msgs.msg import Float64
-sys.path.append('/home/ubuntu/roboclaw_python/')
-print(sys.path)
-from roboclaw_3 import Roboclaw
-
-interface = lgpio.gpiochip_open(0)
-roboclaw = Roboclaw("/dev/ttyACM0", 115200)
-
-roboclaw.Open()
 
 class ControlSubscriber(Node):
     def __init__(self):
@@ -22,8 +14,8 @@ class ControlSubscriber(Node):
                 self.control_callback,
                 60
                 )
-        self.speed_publisher = self.create_publisher(Float64, '/speed', 60)
-        self.steering_publisher = self.create_publisher(Float64, '/steering', 60)
+        self.speed_publisher = self.create_publisher(Float64, '/speed', 1)
+        self.steering_publisher = self.create_publisher(Float64, '/steering', 1)
         self.subscription
         self.steering_publisher
         self.speed_publisher
@@ -34,8 +26,12 @@ class ControlSubscriber(Node):
         normalized_bw_speed = data.axes[2]
         print(normalized_steering)
         print(normalized_fw_speed)
-        self.steering_publisher.publish(Float64(normalized_steering))
-        self.speed_publisher.publish(Float64(normalized_fw_speed + normalized_bw_speed))
+        steering_msg = Float64()
+        steering_msg.data = normalized_steering
+        self.steering_publisher.publish(steering_msg)
+        speed_msg = Float64()
+        speed_msg.data = (normalized_fw_speed-1) + normalized_bw_speed
+        self.speed_publisher.publish(speed_msg)
 
 def main(args=None):
     rclpy.init(args=args)
