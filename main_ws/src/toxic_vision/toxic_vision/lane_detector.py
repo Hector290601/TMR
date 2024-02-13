@@ -136,6 +136,7 @@ class ImageSubscriber(Node):
                   sum_theta_right += theta
                   sum_rho_right += rho
                   count_right += 1
+                  """
                   left1_tmp = l[0] - 0
                   left2_tmp = l[2] - 0
                   right1_tmp = l[0] + 0
@@ -152,7 +153,6 @@ class ImageSubscriber(Node):
                       for col in row:
                           print(col)
                   #frame = cv2.rectangle(frame, (roi_left, roi_upper), (roi_right, roi_lower), (255, 0, 0), 0)
-                  """
                   for row in colors:
                       for col in row:
                           if (lower_color[0] < col[0] < upper_color[0]) and (lower_color[1] < col[1] < upper_color[1]):
@@ -167,6 +167,7 @@ class ImageSubscriber(Node):
                   sum_theta_left += theta
                   sum_rho_left += rho
                   count_left += 1
+                  """
                   left1_tmp = l[0] - 3
                   left2_tmp = l[2] - 3
                   right1_tmp = l[0] + 3
@@ -177,7 +178,6 @@ class ImageSubscriber(Node):
                   roi_lower = l[1] if l[1] < l[3] else l[3]
                   colors = frame[roi_lower:roi_upper, roi_left:roi_right, :]
                   #frame = cv2.rectangle(frame, (roi_left, roi_upper), (roi_right, roi_lower), (255, 0, 0), 0)
-                  """
                   for row in colors:
                       for col in row:
                           if (lower_color[0] < col[0] < upper_color[0]) and (lower_color[1] < col[1] < upper_color[1]):
@@ -195,7 +195,7 @@ class ImageSubscriber(Node):
               message = Float64MultiArray()
               message.data = [average_rho_left, average_theta_left]
               self.left_lane_publisher.publish(message)
-              #"""
+              """
               try:
                   x1, y1, x2, y2 = self.two_dots_line(average_rho_left, average_theta_left, frame)
                   x3 = x1 + delta
@@ -214,7 +214,7 @@ class ImageSubscriber(Node):
               message = Float64MultiArray()
               message.data = [average_rho_right, average_theta_right]
               self.right_lane_publisher.publish(message)
-              #"""
+              """
               try:
                   x1, y1, x2, y2 = self.two_dots_line(average_rho_right, average_theta_right, frame)
                   x3 = x1 + delta
@@ -225,6 +225,7 @@ class ImageSubscriber(Node):
               except:
                   pass
               #"""
+          """
           if counter_color != 0:
               avg_h = h // counter_color
               avg_s = s // counter_color
@@ -235,6 +236,7 @@ class ImageSubscriber(Node):
           new_s_up = avg_s + 40 if s != 0 else upper_color[1]
           new_h_low = avg_h - 130 if h != 0 else lower_color[0]
           new_s_low = avg_s - 40 if s != 0 else lower_color[1]
+          """
 
 
   def listener_callback(self, data):
@@ -244,13 +246,13 @@ class ImageSubscriber(Node):
     hsv = self.process_image()
     band_pass = self.range_finder()
     self.line_finder()
-    cv2.imshow("camera", frame)
-    cv2.imshow("band_filter", band_pass)
-    cv2.imshow("dst", dst)
-    cv2.setMouseCallback("camera", mouse_callback)
-    cv2.setMouseCallback("dst", mouse_callback)
-    cv2.setMouseCallback("band_filter", mouse_callback)
-    cv2.waitKey(1)
+    #cv2.imshow("camera", frame)
+    #cv2.imshow("band_filter", band_pass)
+    #cv2.imshow("dst", dst)
+    #cv2.setMouseCallback("camera", mouse_callback)
+    #cv2.setMouseCallback("dst", mouse_callback)
+    #cv2.setMouseCallback("band_filter", mouse_callback)
+    #cv2.waitKey(1)
   
 def main(args=None):
   rclpy.init(args=args)
