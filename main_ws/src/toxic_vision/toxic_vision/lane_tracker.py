@@ -39,10 +39,10 @@ class LaneTracker(Node):
         self.left_theta = 0
         self.right_rho = 0
         self.right_theta = 0
-        self.goal_rho_left = 122.96779826420249
-        self.goal_theta_left = 1.0500215538133706
-        self.goal_rho_right = 226.4642517564502
-        self.goal_theta_right = -0.8437077514747131
+        self.goal_rho_left = 176.3675592165927
+        self.goal_theta_left = 0.9510484800484306
+        self.goal_rho_right = 130.08358535150563
+        self.goal_theta_right = -0.9954390951420422
 
 
     def two_dots_line(self, rho, theta, frame):
@@ -83,9 +83,10 @@ class LaneTracker(Node):
         self.calculate_steering()
 
     def calculate_steering(self):
-        steering = -(self.error_theta_left + self.error_theta_right)
+        theta = -(self.error_theta_left + self.error_theta_right)
+        rho = -(self.error_rho_left + self.error_rho_right)
         message = Float64()
-        message.data = steering * 10
+        message.data = (theta * 1) + (rho * 0.025)
         self.steering_publisher.publish(message)
 
     def left_listener_callback(self, data):
