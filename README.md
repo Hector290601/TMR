@@ -90,8 +90,7 @@ sponsor to this project, you cand sendus an e-mail to the next emails.
 - [Hector Robles](mailto:robletes062901@gmail.com)
 
 Or anyother mail in our github's profiles.
-You can check our porpouse on the following presentation.
-<iframe src="https://docs.google.com/presentation/d/e/2PACX-1vSj9YTXaojkPzcQOfL-8TyMmTMtzJ04-P1fGeStNJMkl2imKWvjCU_sJmCA23A_Dyrqo8bxcCkdcvh5/embed?start=false&loop=true&delayms=5000" frameborder="0" width="960" height="569" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+You can check our porpouse on the [sponsor's presentation](https://docs.google.com/presentation/d/e/2PACX-1vSj9YTXaojkPzcQOfL-8TyMmTMtzJ04-P1fGeStNJMkl2imKWvjCU_sJmCA23A_Dyrqo8bxcCkdcvh5/pub?start=false&loop=false&delayms=5000).
 
 ## Team core.
 The team core's performed by.
