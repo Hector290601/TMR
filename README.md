@@ -87,9 +87,9 @@ The current team's pefrormed by.
 Currently we don't have more sponsors than de UNAM, but if you want to become a
 sponsor to this project, you cand sendus an e-mail to the next emails.
 - [Offficial Mail ( pumasautomodelcar@gmail.com )](mailto:pumasautomodelcar@gmail.com)
-- [Marco Negrete(marco.negrete@ingenieria.unam.edu )](mailto:marco.negrete@ingenieria.unam.edu)
-- [Hector Robles( robletes062901@gmail.com )](mailto:robletes062901@gmail.com)
-- [Jorge Solano( jorge.solano@ingenieria.unam.edu )](mailto:jorge.solano@ingenieria.unam.edu)
+- [Negrete, Marco (marco.negrete@ingenieria.unam.edu )](mailto:marco.negrete@ingenieria.unam.edu)
+- [Robles, Hector ( robletes062901@gmail.com )](mailto:robletes062901@gmail.com)
+- [Solano, Jorge ( jorge.solano@ingenieria.unam.edu )](mailto:jorge.solano@ingenieria.unam.edu)
 
 Or anyother mail in our github's profiles.
 You can check our porpouse on the [sponsor's presentation](https://docs.google.com/presentation/d/e/2PACX-1vSj9YTXaojkPzcQOfL-8TyMmTMtzJ04-P1fGeStNJMkl2imKWvjCU_sJmCA23A_Dyrqo8bxcCkdcvh5/pub?start=false&loop=false&delayms=5000).

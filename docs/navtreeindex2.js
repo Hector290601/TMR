@@ -1,7 +1,5 @@
 var NAVTREEINDEX2 =
 {
-"dc/dac/toxic__hardware_2setup_8py.html#a3fc04e51dfecacd97621c848af907697":[3,0,0,1,0,1,6],
-"dc/dac/toxic__hardware_2setup_8py.html#a4c7a521b8f1a0769c09bfa4a1fca7dab":[3,0,0,1,0,1,11],
 "dc/dac/toxic__hardware_2setup_8py.html#a4e659be027e258b72df12349200a263e":[3,0,0,1,0,1,4],
 "dc/dac/toxic__hardware_2setup_8py.html#a5191bfd75a28371588f75471591d5500":[3,0,0,1,0,1,9],
 "dc/dac/toxic__hardware_2setup_8py.html#ab2a4f143e926c57a50df01bb182a4fd5":[3,0,0,1,0,1,0],
@@ -121,8 +119,8 @@ var NAVTREEINDEX2 =
 "functions_c.html":[2,3,0,2],
 "functions_d.html":[2,3,0,3],
 "functions_f.html":[2,3,0,4],
-"functions_func.html":[2,3,1],
 "functions_func.html":[2,3,1,0],
+"functions_func.html":[2,3,1],
 "functions_func_b.html":[2,3,1,1],
 "functions_func_c.html":[2,3,1,2],
 "functions_func_d.html":[2,3,1,3],
@@ -147,11 +145,13 @@ var NAVTREEINDEX2 =
 "functions_vars.html":[2,3,2],
 "functions_w.html":[2,3,0,13],
 "hierarchy.html":[2,2],
-"index.html":[0],
 "index.html":[],
+"index.html":[0],
 "namespacemembers.html":[1,1,0],
 "namespacemembers_func.html":[1,1,1],
 "namespacemembers_vars.html":[1,1,2],
 "namespaces.html":[1,0],
-"pages.html":[]
+"pages.html":[],
+"":[1,0,2],
+"":[1,0,3]
 };
