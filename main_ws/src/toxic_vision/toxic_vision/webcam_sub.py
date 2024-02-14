@@ -34,15 +34,10 @@
 # \include webcam_sub.py
 #
 
-# Used by ros2
 import rclpy
-# Used by ros2
 from rclpy.node import Node
-# Used by ros2
 from sensor_msgs.msg import Image
-# Used by ros2
 from cv_bridge import CvBridge
-# Used to basic image manipulation
 import cv2
  
 class ImageSubscriber(Node):
@@ -65,20 +60,17 @@ class ImageSubscriber(Node):
         # @param self, Self contained object, like a 'this' reference just to
         # read, write and genereally access object's attributes.
         #
+        # @detail creates the image subscriber and configure it to run.
+        #
         
-        # Edit source Node attributes
         super().__init__('image_subscriber')
-        # Create the new node subscriptor, with a 25 hz framerate, you can
-        # change this value if you want.
         self.subscription = self.create_subscription(
-                Image, # Subscriptor type
-                '/raw_rgb', # Where the node'll subscribe
-                self.listener_callback, # Defines callback to grab images.
-                25 # Defines framerate in hz
+                Image,
+                '/raw_rgb',
+                self.listener_callback,
+                25 
                 )
-        # Required by Ros2.
         self.subscription
-        # Create bridge object to parse Image messages to OpenCv's image type.
         self.br = CvBridge()
     
     def listener_callback(self, data):
@@ -93,12 +85,8 @@ class ImageSubscriber(Node):
         #
         # @return None, properly just displays the image.
         #
-
-        # Read the image and parse from imgmsg type to cv2 image type.
         current_frame = self.br.imgmsg_to_cv2(data)
-        # Displays the image on a 'band_filter_sub' called window.
         cv2.imshow("band_filter_sub", current_frame)
-        # Refresh the window.
         cv2.waitKey(1)
   
 def main(args=None):
@@ -106,17 +94,11 @@ def main(args=None):
     # @brief This function create the subscriber and execute it.
     #
 
-    # Init node.
     rclpy.init(args=args)
-    # Create ImageSubscriber's new npde
     image_subscriber = ImageSubscriber()
-    # Keep node alive.
     rclpy.spin(image_subscriber)
-    # Destroy the node once the execution has been finished.
     image_subscriber.destroy_node()
-    # Shutdown ros2 instance.
     rclpy.shutdown()
   
 if __name__ == '__main__':
-    # Execute main if it's called as main progra
     main()

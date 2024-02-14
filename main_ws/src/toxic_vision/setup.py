@@ -21,8 +21,7 @@ setup(
     entry_points={
         'console_scripts': [
             'webcam_subscriber = toxic_vision.webcam_sub:main',
-            'webcam_publisher = toxic_vision.webcam_pub:main',
-            'lane_detector = toxic_vision.lane_detector:main',
+            'webcam_publisher = toxic_vision.webcam_pub:main'
         ],
     },
 )
