@@ -51,11 +51,14 @@ class ControlSubscriber(Node):
                 60
                 )
         self.subscription
-        os.system("ros2 run toxic_vision webcam_publisher &")
+        self.launch_node("toxic_vision", "webcam_publisher")
+        #os.system("ros2 run toxic_vision webcam_publisher &")
         print("WEBCAM STARTED")
-        os.system("ros2 run toxic_hardware servo_interface &")
+        self.launch_node("toxic_hardware", "servo_interface")
+        #os.system("ros2 run toxic_hardware servo_interface &")
         print("STEERING STARTED")
-        os.system("ros2 run toxic_hardware motor_interface &")
+        self.launch_node("toxic_hardware", "motor_interface")
+        #os.system("ros2 run toxic_hardware motor_interface &")
         print("MOTOR STARTED")
         self.aviable_nodes = [
                 "controller",
@@ -66,7 +69,13 @@ class ControlSubscriber(Node):
     def kill_all(self):
             print("KILLING ALL NOT ESSENCIAL NODES")
             for node in self.aviable_nodes:
-                os.system("pkill -f " + node)
+                os.system(
+                        "if ! pgrep -x "
+                        + node
+                        + " > /dev/null; then pkill -f "
+                        + node
+                        + "; fi &"
+                )
 
     def launch_node(self, pkg, desired):
         os.system(
@@ -80,10 +89,14 @@ class ControlSubscriber(Node):
             )
 
     def control_callback(self, data):
-        if data.buttons[0]:
+        if data.buttons[14]:
+            print("EMERGENCY STOP")
+            os.system("pkill -f controller")
+            os.system("ros2 topic pub --once /speed std_msgs/msg/Float64 \"{data: 0.0}\"")
+            self.kill_all()
+        elif data.buttons[0]:
             print("NO OBSTACLES")
             self.kill_all()
-            time.sleep(1)
             print("STARTING FUNCTION NODES")
             self.launch_node("toxic_vision", "lane_detector")
             self.launch_node("toxic_vision", "lane_tracker")
@@ -103,12 +116,6 @@ class ControlSubscriber(Node):
             time.sleep(1)
             self.launch_node("toxic_hardware", "controller")
             time.sleep(1)
-        elif data.buttons[14]:
-            print("EMERGENCY STOP")
-            os.system("pkill -f controller")
-            os.system("ros2 topic pub --once /speed std_msgs/msg/Float64 \"{data: 0.0}\"")
-            self.kill_all()
-            time.sleep(1)
 
 def main(args=None):
     rclpy.init(args=args)
@@ -116,7 +123,6 @@ def main(args=None):
     rclpy.spin(control_subscriber)
     control_subscriber.destroy_node()
     rclpy.shutdown()
-    os.system("ps ax | grep ros2")
 
 if __name__ == '__main__':
     main()
