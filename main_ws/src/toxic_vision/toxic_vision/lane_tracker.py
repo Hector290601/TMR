@@ -39,10 +39,10 @@ class LaneTracker(Node):
         self.left_theta = 0
         self.right_rho = 0
         self.right_theta = 0
-        self.goal_rho_left = 176.3675592165927
-        self.goal_theta_left = 0.9510484800484306
-        self.goal_rho_right = 130.08358535150563
-        self.goal_theta_right = -0.9954390951420422
+        self.goal_rho_left = 176.49656082775857
+        self.goal_theta_left = 0.9652746567890302
+        self.goal_rho_right = 105.81332073669007
+        self.goal_theta_right = -1.1552044701520168
 
 
     def two_dots_line(self, rho, theta, frame):
@@ -86,8 +86,11 @@ class LaneTracker(Node):
         theta = -(self.error_theta_left + self.error_theta_right)
         rho = -(self.error_rho_left + self.error_rho_right)
         message = Float64()
-        message.data = (theta * 1) + (rho * 0.025)
+        message.data = -((theta * 0.0055) + (rho * 0.04))
         self.steering_publisher.publish(message)
+        msg = Float64()
+        msg.data = 0.65
+        self.speed_publisher.publish(msg)
 
     def left_listener_callback(self, data):
         self.left_rho = data.data[0]
@@ -99,7 +102,7 @@ class LaneTracker(Node):
         self.right_rho = data.data[0]
         self.right_theta = data.data[1]
         self.get_errors()
-        #print("right: {}@{}".format(self.right_rho, self.right_theta))
+        #pr9int("right: {}@{}".format(self.right_rho, self.right_theta))
   
 def main(args=None):
     rclpy.init(args=args)
