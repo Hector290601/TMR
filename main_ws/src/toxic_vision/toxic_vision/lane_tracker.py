@@ -86,10 +86,10 @@ class LaneTracker(Node):
         theta = -(self.error_theta_left + self.error_theta_right)
         rho = -(self.error_rho_left + self.error_rho_right)
         message = Float64()
-        message.data = -((theta * 0.0055) + (rho * 0.04))
+        message.data = -((theta * 0.055) + (rho * 0.04))
         self.steering_publisher.publish(message)
         msg = Float64()
-        msg.data = 0.65
+        msg.data = 0.75
         self.speed_publisher.publish(msg)
 
     def left_listener_callback(self, data):

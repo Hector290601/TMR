@@ -7,7 +7,7 @@ from std_msgs.msg import Float64
 
 class ControlSubscriber(Node):
     def __init__(self):
-        super().__init__('control_toxic_subscriber')
+        super().__init__('controller')
         self.subscription = self.create_subscription(
                 Joy,
                 '/joy',
@@ -22,15 +22,14 @@ class ControlSubscriber(Node):
 
     def control_callback(self, data):
         normalized_steering = data.axes[0]
-        normalized_fw_speed = data.axes[5]
-        normalized_bw_speed = data.axes[2]
-        print(normalized_steering)
-        print(normalized_fw_speed)
         steering_msg = Float64()
         steering_msg.data = normalized_steering
         self.steering_publisher.publish(steering_msg)
         speed_msg = Float64()
-        speed_msg.data = (normalized_fw_speed-1) + normalized_bw_speed
+        if data.axes[4] != 1:
+            speed_msg.data = -(data.axes[4] - 1)
+        elif data.axes[5] != 1:
+            speed_msg.data = (data.axes[5] - 1)
         self.speed_publisher.publish(speed_msg)
 
 def main(args=None):
