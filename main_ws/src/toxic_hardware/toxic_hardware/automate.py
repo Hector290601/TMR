@@ -1,12 +1,9 @@
 import sys
 import rclpy
 from rclpy.node import Node
-import lgpio
 from sensor_msgs.msg import Joy
-from std_msgs.msg import Float64
-import os
 import time
-import subprocess
+import os
 
 """
 axes:
@@ -42,7 +39,7 @@ class ControlSubscriber(Node):
     def __init__(self):
         print("INITIALIZING...")
         super().__init__('automate')
-        os.system("ros2 run joy_linux joy_linux_node &")
+        self.launch_node("joy_linux", "joy_linux_node")
         print("JOY STARTED")
         self.subscription = self.create_subscription(
                 Joy,
@@ -72,34 +69,34 @@ class ControlSubscriber(Node):
                 os.system(
                         "if ! pgrep -x "
                         + node
-                        + " > /dev/null; then pkill -f "
+                        + " > /dev/null; then killall "
                         + node
                         + "; fi &"
                 )
 
     def launch_node(self, pkg, desired):
         os.system(
-                "if ! pgrep -x "
-                + desired
-                + " > /dev/null; then ros2 run "
+                "sh /home/ubuntu/TMR/sh_commands/general.sh "
                 + pkg
                 + " "
                 + desired
-                + "; fi &"
             )
 
     def control_callback(self, data):
         if data.buttons[14]:
             print("EMERGENCY STOP")
-            os.system("pkill -f controller")
-            os.system("ros2 topic pub --once /speed std_msgs/msg/Float64 \"{data: 0.0}\"")
+            #os.system("sh /home/ubuntu/TMR/sh_commands/general.sh 'pkill -f controller' &")
+            #os.system("sh /home/ubuntu/TMR/sh_commands/general.sh 'ros2 topic pub --once /speed std_msgs/msg/Float64 \"{data: 0.0}\"' &")
             self.kill_all()
         elif data.buttons[0]:
             print("NO OBSTACLES")
             self.kill_all()
             print("STARTING FUNCTION NODES")
             self.launch_node("toxic_vision", "lane_detector")
+            time.sleep(0.5)
             self.launch_node("toxic_vision", "lane_tracker")
+            time.sleep(0.5)
+            print("FUNCTIONAL NODES STARTED")
         elif data.buttons[1]:
             print("STATIC OBSTACLES")
         elif data.buttons[3]:
@@ -113,9 +110,10 @@ class ControlSubscriber(Node):
         elif data.buttons[13]:
             print("ALL MANUAL")
             self.kill_all()
-            time.sleep(1)
+            #os.system("sh /home/ubuntu/TMR/sh_commands/general.sh 'ros2 topic pub --once /speed std_msgs/msg/Float64 \"{data: 0.0}\"' &")
+            #os.system("sh /home/ubuntu/TMR/sh_commands/general.sh 'ros2 topic pub --once /speed std_msgs/msg/Float64 \"{data: 0.0}\"' &")
             self.launch_node("toxic_hardware", "controller")
-            time.sleep(1)
+            time.sleep(0.5)
 
 def main(args=None):
     rclpy.init(args=args)

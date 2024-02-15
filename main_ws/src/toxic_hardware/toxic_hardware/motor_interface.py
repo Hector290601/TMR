@@ -26,10 +26,10 @@ class MotorInterface(Node):
             recived = -1.0
         if recived >= 0:
             roboclaw.ForwardM1(0x80, int(32*recived))
-            print(recived)
+            #print(recived)
         elif recived < 0:
             roboclaw.BackwardM1(0x80, int(32*-recived))
-            print(recived)
+            #print(recived)
 
 def main(args=None):
     print(roboclaw.Open())

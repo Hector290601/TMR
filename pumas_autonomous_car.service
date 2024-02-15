@@ -1,0 +1,9 @@
+[Unit]
+Description=Pumas autonomous car automate executer
+
+[Service]
+ExecStart=/usr/bin/pumas_autonomous_car_waker_up.sh
+
+[Install]
+WantedBy=multi-user.target
+
