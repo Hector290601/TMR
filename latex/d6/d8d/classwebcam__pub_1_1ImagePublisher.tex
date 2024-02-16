@@ -53,33 +53,23 @@ None, keeps running and alive while the camera\textquotesingle{}s oppened.
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-Image\+Publisher\+New\+Object returns a new image publisher object. 
+Image\+Publisher\+New\+Object returns a new image publisher object.
 \end{DoxyReturn}
-
+@detail Creates the publisher node, set the timer, open the camera, set some needed params like image shape and framerate, open the bridge between Open\+Cv and ROS2. 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{65     \textcolor{keyword}{def }\_\_init\_\_(self):}
-\DoxyCodeLine{66         }
-\DoxyCodeLine{75 }
-\DoxyCodeLine{76         \textcolor{comment}{\# Edit source Node attributes.}}
-\DoxyCodeLine{77         super().\_\_init\_\_(\textcolor{stringliteral}{'image\_publisher'}) \textcolor{comment}{\# Edit source Node attributes.}}
-\DoxyCodeLine{78         \textcolor{comment}{\# Create the new publisher where the image'll published.}}
-\DoxyCodeLine{79         self.publisher\_ = self.create\_publisher(Image, \textcolor{stringliteral}{'/raw\_rgb'}, 1)}
-\DoxyCodeLine{80         \textcolor{comment}{\# Something like 1/30 to achieve a FPS rate near to the 30FPS.}}
-\DoxyCodeLine{81         timer\_period = 0.033}
-\DoxyCodeLine{82         \textcolor{comment}{\# Set and start running the timer.}}
-\DoxyCodeLine{83         self.timer = self.create\_timer(timer\_period, self.timer\_callback)}
-\DoxyCodeLine{84         \textcolor{comment}{\# Open the webcam and store the object to interact as a VideoCapture}}
-\DoxyCodeLine{85         \textcolor{comment}{\# object}}
-\DoxyCodeLine{86         self.cap = cv2.VideoCapture(0)}
-\DoxyCodeLine{87         \textcolor{comment}{\# Set the desired frame width}}
-\DoxyCodeLine{88         self.cap.set(cv2.CAP\_PROP\_FRAME\_WIDTH, 640)}
-\DoxyCodeLine{89         \textcolor{comment}{\# Set the desired frame height}}
-\DoxyCodeLine{90         self.cap.set(cv2.CAP\_PROP\_FRAME\_HEIGHT, 480)}
-\DoxyCodeLine{91         \textcolor{comment}{\# Set the desired framerate}}
-\DoxyCodeLine{92         self.cap.set(cv2.CAP\_PROP\_FPS, 30)}
-\DoxyCodeLine{93         \textcolor{comment}{\# Create the Ros2 to OpenCv Bridge}}
-\DoxyCodeLine{94         self.br = CvBridge()}
-\DoxyCodeLine{95 }
+\DoxyCodeLine{60     \textcolor{keyword}{def }\_\_init\_\_(self):}
+\DoxyCodeLine{61         }
+\DoxyCodeLine{74 }
+\DoxyCodeLine{75         super().\_\_init\_\_(\textcolor{stringliteral}{'image\_publisher'})}
+\DoxyCodeLine{76         self.publisher\_ = self.create\_publisher(Image, \textcolor{stringliteral}{'/raw\_rgb'}, 1)}
+\DoxyCodeLine{77         timer\_period = 0.033}
+\DoxyCodeLine{78         self.timer = self.create\_timer(timer\_period, self.timer\_callback)}
+\DoxyCodeLine{79         self.cap = cv2.VideoCapture(0)}
+\DoxyCodeLine{80         self.cap.set(cv2.CAP\_PROP\_FRAME\_WIDTH, 640)}
+\DoxyCodeLine{81         self.cap.set(cv2.CAP\_PROP\_FRAME\_HEIGHT, 480)}
+\DoxyCodeLine{82         self.cap.set(cv2.CAP\_PROP\_FPS, 30)}
+\DoxyCodeLine{83         self.br = CvBridge()}
+\DoxyCodeLine{84 }
 
 \end{DoxyCode}
 
@@ -101,21 +91,17 @@ Timer callback to publish the image, everytime the timer achieve the desired tim
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-None, just publish the current frame. 
+None, just publish the current frame.
 \end{DoxyReturn}
-
+@detail Not much, just validate if there\textquotesingle{}s a new image and publish it 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{96     \textcolor{keyword}{def }timer\_callback(self):}
-\DoxyCodeLine{97         }
-\DoxyCodeLine{106 }
-\DoxyCodeLine{107         \textcolor{comment}{\# Read the current frame.}}
-\DoxyCodeLine{108         ret, frame = self.cap.read()}
-\DoxyCodeLine{109         \textcolor{comment}{\# Validate there's a new image}}
-\DoxyCodeLine{110         \textcolor{keywordflow}{if} ret:}
-\DoxyCodeLine{111             \textcolor{comment}{\# If there's a new image, parse the frame to ROS2 image message}}
-\DoxyCodeLine{112             \textcolor{comment}{\# type and publish to the node}}
-\DoxyCodeLine{113             self.publisher\_.publish(self.br.cv2\_to\_imgmsg(frame))}
-\DoxyCodeLine{114 }
+\DoxyCodeLine{85     \textcolor{keyword}{def }timer\_callback(self):}
+\DoxyCodeLine{86         }
+\DoxyCodeLine{97 }
+\DoxyCodeLine{98         ret, frame = self.cap.read()}
+\DoxyCodeLine{99         \textcolor{keywordflow}{if} ret:}
+\DoxyCodeLine{100             self.publisher\_.publish(self.br.cv2\_to\_imgmsg(frame))}
+\DoxyCodeLine{101 }
 
 \end{DoxyCode}
 

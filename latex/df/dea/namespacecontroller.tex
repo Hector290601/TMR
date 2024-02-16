@@ -1,0 +1,54 @@
+\hypertarget{namespacecontroller}{}\doxysection{controller Namespace Reference}
+\label{namespacecontroller}\index{controller@{controller}}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classcontroller_1_1ControlSubscriber}{Control\+Subscriber}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{namespacecontroller_abe3b9157dce8796452422deae2a9161f}{main}} (args=None)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespacecontroller_ae6deea6e7d03b5d4db98ea209159e57f}{interface}} = lgpio.\+gpiochip\+\_\+open(0)
+\item 
+\mbox{\hyperlink{namespacecontroller_a257386444c3afd4030922ffb828f85fe}{roboclaw}} = \mbox{\hyperlink{classroboclaw__3_1_1Roboclaw}{Roboclaw}}(\char`\"{}/dev/tty\+ACM0\char`\"{}, 115200)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{namespacecontroller_abe3b9157dce8796452422deae2a9161f}\label{namespacecontroller_abe3b9157dce8796452422deae2a9161f}} 
+\index{controller@{controller}!main@{main}}
+\index{main@{main}!controller@{controller}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily def controller.\+main (\begin{DoxyParamCaption}\item[{}]{args = {\ttfamily None} }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{40 \textcolor{keyword}{def }\mbox{\hyperlink{namespacecontroller_abe3b9157dce8796452422deae2a9161f}{main}}(args=None):}
+\DoxyCodeLine{41     rclpy.init(args=args)}
+\DoxyCodeLine{42     control\_subscriber = ControlSubscriber()}
+\DoxyCodeLine{43     rclpy.spin(control\_subscriber)}
+\DoxyCodeLine{44     control\_subscriber.destroy\_node()}
+\DoxyCodeLine{45     rclpy.shutdown()}
+\DoxyCodeLine{46 }
+
+\end{DoxyCode}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{namespacecontroller_ae6deea6e7d03b5d4db98ea209159e57f}\label{namespacecontroller_ae6deea6e7d03b5d4db98ea209159e57f}} 
+\index{controller@{controller}!interface@{interface}}
+\index{interface@{interface}!controller@{controller}}
+\doxysubsubsection{\texorpdfstring{interface}{interface}}
+{\footnotesize\ttfamily interface = lgpio.\+gpiochip\+\_\+open(0)}
+
+\mbox{\Hypertarget{namespacecontroller_a257386444c3afd4030922ffb828f85fe}\label{namespacecontroller_a257386444c3afd4030922ffb828f85fe}} 
+\index{controller@{controller}!roboclaw@{roboclaw}}
+\index{roboclaw@{roboclaw}!controller@{controller}}
+\doxysubsubsection{\texorpdfstring{roboclaw}{roboclaw}}
+{\footnotesize\ttfamily roboclaw = \mbox{\hyperlink{classroboclaw__3_1_1Roboclaw}{Roboclaw}}(\char`\"{}/dev/tty\+ACM0\char`\"{}, 115200)}
+

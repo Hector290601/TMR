@@ -104,10 +104,6 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ae64f0875afe3067b97ba370b354b9213"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a33e86027586e42bbaff819e19bef44d7"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d16/classtoxic__hardware_1_1controller_1_1ControlSubscriber.html#a33e86027586e42bbaff819e19bef44d7">control_callback</a> (self, data)</td></tr>
 <tr class="separator:a33e86027586e42bbaff819e19bef44d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae64f0875afe3067b97ba370b354b9213"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d16/classtoxic__hardware_1_1controller_1_1ControlSubscriber.html#ae64f0875afe3067b97ba370b354b9213">__init__</a> (self)</td></tr>
-<tr class="separator:ae64f0875afe3067b97ba370b354b9213"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a33e86027586e42bbaff819e19bef44d7"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d16/classtoxic__hardware_1_1controller_1_1ControlSubscriber.html#a33e86027586e42bbaff819e19bef44d7">control_callback</a> (self, data)</td></tr>
-<tr class="separator:a33e86027586e42bbaff819e19bef44d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
@@ -120,39 +116,7 @@ Public Attributes</h2></td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ae64f0875afe3067b97ba370b354b9213"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae64f0875afe3067b97ba370b354b9213">&#9670;&nbsp;</a></span>__init__() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">def __init__ </td>
-          <td>(</td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>self</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keyword">def </span>__init__(self):</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        super().__init__(<span class="stringliteral">&#39;control_toxic_subscriber&#39;</span>)</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        self.subscription = self.create_subscription(</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;                Joy,</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;                <span class="stringliteral">&#39;/joy&#39;</span>,</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;                self.control_callback,</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;                60</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;                )</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        self.speed_publisher = self.create_publisher(Float64, <span class="stringliteral">&#39;/speed&#39;</span>, 60)</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        self.steering_publisher = self.create_publisher(Float64, <span class="stringliteral">&#39;/steering&#39;</span>, 60)</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        self.subscription</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        self.steering_publisher</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        self.speed_publisher</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
-</div><!-- fragment -->
-</div>
-</div>
-<a id="ae64f0875afe3067b97ba370b354b9213"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae64f0875afe3067b97ba370b354b9213">&#9670;&nbsp;</a></span>__init__() <span class="overload">[2/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ae64f0875afe3067b97ba370b354b9213">&#9670;&nbsp;</a></span>__init__()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -185,44 +149,7 @@ Public Attributes</h2></td></tr>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
 <a id="a33e86027586e42bbaff819e19bef44d7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a33e86027586e42bbaff819e19bef44d7">&#9670;&nbsp;</a></span>control_callback() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">def control_callback </td>
-          <td>(</td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>self</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>data</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keyword">def </span>control_callback(self, data):</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        normalized_steering = data.axes[0]</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        normalized_fw_speed = data.axes[5]</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        normalized_bw_speed = data.axes[2]</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        print(normalized_steering)</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        print(normalized_fw_speed)</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        self.steering_publisher.publish(Float64(normalized_steering))</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        self.speed_publisher.publish(Float64(normalized_fw_speed + normalized_bw_speed))</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
-</div><!-- fragment -->
-</div>
-</div>
-<a id="a33e86027586e42bbaff819e19bef44d7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a33e86027586e42bbaff819e19bef44d7">&#9670;&nbsp;</a></span>control_callback() <span class="overload">[2/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a33e86027586e42bbaff819e19bef44d7">&#9670;&nbsp;</a></span>control_callback()</h2>
 
 <div class="memitem">
 <div class="memproto">

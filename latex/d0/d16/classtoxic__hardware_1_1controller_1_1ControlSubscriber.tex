@@ -12,10 +12,6 @@ Inheritance diagram for Control\+Subscriber\+:\begin{figure}[H]
 def \mbox{\hyperlink{classtoxic__hardware_1_1controller_1_1ControlSubscriber_ae64f0875afe3067b97ba370b354b9213}{\+\_\+\+\_\+init\+\_\+\+\_\+}} (self)
 \item 
 def \mbox{\hyperlink{classtoxic__hardware_1_1controller_1_1ControlSubscriber_a33e86027586e42bbaff819e19bef44d7}{control\+\_\+callback}} (self, data)
-\item 
-def \mbox{\hyperlink{classtoxic__hardware_1_1controller_1_1ControlSubscriber_ae64f0875afe3067b97ba370b354b9213}{\+\_\+\+\_\+init\+\_\+\+\_\+}} (self)
-\item 
-def \mbox{\hyperlink{classtoxic__hardware_1_1controller_1_1ControlSubscriber_a33e86027586e42bbaff819e19bef44d7}{control\+\_\+callback}} (self, data)
 \end{DoxyCompactItemize}
 \doxysubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
@@ -32,31 +28,7 @@ def \mbox{\hyperlink{classtoxic__hardware_1_1controller_1_1ControlSubscriber_a33
 \mbox{\Hypertarget{classtoxic__hardware_1_1controller_1_1ControlSubscriber_ae64f0875afe3067b97ba370b354b9213}\label{classtoxic__hardware_1_1controller_1_1ControlSubscriber_ae64f0875afe3067b97ba370b354b9213}} 
 \index{ControlSubscriber@{ControlSubscriber}!\_\_init\_\_@{\_\_init\_\_}}
 \index{\_\_init\_\_@{\_\_init\_\_}!ControlSubscriber@{ControlSubscriber}}
-\doxysubsubsection{\texorpdfstring{\_\_init\_\_()}{\_\_init\_\_()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
-{\footnotesize\ttfamily def \+\_\+\+\_\+init\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
-
-
-\begin{DoxyCode}{0}
-\DoxyCodeLine{17     \textcolor{keyword}{def }\_\_init\_\_(self):}
-\DoxyCodeLine{18         super().\_\_init\_\_(\textcolor{stringliteral}{'control\_toxic\_subscriber'})}
-\DoxyCodeLine{19         self.subscription = self.create\_subscription(}
-\DoxyCodeLine{20                 Joy,}
-\DoxyCodeLine{21                 \textcolor{stringliteral}{'/joy'},}
-\DoxyCodeLine{22                 self.control\_callback,}
-\DoxyCodeLine{23                 60}
-\DoxyCodeLine{24                 )}
-\DoxyCodeLine{25         self.speed\_publisher = self.create\_publisher(Float64, \textcolor{stringliteral}{'/speed'}, 60)}
-\DoxyCodeLine{26         self.steering\_publisher = self.create\_publisher(Float64, \textcolor{stringliteral}{'/steering'}, 60)}
-\DoxyCodeLine{27         self.subscription}
-\DoxyCodeLine{28         self.steering\_publisher}
-\DoxyCodeLine{29         self.speed\_publisher}
-\DoxyCodeLine{30 }
-
-\end{DoxyCode}
-\mbox{\Hypertarget{classtoxic__hardware_1_1controller_1_1ControlSubscriber_ae64f0875afe3067b97ba370b354b9213}\label{classtoxic__hardware_1_1controller_1_1ControlSubscriber_ae64f0875afe3067b97ba370b354b9213}} 
-\index{ControlSubscriber@{ControlSubscriber}!\_\_init\_\_@{\_\_init\_\_}}
-\index{\_\_init\_\_@{\_\_init\_\_}!ControlSubscriber@{ControlSubscriber}}
-\doxysubsubsection{\texorpdfstring{\_\_init\_\_()}{\_\_init\_\_()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+\doxysubsubsection{\texorpdfstring{\_\_init\_\_()}{\_\_init\_\_()}}
 {\footnotesize\ttfamily def \+\_\+\+\_\+init\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
 
 
@@ -83,26 +55,7 @@ def \mbox{\hyperlink{classtoxic__hardware_1_1controller_1_1ControlSubscriber_a33
 \mbox{\Hypertarget{classtoxic__hardware_1_1controller_1_1ControlSubscriber_a33e86027586e42bbaff819e19bef44d7}\label{classtoxic__hardware_1_1controller_1_1ControlSubscriber_a33e86027586e42bbaff819e19bef44d7}} 
 \index{ControlSubscriber@{ControlSubscriber}!control\_callback@{control\_callback}}
 \index{control\_callback@{control\_callback}!ControlSubscriber@{ControlSubscriber}}
-\doxysubsubsection{\texorpdfstring{control\_callback()}{control\_callback()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
-{\footnotesize\ttfamily def control\+\_\+callback (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{data }\end{DoxyParamCaption})}
-
-
-\begin{DoxyCode}{0}
-\DoxyCodeLine{31     \textcolor{keyword}{def }control\_callback(self, data):}
-\DoxyCodeLine{32         normalized\_steering = data.axes[0]}
-\DoxyCodeLine{33         normalized\_fw\_speed = data.axes[5]}
-\DoxyCodeLine{34         normalized\_bw\_speed = data.axes[2]}
-\DoxyCodeLine{35         print(normalized\_steering)}
-\DoxyCodeLine{36         print(normalized\_fw\_speed)}
-\DoxyCodeLine{37         self.steering\_publisher.publish(Float64(normalized\_steering))}
-\DoxyCodeLine{38         self.speed\_publisher.publish(Float64(normalized\_fw\_speed + normalized\_bw\_speed))}
-\DoxyCodeLine{39 }
-
-\end{DoxyCode}
-\mbox{\Hypertarget{classtoxic__hardware_1_1controller_1_1ControlSubscriber_a33e86027586e42bbaff819e19bef44d7}\label{classtoxic__hardware_1_1controller_1_1ControlSubscriber_a33e86027586e42bbaff819e19bef44d7}} 
-\index{ControlSubscriber@{ControlSubscriber}!control\_callback@{control\_callback}}
-\index{control\_callback@{control\_callback}!ControlSubscriber@{ControlSubscriber}}
-\doxysubsubsection{\texorpdfstring{control\_callback()}{control\_callback()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+\doxysubsubsection{\texorpdfstring{control\_callback()}{control\_callback()}}
 {\footnotesize\ttfamily def control\+\_\+callback (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{data }\end{DoxyParamCaption})}
 
 

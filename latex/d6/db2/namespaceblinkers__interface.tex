@@ -1,0 +1,46 @@
+\hypertarget{namespaceblinkers__interface}{}\doxysection{blinkers\+\_\+interface Namespace Reference}
+\label{namespaceblinkers__interface}\index{blinkers\_interface@{blinkers\_interface}}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classblinkers__interface_1_1BlinkersInterface}{Blinkers\+Interface}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{namespaceblinkers__interface_a784e26b491a03b91359ff42cbf66a1a2}{main}} (args=None)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespaceblinkers__interface_a6fd15ce64110e98b208bfe7a4ed33f52}{gpio\+\_\+pin}} = lgpio.\+gpiochip\+\_\+open(0)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{namespaceblinkers__interface_a784e26b491a03b91359ff42cbf66a1a2}\label{namespaceblinkers__interface_a784e26b491a03b91359ff42cbf66a1a2}} 
+\index{blinkers\_interface@{blinkers\_interface}!main@{main}}
+\index{main@{main}!blinkers\_interface@{blinkers\_interface}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily def blinkers\+\_\+interface.\+main (\begin{DoxyParamCaption}\item[{}]{args = {\ttfamily None} }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{46 \textcolor{keyword}{def }\mbox{\hyperlink{namespaceblinkers__interface_a784e26b491a03b91359ff42cbf66a1a2}{main}}(args=None):}
+\DoxyCodeLine{47     rclpy.init(args=args)}
+\DoxyCodeLine{48     blinkersInterface = BlinkersInterface()}
+\DoxyCodeLine{49     rclpy.spin(blinkersInterface)}
+\DoxyCodeLine{50     blinkersInterface.destroy\_node()}
+\DoxyCodeLine{51     rclpy.shutdown()}
+\DoxyCodeLine{52 }
+
+\end{DoxyCode}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{namespaceblinkers__interface_a6fd15ce64110e98b208bfe7a4ed33f52}\label{namespaceblinkers__interface_a6fd15ce64110e98b208bfe7a4ed33f52}} 
+\index{blinkers\_interface@{blinkers\_interface}!gpio\_pin@{gpio\_pin}}
+\index{gpio\_pin@{gpio\_pin}!blinkers\_interface@{blinkers\_interface}}
+\doxysubsubsection{\texorpdfstring{gpio\_pin}{gpio\_pin}}
+{\footnotesize\ttfamily gpio\+\_\+pin = lgpio.\+gpiochip\+\_\+open(0)}
+

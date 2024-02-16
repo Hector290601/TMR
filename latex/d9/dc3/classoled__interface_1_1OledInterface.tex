@@ -1,0 +1,77 @@
+\hypertarget{classoled__interface_1_1OledInterface}{}\doxysection{Oled\+Interface Class Reference}
+\label{classoled__interface_1_1OledInterface}\index{OledInterface@{OledInterface}}
+Inheritance diagram for Oled\+Interface\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{d9/dc3/classoled__interface_1_1OledInterface}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{classoled__interface_1_1OledInterface_ae64f0875afe3067b97ba370b354b9213}{\+\_\+\+\_\+init\+\_\+\+\_\+}} (self)
+\item 
+def \mbox{\hyperlink{classoled__interface_1_1OledInterface_a956e7ab59d12fa1dc3e975c2fba46296}{oled\+\_\+callback}} (self, data)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classoled__interface_1_1OledInterface_a4b0698733c4dfaffe8e2b4cd952b6f82}{subscription}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classoled__interface_1_1OledInterface_ae64f0875afe3067b97ba370b354b9213}\label{classoled__interface_1_1OledInterface_ae64f0875afe3067b97ba370b354b9213}} 
+\index{OledInterface@{OledInterface}!\_\_init\_\_@{\_\_init\_\_}}
+\index{\_\_init\_\_@{\_\_init\_\_}!OledInterface@{OledInterface}}
+\doxysubsubsection{\texorpdfstring{\_\_init\_\_()}{\_\_init\_\_()}}
+{\footnotesize\ttfamily def \+\_\+\+\_\+init\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{39     \textcolor{keyword}{def }\_\_init\_\_(self):}
+\DoxyCodeLine{40         super().\_\_init\_\_(\textcolor{stringliteral}{'oled\_interface'})}
+\DoxyCodeLine{41         self.subscription = self.create\_subscription(}
+\DoxyCodeLine{42                 String,}
+\DoxyCodeLine{43                 \textcolor{stringliteral}{'/message'},}
+\DoxyCodeLine{44                 self.oled\_callback,}
+\DoxyCodeLine{45                 60}
+\DoxyCodeLine{46         )}
+\DoxyCodeLine{47 }
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classoled__interface_1_1OledInterface_a956e7ab59d12fa1dc3e975c2fba46296}\label{classoled__interface_1_1OledInterface_a956e7ab59d12fa1dc3e975c2fba46296}} 
+\index{OledInterface@{OledInterface}!oled\_callback@{oled\_callback}}
+\index{oled\_callback@{oled\_callback}!OledInterface@{OledInterface}}
+\doxysubsubsection{\texorpdfstring{oled\_callback()}{oled\_callback()}}
+{\footnotesize\ttfamily def oled\+\_\+callback (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{data }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{48     \textcolor{keyword}{def }oled\_callback(self, data):}
+\DoxyCodeLine{49         \textcolor{keyword}{global} draw, image}
+\DoxyCodeLine{50         draw.rectangle((0,0,width,height), outline=0, fill=0)}
+\DoxyCodeLine{51         msg\_content = data.data}
+\DoxyCodeLine{52         draw.text((x, top), msg\_content,  font=font, fill=255)}
+\DoxyCodeLine{53         disp.image(image)}
+\DoxyCodeLine{54         disp.display()}
+\DoxyCodeLine{55 }
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classoled__interface_1_1OledInterface_a4b0698733c4dfaffe8e2b4cd952b6f82}\label{classoled__interface_1_1OledInterface_a4b0698733c4dfaffe8e2b4cd952b6f82}} 
+\index{OledInterface@{OledInterface}!subscription@{subscription}}
+\index{subscription@{subscription}!OledInterface@{OledInterface}}
+\doxysubsubsection{\texorpdfstring{subscription}{subscription}}
+{\footnotesize\ttfamily subscription}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+main\+\_\+ws/src/toxic\+\_\+hardware/toxic\+\_\+hardware/\mbox{\hyperlink{src_2toxic__hardware_2toxic__hardware_2oled__interface_8py}{oled\+\_\+interface.\+py}}\end{DoxyCompactItemize}

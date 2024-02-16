@@ -104,10 +104,6 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ae64f0875afe3067b97ba370b354b9213"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9e946487184abfcf65c5372008f4e868"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/dfb/classtoxic__hardware_1_1motor__interface_1_1MotorInterface.html#a9e946487184abfcf65c5372008f4e868">motor_callback</a> (self, data)</td></tr>
 <tr class="separator:a9e946487184abfcf65c5372008f4e868"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae64f0875afe3067b97ba370b354b9213"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/dfb/classtoxic__hardware_1_1motor__interface_1_1MotorInterface.html#ae64f0875afe3067b97ba370b354b9213">__init__</a> (self)</td></tr>
-<tr class="separator:ae64f0875afe3067b97ba370b354b9213"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9e946487184abfcf65c5372008f4e868"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/dfb/classtoxic__hardware_1_1motor__interface_1_1MotorInterface.html#a9e946487184abfcf65c5372008f4e868">motor_callback</a> (self, data)</td></tr>
-<tr class="separator:a9e946487184abfcf65c5372008f4e868"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
@@ -116,35 +112,7 @@ Public Attributes</h2></td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ae64f0875afe3067b97ba370b354b9213"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae64f0875afe3067b97ba370b354b9213">&#9670;&nbsp;</a></span>__init__() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">def __init__ </td>
-          <td>(</td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>self</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    <span class="keyword">def </span>__init__(self):</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;        super().__init__(<span class="stringliteral">&#39;motor_interface&#39;</span>)</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;        self.subscription = self.create_subscription(</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;                Float64,</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;                <span class="stringliteral">&#39;/speed&#39;</span>,</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;                self.motor_callback,</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;                60</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;                )</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        self.subscription</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
-</div><!-- fragment -->
-</div>
-</div>
-<a id="ae64f0875afe3067b97ba370b354b9213"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae64f0875afe3067b97ba370b354b9213">&#9670;&nbsp;</a></span>__init__() <span class="overload">[2/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ae64f0875afe3067b97ba370b354b9213">&#9670;&nbsp;</a></span>__init__()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -173,51 +141,7 @@ Public Attributes</h2></td></tr>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
 <a id="a9e946487184abfcf65c5372008f4e868"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9e946487184abfcf65c5372008f4e868">&#9670;&nbsp;</a></span>motor_callback() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">def motor_callback </td>
-          <td>(</td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>self</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>data</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keyword">def </span>motor_callback(self, data):</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        <span class="keyword">global</span> roboclaw</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        recived = data.data</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        <span class="keywordflow">if</span> recived &gt; 1.0:</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;            recived = 1.0</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        <span class="keywordflow">elif</span> recived &lt; -1.0:</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;            recived = -1.0</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        <span class="keywordflow">if</span> recived &gt;= 0:</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;            print(<span class="stringliteral">&quot;Forward@M1&quot;</span>)</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;            roboclaw.ForwardM1(0x80, int(32*recived))</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;            print(recived)</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        <span class="keywordflow">elif</span> recived &lt; 0:</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;            print(<span class="stringliteral">&quot;Backward@M1&quot;</span>)</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;            roboclaw.BackwardM1(0x80, int(32*-recived))</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;            print(recived)</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
-</div><!-- fragment -->
-</div>
-</div>
-<a id="a9e946487184abfcf65c5372008f4e868"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9e946487184abfcf65c5372008f4e868">&#9670;&nbsp;</a></span>motor_callback() <span class="overload">[2/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a9e946487184abfcf65c5372008f4e868">&#9670;&nbsp;</a></span>motor_callback()</h2>
 
 <div class="memitem">
 <div class="memproto">

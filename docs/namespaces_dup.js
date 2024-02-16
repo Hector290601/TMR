@@ -1,5 +1,11 @@
 var namespaces_dup =
 [
+    [ "blinkers_interface", "d6/db2/namespaceblinkers__interface.html", "d6/db2/namespaceblinkers__interface" ],
+    [ "controller", "df/dea/namespacecontroller.html", "df/dea/namespacecontroller" ],
+    [ "motor_interface", "d2/d82/namespacemotor__interface.html", "d2/d82/namespacemotor__interface" ],
+    [ "oled_interface", "d5/d42/namespaceoled__interface.html", "d5/d42/namespaceoled__interface" ],
+    [ "roboclaw_3", "d5/d68/namespaceroboclaw__3.html", "d5/d68/namespaceroboclaw__3" ],
+    [ "servo_interface", "d7/d09/namespaceservo__interface.html", "d7/d09/namespaceservo__interface" ],
     [ "setup", "dd/dc4/namespacesetup.html", [
       [ "data_files", "dd/dc4/namespacesetup.html#ab2a4f143e926c57a50df01bb182a4fd5", null ],
       [ "description", "dd/dc4/namespacesetup.html#a2661f439a4a94ffdcd5e47ae1da0bb1d", null ],

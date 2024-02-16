@@ -1,7 +1,7 @@
 var build_2toxic__hardware_2build_2lib_2toxic__hardware_2oled__interface_8py =
 [
     [ "OledInterface", "d9/d4e/classtoxic__hardware_1_1oled__interface_1_1OledInterface.html", "d9/d4e/classtoxic__hardware_1_1oled__interface_1_1OledInterface" ],
-    [ "main", "de/d10/build_2toxic__hardware_2build_2lib_2toxic__hardware_2oled__interface_8py.html#acb5075a1c586e00088ef12d5117d3902", null ],
+    [ "main", "de/d10/build_2toxic__hardware_2build_2lib_2toxic__hardware_2oled__interface_8py.html#accb1149d5c8c645c307fcb16452ac121", null ],
     [ "bottom", "de/d10/build_2toxic__hardware_2build_2lib_2toxic__hardware_2oled__interface_8py.html#a323a7064fba6e15e3e542e34fb19764e", null ],
     [ "DC", "de/d10/build_2toxic__hardware_2build_2lib_2toxic__hardware_2oled__interface_8py.html#a64c09f22bf1aaf06930f11f70d69b426", null ],
     [ "disp", "de/d10/build_2toxic__hardware_2build_2lib_2toxic__hardware_2oled__interface_8py.html#a4e72583d972515f4f5e30d98ce1eb739", null ],

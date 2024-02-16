@@ -1,0 +1,749 @@
+\hypertarget{classroboclaw__3_1_1Roboclaw_1_1Cmd}{}\doxysection{Roboclaw.\+Cmd Class Reference}
+\label{classroboclaw__3_1_1Roboclaw_1_1Cmd}\index{Roboclaw.Cmd@{Roboclaw.Cmd}}
+\doxysubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{classroboclaw__3_1_1Roboclaw_1_1Cmd_a6fbd0a7399dbe49e1c4f10320a0bce05}{M1\+FORWARD}} = 0
+\item 
+int \mbox{\hyperlink{classroboclaw__3_1_1Roboclaw_1_1Cmd_aaddaee1e3f47d2dea0606ba42f9ae366}{M1\+BACKWARD}} = 1
+\item 
+int \mbox{\hyperlink{classroboclaw__3_1_1Roboclaw_1_1Cmd_aec7863ce95adb6df8cdd805f03308333}{SETMINMB}} = 2
+\item 
+int \mbox{\hyperlink{classroboclaw__3_1_1Roboclaw_1_1Cmd_ae9073696e45e2bd9fc89ea7ac55c9241}{SETMAXMB}} = 3
+\item 
+int \mbox{\hyperlink{classroboclaw__3_1_1Roboclaw_1_1Cmd_a2b83b23d87ba642f2f3bc98a1c761851}{M2\+FORWARD}} = 4
+\item 
+int \mbox{\hyperlink{classroboclaw__3_1_1Roboclaw_1_1Cmd_a74857241586e205cacf8b88815b12e40}{M2\+BACKWARD}} = 5
+\item 
+int \mbox{\hyperlink{classroboclaw__3_1_1Roboclaw_1_1Cmd_a40c2006f4b2590d5afb118137d899e2b}{M17\+BIT}} = 6
+\item 
+int \mbox{\hyperlink{classroboclaw__3_1_1Roboclaw_1_1Cmd_ad760450d0f321d75a1194c5eb6af154c}{M27\+BIT}} = 7
+\item 
+int \mbox{\hyperlink{classroboclaw__3_1_1Roboclaw_1_1Cmd_a1fdd8dee03e0e259170950830ff13cf5}{MIXEDFORWARD}} = 8
+\item 
+int \mbox{\hyperlink{classroboclaw__3_1_1Roboclaw_1_1Cmd_a33530a0c1fd0ea54e33982788e9e5663}{MIXEDBACKWARD}} = 9
+\item 
+int \mbox{\hyperlink{classroboclaw__3_1_1Roboclaw_1_1Cmd_a398bed0c793dc5fb515257786803fa29}{MIXEDRIGHT}} = 10
+\item 
+int \mbox{\hyperlink{classroboclaw__3_1_1Roboclaw_1_1Cmd_a490c0e33c039db2a101cd923f790846a}{MIXEDLEFT}} = 11
+\item 
+int \mbox{\hyperlink{classroboclaw__3_1_1Roboclaw_1_1Cmd_a99317b16d68833586aceaeab96f25bb9}{MIXEDFB}} = 12
+\item 
+int \mbox{\hyperlink{classroboclaw__3_1_1Roboclaw_1_1Cmd_abae324df58695821b0ae79d651237aa4}{MIXEDLR}} = 13
+\item 
+int \mbox{\hyperlink{classroboclaw__3_1_1Roboclaw_1_1Cmd_ac0ba87709e343a9a635b2035e193b8c4}{GETM1\+ENC}} = 16
+\item 
+int \mbox{\hyperlink{classroboclaw__3_1_1Roboclaw_1_1Cmd_a209d097653ba57f987ad09c1931a855a}{GETM2\+ENC}} = 17
+\item 
+int \mbox{\hyperlink{classroboclaw__3_1_1Roboclaw_1_1Cmd_af38550f1924f8645a650d2944505f660}{GETM1\+SPEED}} = 18
+\item 
+int \mbox{\hyperlink{classroboclaw__3_1_1Roboclaw_1_1Cmd_afc30cd26545456254e617e0bbc337c72}{GETM2\+SPEED}} = 19
+\item 
+int \mbox{\hyperlink{classroboclaw__3_1_1Roboclaw_1_1Cmd_ad8c64e5070504bfe803b7966aa0775e0}{RESETENC}} = 20
+\item 
+int \mbox{\hyperlink{classroboclaw__3_1_1Roboclaw_1_1Cmd_a73f2fa42c1a05d7aae2776b174e21703}{GETVERSION}} = 21
+\item 
+int \mbox{\hyperlink{classroboclaw__3_1_1Roboclaw_1_1Cmd_ac8fb2a2de19659e407763c3ecdb2afeb}{SETM1\+ENCCOUNT}} = 22
+\item 
+int \mbox{\hyperlink{classroboclaw__3_1_1Roboclaw_1_1Cmd_a60085be8abee824c10374c00b7e960d4}{SETM2\+ENCCOUNT}} = 23
+\item 
+int \mbox{\hyperlink{classroboclaw__3_1_1Roboclaw_1_1Cmd_ae74486177b4bd6990de30aec301f3116}{GETMBATT}} = 24
+\item 
+int \mbox{\hyperlink{classroboclaw__3_1_1Roboclaw_1_1Cmd_a7e209901456188c2fb77c112b69a72d7}{GETLBATT}} = 25
+\item 
+int \mbox{\hyperlink{classroboclaw__3_1_1Roboclaw_1_1Cmd_aca2add1deb9b7fd9010c5e6e6b0c5a82}{SETMINLB}} = 26
+\item 
+int \mbox{\hyperlink{classroboclaw__3_1_1Roboclaw_1_1Cmd_a7df411501d297e2450b2985adb90e500}{SETMAXLB}} = 27
+\item 
+int \mbox{\hyperlink{classroboclaw__3_1_1Roboclaw_1_1Cmd_a4dd28dabd2f5c8e7cd3637601fdf7ebb}{SETM1\+PID}} = 28
+\item 
+int \mbox{\hyperlink{classroboclaw__3_1_1Roboclaw_1_1Cmd_ab8729410adde6d43c8dfb809e27e5791}{SETM2\+PID}} = 29
+\item 
+int \mbox{\hyperlink{classroboclaw__3_1_1Roboclaw_1_1Cmd_a3ab756a8cf452c40ba9660aa7db3d56c}{GETM1\+ISPEED}} = 30
+\item 
+int \mbox{\hyperlink{classroboclaw__3_1_1Roboclaw_1_1Cmd_a130a8997fe5069570b363cea0a0e08c6}{GETM2\+ISPEED}} = 31
+\item 
+int \mbox{\hyperlink{classroboclaw__3_1_1Roboclaw_1_1Cmd_a984c7f0e95d28f85ad5f4bcfd1f6d948}{M1\+DUTY}} = 32
+\item 
+int \mbox{\hyperlink{classroboclaw__3_1_1Roboclaw_1_1Cmd_afd0f106fa9ae418773b03a47ca7d3774}{M2\+DUTY}} = 33
+\item 
+int \mbox{\hyperlink{classroboclaw__3_1_1Roboclaw_1_1Cmd_afcb0f018c30e447aee21b998b73f2849}{MIXEDDUTY}} = 34
+\item 
+int \mbox{\hyperlink{classroboclaw__3_1_1Roboclaw_1_1Cmd_a162588561112dc25f1f61d76adccfe3a}{M1\+SPEED}} = 35
+\item 
+int \mbox{\hyperlink{classroboclaw__3_1_1Roboclaw_1_1Cmd_af310518147f926879260a6cc117155f9}{M2\+SPEED}} = 36
+\item 
+int \mbox{\hyperlink{classroboclaw__3_1_1Roboclaw_1_1Cmd_aad8674b20c62b1a1f7bafdb9c2a59db2}{MIXEDSPEED}} = 37
+\item 
+int \mbox{\hyperlink{classroboclaw__3_1_1Roboclaw_1_1Cmd_a9266a50e5460b6f117bf3ed523aa3639}{M1\+SPEEDACCEL}} = 38
+\item 
+int \mbox{\hyperlink{classroboclaw__3_1_1Roboclaw_1_1Cmd_abf84b765d58fe103fd3c051ac629ed0e}{M2\+SPEEDACCEL}} = 39
+\item 
+int \mbox{\hyperlink{classroboclaw__3_1_1Roboclaw_1_1Cmd_a306a7796d0376174333e7d3f63911941}{MIXEDSPEEDACCEL}} = 40
+\item 
+int \mbox{\hyperlink{classroboclaw__3_1_1Roboclaw_1_1Cmd_a02ad57ac2088ecadb26323dd94349cc4}{M1\+SPEEDDIST}} = 41
+\item 
+int \mbox{\hyperlink{classroboclaw__3_1_1Roboclaw_1_1Cmd_add22920c1ebb1d0e13f0017474d212dc}{M2\+SPEEDDIST}} = 42
+\item 
+int \mbox{\hyperlink{classroboclaw__3_1_1Roboclaw_1_1Cmd_a17c41e60e8e0ef3b1d46465936e3c9bf}{MIXEDSPEEDDIST}} = 43
+\item 
+int \mbox{\hyperlink{classroboclaw__3_1_1Roboclaw_1_1Cmd_ae0cc23d22e15a200b9bc782346a54738}{M1\+SPEEDACCELDIST}} = 44
+\item 
+int \mbox{\hyperlink{classroboclaw__3_1_1Roboclaw_1_1Cmd_a47ee184dd1cfd86291f58aced7de3821}{M2\+SPEEDACCELDIST}} = 45
+\item 
+int \mbox{\hyperlink{classroboclaw__3_1_1Roboclaw_1_1Cmd_a7823fd7565a2e72f7a972b2fd517a985}{MIXEDSPEEDACCELDIST}} = 46
+\item 
+int \mbox{\hyperlink{classroboclaw__3_1_1Roboclaw_1_1Cmd_ad36eda4158a5215ae5ee52401d24e39b}{GETBUFFERS}} = 47
+\item 
+int \mbox{\hyperlink{classroboclaw__3_1_1Roboclaw_1_1Cmd_aba1e3d225a2a3c61d8a2f2ce2f062d9c}{GETPWMS}} = 48
+\item 
+int \mbox{\hyperlink{classroboclaw__3_1_1Roboclaw_1_1Cmd_a7b8aa436bab3175fc6904b1a9e790821}{GETCURRENTS}} = 49
+\item 
+int \mbox{\hyperlink{classroboclaw__3_1_1Roboclaw_1_1Cmd_a075704022e7f303e509ecd4da010050f}{MIXEDSPEED2\+ACCEL}} = 50
+\item 
+int \mbox{\hyperlink{classroboclaw__3_1_1Roboclaw_1_1Cmd_ae6218e53fcba38d3e0f217b83fa74275}{MIXEDSPEED2\+ACCELDIST}} = 51
+\item 
+int \mbox{\hyperlink{classroboclaw__3_1_1Roboclaw_1_1Cmd_a0c3dd728d7b7946fb5e3d5febe55e15a}{M1\+DUTYACCEL}} = 52
+\item 
+int \mbox{\hyperlink{classroboclaw__3_1_1Roboclaw_1_1Cmd_ae4fd74abec7fef3501358139af2afdb2}{M2\+DUTYACCEL}} = 53
+\item 
+int \mbox{\hyperlink{classroboclaw__3_1_1Roboclaw_1_1Cmd_a90760f994a82bf29c7dce267809fc53f}{MIXEDDUTYACCEL}} = 54
+\item 
+int \mbox{\hyperlink{classroboclaw__3_1_1Roboclaw_1_1Cmd_a4b160e11dcc7fce108996fc7b73988bf}{READM1\+PID}} = 55
+\item 
+int \mbox{\hyperlink{classroboclaw__3_1_1Roboclaw_1_1Cmd_afcb1ce02ede2d4a11ef044017b7df62b}{READM2\+PID}} = 56
+\item 
+int \mbox{\hyperlink{classroboclaw__3_1_1Roboclaw_1_1Cmd_a2ae5605f820e3846ea5854bf74dd9a02}{SETMAINVOLTAGES}} = 57
+\item 
+int \mbox{\hyperlink{classroboclaw__3_1_1Roboclaw_1_1Cmd_a12fa895e88adfe911799fefbe6a24ea5}{SETLOGICVOLTAGES}} = 58
+\item 
+int \mbox{\hyperlink{classroboclaw__3_1_1Roboclaw_1_1Cmd_a371c46088a7d76f11306c9e74ffc9976}{GETMINMAXMAINVOLTAGES}} = 59
+\item 
+int \mbox{\hyperlink{classroboclaw__3_1_1Roboclaw_1_1Cmd_a16f67765c09e5c136fff72d30b50cced}{GETMINMAXLOGICVOLTAGES}} = 60
+\item 
+int \mbox{\hyperlink{classroboclaw__3_1_1Roboclaw_1_1Cmd_a51f15162c2c690d760415ddb20a12680}{SETM1\+POSPID}} = 61
+\item 
+int \mbox{\hyperlink{classroboclaw__3_1_1Roboclaw_1_1Cmd_adc37ab96c5ba37c298cb5f8d2df7cd06}{SETM2\+POSPID}} = 62
+\item 
+int \mbox{\hyperlink{classroboclaw__3_1_1Roboclaw_1_1Cmd_a6f0db6750f2f2e720deec2086ef29ed0}{READM1\+POSPID}} = 63
+\item 
+int \mbox{\hyperlink{classroboclaw__3_1_1Roboclaw_1_1Cmd_a3a94ad96d31a215bc7edf68001ed3be2}{READM2\+POSPID}} = 64
+\item 
+int \mbox{\hyperlink{classroboclaw__3_1_1Roboclaw_1_1Cmd_a10674481f4a98e4d62d390e80f4072d6}{M1\+SPEEDACCELDECCELPOS}} = 65
+\item 
+int \mbox{\hyperlink{classroboclaw__3_1_1Roboclaw_1_1Cmd_ad5c8ed695c618fcd1a34eff386e69168}{M2\+SPEEDACCELDECCELPOS}} = 66
+\item 
+int \mbox{\hyperlink{classroboclaw__3_1_1Roboclaw_1_1Cmd_a30cc75003a8d5bc716aef28f316174f4}{MIXEDSPEEDACCELDECCELPOS}} = 67
+\item 
+int \mbox{\hyperlink{classroboclaw__3_1_1Roboclaw_1_1Cmd_a58a545204a0df366fdc87d0f5be41fc0}{SETM1\+DEFAULTACCEL}} = 68
+\item 
+int \mbox{\hyperlink{classroboclaw__3_1_1Roboclaw_1_1Cmd_a4641384c4279e5469e1658c768956038}{SETM2\+DEFAULTACCEL}} = 69
+\item 
+int \mbox{\hyperlink{classroboclaw__3_1_1Roboclaw_1_1Cmd_a0038406619934114793ed744b352a256}{SETPINFUNCTIONS}} = 74
+\item 
+int \mbox{\hyperlink{classroboclaw__3_1_1Roboclaw_1_1Cmd_a2d797bf95e4febe4b3b6b5ace42400cb}{GETPINFUNCTIONS}} = 75
+\item 
+int \mbox{\hyperlink{classroboclaw__3_1_1Roboclaw_1_1Cmd_a473dc616d63cd06a3e09c73ce1622f81}{SETDEADBAND}} = 76
+\item 
+int \mbox{\hyperlink{classroboclaw__3_1_1Roboclaw_1_1Cmd_aeecde73b79be340729647ba9e5fcb747}{GETDEADBAND}} = 77
+\item 
+int \mbox{\hyperlink{classroboclaw__3_1_1Roboclaw_1_1Cmd_ae3df67bf8e3c9bf14b5c6aef9d06430e}{RESTOREDEFAULTS}} = 80
+\item 
+int \mbox{\hyperlink{classroboclaw__3_1_1Roboclaw_1_1Cmd_a73c91975f9b88c9f094b0fb0f9947f4a}{GETTEMP}} = 82
+\item 
+int \mbox{\hyperlink{classroboclaw__3_1_1Roboclaw_1_1Cmd_a17e151c522e0d133d2640a66bf483c7d}{GETTEMP2}} = 83
+\item 
+int \mbox{\hyperlink{classroboclaw__3_1_1Roboclaw_1_1Cmd_a902a86118ed630c45aead64b567be4e5}{GETERROR}} = 90
+\item 
+int \mbox{\hyperlink{classroboclaw__3_1_1Roboclaw_1_1Cmd_a4e654ec397b1745472d5e87df78b9a79}{GETENCODERMODE}} = 91
+\item 
+int \mbox{\hyperlink{classroboclaw__3_1_1Roboclaw_1_1Cmd_a0ebbf9388c096edda037ef2940ff8939}{SETM1\+ENCODERMODE}} = 92
+\item 
+int \mbox{\hyperlink{classroboclaw__3_1_1Roboclaw_1_1Cmd_ab8ccfdee1f527090a2e1bedcfc6bb65d}{SETM2\+ENCODERMODE}} = 93
+\item 
+int \mbox{\hyperlink{classroboclaw__3_1_1Roboclaw_1_1Cmd_ab7ad074d286dccbe386cbf9ff2157fdd}{WRITENVM}} = 94
+\item 
+int \mbox{\hyperlink{classroboclaw__3_1_1Roboclaw_1_1Cmd_ad70382e38639bfa11c90f3b92e3b9dfe}{READNVM}} = 95
+\item 
+int \mbox{\hyperlink{classroboclaw__3_1_1Roboclaw_1_1Cmd_a8ee1b998b269bcc6cf0d84895a2f2d9f}{SETCONFIG}} = 98
+\item 
+int \mbox{\hyperlink{classroboclaw__3_1_1Roboclaw_1_1Cmd_a779f8c61d9941e3c201f0aba886a17f2}{GETCONFIG}} = 99
+\item 
+int \mbox{\hyperlink{classroboclaw__3_1_1Roboclaw_1_1Cmd_ac9eda5476e71091de99ace27c88df633}{SETM1\+MAXCURRENT}} = 133
+\item 
+int \mbox{\hyperlink{classroboclaw__3_1_1Roboclaw_1_1Cmd_a380ae8336824145de8f46340f5160290}{SETM2\+MAXCURRENT}} = 134
+\item 
+int \mbox{\hyperlink{classroboclaw__3_1_1Roboclaw_1_1Cmd_a4f34b6a343d8e39b46fdf6dc046d336c}{GETM1\+MAXCURRENT}} = 135
+\item 
+int \mbox{\hyperlink{classroboclaw__3_1_1Roboclaw_1_1Cmd_ae809a9cb7e9925a7bec93f1d50aa26f0}{GETM2\+MAXCURRENT}} = 136
+\item 
+int \mbox{\hyperlink{classroboclaw__3_1_1Roboclaw_1_1Cmd_ada01acd049241528247c85758a1f18f1}{SETPWMMODE}} = 148
+\item 
+int \mbox{\hyperlink{classroboclaw__3_1_1Roboclaw_1_1Cmd_a4623c878bfa3801984ed9b029ec26839}{GETPWMMODE}} = 149
+\item 
+int \mbox{\hyperlink{classroboclaw__3_1_1Roboclaw_1_1Cmd_a92a69eadf0f81f653a6f74be93a150f0}{READEEPROM}} = 252
+\item 
+int \mbox{\hyperlink{classroboclaw__3_1_1Roboclaw_1_1Cmd_a3f5df487bb061c8072c3e39eef15abd4}{WRITEEEPROM}} = 253
+\item 
+int \mbox{\hyperlink{classroboclaw__3_1_1Roboclaw_1_1Cmd_ac3d1533d23fc8092582fc55bcd116ede}{FLAGBOOTLOADER}} = 255
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classroboclaw__3_1_1Roboclaw_1_1Cmd_ac3d1533d23fc8092582fc55bcd116ede}\label{classroboclaw__3_1_1Roboclaw_1_1Cmd_ac3d1533d23fc8092582fc55bcd116ede}} 
+\index{Roboclaw.Cmd@{Roboclaw.Cmd}!FLAGBOOTLOADER@{FLAGBOOTLOADER}}
+\index{FLAGBOOTLOADER@{FLAGBOOTLOADER}!Roboclaw.Cmd@{Roboclaw.Cmd}}
+\doxysubsubsection{\texorpdfstring{FLAGBOOTLOADER}{FLAGBOOTLOADER}}
+{\footnotesize\ttfamily int FLAGBOOTLOADER = 255\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{classroboclaw__3_1_1Roboclaw_1_1Cmd_ad36eda4158a5215ae5ee52401d24e39b}\label{classroboclaw__3_1_1Roboclaw_1_1Cmd_ad36eda4158a5215ae5ee52401d24e39b}} 
+\index{Roboclaw.Cmd@{Roboclaw.Cmd}!GETBUFFERS@{GETBUFFERS}}
+\index{GETBUFFERS@{GETBUFFERS}!Roboclaw.Cmd@{Roboclaw.Cmd}}
+\doxysubsubsection{\texorpdfstring{GETBUFFERS}{GETBUFFERS}}
+{\footnotesize\ttfamily int GETBUFFERS = 47\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{classroboclaw__3_1_1Roboclaw_1_1Cmd_a779f8c61d9941e3c201f0aba886a17f2}\label{classroboclaw__3_1_1Roboclaw_1_1Cmd_a779f8c61d9941e3c201f0aba886a17f2}} 
+\index{Roboclaw.Cmd@{Roboclaw.Cmd}!GETCONFIG@{GETCONFIG}}
+\index{GETCONFIG@{GETCONFIG}!Roboclaw.Cmd@{Roboclaw.Cmd}}
+\doxysubsubsection{\texorpdfstring{GETCONFIG}{GETCONFIG}}
+{\footnotesize\ttfamily int GETCONFIG = 99\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{classroboclaw__3_1_1Roboclaw_1_1Cmd_a7b8aa436bab3175fc6904b1a9e790821}\label{classroboclaw__3_1_1Roboclaw_1_1Cmd_a7b8aa436bab3175fc6904b1a9e790821}} 
+\index{Roboclaw.Cmd@{Roboclaw.Cmd}!GETCURRENTS@{GETCURRENTS}}
+\index{GETCURRENTS@{GETCURRENTS}!Roboclaw.Cmd@{Roboclaw.Cmd}}
+\doxysubsubsection{\texorpdfstring{GETCURRENTS}{GETCURRENTS}}
+{\footnotesize\ttfamily int GETCURRENTS = 49\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{classroboclaw__3_1_1Roboclaw_1_1Cmd_aeecde73b79be340729647ba9e5fcb747}\label{classroboclaw__3_1_1Roboclaw_1_1Cmd_aeecde73b79be340729647ba9e5fcb747}} 
+\index{Roboclaw.Cmd@{Roboclaw.Cmd}!GETDEADBAND@{GETDEADBAND}}
+\index{GETDEADBAND@{GETDEADBAND}!Roboclaw.Cmd@{Roboclaw.Cmd}}
+\doxysubsubsection{\texorpdfstring{GETDEADBAND}{GETDEADBAND}}
+{\footnotesize\ttfamily int GETDEADBAND = 77\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{classroboclaw__3_1_1Roboclaw_1_1Cmd_a4e654ec397b1745472d5e87df78b9a79}\label{classroboclaw__3_1_1Roboclaw_1_1Cmd_a4e654ec397b1745472d5e87df78b9a79}} 
+\index{Roboclaw.Cmd@{Roboclaw.Cmd}!GETENCODERMODE@{GETENCODERMODE}}
+\index{GETENCODERMODE@{GETENCODERMODE}!Roboclaw.Cmd@{Roboclaw.Cmd}}
+\doxysubsubsection{\texorpdfstring{GETENCODERMODE}{GETENCODERMODE}}
+{\footnotesize\ttfamily int GETENCODERMODE = 91\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{classroboclaw__3_1_1Roboclaw_1_1Cmd_a902a86118ed630c45aead64b567be4e5}\label{classroboclaw__3_1_1Roboclaw_1_1Cmd_a902a86118ed630c45aead64b567be4e5}} 
+\index{Roboclaw.Cmd@{Roboclaw.Cmd}!GETERROR@{GETERROR}}
+\index{GETERROR@{GETERROR}!Roboclaw.Cmd@{Roboclaw.Cmd}}
+\doxysubsubsection{\texorpdfstring{GETERROR}{GETERROR}}
+{\footnotesize\ttfamily int GETERROR = 90\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{classroboclaw__3_1_1Roboclaw_1_1Cmd_a7e209901456188c2fb77c112b69a72d7}\label{classroboclaw__3_1_1Roboclaw_1_1Cmd_a7e209901456188c2fb77c112b69a72d7}} 
+\index{Roboclaw.Cmd@{Roboclaw.Cmd}!GETLBATT@{GETLBATT}}
+\index{GETLBATT@{GETLBATT}!Roboclaw.Cmd@{Roboclaw.Cmd}}
+\doxysubsubsection{\texorpdfstring{GETLBATT}{GETLBATT}}
+{\footnotesize\ttfamily int GETLBATT = 25\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{classroboclaw__3_1_1Roboclaw_1_1Cmd_ac0ba87709e343a9a635b2035e193b8c4}\label{classroboclaw__3_1_1Roboclaw_1_1Cmd_ac0ba87709e343a9a635b2035e193b8c4}} 
+\index{Roboclaw.Cmd@{Roboclaw.Cmd}!GETM1ENC@{GETM1ENC}}
+\index{GETM1ENC@{GETM1ENC}!Roboclaw.Cmd@{Roboclaw.Cmd}}
+\doxysubsubsection{\texorpdfstring{GETM1ENC}{GETM1ENC}}
+{\footnotesize\ttfamily int GETM1\+ENC = 16\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{classroboclaw__3_1_1Roboclaw_1_1Cmd_a3ab756a8cf452c40ba9660aa7db3d56c}\label{classroboclaw__3_1_1Roboclaw_1_1Cmd_a3ab756a8cf452c40ba9660aa7db3d56c}} 
+\index{Roboclaw.Cmd@{Roboclaw.Cmd}!GETM1ISPEED@{GETM1ISPEED}}
+\index{GETM1ISPEED@{GETM1ISPEED}!Roboclaw.Cmd@{Roboclaw.Cmd}}
+\doxysubsubsection{\texorpdfstring{GETM1ISPEED}{GETM1ISPEED}}
+{\footnotesize\ttfamily int GETM1\+ISPEED = 30\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{classroboclaw__3_1_1Roboclaw_1_1Cmd_a4f34b6a343d8e39b46fdf6dc046d336c}\label{classroboclaw__3_1_1Roboclaw_1_1Cmd_a4f34b6a343d8e39b46fdf6dc046d336c}} 
+\index{Roboclaw.Cmd@{Roboclaw.Cmd}!GETM1MAXCURRENT@{GETM1MAXCURRENT}}
+\index{GETM1MAXCURRENT@{GETM1MAXCURRENT}!Roboclaw.Cmd@{Roboclaw.Cmd}}
+\doxysubsubsection{\texorpdfstring{GETM1MAXCURRENT}{GETM1MAXCURRENT}}
+{\footnotesize\ttfamily int GETM1\+MAXCURRENT = 135\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{classroboclaw__3_1_1Roboclaw_1_1Cmd_af38550f1924f8645a650d2944505f660}\label{classroboclaw__3_1_1Roboclaw_1_1Cmd_af38550f1924f8645a650d2944505f660}} 
+\index{Roboclaw.Cmd@{Roboclaw.Cmd}!GETM1SPEED@{GETM1SPEED}}
+\index{GETM1SPEED@{GETM1SPEED}!Roboclaw.Cmd@{Roboclaw.Cmd}}
+\doxysubsubsection{\texorpdfstring{GETM1SPEED}{GETM1SPEED}}
+{\footnotesize\ttfamily int GETM1\+SPEED = 18\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{classroboclaw__3_1_1Roboclaw_1_1Cmd_a209d097653ba57f987ad09c1931a855a}\label{classroboclaw__3_1_1Roboclaw_1_1Cmd_a209d097653ba57f987ad09c1931a855a}} 
+\index{Roboclaw.Cmd@{Roboclaw.Cmd}!GETM2ENC@{GETM2ENC}}
+\index{GETM2ENC@{GETM2ENC}!Roboclaw.Cmd@{Roboclaw.Cmd}}
+\doxysubsubsection{\texorpdfstring{GETM2ENC}{GETM2ENC}}
+{\footnotesize\ttfamily int GETM2\+ENC = 17\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{classroboclaw__3_1_1Roboclaw_1_1Cmd_a130a8997fe5069570b363cea0a0e08c6}\label{classroboclaw__3_1_1Roboclaw_1_1Cmd_a130a8997fe5069570b363cea0a0e08c6}} 
+\index{Roboclaw.Cmd@{Roboclaw.Cmd}!GETM2ISPEED@{GETM2ISPEED}}
+\index{GETM2ISPEED@{GETM2ISPEED}!Roboclaw.Cmd@{Roboclaw.Cmd}}
+\doxysubsubsection{\texorpdfstring{GETM2ISPEED}{GETM2ISPEED}}
+{\footnotesize\ttfamily int GETM2\+ISPEED = 31\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{classroboclaw__3_1_1Roboclaw_1_1Cmd_ae809a9cb7e9925a7bec93f1d50aa26f0}\label{classroboclaw__3_1_1Roboclaw_1_1Cmd_ae809a9cb7e9925a7bec93f1d50aa26f0}} 
+\index{Roboclaw.Cmd@{Roboclaw.Cmd}!GETM2MAXCURRENT@{GETM2MAXCURRENT}}
+\index{GETM2MAXCURRENT@{GETM2MAXCURRENT}!Roboclaw.Cmd@{Roboclaw.Cmd}}
+\doxysubsubsection{\texorpdfstring{GETM2MAXCURRENT}{GETM2MAXCURRENT}}
+{\footnotesize\ttfamily int GETM2\+MAXCURRENT = 136\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{classroboclaw__3_1_1Roboclaw_1_1Cmd_afc30cd26545456254e617e0bbc337c72}\label{classroboclaw__3_1_1Roboclaw_1_1Cmd_afc30cd26545456254e617e0bbc337c72}} 
+\index{Roboclaw.Cmd@{Roboclaw.Cmd}!GETM2SPEED@{GETM2SPEED}}
+\index{GETM2SPEED@{GETM2SPEED}!Roboclaw.Cmd@{Roboclaw.Cmd}}
+\doxysubsubsection{\texorpdfstring{GETM2SPEED}{GETM2SPEED}}
+{\footnotesize\ttfamily int GETM2\+SPEED = 19\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{classroboclaw__3_1_1Roboclaw_1_1Cmd_ae74486177b4bd6990de30aec301f3116}\label{classroboclaw__3_1_1Roboclaw_1_1Cmd_ae74486177b4bd6990de30aec301f3116}} 
+\index{Roboclaw.Cmd@{Roboclaw.Cmd}!GETMBATT@{GETMBATT}}
+\index{GETMBATT@{GETMBATT}!Roboclaw.Cmd@{Roboclaw.Cmd}}
+\doxysubsubsection{\texorpdfstring{GETMBATT}{GETMBATT}}
+{\footnotesize\ttfamily int GETMBATT = 24\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{classroboclaw__3_1_1Roboclaw_1_1Cmd_a16f67765c09e5c136fff72d30b50cced}\label{classroboclaw__3_1_1Roboclaw_1_1Cmd_a16f67765c09e5c136fff72d30b50cced}} 
+\index{Roboclaw.Cmd@{Roboclaw.Cmd}!GETMINMAXLOGICVOLTAGES@{GETMINMAXLOGICVOLTAGES}}
+\index{GETMINMAXLOGICVOLTAGES@{GETMINMAXLOGICVOLTAGES}!Roboclaw.Cmd@{Roboclaw.Cmd}}
+\doxysubsubsection{\texorpdfstring{GETMINMAXLOGICVOLTAGES}{GETMINMAXLOGICVOLTAGES}}
+{\footnotesize\ttfamily int GETMINMAXLOGICVOLTAGES = 60\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{classroboclaw__3_1_1Roboclaw_1_1Cmd_a371c46088a7d76f11306c9e74ffc9976}\label{classroboclaw__3_1_1Roboclaw_1_1Cmd_a371c46088a7d76f11306c9e74ffc9976}} 
+\index{Roboclaw.Cmd@{Roboclaw.Cmd}!GETMINMAXMAINVOLTAGES@{GETMINMAXMAINVOLTAGES}}
+\index{GETMINMAXMAINVOLTAGES@{GETMINMAXMAINVOLTAGES}!Roboclaw.Cmd@{Roboclaw.Cmd}}
+\doxysubsubsection{\texorpdfstring{GETMINMAXMAINVOLTAGES}{GETMINMAXMAINVOLTAGES}}
+{\footnotesize\ttfamily int GETMINMAXMAINVOLTAGES = 59\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{classroboclaw__3_1_1Roboclaw_1_1Cmd_a2d797bf95e4febe4b3b6b5ace42400cb}\label{classroboclaw__3_1_1Roboclaw_1_1Cmd_a2d797bf95e4febe4b3b6b5ace42400cb}} 
+\index{Roboclaw.Cmd@{Roboclaw.Cmd}!GETPINFUNCTIONS@{GETPINFUNCTIONS}}
+\index{GETPINFUNCTIONS@{GETPINFUNCTIONS}!Roboclaw.Cmd@{Roboclaw.Cmd}}
+\doxysubsubsection{\texorpdfstring{GETPINFUNCTIONS}{GETPINFUNCTIONS}}
+{\footnotesize\ttfamily int GETPINFUNCTIONS = 75\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{classroboclaw__3_1_1Roboclaw_1_1Cmd_a4623c878bfa3801984ed9b029ec26839}\label{classroboclaw__3_1_1Roboclaw_1_1Cmd_a4623c878bfa3801984ed9b029ec26839}} 
+\index{Roboclaw.Cmd@{Roboclaw.Cmd}!GETPWMMODE@{GETPWMMODE}}
+\index{GETPWMMODE@{GETPWMMODE}!Roboclaw.Cmd@{Roboclaw.Cmd}}
+\doxysubsubsection{\texorpdfstring{GETPWMMODE}{GETPWMMODE}}
+{\footnotesize\ttfamily int GETPWMMODE = 149\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{classroboclaw__3_1_1Roboclaw_1_1Cmd_aba1e3d225a2a3c61d8a2f2ce2f062d9c}\label{classroboclaw__3_1_1Roboclaw_1_1Cmd_aba1e3d225a2a3c61d8a2f2ce2f062d9c}} 
+\index{Roboclaw.Cmd@{Roboclaw.Cmd}!GETPWMS@{GETPWMS}}
+\index{GETPWMS@{GETPWMS}!Roboclaw.Cmd@{Roboclaw.Cmd}}
+\doxysubsubsection{\texorpdfstring{GETPWMS}{GETPWMS}}
+{\footnotesize\ttfamily int GETPWMS = 48\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{classroboclaw__3_1_1Roboclaw_1_1Cmd_a73c91975f9b88c9f094b0fb0f9947f4a}\label{classroboclaw__3_1_1Roboclaw_1_1Cmd_a73c91975f9b88c9f094b0fb0f9947f4a}} 
+\index{Roboclaw.Cmd@{Roboclaw.Cmd}!GETTEMP@{GETTEMP}}
+\index{GETTEMP@{GETTEMP}!Roboclaw.Cmd@{Roboclaw.Cmd}}
+\doxysubsubsection{\texorpdfstring{GETTEMP}{GETTEMP}}
+{\footnotesize\ttfamily int GETTEMP = 82\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{classroboclaw__3_1_1Roboclaw_1_1Cmd_a17e151c522e0d133d2640a66bf483c7d}\label{classroboclaw__3_1_1Roboclaw_1_1Cmd_a17e151c522e0d133d2640a66bf483c7d}} 
+\index{Roboclaw.Cmd@{Roboclaw.Cmd}!GETTEMP2@{GETTEMP2}}
+\index{GETTEMP2@{GETTEMP2}!Roboclaw.Cmd@{Roboclaw.Cmd}}
+\doxysubsubsection{\texorpdfstring{GETTEMP2}{GETTEMP2}}
+{\footnotesize\ttfamily int GETTEMP2 = 83\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{classroboclaw__3_1_1Roboclaw_1_1Cmd_a73f2fa42c1a05d7aae2776b174e21703}\label{classroboclaw__3_1_1Roboclaw_1_1Cmd_a73f2fa42c1a05d7aae2776b174e21703}} 
+\index{Roboclaw.Cmd@{Roboclaw.Cmd}!GETVERSION@{GETVERSION}}
+\index{GETVERSION@{GETVERSION}!Roboclaw.Cmd@{Roboclaw.Cmd}}
+\doxysubsubsection{\texorpdfstring{GETVERSION}{GETVERSION}}
+{\footnotesize\ttfamily int GETVERSION = 21\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{classroboclaw__3_1_1Roboclaw_1_1Cmd_a40c2006f4b2590d5afb118137d899e2b}\label{classroboclaw__3_1_1Roboclaw_1_1Cmd_a40c2006f4b2590d5afb118137d899e2b}} 
+\index{Roboclaw.Cmd@{Roboclaw.Cmd}!M17BIT@{M17BIT}}
+\index{M17BIT@{M17BIT}!Roboclaw.Cmd@{Roboclaw.Cmd}}
+\doxysubsubsection{\texorpdfstring{M17BIT}{M17BIT}}
+{\footnotesize\ttfamily int M17\+BIT = 6\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{classroboclaw__3_1_1Roboclaw_1_1Cmd_aaddaee1e3f47d2dea0606ba42f9ae366}\label{classroboclaw__3_1_1Roboclaw_1_1Cmd_aaddaee1e3f47d2dea0606ba42f9ae366}} 
+\index{Roboclaw.Cmd@{Roboclaw.Cmd}!M1BACKWARD@{M1BACKWARD}}
+\index{M1BACKWARD@{M1BACKWARD}!Roboclaw.Cmd@{Roboclaw.Cmd}}
+\doxysubsubsection{\texorpdfstring{M1BACKWARD}{M1BACKWARD}}
+{\footnotesize\ttfamily int M1\+BACKWARD = 1\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{classroboclaw__3_1_1Roboclaw_1_1Cmd_a984c7f0e95d28f85ad5f4bcfd1f6d948}\label{classroboclaw__3_1_1Roboclaw_1_1Cmd_a984c7f0e95d28f85ad5f4bcfd1f6d948}} 
+\index{Roboclaw.Cmd@{Roboclaw.Cmd}!M1DUTY@{M1DUTY}}
+\index{M1DUTY@{M1DUTY}!Roboclaw.Cmd@{Roboclaw.Cmd}}
+\doxysubsubsection{\texorpdfstring{M1DUTY}{M1DUTY}}
+{\footnotesize\ttfamily int M1\+DUTY = 32\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{classroboclaw__3_1_1Roboclaw_1_1Cmd_a0c3dd728d7b7946fb5e3d5febe55e15a}\label{classroboclaw__3_1_1Roboclaw_1_1Cmd_a0c3dd728d7b7946fb5e3d5febe55e15a}} 
+\index{Roboclaw.Cmd@{Roboclaw.Cmd}!M1DUTYACCEL@{M1DUTYACCEL}}
+\index{M1DUTYACCEL@{M1DUTYACCEL}!Roboclaw.Cmd@{Roboclaw.Cmd}}
+\doxysubsubsection{\texorpdfstring{M1DUTYACCEL}{M1DUTYACCEL}}
+{\footnotesize\ttfamily int M1\+DUTYACCEL = 52\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{classroboclaw__3_1_1Roboclaw_1_1Cmd_a6fbd0a7399dbe49e1c4f10320a0bce05}\label{classroboclaw__3_1_1Roboclaw_1_1Cmd_a6fbd0a7399dbe49e1c4f10320a0bce05}} 
+\index{Roboclaw.Cmd@{Roboclaw.Cmd}!M1FORWARD@{M1FORWARD}}
+\index{M1FORWARD@{M1FORWARD}!Roboclaw.Cmd@{Roboclaw.Cmd}}
+\doxysubsubsection{\texorpdfstring{M1FORWARD}{M1FORWARD}}
+{\footnotesize\ttfamily int M1\+FORWARD = 0\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{classroboclaw__3_1_1Roboclaw_1_1Cmd_a162588561112dc25f1f61d76adccfe3a}\label{classroboclaw__3_1_1Roboclaw_1_1Cmd_a162588561112dc25f1f61d76adccfe3a}} 
+\index{Roboclaw.Cmd@{Roboclaw.Cmd}!M1SPEED@{M1SPEED}}
+\index{M1SPEED@{M1SPEED}!Roboclaw.Cmd@{Roboclaw.Cmd}}
+\doxysubsubsection{\texorpdfstring{M1SPEED}{M1SPEED}}
+{\footnotesize\ttfamily int M1\+SPEED = 35\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{classroboclaw__3_1_1Roboclaw_1_1Cmd_a9266a50e5460b6f117bf3ed523aa3639}\label{classroboclaw__3_1_1Roboclaw_1_1Cmd_a9266a50e5460b6f117bf3ed523aa3639}} 
+\index{Roboclaw.Cmd@{Roboclaw.Cmd}!M1SPEEDACCEL@{M1SPEEDACCEL}}
+\index{M1SPEEDACCEL@{M1SPEEDACCEL}!Roboclaw.Cmd@{Roboclaw.Cmd}}
+\doxysubsubsection{\texorpdfstring{M1SPEEDACCEL}{M1SPEEDACCEL}}
+{\footnotesize\ttfamily int M1\+SPEEDACCEL = 38\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{classroboclaw__3_1_1Roboclaw_1_1Cmd_a10674481f4a98e4d62d390e80f4072d6}\label{classroboclaw__3_1_1Roboclaw_1_1Cmd_a10674481f4a98e4d62d390e80f4072d6}} 
+\index{Roboclaw.Cmd@{Roboclaw.Cmd}!M1SPEEDACCELDECCELPOS@{M1SPEEDACCELDECCELPOS}}
+\index{M1SPEEDACCELDECCELPOS@{M1SPEEDACCELDECCELPOS}!Roboclaw.Cmd@{Roboclaw.Cmd}}
+\doxysubsubsection{\texorpdfstring{M1SPEEDACCELDECCELPOS}{M1SPEEDACCELDECCELPOS}}
+{\footnotesize\ttfamily int M1\+SPEEDACCELDECCELPOS = 65\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{classroboclaw__3_1_1Roboclaw_1_1Cmd_ae0cc23d22e15a200b9bc782346a54738}\label{classroboclaw__3_1_1Roboclaw_1_1Cmd_ae0cc23d22e15a200b9bc782346a54738}} 
+\index{Roboclaw.Cmd@{Roboclaw.Cmd}!M1SPEEDACCELDIST@{M1SPEEDACCELDIST}}
+\index{M1SPEEDACCELDIST@{M1SPEEDACCELDIST}!Roboclaw.Cmd@{Roboclaw.Cmd}}
+\doxysubsubsection{\texorpdfstring{M1SPEEDACCELDIST}{M1SPEEDACCELDIST}}
+{\footnotesize\ttfamily int M1\+SPEEDACCELDIST = 44\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{classroboclaw__3_1_1Roboclaw_1_1Cmd_a02ad57ac2088ecadb26323dd94349cc4}\label{classroboclaw__3_1_1Roboclaw_1_1Cmd_a02ad57ac2088ecadb26323dd94349cc4}} 
+\index{Roboclaw.Cmd@{Roboclaw.Cmd}!M1SPEEDDIST@{M1SPEEDDIST}}
+\index{M1SPEEDDIST@{M1SPEEDDIST}!Roboclaw.Cmd@{Roboclaw.Cmd}}
+\doxysubsubsection{\texorpdfstring{M1SPEEDDIST}{M1SPEEDDIST}}
+{\footnotesize\ttfamily int M1\+SPEEDDIST = 41\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{classroboclaw__3_1_1Roboclaw_1_1Cmd_ad760450d0f321d75a1194c5eb6af154c}\label{classroboclaw__3_1_1Roboclaw_1_1Cmd_ad760450d0f321d75a1194c5eb6af154c}} 
+\index{Roboclaw.Cmd@{Roboclaw.Cmd}!M27BIT@{M27BIT}}
+\index{M27BIT@{M27BIT}!Roboclaw.Cmd@{Roboclaw.Cmd}}
+\doxysubsubsection{\texorpdfstring{M27BIT}{M27BIT}}
+{\footnotesize\ttfamily int M27\+BIT = 7\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{classroboclaw__3_1_1Roboclaw_1_1Cmd_a74857241586e205cacf8b88815b12e40}\label{classroboclaw__3_1_1Roboclaw_1_1Cmd_a74857241586e205cacf8b88815b12e40}} 
+\index{Roboclaw.Cmd@{Roboclaw.Cmd}!M2BACKWARD@{M2BACKWARD}}
+\index{M2BACKWARD@{M2BACKWARD}!Roboclaw.Cmd@{Roboclaw.Cmd}}
+\doxysubsubsection{\texorpdfstring{M2BACKWARD}{M2BACKWARD}}
+{\footnotesize\ttfamily int M2\+BACKWARD = 5\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{classroboclaw__3_1_1Roboclaw_1_1Cmd_afd0f106fa9ae418773b03a47ca7d3774}\label{classroboclaw__3_1_1Roboclaw_1_1Cmd_afd0f106fa9ae418773b03a47ca7d3774}} 
+\index{Roboclaw.Cmd@{Roboclaw.Cmd}!M2DUTY@{M2DUTY}}
+\index{M2DUTY@{M2DUTY}!Roboclaw.Cmd@{Roboclaw.Cmd}}
+\doxysubsubsection{\texorpdfstring{M2DUTY}{M2DUTY}}
+{\footnotesize\ttfamily int M2\+DUTY = 33\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{classroboclaw__3_1_1Roboclaw_1_1Cmd_ae4fd74abec7fef3501358139af2afdb2}\label{classroboclaw__3_1_1Roboclaw_1_1Cmd_ae4fd74abec7fef3501358139af2afdb2}} 
+\index{Roboclaw.Cmd@{Roboclaw.Cmd}!M2DUTYACCEL@{M2DUTYACCEL}}
+\index{M2DUTYACCEL@{M2DUTYACCEL}!Roboclaw.Cmd@{Roboclaw.Cmd}}
+\doxysubsubsection{\texorpdfstring{M2DUTYACCEL}{M2DUTYACCEL}}
+{\footnotesize\ttfamily int M2\+DUTYACCEL = 53\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{classroboclaw__3_1_1Roboclaw_1_1Cmd_a2b83b23d87ba642f2f3bc98a1c761851}\label{classroboclaw__3_1_1Roboclaw_1_1Cmd_a2b83b23d87ba642f2f3bc98a1c761851}} 
+\index{Roboclaw.Cmd@{Roboclaw.Cmd}!M2FORWARD@{M2FORWARD}}
+\index{M2FORWARD@{M2FORWARD}!Roboclaw.Cmd@{Roboclaw.Cmd}}
+\doxysubsubsection{\texorpdfstring{M2FORWARD}{M2FORWARD}}
+{\footnotesize\ttfamily int M2\+FORWARD = 4\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{classroboclaw__3_1_1Roboclaw_1_1Cmd_af310518147f926879260a6cc117155f9}\label{classroboclaw__3_1_1Roboclaw_1_1Cmd_af310518147f926879260a6cc117155f9}} 
+\index{Roboclaw.Cmd@{Roboclaw.Cmd}!M2SPEED@{M2SPEED}}
+\index{M2SPEED@{M2SPEED}!Roboclaw.Cmd@{Roboclaw.Cmd}}
+\doxysubsubsection{\texorpdfstring{M2SPEED}{M2SPEED}}
+{\footnotesize\ttfamily int M2\+SPEED = 36\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{classroboclaw__3_1_1Roboclaw_1_1Cmd_abf84b765d58fe103fd3c051ac629ed0e}\label{classroboclaw__3_1_1Roboclaw_1_1Cmd_abf84b765d58fe103fd3c051ac629ed0e}} 
+\index{Roboclaw.Cmd@{Roboclaw.Cmd}!M2SPEEDACCEL@{M2SPEEDACCEL}}
+\index{M2SPEEDACCEL@{M2SPEEDACCEL}!Roboclaw.Cmd@{Roboclaw.Cmd}}
+\doxysubsubsection{\texorpdfstring{M2SPEEDACCEL}{M2SPEEDACCEL}}
+{\footnotesize\ttfamily int M2\+SPEEDACCEL = 39\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{classroboclaw__3_1_1Roboclaw_1_1Cmd_ad5c8ed695c618fcd1a34eff386e69168}\label{classroboclaw__3_1_1Roboclaw_1_1Cmd_ad5c8ed695c618fcd1a34eff386e69168}} 
+\index{Roboclaw.Cmd@{Roboclaw.Cmd}!M2SPEEDACCELDECCELPOS@{M2SPEEDACCELDECCELPOS}}
+\index{M2SPEEDACCELDECCELPOS@{M2SPEEDACCELDECCELPOS}!Roboclaw.Cmd@{Roboclaw.Cmd}}
+\doxysubsubsection{\texorpdfstring{M2SPEEDACCELDECCELPOS}{M2SPEEDACCELDECCELPOS}}
+{\footnotesize\ttfamily int M2\+SPEEDACCELDECCELPOS = 66\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{classroboclaw__3_1_1Roboclaw_1_1Cmd_a47ee184dd1cfd86291f58aced7de3821}\label{classroboclaw__3_1_1Roboclaw_1_1Cmd_a47ee184dd1cfd86291f58aced7de3821}} 
+\index{Roboclaw.Cmd@{Roboclaw.Cmd}!M2SPEEDACCELDIST@{M2SPEEDACCELDIST}}
+\index{M2SPEEDACCELDIST@{M2SPEEDACCELDIST}!Roboclaw.Cmd@{Roboclaw.Cmd}}
+\doxysubsubsection{\texorpdfstring{M2SPEEDACCELDIST}{M2SPEEDACCELDIST}}
+{\footnotesize\ttfamily int M2\+SPEEDACCELDIST = 45\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{classroboclaw__3_1_1Roboclaw_1_1Cmd_add22920c1ebb1d0e13f0017474d212dc}\label{classroboclaw__3_1_1Roboclaw_1_1Cmd_add22920c1ebb1d0e13f0017474d212dc}} 
+\index{Roboclaw.Cmd@{Roboclaw.Cmd}!M2SPEEDDIST@{M2SPEEDDIST}}
+\index{M2SPEEDDIST@{M2SPEEDDIST}!Roboclaw.Cmd@{Roboclaw.Cmd}}
+\doxysubsubsection{\texorpdfstring{M2SPEEDDIST}{M2SPEEDDIST}}
+{\footnotesize\ttfamily int M2\+SPEEDDIST = 42\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{classroboclaw__3_1_1Roboclaw_1_1Cmd_a33530a0c1fd0ea54e33982788e9e5663}\label{classroboclaw__3_1_1Roboclaw_1_1Cmd_a33530a0c1fd0ea54e33982788e9e5663}} 
+\index{Roboclaw.Cmd@{Roboclaw.Cmd}!MIXEDBACKWARD@{MIXEDBACKWARD}}
+\index{MIXEDBACKWARD@{MIXEDBACKWARD}!Roboclaw.Cmd@{Roboclaw.Cmd}}
+\doxysubsubsection{\texorpdfstring{MIXEDBACKWARD}{MIXEDBACKWARD}}
+{\footnotesize\ttfamily int MIXEDBACKWARD = 9\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{classroboclaw__3_1_1Roboclaw_1_1Cmd_afcb0f018c30e447aee21b998b73f2849}\label{classroboclaw__3_1_1Roboclaw_1_1Cmd_afcb0f018c30e447aee21b998b73f2849}} 
+\index{Roboclaw.Cmd@{Roboclaw.Cmd}!MIXEDDUTY@{MIXEDDUTY}}
+\index{MIXEDDUTY@{MIXEDDUTY}!Roboclaw.Cmd@{Roboclaw.Cmd}}
+\doxysubsubsection{\texorpdfstring{MIXEDDUTY}{MIXEDDUTY}}
+{\footnotesize\ttfamily int MIXEDDUTY = 34\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{classroboclaw__3_1_1Roboclaw_1_1Cmd_a90760f994a82bf29c7dce267809fc53f}\label{classroboclaw__3_1_1Roboclaw_1_1Cmd_a90760f994a82bf29c7dce267809fc53f}} 
+\index{Roboclaw.Cmd@{Roboclaw.Cmd}!MIXEDDUTYACCEL@{MIXEDDUTYACCEL}}
+\index{MIXEDDUTYACCEL@{MIXEDDUTYACCEL}!Roboclaw.Cmd@{Roboclaw.Cmd}}
+\doxysubsubsection{\texorpdfstring{MIXEDDUTYACCEL}{MIXEDDUTYACCEL}}
+{\footnotesize\ttfamily int MIXEDDUTYACCEL = 54\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{classroboclaw__3_1_1Roboclaw_1_1Cmd_a99317b16d68833586aceaeab96f25bb9}\label{classroboclaw__3_1_1Roboclaw_1_1Cmd_a99317b16d68833586aceaeab96f25bb9}} 
+\index{Roboclaw.Cmd@{Roboclaw.Cmd}!MIXEDFB@{MIXEDFB}}
+\index{MIXEDFB@{MIXEDFB}!Roboclaw.Cmd@{Roboclaw.Cmd}}
+\doxysubsubsection{\texorpdfstring{MIXEDFB}{MIXEDFB}}
+{\footnotesize\ttfamily int MIXEDFB = 12\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{classroboclaw__3_1_1Roboclaw_1_1Cmd_a1fdd8dee03e0e259170950830ff13cf5}\label{classroboclaw__3_1_1Roboclaw_1_1Cmd_a1fdd8dee03e0e259170950830ff13cf5}} 
+\index{Roboclaw.Cmd@{Roboclaw.Cmd}!MIXEDFORWARD@{MIXEDFORWARD}}
+\index{MIXEDFORWARD@{MIXEDFORWARD}!Roboclaw.Cmd@{Roboclaw.Cmd}}
+\doxysubsubsection{\texorpdfstring{MIXEDFORWARD}{MIXEDFORWARD}}
+{\footnotesize\ttfamily int MIXEDFORWARD = 8\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{classroboclaw__3_1_1Roboclaw_1_1Cmd_a490c0e33c039db2a101cd923f790846a}\label{classroboclaw__3_1_1Roboclaw_1_1Cmd_a490c0e33c039db2a101cd923f790846a}} 
+\index{Roboclaw.Cmd@{Roboclaw.Cmd}!MIXEDLEFT@{MIXEDLEFT}}
+\index{MIXEDLEFT@{MIXEDLEFT}!Roboclaw.Cmd@{Roboclaw.Cmd}}
+\doxysubsubsection{\texorpdfstring{MIXEDLEFT}{MIXEDLEFT}}
+{\footnotesize\ttfamily int MIXEDLEFT = 11\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{classroboclaw__3_1_1Roboclaw_1_1Cmd_abae324df58695821b0ae79d651237aa4}\label{classroboclaw__3_1_1Roboclaw_1_1Cmd_abae324df58695821b0ae79d651237aa4}} 
+\index{Roboclaw.Cmd@{Roboclaw.Cmd}!MIXEDLR@{MIXEDLR}}
+\index{MIXEDLR@{MIXEDLR}!Roboclaw.Cmd@{Roboclaw.Cmd}}
+\doxysubsubsection{\texorpdfstring{MIXEDLR}{MIXEDLR}}
+{\footnotesize\ttfamily int MIXEDLR = 13\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{classroboclaw__3_1_1Roboclaw_1_1Cmd_a398bed0c793dc5fb515257786803fa29}\label{classroboclaw__3_1_1Roboclaw_1_1Cmd_a398bed0c793dc5fb515257786803fa29}} 
+\index{Roboclaw.Cmd@{Roboclaw.Cmd}!MIXEDRIGHT@{MIXEDRIGHT}}
+\index{MIXEDRIGHT@{MIXEDRIGHT}!Roboclaw.Cmd@{Roboclaw.Cmd}}
+\doxysubsubsection{\texorpdfstring{MIXEDRIGHT}{MIXEDRIGHT}}
+{\footnotesize\ttfamily int MIXEDRIGHT = 10\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{classroboclaw__3_1_1Roboclaw_1_1Cmd_aad8674b20c62b1a1f7bafdb9c2a59db2}\label{classroboclaw__3_1_1Roboclaw_1_1Cmd_aad8674b20c62b1a1f7bafdb9c2a59db2}} 
+\index{Roboclaw.Cmd@{Roboclaw.Cmd}!MIXEDSPEED@{MIXEDSPEED}}
+\index{MIXEDSPEED@{MIXEDSPEED}!Roboclaw.Cmd@{Roboclaw.Cmd}}
+\doxysubsubsection{\texorpdfstring{MIXEDSPEED}{MIXEDSPEED}}
+{\footnotesize\ttfamily int MIXEDSPEED = 37\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{classroboclaw__3_1_1Roboclaw_1_1Cmd_a075704022e7f303e509ecd4da010050f}\label{classroboclaw__3_1_1Roboclaw_1_1Cmd_a075704022e7f303e509ecd4da010050f}} 
+\index{Roboclaw.Cmd@{Roboclaw.Cmd}!MIXEDSPEED2ACCEL@{MIXEDSPEED2ACCEL}}
+\index{MIXEDSPEED2ACCEL@{MIXEDSPEED2ACCEL}!Roboclaw.Cmd@{Roboclaw.Cmd}}
+\doxysubsubsection{\texorpdfstring{MIXEDSPEED2ACCEL}{MIXEDSPEED2ACCEL}}
+{\footnotesize\ttfamily int MIXEDSPEED2\+ACCEL = 50\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{classroboclaw__3_1_1Roboclaw_1_1Cmd_ae6218e53fcba38d3e0f217b83fa74275}\label{classroboclaw__3_1_1Roboclaw_1_1Cmd_ae6218e53fcba38d3e0f217b83fa74275}} 
+\index{Roboclaw.Cmd@{Roboclaw.Cmd}!MIXEDSPEED2ACCELDIST@{MIXEDSPEED2ACCELDIST}}
+\index{MIXEDSPEED2ACCELDIST@{MIXEDSPEED2ACCELDIST}!Roboclaw.Cmd@{Roboclaw.Cmd}}
+\doxysubsubsection{\texorpdfstring{MIXEDSPEED2ACCELDIST}{MIXEDSPEED2ACCELDIST}}
+{\footnotesize\ttfamily int MIXEDSPEED2\+ACCELDIST = 51\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{classroboclaw__3_1_1Roboclaw_1_1Cmd_a306a7796d0376174333e7d3f63911941}\label{classroboclaw__3_1_1Roboclaw_1_1Cmd_a306a7796d0376174333e7d3f63911941}} 
+\index{Roboclaw.Cmd@{Roboclaw.Cmd}!MIXEDSPEEDACCEL@{MIXEDSPEEDACCEL}}
+\index{MIXEDSPEEDACCEL@{MIXEDSPEEDACCEL}!Roboclaw.Cmd@{Roboclaw.Cmd}}
+\doxysubsubsection{\texorpdfstring{MIXEDSPEEDACCEL}{MIXEDSPEEDACCEL}}
+{\footnotesize\ttfamily int MIXEDSPEEDACCEL = 40\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{classroboclaw__3_1_1Roboclaw_1_1Cmd_a30cc75003a8d5bc716aef28f316174f4}\label{classroboclaw__3_1_1Roboclaw_1_1Cmd_a30cc75003a8d5bc716aef28f316174f4}} 
+\index{Roboclaw.Cmd@{Roboclaw.Cmd}!MIXEDSPEEDACCELDECCELPOS@{MIXEDSPEEDACCELDECCELPOS}}
+\index{MIXEDSPEEDACCELDECCELPOS@{MIXEDSPEEDACCELDECCELPOS}!Roboclaw.Cmd@{Roboclaw.Cmd}}
+\doxysubsubsection{\texorpdfstring{MIXEDSPEEDACCELDECCELPOS}{MIXEDSPEEDACCELDECCELPOS}}
+{\footnotesize\ttfamily int MIXEDSPEEDACCELDECCELPOS = 67\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{classroboclaw__3_1_1Roboclaw_1_1Cmd_a7823fd7565a2e72f7a972b2fd517a985}\label{classroboclaw__3_1_1Roboclaw_1_1Cmd_a7823fd7565a2e72f7a972b2fd517a985}} 
+\index{Roboclaw.Cmd@{Roboclaw.Cmd}!MIXEDSPEEDACCELDIST@{MIXEDSPEEDACCELDIST}}
+\index{MIXEDSPEEDACCELDIST@{MIXEDSPEEDACCELDIST}!Roboclaw.Cmd@{Roboclaw.Cmd}}
+\doxysubsubsection{\texorpdfstring{MIXEDSPEEDACCELDIST}{MIXEDSPEEDACCELDIST}}
+{\footnotesize\ttfamily int MIXEDSPEEDACCELDIST = 46\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{classroboclaw__3_1_1Roboclaw_1_1Cmd_a17c41e60e8e0ef3b1d46465936e3c9bf}\label{classroboclaw__3_1_1Roboclaw_1_1Cmd_a17c41e60e8e0ef3b1d46465936e3c9bf}} 
+\index{Roboclaw.Cmd@{Roboclaw.Cmd}!MIXEDSPEEDDIST@{MIXEDSPEEDDIST}}
+\index{MIXEDSPEEDDIST@{MIXEDSPEEDDIST}!Roboclaw.Cmd@{Roboclaw.Cmd}}
+\doxysubsubsection{\texorpdfstring{MIXEDSPEEDDIST}{MIXEDSPEEDDIST}}
+{\footnotesize\ttfamily int MIXEDSPEEDDIST = 43\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{classroboclaw__3_1_1Roboclaw_1_1Cmd_a92a69eadf0f81f653a6f74be93a150f0}\label{classroboclaw__3_1_1Roboclaw_1_1Cmd_a92a69eadf0f81f653a6f74be93a150f0}} 
+\index{Roboclaw.Cmd@{Roboclaw.Cmd}!READEEPROM@{READEEPROM}}
+\index{READEEPROM@{READEEPROM}!Roboclaw.Cmd@{Roboclaw.Cmd}}
+\doxysubsubsection{\texorpdfstring{READEEPROM}{READEEPROM}}
+{\footnotesize\ttfamily int READEEPROM = 252\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{classroboclaw__3_1_1Roboclaw_1_1Cmd_a4b160e11dcc7fce108996fc7b73988bf}\label{classroboclaw__3_1_1Roboclaw_1_1Cmd_a4b160e11dcc7fce108996fc7b73988bf}} 
+\index{Roboclaw.Cmd@{Roboclaw.Cmd}!READM1PID@{READM1PID}}
+\index{READM1PID@{READM1PID}!Roboclaw.Cmd@{Roboclaw.Cmd}}
+\doxysubsubsection{\texorpdfstring{READM1PID}{READM1PID}}
+{\footnotesize\ttfamily int READM1\+PID = 55\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{classroboclaw__3_1_1Roboclaw_1_1Cmd_a6f0db6750f2f2e720deec2086ef29ed0}\label{classroboclaw__3_1_1Roboclaw_1_1Cmd_a6f0db6750f2f2e720deec2086ef29ed0}} 
+\index{Roboclaw.Cmd@{Roboclaw.Cmd}!READM1POSPID@{READM1POSPID}}
+\index{READM1POSPID@{READM1POSPID}!Roboclaw.Cmd@{Roboclaw.Cmd}}
+\doxysubsubsection{\texorpdfstring{READM1POSPID}{READM1POSPID}}
+{\footnotesize\ttfamily int READM1\+POSPID = 63\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{classroboclaw__3_1_1Roboclaw_1_1Cmd_afcb1ce02ede2d4a11ef044017b7df62b}\label{classroboclaw__3_1_1Roboclaw_1_1Cmd_afcb1ce02ede2d4a11ef044017b7df62b}} 
+\index{Roboclaw.Cmd@{Roboclaw.Cmd}!READM2PID@{READM2PID}}
+\index{READM2PID@{READM2PID}!Roboclaw.Cmd@{Roboclaw.Cmd}}
+\doxysubsubsection{\texorpdfstring{READM2PID}{READM2PID}}
+{\footnotesize\ttfamily int READM2\+PID = 56\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{classroboclaw__3_1_1Roboclaw_1_1Cmd_a3a94ad96d31a215bc7edf68001ed3be2}\label{classroboclaw__3_1_1Roboclaw_1_1Cmd_a3a94ad96d31a215bc7edf68001ed3be2}} 
+\index{Roboclaw.Cmd@{Roboclaw.Cmd}!READM2POSPID@{READM2POSPID}}
+\index{READM2POSPID@{READM2POSPID}!Roboclaw.Cmd@{Roboclaw.Cmd}}
+\doxysubsubsection{\texorpdfstring{READM2POSPID}{READM2POSPID}}
+{\footnotesize\ttfamily int READM2\+POSPID = 64\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{classroboclaw__3_1_1Roboclaw_1_1Cmd_ad70382e38639bfa11c90f3b92e3b9dfe}\label{classroboclaw__3_1_1Roboclaw_1_1Cmd_ad70382e38639bfa11c90f3b92e3b9dfe}} 
+\index{Roboclaw.Cmd@{Roboclaw.Cmd}!READNVM@{READNVM}}
+\index{READNVM@{READNVM}!Roboclaw.Cmd@{Roboclaw.Cmd}}
+\doxysubsubsection{\texorpdfstring{READNVM}{READNVM}}
+{\footnotesize\ttfamily int READNVM = 95\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{classroboclaw__3_1_1Roboclaw_1_1Cmd_ad8c64e5070504bfe803b7966aa0775e0}\label{classroboclaw__3_1_1Roboclaw_1_1Cmd_ad8c64e5070504bfe803b7966aa0775e0}} 
+\index{Roboclaw.Cmd@{Roboclaw.Cmd}!RESETENC@{RESETENC}}
+\index{RESETENC@{RESETENC}!Roboclaw.Cmd@{Roboclaw.Cmd}}
+\doxysubsubsection{\texorpdfstring{RESETENC}{RESETENC}}
+{\footnotesize\ttfamily int RESETENC = 20\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{classroboclaw__3_1_1Roboclaw_1_1Cmd_ae3df67bf8e3c9bf14b5c6aef9d06430e}\label{classroboclaw__3_1_1Roboclaw_1_1Cmd_ae3df67bf8e3c9bf14b5c6aef9d06430e}} 
+\index{Roboclaw.Cmd@{Roboclaw.Cmd}!RESTOREDEFAULTS@{RESTOREDEFAULTS}}
+\index{RESTOREDEFAULTS@{RESTOREDEFAULTS}!Roboclaw.Cmd@{Roboclaw.Cmd}}
+\doxysubsubsection{\texorpdfstring{RESTOREDEFAULTS}{RESTOREDEFAULTS}}
+{\footnotesize\ttfamily int RESTOREDEFAULTS = 80\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{classroboclaw__3_1_1Roboclaw_1_1Cmd_a8ee1b998b269bcc6cf0d84895a2f2d9f}\label{classroboclaw__3_1_1Roboclaw_1_1Cmd_a8ee1b998b269bcc6cf0d84895a2f2d9f}} 
+\index{Roboclaw.Cmd@{Roboclaw.Cmd}!SETCONFIG@{SETCONFIG}}
+\index{SETCONFIG@{SETCONFIG}!Roboclaw.Cmd@{Roboclaw.Cmd}}
+\doxysubsubsection{\texorpdfstring{SETCONFIG}{SETCONFIG}}
+{\footnotesize\ttfamily int SETCONFIG = 98\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{classroboclaw__3_1_1Roboclaw_1_1Cmd_a473dc616d63cd06a3e09c73ce1622f81}\label{classroboclaw__3_1_1Roboclaw_1_1Cmd_a473dc616d63cd06a3e09c73ce1622f81}} 
+\index{Roboclaw.Cmd@{Roboclaw.Cmd}!SETDEADBAND@{SETDEADBAND}}
+\index{SETDEADBAND@{SETDEADBAND}!Roboclaw.Cmd@{Roboclaw.Cmd}}
+\doxysubsubsection{\texorpdfstring{SETDEADBAND}{SETDEADBAND}}
+{\footnotesize\ttfamily int SETDEADBAND = 76\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{classroboclaw__3_1_1Roboclaw_1_1Cmd_a12fa895e88adfe911799fefbe6a24ea5}\label{classroboclaw__3_1_1Roboclaw_1_1Cmd_a12fa895e88adfe911799fefbe6a24ea5}} 
+\index{Roboclaw.Cmd@{Roboclaw.Cmd}!SETLOGICVOLTAGES@{SETLOGICVOLTAGES}}
+\index{SETLOGICVOLTAGES@{SETLOGICVOLTAGES}!Roboclaw.Cmd@{Roboclaw.Cmd}}
+\doxysubsubsection{\texorpdfstring{SETLOGICVOLTAGES}{SETLOGICVOLTAGES}}
+{\footnotesize\ttfamily int SETLOGICVOLTAGES = 58\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{classroboclaw__3_1_1Roboclaw_1_1Cmd_a58a545204a0df366fdc87d0f5be41fc0}\label{classroboclaw__3_1_1Roboclaw_1_1Cmd_a58a545204a0df366fdc87d0f5be41fc0}} 
+\index{Roboclaw.Cmd@{Roboclaw.Cmd}!SETM1DEFAULTACCEL@{SETM1DEFAULTACCEL}}
+\index{SETM1DEFAULTACCEL@{SETM1DEFAULTACCEL}!Roboclaw.Cmd@{Roboclaw.Cmd}}
+\doxysubsubsection{\texorpdfstring{SETM1DEFAULTACCEL}{SETM1DEFAULTACCEL}}
+{\footnotesize\ttfamily int SETM1\+DEFAULTACCEL = 68\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{classroboclaw__3_1_1Roboclaw_1_1Cmd_ac8fb2a2de19659e407763c3ecdb2afeb}\label{classroboclaw__3_1_1Roboclaw_1_1Cmd_ac8fb2a2de19659e407763c3ecdb2afeb}} 
+\index{Roboclaw.Cmd@{Roboclaw.Cmd}!SETM1ENCCOUNT@{SETM1ENCCOUNT}}
+\index{SETM1ENCCOUNT@{SETM1ENCCOUNT}!Roboclaw.Cmd@{Roboclaw.Cmd}}
+\doxysubsubsection{\texorpdfstring{SETM1ENCCOUNT}{SETM1ENCCOUNT}}
+{\footnotesize\ttfamily int SETM1\+ENCCOUNT = 22\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{classroboclaw__3_1_1Roboclaw_1_1Cmd_a0ebbf9388c096edda037ef2940ff8939}\label{classroboclaw__3_1_1Roboclaw_1_1Cmd_a0ebbf9388c096edda037ef2940ff8939}} 
+\index{Roboclaw.Cmd@{Roboclaw.Cmd}!SETM1ENCODERMODE@{SETM1ENCODERMODE}}
+\index{SETM1ENCODERMODE@{SETM1ENCODERMODE}!Roboclaw.Cmd@{Roboclaw.Cmd}}
+\doxysubsubsection{\texorpdfstring{SETM1ENCODERMODE}{SETM1ENCODERMODE}}
+{\footnotesize\ttfamily int SETM1\+ENCODERMODE = 92\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{classroboclaw__3_1_1Roboclaw_1_1Cmd_ac9eda5476e71091de99ace27c88df633}\label{classroboclaw__3_1_1Roboclaw_1_1Cmd_ac9eda5476e71091de99ace27c88df633}} 
+\index{Roboclaw.Cmd@{Roboclaw.Cmd}!SETM1MAXCURRENT@{SETM1MAXCURRENT}}
+\index{SETM1MAXCURRENT@{SETM1MAXCURRENT}!Roboclaw.Cmd@{Roboclaw.Cmd}}
+\doxysubsubsection{\texorpdfstring{SETM1MAXCURRENT}{SETM1MAXCURRENT}}
+{\footnotesize\ttfamily int SETM1\+MAXCURRENT = 133\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{classroboclaw__3_1_1Roboclaw_1_1Cmd_a4dd28dabd2f5c8e7cd3637601fdf7ebb}\label{classroboclaw__3_1_1Roboclaw_1_1Cmd_a4dd28dabd2f5c8e7cd3637601fdf7ebb}} 
+\index{Roboclaw.Cmd@{Roboclaw.Cmd}!SETM1PID@{SETM1PID}}
+\index{SETM1PID@{SETM1PID}!Roboclaw.Cmd@{Roboclaw.Cmd}}
+\doxysubsubsection{\texorpdfstring{SETM1PID}{SETM1PID}}
+{\footnotesize\ttfamily int SETM1\+PID = 28\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{classroboclaw__3_1_1Roboclaw_1_1Cmd_a51f15162c2c690d760415ddb20a12680}\label{classroboclaw__3_1_1Roboclaw_1_1Cmd_a51f15162c2c690d760415ddb20a12680}} 
+\index{Roboclaw.Cmd@{Roboclaw.Cmd}!SETM1POSPID@{SETM1POSPID}}
+\index{SETM1POSPID@{SETM1POSPID}!Roboclaw.Cmd@{Roboclaw.Cmd}}
+\doxysubsubsection{\texorpdfstring{SETM1POSPID}{SETM1POSPID}}
+{\footnotesize\ttfamily int SETM1\+POSPID = 61\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{classroboclaw__3_1_1Roboclaw_1_1Cmd_a4641384c4279e5469e1658c768956038}\label{classroboclaw__3_1_1Roboclaw_1_1Cmd_a4641384c4279e5469e1658c768956038}} 
+\index{Roboclaw.Cmd@{Roboclaw.Cmd}!SETM2DEFAULTACCEL@{SETM2DEFAULTACCEL}}
+\index{SETM2DEFAULTACCEL@{SETM2DEFAULTACCEL}!Roboclaw.Cmd@{Roboclaw.Cmd}}
+\doxysubsubsection{\texorpdfstring{SETM2DEFAULTACCEL}{SETM2DEFAULTACCEL}}
+{\footnotesize\ttfamily int SETM2\+DEFAULTACCEL = 69\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{classroboclaw__3_1_1Roboclaw_1_1Cmd_a60085be8abee824c10374c00b7e960d4}\label{classroboclaw__3_1_1Roboclaw_1_1Cmd_a60085be8abee824c10374c00b7e960d4}} 
+\index{Roboclaw.Cmd@{Roboclaw.Cmd}!SETM2ENCCOUNT@{SETM2ENCCOUNT}}
+\index{SETM2ENCCOUNT@{SETM2ENCCOUNT}!Roboclaw.Cmd@{Roboclaw.Cmd}}
+\doxysubsubsection{\texorpdfstring{SETM2ENCCOUNT}{SETM2ENCCOUNT}}
+{\footnotesize\ttfamily int SETM2\+ENCCOUNT = 23\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{classroboclaw__3_1_1Roboclaw_1_1Cmd_ab8ccfdee1f527090a2e1bedcfc6bb65d}\label{classroboclaw__3_1_1Roboclaw_1_1Cmd_ab8ccfdee1f527090a2e1bedcfc6bb65d}} 
+\index{Roboclaw.Cmd@{Roboclaw.Cmd}!SETM2ENCODERMODE@{SETM2ENCODERMODE}}
+\index{SETM2ENCODERMODE@{SETM2ENCODERMODE}!Roboclaw.Cmd@{Roboclaw.Cmd}}
+\doxysubsubsection{\texorpdfstring{SETM2ENCODERMODE}{SETM2ENCODERMODE}}
+{\footnotesize\ttfamily int SETM2\+ENCODERMODE = 93\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{classroboclaw__3_1_1Roboclaw_1_1Cmd_a380ae8336824145de8f46340f5160290}\label{classroboclaw__3_1_1Roboclaw_1_1Cmd_a380ae8336824145de8f46340f5160290}} 
+\index{Roboclaw.Cmd@{Roboclaw.Cmd}!SETM2MAXCURRENT@{SETM2MAXCURRENT}}
+\index{SETM2MAXCURRENT@{SETM2MAXCURRENT}!Roboclaw.Cmd@{Roboclaw.Cmd}}
+\doxysubsubsection{\texorpdfstring{SETM2MAXCURRENT}{SETM2MAXCURRENT}}
+{\footnotesize\ttfamily int SETM2\+MAXCURRENT = 134\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{classroboclaw__3_1_1Roboclaw_1_1Cmd_ab8729410adde6d43c8dfb809e27e5791}\label{classroboclaw__3_1_1Roboclaw_1_1Cmd_ab8729410adde6d43c8dfb809e27e5791}} 
+\index{Roboclaw.Cmd@{Roboclaw.Cmd}!SETM2PID@{SETM2PID}}
+\index{SETM2PID@{SETM2PID}!Roboclaw.Cmd@{Roboclaw.Cmd}}
+\doxysubsubsection{\texorpdfstring{SETM2PID}{SETM2PID}}
+{\footnotesize\ttfamily int SETM2\+PID = 29\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{classroboclaw__3_1_1Roboclaw_1_1Cmd_adc37ab96c5ba37c298cb5f8d2df7cd06}\label{classroboclaw__3_1_1Roboclaw_1_1Cmd_adc37ab96c5ba37c298cb5f8d2df7cd06}} 
+\index{Roboclaw.Cmd@{Roboclaw.Cmd}!SETM2POSPID@{SETM2POSPID}}
+\index{SETM2POSPID@{SETM2POSPID}!Roboclaw.Cmd@{Roboclaw.Cmd}}
+\doxysubsubsection{\texorpdfstring{SETM2POSPID}{SETM2POSPID}}
+{\footnotesize\ttfamily int SETM2\+POSPID = 62\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{classroboclaw__3_1_1Roboclaw_1_1Cmd_a2ae5605f820e3846ea5854bf74dd9a02}\label{classroboclaw__3_1_1Roboclaw_1_1Cmd_a2ae5605f820e3846ea5854bf74dd9a02}} 
+\index{Roboclaw.Cmd@{Roboclaw.Cmd}!SETMAINVOLTAGES@{SETMAINVOLTAGES}}
+\index{SETMAINVOLTAGES@{SETMAINVOLTAGES}!Roboclaw.Cmd@{Roboclaw.Cmd}}
+\doxysubsubsection{\texorpdfstring{SETMAINVOLTAGES}{SETMAINVOLTAGES}}
+{\footnotesize\ttfamily int SETMAINVOLTAGES = 57\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{classroboclaw__3_1_1Roboclaw_1_1Cmd_a7df411501d297e2450b2985adb90e500}\label{classroboclaw__3_1_1Roboclaw_1_1Cmd_a7df411501d297e2450b2985adb90e500}} 
+\index{Roboclaw.Cmd@{Roboclaw.Cmd}!SETMAXLB@{SETMAXLB}}
+\index{SETMAXLB@{SETMAXLB}!Roboclaw.Cmd@{Roboclaw.Cmd}}
+\doxysubsubsection{\texorpdfstring{SETMAXLB}{SETMAXLB}}
+{\footnotesize\ttfamily int SETMAXLB = 27\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{classroboclaw__3_1_1Roboclaw_1_1Cmd_ae9073696e45e2bd9fc89ea7ac55c9241}\label{classroboclaw__3_1_1Roboclaw_1_1Cmd_ae9073696e45e2bd9fc89ea7ac55c9241}} 
+\index{Roboclaw.Cmd@{Roboclaw.Cmd}!SETMAXMB@{SETMAXMB}}
+\index{SETMAXMB@{SETMAXMB}!Roboclaw.Cmd@{Roboclaw.Cmd}}
+\doxysubsubsection{\texorpdfstring{SETMAXMB}{SETMAXMB}}
+{\footnotesize\ttfamily int SETMAXMB = 3\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{classroboclaw__3_1_1Roboclaw_1_1Cmd_aca2add1deb9b7fd9010c5e6e6b0c5a82}\label{classroboclaw__3_1_1Roboclaw_1_1Cmd_aca2add1deb9b7fd9010c5e6e6b0c5a82}} 
+\index{Roboclaw.Cmd@{Roboclaw.Cmd}!SETMINLB@{SETMINLB}}
+\index{SETMINLB@{SETMINLB}!Roboclaw.Cmd@{Roboclaw.Cmd}}
+\doxysubsubsection{\texorpdfstring{SETMINLB}{SETMINLB}}
+{\footnotesize\ttfamily int SETMINLB = 26\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{classroboclaw__3_1_1Roboclaw_1_1Cmd_aec7863ce95adb6df8cdd805f03308333}\label{classroboclaw__3_1_1Roboclaw_1_1Cmd_aec7863ce95adb6df8cdd805f03308333}} 
+\index{Roboclaw.Cmd@{Roboclaw.Cmd}!SETMINMB@{SETMINMB}}
+\index{SETMINMB@{SETMINMB}!Roboclaw.Cmd@{Roboclaw.Cmd}}
+\doxysubsubsection{\texorpdfstring{SETMINMB}{SETMINMB}}
+{\footnotesize\ttfamily int SETMINMB = 2\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{classroboclaw__3_1_1Roboclaw_1_1Cmd_a0038406619934114793ed744b352a256}\label{classroboclaw__3_1_1Roboclaw_1_1Cmd_a0038406619934114793ed744b352a256}} 
+\index{Roboclaw.Cmd@{Roboclaw.Cmd}!SETPINFUNCTIONS@{SETPINFUNCTIONS}}
+\index{SETPINFUNCTIONS@{SETPINFUNCTIONS}!Roboclaw.Cmd@{Roboclaw.Cmd}}
+\doxysubsubsection{\texorpdfstring{SETPINFUNCTIONS}{SETPINFUNCTIONS}}
+{\footnotesize\ttfamily int SETPINFUNCTIONS = 74\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{classroboclaw__3_1_1Roboclaw_1_1Cmd_ada01acd049241528247c85758a1f18f1}\label{classroboclaw__3_1_1Roboclaw_1_1Cmd_ada01acd049241528247c85758a1f18f1}} 
+\index{Roboclaw.Cmd@{Roboclaw.Cmd}!SETPWMMODE@{SETPWMMODE}}
+\index{SETPWMMODE@{SETPWMMODE}!Roboclaw.Cmd@{Roboclaw.Cmd}}
+\doxysubsubsection{\texorpdfstring{SETPWMMODE}{SETPWMMODE}}
+{\footnotesize\ttfamily int SETPWMMODE = 148\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{classroboclaw__3_1_1Roboclaw_1_1Cmd_a3f5df487bb061c8072c3e39eef15abd4}\label{classroboclaw__3_1_1Roboclaw_1_1Cmd_a3f5df487bb061c8072c3e39eef15abd4}} 
+\index{Roboclaw.Cmd@{Roboclaw.Cmd}!WRITEEEPROM@{WRITEEEPROM}}
+\index{WRITEEEPROM@{WRITEEEPROM}!Roboclaw.Cmd@{Roboclaw.Cmd}}
+\doxysubsubsection{\texorpdfstring{WRITEEEPROM}{WRITEEEPROM}}
+{\footnotesize\ttfamily int WRITEEEPROM = 253\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{classroboclaw__3_1_1Roboclaw_1_1Cmd_ab7ad074d286dccbe386cbf9ff2157fdd}\label{classroboclaw__3_1_1Roboclaw_1_1Cmd_ab7ad074d286dccbe386cbf9ff2157fdd}} 
+\index{Roboclaw.Cmd@{Roboclaw.Cmd}!WRITENVM@{WRITENVM}}
+\index{WRITENVM@{WRITENVM}!Roboclaw.Cmd@{Roboclaw.Cmd}}
+\doxysubsubsection{\texorpdfstring{WRITENVM}{WRITENVM}}
+{\footnotesize\ttfamily int WRITENVM = 94\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+main\+\_\+ws/src/toxic\+\_\+hardware/toxic\+\_\+hardware/\mbox{\hyperlink{src_2toxic__hardware_2toxic__hardware_2roboclaw__3_8py}{roboclaw\+\_\+3.\+py}}\end{DoxyCompactItemize}

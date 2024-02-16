@@ -120,18 +120,15 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>This function create the publisher node, the image publisher object and starts to run the publisher. </p>
-<div class="fragment"><div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;<span class="keyword">def </span><a class="code" href="../../d9/d01/namespacewebcam__pub.html#a3bb6e66e64f616458bdcfdd001e01149">main</a>(args=None):</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    </div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    rclpy.init(args=args) <span class="comment"># Init the node</span></div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    image_publisher = ImagePublisher() <span class="comment"># Create a new ImagePublisher object.</span></div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    rclpy.spin(image_publisher) <span class="comment"># Keeps alive the node.</span></div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;    image_publisher.destroy_node() <span class="comment"># Destroy the node once the node execution </span></div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;    <span class="comment"># has ended</span></div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;    rclpy.shutdown() <span class="comment"># Kills the node.</span></div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;  </div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;  <span class="comment"># Just verify the node&#39;s running itself or it&#39;s being imported as a third-part</span></div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;  <span class="comment"># library</span></div>
-<div class="ttc" id="anamespacewebcam__pub_html_a3bb6e66e64f616458bdcfdd001e01149"><div class="ttname"><a href="../../d9/d01/namespacewebcam__pub.html#a3bb6e66e64f616458bdcfdd001e01149">webcam_pub.main</a></div><div class="ttdeci">def main(args=None)</div><div class="ttdoc">This function create the publisher node, the image publisher object and starts to run the publisher.</div><div class="ttdef"><b>Definition:</b> webcam_pub.py:115</div></div>
+<div class="fragment"><div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;<span class="keyword">def </span><a class="code" href="../../d9/d01/namespacewebcam__pub.html#a3bb6e66e64f616458bdcfdd001e01149">main</a>(args=None):</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    </div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    rclpy.init(args=args)</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    image_publisher = ImagePublisher()</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    rclpy.spin(image_publisher)</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    image_publisher.destroy_node()</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    rclpy.shutdown()</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;  </div>
+<div class="ttc" id="anamespacewebcam__pub_html_a3bb6e66e64f616458bdcfdd001e01149"><div class="ttname"><a href="../../d9/d01/namespacewebcam__pub.html#a3bb6e66e64f616458bdcfdd001e01149">webcam_pub.main</a></div><div class="ttdeci">def main(args=None)</div><div class="ttdoc">This function create the publisher node, the image publisher object and starts to run the publisher.</div><div class="ttdef"><b>Definition:</b> webcam_pub.py:102</div></div>
 </div><!-- fragment -->
 </div>
 </div>

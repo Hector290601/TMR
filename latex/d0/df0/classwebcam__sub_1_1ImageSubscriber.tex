@@ -45,29 +45,24 @@ None, keeps running and alive until it\textquotesingle{}s user cancelled.
 
 
 \begin{DoxyParams}{Parameters}
-{\em self,Self} & contained object, like a \textquotesingle{}this\textquotesingle{} reference just to read, write and genereally access object\textquotesingle{}s attributes. \\
+{\em self,Self} & contained object, like a \textquotesingle{}this\textquotesingle{} reference just to read, write and genereally access object\textquotesingle{}s attributes.\\
 \hline
 \end{DoxyParams}
-
+@detail creates the image subscriber and configure it to run. 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{60     \textcolor{keyword}{def }\_\_init\_\_(self):}
-\DoxyCodeLine{61         }
-\DoxyCodeLine{68         }
-\DoxyCodeLine{69         \textcolor{comment}{\# Edit source Node attributes}}
-\DoxyCodeLine{70         super().\_\_init\_\_(\textcolor{stringliteral}{'image\_subscriber'})}
-\DoxyCodeLine{71         \textcolor{comment}{\# Create the new node subscriptor, with a 25 hz framerate, you can}}
-\DoxyCodeLine{72         \textcolor{comment}{\# change this value if you want.}}
-\DoxyCodeLine{73         self.subscription = self.create\_subscription(}
-\DoxyCodeLine{74                 Image, \textcolor{comment}{\# Subscriptor type}}
-\DoxyCodeLine{75                 \textcolor{stringliteral}{'/raw\_rgb'}, \textcolor{comment}{\# Where the node'll subscribe}}
-\DoxyCodeLine{76                 self.listener\_callback, \textcolor{comment}{\# Defines callback to grab images.}}
-\DoxyCodeLine{77                 25 \textcolor{comment}{\# Defines framerate in hz}}
-\DoxyCodeLine{78                 )}
-\DoxyCodeLine{79         \textcolor{comment}{\# Required by Ros2.}}
-\DoxyCodeLine{80         self.subscription}
-\DoxyCodeLine{81         \textcolor{comment}{\# Create bridge object to parse Image messages to OpenCv's image type.}}
-\DoxyCodeLine{82         self.br = CvBridge()}
-\DoxyCodeLine{83     }
+\DoxyCodeLine{55     \textcolor{keyword}{def }\_\_init\_\_(self):}
+\DoxyCodeLine{56         }
+\DoxyCodeLine{65         }
+\DoxyCodeLine{66         super().\_\_init\_\_(\textcolor{stringliteral}{'image\_subscriber'})}
+\DoxyCodeLine{67         self.subscription = self.create\_subscription(}
+\DoxyCodeLine{68                 Image,}
+\DoxyCodeLine{69                 \textcolor{stringliteral}{'/raw\_rgb'},}
+\DoxyCodeLine{70                 self.listener\_callback,}
+\DoxyCodeLine{71                 25 }
+\DoxyCodeLine{72                 )}
+\DoxyCodeLine{73         self.subscription}
+\DoxyCodeLine{74         self.br = CvBridge()}
+\DoxyCodeLine{75     }
 
 \end{DoxyCode}
 
@@ -95,15 +90,11 @@ None, properly just displays the image.
 \end{DoxyReturn}
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{84     \textcolor{keyword}{def }listener\_callback(self, data):}
-\DoxyCodeLine{85         }
-\DoxyCodeLine{96 }
-\DoxyCodeLine{97         \textcolor{comment}{\# Read the image and parse from imgmsg type to cv2 image type.}}
-\DoxyCodeLine{98         current\_frame = self.br.imgmsg\_to\_cv2(data)}
-\DoxyCodeLine{99         \textcolor{comment}{\# Displays the image on a 'band\_filter\_sub' called window.}}
-\DoxyCodeLine{100         cv2.imshow(\textcolor{stringliteral}{"{}band\_filter\_sub"{}}, current\_frame)}
-\DoxyCodeLine{101         \textcolor{comment}{\# Refresh the window.}}
-\DoxyCodeLine{102         cv2.waitKey(1)}
+\DoxyCodeLine{76     \textcolor{keyword}{def }listener\_callback(self, data):}
+\DoxyCodeLine{77         }
+\DoxyCodeLine{88         current\_frame = self.br.imgmsg\_to\_cv2(data)}
+\DoxyCodeLine{89         cv2.imshow(\textcolor{stringliteral}{"{}band\_filter\_sub"{}}, current\_frame)}
+\DoxyCodeLine{90         cv2.waitKey(1)}
 
 \end{DoxyCode}
 

@@ -1,0 +1,47 @@
+\hypertarget{namespacemotor__interface}{}\doxysection{motor\+\_\+interface Namespace Reference}
+\label{namespacemotor__interface}\index{motor\_interface@{motor\_interface}}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classmotor__interface_1_1MotorInterface}{Motor\+Interface}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{namespacemotor__interface_a1f4e67c6b127004148823b6f3f5b0322}{main}} (args=None)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespacemotor__interface_a257386444c3afd4030922ffb828f85fe}{roboclaw}} = \mbox{\hyperlink{classroboclaw__3_1_1Roboclaw}{Roboclaw}}(\char`\"{}/dev/tty\+ACM0\char`\"{}, 115200)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{namespacemotor__interface_a1f4e67c6b127004148823b6f3f5b0322}\label{namespacemotor__interface_a1f4e67c6b127004148823b6f3f5b0322}} 
+\index{motor\_interface@{motor\_interface}!main@{main}}
+\index{main@{main}!motor\_interface@{motor\_interface}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily def motor\+\_\+interface.\+main (\begin{DoxyParamCaption}\item[{}]{args = {\ttfamily None} }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{36 \textcolor{keyword}{def }\mbox{\hyperlink{namespacemotor__interface_a1f4e67c6b127004148823b6f3f5b0322}{main}}(args=None):}
+\DoxyCodeLine{37     print(roboclaw.Open())}
+\DoxyCodeLine{38     rclpy.init(args=args)}
+\DoxyCodeLine{39     motorInterface = MotorInterface()}
+\DoxyCodeLine{40     rclpy.spin(motorInterface)}
+\DoxyCodeLine{41     motorInterface.destroy\_node()}
+\DoxyCodeLine{42     rclpy.shutdown()}
+\DoxyCodeLine{43 }
+
+\end{DoxyCode}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{namespacemotor__interface_a257386444c3afd4030922ffb828f85fe}\label{namespacemotor__interface_a257386444c3afd4030922ffb828f85fe}} 
+\index{motor\_interface@{motor\_interface}!roboclaw@{roboclaw}}
+\index{roboclaw@{roboclaw}!motor\_interface@{motor\_interface}}
+\doxysubsubsection{\texorpdfstring{roboclaw}{roboclaw}}
+{\footnotesize\ttfamily roboclaw = \mbox{\hyperlink{classroboclaw__3_1_1Roboclaw}{Roboclaw}}(\char`\"{}/dev/tty\+ACM0\char`\"{}, 115200)}
+

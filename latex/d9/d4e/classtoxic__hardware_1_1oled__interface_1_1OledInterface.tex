@@ -12,10 +12,6 @@ Inheritance diagram for Oled\+Interface\+:\begin{figure}[H]
 def \mbox{\hyperlink{classtoxic__hardware_1_1oled__interface_1_1OledInterface_ae64f0875afe3067b97ba370b354b9213}{\+\_\+\+\_\+init\+\_\+\+\_\+}} (self)
 \item 
 def \mbox{\hyperlink{classtoxic__hardware_1_1oled__interface_1_1OledInterface_a956e7ab59d12fa1dc3e975c2fba46296}{oled\+\_\+callback}} (self, data)
-\item 
-def \mbox{\hyperlink{classtoxic__hardware_1_1oled__interface_1_1OledInterface_ae64f0875afe3067b97ba370b354b9213}{\+\_\+\+\_\+init\+\_\+\+\_\+}} (self)
-\item 
-def \mbox{\hyperlink{classtoxic__hardware_1_1oled__interface_1_1OledInterface_a956e7ab59d12fa1dc3e975c2fba46296}{oled\+\_\+callback}} (self, data)
 \end{DoxyCompactItemize}
 \doxysubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
@@ -28,26 +24,7 @@ def \mbox{\hyperlink{classtoxic__hardware_1_1oled__interface_1_1OledInterface_a9
 \mbox{\Hypertarget{classtoxic__hardware_1_1oled__interface_1_1OledInterface_ae64f0875afe3067b97ba370b354b9213}\label{classtoxic__hardware_1_1oled__interface_1_1OledInterface_ae64f0875afe3067b97ba370b354b9213}} 
 \index{OledInterface@{OledInterface}!\_\_init\_\_@{\_\_init\_\_}}
 \index{\_\_init\_\_@{\_\_init\_\_}!OledInterface@{OledInterface}}
-\doxysubsubsection{\texorpdfstring{\_\_init\_\_()}{\_\_init\_\_()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
-{\footnotesize\ttfamily def \+\_\+\+\_\+init\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
-
-
-\begin{DoxyCode}{0}
-\DoxyCodeLine{39     \textcolor{keyword}{def }\_\_init\_\_(self):}
-\DoxyCodeLine{40         super().\_\_init\_\_(\textcolor{stringliteral}{'oled\_interface'})}
-\DoxyCodeLine{41         self.subscription = self.create\_subscription(}
-\DoxyCodeLine{42                 String,}
-\DoxyCodeLine{43                 \textcolor{stringliteral}{'/message'},}
-\DoxyCodeLine{44                 self.oled\_callback,}
-\DoxyCodeLine{45                 60}
-\DoxyCodeLine{46         )}
-\DoxyCodeLine{47 }
-
-\end{DoxyCode}
-\mbox{\Hypertarget{classtoxic__hardware_1_1oled__interface_1_1OledInterface_ae64f0875afe3067b97ba370b354b9213}\label{classtoxic__hardware_1_1oled__interface_1_1OledInterface_ae64f0875afe3067b97ba370b354b9213}} 
-\index{OledInterface@{OledInterface}!\_\_init\_\_@{\_\_init\_\_}}
-\index{\_\_init\_\_@{\_\_init\_\_}!OledInterface@{OledInterface}}
-\doxysubsubsection{\texorpdfstring{\_\_init\_\_()}{\_\_init\_\_()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+\doxysubsubsection{\texorpdfstring{\_\_init\_\_()}{\_\_init\_\_()}}
 {\footnotesize\ttfamily def \+\_\+\+\_\+init\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
 
 
@@ -69,25 +46,7 @@ def \mbox{\hyperlink{classtoxic__hardware_1_1oled__interface_1_1OledInterface_a9
 \mbox{\Hypertarget{classtoxic__hardware_1_1oled__interface_1_1OledInterface_a956e7ab59d12fa1dc3e975c2fba46296}\label{classtoxic__hardware_1_1oled__interface_1_1OledInterface_a956e7ab59d12fa1dc3e975c2fba46296}} 
 \index{OledInterface@{OledInterface}!oled\_callback@{oled\_callback}}
 \index{oled\_callback@{oled\_callback}!OledInterface@{OledInterface}}
-\doxysubsubsection{\texorpdfstring{oled\_callback()}{oled\_callback()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
-{\footnotesize\ttfamily def oled\+\_\+callback (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{data }\end{DoxyParamCaption})}
-
-
-\begin{DoxyCode}{0}
-\DoxyCodeLine{48     \textcolor{keyword}{def }oled\_callback(self, data):}
-\DoxyCodeLine{49         \textcolor{keyword}{global} draw, image}
-\DoxyCodeLine{50         draw.rectangle((0,0,width,height), outline=0, fill=0)}
-\DoxyCodeLine{51         msg\_content = data.data}
-\DoxyCodeLine{52         draw.text((x, top), msg\_content,  font=font, fill=255)}
-\DoxyCodeLine{53         disp.image(image)}
-\DoxyCodeLine{54         disp.display()}
-\DoxyCodeLine{55 }
-
-\end{DoxyCode}
-\mbox{\Hypertarget{classtoxic__hardware_1_1oled__interface_1_1OledInterface_a956e7ab59d12fa1dc3e975c2fba46296}\label{classtoxic__hardware_1_1oled__interface_1_1OledInterface_a956e7ab59d12fa1dc3e975c2fba46296}} 
-\index{OledInterface@{OledInterface}!oled\_callback@{oled\_callback}}
-\index{oled\_callback@{oled\_callback}!OledInterface@{OledInterface}}
-\doxysubsubsection{\texorpdfstring{oled\_callback()}{oled\_callback()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+\doxysubsubsection{\texorpdfstring{oled\_callback()}{oled\_callback()}}
 {\footnotesize\ttfamily def oled\+\_\+callback (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{data }\end{DoxyParamCaption})}
 
 

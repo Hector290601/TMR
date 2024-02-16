@@ -1,7 +1,7 @@
 var namespacetoxic__hardware_1_1oled__interface =
 [
     [ "OledInterface", "d9/d4e/classtoxic__hardware_1_1oled__interface_1_1OledInterface.html", "d9/d4e/classtoxic__hardware_1_1oled__interface_1_1OledInterface" ],
-    [ "main", "dd/d55/namespacetoxic__hardware_1_1oled__interface.html#acb5075a1c586e00088ef12d5117d3902", null ],
+    [ "main", "dd/d55/namespacetoxic__hardware_1_1oled__interface.html#accb1149d5c8c645c307fcb16452ac121", null ],
     [ "bottom", "dd/d55/namespacetoxic__hardware_1_1oled__interface.html#a323a7064fba6e15e3e542e34fb19764e", null ],
     [ "DC", "dd/d55/namespacetoxic__hardware_1_1oled__interface.html#a64c09f22bf1aaf06930f11f70d69b426", null ],
     [ "disp", "dd/d55/namespacetoxic__hardware_1_1oled__interface.html#a4e72583d972515f4f5e30d98ce1eb739", null ],

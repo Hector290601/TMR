@@ -25,19 +25,14 @@ This function create the subscriber and execute it.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{104 \textcolor{keyword}{def }\mbox{\hyperlink{namespacewebcam__sub_a17962900f744f2e667d37e9568cc5ea2}{main}}(args=None):}
-\DoxyCodeLine{105     }
-\DoxyCodeLine{108 }
-\DoxyCodeLine{109     \textcolor{comment}{\# Init node.}}
-\DoxyCodeLine{110     rclpy.init(args=args)}
-\DoxyCodeLine{111     \textcolor{comment}{\# Create ImageSubscriber's new npde}}
-\DoxyCodeLine{112     image\_subscriber = ImageSubscriber()}
-\DoxyCodeLine{113     \textcolor{comment}{\# Keep node alive.}}
-\DoxyCodeLine{114     rclpy.spin(image\_subscriber)}
-\DoxyCodeLine{115     \textcolor{comment}{\# Destroy the node once the execution has been finished.}}
-\DoxyCodeLine{116     image\_subscriber.destroy\_node()}
-\DoxyCodeLine{117     \textcolor{comment}{\# Shutdown ros2 instance.}}
-\DoxyCodeLine{118     rclpy.shutdown()}
-\DoxyCodeLine{119   }
+\DoxyCodeLine{92 \textcolor{keyword}{def }\mbox{\hyperlink{namespacewebcam__sub_a17962900f744f2e667d37e9568cc5ea2}{main}}(args=None):}
+\DoxyCodeLine{93     }
+\DoxyCodeLine{96 }
+\DoxyCodeLine{97     rclpy.init(args=args)}
+\DoxyCodeLine{98     image\_subscriber = ImageSubscriber()}
+\DoxyCodeLine{99     rclpy.spin(image\_subscriber)}
+\DoxyCodeLine{100     image\_subscriber.destroy\_node()}
+\DoxyCodeLine{101     rclpy.shutdown()}
+\DoxyCodeLine{102   }
 
 \end{DoxyCode}

@@ -120,21 +120,16 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>This function create the subscriber and execute it. </p>
-<div class="fragment"><div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;<span class="keyword">def </span><a class="code" href="../../d6/d27/namespacewebcam__sub.html#a17962900f744f2e667d37e9568cc5ea2">main</a>(args=None):</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    </div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160; </div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    <span class="comment"># Init node.</span></div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    rclpy.init(args=args)</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    <span class="comment"># Create ImageSubscriber&#39;s new npde</span></div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    image_subscriber = ImageSubscriber()</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    <span class="comment"># Keep node alive.</span></div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    rclpy.spin(image_subscriber)</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    <span class="comment"># Destroy the node once the execution has been finished.</span></div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    image_subscriber.destroy_node()</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    <span class="comment"># Shutdown ros2 instance.</span></div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    rclpy.shutdown()</div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;  </div>
-<div class="ttc" id="anamespacewebcam__sub_html_a17962900f744f2e667d37e9568cc5ea2"><div class="ttname"><a href="../../d6/d27/namespacewebcam__sub.html#a17962900f744f2e667d37e9568cc5ea2">webcam_sub.main</a></div><div class="ttdeci">def main(args=None)</div><div class="ttdoc">This function create the subscriber and execute it.</div><div class="ttdef"><b>Definition:</b> webcam_sub.py:104</div></div>
+<div class="fragment"><div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;<span class="keyword">def </span><a class="code" href="../../d6/d27/namespacewebcam__sub.html#a17962900f744f2e667d37e9568cc5ea2">main</a>(args=None):</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    </div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160; </div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    rclpy.init(args=args)</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    image_subscriber = ImageSubscriber()</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    rclpy.spin(image_subscriber)</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    image_subscriber.destroy_node()</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    rclpy.shutdown()</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;  </div>
+<div class="ttc" id="anamespacewebcam__sub_html_a17962900f744f2e667d37e9568cc5ea2"><div class="ttname"><a href="../../d6/d27/namespacewebcam__sub.html#a17962900f744f2e667d37e9568cc5ea2">webcam_sub.main</a></div><div class="ttdeci">def main(args=None)</div><div class="ttdoc">This function create the subscriber and execute it.</div><div class="ttdef"><b>Definition:</b> webcam_sub.py:92</div></div>
 </div><!-- fragment -->
 </div>
 </div>

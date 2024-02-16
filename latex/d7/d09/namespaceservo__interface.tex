@@ -1,0 +1,46 @@
+\hypertarget{namespaceservo__interface}{}\doxysection{servo\+\_\+interface Namespace Reference}
+\label{namespaceservo__interface}\index{servo\_interface@{servo\_interface}}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classservo__interface_1_1SteeringInterface}{Steering\+Interface}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{namespaceservo__interface_a822ea7eef7e31612ac0051c2af7c8de4}{main}} (args=None)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespaceservo__interface_ab818b24a3670d4f46c31af185e3cb93c}{servo\+\_\+pin}} = lgpio.\+gpiochip\+\_\+open(0)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{namespaceservo__interface_a822ea7eef7e31612ac0051c2af7c8de4}\label{namespaceservo__interface_a822ea7eef7e31612ac0051c2af7c8de4}} 
+\index{servo\_interface@{servo\_interface}!main@{main}}
+\index{main@{main}!servo\_interface@{servo\_interface}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily def servo\+\_\+interface.\+main (\begin{DoxyParamCaption}\item[{}]{args = {\ttfamily None} }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{33 \textcolor{keyword}{def }\mbox{\hyperlink{namespaceservo__interface_a822ea7eef7e31612ac0051c2af7c8de4}{main}}(args=None):}
+\DoxyCodeLine{34     rclpy.init(args=args)}
+\DoxyCodeLine{35     steeringInterface = SteeringInterface()}
+\DoxyCodeLine{36     rclpy.spin(steeringInterface)}
+\DoxyCodeLine{37     steeringInterface.destroy\_node()}
+\DoxyCodeLine{38     rclpy.shutdown()}
+\DoxyCodeLine{39 }
+
+\end{DoxyCode}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{namespaceservo__interface_ab818b24a3670d4f46c31af185e3cb93c}\label{namespaceservo__interface_ab818b24a3670d4f46c31af185e3cb93c}} 
+\index{servo\_interface@{servo\_interface}!servo\_pin@{servo\_pin}}
+\index{servo\_pin@{servo\_pin}!servo\_interface@{servo\_interface}}
+\doxysubsubsection{\texorpdfstring{servo\_pin}{servo\_pin}}
+{\footnotesize\ttfamily servo\+\_\+pin = lgpio.\+gpiochip\+\_\+open(0)}
+

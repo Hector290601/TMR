@@ -104,10 +104,6 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ae64f0875afe3067b97ba370b354b9213"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a956e7ab59d12fa1dc3e975c2fba46296"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d4e/classtoxic__hardware_1_1oled__interface_1_1OledInterface.html#a956e7ab59d12fa1dc3e975c2fba46296">oled_callback</a> (self, data)</td></tr>
 <tr class="separator:a956e7ab59d12fa1dc3e975c2fba46296"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae64f0875afe3067b97ba370b354b9213"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d4e/classtoxic__hardware_1_1oled__interface_1_1OledInterface.html#ae64f0875afe3067b97ba370b354b9213">__init__</a> (self)</td></tr>
-<tr class="separator:ae64f0875afe3067b97ba370b354b9213"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a956e7ab59d12fa1dc3e975c2fba46296"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d4e/classtoxic__hardware_1_1oled__interface_1_1OledInterface.html#a956e7ab59d12fa1dc3e975c2fba46296">oled_callback</a> (self, data)</td></tr>
-<tr class="separator:a956e7ab59d12fa1dc3e975c2fba46296"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
@@ -116,34 +112,7 @@ Public Attributes</h2></td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ae64f0875afe3067b97ba370b354b9213"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae64f0875afe3067b97ba370b354b9213">&#9670;&nbsp;</a></span>__init__() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">def __init__ </td>
-          <td>(</td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>self</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keyword">def </span>__init__(self):</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        super().__init__(<span class="stringliteral">&#39;oled_interface&#39;</span>)</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        self.subscription = self.create_subscription(</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;                String,</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;                <span class="stringliteral">&#39;/message&#39;</span>,</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;                self.oled_callback,</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;                60</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        )</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
-</div><!-- fragment -->
-</div>
-</div>
-<a id="ae64f0875afe3067b97ba370b354b9213"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae64f0875afe3067b97ba370b354b9213">&#9670;&nbsp;</a></span>__init__() <span class="overload">[2/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ae64f0875afe3067b97ba370b354b9213">&#9670;&nbsp;</a></span>__init__()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -171,43 +140,7 @@ Public Attributes</h2></td></tr>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
 <a id="a956e7ab59d12fa1dc3e975c2fba46296"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a956e7ab59d12fa1dc3e975c2fba46296">&#9670;&nbsp;</a></span>oled_callback() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">def oled_callback </td>
-          <td>(</td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>self</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>data</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keyword">def </span>oled_callback(self, data):</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        <span class="keyword">global</span> draw, image</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        draw.rectangle((0,0,width,height), outline=0, fill=0)</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        msg_content = data.data</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        draw.text((x, top), msg_content,  font=font, fill=255)</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        disp.image(image)</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        disp.display()</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
-</div><!-- fragment -->
-</div>
-</div>
-<a id="a956e7ab59d12fa1dc3e975c2fba46296"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a956e7ab59d12fa1dc3e975c2fba46296">&#9670;&nbsp;</a></span>oled_callback() <span class="overload">[2/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a956e7ab59d12fa1dc3e975c2fba46296">&#9670;&nbsp;</a></span>oled_callback()</h2>
 
 <div class="memitem">
 <div class="memproto">

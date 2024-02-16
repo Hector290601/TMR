@@ -1,0 +1,86 @@
+\hypertarget{classmotor__interface_1_1MotorInterface}{}\doxysection{Motor\+Interface Class Reference}
+\label{classmotor__interface_1_1MotorInterface}\index{MotorInterface@{MotorInterface}}
+Inheritance diagram for Motor\+Interface\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{de/d70/classmotor__interface_1_1MotorInterface}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{classmotor__interface_1_1MotorInterface_ae64f0875afe3067b97ba370b354b9213}{\+\_\+\+\_\+init\+\_\+\+\_\+}} (self)
+\item 
+def \mbox{\hyperlink{classmotor__interface_1_1MotorInterface_a9e946487184abfcf65c5372008f4e868}{motor\+\_\+callback}} (self, data)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classmotor__interface_1_1MotorInterface_a4b0698733c4dfaffe8e2b4cd952b6f82}{subscription}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classmotor__interface_1_1MotorInterface_ae64f0875afe3067b97ba370b354b9213}\label{classmotor__interface_1_1MotorInterface_ae64f0875afe3067b97ba370b354b9213}} 
+\index{MotorInterface@{MotorInterface}!\_\_init\_\_@{\_\_init\_\_}}
+\index{\_\_init\_\_@{\_\_init\_\_}!MotorInterface@{MotorInterface}}
+\doxysubsubsection{\texorpdfstring{\_\_init\_\_()}{\_\_init\_\_()}}
+{\footnotesize\ttfamily def \+\_\+\+\_\+init\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{10     \textcolor{keyword}{def }\_\_init\_\_(self):}
+\DoxyCodeLine{11         super().\_\_init\_\_(\textcolor{stringliteral}{'motor\_interface'})}
+\DoxyCodeLine{12         self.subscription = self.create\_subscription(}
+\DoxyCodeLine{13                 Float64,}
+\DoxyCodeLine{14                 \textcolor{stringliteral}{'/speed'},}
+\DoxyCodeLine{15                 self.motor\_callback,}
+\DoxyCodeLine{16                 60}
+\DoxyCodeLine{17                 )}
+\DoxyCodeLine{18         self.subscription}
+\DoxyCodeLine{19 }
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classmotor__interface_1_1MotorInterface_a9e946487184abfcf65c5372008f4e868}\label{classmotor__interface_1_1MotorInterface_a9e946487184abfcf65c5372008f4e868}} 
+\index{MotorInterface@{MotorInterface}!motor\_callback@{motor\_callback}}
+\index{motor\_callback@{motor\_callback}!MotorInterface@{MotorInterface}}
+\doxysubsubsection{\texorpdfstring{motor\_callback()}{motor\_callback()}}
+{\footnotesize\ttfamily def motor\+\_\+callback (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{data }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{20     \textcolor{keyword}{def }motor\_callback(self, data):}
+\DoxyCodeLine{21         \textcolor{keyword}{global} roboclaw}
+\DoxyCodeLine{22         recived = data.data}
+\DoxyCodeLine{23         \textcolor{keywordflow}{if} recived > 1.0:}
+\DoxyCodeLine{24             recived = 1.0}
+\DoxyCodeLine{25         \textcolor{keywordflow}{elif} recived < -\/1.0:}
+\DoxyCodeLine{26             recived = -\/1.0}
+\DoxyCodeLine{27         \textcolor{keywordflow}{if} recived >= 0:}
+\DoxyCodeLine{28             print(\textcolor{stringliteral}{"{}Forward@M1"{}})}
+\DoxyCodeLine{29             roboclaw.ForwardM1(0x80, int(32*recived))}
+\DoxyCodeLine{30             print(recived)}
+\DoxyCodeLine{31         \textcolor{keywordflow}{elif} recived < 0:}
+\DoxyCodeLine{32             print(\textcolor{stringliteral}{"{}Backward@M1"{}})}
+\DoxyCodeLine{33             roboclaw.BackwardM1(0x80, int(32*-\/recived))}
+\DoxyCodeLine{34             print(recived)}
+\DoxyCodeLine{35 }
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classmotor__interface_1_1MotorInterface_a4b0698733c4dfaffe8e2b4cd952b6f82}\label{classmotor__interface_1_1MotorInterface_a4b0698733c4dfaffe8e2b4cd952b6f82}} 
+\index{MotorInterface@{MotorInterface}!subscription@{subscription}}
+\index{subscription@{subscription}!MotorInterface@{MotorInterface}}
+\doxysubsubsection{\texorpdfstring{subscription}{subscription}}
+{\footnotesize\ttfamily subscription}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+main\+\_\+ws/src/toxic\+\_\+hardware/toxic\+\_\+hardware/\mbox{\hyperlink{src_2toxic__hardware_2toxic__hardware_2motor__interface_8py}{motor\+\_\+interface.\+py}}\end{DoxyCompactItemize}

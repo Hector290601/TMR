@@ -142,28 +142,24 @@ Public Attributes</h2></td></tr>
 <p><a class="el" href="../../d0/df0/classwebcam__sub_1_1ImageSubscriber.html">ImageSubscriber</a> obtect init def (or constructor, under a Java´s OOP context)</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">self,Self</td><td>contained object, like a 'this' reference just to read, write and genereally access object's attributes. </td></tr>
+    <tr><td class="paramname">self,Self</td><td>contained object, like a 'this' reference just to read, write and genereally access object's attributes.</td></tr>
   </table>
   </dd>
 </dl>
-<div class="fragment"><div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keyword">def </span>__init__(self):</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        </div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        </div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        <span class="comment"># Edit source Node attributes</span></div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        super().__init__(<span class="stringliteral">&#39;image_subscriber&#39;</span>)</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        <span class="comment"># Create the new node subscriptor, with a 25 hz framerate, you can</span></div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        <span class="comment"># change this value if you want.</span></div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        self.subscription = self.create_subscription(</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;                Image, <span class="comment"># Subscriptor type</span></div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;                <span class="stringliteral">&#39;/raw_rgb&#39;</span>, <span class="comment"># Where the node&#39;ll subscribe</span></div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;                self.listener_callback, <span class="comment"># Defines callback to grab images.</span></div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;                25 <span class="comment"># Defines framerate in hz</span></div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;                )</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        <span class="comment"># Required by Ros2.</span></div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        self.subscription</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        <span class="comment"># Create bridge object to parse Image messages to OpenCv&#39;s image type.</span></div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        self.br = CvBridge()</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    </div>
+<p>@detail creates the image subscriber and configure it to run. </p>
+<div class="fragment"><div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keyword">def </span>__init__(self):</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        </div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        </div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        super().__init__(<span class="stringliteral">&#39;image_subscriber&#39;</span>)</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        self.subscription = self.create_subscription(</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;                Image,</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;                <span class="stringliteral">&#39;/raw_rgb&#39;</span>,</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;                self.listener_callback,</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;                25 </div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;                )</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        self.subscription</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        self.br = CvBridge()</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -203,15 +199,11 @@ Public Attributes</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>None, properly just displays the image. </dd></dl>
-<div class="fragment"><div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <span class="keyword">def </span>listener_callback(self, data):</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;        </div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160; </div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;        <span class="comment"># Read the image and parse from imgmsg type to cv2 image type.</span></div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;        current_frame = self.br.imgmsg_to_cv2(data)</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;        <span class="comment"># Displays the image on a &#39;band_filter_sub&#39; called window.</span></div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;        cv2.imshow(<span class="stringliteral">&quot;band_filter_sub&quot;</span>, current_frame)</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;        <span class="comment"># Refresh the window.</span></div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;        cv2.waitKey(1)</div>
+<div class="fragment"><div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="keyword">def </span>listener_callback(self, data):</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        </div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        current_frame = self.br.imgmsg_to_cv2(data)</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        cv2.imshow(<span class="stringliteral">&quot;band_filter_sub&quot;</span>, current_frame)</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        cv2.waitKey(1)</div>
 </div><!-- fragment -->
 </div>
 </div>
