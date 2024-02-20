@@ -42,7 +42,6 @@ class LaneTracker(Node):
         self.speed_publisher = self.create_publisher(Float64, '/speed', 1)
         self.k_rho_publisher = self.create_publisher(Float64, '/k/rho', 1)
         self.k_theta_publisher = self.create_publisher(Float64, '/k/theta', 1)
-        self.max_speed_publisher = self.create_publisher(Float64, '/max_speed', 1)
         self.left_subscription
         self.right_subscription
         self.left_rho = 0
@@ -64,22 +63,12 @@ class LaneTracker(Node):
         self.autocalibrate_left = 0
         self.autocalibrate_right = 0
         self.max_speed = 0.8
-        self.publish_flag = False
 
     def control_callback(self, data):
         self.k_rho += 0.005 * data.axes[3]
         self.k_theta += 0.0005 * data.axes[4]
-        self.max_speed += (0.05 * data.axes[7])
+        self.max_speed += 0.05 * data.axes[6]
         if data.buttons[0]:
-            msg = Float64()
-            msg.data = self.k_rho
-            self.k_rho_publisher.publish(msg)
-            msg = Float64()
-            msg.data = self.k_theta
-            self.k_theta_publisher.publish(msg)
-            msg = Float64()
-            msg.data = self.max_speed
-            self.max_speed_publisher.publish(msg)
             print("self.k_rho = {}\nself.k_theta = {}\nself.max_speex = {}".format(
                 self.k_rho,
                 self.k_theta,
@@ -93,10 +82,8 @@ class LaneTracker(Node):
             self.goal_theta_left = 0
             self.goal_rho_right = 0
             self.goal_theta_right = 0
-        if data.buttons[3]:
-            self.publish_flag = False
-        elif data.buttons[4]:
-            self.publish_flag = True
+        if data.buttons[1]:
+            self.publish_flag = not self.publish_flag
 
 
     def two_dots_line(self, rho, theta, frame):
@@ -141,12 +128,10 @@ class LaneTracker(Node):
         rho = -(self.error_rho_left + self.error_rho_right)
         message = Float64()
         message.data = -((theta * self.k_theta) + (rho * self.k_rho))
-        if self.publish_flag:
-            self.steering_publisher.publish(message)
+        self.steering_publisher.publish(message)
         msg = Float64()
         msg.data = self.max_speed
-        if self.publish_flag:
-            self.speed_publisher.publish(msg)
+        self.speed_publisher.publish(msg)
 
     def left_listener_callback(self, data):
         if self.autocalibrate_left < 10:

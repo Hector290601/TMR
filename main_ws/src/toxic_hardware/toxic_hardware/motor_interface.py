@@ -13,7 +13,7 @@ class MotorInterface(Node):
                 Float64,
                 '/speed',
                 self.motor_callback,
-                60
+                1
                 )
         self.subscription
 
