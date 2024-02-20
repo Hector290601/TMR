@@ -4,6 +4,7 @@ import numpy as np
 import math
 from std_msgs.msg import Float64MultiArray, Float64
 import os
+from sensor_msgs.msg import Joy
 
 def to_normal_form(x1, y1, x2, y2):
     A = y2 - y1
@@ -31,6 +32,12 @@ class LaneTracker(Node):
                 self.right_listener_callback, 
                 1
         )
+        self.joy_subscriber = self.create_subscription(
+                Joy,
+                '/joy',
+                self.control_callback,
+                60
+                )
         self.steering_publisher = self.create_publisher(Float64, '/steering', 1)
         self.speed_publisher = self.create_publisher(Float64, '/speed', 1)
         self.left_subscription
@@ -39,10 +46,37 @@ class LaneTracker(Node):
         self.left_theta = 0
         self.right_rho = 0
         self.right_theta = 0
+        """
         self.goal_rho_left = 176.49656082775857
         self.goal_theta_left = 0.9652746567890302
         self.goal_rho_right = 105.81332073669007
         self.goal_theta_right = -1.1552044701520168
+        """
+        self.goal_rho_left = 0
+        self.goal_theta_left = 0
+        self.goal_rho_right = 0
+        self.goal_theta_right = 0
+        self.k_rho = 0.04
+        self.k_theta = 0.055
+        self.autocalibrate_left = 0
+        self.autocalibrate_right = 0
+
+    def control_callback(self, data):
+        self.k_rho += 0.005 * data.axes[6] 
+        self.k_theta += 0.0005 * data.axes[7] 
+        if data.buttons[0]:
+            print("self.k_rho = {}\nself.k_theta = {}".format(
+                self.k_rho,
+                self.k_theta
+                )
+            )
+        if data.buttons[1]:
+            self.autocalibrate_left = 0
+            self.autocalibrate_right = 0
+            self.goal_rho_left = 0
+            self.goal_theta_left = 0
+            self.goal_rho_right = 0
+            self.goal_theta_right = 0
 
 
     def two_dots_line(self, rho, theta, frame):
@@ -86,22 +120,34 @@ class LaneTracker(Node):
         theta = -(self.error_theta_left + self.error_theta_right)
         rho = -(self.error_rho_left + self.error_rho_right)
         message = Float64()
-        message.data = -((theta * 0.055) + (rho * 0.04))
+        message.data = -((theta * self.k_theta) + (rho * self.k_rho))
         self.steering_publisher.publish(message)
         msg = Float64()
         msg.data = 0.75
         self.speed_publisher.publish(msg)
 
     def left_listener_callback(self, data):
-        self.left_rho = data.data[0]
-        self.left_theta = data.data[1]
-        self.get_errors()
+        if self.autocalibrate_left < 10:
+            self.goal_rho_left += data.data[0] * 0.1
+            self.goal_theta_left += data.data[1] * 0.1
+            self.autocalibrate_left += 1
+            print("CALIBRATING LEFT")
+        else:
+            self.left_rho = data.data[0]
+            self.left_theta = data.data[1]
+            self.get_errors()
         #print("left: {}@{}".format(self.left_rho, self.left_theta))
 
     def right_listener_callback(self, data):
-        self.right_rho = data.data[0]
-        self.right_theta = data.data[1]
-        self.get_errors()
+        if self.autocalibrate_right < 10:
+            self.goal_rho_right += data.data[0] * 0.1
+            self.goal_theta_right += data.data[1] * 0.1
+            self.autocalibrate_right += 1
+            print("CALIBRATING RIGHT")
+        else:
+            self.right_rho = data.data[0]
+            self.right_theta = data.data[1]
+            self.get_errors()
         #pr9int("right: {}@{}".format(self.right_rho, self.right_theta))
   
 def main(args=None):
