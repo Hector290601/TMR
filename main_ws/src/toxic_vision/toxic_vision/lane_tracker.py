@@ -36,7 +36,7 @@ class LaneTracker(Node):
                 Joy,
                 '/joy',
                 self.control_callback,
-                60
+                1
                 )
         self.steering_publisher = self.create_publisher(Float64, '/steering', 1)
         self.speed_publisher = self.create_publisher(Float64, '/speed', 1)
@@ -50,26 +50,26 @@ class LaneTracker(Node):
         self.right_rho = 0
         self.right_theta = 0
         """
-        self.goal_rho_left = 176.49656082775857
-        self.goal_theta_left = 0.9652746567890302
-        self.goal_rho_right = 105.81332073669007
-        self.goal_theta_right = -1.1552044701520168
-        """
+        self.goal_rho_left = 85.3915173743109
+        self.goal_theta_left = 1.1003831279978304
+        self.goal_rho_right = 233.10512423852725
+        self.goal_theta_right = -0.9467732738181398
+        #"""
         self.goal_rho_left = 0
         self.goal_theta_left = 0
         self.goal_rho_right = 0
         self.goal_theta_right = 0
-        self.k_rho = 0.04
-        self.k_theta = 0.055
+        self.k_rho = 0.05
+        self.k_theta = 0.06
         self.autocalibrate_left = 0
         self.autocalibrate_right = 0
-        self.max_speed = 0.8
-        self.publish_flag = False
+        self.max_speed = 0.6
+        self.publish_flag = True
 
     def control_callback(self, data):
-        self.k_rho += 0.005 * data.axes[3]
-        self.k_theta += 0.0005 * data.axes[4]
-        self.max_speed += (0.05 * data.axes[7])
+        self.k_rho += 0.0001 * data.axes[3]
+        self.k_theta += 0.00001 * data.axes[4]
+        self.max_speed += (0.001 * data.axes[7])
         if data.buttons[0]:
             msg = Float64()
             msg.data = self.k_rho

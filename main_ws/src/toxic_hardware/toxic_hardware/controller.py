@@ -12,7 +12,7 @@ class ControlSubscriber(Node):
                 Joy,
                 '/joy',
                 self.control_callback,
-                60
+                1
                 )
         self.speed_publisher = self.create_publisher(Float64, '/speed', 1)
         self.steering_publisher = self.create_publisher(Float64, '/steering', 1)

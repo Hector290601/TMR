@@ -11,11 +11,11 @@ import os
 upper_color = [130, 254, 255]
 lower_color = [0, 216, 0]
 
-left_min = 0.7
-left_max = 1
-right_min = -1.0
-right_max = -0.7
-variance = 0.1
+left_min = 0.8
+left_max = 1.1
+right_min = -1.1
+right_max = -0.8
+variance = 0.15
 delta = 5
 
 upper = -1
