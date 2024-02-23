@@ -55,7 +55,6 @@ to team
   - This's the first year which the robot's inscribed to the TMR, but on the
 remote simulated league, anyway, we won the
 [3rd](https://femexrobotica.org/tmr2022/resultados/) place.
-  - Romero, Melania lefted to team due to time issues.
   - Negrete, Marco helped us to join to
 [biorobotics lab](https://biorobotics.fi-p.unam.mx/es/) on the
 [Facultad de Ingeniería](https://www.ingenieria.unam.mx/),
