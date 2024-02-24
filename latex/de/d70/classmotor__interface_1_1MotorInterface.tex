@@ -29,16 +29,16 @@ def \mbox{\hyperlink{classmotor__interface_1_1MotorInterface_a9e946487184abfcf65
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{10     \textcolor{keyword}{def }\_\_init\_\_(self):}
-\DoxyCodeLine{11         super().\_\_init\_\_(\textcolor{stringliteral}{'motor\_interface'})}
-\DoxyCodeLine{12         self.subscription = self.create\_subscription(}
-\DoxyCodeLine{13                 Float64,}
-\DoxyCodeLine{14                 \textcolor{stringliteral}{'/speed'},}
-\DoxyCodeLine{15                 self.motor\_callback,}
-\DoxyCodeLine{16                 60}
-\DoxyCodeLine{17                 )}
-\DoxyCodeLine{18         self.subscription}
-\DoxyCodeLine{19 }
+\DoxyCodeLine{21     \textcolor{keyword}{def }\_\_init\_\_(self):}
+\DoxyCodeLine{22         super().\_\_init\_\_(\textcolor{stringliteral}{'motor\_interface'})}
+\DoxyCodeLine{23         self.subscription = self.create\_subscription(}
+\DoxyCodeLine{24                 Float64,}
+\DoxyCodeLine{25                 \textcolor{stringliteral}{'/speed'},}
+\DoxyCodeLine{26                 self.motor\_callback,}
+\DoxyCodeLine{27                 60}
+\DoxyCodeLine{28                 )}
+\DoxyCodeLine{29         self.subscription}
+\DoxyCodeLine{30 }
 
 \end{DoxyCode}
 
@@ -52,22 +52,22 @@ def \mbox{\hyperlink{classmotor__interface_1_1MotorInterface_a9e946487184abfcf65
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{20     \textcolor{keyword}{def }motor\_callback(self, data):}
-\DoxyCodeLine{21         \textcolor{keyword}{global} roboclaw}
-\DoxyCodeLine{22         recived = data.data}
-\DoxyCodeLine{23         \textcolor{keywordflow}{if} recived > 1.0:}
-\DoxyCodeLine{24             recived = 1.0}
-\DoxyCodeLine{25         \textcolor{keywordflow}{elif} recived < -\/1.0:}
-\DoxyCodeLine{26             recived = -\/1.0}
-\DoxyCodeLine{27         \textcolor{keywordflow}{if} recived >= 0:}
-\DoxyCodeLine{28             print(\textcolor{stringliteral}{"{}Forward@M1"{}})}
-\DoxyCodeLine{29             roboclaw.ForwardM1(0x80, int(32*recived))}
-\DoxyCodeLine{30             print(recived)}
-\DoxyCodeLine{31         \textcolor{keywordflow}{elif} recived < 0:}
-\DoxyCodeLine{32             print(\textcolor{stringliteral}{"{}Backward@M1"{}})}
-\DoxyCodeLine{33             roboclaw.BackwardM1(0x80, int(32*-\/recived))}
-\DoxyCodeLine{34             print(recived)}
-\DoxyCodeLine{35 }
+\DoxyCodeLine{31     \textcolor{keyword}{def }motor\_callback(self, data):}
+\DoxyCodeLine{32         \textcolor{keyword}{global} roboclaw}
+\DoxyCodeLine{33         recived = data.data}
+\DoxyCodeLine{34         \textcolor{keywordflow}{if} recived > 1.0:}
+\DoxyCodeLine{35             recived = 1.0}
+\DoxyCodeLine{36         \textcolor{keywordflow}{elif} recived < -\/1.0:}
+\DoxyCodeLine{37             recived = -\/1.0}
+\DoxyCodeLine{38         \textcolor{keywordflow}{if} recived >= 0:}
+\DoxyCodeLine{39             print(\textcolor{stringliteral}{"{}Forward@M1"{}})}
+\DoxyCodeLine{40             roboclaw.ForwardM1(0x80, int(32*recived))}
+\DoxyCodeLine{41             print(recived)}
+\DoxyCodeLine{42         \textcolor{keywordflow}{elif} recived < 0:}
+\DoxyCodeLine{43             print(\textcolor{stringliteral}{"{}Backward@M1"{}})}
+\DoxyCodeLine{44             roboclaw.BackwardM1(0x80, int(32*-\/recived))}
+\DoxyCodeLine{45             print(recived)}
+\DoxyCodeLine{46 }
 
 \end{DoxyCode}
 
@@ -83,4 +83,4 @@ def \mbox{\hyperlink{classmotor__interface_1_1MotorInterface_a9e946487184abfcf65
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-main\+\_\+ws/src/toxic\+\_\+hardware/toxic\+\_\+hardware/\mbox{\hyperlink{src_2toxic__hardware_2toxic__hardware_2motor__interface_8py}{motor\+\_\+interface.\+py}}\end{DoxyCompactItemize}
+main\+\_\+ws/src/toxic\+\_\+hardware/toxic\+\_\+hardware/\mbox{\hyperlink{motor__interface_8py}{motor\+\_\+interface.\+py}}\end{DoxyCompactItemize}

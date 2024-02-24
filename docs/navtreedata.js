@@ -40,8 +40,8 @@ var NAVTREE =
       [ "Class Hierarchy", "hierarchy.html", "hierarchy" ],
       [ "Class Members", "functions.html", [
         [ "All", "functions.html", "functions_dup" ],
-        [ "Functions", "functions_func.html", "functions_func" ],
-        [ "Variables", "functions_vars.html", "functions_vars" ]
+        [ "Functions", "functions_func.html", null ],
+        [ "Variables", "functions_vars.html", null ]
       ] ]
     ] ],
     [ "Files", "files.html", [
@@ -53,8 +53,7 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"d6/db4/classroboclaw__3_1_1Roboclaw.html#abce41d003f6c4583a79616837749db3f",
-"d9/dbb/classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw.html#aed66489886b7cfdaaeb2be6cda59427c"
+"dc/dac/toxic__hardware_2setup_8py.html#ab2a4f143e926c57a50df01bb182a4fd5"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

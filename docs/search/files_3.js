@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['kinect_5fpublisher_2epy_412',['kinect_publisher.py',['../d9/d80/kinect__publisher_8py.html',1,'']]],
-  ['kinect_5fsubscriber_2epy_413',['kinect_subscriber.py',['../d6/d86/kinect__subscriber_8py.html',1,'']]]
+  ['oled_5finterface_2epy_338',['oled_interface.py',['../d1/d0a/oled__interface_8py.html',1,'']]]
 ];

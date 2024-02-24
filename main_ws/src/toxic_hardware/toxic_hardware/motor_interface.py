@@ -1,3 +1,14 @@
+##
+# @file motor_interface.py
+#
+# @brief This script creates a  susbcriber node to  parse a 
+# std_msgs.msg.Float64 ROS's message type to a Roboclaw's serial 
+# output.
+#
+# 
+#
+#
+
 import sys
 import rclpy
 from rclpy.node import Node

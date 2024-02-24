@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['kinect_5fasync_493',['kinect_async',['../de/d10/namespacetoxic__vision_1_1async__kinect__publisher.html#a2c3c8a8e3bcddb23b4ed765f3122ef30',1,'toxic_vision::async_kinect_publisher']]]
+  ['leftrightmixed_413',['LeftRightMixed',['../d6/db4/classroboclaw__3_1_1Roboclaw.html#ab1b403df0c19b03fa19fc6e6944b5bac',1,'roboclaw_3::Roboclaw']]],
+  ['listener_5fcallback_414',['listener_callback',['../d0/df0/classwebcam__sub_1_1ImageSubscriber.html#a23dd9943cb7cb7be2a6e7022a85a1684',1,'webcam_sub::ImageSubscriber']]]
 ];
