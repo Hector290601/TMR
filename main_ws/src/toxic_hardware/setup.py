@@ -25,7 +25,9 @@ setup(
             'servo_interface = toxic_hardware.servo_interface:main',
             'oled_interface = toxic_hardware.oled_interface:main',
             'blinkers_interface = toxic_hardware.blinkers_interface:main',
-            'automate = toxic_hardware.automate:main'
+            'automate = toxic_hardware.automate:main',
+            'u_sonics = toxic_hardware.u_sonics:main',
+            'gpio_interface = toxic_hardware.gpio_interface:main',
         ],
     },
 )
