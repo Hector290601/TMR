@@ -28,10 +28,16 @@ def threaded_function(pin, id_pin):
     max_time = max_distance / 1750
     start = time.time()
     end = time.time()
-    while lgpio.gpio_read(board_interface, pin) == 0 or time.time() - start < max_time:
-        start = time.time()
-    while lgpio.gpio_read(board_interface, pin) == 0 or time.time() - start < max_time:
-        end = time.time()
+    while lgpio.gpio_read(board_interface, pin) == 0:
+        if time.time() - start > max_time:
+            distances[id_pin] = -1
+            return
+    start = time.time()
+    while lgpio.gpio_read(board_interface, pin) == 1:
+        if time.time() - start > max_time:
+            distances[id_pin] = -1
+            return
+    end = time.time()
     delta = end - start
     distance = delta * 1750
     if distance > 200:
