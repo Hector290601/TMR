@@ -23,10 +23,10 @@ right_theta_min = -1.1
 right_theta_max = -0.8
 """
 
-right_rho_min: -0.2626140717078477
-right_rho_max: 0.7373859282921523
-right_theta_min: -4.762614071707848
-right_theta_max: 5.237385928292152
+right_rho_min= -0.2626140717078477
+right_rho_max= 0.7373859282921523
+right_theta_min= -4.762614071707848
+right_theta_max= 5.237385928292152
 
 variance_rho = 0.5
 variance_theta = 5
