@@ -60,15 +60,15 @@ class LaneTracker(Node):
         self.goal_rho_right = 0
         self.goal_theta_right = 0
         self.k_rho = 0.05
-        self.k_theta = 0.06
+        self.k_theta = 0.006
         self.autocalibrate_left = 0
         self.autocalibrate_right = 0
         self.max_speed = 0.6
         self.publish_flag = True
 
     def control_callback(self, data):
-        self.k_rho += 0.0001 * data.axes[3]
-        self.k_theta += 0.00001 * data.axes[4]
+        self.k_rho += 0.0001 * data.axes[1]
+        self.k_theta += 0.00001 * data.axes[0]
         self.max_speed += (0.001 * data.axes[7])
         if data.buttons[0]:
             msg = Float64()

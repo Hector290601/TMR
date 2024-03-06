@@ -5,34 +5,34 @@ from cv_bridge import CvBridge
 import cv2
 import numpy as np
 import math
-from std_msgs.msg import Float64MultiArray
+from std_msgs.msg import Float64MultiArray, UInt8MultiArray
 import os
 
-upper_color = [130, 254, 255]
-lower_color = [0, 216, 0]
+upper_color = [130, 254, 255]        
+lower_color = [0, 195, 0] 
 
 rho_delta = 10
 theta_delta = 0.25
 
-average_rho_left= 109.40567012543208
-average_theta_left= 1.3574021478265867
+average_rho_left= 0
+average_theta_left= 0
 
-average_rho_right= 59.047242615280965
-average_theta_right= -1.3294799920450733
+average_rho_right= 0
+average_theta_right= 0
 
 
-left_rho_min = average_rho_left - rho_delta
-left_rho_max = average_rho_left + rho_delta
-left_theta_min = average_theta_left - theta_delta
-left_theta_max = average_theta_left + theta_delta
+left_rho_min = 0#average_rho_left - rho_delta
+left_rho_max = 320#average_rho_left + rho_delta
+left_theta_min = 0#average_theta_left - theta_delta
+left_theta_max = math.pi#average_theta_left + theta_delta
 
-right_rho_min= average_rho_right - rho_delta
-right_rho_max= average_rho_right + rho_delta
-right_theta_min= average_theta_right - theta_delta
-right_theta_max= average_theta_right + theta_delta
+right_rho_min= 0#average_rho_right - rho_delta
+right_rho_max= 320#average_rho_right + rho_delta
+right_theta_max= 0#average_theta_right - theta_delta
+right_theta_min= -math.pi#average_theta_right + theta_delta
 
-variance_rho = 0.5
-variance_theta = 5
+variance_rho = 50
+variance_theta = 0.12
 delta = 5
 
 upper = -1
@@ -152,9 +152,9 @@ class ImageSubscriber(Node):
               l = lines[i]
               rho, theta = to_normal_form(l[0], l[1], l[2], l[3])
               if (
-                      theta < 0
-                      #(right_theta_min < theta < right_theta_max)
-                      #and (right_rho_min < rho < right_rho_max)
+                      #theta < 0
+                      (right_theta_min <= theta <= right_theta_max)
+                      and (right_rho_min < rho < right_rho_max)
                  ):
                   sum_theta_right += theta
                   sum_rho_right += rho
@@ -186,9 +186,9 @@ class ImageSubscriber(Node):
                               counter_color += 1
                   #"""
               elif (
-                      theta > 0
-                      #(left_theta_min < theta < left_theta_max)
-                      #and (left_rho_min < rho < left_rho_max)
+                      #theta > 0
+                      (left_theta_min <= theta <= left_theta_max)
+                      and (left_rho_min < rho < left_rho_max)
                    ):
                   sum_theta_left += theta
                   sum_rho_left += rho
@@ -213,19 +213,38 @@ class ImageSubscriber(Node):
                               s += col[1]
                               counter_color += 1
                   #"""
+              else:
+                  print("left_theta: {} < {} < {}".format(
+                      left_theta_min, theta, left_theta_max
+                      )
+                  )
+                  print("left_rho: {} < {} < {}".format(
+                      left_rho_min, rho, left_rho_max
+                      )
+                  )
+                  print("right_theta: {} < {} < {}".format(
+                      right_theta_min, theta, right_theta_max
+                      )
+                  )
+                  print("right_rho: {} < {} < {}".format(
+                      right_rho_min, rho, right_rho_max
+                      )
+                  )
           if count_left > 0:
               average_rho_left = sum_rho_left / count_left
               average_theta_left = sum_theta_left / count_left
               left_theta_min = average_theta_left - variance_theta
               left_theta_max = average_theta_left + variance_theta
-              left_rho_min = average_theta_left - variance_theta
-              left_rho_max = average_theta_left + variance_theta
+              left_rho_min = average_rho_left - variance_rho
+              left_rho_max = average_rho_left + variance_rho
+              """
               print("left_rho_min= {}".format(left_rho_min))
               print("left_rho_max= {}".format(left_rho_max))
               print("left_theta_min= {}".format(left_theta_min))
               print("left_theta_max= {}".format(left_theta_max))
               print("average_rho_left= {}".format(average_rho_left))
               print("average_theta_left= {}".format(average_theta_left))
+              #"""
               message = Float64MultiArray()
               message.data = [average_rho_left, average_theta_left]
               self.left_lane_publisher.publish(message)
@@ -247,12 +266,14 @@ class ImageSubscriber(Node):
               right_theta_max = average_theta_right + variance_theta
               right_rho_min = average_theta_right - variance_rho
               right_rho_max = average_theta_right + variance_rho
+              """
               print("right_rho_min= {}".format(right_rho_min))
               print("right_rho_max= {}".format(right_rho_max))
               print("right_theta_min= {}".format(right_theta_min))
               print("right_theta_max= {}".format(right_theta_max))
               print("average_rho_right= {}".format(average_rho_right))
               print("average_theta_right= {}".format(average_theta_right))
+              #"""
               message = Float64MultiArray()
               message.data = [average_rho_right, average_theta_right]
               self.right_lane_publisher.publish(message)
@@ -288,13 +309,13 @@ class ImageSubscriber(Node):
     hsv = self.process_image()
     band_pass = self.range_finder()
     self.line_finder()
-    cv2.imshow("camera", frame)
-    cv2.imshow("band_filter", band_pass)
-    cv2.imshow("dst", dst)
+    #cv2.imshow("camera", frame)
+    #cv2.imshow("band_filter", band_pass)
+    #cv2.imshow("dst", dst)
     #cv2.setMouseCallback("camera", mouse_callback)
     #cv2.setMouseCallback("dst", mouse_callback)
     #cv2.setMouseCallback("band_filter", mouse_callback)
-    cv2.waitKey(1)
+    #cv2.waitKey(1)
   
 def main(args=None):
   rclpy.init(args=args)
