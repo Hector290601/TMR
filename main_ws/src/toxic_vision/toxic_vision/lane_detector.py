@@ -11,22 +11,25 @@ import os
 upper_color = [130, 254, 255]
 lower_color = [0, 216, 0]
 
-left_rho_min = -1.5
-left_rho_max = -0.9
-left_theta_min = -0.5
-left_theta_max = 0.5
+rho_delta = 10
+theta_delta = 0.25
 
-"""
-right_rho_min = -1.1
-right_rho_max = -0.8
-right_theta_min = -1.1
-right_theta_max = -0.8
-"""
+average_rho_left= 109.40567012543208
+average_theta_left= 1.3574021478265867
 
-right_rho_min= -0.2626140717078477
-right_rho_max= 0.7373859282921523
-right_theta_min= -4.762614071707848
-right_theta_max= 5.237385928292152
+average_rho_right= 59.047242615280965
+average_theta_right= -1.3294799920450733
+
+
+left_rho_min = average_rho_left - rho_delta
+left_rho_max = average_rho_left + rho_delta
+left_theta_min = average_theta_left - theta_delta
+left_theta_max = average_theta_left + theta_delta
+
+right_rho_min= average_rho_right - rho_delta
+right_rho_max= average_rho_right + rho_delta
+right_theta_min= average_theta_right - theta_delta
+right_theta_max= average_theta_right + theta_delta
 
 variance_rho = 0.5
 variance_theta = 5
@@ -127,7 +130,7 @@ class ImageSubscriber(Node):
       global lower, upper, lefter, righter, upper_color, lower_color, color_delta
       kernel = np.ones((3, 5), np.uint8) 
       band_pass = cv2.morphologyEx(band_pass, cv2.MORPH_OPEN, kernel, iterations=1)
-      dst = cv2.Canny(band_pass, 100, 100, 3, None)
+      dst = cv2.Canny(band_pass, 100, 100, 10, None)
       lines = cv2.HoughLinesP(dst, 3, np.pi/90, 80, minLineLength=25, maxLineGap=1)
       if lines is not None:
           lines = lines[:, 0]
@@ -149,7 +152,8 @@ class ImageSubscriber(Node):
               l = lines[i]
               rho, theta = to_normal_form(l[0], l[1], l[2], l[3])
               if (
-                      (right_theta_min < theta < right_theta_max)
+                      theta < 0
+                      #(right_theta_min < theta < right_theta_max)
                       #and (right_rho_min < rho < right_rho_max)
                  ):
                   sum_theta_right += theta
@@ -182,7 +186,8 @@ class ImageSubscriber(Node):
                               counter_color += 1
                   #"""
               elif (
-                      (left_theta_min < theta < left_theta_max)
+                      theta > 0
+                      #(left_theta_min < theta < left_theta_max)
                       #and (left_rho_min < rho < left_rho_max)
                    ):
                   sum_theta_left += theta
@@ -215,16 +220,16 @@ class ImageSubscriber(Node):
               left_theta_max = average_theta_left + variance_theta
               left_rho_min = average_theta_left - variance_theta
               left_rho_max = average_theta_left + variance_theta
-              print("left_rho_min: {}".format(left_rho_min))
-              print("left_rho_max: {}".format(left_rho_max))
-              print("left_theta_min: {}".format(left_theta_min))
-              print("left_theta_max: {}".format(left_theta_max))
-              print("average_rho_left: {}".format(average_rho_left))
-              print("average_theta_left: {}".format(average_theta_left))
+              print("left_rho_min= {}".format(left_rho_min))
+              print("left_rho_max= {}".format(left_rho_max))
+              print("left_theta_min= {}".format(left_theta_min))
+              print("left_theta_max= {}".format(left_theta_max))
+              print("average_rho_left= {}".format(average_rho_left))
+              print("average_theta_left= {}".format(average_theta_left))
               message = Float64MultiArray()
               message.data = [average_rho_left, average_theta_left]
               self.left_lane_publisher.publish(message)
-              """
+              #"""
               try:
                   x1, y1, x2, y2 = self.two_dots_line(average_rho_left, average_theta_left, frame)
                   x3 = x1 + delta
@@ -242,16 +247,16 @@ class ImageSubscriber(Node):
               right_theta_max = average_theta_right + variance_theta
               right_rho_min = average_theta_right - variance_rho
               right_rho_max = average_theta_right + variance_rho
-              print("right_rho_min: {}".format(right_rho_min))
-              print("right_rho_max: {}".format(right_rho_max))
-              print("right_theta_min: {}".format(right_theta_min))
-              print("right_theta_max: {}".format(right_theta_max))
-              print("average_rho_right: {}".format(average_rho_right))
-              print("average_theta_right: {}".format(average_theta_right))
+              print("right_rho_min= {}".format(right_rho_min))
+              print("right_rho_max= {}".format(right_rho_max))
+              print("right_theta_min= {}".format(right_theta_min))
+              print("right_theta_max= {}".format(right_theta_max))
+              print("average_rho_right= {}".format(average_rho_right))
+              print("average_theta_right= {}".format(average_theta_right))
               message = Float64MultiArray()
               message.data = [average_rho_right, average_theta_right]
               self.right_lane_publisher.publish(message)
-              """
+              #"""
               try:
                   x1, y1, x2, y2 = self.two_dots_line(average_rho_right, average_theta_right, frame)
                   x3 = x1 + delta
@@ -283,13 +288,13 @@ class ImageSubscriber(Node):
     hsv = self.process_image()
     band_pass = self.range_finder()
     self.line_finder()
-    #cv2.imshow("camera", frame)
-    #cv2.imshow("band_filter", band_pass)
-    #cv2.imshow("dst", dst)
+    cv2.imshow("camera", frame)
+    cv2.imshow("band_filter", band_pass)
+    cv2.imshow("dst", dst)
     #cv2.setMouseCallback("camera", mouse_callback)
     #cv2.setMouseCallback("dst", mouse_callback)
     #cv2.setMouseCallback("band_filter", mouse_callback)
-    #cv2.waitKey(1)
+    cv2.waitKey(1)
   
 def main(args=None):
   rclpy.init(args=args)
