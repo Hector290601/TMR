@@ -1,4 +1,0 @@
-<launch>
-		<node pkg="toxic_hardware" exec="motor_interface" name="motor_interface" namespace="toxic_hardware"/>
-		<node pkg="toxic_hardware" exec="servo_interface" name="servo_interface" namespace="toxic_hardware"/>
-</launch>

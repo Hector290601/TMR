@@ -8,8 +8,10 @@ import math
 from std_msgs.msg import Float64MultiArray, UInt8MultiArray
 import os
 
-upper_color = [130, 254, 255]        
-lower_color = [0, 195, 0] 
+#upper_color = [130, 254, 255]        
+#lower_color = [0, 195, 0] 
+upper_color = [174, 106, 99]
+lower_color = [0, 18, 0] 
 
 rho_delta = 10
 theta_delta = 0.25
@@ -23,22 +25,22 @@ average_theta_right= 0
 
 left_rho_min = 0#average_rho_left - rho_delta
 left_rho_max = 320#average_rho_left + rho_delta
-left_theta_min = 0#average_theta_left - theta_delta
-left_theta_max = math.pi#average_theta_left + theta_delta
+left_theta_min = -10#average_theta_left - theta_delta
+left_theta_max = 10#average_theta_left + theta_delta
 
-right_rho_min= 0#average_rho_right - rho_delta
-right_rho_max= 320#average_rho_right + rho_delta
-right_theta_max= 0#average_theta_right - theta_delta
-right_theta_min= -math.pi#average_theta_right + theta_delta
+right_rho_min= -320#average_rho_right - rho_delta
+right_rho_max= 0#average_rho_right + rho_delta
+right_theta_max= 10#average_theta_right - theta_delta
+right_theta_min= -10#average_theta_right + theta_delta
 
 variance_rho = 50
 variance_theta = 0.12
 delta = 5
 
-upper = -1
+upper = -1000
 lower = 1000
 lefter = 1000
-righter = -1
+righter = -1000
 
 frame = []
 
@@ -152,9 +154,9 @@ class ImageSubscriber(Node):
               l = lines[i]
               rho, theta = to_normal_form(l[0], l[1], l[2], l[3])
               if (
-                      #theta < 0
-                      (right_theta_min <= theta <= right_theta_max)
-                      and (right_rho_min < rho < right_rho_max)
+                      theta < 0
+                      #(right_theta_min <= theta <= right_theta_max)
+                      #and (right_rho_min < rho < right_rho_max)
                  ):
                   sum_theta_right += theta
                   sum_rho_right += rho
@@ -186,9 +188,9 @@ class ImageSubscriber(Node):
                               counter_color += 1
                   #"""
               elif (
-                      #theta > 0
-                      (left_theta_min <= theta <= left_theta_max)
-                      and (left_rho_min < rho < left_rho_max)
+                      theta > 0
+                      #(left_theta_min <= theta <= left_theta_max)
+                      #and (left_rho_min < rho < left_rho_max)
                    ):
                   sum_theta_left += theta
                   sum_rho_left += rho
@@ -248,7 +250,7 @@ class ImageSubscriber(Node):
               message = Float64MultiArray()
               message.data = [average_rho_left, average_theta_left]
               self.left_lane_publisher.publish(message)
-              #"""
+              """
               try:
                   x1, y1, x2, y2 = self.two_dots_line(average_rho_left, average_theta_left, frame)
                   x3 = x1 + delta
@@ -277,7 +279,7 @@ class ImageSubscriber(Node):
               message = Float64MultiArray()
               message.data = [average_rho_right, average_theta_right]
               self.right_lane_publisher.publish(message)
-              #"""
+              """
               try:
                   x1, y1, x2, y2 = self.two_dots_line(average_rho_right, average_theta_right, frame)
                   x3 = x1 + delta
@@ -309,13 +311,15 @@ class ImageSubscriber(Node):
     hsv = self.process_image()
     band_pass = self.range_finder()
     self.line_finder()
-    #cv2.imshow("camera", frame)
-    #cv2.imshow("band_filter", band_pass)
-    #cv2.imshow("dst", dst)
-    #cv2.setMouseCallback("camera", mouse_callback)
-    #cv2.setMouseCallback("dst", mouse_callback)
-    #cv2.setMouseCallback("band_filter", mouse_callback)
-    #cv2.waitKey(1)
+    """
+    cv2.imshow("camera", frame)
+    cv2.imshow("band_filter", band_pass)
+    cv2.imshow("dst", dst)
+    cv2.setMouseCallback("camera", mouse_callback)
+    cv2.setMouseCallback("dst", mouse_callback)
+    cv2.setMouseCallback("band_filter", mouse_callback)
+    cv2.waitKey(1)
+    #"""
   
 def main(args=None):
   rclpy.init(args=args)

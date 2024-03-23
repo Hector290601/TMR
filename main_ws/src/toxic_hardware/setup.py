@@ -20,6 +20,7 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
+            'lidar_interface = toxic_hardware.lidar_interface:main',
             'controller = toxic_hardware.controller:main',
             'motor_interface = toxic_hardware.motor_interface:main',
             'servo_interface = toxic_hardware.servo_interface:main',

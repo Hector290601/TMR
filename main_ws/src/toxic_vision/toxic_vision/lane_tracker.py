@@ -6,6 +6,12 @@ from std_msgs.msg import Float64MultiArray, Float64
 import os
 from sensor_msgs.msg import Joy
 
+##
+# TODO:
+# - Add a timer to verify the last line message recived.
+# - Add a subscriber to see if the speed and steering's recognized
+#
+
 def to_normal_form(x1, y1, x2, y2):
     A = y2 - y1
     B = x1 - x2
@@ -38,6 +44,14 @@ class LaneTracker(Node):
                 self.control_callback,
                 1
                 )
+        self.speed_subscriber = self.create_subscription(
+                Float64,
+                '/speed',
+                self.control_callback,
+                1
+                )
+        timer_period = 1/30
+        self.timer = self.create_timer(timer_preiod, self.timer_callback)
         self.steering_publisher = self.create_publisher(Float64, '/steering', 1)
         self.speed_publisher = self.create_publisher(Float64, '/speed', 1)
         self.k_rho_publisher = self.create_publisher(Float64, '/k/rho', 1)
@@ -60,10 +74,10 @@ class LaneTracker(Node):
         self.goal_rho_right = 0
         self.goal_theta_right = 0
         self.k_rho = 0.05
-        self.k_theta = 0.006
+        self.k_theta = 0.05
         self.autocalibrate_left = 0
         self.autocalibrate_right = 0
-        self.max_speed = 0.6
+        self.max_speed = 0.65
         self.publish_flag = True
 
     def control_callback(self, data):
