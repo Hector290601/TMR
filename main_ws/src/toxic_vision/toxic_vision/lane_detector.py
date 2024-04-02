@@ -250,7 +250,7 @@ class ImageSubscriber(Node):
               message = Float64MultiArray()
               message.data = [average_rho_left, average_theta_left]
               self.left_lane_publisher.publish(message)
-              """
+              #"""
               try:
                   x1, y1, x2, y2 = self.two_dots_line(average_rho_left, average_theta_left, frame)
                   x3 = x1 + delta
@@ -279,7 +279,7 @@ class ImageSubscriber(Node):
               message = Float64MultiArray()
               message.data = [average_rho_right, average_theta_right]
               self.right_lane_publisher.publish(message)
-              """
+              #"""
               try:
                   x1, y1, x2, y2 = self.two_dots_line(average_rho_right, average_theta_right, frame)
                   x3 = x1 + delta
@@ -311,7 +311,7 @@ class ImageSubscriber(Node):
     hsv = self.process_image()
     band_pass = self.range_finder()
     self.line_finder()
-    """
+   # """
     cv2.imshow("camera", frame)
     cv2.imshow("band_filter", band_pass)
     cv2.imshow("dst", dst)
