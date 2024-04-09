@@ -27,6 +27,7 @@ setup(
             'video_recorder = toxic_vision.video_recorder:main',
             'webcam_publisher = toxic_vision.webcam_pub:main',
             'color_selector = toxic_vision.color_selector:main',
+            'obstacle_detector = toxic_vision.obstacle_detector:main',
             'lane_detector = toxic_vision.lane_detector:main',
             'lane_tracker = toxic_vision.lane_tracker:main',
         ],

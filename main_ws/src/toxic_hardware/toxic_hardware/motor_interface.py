@@ -37,9 +37,9 @@ class MotorInterface(Node):
         elif self.current_speed < -1.0:
             self.current_speed = -1.0
         if self.current_speed >= 0:
-            roboclaw.ForwardM2(0x80, int(50*self.current_speed))
+            roboclaw.ForwardM2(0x80, int(20*self.current_speed))
         elif self.current_speed < 0:
-            roboclaw.BackwardM2(0x80, int(50*-self.current_speed))
+            roboclaw.BackwardM2(0x80, int(20*-self.current_speed))
 
 def main(args=None):
     print(roboclaw.Open())
