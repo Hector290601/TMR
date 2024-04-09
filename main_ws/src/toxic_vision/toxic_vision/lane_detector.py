@@ -202,7 +202,7 @@ class ImageSubscriber(Node):
                   count_left += 1
               elif (
                       (right_theta_min <= theta <= right_theta_max)
-                      and (right_rho_min < rho < right_rho_max)
+                      and (right_rho_min <= rho <= right_rho_max)
                  ):
                   sum_theta_right += theta
                   sum_rho_right += rho
@@ -213,7 +213,7 @@ class ImageSubscriber(Node):
                       ))
               elif (
                       (left_theta_min <= theta <= left_theta_max)
-                      and (left_rho_min < rho < left_rho_max)
+                      and (left_rho_min <= rho <= left_rho_max)
                    ):
                   sum_theta_left += theta
                   sum_rho_left += rho
@@ -230,9 +230,8 @@ class ImageSubscriber(Node):
                       #print("{} > 0".format(theta))
                   elif(theta < 0):
                       cv2.line(frame, (l[0], l[1]), (l[2], l[3]), (0,255,255), 3, cv2.LINE_AA)
-                      print("{} < 0 right".format(rho))
-                      print("{} < 0 right".format(theta))
-                      print("{} < {} < {} right".format(min_rho,))
+                      print([right_theta_min, theta, right_theta_max])
+                      print([right_rho_min, rho, right_rho_max])
           if count_left > 0:
               #print("count_left is bigger than zero")
               average_rho_left = sum_rho_left / count_left
@@ -261,8 +260,8 @@ class ImageSubscriber(Node):
               print("count_right is bigger than zero")
               average_rho_right = sum_rho_right / count_right
               average_theta_right = sum_theta_right / count_right
-              right_theta_min = average_theta_right + variance_theta
-              right_theta_max = average_theta_right - variance_theta
+              right_theta_min = average_theta_right - variance_theta
+              right_theta_max = average_theta_right + variance_theta
               right_rho_min = average_rho_right - variance_rho
               right_rho_max = average_rho_right + variance_rho
               message = Float64MultiArray()
