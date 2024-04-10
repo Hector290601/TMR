@@ -1,5 +1,7 @@
 var NAVTREEINDEX2 =
 {
+"d9/dbb/classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw.html#a1b4d92f94801f58a9890c9587bd028af":[2,0,6,8,0,122],
+"d9/dbb/classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw.html#a1cef86af310cc021bdf421bd4d02adf3":[2,0,6,8,0,74],
 "d9/dbb/classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw.html#a1d580470818c2fa51a0bf3a86bc595bf":[2,0,6,8,0,147],
 "d9/dbb/classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw.html#a20ef100ec6c3b82b97d4763f61ae785b":[2,0,6,8,0,32],
 "d9/dbb/classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw.html#a23587ce1375b80348b7931530929ce09":[2,0,6,8,0,143],
@@ -247,7 +249,5 @@ var NAVTREEINDEX2 =
 "dd/d55/namespacetoxic__hardware_1_1oled__interface.html#a5558ace5433f9aabbf0a0ec059900d94":[1,0,8,7,16],
 "dd/d55/namespacetoxic__hardware_1_1oled__interface.html#a6150e0515f7202e2fb518f7206ed97dc":[1,0,8,7,17],
 "dd/d55/namespacetoxic__hardware_1_1oled__interface.html#a64c09f22bf1aaf06930f11f70d69b426":[1,0,8,7,3],
-"dd/d55/namespacetoxic__hardware_1_1oled__interface.html#a78dca952886227190969e885fbdd4fb4":[1,0,8,7,11],
-"dd/d55/namespacetoxic__hardware_1_1oled__interface.html#a8d9e59eab21bcca5dfbf02faabf38f29":[1,0,8,7,10],
-"dd/d55/namespacetoxic__hardware_1_1oled__interface.html#aa08462d1cbc1c0ce2462199881e1515c":[1,0,8,7,14]
+"dd/d55/namespacetoxic__hardware_1_1oled__interface.html#a78dca952886227190969e885fbdd4fb4":[1,0,8,7,11]
 };

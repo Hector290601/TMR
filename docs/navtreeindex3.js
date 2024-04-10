@@ -1,5 +1,7 @@
 var NAVTREEINDEX3 =
 {
+"dd/d55/namespacetoxic__hardware_1_1oled__interface.html#a8d9e59eab21bcca5dfbf02faabf38f29":[1,0,8,7,10],
+"dd/d55/namespacetoxic__hardware_1_1oled__interface.html#aa08462d1cbc1c0ce2462199881e1515c":[1,0,8,7,14],
 "dd/d55/namespacetoxic__hardware_1_1oled__interface.html#accb1149d5c8c645c307fcb16452ac121":[1,0,8,7,1],
 "dd/d55/namespacetoxic__hardware_1_1oled__interface.html#ae08d18f8f9a415753075d220a1bba561":[1,0,8,7,13],
 "dd/d55/namespacetoxic__hardware_1_1oled__interface.html#af18bb9025627467c42857f6b57902a47":[1,0,8,7,7],
@@ -99,8 +101,8 @@ var NAVTREEINDEX3 =
 "dir_e13c601980536106e86cf00175b679ee.html":[3,0,0,0,1,0],
 "dir_ebdecce296a1b3a7b62e54c7b5706210.html":[3,0,0,0,1,0,0,0],
 "files.html":[3,0],
-"functions.html":[2,3,0],
 "functions.html":[2,3,0,0],
+"functions.html":[2,3,0],
 "functions_a.html":[2,3,0,1],
 "functions_b.html":[2,3,0,2],
 "functions_c.html":[2,3,0,3],
@@ -159,7 +161,5 @@ var NAVTREEINDEX3 =
 "namespacemembers_func.html":[1,1,1],
 "namespacemembers_vars.html":[1,1,2],
 "namespaces.html":[1,0],
-"pages.html":[],
-"":[1,0,8],
-"":[1,0,9]
+"pages.html":[]
 };

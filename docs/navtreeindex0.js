@@ -1,5 +1,7 @@
 var NAVTREEINDEX0 =
 {
+"":[1,0,8],
+"":[1,0,9],
 "annotated.html":[2,0],
 "classes.html":[2,1],
 "d0/d16/classtoxic__hardware_1_1controller_1_1ControlSubscriber.html":[2,0,6,2,0],
@@ -247,7 +249,5 @@ var NAVTREEINDEX0 =
 "d6/d8d/classwebcam__pub_1_1ImagePublisher.html#a9692d7a212fa89bc61dacc687e826097":[2,0,8,0,1],
 "d6/d8d/classwebcam__pub_1_1ImagePublisher.html#a9fabcf6aa0647a2414f7cb1a2ab2634a":[2,0,8,0,5],
 "d6/d8d/classwebcam__pub_1_1ImagePublisher.html#ae64f0875afe3067b97ba370b354b9213":[2,0,8,0,0],
-"d6/db1/namespacetoxic__vision_1_1kinect__subscriber.html":[1,0,9,3],
-"d6/db1/namespacetoxic__vision_1_1kinect__subscriber.html#a26c76d26519cfebd00abda4769308543":[1,0,9,3,1],
-"d6/db2/namespaceblinkers__interface.html":[1,0,0]
+"d6/db1/namespacetoxic__vision_1_1kinect__subscriber.html":[1,0,9,3]
 };
