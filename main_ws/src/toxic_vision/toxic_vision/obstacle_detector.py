@@ -1,6 +1,7 @@
 import rclpy
 from rclpy.node import Node
 from sensor_msgs.msg import Image
+from std_msgs.msg import UInt8
 from cv_bridge import CvBridge
 import cv2
 import numpy as np
@@ -51,6 +52,7 @@ class ImageSubscriber(Node):
       1
       )
     self.publisher = self.create_publisher(Image, '/band_filter', 30)
+    self.traffic_light = self.create_publisher(UIn8, '/obstacles/traffic_light', 30)
     self.subscription
     self.br = CvBridge()
 
@@ -61,6 +63,27 @@ class ImageSubscriber(Node):
             np.array(lower_color),
             np.array(upper_color)
         )
+    delta_x = 0.3
+    delta_y = 0.3
+    umbral = 125
+    limit1 = 20
+    limit2 = 100
+    height, width, _ = band_filter.shape
+    min_x = int((0.5 - delta_x) * width)
+    max_x = int((0.5 + delta_x) * width)
+    min_y = int((0.5 - delta_y) * height)
+    max_y = int((0.5 + delta_y) * height)
+    counter = 0
+    for point in band_filder[min_y:max_y,min_x:max_y,:]:
+        if point >= umbral:
+            counter += 1
+        print(point)
+        if counter >= limit1:
+            self.publisher.publish(self.traffic_light.publish(UInt8(1)))
+        elif counter >= limit2:
+            self.publisher.publish(self.traffic_light.publish(UInt8(2)))
+        else:
+            self.publisher.publish(self.traffic_light.publish(UInt8(0)))
     return band_filter
 
   def process_image(self):
@@ -82,7 +105,6 @@ class ImageSubscriber(Node):
     cv2.setMouseCallback("hsv", mouse_callback)
     cv2.setMouseCallback("band_filter", mouse_callback)
     cv2.waitKey(1)
-    #self.publisher.publish(self.br.cv2_to_imgmsg(band_pass))
   
 def main(args=None):
   rclpy.init(args=args)

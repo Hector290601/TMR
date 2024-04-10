@@ -129,3 +129,4 @@ dmypy.json
 .pyre/
 
 *.csv
+main_ws/log/latest_build
