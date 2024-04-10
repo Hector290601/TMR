@@ -29,6 +29,7 @@ setup(
             'automate = toxic_hardware.automate:main',
             'u_sonics = toxic_hardware.u_sonics:main',
             'gpio_interface = toxic_hardware.gpio_interface:main',
+            'barrido = toxic_hardware.barrido:main',
         ],
     },
 )

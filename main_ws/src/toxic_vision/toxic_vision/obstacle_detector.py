@@ -75,12 +75,12 @@ class ImageSubscriber(Node):
     max_y = int((0.5 + delta_y) * height)
     counter = 0
     for point in band_filder[min_y:max_y,min_x:max_y,:]:
-        if point => umbral:
+        if point >= umbral:
             counter += 1
         print(point)
-        if counter => limit1:
+        if counter >= limit1:
             self.publisher.publish(self.traffic_light.publish(UInt8(1)))
-        elif counter => limit2:
+        elif counter >= limit2:
             self.publisher.publish(self.traffic_light.publish(UInt8(2)))
         else:
             self.publisher.publish(self.traffic_light.publish(UInt8(0)))
