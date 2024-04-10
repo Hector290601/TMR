@@ -33,20 +33,20 @@ def \mbox{\hyperlink{classtoxic__hardware_1_1controller_1_1ControlSubscriber_a33
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{17     \textcolor{keyword}{def }\_\_init\_\_(self):}
-\DoxyCodeLine{18         super().\_\_init\_\_(\textcolor{stringliteral}{'control\_toxic\_subscriber'})}
-\DoxyCodeLine{19         self.subscription = self.create\_subscription(}
-\DoxyCodeLine{20                 Joy,}
-\DoxyCodeLine{21                 \textcolor{stringliteral}{'/joy'},}
-\DoxyCodeLine{22                 self.control\_callback,}
-\DoxyCodeLine{23                 60}
-\DoxyCodeLine{24                 )}
-\DoxyCodeLine{25         self.speed\_publisher = self.create\_publisher(Float64, \textcolor{stringliteral}{'/speed'}, 60)}
-\DoxyCodeLine{26         self.steering\_publisher = self.create\_publisher(Float64, \textcolor{stringliteral}{'/steering'}, 60)}
-\DoxyCodeLine{27         self.subscription}
-\DoxyCodeLine{28         self.steering\_publisher}
-\DoxyCodeLine{29         self.speed\_publisher}
-\DoxyCodeLine{30 }
+\DoxyCodeLine{9     \textcolor{keyword}{def }\_\_init\_\_(self):}
+\DoxyCodeLine{10         super().\_\_init\_\_(\textcolor{stringliteral}{'controller'})}
+\DoxyCodeLine{11         self.subscription = self.create\_subscription(}
+\DoxyCodeLine{12                 Joy,}
+\DoxyCodeLine{13                 \textcolor{stringliteral}{'/joy'},}
+\DoxyCodeLine{14                 self.control\_callback,}
+\DoxyCodeLine{15                 1}
+\DoxyCodeLine{16                 )}
+\DoxyCodeLine{17         self.speed\_publisher = self.create\_publisher(Float64, \textcolor{stringliteral}{'/speed'}, 1)}
+\DoxyCodeLine{18         self.steering\_publisher = self.create\_publisher(Float64, \textcolor{stringliteral}{'/steering'}, 1)}
+\DoxyCodeLine{19         self.subscription}
+\DoxyCodeLine{20         self.steering\_publisher}
+\DoxyCodeLine{21         self.speed\_publisher}
+\DoxyCodeLine{22 }
 
 \end{DoxyCode}
 
@@ -60,15 +60,18 @@ def \mbox{\hyperlink{classtoxic__hardware_1_1controller_1_1ControlSubscriber_a33
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{31     \textcolor{keyword}{def }control\_callback(self, data):}
-\DoxyCodeLine{32         normalized\_steering = data.axes[0]}
-\DoxyCodeLine{33         normalized\_fw\_speed = data.axes[5]}
-\DoxyCodeLine{34         normalized\_bw\_speed = data.axes[2]}
-\DoxyCodeLine{35         print(normalized\_steering)}
-\DoxyCodeLine{36         print(normalized\_fw\_speed)}
-\DoxyCodeLine{37         self.steering\_publisher.publish(Float64(normalized\_steering))}
-\DoxyCodeLine{38         self.speed\_publisher.publish(Float64(normalized\_fw\_speed + normalized\_bw\_speed))}
-\DoxyCodeLine{39 }
+\DoxyCodeLine{23     \textcolor{keyword}{def }control\_callback(self, data):}
+\DoxyCodeLine{24         normalized\_steering = data.axes[0]}
+\DoxyCodeLine{25         steering\_msg = Float64()}
+\DoxyCodeLine{26         steering\_msg.data = normalized\_steering}
+\DoxyCodeLine{27         self.steering\_publisher.publish(steering\_msg)}
+\DoxyCodeLine{28         speed\_msg = Float64()}
+\DoxyCodeLine{29         \textcolor{keywordflow}{if} data.axes[4] != 1:}
+\DoxyCodeLine{30             speed\_msg.data = -\/(data.axes[4] -\/ 1)}
+\DoxyCodeLine{31         \textcolor{keywordflow}{elif} data.axes[5] != 1:}
+\DoxyCodeLine{32             speed\_msg.data = (data.axes[5] -\/ 1)}
+\DoxyCodeLine{33         self.speed\_publisher.publish(speed\_msg)}
+\DoxyCodeLine{34 }
 
 \end{DoxyCode}
 

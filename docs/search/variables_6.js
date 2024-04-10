@@ -1,28 +1,7 @@
 var searchData=
 [
-  ['getbuffers_511',['GETBUFFERS',['../d2/d75/classroboclaw__3_1_1Roboclaw_1_1Cmd.html#ad36eda4158a5215ae5ee52401d24e39b',1,'roboclaw_3::Roboclaw::Cmd']]],
-  ['getconfig_512',['GETCONFIG',['../d2/d75/classroboclaw__3_1_1Roboclaw_1_1Cmd.html#a779f8c61d9941e3c201f0aba886a17f2',1,'roboclaw_3::Roboclaw::Cmd']]],
-  ['getcurrents_513',['GETCURRENTS',['../d2/d75/classroboclaw__3_1_1Roboclaw_1_1Cmd.html#a7b8aa436bab3175fc6904b1a9e790821',1,'roboclaw_3::Roboclaw::Cmd']]],
-  ['getdeadband_514',['GETDEADBAND',['../d2/d75/classroboclaw__3_1_1Roboclaw_1_1Cmd.html#aeecde73b79be340729647ba9e5fcb747',1,'roboclaw_3::Roboclaw::Cmd']]],
-  ['getencodermode_515',['GETENCODERMODE',['../d2/d75/classroboclaw__3_1_1Roboclaw_1_1Cmd.html#a4e654ec397b1745472d5e87df78b9a79',1,'roboclaw_3::Roboclaw::Cmd']]],
-  ['geterror_516',['GETERROR',['../d2/d75/classroboclaw__3_1_1Roboclaw_1_1Cmd.html#a902a86118ed630c45aead64b567be4e5',1,'roboclaw_3::Roboclaw::Cmd']]],
-  ['getlbatt_517',['GETLBATT',['../d2/d75/classroboclaw__3_1_1Roboclaw_1_1Cmd.html#a7e209901456188c2fb77c112b69a72d7',1,'roboclaw_3::Roboclaw::Cmd']]],
-  ['getm1enc_518',['GETM1ENC',['../d2/d75/classroboclaw__3_1_1Roboclaw_1_1Cmd.html#ac0ba87709e343a9a635b2035e193b8c4',1,'roboclaw_3::Roboclaw::Cmd']]],
-  ['getm1ispeed_519',['GETM1ISPEED',['../d2/d75/classroboclaw__3_1_1Roboclaw_1_1Cmd.html#a3ab756a8cf452c40ba9660aa7db3d56c',1,'roboclaw_3::Roboclaw::Cmd']]],
-  ['getm1maxcurrent_520',['GETM1MAXCURRENT',['../d2/d75/classroboclaw__3_1_1Roboclaw_1_1Cmd.html#a4f34b6a343d8e39b46fdf6dc046d336c',1,'roboclaw_3::Roboclaw::Cmd']]],
-  ['getm1speed_521',['GETM1SPEED',['../d2/d75/classroboclaw__3_1_1Roboclaw_1_1Cmd.html#af38550f1924f8645a650d2944505f660',1,'roboclaw_3::Roboclaw::Cmd']]],
-  ['getm2enc_522',['GETM2ENC',['../d2/d75/classroboclaw__3_1_1Roboclaw_1_1Cmd.html#a209d097653ba57f987ad09c1931a855a',1,'roboclaw_3::Roboclaw::Cmd']]],
-  ['getm2ispeed_523',['GETM2ISPEED',['../d2/d75/classroboclaw__3_1_1Roboclaw_1_1Cmd.html#a130a8997fe5069570b363cea0a0e08c6',1,'roboclaw_3::Roboclaw::Cmd']]],
-  ['getm2maxcurrent_524',['GETM2MAXCURRENT',['../d2/d75/classroboclaw__3_1_1Roboclaw_1_1Cmd.html#ae809a9cb7e9925a7bec93f1d50aa26f0',1,'roboclaw_3::Roboclaw::Cmd']]],
-  ['getm2speed_525',['GETM2SPEED',['../d2/d75/classroboclaw__3_1_1Roboclaw_1_1Cmd.html#afc30cd26545456254e617e0bbc337c72',1,'roboclaw_3::Roboclaw::Cmd']]],
-  ['getmbatt_526',['GETMBATT',['../d2/d75/classroboclaw__3_1_1Roboclaw_1_1Cmd.html#ae74486177b4bd6990de30aec301f3116',1,'roboclaw_3::Roboclaw::Cmd']]],
-  ['getminmaxlogicvoltages_527',['GETMINMAXLOGICVOLTAGES',['../d2/d75/classroboclaw__3_1_1Roboclaw_1_1Cmd.html#a16f67765c09e5c136fff72d30b50cced',1,'roboclaw_3::Roboclaw::Cmd']]],
-  ['getminmaxmainvoltages_528',['GETMINMAXMAINVOLTAGES',['../d2/d75/classroboclaw__3_1_1Roboclaw_1_1Cmd.html#a371c46088a7d76f11306c9e74ffc9976',1,'roboclaw_3::Roboclaw::Cmd']]],
-  ['getpinfunctions_529',['GETPINFUNCTIONS',['../d2/d75/classroboclaw__3_1_1Roboclaw_1_1Cmd.html#a2d797bf95e4febe4b3b6b5ace42400cb',1,'roboclaw_3::Roboclaw::Cmd']]],
-  ['getpwmmode_530',['GETPWMMODE',['../d2/d75/classroboclaw__3_1_1Roboclaw_1_1Cmd.html#a4623c878bfa3801984ed9b029ec26839',1,'roboclaw_3::Roboclaw::Cmd']]],
-  ['getpwms_531',['GETPWMS',['../d2/d75/classroboclaw__3_1_1Roboclaw_1_1Cmd.html#aba1e3d225a2a3c61d8a2f2ce2f062d9c',1,'roboclaw_3::Roboclaw::Cmd']]],
-  ['gettemp_532',['GETTEMP',['../d2/d75/classroboclaw__3_1_1Roboclaw_1_1Cmd.html#a73c91975f9b88c9f094b0fb0f9947f4a',1,'roboclaw_3::Roboclaw::Cmd']]],
-  ['gettemp2_533',['GETTEMP2',['../d2/d75/classroboclaw__3_1_1Roboclaw_1_1Cmd.html#a17e151c522e0d133d2640a66bf483c7d',1,'roboclaw_3::Roboclaw::Cmd']]],
-  ['getversion_534',['GETVERSION',['../d2/d75/classroboclaw__3_1_1Roboclaw_1_1Cmd.html#a73f2fa42c1a05d7aae2776b174e21703',1,'roboclaw_3::Roboclaw::Cmd']]],
-  ['gpio_5fpin_535',['gpio_pin',['../d6/db2/namespaceblinkers__interface.html#a6fd15ce64110e98b208bfe7a4ed33f52',1,'blinkers_interface']]]
+  ['fill_714',['fill',['../dd/d55/namespacetoxic__hardware_1_1oled__interface.html#a23b3ecc690a716b53e9d0146b78d5ef2',1,'toxic_hardware.oled_interface.fill()'],['../d5/d42/namespaceoled__interface.html#a23b3ecc690a716b53e9d0146b78d5ef2',1,'oled_interface.fill()']]],
+  ['flagbootloader_715',['FLAGBOOTLOADER',['../df/dcf/classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_1_1Cmd.html#ac3d1533d23fc8092582fc55bcd116ede',1,'toxic_hardware.roboclaw_3.Roboclaw.Cmd.FLAGBOOTLOADER()'],['../d2/d75/classroboclaw__3_1_1Roboclaw_1_1Cmd.html#ac3d1533d23fc8092582fc55bcd116ede',1,'roboclaw_3.Roboclaw.Cmd.FLAGBOOTLOADER()']]],
+  ['font_716',['font',['../dd/d55/namespacetoxic__hardware_1_1oled__interface.html#af18bb9025627467c42857f6b57902a47',1,'toxic_hardware.oled_interface.font()'],['../d5/d42/namespaceoled__interface.html#af18bb9025627467c42857f6b57902a47',1,'oled_interface.font()']]],
+  ['frame_717',['frame',['../d6/d0a/classtoxic__vision_1_1async__kinect__publisher_1_1ImagePublisher.html#a943f49763dd36e31fc7ea8604fcad789',1,'toxic_vision.async_kinect_publisher.ImagePublisher.frame()'],['../dd/d16/namespacetoxic__vision_1_1color__selector.html#a9c845a56c4d49b65dea74d4e4f9df6d1',1,'toxic_vision.color_selector.frame()'],['../d5/d6e/namespacetoxic__vision_1_1lane__detector.html#a9c845a56c4d49b65dea74d4e4f9df6d1',1,'toxic_vision.lane_detector.frame()'],['../dc/d1b/namespacetoxic__vision_1_1obstacle__detector.html#a9c845a56c4d49b65dea74d4e4f9df6d1',1,'toxic_vision.obstacle_detector.frame()']]]
 ];

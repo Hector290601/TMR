@@ -1,0 +1,84 @@
+\hypertarget{classtoxic__hardware_1_1obstacle__detector_1_1SteeringInterface}{}\doxysection{Steering\+Interface Class Reference}
+\label{classtoxic__hardware_1_1obstacle__detector_1_1SteeringInterface}\index{SteeringInterface@{SteeringInterface}}
+Inheritance diagram for Steering\+Interface\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{dd/da2/classtoxic__hardware_1_1obstacle__detector_1_1SteeringInterface}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{classtoxic__hardware_1_1obstacle__detector_1_1SteeringInterface_ae64f0875afe3067b97ba370b354b9213}{\+\_\+\+\_\+init\+\_\+\+\_\+}} (self)
+\item 
+def \mbox{\hyperlink{classtoxic__hardware_1_1obstacle__detector_1_1SteeringInterface_a0762a6459eadaed0c4fad1263e369dbd}{steering\+\_\+callback}} (self, data)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classtoxic__hardware_1_1obstacle__detector_1_1SteeringInterface_a4b0698733c4dfaffe8e2b4cd952b6f82}{subscription}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classtoxic__hardware_1_1obstacle__detector_1_1SteeringInterface_ae64f0875afe3067b97ba370b354b9213}\label{classtoxic__hardware_1_1obstacle__detector_1_1SteeringInterface_ae64f0875afe3067b97ba370b354b9213}} 
+\index{SteeringInterface@{SteeringInterface}!\_\_init\_\_@{\_\_init\_\_}}
+\index{\_\_init\_\_@{\_\_init\_\_}!SteeringInterface@{SteeringInterface}}
+\doxysubsubsection{\texorpdfstring{\_\_init\_\_()}{\_\_init\_\_()}}
+{\footnotesize\ttfamily def \+\_\+\+\_\+init\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{9     \textcolor{keyword}{def }\_\_init\_\_(self):}
+\DoxyCodeLine{10         super().\_\_init\_\_(\textcolor{stringliteral}{'steering\_interface'})}
+\DoxyCodeLine{11         self.subscription = self.create\_subscription(}
+\DoxyCodeLine{12                 Float64,}
+\DoxyCodeLine{13                 \textcolor{stringliteral}{'/steering'},}
+\DoxyCodeLine{14                 self.steering\_callback,}
+\DoxyCodeLine{15                 60}
+\DoxyCodeLine{16                 )}
+\DoxyCodeLine{17         self.subscription}
+\DoxyCodeLine{18 }
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classtoxic__hardware_1_1obstacle__detector_1_1SteeringInterface_a0762a6459eadaed0c4fad1263e369dbd}\label{classtoxic__hardware_1_1obstacle__detector_1_1SteeringInterface_a0762a6459eadaed0c4fad1263e369dbd}} 
+\index{SteeringInterface@{SteeringInterface}!steering\_callback@{steering\_callback}}
+\index{steering\_callback@{steering\_callback}!SteeringInterface@{SteeringInterface}}
+\doxysubsubsection{\texorpdfstring{steering\_callback()}{steering\_callback()}}
+{\footnotesize\ttfamily def steering\+\_\+callback (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{data }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{19     \textcolor{keyword}{def }steering\_callback(self, data):}
+\DoxyCodeLine{20         \textcolor{keyword}{global} servo\_pin}
+\DoxyCodeLine{21         recived = data.data}
+\DoxyCodeLine{22         \textcolor{keywordflow}{if} recived > 1:}
+\DoxyCodeLine{23             recived = 1}
+\DoxyCodeLine{24         \textcolor{keywordflow}{elif} recived < -\/1:}
+\DoxyCodeLine{25             recived = -\/1}
+\DoxyCodeLine{26         lgpio.tx\_pwm(}
+\DoxyCodeLine{27                 servo\_pin,}
+\DoxyCodeLine{28                 18,}
+\DoxyCodeLine{29                 50,}
+\DoxyCodeLine{30                 (7.2 + (recived*((10-\/5)/2)))}
+\DoxyCodeLine{31                 )}
+\DoxyCodeLine{32 }
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classtoxic__hardware_1_1obstacle__detector_1_1SteeringInterface_a4b0698733c4dfaffe8e2b4cd952b6f82}\label{classtoxic__hardware_1_1obstacle__detector_1_1SteeringInterface_a4b0698733c4dfaffe8e2b4cd952b6f82}} 
+\index{SteeringInterface@{SteeringInterface}!subscription@{subscription}}
+\index{subscription@{subscription}!SteeringInterface@{SteeringInterface}}
+\doxysubsubsection{\texorpdfstring{subscription}{subscription}}
+{\footnotesize\ttfamily subscription}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+main\+\_\+ws/build/toxic\+\_\+hardware/build/lib/toxic\+\_\+hardware/\mbox{\hyperlink{toxic__hardware_2build_2lib_2toxic__hardware_2obstacle__detector_8py}{obstacle\+\_\+detector.\+py}}\end{DoxyCompactItemize}

@@ -18,6 +18,8 @@ def \mbox{\hyperlink{classtoxic__vision_1_1webcam__pub_1_1ImagePublisher_a9692d7
 \item 
 \mbox{\hyperlink{classtoxic__vision_1_1webcam__pub_1_1ImagePublisher_a2ab19359a5607f32a7b39d6d9f61c3b5}{publisher\+\_\+}}
 \item 
+\mbox{\hyperlink{classtoxic__vision_1_1webcam__pub_1_1ImagePublisher_a826325551fba83f899ab36cf4ab729ea}{publisher\+\_\+uint8}}
+\item 
 \mbox{\hyperlink{classtoxic__vision_1_1webcam__pub_1_1ImagePublisher_a9fabcf6aa0647a2414f7cb1a2ab2634a}{timer}}
 \item 
 \mbox{\hyperlink{classtoxic__vision_1_1webcam__pub_1_1ImagePublisher_a9499a5c7f196d66c6afe0222bd5a9219}{cap}}
@@ -35,20 +37,22 @@ def \mbox{\hyperlink{classtoxic__vision_1_1webcam__pub_1_1ImagePublisher_a9692d7
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{8   \textcolor{keyword}{def }\_\_init\_\_(self):}
-\DoxyCodeLine{9     super().\_\_init\_\_(\textcolor{stringliteral}{'image\_publisher'})}
-\DoxyCodeLine{10     self.publisher\_ = self.create\_publisher(Image, \textcolor{stringliteral}{'/raw\_rgb'}, 1)}
-\DoxyCodeLine{11     timer\_period = 0.033}
-\DoxyCodeLine{12     self.timer = self.create\_timer(timer\_period, self.timer\_callback)}
-\DoxyCodeLine{13     self.cap = cv2.VideoCapture(4)}
-\DoxyCodeLine{14     \textcolor{stringliteral}{"{}"{}"{}}}
-\DoxyCodeLine{15 \textcolor{stringliteral}{    self.cap.set(cv2.CAP\_PROP\_FOURCC, cv2.VideoWriter\_fourcc('M', 'J', 'P', 'G'))}}
-\DoxyCodeLine{16 \textcolor{stringliteral}{    "{}"{}"{}}}
-\DoxyCodeLine{17     self.cap.set(cv2.CAP\_PROP\_FRAME\_WIDTH, 640)}
-\DoxyCodeLine{18     self.cap.set(cv2.CAP\_PROP\_FRAME\_HEIGHT, 480)}
-\DoxyCodeLine{19     self.cap.set(cv2.CAP\_PROP\_FPS, 30)}
-\DoxyCodeLine{20     self.br = CvBridge()}
-\DoxyCodeLine{21    }
+\DoxyCodeLine{9   \textcolor{keyword}{def }\_\_init\_\_(self):}
+\DoxyCodeLine{10     super().\_\_init\_\_(\textcolor{stringliteral}{'image\_publisher'})}
+\DoxyCodeLine{11     self.publisher\_ = self.create\_publisher(Image, \textcolor{stringliteral}{'/raw\_rgb'}, 1)}
+\DoxyCodeLine{12     self.publisher\_uint8 = self.create\_publisher(UInt8MultiArray, \textcolor{stringliteral}{'/compressed\_rgb'}, 1)}
+\DoxyCodeLine{13     timer\_period = 0.033}
+\DoxyCodeLine{14     self.timer = self.create\_timer(timer\_period, self.timer\_callback)}
+\DoxyCodeLine{15     \textcolor{comment}{\#self.cap = cv2.VideoCapture(4)}}
+\DoxyCodeLine{16     self.cap = cv2.VideoCapture(4)}
+\DoxyCodeLine{17     \textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{18 \textcolor{stringliteral}{    self.cap.set(cv2.CAP\_PROP\_FOURCC, cv2.VideoWriter\_fourcc('M', 'J', 'P', 'G'))}}
+\DoxyCodeLine{19 \textcolor{stringliteral}{    "{}"{}"{}}}
+\DoxyCodeLine{20     self.cap.set(cv2.CAP\_PROP\_FRAME\_WIDTH, 640)}
+\DoxyCodeLine{21     self.cap.set(cv2.CAP\_PROP\_FRAME\_HEIGHT, 480)}
+\DoxyCodeLine{22     self.cap.set(cv2.CAP\_PROP\_FPS, 30)}
+\DoxyCodeLine{23     self.br = CvBridge()}
+\DoxyCodeLine{24    }
 
 \end{DoxyCode}
 
@@ -62,10 +66,14 @@ def \mbox{\hyperlink{classtoxic__vision_1_1webcam__pub_1_1ImagePublisher_a9692d7
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{22   \textcolor{keyword}{def }timer\_callback(self):}
-\DoxyCodeLine{23     ret, frame = self.cap.read()}
-\DoxyCodeLine{24     \textcolor{keywordflow}{if} ret:}
-\DoxyCodeLine{25       self.publisher\_.publish(self.br.cv2\_to\_imgmsg(frame))}
+\DoxyCodeLine{25   \textcolor{keyword}{def }timer\_callback(self):}
+\DoxyCodeLine{26     ret, frame = self.cap.read()}
+\DoxyCodeLine{27     \textcolor{keywordflow}{if} ret:}
+\DoxyCodeLine{28       \textcolor{comment}{\#img\_encode = cv2.imencode('.jpg', frame)[1] }}
+\DoxyCodeLine{29       \textcolor{comment}{\#message = UInt8MultiArray()}}
+\DoxyCodeLine{30       \textcolor{comment}{\#message.data = img\_encode}}
+\DoxyCodeLine{31       self.publisher\_.publish(self.br.cv2\_to\_imgmsg(frame))}
+\DoxyCodeLine{32       \textcolor{comment}{\#self.publisher\_uint8.publish(message)}}
 
 \end{DoxyCode}
 
@@ -88,6 +96,12 @@ def \mbox{\hyperlink{classtoxic__vision_1_1webcam__pub_1_1ImagePublisher_a9692d7
 \index{publisher\_@{publisher\_}!ImagePublisher@{ImagePublisher}}
 \doxysubsubsection{\texorpdfstring{publisher\_}{publisher\_}}
 {\footnotesize\ttfamily publisher\+\_\+}
+
+\mbox{\Hypertarget{classtoxic__vision_1_1webcam__pub_1_1ImagePublisher_a826325551fba83f899ab36cf4ab729ea}\label{classtoxic__vision_1_1webcam__pub_1_1ImagePublisher_a826325551fba83f899ab36cf4ab729ea}} 
+\index{ImagePublisher@{ImagePublisher}!publisher\_uint8@{publisher\_uint8}}
+\index{publisher\_uint8@{publisher\_uint8}!ImagePublisher@{ImagePublisher}}
+\doxysubsubsection{\texorpdfstring{publisher\_uint8}{publisher\_uint8}}
+{\footnotesize\ttfamily publisher\+\_\+uint8}
 
 \mbox{\Hypertarget{classtoxic__vision_1_1webcam__pub_1_1ImagePublisher_a9fabcf6aa0647a2414f7cb1a2ab2634a}\label{classtoxic__vision_1_1webcam__pub_1_1ImagePublisher_a9fabcf6aa0647a2414f7cb1a2ab2634a}} 
 \index{ImagePublisher@{ImagePublisher}!timer@{timer}}

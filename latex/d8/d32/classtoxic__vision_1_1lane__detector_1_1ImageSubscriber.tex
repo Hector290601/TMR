@@ -43,19 +43,20 @@ def \mbox{\hyperlink{classtoxic__vision_1_1lane__detector_1_1ImageSubscriber_a23
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{69   \textcolor{keyword}{def }\_\_init\_\_(self):}
-\DoxyCodeLine{70     super().\_\_init\_\_(\textcolor{stringliteral}{'image\_subscriber'})}
-\DoxyCodeLine{71     self.subscription = self.create\_subscription(}
-\DoxyCodeLine{72       Image, }
-\DoxyCodeLine{73       \textcolor{stringliteral}{'/raw\_rgb'}, }
-\DoxyCodeLine{74       self.listener\_callback, }
-\DoxyCodeLine{75       1}
-\DoxyCodeLine{76       )}
-\DoxyCodeLine{77     self.left\_lane\_publisher = self.create\_publisher(Float64MultiArray, \textcolor{stringliteral}{'/lines/left'}, 1)}
-\DoxyCodeLine{78     self.right\_lane\_publisher = self.create\_publisher(Float64MultiArray, \textcolor{stringliteral}{'/lines/right'}, 1)}
-\DoxyCodeLine{79     self.subscription}
-\DoxyCodeLine{80     self.br = CvBridge()}
-\DoxyCodeLine{81 }
+\DoxyCodeLine{95   \textcolor{keyword}{def }\_\_init\_\_(self):}
+\DoxyCodeLine{96     super().\_\_init\_\_(\textcolor{stringliteral}{'image\_subscriber'})}
+\DoxyCodeLine{97     self.subscription = self.create\_subscription(}
+\DoxyCodeLine{98       Image, }
+\DoxyCodeLine{99       \textcolor{stringliteral}{'/raw\_rgb'}, }
+\DoxyCodeLine{100       self.listener\_callback, }
+\DoxyCodeLine{101       1}
+\DoxyCodeLine{102       )}
+\DoxyCodeLine{103     self.left\_lane\_publisher = self.create\_publisher(Float64MultiArray, \textcolor{stringliteral}{'/lines/left'}, 1)}
+\DoxyCodeLine{104     self.right\_lane\_publisher = self.create\_publisher(Float64MultiArray, \textcolor{stringliteral}{'/lines/right'}, 1)}
+\DoxyCodeLine{105     self.subscription}
+\DoxyCodeLine{106     self.br = CvBridge()}
+\DoxyCodeLine{107     \textcolor{comment}{\# \}\}\}}}
+\DoxyCodeLine{108 }
 
 \end{DoxyCode}
 
@@ -69,137 +70,150 @@ def \mbox{\hyperlink{classtoxic__vision_1_1lane__detector_1_1ImageSubscriber_a23
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{109   \textcolor{keyword}{def }line\_finder(self):}
-\DoxyCodeLine{110       \textcolor{keyword}{global} band\_pass, frame, dst, right\_min, right\_max, left\_min, left\_max, lower, upper, lefter, righter, upper\_color, lower\_color, color\_delta}
-\DoxyCodeLine{111       kernel = np.ones((3, 5), np.uint8) }
-\DoxyCodeLine{112       band\_pass = cv2.morphologyEx(band\_pass, cv2.MORPH\_OPEN, kernel, iterations=1)}
-\DoxyCodeLine{113       dst = cv2.Canny(band\_pass, 100, 100, 3, \textcolor{keywordtype}{None})}
-\DoxyCodeLine{114       lines = cv2.HoughLinesP(dst, 3, np.pi/90, 80, minLineLength=25, maxLineGap=1)}
-\DoxyCodeLine{115       \textcolor{keywordflow}{if} lines \textcolor{keywordflow}{is} \textcolor{keywordflow}{not} \textcolor{keywordtype}{None}:}
-\DoxyCodeLine{116           lines = lines[:, 0]}
-\DoxyCodeLine{117       \textcolor{keywordflow}{if} lines \textcolor{keywordflow}{is} \textcolor{keywordflow}{not} \textcolor{keywordtype}{None}:}
-\DoxyCodeLine{118           sum\_theta\_left = 0}
-\DoxyCodeLine{119           sum\_rho\_left = 0}
-\DoxyCodeLine{120           sum\_theta\_right = 0}
-\DoxyCodeLine{121           sum\_rho\_right = 0}
-\DoxyCodeLine{122           count\_left = 0}
-\DoxyCodeLine{123           count\_right = 0}
-\DoxyCodeLine{124           average\_rho\_left = 0}
-\DoxyCodeLine{125           average\_theta\_left = 0}
-\DoxyCodeLine{126           average\_rho\_right = 0}
-\DoxyCodeLine{127           average\_theta\_right = 0}
-\DoxyCodeLine{128           h = 0}
-\DoxyCodeLine{129           s = 0}
-\DoxyCodeLine{130           counter\_color = 0}
-\DoxyCodeLine{131           \textcolor{keywordflow}{for} i \textcolor{keywordflow}{in} range(0, len(lines)):}
-\DoxyCodeLine{132               l = lines[i]}
-\DoxyCodeLine{133               rho, theta = \mbox{\hyperlink{namespacetoxic__vision_1_1lane__detector_ae3bdbfab97718df7c906f65d19f10dfd}{to\_normal\_form}}(l[0], l[1], l[2], l[3])}
-\DoxyCodeLine{134               \textcolor{keywordflow}{if} right\_min < theta < right\_max:}
-\DoxyCodeLine{135                   \textcolor{comment}{\#cv2.line(frame, (l[0], l[1]), (l[2], l[3]), (0,0,255), 3, cv2.LINE\_AA)}}
-\DoxyCodeLine{136                   sum\_theta\_right += theta}
-\DoxyCodeLine{137                   sum\_rho\_right += rho}
-\DoxyCodeLine{138                   count\_right += 1}
-\DoxyCodeLine{139                   left1\_tmp = l[0] -\/ 0}
-\DoxyCodeLine{140                   left2\_tmp = l[2] -\/ 0}
-\DoxyCodeLine{141                   right1\_tmp = l[0] + 0}
-\DoxyCodeLine{142                   right2\_tmp = l[2] + 0}
-\DoxyCodeLine{143                   roi\_left = right1\_tmp \textcolor{keywordflow}{if} right1\_tmp < left1\_tmp \textcolor{keywordflow}{else} left1\_tmp}
-\DoxyCodeLine{144                   roi\_right = right2\_tmp \textcolor{keywordflow}{if} right2\_tmp < left2\_tmp \textcolor{keywordflow}{else} left2\_tmp}
-\DoxyCodeLine{145                   roi\_upper = l[1] \textcolor{keywordflow}{if} l[1] > l[3] \textcolor{keywordflow}{else} l[3]}
-\DoxyCodeLine{146                   roi\_lower = l[1] \textcolor{keywordflow}{if} l[1] < l[3] \textcolor{keywordflow}{else} l[3]}
-\DoxyCodeLine{147                   colors = frame[roi\_lower:roi\_upper, roi\_left:roi\_right, :]}
-\DoxyCodeLine{148                   colorsh = frame[roi\_lower:roi\_upper, roi\_left:roi\_right, 0]}
-\DoxyCodeLine{149                   \textcolor{stringliteral}{"{}"{}"{}}}
-\DoxyCodeLine{150 \textcolor{stringliteral}{                  print(colorsh.shape)}}
-\DoxyCodeLine{151 \textcolor{stringliteral}{                  print(colorsh)}}
-\DoxyCodeLine{152 \textcolor{stringliteral}{                  for row in colorsh:}}
-\DoxyCodeLine{153 \textcolor{stringliteral}{                      for col in row:}}
-\DoxyCodeLine{154 \textcolor{stringliteral}{                          print(col)}}
-\DoxyCodeLine{155 \textcolor{stringliteral}{                  \#frame = cv2.rectangle(frame, (roi\_left, roi\_upper), (roi\_right, roi\_lower), (255, 0, 0), 0)}}
-\DoxyCodeLine{156 \textcolor{stringliteral}{                  for row in colors:}}
-\DoxyCodeLine{157 \textcolor{stringliteral}{                      for col in row:}}
-\DoxyCodeLine{158 \textcolor{stringliteral}{                          if (lower\_color[0] < col[0] < upper\_color[0]) and (lower\_color[1] < col[1] < upper\_color[1]):}}
-\DoxyCodeLine{159 \textcolor{stringliteral}{                              \#h.append(col[0])}}
-\DoxyCodeLine{160 \textcolor{stringliteral}{                              \#s.append(col[1])}}
-\DoxyCodeLine{161 \textcolor{stringliteral}{                              h += col[0]}}
-\DoxyCodeLine{162 \textcolor{stringliteral}{                              s += col[1]}}
-\DoxyCodeLine{163 \textcolor{stringliteral}{                              counter\_color += 1}}
-\DoxyCodeLine{164 \textcolor{stringliteral}{                  \#"{}"{}"{}}}
-\DoxyCodeLine{165               \textcolor{keywordflow}{elif} left\_min < theta < left\_max:}
-\DoxyCodeLine{166                   \textcolor{comment}{\#cv2.line(frame, (l[0], l[1]), (l[2], l[3]), (255,0,0), 3, cv2.LINE\_AA)}}
-\DoxyCodeLine{167                   sum\_theta\_left += theta}
-\DoxyCodeLine{168                   sum\_rho\_left += rho}
-\DoxyCodeLine{169                   count\_left += 1}
-\DoxyCodeLine{170                   left1\_tmp = l[0] -\/ 3}
-\DoxyCodeLine{171                   left2\_tmp = l[2] -\/ 3}
-\DoxyCodeLine{172                   right1\_tmp = l[0] + 3}
-\DoxyCodeLine{173                   right2\_tmp = l[2] + 3}
-\DoxyCodeLine{174                   roi\_left = right1\_tmp \textcolor{keywordflow}{if} right1\_tmp < left1\_tmp \textcolor{keywordflow}{else} left1\_tmp}
-\DoxyCodeLine{175                   roi\_right = right2\_tmp \textcolor{keywordflow}{if} right2\_tmp < left2\_tmp \textcolor{keywordflow}{else} left2\_tmp}
-\DoxyCodeLine{176                   roi\_upper = l[1] \textcolor{keywordflow}{if} l[1] > l[3] \textcolor{keywordflow}{else} l[3]}
-\DoxyCodeLine{177                   roi\_lower = l[1] \textcolor{keywordflow}{if} l[1] < l[3] \textcolor{keywordflow}{else} l[3]}
-\DoxyCodeLine{178                   colors = frame[roi\_lower:roi\_upper, roi\_left:roi\_right, :]}
-\DoxyCodeLine{179                   \textcolor{comment}{\#frame = cv2.rectangle(frame, (roi\_left, roi\_upper), (roi\_right, roi\_lower), (255, 0, 0), 0)}}
-\DoxyCodeLine{180                   \textcolor{stringliteral}{"{}"{}"{}}}
-\DoxyCodeLine{181 \textcolor{stringliteral}{                  for row in colors:}}
-\DoxyCodeLine{182 \textcolor{stringliteral}{                      for col in row:}}
-\DoxyCodeLine{183 \textcolor{stringliteral}{                          if (lower\_color[0] < col[0] < upper\_color[0]) and (lower\_color[1] < col[1] < upper\_color[1]):}}
-\DoxyCodeLine{184 \textcolor{stringliteral}{                              \#h.append(col[0])}}
-\DoxyCodeLine{185 \textcolor{stringliteral}{                              \#s.append(col[1])}}
-\DoxyCodeLine{186 \textcolor{stringliteral}{                              h += col[0]}}
-\DoxyCodeLine{187 \textcolor{stringliteral}{                              s += col[1]}}
-\DoxyCodeLine{188 \textcolor{stringliteral}{                              counter\_color += 1}}
-\DoxyCodeLine{189 \textcolor{stringliteral}{                  \#"{}"{}"{}}}
-\DoxyCodeLine{190           \textcolor{keywordflow}{if} count\_left > 0:}
-\DoxyCodeLine{191               average\_rho\_left = sum\_rho\_left / count\_left}
-\DoxyCodeLine{192               average\_theta\_left = sum\_theta\_left / count\_left}
-\DoxyCodeLine{193               left\_min = average\_theta\_left -\/ variance}
-\DoxyCodeLine{194               left\_max = average\_theta\_left + variance}
-\DoxyCodeLine{195               message = Float64MultiArray()}
-\DoxyCodeLine{196               message.data = [average\_rho\_left, average\_theta\_left]}
-\DoxyCodeLine{197               self.left\_lane\_publisher.publish(message)}
-\DoxyCodeLine{198               \textcolor{comment}{\#"{}"{}"{}}}
-\DoxyCodeLine{199               \textcolor{keywordflow}{try}:}
-\DoxyCodeLine{200                   x1, y1, x2, y2 = self.two\_dots\_line(average\_rho\_left, average\_theta\_left, frame)}
-\DoxyCodeLine{201                   x3 = x1 + delta}
-\DoxyCodeLine{202                   x4 = x1 -\/ delta}
-\DoxyCodeLine{203                   x5 = x2 + delta}
-\DoxyCodeLine{204                   x6 = x2 -\/ delta}
-\DoxyCodeLine{205                   cv2.line(frame, (x1, y1), (x2, y2), (255,0,0), 3, cv2.LINE\_AA)}
-\DoxyCodeLine{206               \textcolor{keywordflow}{except}:}
-\DoxyCodeLine{207                   \textcolor{keywordflow}{pass}}
-\DoxyCodeLine{208               \textcolor{comment}{\#"{}"{}"{}}}
-\DoxyCodeLine{209           \textcolor{keywordflow}{if} count\_right > 0:}
-\DoxyCodeLine{210               average\_rho\_right = sum\_rho\_right / count\_right}
-\DoxyCodeLine{211               average\_theta\_right = sum\_theta\_right / count\_right}
-\DoxyCodeLine{212               right\_min = average\_theta\_right -\/ variance}
-\DoxyCodeLine{213               right\_max = average\_theta\_right + variance}
-\DoxyCodeLine{214               message = Float64MultiArray()}
-\DoxyCodeLine{215               message.data = [average\_rho\_right, average\_theta\_right]}
-\DoxyCodeLine{216               self.right\_lane\_publisher.publish(message)}
-\DoxyCodeLine{217               \textcolor{comment}{\#"{}"{}"{}}}
-\DoxyCodeLine{218               \textcolor{keywordflow}{try}:}
-\DoxyCodeLine{219                   x1, y1, x2, y2 = self.two\_dots\_line(average\_rho\_right, average\_theta\_right, frame)}
-\DoxyCodeLine{220                   x3 = x1 + delta}
-\DoxyCodeLine{221                   x4 = x1 -\/ delta}
-\DoxyCodeLine{222                   x5 = x2 + delta}
-\DoxyCodeLine{223                   x6 = x2 -\/ delta}
-\DoxyCodeLine{224                   cv2.line(frame, (x1, y1), (x2, y2), (0,0,255), 3, cv2.LINE\_AA)}
-\DoxyCodeLine{225               \textcolor{keywordflow}{except}:}
-\DoxyCodeLine{226                   \textcolor{keywordflow}{pass}}
-\DoxyCodeLine{227               \textcolor{comment}{\#"{}"{}"{}}}
-\DoxyCodeLine{228           \textcolor{keywordflow}{if} counter\_color != 0:}
-\DoxyCodeLine{229               avg\_h = h // counter\_color}
-\DoxyCodeLine{230               avg\_s = s // counter\_color}
-\DoxyCodeLine{231           h = 0}
-\DoxyCodeLine{232           s = 0}
-\DoxyCodeLine{233           counter\_color = 0}
-\DoxyCodeLine{234           new\_h\_up = avg\_h + 130 \textcolor{keywordflow}{if} h != 0 \textcolor{keywordflow}{else} upper\_color[0]}
-\DoxyCodeLine{235           new\_s\_up = avg\_s + 40 \textcolor{keywordflow}{if} s != 0 \textcolor{keywordflow}{else} upper\_color[1]}
-\DoxyCodeLine{236           new\_h\_low = avg\_h -\/ 130 \textcolor{keywordflow}{if} h != 0 \textcolor{keywordflow}{else} lower\_color[0]}
-\DoxyCodeLine{237           new\_s\_low = avg\_s -\/ 40 \textcolor{keywordflow}{if} s != 0 \textcolor{keywordflow}{else} lower\_color[1]}
-\DoxyCodeLine{238 }
-\DoxyCodeLine{239 }
+\DoxyCodeLine{142   \textcolor{keyword}{def }line\_finder(self):}
+\DoxyCodeLine{143       \textcolor{keyword}{global} band\_pass, frame, dst}
+\DoxyCodeLine{144       \textcolor{keyword}{global} right\_theta\_min, right\_theta\_max, right\_rho\_min, right\_rho\_max}
+\DoxyCodeLine{145       \textcolor{keyword}{global} left\_theta\_min, left\_theta\_max, left\_rho\_min, left\_rho\_max}
+\DoxyCodeLine{146       \textcolor{keyword}{global} lower, upper, lefter, righter, upper\_color, lower\_color, color\_delta}
+\DoxyCodeLine{147       \textcolor{keyword}{global} average\_rho\_left, average\_rho\_right, average\_theta\_left, average\_theta\_right}
+\DoxyCodeLine{148       kernel = np.ones((6, 6), np.uint8) }
+\DoxyCodeLine{149       band\_pass = cv2.morphologyEx(band\_pass, cv2.MORPH\_OPEN, kernel, iterations=1)}
+\DoxyCodeLine{150       dst = cv2.Canny(band\_pass, 100, 100, 10, \textcolor{keywordtype}{None})}
+\DoxyCodeLine{151       lines = cv2.HoughLinesP(dst, 3, np.pi/90, 80, minLineLength=25, maxLineGap=1)}
+\DoxyCodeLine{152       \textcolor{keywordflow}{if} lines \textcolor{keywordflow}{is} \textcolor{keywordflow}{not} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{153           lines = lines[:, 0]}
+\DoxyCodeLine{154       \textcolor{keywordflow}{if} lines \textcolor{keywordflow}{is} \textcolor{keywordflow}{not} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{155           sum\_theta\_left = 0}
+\DoxyCodeLine{156           sum\_rho\_left = 0}
+\DoxyCodeLine{157           sum\_theta\_right = 0}
+\DoxyCodeLine{158           sum\_rho\_right = 0}
+\DoxyCodeLine{159           count\_left = 0}
+\DoxyCodeLine{160           count\_right = 0}
+\DoxyCodeLine{161           h = 0}
+\DoxyCodeLine{162           s = 0}
+\DoxyCodeLine{163           counter\_color = 0}
+\DoxyCodeLine{164           \textcolor{keywordflow}{for} i \textcolor{keywordflow}{in} range(0, len(lines)):}
+\DoxyCodeLine{165               l = lines[i]}
+\DoxyCodeLine{166               rho, theta = \mbox{\hyperlink{namespacetoxic__vision_1_1lane__detector_ae3bdbfab97718df7c906f65d19f10dfd}{to\_normal\_form}}(l[0], l[1], l[2], l[3])}
+\DoxyCodeLine{167               \textcolor{keywordflow}{if} (average\_rho\_right == 0}
+\DoxyCodeLine{168                   \textcolor{keywordflow}{and} average\_theta\_right == 0}
+\DoxyCodeLine{169                   \textcolor{keywordflow}{and} (}
+\DoxyCodeLine{170                       (}
+\DoxyCodeLine{171                           (}
+\DoxyCodeLine{172                               (450 <= l[0] <= 590)}
+\DoxyCodeLine{173                               \textcolor{keywordflow}{and} (140 <= l[1] <= 240)}
+\DoxyCodeLine{174                           )}
+\DoxyCodeLine{175                           \textcolor{keywordflow}{or} (}
+\DoxyCodeLine{176                               (450 <= l[2] <= 590)}
+\DoxyCodeLine{177                               \textcolor{keywordflow}{and} (140 <= l[3] <= 240)}
+\DoxyCodeLine{178                              )}
+\DoxyCodeLine{179                      )}
+\DoxyCodeLine{180                   )}
+\DoxyCodeLine{181                  ):}
+\DoxyCodeLine{182                   sum\_theta\_right += theta}
+\DoxyCodeLine{183                   sum\_rho\_right += rho}
+\DoxyCodeLine{184                   count\_right += 1}
+\DoxyCodeLine{185               \textcolor{keywordflow}{elif} (average\_rho\_left == 0}
+\DoxyCodeLine{186                     \textcolor{keywordflow}{and} average\_theta\_left == 0}
+\DoxyCodeLine{187                   \textcolor{keywordflow}{and} (}
+\DoxyCodeLine{188                       (}
+\DoxyCodeLine{189                           (}
+\DoxyCodeLine{190                               (50 <= l[0] <= 190)}
+\DoxyCodeLine{191                               \textcolor{keywordflow}{and} (140 <= l[1] <= 240)}
+\DoxyCodeLine{192                           )}
+\DoxyCodeLine{193                           \textcolor{keywordflow}{or} (}
+\DoxyCodeLine{194                               (50 <= l[2] <= 190)}
+\DoxyCodeLine{195                               \textcolor{keywordflow}{and} (140 <= l[3] <= 240)}
+\DoxyCodeLine{196                              )}
+\DoxyCodeLine{197                      )}
+\DoxyCodeLine{198                   )}
+\DoxyCodeLine{199                 ):}
+\DoxyCodeLine{200                   sum\_theta\_left += theta}
+\DoxyCodeLine{201                   sum\_rho\_left += rho}
+\DoxyCodeLine{202                   count\_left += 1}
+\DoxyCodeLine{203               \textcolor{keywordflow}{elif} (}
+\DoxyCodeLine{204                       (right\_theta\_min <= theta <= right\_theta\_max)}
+\DoxyCodeLine{205                       \textcolor{keywordflow}{and} (right\_rho\_min <= rho <= right\_rho\_max)}
+\DoxyCodeLine{206                  ):}
+\DoxyCodeLine{207                   sum\_theta\_right += theta}
+\DoxyCodeLine{208                   sum\_rho\_right += rho}
+\DoxyCodeLine{209                   count\_right += 1}
+\DoxyCodeLine{210                   print(\textcolor{stringliteral}{"{}rho:\{\}\(\backslash\)ttheta:\{\}\(\backslash\)tpassed as right"{}}.format(}
+\DoxyCodeLine{211                       rho,}
+\DoxyCodeLine{212                       theta}
+\DoxyCodeLine{213                       ))}
+\DoxyCodeLine{214               \textcolor{keywordflow}{elif} (}
+\DoxyCodeLine{215                       (left\_theta\_min <= theta <= left\_theta\_max)}
+\DoxyCodeLine{216                       \textcolor{keywordflow}{and} (left\_rho\_min <= rho <= left\_rho\_max)}
+\DoxyCodeLine{217                    ):}
+\DoxyCodeLine{218                   sum\_theta\_left += theta}
+\DoxyCodeLine{219                   sum\_rho\_left += rho}
+\DoxyCodeLine{220                   count\_left += 1}
+\DoxyCodeLine{221                   \textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{222 \textcolor{stringliteral}{                  print("{}rho:\{\}\(\backslash\)ttheta:\{\}\(\backslash\)tpassed as left"{}.format(}}
+\DoxyCodeLine{223 \textcolor{stringliteral}{                      rho,}}
+\DoxyCodeLine{224 \textcolor{stringliteral}{                      theta}}
+\DoxyCodeLine{225 \textcolor{stringliteral}{                      ))}}
+\DoxyCodeLine{226 \textcolor{stringliteral}{                  "{}"{}"{}}}
+\DoxyCodeLine{227               \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{228                   if(theta > 0):}
+\DoxyCodeLine{229                       cv2.line(frame, (l[0], l[1]), (l[2], l[3]), (255,255,0), 3, cv2.LINE\_AA)}
+\DoxyCodeLine{230                       \textcolor{comment}{\#print("{}\{\} > 0"{}.format(theta))}}
+\DoxyCodeLine{231                   elif(theta < 0):}
+\DoxyCodeLine{232                       cv2.line(frame, (l[0], l[1]), (l[2], l[3]), (0,255,255), 3, cv2.LINE\_AA)}
+\DoxyCodeLine{233                       print([right\_theta\_min, theta, right\_theta\_max])}
+\DoxyCodeLine{234                       print([right\_rho\_min, rho, right\_rho\_max])}
+\DoxyCodeLine{235           \textcolor{keywordflow}{if} count\_left > 0:}
+\DoxyCodeLine{236               \textcolor{comment}{\#print("{}count\_left is bigger than zero"{})}}
+\DoxyCodeLine{237               average\_rho\_left = sum\_rho\_left / count\_left}
+\DoxyCodeLine{238               average\_theta\_left = sum\_theta\_left / count\_left}
+\DoxyCodeLine{239               left\_theta\_min = average\_theta\_left -\/ variance\_theta}
+\DoxyCodeLine{240               left\_theta\_max = average\_theta\_left + variance\_theta}
+\DoxyCodeLine{241               left\_rho\_min = average\_rho\_left -\/ variance\_rho}
+\DoxyCodeLine{242               left\_rho\_max = average\_rho\_left + variance\_rho}
+\DoxyCodeLine{243               message = Float64MultiArray()}
+\DoxyCodeLine{244               message.data = [average\_rho\_left, average\_theta\_left]}
+\DoxyCodeLine{245               self.left\_lane\_publisher.publish(message)}
+\DoxyCodeLine{246               \textcolor{comment}{\#print([left\_rho\_min, average\_rho\_left, left\_rho\_max])}}
+\DoxyCodeLine{247               \textcolor{comment}{\#print([left\_theta\_min, average\_theta\_left, left\_theta\_max])}}
+\DoxyCodeLine{248               \textcolor{comment}{\#"{}"{}"{}}}
+\DoxyCodeLine{249               \textcolor{keywordflow}{try}:}
+\DoxyCodeLine{250                   x1, y1, x2, y2 = self.two\_dots\_line(average\_rho\_left, average\_theta\_left, frame)}
+\DoxyCodeLine{251                   x3 = x1 + delta}
+\DoxyCodeLine{252                   x4 = x1 -\/ delta}
+\DoxyCodeLine{253                   x5 = x2 + delta}
+\DoxyCodeLine{254                   x6 = x2 -\/ delta}
+\DoxyCodeLine{255                   cv2.line(frame, (x1, y1), (x2, y2), (255,0,0), 3, cv2.LINE\_AA)}
+\DoxyCodeLine{256               \textcolor{keywordflow}{except}:}
+\DoxyCodeLine{257                   \textcolor{keywordflow}{pass}}
+\DoxyCodeLine{258               \textcolor{comment}{\#"{}"{}"{}}}
+\DoxyCodeLine{259           \textcolor{keywordflow}{if} count\_right > 0:}
+\DoxyCodeLine{260               print(\textcolor{stringliteral}{"{}count\_right is bigger than zero"{}})}
+\DoxyCodeLine{261               average\_rho\_right = sum\_rho\_right / count\_right}
+\DoxyCodeLine{262               average\_theta\_right = sum\_theta\_right / count\_right}
+\DoxyCodeLine{263               right\_theta\_min = average\_theta\_right -\/ variance\_theta}
+\DoxyCodeLine{264               right\_theta\_max = average\_theta\_right + variance\_theta}
+\DoxyCodeLine{265               right\_rho\_min = average\_rho\_right -\/ variance\_rho}
+\DoxyCodeLine{266               right\_rho\_max = average\_rho\_right + variance\_rho}
+\DoxyCodeLine{267               message = Float64MultiArray()}
+\DoxyCodeLine{268               message.data = [average\_rho\_right, average\_theta\_right]}
+\DoxyCodeLine{269               self.right\_lane\_publisher.publish(message)}
+\DoxyCodeLine{270               print([right\_rho\_min, average\_rho\_right, right\_rho\_max])}
+\DoxyCodeLine{271               print([right\_theta\_min, average\_theta\_right, right\_theta\_max])}
+\DoxyCodeLine{272               \textcolor{comment}{\#"{}"{}"{}}}
+\DoxyCodeLine{273               \textcolor{keywordflow}{try}:}
+\DoxyCodeLine{274                   x1, y1, x2, y2 = self.two\_dots\_line(average\_rho\_right, average\_theta\_right, frame)}
+\DoxyCodeLine{275                   x3 = x1 + delta}
+\DoxyCodeLine{276                   x4 = x1 -\/ delta}
+\DoxyCodeLine{277                   x5 = x2 + delta}
+\DoxyCodeLine{278                   x6 = x2 -\/ delta}
+\DoxyCodeLine{279                   cv2.line(frame, (x1, y1), (x2, y2), (0,0,255), 3, cv2.LINE\_AA)}
+\DoxyCodeLine{280               \textcolor{keywordflow}{except} Exception \textcolor{keyword}{as} e:}
+\DoxyCodeLine{281                   print(e)}
+\DoxyCodeLine{282               \textcolor{comment}{\#"{}"{}"{}}}
+\DoxyCodeLine{283           frame = cv2.rectangle(frame, (50, 140), (190, 240), (255, 0, 0), 5)}
+\DoxyCodeLine{284           frame = cv2.rectangle(frame, (450, 140), (590, 240), (0, 0, 255), 5)}
+\DoxyCodeLine{285           \textcolor{comment}{\#print("{}\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#"{})}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{classtoxic__vision_1_1lane__detector_1_1ImageSubscriber_a23dd9943cb7cb7be2a6e7022a85a1684}\label{classtoxic__vision_1_1lane__detector_1_1ImageSubscriber_a23dd9943cb7cb7be2a6e7022a85a1684}} 
@@ -210,20 +224,22 @@ def \mbox{\hyperlink{classtoxic__vision_1_1lane__detector_1_1ImageSubscriber_a23
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{240   \textcolor{keyword}{def }listener\_callback(self, data):}
-\DoxyCodeLine{241     \textcolor{keyword}{global} frame, band\_pass, dst}
-\DoxyCodeLine{242     current\_frame = self.br.imgmsg\_to\_cv2(data)[240:, :, :]}
-\DoxyCodeLine{243     frame = current\_frame}
-\DoxyCodeLine{244     hsv = self.process\_image()}
-\DoxyCodeLine{245     band\_pass = self.range\_finder()}
-\DoxyCodeLine{246     self.line\_finder()}
-\DoxyCodeLine{247     cv2.imshow(\textcolor{stringliteral}{"{}camera"{}}, frame)}
-\DoxyCodeLine{248     cv2.imshow(\textcolor{stringliteral}{"{}band\_filter"{}}, band\_pass)}
-\DoxyCodeLine{249     cv2.imshow(\textcolor{stringliteral}{"{}dst"{}}, dst)}
-\DoxyCodeLine{250     cv2.setMouseCallback(\textcolor{stringliteral}{"{}camera"{}}, mouse\_callback)}
-\DoxyCodeLine{251     cv2.setMouseCallback(\textcolor{stringliteral}{"{}dst"{}}, mouse\_callback)}
-\DoxyCodeLine{252     cv2.setMouseCallback(\textcolor{stringliteral}{"{}band\_filter"{}}, mouse\_callback)}
-\DoxyCodeLine{253     cv2.waitKey(1)}
+\DoxyCodeLine{289   \textcolor{keyword}{def }listener\_callback(self, data):}
+\DoxyCodeLine{290     \textcolor{keyword}{global} frame, band\_pass, dst}
+\DoxyCodeLine{291     frame = self.br.imgmsg\_to\_cv2(data)[240:, :, :]}
+\DoxyCodeLine{292     \textcolor{comment}{\#frame = current\_frame}}
+\DoxyCodeLine{293     hsv = self.process\_image()}
+\DoxyCodeLine{294     band\_pass = self.range\_finder()}
+\DoxyCodeLine{295     self.line\_finder()}
+\DoxyCodeLine{296     \textcolor{comment}{\#"{}"{}"{}}}
+\DoxyCodeLine{297     cv2.imshow(\textcolor{stringliteral}{"{}camera"{}}, frame)}
+\DoxyCodeLine{298     cv2.imshow(\textcolor{stringliteral}{"{}band\_filter"{}}, band\_pass)}
+\DoxyCodeLine{299     cv2.imshow(\textcolor{stringliteral}{"{}dst"{}}, dst)}
+\DoxyCodeLine{300     cv2.setMouseCallback(\textcolor{stringliteral}{"{}camera"{}}, mouse\_callback)}
+\DoxyCodeLine{301     cv2.setMouseCallback(\textcolor{stringliteral}{"{}dst"{}}, mouse\_callback)}
+\DoxyCodeLine{302     cv2.setMouseCallback(\textcolor{stringliteral}{"{}band\_filter"{}}, mouse\_callback)}
+\DoxyCodeLine{303     cv2.waitKey(1)}
+\DoxyCodeLine{304     \textcolor{comment}{\#"{}"{}"{}}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{classtoxic__vision_1_1lane__detector_1_1ImageSubscriber_a69f776519af775d0e6b8ef2bf9b2a37f}\label{classtoxic__vision_1_1lane__detector_1_1ImageSubscriber_a69f776519af775d0e6b8ef2bf9b2a37f}} 
@@ -234,12 +250,11 @@ def \mbox{\hyperlink{classtoxic__vision_1_1lane__detector_1_1ImageSubscriber_a23
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{91   \textcolor{keyword}{def }process\_image(self):}
-\DoxyCodeLine{92       \textcolor{keyword}{global} frame, where}
-\DoxyCodeLine{93       hsv = cv2.cvtColor(frame, cv2.COLOR\_BGR2HLS)}
-\DoxyCodeLine{94       where = hsv}
-\DoxyCodeLine{95       \textcolor{keywordflow}{return} hsv}
-\DoxyCodeLine{96   }
+\DoxyCodeLine{121   \textcolor{keyword}{def }process\_image(self):}
+\DoxyCodeLine{122       \textcolor{keyword}{global} frame, where}
+\DoxyCodeLine{123       hsv = cv2.cvtColor(frame, cv2.COLOR\_BGR2HLS)}
+\DoxyCodeLine{124       where = hsv}
+\DoxyCodeLine{125       \textcolor{keywordflow}{return} hsv}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{classtoxic__vision_1_1lane__detector_1_1ImageSubscriber_a876735be946e8770790a53a398cbab17}\label{classtoxic__vision_1_1lane__detector_1_1ImageSubscriber_a876735be946e8770790a53a398cbab17}} 
@@ -250,15 +265,14 @@ def \mbox{\hyperlink{classtoxic__vision_1_1lane__detector_1_1ImageSubscriber_a23
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{82   \textcolor{keyword}{def }range\_finder(self):}
-\DoxyCodeLine{83     \textcolor{keyword}{global} lower\_color, upper\_color, where}
-\DoxyCodeLine{84     band\_filter = cv2.inRange(}
-\DoxyCodeLine{85                 where,}
-\DoxyCodeLine{86             np.array(lower\_color),}
-\DoxyCodeLine{87             np.array(upper\_color)}
-\DoxyCodeLine{88         )}
-\DoxyCodeLine{89     \textcolor{keywordflow}{return} band\_filter}
-\DoxyCodeLine{90 }
+\DoxyCodeLine{110   \textcolor{keyword}{def }range\_finder(self):}
+\DoxyCodeLine{111     \textcolor{keyword}{global} lower\_color, upper\_color, where}
+\DoxyCodeLine{112     band\_filter = cv2.inRange(}
+\DoxyCodeLine{113                 where,}
+\DoxyCodeLine{114             np.array(lower\_color),}
+\DoxyCodeLine{115             np.array(upper\_color)}
+\DoxyCodeLine{116         )}
+\DoxyCodeLine{117     \textcolor{keywordflow}{return} band\_filter}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{classtoxic__vision_1_1lane__detector_1_1ImageSubscriber_aa29031ea99aa06784e3755c54ba91edd}\label{classtoxic__vision_1_1lane__detector_1_1ImageSubscriber_aa29031ea99aa06784e3755c54ba91edd}} 
@@ -269,18 +283,16 @@ def \mbox{\hyperlink{classtoxic__vision_1_1lane__detector_1_1ImageSubscriber_a23
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{97   \textcolor{keyword}{def }two\_dots\_line(self, rho, theta, frame):}
-\DoxyCodeLine{98       \textcolor{keywordflow}{if} rho == 0 \textcolor{keywordflow}{or} theta == 0:}
-\DoxyCodeLine{99           \textcolor{keywordflow}{return}}
-\DoxyCodeLine{100       a = math.cos(theta)}
-\DoxyCodeLine{101       b = math.sin(theta)}
-\DoxyCodeLine{102       x0 = a * rho}
-\DoxyCodeLine{103       y0 = b * rho}
-\DoxyCodeLine{104       pt1 = (int(x0 + 1000*(-\/b)), int(y0 + 1000*(a)))}
-\DoxyCodeLine{105       pt2 = (int(x0 -\/ 1000*(-\/b)), int(y0 -\/ 1000*(a)))}
-\DoxyCodeLine{106       \textcolor{keywordflow}{return} pt1[0], pt1[1], pt2[0], pt2[1]}
-\DoxyCodeLine{107 }
-\DoxyCodeLine{108 }
+\DoxyCodeLine{129   \textcolor{keyword}{def }two\_dots\_line(self, rho, theta, frame):}
+\DoxyCodeLine{130       \textcolor{keywordflow}{if} rho == 0 \textcolor{keywordflow}{or} theta == 0:}
+\DoxyCodeLine{131           \textcolor{keywordflow}{return}}
+\DoxyCodeLine{132       a = math.cos(theta)}
+\DoxyCodeLine{133       b = math.sin(theta)}
+\DoxyCodeLine{134       x0 = a * rho}
+\DoxyCodeLine{135       y0 = b * rho}
+\DoxyCodeLine{136       pt1 = (int(x0 + 1000*(-\/b)), int(y0 + 1000*(a)))}
+\DoxyCodeLine{137       pt2 = (int(x0 -\/ 1000*(-\/b)), int(y0 -\/ 1000*(a)))}
+\DoxyCodeLine{138       \textcolor{keywordflow}{return} pt1[0], pt1[1], pt2[0], pt2[1]}
 
 \end{DoxyCode}
 

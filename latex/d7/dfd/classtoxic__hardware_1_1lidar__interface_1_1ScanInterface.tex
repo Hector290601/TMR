@@ -1,0 +1,73 @@
+\hypertarget{classtoxic__hardware_1_1lidar__interface_1_1ScanInterface}{}\doxysection{Scan\+Interface Class Reference}
+\label{classtoxic__hardware_1_1lidar__interface_1_1ScanInterface}\index{ScanInterface@{ScanInterface}}
+Inheritance diagram for Scan\+Interface\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{d7/dfd/classtoxic__hardware_1_1lidar__interface_1_1ScanInterface}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{classtoxic__hardware_1_1lidar__interface_1_1ScanInterface_ae64f0875afe3067b97ba370b354b9213}{\+\_\+\+\_\+init\+\_\+\+\_\+}} (self)
+\item 
+def \mbox{\hyperlink{classtoxic__hardware_1_1lidar__interface_1_1ScanInterface_a042573af0d6822758e73a9d4c1fd086e}{scan\+\_\+callback}} (self, data)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classtoxic__hardware_1_1lidar__interface_1_1ScanInterface_a4b0698733c4dfaffe8e2b4cd952b6f82}{subscription}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classtoxic__hardware_1_1lidar__interface_1_1ScanInterface_ae64f0875afe3067b97ba370b354b9213}\label{classtoxic__hardware_1_1lidar__interface_1_1ScanInterface_ae64f0875afe3067b97ba370b354b9213}} 
+\index{ScanInterface@{ScanInterface}!\_\_init\_\_@{\_\_init\_\_}}
+\index{\_\_init\_\_@{\_\_init\_\_}!ScanInterface@{ScanInterface}}
+\doxysubsubsection{\texorpdfstring{\_\_init\_\_()}{\_\_init\_\_()}}
+{\footnotesize\ttfamily def \+\_\+\+\_\+init\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{7     \textcolor{keyword}{def }\_\_init\_\_(self):}
+\DoxyCodeLine{8         super().\_\_init\_\_(\textcolor{stringliteral}{'scan\_interface'})}
+\DoxyCodeLine{9         self.subscription = self.create\_subscription(}
+\DoxyCodeLine{10                 LaserScan,}
+\DoxyCodeLine{11                 \textcolor{stringliteral}{'/scan'},}
+\DoxyCodeLine{12                 self.scan\_callback,}
+\DoxyCodeLine{13                 1}
+\DoxyCodeLine{14                 )}
+\DoxyCodeLine{15         self.subscription}
+\DoxyCodeLine{16 }
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classtoxic__hardware_1_1lidar__interface_1_1ScanInterface_a042573af0d6822758e73a9d4c1fd086e}\label{classtoxic__hardware_1_1lidar__interface_1_1ScanInterface_a042573af0d6822758e73a9d4c1fd086e}} 
+\index{ScanInterface@{ScanInterface}!scan\_callback@{scan\_callback}}
+\index{scan\_callback@{scan\_callback}!ScanInterface@{ScanInterface}}
+\doxysubsubsection{\texorpdfstring{scan\_callback()}{scan\_callback()}}
+{\footnotesize\ttfamily def scan\+\_\+callback (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{data }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{17     \textcolor{keyword}{def }scan\_callback(self, data):}
+\DoxyCodeLine{18         print(data)}
+\DoxyCodeLine{19 }
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classtoxic__hardware_1_1lidar__interface_1_1ScanInterface_a4b0698733c4dfaffe8e2b4cd952b6f82}\label{classtoxic__hardware_1_1lidar__interface_1_1ScanInterface_a4b0698733c4dfaffe8e2b4cd952b6f82}} 
+\index{ScanInterface@{ScanInterface}!subscription@{subscription}}
+\index{subscription@{subscription}!ScanInterface@{ScanInterface}}
+\doxysubsubsection{\texorpdfstring{subscription}{subscription}}
+{\footnotesize\ttfamily subscription}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+main\+\_\+ws/build/toxic\+\_\+hardware/build/lib/toxic\+\_\+hardware/\mbox{\hyperlink{lidar__interface_8py}{lidar\+\_\+interface.\+py}}\end{DoxyCompactItemize}

@@ -1,0 +1,171 @@
+\hypertarget{classtoxic__hardware_1_1automate_1_1ControlSubscriber}{}\doxysection{Control\+Subscriber Class Reference}
+\label{classtoxic__hardware_1_1automate_1_1ControlSubscriber}\index{ControlSubscriber@{ControlSubscriber}}
+Inheritance diagram for Control\+Subscriber\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{d6/d7d/classtoxic__hardware_1_1automate_1_1ControlSubscriber}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{classtoxic__hardware_1_1automate_1_1ControlSubscriber_ae64f0875afe3067b97ba370b354b9213}{\+\_\+\+\_\+init\+\_\+\+\_\+}} (self)
+\item 
+def \mbox{\hyperlink{classtoxic__hardware_1_1automate_1_1ControlSubscriber_a8544659d6382ca7d0e35b53fda85670d}{kill\+\_\+all}} (self)
+\item 
+def \mbox{\hyperlink{classtoxic__hardware_1_1automate_1_1ControlSubscriber_a74cd0ca565734b11f4f33f0458127b9e}{launch\+\_\+node}} (self, pkg, desired)
+\item 
+def \mbox{\hyperlink{classtoxic__hardware_1_1automate_1_1ControlSubscriber_a33e86027586e42bbaff819e19bef44d7}{control\+\_\+callback}} (self, data)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classtoxic__hardware_1_1automate_1_1ControlSubscriber_a4b0698733c4dfaffe8e2b4cd952b6f82}{subscription}}
+\item 
+\mbox{\hyperlink{classtoxic__hardware_1_1automate_1_1ControlSubscriber_a88640ec11c2771651cd86a6c3e874363}{aviable\+\_\+nodes}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classtoxic__hardware_1_1automate_1_1ControlSubscriber_ae64f0875afe3067b97ba370b354b9213}\label{classtoxic__hardware_1_1automate_1_1ControlSubscriber_ae64f0875afe3067b97ba370b354b9213}} 
+\index{ControlSubscriber@{ControlSubscriber}!\_\_init\_\_@{\_\_init\_\_}}
+\index{\_\_init\_\_@{\_\_init\_\_}!ControlSubscriber@{ControlSubscriber}}
+\doxysubsubsection{\texorpdfstring{\_\_init\_\_()}{\_\_init\_\_()}}
+{\footnotesize\ttfamily def \+\_\+\+\_\+init\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{39     \textcolor{keyword}{def }\_\_init\_\_(self):}
+\DoxyCodeLine{40         print(\textcolor{stringliteral}{"{}INITIALIZING..."{}})}
+\DoxyCodeLine{41         super().\_\_init\_\_(\textcolor{stringliteral}{'automate'})}
+\DoxyCodeLine{42         self.launch\_node(\textcolor{stringliteral}{"{}joy\_linux"{}}, \textcolor{stringliteral}{"{}joy\_linux\_node"{}})}
+\DoxyCodeLine{43         print(\textcolor{stringliteral}{"{}JOY STARTED"{}})}
+\DoxyCodeLine{44         self.subscription = self.create\_subscription(}
+\DoxyCodeLine{45                 Joy,}
+\DoxyCodeLine{46                 \textcolor{stringliteral}{'/joy'},}
+\DoxyCodeLine{47                 self.control\_callback,}
+\DoxyCodeLine{48                 60}
+\DoxyCodeLine{49                 )}
+\DoxyCodeLine{50         self.subscription}
+\DoxyCodeLine{51         self.launch\_node(\textcolor{stringliteral}{"{}toxic\_vision"{}}, \textcolor{stringliteral}{"{}webcam\_publisher"{}})}
+\DoxyCodeLine{52         \textcolor{comment}{\#os.system("{}ros2 run toxic\_vision webcam\_publisher \&"{})}}
+\DoxyCodeLine{53         print(\textcolor{stringliteral}{"{}WEBCAM STARTED"{}})}
+\DoxyCodeLine{54         self.launch\_node(\textcolor{stringliteral}{"{}toxic\_hardware"{}}, \textcolor{stringliteral}{"{}servo\_interface"{}})}
+\DoxyCodeLine{55         \textcolor{comment}{\#os.system("{}ros2 run toxic\_hardware servo\_interface \&"{})}}
+\DoxyCodeLine{56         print(\textcolor{stringliteral}{"{}STEERING STARTED"{}})}
+\DoxyCodeLine{57         self.launch\_node(\textcolor{stringliteral}{"{}toxic\_hardware"{}}, \textcolor{stringliteral}{"{}motor\_interface"{}})}
+\DoxyCodeLine{58         \textcolor{comment}{\#os.system("{}ros2 run toxic\_hardware motor\_interface \&"{})}}
+\DoxyCodeLine{59         print(\textcolor{stringliteral}{"{}MOTOR STARTED"{}})}
+\DoxyCodeLine{60         self.aviable\_nodes = [}
+\DoxyCodeLine{61                 \textcolor{stringliteral}{"{}controller"{}},}
+\DoxyCodeLine{62                 \textcolor{stringliteral}{"{}lane\_detector"{}},}
+\DoxyCodeLine{63                 \textcolor{stringliteral}{"{}lane\_tracker"{}},}
+\DoxyCodeLine{64                 ]}
+\DoxyCodeLine{65 }
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classtoxic__hardware_1_1automate_1_1ControlSubscriber_a33e86027586e42bbaff819e19bef44d7}\label{classtoxic__hardware_1_1automate_1_1ControlSubscriber_a33e86027586e42bbaff819e19bef44d7}} 
+\index{ControlSubscriber@{ControlSubscriber}!control\_callback@{control\_callback}}
+\index{control\_callback@{control\_callback}!ControlSubscriber@{ControlSubscriber}}
+\doxysubsubsection{\texorpdfstring{control\_callback()}{control\_callback()}}
+{\footnotesize\ttfamily def control\+\_\+callback (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{data }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{85     \textcolor{keyword}{def }control\_callback(self, data):}
+\DoxyCodeLine{86         \textcolor{keywordflow}{if} data.buttons[14]:}
+\DoxyCodeLine{87             print(\textcolor{stringliteral}{"{}EMERGENCY STOP"{}})}
+\DoxyCodeLine{88             \textcolor{comment}{\#os.system("{}sh /home/ubuntu/TMR/sh\_commands/general.sh 'pkill -\/f controller' \&"{})}}
+\DoxyCodeLine{89             \textcolor{comment}{\#os.system("{}sh /home/ubuntu/TMR/sh\_commands/general.sh 'ros2 topic pub -\/-\/once /speed std\_msgs/msg/Float64 \(\backslash\)"{}\{data: 0.0\}\(\backslash\)"{}' \&"{})}}
+\DoxyCodeLine{90             self.kill\_all()}
+\DoxyCodeLine{91         \textcolor{keywordflow}{elif} data.buttons[0]:}
+\DoxyCodeLine{92             print(\textcolor{stringliteral}{"{}NO OBSTACLES"{}})}
+\DoxyCodeLine{93             self.kill\_all()}
+\DoxyCodeLine{94             print(\textcolor{stringliteral}{"{}STARTING FUNCTION NODES"{}})}
+\DoxyCodeLine{95             self.launch\_node(\textcolor{stringliteral}{"{}toxic\_vision"{}}, \textcolor{stringliteral}{"{}lane\_detector"{}})}
+\DoxyCodeLine{96             time.sleep(0.5)}
+\DoxyCodeLine{97             self.launch\_node(\textcolor{stringliteral}{"{}toxic\_vision"{}}, \textcolor{stringliteral}{"{}lane\_tracker"{}})}
+\DoxyCodeLine{98             time.sleep(0.5)}
+\DoxyCodeLine{99             print(\textcolor{stringliteral}{"{}FUNCTIONAL NODES STARTED"{}})}
+\DoxyCodeLine{100         \textcolor{keywordflow}{elif} data.buttons[1]:}
+\DoxyCodeLine{101             print(\textcolor{stringliteral}{"{}STATIC OBSTACLES"{}})}
+\DoxyCodeLine{102         \textcolor{keywordflow}{elif} data.buttons[3]:}
+\DoxyCodeLine{103             print(\textcolor{stringliteral}{"{}DYNAMIC OBSTACLES"{}})}
+\DoxyCodeLine{104         \textcolor{keywordflow}{elif} data.buttons[4]:}
+\DoxyCodeLine{105             print(\textcolor{stringliteral}{"{}PARKING"{}})}
+\DoxyCodeLine{106         \textcolor{keywordflow}{elif} data.buttons[6]:}
+\DoxyCodeLine{107             print(\textcolor{stringliteral}{"{}MANUAL SPEED"{}})}
+\DoxyCodeLine{108         \textcolor{keywordflow}{elif} data.buttons[7]:}
+\DoxyCodeLine{109             print(\textcolor{stringliteral}{"{}ALL AUTOMATIC"{}})}
+\DoxyCodeLine{110         \textcolor{keywordflow}{elif} data.buttons[13]:}
+\DoxyCodeLine{111             print(\textcolor{stringliteral}{"{}ALL MANUAL"{}})}
+\DoxyCodeLine{112             self.kill\_all()}
+\DoxyCodeLine{113             \textcolor{comment}{\#os.system("{}sh /home/ubuntu/TMR/sh\_commands/general.sh 'ros2 topic pub -\/-\/once /speed std\_msgs/msg/Float64 \(\backslash\)"{}\{data: 0.0\}\(\backslash\)"{}' \&"{})}}
+\DoxyCodeLine{114             \textcolor{comment}{\#os.system("{}sh /home/ubuntu/TMR/sh\_commands/general.sh 'ros2 topic pub -\/-\/once /speed std\_msgs/msg/Float64 \(\backslash\)"{}\{data: 0.0\}\(\backslash\)"{}' \&"{})}}
+\DoxyCodeLine{115             self.launch\_node(\textcolor{stringliteral}{"{}toxic\_hardware"{}}, \textcolor{stringliteral}{"{}controller"{}})}
+\DoxyCodeLine{116             time.sleep(0.5)}
+\DoxyCodeLine{117 }
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classtoxic__hardware_1_1automate_1_1ControlSubscriber_a8544659d6382ca7d0e35b53fda85670d}\label{classtoxic__hardware_1_1automate_1_1ControlSubscriber_a8544659d6382ca7d0e35b53fda85670d}} 
+\index{ControlSubscriber@{ControlSubscriber}!kill\_all@{kill\_all}}
+\index{kill\_all@{kill\_all}!ControlSubscriber@{ControlSubscriber}}
+\doxysubsubsection{\texorpdfstring{kill\_all()}{kill\_all()}}
+{\footnotesize\ttfamily def kill\+\_\+all (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{66     \textcolor{keyword}{def }kill\_all(self):}
+\DoxyCodeLine{67             print(\textcolor{stringliteral}{"{}KILLING ALL NOT ESSENCIAL NODES"{}})}
+\DoxyCodeLine{68             \textcolor{keywordflow}{for} node \textcolor{keywordflow}{in} self.aviable\_nodes:}
+\DoxyCodeLine{69                 os.system(}
+\DoxyCodeLine{70                         \textcolor{stringliteral}{"{}if ! pgrep -\/x "{}}}
+\DoxyCodeLine{71                         + node}
+\DoxyCodeLine{72                         + \textcolor{stringliteral}{"{} > /dev/null; then killall "{}}}
+\DoxyCodeLine{73                         + node}
+\DoxyCodeLine{74                         + \textcolor{stringliteral}{"{}; fi \&"{}}}
+\DoxyCodeLine{75                 )}
+\DoxyCodeLine{76 }
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classtoxic__hardware_1_1automate_1_1ControlSubscriber_a74cd0ca565734b11f4f33f0458127b9e}\label{classtoxic__hardware_1_1automate_1_1ControlSubscriber_a74cd0ca565734b11f4f33f0458127b9e}} 
+\index{ControlSubscriber@{ControlSubscriber}!launch\_node@{launch\_node}}
+\index{launch\_node@{launch\_node}!ControlSubscriber@{ControlSubscriber}}
+\doxysubsubsection{\texorpdfstring{launch\_node()}{launch\_node()}}
+{\footnotesize\ttfamily def launch\+\_\+node (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{pkg,  }\item[{}]{desired }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{77     \textcolor{keyword}{def }launch\_node(self, pkg, desired):}
+\DoxyCodeLine{78         os.system(}
+\DoxyCodeLine{79                 \textcolor{stringliteral}{"{}sh /home/ubuntu/TMR/sh\_commands/general.sh "{}}}
+\DoxyCodeLine{80                 + pkg}
+\DoxyCodeLine{81                 + \textcolor{stringliteral}{"{} "{}}}
+\DoxyCodeLine{82                 + desired}
+\DoxyCodeLine{83             )}
+\DoxyCodeLine{84 }
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classtoxic__hardware_1_1automate_1_1ControlSubscriber_a88640ec11c2771651cd86a6c3e874363}\label{classtoxic__hardware_1_1automate_1_1ControlSubscriber_a88640ec11c2771651cd86a6c3e874363}} 
+\index{ControlSubscriber@{ControlSubscriber}!aviable\_nodes@{aviable\_nodes}}
+\index{aviable\_nodes@{aviable\_nodes}!ControlSubscriber@{ControlSubscriber}}
+\doxysubsubsection{\texorpdfstring{aviable\_nodes}{aviable\_nodes}}
+{\footnotesize\ttfamily aviable\+\_\+nodes}
+
+\mbox{\Hypertarget{classtoxic__hardware_1_1automate_1_1ControlSubscriber_a4b0698733c4dfaffe8e2b4cd952b6f82}\label{classtoxic__hardware_1_1automate_1_1ControlSubscriber_a4b0698733c4dfaffe8e2b4cd952b6f82}} 
+\index{ControlSubscriber@{ControlSubscriber}!subscription@{subscription}}
+\index{subscription@{subscription}!ControlSubscriber@{ControlSubscriber}}
+\doxysubsubsection{\texorpdfstring{subscription}{subscription}}
+{\footnotesize\ttfamily subscription}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+main\+\_\+ws/build/toxic\+\_\+hardware/build/lib/toxic\+\_\+hardware/\mbox{\hyperlink{automate_8py}{automate.\+py}}\end{DoxyCompactItemize}

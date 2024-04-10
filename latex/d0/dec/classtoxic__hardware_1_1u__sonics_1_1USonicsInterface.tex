@@ -1,0 +1,110 @@
+\hypertarget{classtoxic__hardware_1_1u__sonics_1_1USonicsInterface}{}\doxysection{USonics\+Interface Class Reference}
+\label{classtoxic__hardware_1_1u__sonics_1_1USonicsInterface}\index{USonicsInterface@{USonicsInterface}}
+Inheritance diagram for USonics\+Interface\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{d0/dec/classtoxic__hardware_1_1u__sonics_1_1USonicsInterface}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{classtoxic__hardware_1_1u__sonics_1_1USonicsInterface_ae64f0875afe3067b97ba370b354b9213}{\+\_\+\+\_\+init\+\_\+\+\_\+}} (self)
+\item 
+def \mbox{\hyperlink{classtoxic__hardware_1_1u__sonics_1_1USonicsInterface_ada3d4ef82060fb402447d723b6cfd3d1}{look\+\_\+callback}} (self, data)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classtoxic__hardware_1_1u__sonics_1_1USonicsInterface_a4b0698733c4dfaffe8e2b4cd952b6f82}{subscription}}
+\item 
+\mbox{\hyperlink{classtoxic__hardware_1_1u__sonics_1_1USonicsInterface_a7277d205751fbcdc6753d41e2d151ee3}{publisher}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classtoxic__hardware_1_1u__sonics_1_1USonicsInterface_ae64f0875afe3067b97ba370b354b9213}\label{classtoxic__hardware_1_1u__sonics_1_1USonicsInterface_ae64f0875afe3067b97ba370b354b9213}} 
+\index{USonicsInterface@{USonicsInterface}!\_\_init\_\_@{\_\_init\_\_}}
+\index{\_\_init\_\_@{\_\_init\_\_}!USonicsInterface@{USonicsInterface}}
+\doxysubsubsection{\texorpdfstring{\_\_init\_\_()}{\_\_init\_\_()}}
+{\footnotesize\ttfamily def \+\_\+\+\_\+init\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{48     \textcolor{keyword}{def }\_\_init\_\_(self):}
+\DoxyCodeLine{49         \textcolor{keyword}{global} board\_interface}
+\DoxyCodeLine{50         super().\_\_init\_\_(\textcolor{stringliteral}{'steering\_interface'})}
+\DoxyCodeLine{51         self.subscription = self.create\_subscription(}
+\DoxyCodeLine{52                 Int8,}
+\DoxyCodeLine{53                 \textcolor{stringliteral}{'/lookingat'},}
+\DoxyCodeLine{54                 self.look\_callback,}
+\DoxyCodeLine{55                 1}
+\DoxyCodeLine{56                 )}
+\DoxyCodeLine{57         self.publisher = self.create\_publisher(}
+\DoxyCodeLine{58                 Float64MultiArray,}
+\DoxyCodeLine{59                 \textcolor{stringliteral}{'/obstacles/sensors'},}
+\DoxyCodeLine{60                 1}
+\DoxyCodeLine{61                 )}
+\DoxyCodeLine{62         self.subscription}
+\DoxyCodeLine{63 }
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classtoxic__hardware_1_1u__sonics_1_1USonicsInterface_ada3d4ef82060fb402447d723b6cfd3d1}\label{classtoxic__hardware_1_1u__sonics_1_1USonicsInterface_ada3d4ef82060fb402447d723b6cfd3d1}} 
+\index{USonicsInterface@{USonicsInterface}!look\_callback@{look\_callback}}
+\index{look\_callback@{look\_callback}!USonicsInterface@{USonicsInterface}}
+\doxysubsubsection{\texorpdfstring{look\_callback()}{look\_callback()}}
+{\footnotesize\ttfamily def look\+\_\+callback (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{data }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{64     \textcolor{keyword}{def }look\_callback(self, data):}
+\DoxyCodeLine{65         \textcolor{keyword}{global} board\_interface, distances}
+\DoxyCodeLine{66         recived = data.data}
+\DoxyCodeLine{67         \textcolor{keywordflow}{if} recived == 1:}
+\DoxyCodeLine{68             distances = [0, 0, 0]}
+\DoxyCodeLine{69             us1 = threading.Thread(target=threaded\_function, args=(10, 0))}
+\DoxyCodeLine{70             us2 = threading.Thread(target=threaded\_function, args=(9, 1))}
+\DoxyCodeLine{71             us3 = threading.Thread(target=threaded\_function, args=(11, 2))}
+\DoxyCodeLine{72             lgpio.gpio\_write(board\_interface, 25, 0)}
+\DoxyCodeLine{73             start = time.time()}
+\DoxyCodeLine{74             \textcolor{keywordflow}{while} time.time() -\/ start <= 0.00001:}
+\DoxyCodeLine{75                 \textcolor{keywordflow}{pass}}
+\DoxyCodeLine{76             lgpio.gpio\_write(board\_interface, 25, 1)}
+\DoxyCodeLine{77             us1.start()}
+\DoxyCodeLine{78             us2.start()}
+\DoxyCodeLine{79             us3.start()}
+\DoxyCodeLine{80             start = time.time()}
+\DoxyCodeLine{81             \textcolor{keywordflow}{while} time.time() -\/ start <= 0.00001:}
+\DoxyCodeLine{82                 \textcolor{keywordflow}{pass}}
+\DoxyCodeLine{83             lgpio.gpio\_write(board\_interface, 25, 0)}
+\DoxyCodeLine{84             us1.join()}
+\DoxyCodeLine{85             us2.join()}
+\DoxyCodeLine{86             us3.join()}
+\DoxyCodeLine{87             print(distances)}
+\DoxyCodeLine{88         print(recived)}
+\DoxyCodeLine{89 }
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classtoxic__hardware_1_1u__sonics_1_1USonicsInterface_a7277d205751fbcdc6753d41e2d151ee3}\label{classtoxic__hardware_1_1u__sonics_1_1USonicsInterface_a7277d205751fbcdc6753d41e2d151ee3}} 
+\index{USonicsInterface@{USonicsInterface}!publisher@{publisher}}
+\index{publisher@{publisher}!USonicsInterface@{USonicsInterface}}
+\doxysubsubsection{\texorpdfstring{publisher}{publisher}}
+{\footnotesize\ttfamily publisher}
+
+\mbox{\Hypertarget{classtoxic__hardware_1_1u__sonics_1_1USonicsInterface_a4b0698733c4dfaffe8e2b4cd952b6f82}\label{classtoxic__hardware_1_1u__sonics_1_1USonicsInterface_a4b0698733c4dfaffe8e2b4cd952b6f82}} 
+\index{USonicsInterface@{USonicsInterface}!subscription@{subscription}}
+\index{subscription@{subscription}!USonicsInterface@{USonicsInterface}}
+\doxysubsubsection{\texorpdfstring{subscription}{subscription}}
+{\footnotesize\ttfamily subscription}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+main\+\_\+ws/build/toxic\+\_\+hardware/build/lib/toxic\+\_\+hardware/\mbox{\hyperlink{u__sonics_8py}{u\+\_\+sonics.\+py}}\end{DoxyCompactItemize}

@@ -1,0 +1,495 @@
+\hypertarget{classtoxic__vision_1_1lane__tracker_1_1LaneTracker}{}\doxysection{Lane\+Tracker Class Reference}
+\label{classtoxic__vision_1_1lane__tracker_1_1LaneTracker}\index{LaneTracker@{LaneTracker}}
+Inheritance diagram for Lane\+Tracker\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{d5/d25/classtoxic__vision_1_1lane__tracker_1_1LaneTracker}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{classtoxic__vision_1_1lane__tracker_1_1LaneTracker_ae64f0875afe3067b97ba370b354b9213}{\+\_\+\+\_\+init\+\_\+\+\_\+}} (self)
+\item 
+def \mbox{\hyperlink{classtoxic__vision_1_1lane__tracker_1_1LaneTracker_a33e86027586e42bbaff819e19bef44d7}{control\+\_\+callback}} (self, data)
+\item 
+def \mbox{\hyperlink{classtoxic__vision_1_1lane__tracker_1_1LaneTracker_aa29031ea99aa06784e3755c54ba91edd}{two\+\_\+dots\+\_\+line}} (self, rho, theta, frame)
+\item 
+def \mbox{\hyperlink{classtoxic__vision_1_1lane__tracker_1_1LaneTracker_a7f4e82dd86ab4d19baaebedf314c7366}{get\+\_\+error}} (self, current, goal)
+\item 
+def \mbox{\hyperlink{classtoxic__vision_1_1lane__tracker_1_1LaneTracker_a04ff8c4b259b60b550184cc02e805bb4}{get\+\_\+errors}} (self)
+\item 
+def \mbox{\hyperlink{classtoxic__vision_1_1lane__tracker_1_1LaneTracker_ab2d8658001562e3be46d5fdc49dd2b10}{calculate\+\_\+steering}} (self)
+\item 
+def \mbox{\hyperlink{classtoxic__vision_1_1lane__tracker_1_1LaneTracker_ac181dc1849903f4270e9f07757138bec}{left\+\_\+listener\+\_\+callback}} (self, data)
+\item 
+def \mbox{\hyperlink{classtoxic__vision_1_1lane__tracker_1_1LaneTracker_a40b8e9446dd7daf48cb8033881edf98c}{right\+\_\+listener\+\_\+callback}} (self, data)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classtoxic__vision_1_1lane__tracker_1_1LaneTracker_acb301193b6151ad479319e0529404343}{left\+\_\+subscription}}
+\item 
+\mbox{\hyperlink{classtoxic__vision_1_1lane__tracker_1_1LaneTracker_a337ad09eb40c0e527c773309dadd7bd6}{right\+\_\+subscription}}
+\item 
+\mbox{\hyperlink{classtoxic__vision_1_1lane__tracker_1_1LaneTracker_a91514be715d0d3fcde69874c05a17bf9}{joy\+\_\+subscriber}}
+\item 
+\mbox{\hyperlink{classtoxic__vision_1_1lane__tracker_1_1LaneTracker_a194634798f6a458c7f9750bcd232fbbc}{steering\+\_\+publisher}}
+\item 
+\mbox{\hyperlink{classtoxic__vision_1_1lane__tracker_1_1LaneTracker_a2c40ddb28f990d22e258f62732f23fa4}{speed\+\_\+publisher}}
+\item 
+\mbox{\hyperlink{classtoxic__vision_1_1lane__tracker_1_1LaneTracker_ab33b21cc081d3dc55ad852a97da70a86}{k\+\_\+rho\+\_\+publisher}}
+\item 
+\mbox{\hyperlink{classtoxic__vision_1_1lane__tracker_1_1LaneTracker_ac20663c27b44ba619226f0bd3e9d7f7d}{k\+\_\+theta\+\_\+publisher}}
+\item 
+\mbox{\hyperlink{classtoxic__vision_1_1lane__tracker_1_1LaneTracker_a83c2837b06b28dcdff936d4cbbc4a6c7}{max\+\_\+speed\+\_\+publisher}}
+\item 
+\mbox{\hyperlink{classtoxic__vision_1_1lane__tracker_1_1LaneTracker_a0c9b5aa102108aaa42191bbe5a7dcb1b}{left\+\_\+rho}}
+\item 
+\mbox{\hyperlink{classtoxic__vision_1_1lane__tracker_1_1LaneTracker_a8cef7dd7a55669fe914bd86be065f834}{left\+\_\+theta}}
+\item 
+\mbox{\hyperlink{classtoxic__vision_1_1lane__tracker_1_1LaneTracker_af85c8bb05ecb77d60d5822d8d37f1180}{right\+\_\+rho}}
+\item 
+\mbox{\hyperlink{classtoxic__vision_1_1lane__tracker_1_1LaneTracker_ab2461fd32f9a2d61b12db2c8460ac93a}{right\+\_\+theta}}
+\item 
+\mbox{\hyperlink{classtoxic__vision_1_1lane__tracker_1_1LaneTracker_a5bae6a66bc54d699589f055101b03ee2}{goal\+\_\+rho\+\_\+left}}
+\item 
+\mbox{\hyperlink{classtoxic__vision_1_1lane__tracker_1_1LaneTracker_a4208ecad031daf9e6268512ed9380737}{goal\+\_\+theta\+\_\+left}}
+\item 
+\mbox{\hyperlink{classtoxic__vision_1_1lane__tracker_1_1LaneTracker_a901e5dfd254b889713cd468adff16cac}{goal\+\_\+rho\+\_\+right}}
+\item 
+\mbox{\hyperlink{classtoxic__vision_1_1lane__tracker_1_1LaneTracker_a89792b61d410a82e3a57c45de05aea26}{goal\+\_\+theta\+\_\+right}}
+\item 
+\mbox{\hyperlink{classtoxic__vision_1_1lane__tracker_1_1LaneTracker_a142d7cb8be03d77bd3bfdda0221f235a}{k\+\_\+rho}}
+\item 
+\mbox{\hyperlink{classtoxic__vision_1_1lane__tracker_1_1LaneTracker_a1ca9613b26a23c98f52976f02286e7db}{k\+\_\+theta}}
+\item 
+\mbox{\hyperlink{classtoxic__vision_1_1lane__tracker_1_1LaneTracker_a425891bae540b94fa73ddcc32afce1f1}{autocalibrate\+\_\+left}}
+\item 
+\mbox{\hyperlink{classtoxic__vision_1_1lane__tracker_1_1LaneTracker_a1753cd28dc24052483ff80bd29675fbe}{autocalibrate\+\_\+right}}
+\item 
+\mbox{\hyperlink{classtoxic__vision_1_1lane__tracker_1_1LaneTracker_a07f24abdf4cd44ccaacf0cc33ac13963}{max\+\_\+speed}}
+\item 
+\mbox{\hyperlink{classtoxic__vision_1_1lane__tracker_1_1LaneTracker_abc07387dddfc4ca7a3427d4474bf0853}{publish\+\_\+flag}}
+\item 
+\mbox{\hyperlink{classtoxic__vision_1_1lane__tracker_1_1LaneTracker_a5602c8231fc1460b908bf474c34eecf6}{error\+\_\+rho\+\_\+left}}
+\item 
+\mbox{\hyperlink{classtoxic__vision_1_1lane__tracker_1_1LaneTracker_a88f3322051d94c235330431e9a011c8f}{error\+\_\+theta\+\_\+left}}
+\item 
+\mbox{\hyperlink{classtoxic__vision_1_1lane__tracker_1_1LaneTracker_a24263531ecd4d49f75d4e7531a7b7523}{error\+\_\+rho\+\_\+right}}
+\item 
+\mbox{\hyperlink{classtoxic__vision_1_1lane__tracker_1_1LaneTracker_ad5e26103eefe37c1bedba9180fb64e20}{error\+\_\+theta\+\_\+right}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classtoxic__vision_1_1lane__tracker_1_1LaneTracker_ae64f0875afe3067b97ba370b354b9213}\label{classtoxic__vision_1_1lane__tracker_1_1LaneTracker_ae64f0875afe3067b97ba370b354b9213}} 
+\index{LaneTracker@{LaneTracker}!\_\_init\_\_@{\_\_init\_\_}}
+\index{\_\_init\_\_@{\_\_init\_\_}!LaneTracker@{LaneTracker}}
+\doxysubsubsection{\texorpdfstring{\_\_init\_\_()}{\_\_init\_\_()}}
+{\footnotesize\ttfamily def \+\_\+\+\_\+init\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{27     \textcolor{keyword}{def }\_\_init\_\_(self):}
+\DoxyCodeLine{28         super().\_\_init\_\_(\textcolor{stringliteral}{'image\_subscriber'})}
+\DoxyCodeLine{29         self.left\_subscription = self.create\_subscription(}
+\DoxyCodeLine{30                 Float64MultiArray,}
+\DoxyCodeLine{31                 \textcolor{stringliteral}{'/lines/left'},}
+\DoxyCodeLine{32                 self.left\_listener\_callback,}
+\DoxyCodeLine{33                 1}
+\DoxyCodeLine{34         )}
+\DoxyCodeLine{35         self.right\_subscription = self.create\_subscription(}
+\DoxyCodeLine{36                 Float64MultiArray,}
+\DoxyCodeLine{37                 \textcolor{stringliteral}{'/lines/right'}, }
+\DoxyCodeLine{38                 self.right\_listener\_callback, }
+\DoxyCodeLine{39                 1}
+\DoxyCodeLine{40         )}
+\DoxyCodeLine{41         self.joy\_subscriber = self.create\_subscription(}
+\DoxyCodeLine{42                 Joy,}
+\DoxyCodeLine{43                 \textcolor{stringliteral}{'/joy'},}
+\DoxyCodeLine{44                 self.control\_callback,}
+\DoxyCodeLine{45                 1}
+\DoxyCodeLine{46                 )}
+\DoxyCodeLine{47         \textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{48 \textcolor{stringliteral}{        self.speed\_subscriber = self.create\_subscription(}}
+\DoxyCodeLine{49 \textcolor{stringliteral}{                Float64,}}
+\DoxyCodeLine{50 \textcolor{stringliteral}{                '/speed',}}
+\DoxyCodeLine{51 \textcolor{stringliteral}{                self.control\_callback,}}
+\DoxyCodeLine{52 \textcolor{stringliteral}{                1}}
+\DoxyCodeLine{53 \textcolor{stringliteral}{                )}}
+\DoxyCodeLine{54 \textcolor{stringliteral}{        "{}"{}"{}}}
+\DoxyCodeLine{55         timer\_period = 1/30}
+\DoxyCodeLine{56         \textcolor{comment}{\#self.timer = self.create\_timer(timer\_period, self.timer\_callback)}}
+\DoxyCodeLine{57         self.steering\_publisher = self.create\_publisher(Float64, \textcolor{stringliteral}{'/steering'}, 1)}
+\DoxyCodeLine{58         self.speed\_publisher = self.create\_publisher(Float64, \textcolor{stringliteral}{'/speed'}, 1)}
+\DoxyCodeLine{59         self.k\_rho\_publisher = self.create\_publisher(Float64, \textcolor{stringliteral}{'/k/rho'}, 1)}
+\DoxyCodeLine{60         self.k\_theta\_publisher = self.create\_publisher(Float64, \textcolor{stringliteral}{'/k/theta'}, 1)}
+\DoxyCodeLine{61         self.max\_speed\_publisher = self.create\_publisher(Float64, \textcolor{stringliteral}{'/max\_speed'}, 1)}
+\DoxyCodeLine{62         self.left\_subscription}
+\DoxyCodeLine{63         self.right\_subscription}
+\DoxyCodeLine{64         self.left\_rho = 0}
+\DoxyCodeLine{65         self.left\_theta = 0}
+\DoxyCodeLine{66         self.right\_rho = 0}
+\DoxyCodeLine{67         self.right\_theta = 0}
+\DoxyCodeLine{68         \textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{69 \textcolor{stringliteral}{        self.goal\_rho\_left = 85.3915173743109}}
+\DoxyCodeLine{70 \textcolor{stringliteral}{        self.goal\_theta\_left = 1.1003831279978304}}
+\DoxyCodeLine{71 \textcolor{stringliteral}{        self.goal\_rho\_right = 233.10512423852725}}
+\DoxyCodeLine{72 \textcolor{stringliteral}{        self.goal\_theta\_right = -\/0.9467732738181398}}
+\DoxyCodeLine{73 \textcolor{stringliteral}{        \#"{}"{}"{}}}
+\DoxyCodeLine{74         self.goal\_rho\_left = 0}
+\DoxyCodeLine{75         self.goal\_theta\_left = 0}
+\DoxyCodeLine{76         self.goal\_rho\_right = 0}
+\DoxyCodeLine{77         self.goal\_theta\_right = 0}
+\DoxyCodeLine{78         self.k\_rho = 0.0055}
+\DoxyCodeLine{79         self.k\_theta = 0.04}
+\DoxyCodeLine{80         self.autocalibrate\_left = 0}
+\DoxyCodeLine{81         self.autocalibrate\_right = 0}
+\DoxyCodeLine{82         self.max\_speed = 1.2}
+\DoxyCodeLine{83         self.publish\_flag = \textcolor{keyword}{False}}
+\DoxyCodeLine{84 }
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classtoxic__vision_1_1lane__tracker_1_1LaneTracker_ab2d8658001562e3be46d5fdc49dd2b10}\label{classtoxic__vision_1_1lane__tracker_1_1LaneTracker_ab2d8658001562e3be46d5fdc49dd2b10}} 
+\index{LaneTracker@{LaneTracker}!calculate\_steering@{calculate\_steering}}
+\index{calculate\_steering@{calculate\_steering}!LaneTracker@{LaneTracker}}
+\doxysubsubsection{\texorpdfstring{calculate\_steering()}{calculate\_steering()}}
+{\footnotesize\ttfamily def calculate\+\_\+steering (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{155     \textcolor{keyword}{def }calculate\_steering(self):}
+\DoxyCodeLine{156         theta = -\/(self.error\_theta\_left + self.error\_theta\_right)}
+\DoxyCodeLine{157         rho = -\/(self.error\_rho\_left + self.error\_rho\_right)}
+\DoxyCodeLine{158         message = Float64()}
+\DoxyCodeLine{159         message.data = -\/((theta * self.k\_theta) + (rho * self.k\_rho))}
+\DoxyCodeLine{160         \textcolor{keywordflow}{if} self.publish\_flag:}
+\DoxyCodeLine{161             self.steering\_publisher.publish(message)}
+\DoxyCodeLine{162         msg = Float64()}
+\DoxyCodeLine{163         msg.data = self.max\_speed}
+\DoxyCodeLine{164         \textcolor{keywordflow}{if} self.publish\_flag:}
+\DoxyCodeLine{165             self.speed\_publisher.publish(msg)}
+\DoxyCodeLine{166 }
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classtoxic__vision_1_1lane__tracker_1_1LaneTracker_a33e86027586e42bbaff819e19bef44d7}\label{classtoxic__vision_1_1lane__tracker_1_1LaneTracker_a33e86027586e42bbaff819e19bef44d7}} 
+\index{LaneTracker@{LaneTracker}!control\_callback@{control\_callback}}
+\index{control\_callback@{control\_callback}!LaneTracker@{LaneTracker}}
+\doxysubsubsection{\texorpdfstring{control\_callback()}{control\_callback()}}
+{\footnotesize\ttfamily def control\+\_\+callback (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{data }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{85     \textcolor{keyword}{def }control\_callback(self, data):}
+\DoxyCodeLine{86         self.k\_rho += 0.0001 * data.axes[3]}
+\DoxyCodeLine{87         self.k\_theta += 0.00001 * data.axes[2]}
+\DoxyCodeLine{88         self.max\_speed += (0.001 * data.axes[7])}
+\DoxyCodeLine{89         \textcolor{keywordflow}{if} data.buttons[0]:}
+\DoxyCodeLine{90             msg = Float64()}
+\DoxyCodeLine{91             msg.data = self.k\_rho}
+\DoxyCodeLine{92             self.k\_rho\_publisher.publish(msg)}
+\DoxyCodeLine{93             msg = Float64()}
+\DoxyCodeLine{94             msg.data = self.k\_theta}
+\DoxyCodeLine{95             self.k\_theta\_publisher.publish(msg)}
+\DoxyCodeLine{96             msg = Float64()}
+\DoxyCodeLine{97             msg.data = self.max\_speed}
+\DoxyCodeLine{98             self.max\_speed\_publisher.publish(msg)}
+\DoxyCodeLine{99             print(\textcolor{stringliteral}{"{}self.k\_rho = \{\}\(\backslash\)nself.k\_theta = \{\}\(\backslash\)nself.max\_speex = \{\}"{}}.format(}
+\DoxyCodeLine{100                 self.k\_rho,}
+\DoxyCodeLine{101                 self.k\_theta,}
+\DoxyCodeLine{102                 self.max\_speed}
+\DoxyCodeLine{103                 )}
+\DoxyCodeLine{104             )}
+\DoxyCodeLine{105         \textcolor{keywordflow}{if} data.buttons[1]:}
+\DoxyCodeLine{106             self.autocalibrate\_left = 0}
+\DoxyCodeLine{107             self.autocalibrate\_right = 0}
+\DoxyCodeLine{108             self.goal\_rho\_left = 0}
+\DoxyCodeLine{109             self.goal\_theta\_left = 0}
+\DoxyCodeLine{110             self.goal\_rho\_right = 0}
+\DoxyCodeLine{111             self.goal\_theta\_right = 0}
+\DoxyCodeLine{112         \textcolor{keywordflow}{if} data.buttons[3]:}
+\DoxyCodeLine{113             self.publish\_flag = \textcolor{keyword}{False}}
+\DoxyCodeLine{114         \textcolor{keywordflow}{elif} data.buttons[4]:}
+\DoxyCodeLine{115             self.publish\_flag = \textcolor{keyword}{True}}
+\DoxyCodeLine{116 }
+\DoxyCodeLine{117 }
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classtoxic__vision_1_1lane__tracker_1_1LaneTracker_a7f4e82dd86ab4d19baaebedf314c7366}\label{classtoxic__vision_1_1lane__tracker_1_1LaneTracker_a7f4e82dd86ab4d19baaebedf314c7366}} 
+\index{LaneTracker@{LaneTracker}!get\_error@{get\_error}}
+\index{get\_error@{get\_error}!LaneTracker@{LaneTracker}}
+\doxysubsubsection{\texorpdfstring{get\_error()}{get\_error()}}
+{\footnotesize\ttfamily def get\+\_\+error (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{current,  }\item[{}]{goal }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{129     \textcolor{keyword}{def }get\_error(self, current, goal):}
+\DoxyCodeLine{130         \textcolor{keywordflow}{if} current != 0:}
+\DoxyCodeLine{131             \textcolor{keywordflow}{return} (abs(goal) -\/ abs(current))}
+\DoxyCodeLine{132         \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{133             \textcolor{keywordflow}{return} 0}
+\DoxyCodeLine{134 }
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classtoxic__vision_1_1lane__tracker_1_1LaneTracker_a04ff8c4b259b60b550184cc02e805bb4}\label{classtoxic__vision_1_1lane__tracker_1_1LaneTracker_a04ff8c4b259b60b550184cc02e805bb4}} 
+\index{LaneTracker@{LaneTracker}!get\_errors@{get\_errors}}
+\index{get\_errors@{get\_errors}!LaneTracker@{LaneTracker}}
+\doxysubsubsection{\texorpdfstring{get\_errors()}{get\_errors()}}
+{\footnotesize\ttfamily def get\+\_\+errors (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{135     \textcolor{keyword}{def }get\_errors(self):}
+\DoxyCodeLine{136         self.error\_rho\_left = self.get\_error(self.left\_rho, self.goal\_rho\_left)}
+\DoxyCodeLine{137         self.left\_rho = 0}
+\DoxyCodeLine{138         self.error\_theta\_left = self.get\_error(self.left\_theta, self.goal\_theta\_left)}
+\DoxyCodeLine{139         self.left\_theta = 0}
+\DoxyCodeLine{140         self.error\_rho\_right = self.get\_error(self.right\_rho, self.goal\_rho\_right)}
+\DoxyCodeLine{141         self.right\_rho = 0}
+\DoxyCodeLine{142         self.error\_theta\_right = self.get\_error(self.right\_theta, self.goal\_theta\_right)}
+\DoxyCodeLine{143         self.right\_theta = 0}
+\DoxyCodeLine{144         \textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{145 \textcolor{stringliteral}{        print("{}left: [\{\}, \{\}]\(\backslash\)nright: [\{\}, \{\}]"{}.format(}}
+\DoxyCodeLine{146 \textcolor{stringliteral}{            self.error\_rho\_left,}}
+\DoxyCodeLine{147 \textcolor{stringliteral}{            self.error\_theta\_left,}}
+\DoxyCodeLine{148 \textcolor{stringliteral}{            self.error\_rho\_right,}}
+\DoxyCodeLine{149 \textcolor{stringliteral}{            self.error\_theta\_right}}
+\DoxyCodeLine{150 \textcolor{stringliteral}{            )}}
+\DoxyCodeLine{151 \textcolor{stringliteral}{        )}}
+\DoxyCodeLine{152 \textcolor{stringliteral}{        "{}"{}"{}}}
+\DoxyCodeLine{153         self.calculate\_steering()}
+\DoxyCodeLine{154 }
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classtoxic__vision_1_1lane__tracker_1_1LaneTracker_ac181dc1849903f4270e9f07757138bec}\label{classtoxic__vision_1_1lane__tracker_1_1LaneTracker_ac181dc1849903f4270e9f07757138bec}} 
+\index{LaneTracker@{LaneTracker}!left\_listener\_callback@{left\_listener\_callback}}
+\index{left\_listener\_callback@{left\_listener\_callback}!LaneTracker@{LaneTracker}}
+\doxysubsubsection{\texorpdfstring{left\_listener\_callback()}{left\_listener\_callback()}}
+{\footnotesize\ttfamily def left\+\_\+listener\+\_\+callback (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{data }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{167     \textcolor{keyword}{def }left\_listener\_callback(self, data):}
+\DoxyCodeLine{168         \textcolor{keywordflow}{if} self.autocalibrate\_left < 10:}
+\DoxyCodeLine{169             self.goal\_rho\_left += data.data[0] * 0.1}
+\DoxyCodeLine{170             self.goal\_theta\_left += data.data[1] * 0.1}
+\DoxyCodeLine{171             self.autocalibrate\_left += 1}
+\DoxyCodeLine{172             print(\textcolor{stringliteral}{"{}CALIBRATING LEFT"{}})}
+\DoxyCodeLine{173         \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{174             self.left\_rho = data.data[0]}
+\DoxyCodeLine{175             self.left\_theta = data.data[1]}
+\DoxyCodeLine{176             self.get\_errors()}
+\DoxyCodeLine{177         \textcolor{comment}{\#print("{}left: \{\}@\{\}"{}.format(self.left\_rho, self.left\_theta))}}
+\DoxyCodeLine{178 }
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classtoxic__vision_1_1lane__tracker_1_1LaneTracker_a40b8e9446dd7daf48cb8033881edf98c}\label{classtoxic__vision_1_1lane__tracker_1_1LaneTracker_a40b8e9446dd7daf48cb8033881edf98c}} 
+\index{LaneTracker@{LaneTracker}!right\_listener\_callback@{right\_listener\_callback}}
+\index{right\_listener\_callback@{right\_listener\_callback}!LaneTracker@{LaneTracker}}
+\doxysubsubsection{\texorpdfstring{right\_listener\_callback()}{right\_listener\_callback()}}
+{\footnotesize\ttfamily def right\+\_\+listener\+\_\+callback (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{data }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{179     \textcolor{keyword}{def }right\_listener\_callback(self, data):}
+\DoxyCodeLine{180         \textcolor{keywordflow}{if} self.autocalibrate\_right < 10:}
+\DoxyCodeLine{181             self.goal\_rho\_right += data.data[0] * 0.1}
+\DoxyCodeLine{182             self.goal\_theta\_right += data.data[1] * 0.1}
+\DoxyCodeLine{183             self.autocalibrate\_right += 1}
+\DoxyCodeLine{184             print(\textcolor{stringliteral}{"{}CALIBRATING RIGHT"{}})}
+\DoxyCodeLine{185         \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{186             self.right\_rho = data.data[0]}
+\DoxyCodeLine{187             self.right\_theta = data.data[1]}
+\DoxyCodeLine{188             self.get\_errors()}
+\DoxyCodeLine{189         \textcolor{comment}{\#pr9int("{}right: \{\}@\{\}"{}.format(self.right\_rho, self.right\_theta))}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classtoxic__vision_1_1lane__tracker_1_1LaneTracker_aa29031ea99aa06784e3755c54ba91edd}\label{classtoxic__vision_1_1lane__tracker_1_1LaneTracker_aa29031ea99aa06784e3755c54ba91edd}} 
+\index{LaneTracker@{LaneTracker}!two\_dots\_line@{two\_dots\_line}}
+\index{two\_dots\_line@{two\_dots\_line}!LaneTracker@{LaneTracker}}
+\doxysubsubsection{\texorpdfstring{two\_dots\_line()}{two\_dots\_line()}}
+{\footnotesize\ttfamily def two\+\_\+dots\+\_\+line (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{rho,  }\item[{}]{theta,  }\item[{}]{frame }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{118     \textcolor{keyword}{def }two\_dots\_line(self, rho, theta, frame):}
+\DoxyCodeLine{119         \textcolor{keywordflow}{if} rho == 0 \textcolor{keywordflow}{or} theta == 0:}
+\DoxyCodeLine{120             \textcolor{keywordflow}{return}}
+\DoxyCodeLine{121         a = math.cos(theta)}
+\DoxyCodeLine{122         b = math.sin(theta)}
+\DoxyCodeLine{123         x0 = a * rho}
+\DoxyCodeLine{124         y0 = b * rho}
+\DoxyCodeLine{125         pt1 = (int(x0 + 1000*(-\/b)), int(y0 + 1000*(a)))}
+\DoxyCodeLine{126         pt2 = (int(x0 -\/ 1000*(-\/b)), int(y0 -\/ 1000*(a)))}
+\DoxyCodeLine{127         \textcolor{keywordflow}{return} pt1[0], pt1[1], pt2[0], pt2[1]}
+\DoxyCodeLine{128 }
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classtoxic__vision_1_1lane__tracker_1_1LaneTracker_a425891bae540b94fa73ddcc32afce1f1}\label{classtoxic__vision_1_1lane__tracker_1_1LaneTracker_a425891bae540b94fa73ddcc32afce1f1}} 
+\index{LaneTracker@{LaneTracker}!autocalibrate\_left@{autocalibrate\_left}}
+\index{autocalibrate\_left@{autocalibrate\_left}!LaneTracker@{LaneTracker}}
+\doxysubsubsection{\texorpdfstring{autocalibrate\_left}{autocalibrate\_left}}
+{\footnotesize\ttfamily autocalibrate\+\_\+left}
+
+\mbox{\Hypertarget{classtoxic__vision_1_1lane__tracker_1_1LaneTracker_a1753cd28dc24052483ff80bd29675fbe}\label{classtoxic__vision_1_1lane__tracker_1_1LaneTracker_a1753cd28dc24052483ff80bd29675fbe}} 
+\index{LaneTracker@{LaneTracker}!autocalibrate\_right@{autocalibrate\_right}}
+\index{autocalibrate\_right@{autocalibrate\_right}!LaneTracker@{LaneTracker}}
+\doxysubsubsection{\texorpdfstring{autocalibrate\_right}{autocalibrate\_right}}
+{\footnotesize\ttfamily autocalibrate\+\_\+right}
+
+\mbox{\Hypertarget{classtoxic__vision_1_1lane__tracker_1_1LaneTracker_a5602c8231fc1460b908bf474c34eecf6}\label{classtoxic__vision_1_1lane__tracker_1_1LaneTracker_a5602c8231fc1460b908bf474c34eecf6}} 
+\index{LaneTracker@{LaneTracker}!error\_rho\_left@{error\_rho\_left}}
+\index{error\_rho\_left@{error\_rho\_left}!LaneTracker@{LaneTracker}}
+\doxysubsubsection{\texorpdfstring{error\_rho\_left}{error\_rho\_left}}
+{\footnotesize\ttfamily error\+\_\+rho\+\_\+left}
+
+\mbox{\Hypertarget{classtoxic__vision_1_1lane__tracker_1_1LaneTracker_a24263531ecd4d49f75d4e7531a7b7523}\label{classtoxic__vision_1_1lane__tracker_1_1LaneTracker_a24263531ecd4d49f75d4e7531a7b7523}} 
+\index{LaneTracker@{LaneTracker}!error\_rho\_right@{error\_rho\_right}}
+\index{error\_rho\_right@{error\_rho\_right}!LaneTracker@{LaneTracker}}
+\doxysubsubsection{\texorpdfstring{error\_rho\_right}{error\_rho\_right}}
+{\footnotesize\ttfamily error\+\_\+rho\+\_\+right}
+
+\mbox{\Hypertarget{classtoxic__vision_1_1lane__tracker_1_1LaneTracker_a88f3322051d94c235330431e9a011c8f}\label{classtoxic__vision_1_1lane__tracker_1_1LaneTracker_a88f3322051d94c235330431e9a011c8f}} 
+\index{LaneTracker@{LaneTracker}!error\_theta\_left@{error\_theta\_left}}
+\index{error\_theta\_left@{error\_theta\_left}!LaneTracker@{LaneTracker}}
+\doxysubsubsection{\texorpdfstring{error\_theta\_left}{error\_theta\_left}}
+{\footnotesize\ttfamily error\+\_\+theta\+\_\+left}
+
+\mbox{\Hypertarget{classtoxic__vision_1_1lane__tracker_1_1LaneTracker_ad5e26103eefe37c1bedba9180fb64e20}\label{classtoxic__vision_1_1lane__tracker_1_1LaneTracker_ad5e26103eefe37c1bedba9180fb64e20}} 
+\index{LaneTracker@{LaneTracker}!error\_theta\_right@{error\_theta\_right}}
+\index{error\_theta\_right@{error\_theta\_right}!LaneTracker@{LaneTracker}}
+\doxysubsubsection{\texorpdfstring{error\_theta\_right}{error\_theta\_right}}
+{\footnotesize\ttfamily error\+\_\+theta\+\_\+right}
+
+\mbox{\Hypertarget{classtoxic__vision_1_1lane__tracker_1_1LaneTracker_a5bae6a66bc54d699589f055101b03ee2}\label{classtoxic__vision_1_1lane__tracker_1_1LaneTracker_a5bae6a66bc54d699589f055101b03ee2}} 
+\index{LaneTracker@{LaneTracker}!goal\_rho\_left@{goal\_rho\_left}}
+\index{goal\_rho\_left@{goal\_rho\_left}!LaneTracker@{LaneTracker}}
+\doxysubsubsection{\texorpdfstring{goal\_rho\_left}{goal\_rho\_left}}
+{\footnotesize\ttfamily goal\+\_\+rho\+\_\+left}
+
+\mbox{\Hypertarget{classtoxic__vision_1_1lane__tracker_1_1LaneTracker_a901e5dfd254b889713cd468adff16cac}\label{classtoxic__vision_1_1lane__tracker_1_1LaneTracker_a901e5dfd254b889713cd468adff16cac}} 
+\index{LaneTracker@{LaneTracker}!goal\_rho\_right@{goal\_rho\_right}}
+\index{goal\_rho\_right@{goal\_rho\_right}!LaneTracker@{LaneTracker}}
+\doxysubsubsection{\texorpdfstring{goal\_rho\_right}{goal\_rho\_right}}
+{\footnotesize\ttfamily goal\+\_\+rho\+\_\+right}
+
+\mbox{\Hypertarget{classtoxic__vision_1_1lane__tracker_1_1LaneTracker_a4208ecad031daf9e6268512ed9380737}\label{classtoxic__vision_1_1lane__tracker_1_1LaneTracker_a4208ecad031daf9e6268512ed9380737}} 
+\index{LaneTracker@{LaneTracker}!goal\_theta\_left@{goal\_theta\_left}}
+\index{goal\_theta\_left@{goal\_theta\_left}!LaneTracker@{LaneTracker}}
+\doxysubsubsection{\texorpdfstring{goal\_theta\_left}{goal\_theta\_left}}
+{\footnotesize\ttfamily goal\+\_\+theta\+\_\+left}
+
+\mbox{\Hypertarget{classtoxic__vision_1_1lane__tracker_1_1LaneTracker_a89792b61d410a82e3a57c45de05aea26}\label{classtoxic__vision_1_1lane__tracker_1_1LaneTracker_a89792b61d410a82e3a57c45de05aea26}} 
+\index{LaneTracker@{LaneTracker}!goal\_theta\_right@{goal\_theta\_right}}
+\index{goal\_theta\_right@{goal\_theta\_right}!LaneTracker@{LaneTracker}}
+\doxysubsubsection{\texorpdfstring{goal\_theta\_right}{goal\_theta\_right}}
+{\footnotesize\ttfamily goal\+\_\+theta\+\_\+right}
+
+\mbox{\Hypertarget{classtoxic__vision_1_1lane__tracker_1_1LaneTracker_a91514be715d0d3fcde69874c05a17bf9}\label{classtoxic__vision_1_1lane__tracker_1_1LaneTracker_a91514be715d0d3fcde69874c05a17bf9}} 
+\index{LaneTracker@{LaneTracker}!joy\_subscriber@{joy\_subscriber}}
+\index{joy\_subscriber@{joy\_subscriber}!LaneTracker@{LaneTracker}}
+\doxysubsubsection{\texorpdfstring{joy\_subscriber}{joy\_subscriber}}
+{\footnotesize\ttfamily joy\+\_\+subscriber}
+
+\mbox{\Hypertarget{classtoxic__vision_1_1lane__tracker_1_1LaneTracker_a142d7cb8be03d77bd3bfdda0221f235a}\label{classtoxic__vision_1_1lane__tracker_1_1LaneTracker_a142d7cb8be03d77bd3bfdda0221f235a}} 
+\index{LaneTracker@{LaneTracker}!k\_rho@{k\_rho}}
+\index{k\_rho@{k\_rho}!LaneTracker@{LaneTracker}}
+\doxysubsubsection{\texorpdfstring{k\_rho}{k\_rho}}
+{\footnotesize\ttfamily k\+\_\+rho}
+
+\mbox{\Hypertarget{classtoxic__vision_1_1lane__tracker_1_1LaneTracker_ab33b21cc081d3dc55ad852a97da70a86}\label{classtoxic__vision_1_1lane__tracker_1_1LaneTracker_ab33b21cc081d3dc55ad852a97da70a86}} 
+\index{LaneTracker@{LaneTracker}!k\_rho\_publisher@{k\_rho\_publisher}}
+\index{k\_rho\_publisher@{k\_rho\_publisher}!LaneTracker@{LaneTracker}}
+\doxysubsubsection{\texorpdfstring{k\_rho\_publisher}{k\_rho\_publisher}}
+{\footnotesize\ttfamily k\+\_\+rho\+\_\+publisher}
+
+\mbox{\Hypertarget{classtoxic__vision_1_1lane__tracker_1_1LaneTracker_a1ca9613b26a23c98f52976f02286e7db}\label{classtoxic__vision_1_1lane__tracker_1_1LaneTracker_a1ca9613b26a23c98f52976f02286e7db}} 
+\index{LaneTracker@{LaneTracker}!k\_theta@{k\_theta}}
+\index{k\_theta@{k\_theta}!LaneTracker@{LaneTracker}}
+\doxysubsubsection{\texorpdfstring{k\_theta}{k\_theta}}
+{\footnotesize\ttfamily k\+\_\+theta}
+
+\mbox{\Hypertarget{classtoxic__vision_1_1lane__tracker_1_1LaneTracker_ac20663c27b44ba619226f0bd3e9d7f7d}\label{classtoxic__vision_1_1lane__tracker_1_1LaneTracker_ac20663c27b44ba619226f0bd3e9d7f7d}} 
+\index{LaneTracker@{LaneTracker}!k\_theta\_publisher@{k\_theta\_publisher}}
+\index{k\_theta\_publisher@{k\_theta\_publisher}!LaneTracker@{LaneTracker}}
+\doxysubsubsection{\texorpdfstring{k\_theta\_publisher}{k\_theta\_publisher}}
+{\footnotesize\ttfamily k\+\_\+theta\+\_\+publisher}
+
+\mbox{\Hypertarget{classtoxic__vision_1_1lane__tracker_1_1LaneTracker_a0c9b5aa102108aaa42191bbe5a7dcb1b}\label{classtoxic__vision_1_1lane__tracker_1_1LaneTracker_a0c9b5aa102108aaa42191bbe5a7dcb1b}} 
+\index{LaneTracker@{LaneTracker}!left\_rho@{left\_rho}}
+\index{left\_rho@{left\_rho}!LaneTracker@{LaneTracker}}
+\doxysubsubsection{\texorpdfstring{left\_rho}{left\_rho}}
+{\footnotesize\ttfamily left\+\_\+rho}
+
+\mbox{\Hypertarget{classtoxic__vision_1_1lane__tracker_1_1LaneTracker_acb301193b6151ad479319e0529404343}\label{classtoxic__vision_1_1lane__tracker_1_1LaneTracker_acb301193b6151ad479319e0529404343}} 
+\index{LaneTracker@{LaneTracker}!left\_subscription@{left\_subscription}}
+\index{left\_subscription@{left\_subscription}!LaneTracker@{LaneTracker}}
+\doxysubsubsection{\texorpdfstring{left\_subscription}{left\_subscription}}
+{\footnotesize\ttfamily left\+\_\+subscription}
+
+\mbox{\Hypertarget{classtoxic__vision_1_1lane__tracker_1_1LaneTracker_a8cef7dd7a55669fe914bd86be065f834}\label{classtoxic__vision_1_1lane__tracker_1_1LaneTracker_a8cef7dd7a55669fe914bd86be065f834}} 
+\index{LaneTracker@{LaneTracker}!left\_theta@{left\_theta}}
+\index{left\_theta@{left\_theta}!LaneTracker@{LaneTracker}}
+\doxysubsubsection{\texorpdfstring{left\_theta}{left\_theta}}
+{\footnotesize\ttfamily left\+\_\+theta}
+
+\mbox{\Hypertarget{classtoxic__vision_1_1lane__tracker_1_1LaneTracker_a07f24abdf4cd44ccaacf0cc33ac13963}\label{classtoxic__vision_1_1lane__tracker_1_1LaneTracker_a07f24abdf4cd44ccaacf0cc33ac13963}} 
+\index{LaneTracker@{LaneTracker}!max\_speed@{max\_speed}}
+\index{max\_speed@{max\_speed}!LaneTracker@{LaneTracker}}
+\doxysubsubsection{\texorpdfstring{max\_speed}{max\_speed}}
+{\footnotesize\ttfamily max\+\_\+speed}
+
+\mbox{\Hypertarget{classtoxic__vision_1_1lane__tracker_1_1LaneTracker_a83c2837b06b28dcdff936d4cbbc4a6c7}\label{classtoxic__vision_1_1lane__tracker_1_1LaneTracker_a83c2837b06b28dcdff936d4cbbc4a6c7}} 
+\index{LaneTracker@{LaneTracker}!max\_speed\_publisher@{max\_speed\_publisher}}
+\index{max\_speed\_publisher@{max\_speed\_publisher}!LaneTracker@{LaneTracker}}
+\doxysubsubsection{\texorpdfstring{max\_speed\_publisher}{max\_speed\_publisher}}
+{\footnotesize\ttfamily max\+\_\+speed\+\_\+publisher}
+
+\mbox{\Hypertarget{classtoxic__vision_1_1lane__tracker_1_1LaneTracker_abc07387dddfc4ca7a3427d4474bf0853}\label{classtoxic__vision_1_1lane__tracker_1_1LaneTracker_abc07387dddfc4ca7a3427d4474bf0853}} 
+\index{LaneTracker@{LaneTracker}!publish\_flag@{publish\_flag}}
+\index{publish\_flag@{publish\_flag}!LaneTracker@{LaneTracker}}
+\doxysubsubsection{\texorpdfstring{publish\_flag}{publish\_flag}}
+{\footnotesize\ttfamily publish\+\_\+flag}
+
+\mbox{\Hypertarget{classtoxic__vision_1_1lane__tracker_1_1LaneTracker_af85c8bb05ecb77d60d5822d8d37f1180}\label{classtoxic__vision_1_1lane__tracker_1_1LaneTracker_af85c8bb05ecb77d60d5822d8d37f1180}} 
+\index{LaneTracker@{LaneTracker}!right\_rho@{right\_rho}}
+\index{right\_rho@{right\_rho}!LaneTracker@{LaneTracker}}
+\doxysubsubsection{\texorpdfstring{right\_rho}{right\_rho}}
+{\footnotesize\ttfamily right\+\_\+rho}
+
+\mbox{\Hypertarget{classtoxic__vision_1_1lane__tracker_1_1LaneTracker_a337ad09eb40c0e527c773309dadd7bd6}\label{classtoxic__vision_1_1lane__tracker_1_1LaneTracker_a337ad09eb40c0e527c773309dadd7bd6}} 
+\index{LaneTracker@{LaneTracker}!right\_subscription@{right\_subscription}}
+\index{right\_subscription@{right\_subscription}!LaneTracker@{LaneTracker}}
+\doxysubsubsection{\texorpdfstring{right\_subscription}{right\_subscription}}
+{\footnotesize\ttfamily right\+\_\+subscription}
+
+\mbox{\Hypertarget{classtoxic__vision_1_1lane__tracker_1_1LaneTracker_ab2461fd32f9a2d61b12db2c8460ac93a}\label{classtoxic__vision_1_1lane__tracker_1_1LaneTracker_ab2461fd32f9a2d61b12db2c8460ac93a}} 
+\index{LaneTracker@{LaneTracker}!right\_theta@{right\_theta}}
+\index{right\_theta@{right\_theta}!LaneTracker@{LaneTracker}}
+\doxysubsubsection{\texorpdfstring{right\_theta}{right\_theta}}
+{\footnotesize\ttfamily right\+\_\+theta}
+
+\mbox{\Hypertarget{classtoxic__vision_1_1lane__tracker_1_1LaneTracker_a2c40ddb28f990d22e258f62732f23fa4}\label{classtoxic__vision_1_1lane__tracker_1_1LaneTracker_a2c40ddb28f990d22e258f62732f23fa4}} 
+\index{LaneTracker@{LaneTracker}!speed\_publisher@{speed\_publisher}}
+\index{speed\_publisher@{speed\_publisher}!LaneTracker@{LaneTracker}}
+\doxysubsubsection{\texorpdfstring{speed\_publisher}{speed\_publisher}}
+{\footnotesize\ttfamily speed\+\_\+publisher}
+
+\mbox{\Hypertarget{classtoxic__vision_1_1lane__tracker_1_1LaneTracker_a194634798f6a458c7f9750bcd232fbbc}\label{classtoxic__vision_1_1lane__tracker_1_1LaneTracker_a194634798f6a458c7f9750bcd232fbbc}} 
+\index{LaneTracker@{LaneTracker}!steering\_publisher@{steering\_publisher}}
+\index{steering\_publisher@{steering\_publisher}!LaneTracker@{LaneTracker}}
+\doxysubsubsection{\texorpdfstring{steering\_publisher}{steering\_publisher}}
+{\footnotesize\ttfamily steering\+\_\+publisher}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+main\+\_\+ws/build/toxic\+\_\+vision/build/lib/toxic\+\_\+vision/\mbox{\hyperlink{lane__tracker_8py}{lane\+\_\+tracker.\+py}}\end{DoxyCompactItemize}

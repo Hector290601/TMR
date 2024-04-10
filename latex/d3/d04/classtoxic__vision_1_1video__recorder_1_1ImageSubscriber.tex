@@ -1,0 +1,93 @@
+\hypertarget{classtoxic__vision_1_1video__recorder_1_1ImageSubscriber}{}\doxysection{Image\+Subscriber Class Reference}
+\label{classtoxic__vision_1_1video__recorder_1_1ImageSubscriber}\index{ImageSubscriber@{ImageSubscriber}}
+Inheritance diagram for Image\+Subscriber\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{d3/d04/classtoxic__vision_1_1video__recorder_1_1ImageSubscriber}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{classtoxic__vision_1_1video__recorder_1_1ImageSubscriber_ae64f0875afe3067b97ba370b354b9213}{\+\_\+\+\_\+init\+\_\+\+\_\+}} (self)
+\item 
+def \mbox{\hyperlink{classtoxic__vision_1_1video__recorder_1_1ImageSubscriber_a23dd9943cb7cb7be2a6e7022a85a1684}{listener\+\_\+callback}} (self, data)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classtoxic__vision_1_1video__recorder_1_1ImageSubscriber_a4b0698733c4dfaffe8e2b4cd952b6f82}{subscription}}
+\item 
+\mbox{\hyperlink{classtoxic__vision_1_1video__recorder_1_1ImageSubscriber_a88f0860257ba6bdc089557444f5cdd16}{br}}
+\item 
+\mbox{\hyperlink{classtoxic__vision_1_1video__recorder_1_1ImageSubscriber_ad288825273ed7192429ab0474fb2d4a0}{output}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classtoxic__vision_1_1video__recorder_1_1ImageSubscriber_ae64f0875afe3067b97ba370b354b9213}\label{classtoxic__vision_1_1video__recorder_1_1ImageSubscriber_ae64f0875afe3067b97ba370b354b9213}} 
+\index{ImageSubscriber@{ImageSubscriber}!\_\_init\_\_@{\_\_init\_\_}}
+\index{\_\_init\_\_@{\_\_init\_\_}!ImageSubscriber@{ImageSubscriber}}
+\doxysubsubsection{\texorpdfstring{\_\_init\_\_()}{\_\_init\_\_()}}
+{\footnotesize\ttfamily def \+\_\+\+\_\+init\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{9   \textcolor{keyword}{def }\_\_init\_\_(self):}
+\DoxyCodeLine{10     super().\_\_init\_\_(\textcolor{stringliteral}{'image\_subscriber'})}
+\DoxyCodeLine{11     self.subscription = self.create\_subscription(}
+\DoxyCodeLine{12       Image, }
+\DoxyCodeLine{13       \textcolor{stringliteral}{'/raw\_rgb'}, }
+\DoxyCodeLine{14       self.listener\_callback, }
+\DoxyCodeLine{15       1}
+\DoxyCodeLine{16       )}
+\DoxyCodeLine{17     self.subscription}
+\DoxyCodeLine{18     self.br = CvBridge()}
+\DoxyCodeLine{19     fourcc = cv2.VideoWriter\_fourcc(*\textcolor{stringliteral}{'XVID'})}
+\DoxyCodeLine{20     self.output = cv2.VideoWriter(\textcolor{stringliteral}{'/home/ubuntu/output.avi'}, fourcc, 20.0, (640, 480))}
+\DoxyCodeLine{21    }
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classtoxic__vision_1_1video__recorder_1_1ImageSubscriber_a23dd9943cb7cb7be2a6e7022a85a1684}\label{classtoxic__vision_1_1video__recorder_1_1ImageSubscriber_a23dd9943cb7cb7be2a6e7022a85a1684}} 
+\index{ImageSubscriber@{ImageSubscriber}!listener\_callback@{listener\_callback}}
+\index{listener\_callback@{listener\_callback}!ImageSubscriber@{ImageSubscriber}}
+\doxysubsubsection{\texorpdfstring{listener\_callback()}{listener\_callback()}}
+{\footnotesize\ttfamily def listener\+\_\+callback (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{data }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{22   \textcolor{keyword}{def }listener\_callback(self, data):}
+\DoxyCodeLine{23     current\_frame = self.br.imgmsg\_to\_cv2(data)}
+\DoxyCodeLine{24     self.output.write(current\_frame)}
+\DoxyCodeLine{25     print(os.getcwd())}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classtoxic__vision_1_1video__recorder_1_1ImageSubscriber_a88f0860257ba6bdc089557444f5cdd16}\label{classtoxic__vision_1_1video__recorder_1_1ImageSubscriber_a88f0860257ba6bdc089557444f5cdd16}} 
+\index{ImageSubscriber@{ImageSubscriber}!br@{br}}
+\index{br@{br}!ImageSubscriber@{ImageSubscriber}}
+\doxysubsubsection{\texorpdfstring{br}{br}}
+{\footnotesize\ttfamily br}
+
+\mbox{\Hypertarget{classtoxic__vision_1_1video__recorder_1_1ImageSubscriber_ad288825273ed7192429ab0474fb2d4a0}\label{classtoxic__vision_1_1video__recorder_1_1ImageSubscriber_ad288825273ed7192429ab0474fb2d4a0}} 
+\index{ImageSubscriber@{ImageSubscriber}!output@{output}}
+\index{output@{output}!ImageSubscriber@{ImageSubscriber}}
+\doxysubsubsection{\texorpdfstring{output}{output}}
+{\footnotesize\ttfamily output}
+
+\mbox{\Hypertarget{classtoxic__vision_1_1video__recorder_1_1ImageSubscriber_a4b0698733c4dfaffe8e2b4cd952b6f82}\label{classtoxic__vision_1_1video__recorder_1_1ImageSubscriber_a4b0698733c4dfaffe8e2b4cd952b6f82}} 
+\index{ImageSubscriber@{ImageSubscriber}!subscription@{subscription}}
+\index{subscription@{subscription}!ImageSubscriber@{ImageSubscriber}}
+\doxysubsubsection{\texorpdfstring{subscription}{subscription}}
+{\footnotesize\ttfamily subscription}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+main\+\_\+ws/build/toxic\+\_\+vision/build/lib/toxic\+\_\+vision/\mbox{\hyperlink{video__recorder_8py}{video\+\_\+recorder.\+py}}\end{DoxyCompactItemize}

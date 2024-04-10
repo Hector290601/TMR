@@ -21,6 +21,38 @@ var namespaces_dup =
       [ "version", "dd/dc4/namespacesetup.html#a4c7a521b8f1a0769c09bfa4a1fca7dab", null ],
       [ "zip_safe", "dd/dc4/namespacesetup.html#a270a33302dcfe1b60738df9ebbfb2103", null ]
     ] ],
+    [ "sitecustomize", "d1/de5/namespacesitecustomize.html", [
+      [ "exec_prefix", "d1/de5/namespacesitecustomize.html#aa22edcaef35542d82f9ed913120a42e3", null ],
+      [ "prefix", "d1/de5/namespacesitecustomize.html#ace96d70a929a737bb705aa0f539decaa", null ],
+      [ "real_prefix", "d1/de5/namespacesitecustomize.html#aaddb1f0e78e16bfca15c81f4e207c717", null ]
+    ] ],
+    [ "toxic_hardware", null, [
+      [ "automate", "d3/dd6/namespacetoxic__hardware_1_1automate.html", "d3/dd6/namespacetoxic__hardware_1_1automate" ],
+      [ "blinkers_interface", "dc/d29/namespacetoxic__hardware_1_1blinkers__interface.html", "dc/d29/namespacetoxic__hardware_1_1blinkers__interface" ],
+      [ "controller", "dd/dbc/namespacetoxic__hardware_1_1controller.html", "dd/dbc/namespacetoxic__hardware_1_1controller" ],
+      [ "gpio_interface", "dc/de7/namespacetoxic__hardware_1_1gpio__interface.html", "dc/de7/namespacetoxic__hardware_1_1gpio__interface" ],
+      [ "lidar_interface", "d8/db3/namespacetoxic__hardware_1_1lidar__interface.html", "d8/db3/namespacetoxic__hardware_1_1lidar__interface" ],
+      [ "motor_interface", "d9/d8d/namespacetoxic__hardware_1_1motor__interface.html", "d9/d8d/namespacetoxic__hardware_1_1motor__interface" ],
+      [ "obstacle_detector", "d1/d77/namespacetoxic__hardware_1_1obstacle__detector.html", "d1/d77/namespacetoxic__hardware_1_1obstacle__detector" ],
+      [ "oled_interface", "dd/d55/namespacetoxic__hardware_1_1oled__interface.html", "dd/d55/namespacetoxic__hardware_1_1oled__interface" ],
+      [ "roboclaw_3", "d7/dd0/namespacetoxic__hardware_1_1roboclaw__3.html", "d7/dd0/namespacetoxic__hardware_1_1roboclaw__3" ],
+      [ "servo_interface", "db/d11/namespacetoxic__hardware_1_1servo__interface.html", "db/d11/namespacetoxic__hardware_1_1servo__interface" ],
+      [ "u_sonics", "d4/d9f/namespacetoxic__hardware_1_1u__sonics.html", "d4/d9f/namespacetoxic__hardware_1_1u__sonics" ]
+    ] ],
+    [ "toxic_vision", null, [
+      [ "async_kinect_publisher", "de/d10/namespacetoxic__vision_1_1async__kinect__publisher.html", "de/d10/namespacetoxic__vision_1_1async__kinect__publisher" ],
+      [ "color_selector", "dd/d16/namespacetoxic__vision_1_1color__selector.html", "dd/d16/namespacetoxic__vision_1_1color__selector" ],
+      [ "kinect_publisher", "d6/dbc/namespacetoxic__vision_1_1kinect__publisher.html", "d6/dbc/namespacetoxic__vision_1_1kinect__publisher" ],
+      [ "kinect_subscriber", "d6/db1/namespacetoxic__vision_1_1kinect__subscriber.html", "d6/db1/namespacetoxic__vision_1_1kinect__subscriber" ],
+      [ "lane_detector", "d5/d6e/namespacetoxic__vision_1_1lane__detector.html", "d5/d6e/namespacetoxic__vision_1_1lane__detector" ],
+      [ "lane_tracker", "d9/d50/namespacetoxic__vision_1_1lane__tracker.html", "d9/d50/namespacetoxic__vision_1_1lane__tracker" ],
+      [ "lane_tracker_p", "df/d72/namespacetoxic__vision_1_1lane__tracker__p.html", "df/d72/namespacetoxic__vision_1_1lane__tracker__p" ],
+      [ "obstacle_detector", "dc/d1b/namespacetoxic__vision_1_1obstacle__detector.html", "dc/d1b/namespacetoxic__vision_1_1obstacle__detector" ],
+      [ "video_recorder", "d5/dcf/namespacetoxic__vision_1_1video__recorder.html", "d5/dcf/namespacetoxic__vision_1_1video__recorder" ],
+      [ "webcam_pub", "de/d66/namespacetoxic__vision_1_1webcam__pub.html", "de/d66/namespacetoxic__vision_1_1webcam__pub" ],
+      [ "webcam_sub", "d3/db4/namespacetoxic__vision_1_1webcam__sub.html", "d3/db4/namespacetoxic__vision_1_1webcam__sub" ],
+      [ "webcam_sub_compressed", "d4/da7/namespacetoxic__vision_1_1webcam__sub__compressed.html", "d4/da7/namespacetoxic__vision_1_1webcam__sub__compressed" ]
+    ] ],
     [ "webcam_pub", "d9/d01/namespacewebcam__pub.html", "d9/d01/namespacewebcam__pub" ],
     [ "webcam_sub", "d6/d27/namespacewebcam__sub.html", "d6/d27/namespacewebcam__sub" ]
 ];

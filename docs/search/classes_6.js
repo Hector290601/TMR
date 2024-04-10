@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['steeringinterface_325',['SteeringInterface',['../d3/d39/classservo__interface_1_1SteeringInterface.html',1,'servo_interface']]]
+  ['roboclaw_455',['Roboclaw',['../d6/db4/classroboclaw__3_1_1Roboclaw.html',1,'Roboclaw'],['../d9/dbb/classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw.html',1,'Roboclaw']]]
 ];

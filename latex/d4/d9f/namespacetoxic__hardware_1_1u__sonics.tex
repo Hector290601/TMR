@@ -1,0 +1,110 @@
+\hypertarget{namespacetoxic__hardware_1_1u__sonics}{}\doxysection{toxic\+\_\+hardware.\+u\+\_\+sonics Namespace Reference}
+\label{namespacetoxic__hardware_1_1u__sonics}\index{toxic\_hardware.u\_sonics@{toxic\_hardware.u\_sonics}}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classtoxic__hardware_1_1u__sonics_1_1USonicsInterface}{USonics\+Interface}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{namespacetoxic__hardware_1_1u__sonics_a0971598f9fe898464e9d2c43fd2bd280}{threaded\+\_\+function}} (pin, id\+\_\+pin)
+\item 
+def \mbox{\hyperlink{namespacetoxic__hardware_1_1u__sonics_a15597d36654f777f5d054b09caf10a09}{main}} (args=None)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespacetoxic__hardware_1_1u__sonics_a4ac7859785b65965ec3c6fb677fa6232}{board\+\_\+interface}} = lgpio.\+gpiochip\+\_\+open(0)
+\item 
+list \mbox{\hyperlink{namespacetoxic__hardware_1_1u__sonics_abadb550195bdd086cbac3ea70d641ed2}{outputs}}
+\item 
+list \mbox{\hyperlink{namespacetoxic__hardware_1_1u__sonics_accc1a60d495844dd854d3c2e65129c7e}{inputs}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{namespacetoxic__hardware_1_1u__sonics_a15597d36654f777f5d054b09caf10a09}\label{namespacetoxic__hardware_1_1u__sonics_a15597d36654f777f5d054b09caf10a09}} 
+\index{toxic\_hardware.u\_sonics@{toxic\_hardware.u\_sonics}!main@{main}}
+\index{main@{main}!toxic\_hardware.u\_sonics@{toxic\_hardware.u\_sonics}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily def toxic\+\_\+hardware.\+u\+\_\+sonics.\+main (\begin{DoxyParamCaption}\item[{}]{args = {\ttfamily None} }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{90 \textcolor{keyword}{def }\mbox{\hyperlink{namespacetoxic__hardware_1_1u__sonics_a15597d36654f777f5d054b09caf10a09}{main}}(args=None):}
+\DoxyCodeLine{91     rclpy.init(args=args)}
+\DoxyCodeLine{92     uSonicsInterface = USonicsInterface()}
+\DoxyCodeLine{93     rclpy.spin(uSonicsInterface)}
+\DoxyCodeLine{94     uSonicsInterface.destroy\_node()}
+\DoxyCodeLine{95     rclpy.shutdown()}
+\DoxyCodeLine{96 }
+
+\end{DoxyCode}
+\mbox{\Hypertarget{namespacetoxic__hardware_1_1u__sonics_a0971598f9fe898464e9d2c43fd2bd280}\label{namespacetoxic__hardware_1_1u__sonics_a0971598f9fe898464e9d2c43fd2bd280}} 
+\index{toxic\_hardware.u\_sonics@{toxic\_hardware.u\_sonics}!threaded\_function@{threaded\_function}}
+\index{threaded\_function@{threaded\_function}!toxic\_hardware.u\_sonics@{toxic\_hardware.u\_sonics}}
+\doxysubsubsection{\texorpdfstring{threaded\_function()}{threaded\_function()}}
+{\footnotesize\ttfamily def toxic\+\_\+hardware.\+u\+\_\+sonics.\+threaded\+\_\+function (\begin{DoxyParamCaption}\item[{}]{pin,  }\item[{}]{id\+\_\+pin }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{25 \textcolor{keyword}{def }\mbox{\hyperlink{namespacetoxic__hardware_1_1u__sonics_a0971598f9fe898464e9d2c43fd2bd280}{threaded\_function}}(pin, id\_pin):}
+\DoxyCodeLine{26     \textcolor{keyword}{global} distances, board\_interface}
+\DoxyCodeLine{27     max\_distance = 200}
+\DoxyCodeLine{28     max\_time = max\_distance / 1750}
+\DoxyCodeLine{29     start = time.time()}
+\DoxyCodeLine{30     end = time.time()}
+\DoxyCodeLine{31     \textcolor{keywordflow}{while} lgpio.gpio\_read(board\_interface, pin) == 0:}
+\DoxyCodeLine{32         \textcolor{keywordflow}{if} time.time() -\/ start > max\_time:}
+\DoxyCodeLine{33             distances[id\_pin] = -\/1}
+\DoxyCodeLine{34             \textcolor{keywordflow}{return}}
+\DoxyCodeLine{35     start = time.time()}
+\DoxyCodeLine{36     \textcolor{keywordflow}{while} lgpio.gpio\_read(board\_interface, pin) == 1:}
+\DoxyCodeLine{37         \textcolor{keywordflow}{if} time.time() -\/ start > max\_time:}
+\DoxyCodeLine{38             distances[id\_pin] = -\/1}
+\DoxyCodeLine{39             \textcolor{keywordflow}{return}}
+\DoxyCodeLine{40     end = time.time()}
+\DoxyCodeLine{41     delta = end -\/ start}
+\DoxyCodeLine{42     distance = delta * 1750}
+\DoxyCodeLine{43     \textcolor{keywordflow}{if} distance > 200:}
+\DoxyCodeLine{44         distance = 200}
+\DoxyCodeLine{45     distances[id\_pin] = distance}
+\DoxyCodeLine{46 }
+
+\end{DoxyCode}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{namespacetoxic__hardware_1_1u__sonics_a4ac7859785b65965ec3c6fb677fa6232}\label{namespacetoxic__hardware_1_1u__sonics_a4ac7859785b65965ec3c6fb677fa6232}} 
+\index{toxic\_hardware.u\_sonics@{toxic\_hardware.u\_sonics}!board\_interface@{board\_interface}}
+\index{board\_interface@{board\_interface}!toxic\_hardware.u\_sonics@{toxic\_hardware.u\_sonics}}
+\doxysubsubsection{\texorpdfstring{board\_interface}{board\_interface}}
+{\footnotesize\ttfamily board\+\_\+interface = lgpio.\+gpiochip\+\_\+open(0)}
+
+\mbox{\Hypertarget{namespacetoxic__hardware_1_1u__sonics_accc1a60d495844dd854d3c2e65129c7e}\label{namespacetoxic__hardware_1_1u__sonics_accc1a60d495844dd854d3c2e65129c7e}} 
+\index{toxic\_hardware.u\_sonics@{toxic\_hardware.u\_sonics}!inputs@{inputs}}
+\index{inputs@{inputs}!toxic\_hardware.u\_sonics@{toxic\_hardware.u\_sonics}}
+\doxysubsubsection{\texorpdfstring{inputs}{inputs}}
+{\footnotesize\ttfamily list inputs}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 =  [}
+\DoxyCodeLine{2         10, 9, 11, 23, 24}
+\DoxyCodeLine{3         ]}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{namespacetoxic__hardware_1_1u__sonics_abadb550195bdd086cbac3ea70d641ed2}\label{namespacetoxic__hardware_1_1u__sonics_abadb550195bdd086cbac3ea70d641ed2}} 
+\index{toxic\_hardware.u\_sonics@{toxic\_hardware.u\_sonics}!outputs@{outputs}}
+\index{outputs@{outputs}!toxic\_hardware.u\_sonics@{toxic\_hardware.u\_sonics}}
+\doxysubsubsection{\texorpdfstring{outputs}{outputs}}
+{\footnotesize\ttfamily list outputs}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 =  [}
+\DoxyCodeLine{2         25, 2, 3, 1}
+\DoxyCodeLine{3         ]}
+
+\end{DoxyCode}

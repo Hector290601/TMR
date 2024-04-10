@@ -1,0 +1,61 @@
+\hypertarget{namespacetoxic__hardware_1_1gpio__interface}{}\doxysection{toxic\+\_\+hardware.\+gpio\+\_\+interface Namespace Reference}
+\label{namespacetoxic__hardware_1_1gpio__interface}\index{toxic\_hardware.gpio\_interface@{toxic\_hardware.gpio\_interface}}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classtoxic__hardware_1_1gpio__interface_1_1BlinkersInterface}{Blinkers\+Interface}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{namespacetoxic__hardware_1_1gpio__interface_a91b3f30c4b65c714aa843eb5413ee1af}{main}} (args=None)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespacetoxic__hardware_1_1gpio__interface_a6fd15ce64110e98b208bfe7a4ed33f52}{gpio\+\_\+pin}} = lgpio.\+gpiochip\+\_\+open(0)
+\item 
+list \mbox{\hyperlink{namespacetoxic__hardware_1_1gpio__interface_abadb550195bdd086cbac3ea70d641ed2}{outputs}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{namespacetoxic__hardware_1_1gpio__interface_a91b3f30c4b65c714aa843eb5413ee1af}\label{namespacetoxic__hardware_1_1gpio__interface_a91b3f30c4b65c714aa843eb5413ee1af}} 
+\index{toxic\_hardware.gpio\_interface@{toxic\_hardware.gpio\_interface}!main@{main}}
+\index{main@{main}!toxic\_hardware.gpio\_interface@{toxic\_hardware.gpio\_interface}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily def toxic\+\_\+hardware.\+gpio\+\_\+interface.\+main (\begin{DoxyParamCaption}\item[{}]{args = {\ttfamily None} }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{57 \textcolor{keyword}{def }\mbox{\hyperlink{namespacetoxic__hardware_1_1gpio__interface_a91b3f30c4b65c714aa843eb5413ee1af}{main}}(args=None):}
+\DoxyCodeLine{58     rclpy.init(args=args)}
+\DoxyCodeLine{59     blinkersInterface = BlinkersInterface()}
+\DoxyCodeLine{60     rclpy.spin(blinkersInterface)}
+\DoxyCodeLine{61     blinkersInterface.destroy\_node()}
+\DoxyCodeLine{62     rclpy.shutdown()}
+\DoxyCodeLine{63 }
+
+\end{DoxyCode}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{namespacetoxic__hardware_1_1gpio__interface_a6fd15ce64110e98b208bfe7a4ed33f52}\label{namespacetoxic__hardware_1_1gpio__interface_a6fd15ce64110e98b208bfe7a4ed33f52}} 
+\index{toxic\_hardware.gpio\_interface@{toxic\_hardware.gpio\_interface}!gpio\_pin@{gpio\_pin}}
+\index{gpio\_pin@{gpio\_pin}!toxic\_hardware.gpio\_interface@{toxic\_hardware.gpio\_interface}}
+\doxysubsubsection{\texorpdfstring{gpio\_pin}{gpio\_pin}}
+{\footnotesize\ttfamily gpio\+\_\+pin = lgpio.\+gpiochip\+\_\+open(0)}
+
+\mbox{\Hypertarget{namespacetoxic__hardware_1_1gpio__interface_abadb550195bdd086cbac3ea70d641ed2}\label{namespacetoxic__hardware_1_1gpio__interface_abadb550195bdd086cbac3ea70d641ed2}} 
+\index{toxic\_hardware.gpio\_interface@{toxic\_hardware.gpio\_interface}!outputs@{outputs}}
+\index{outputs@{outputs}!toxic\_hardware.gpio\_interface@{toxic\_hardware.gpio\_interface}}
+\doxysubsubsection{\texorpdfstring{outputs}{outputs}}
+{\footnotesize\ttfamily list outputs}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 =  [}
+\DoxyCodeLine{2         0, 5, 6, 13, 19}
+\DoxyCodeLine{3         ]}
+
+\end{DoxyCode}

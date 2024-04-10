@@ -1,0 +1,32 @@
+\hypertarget{namespacetoxic__hardware_1_1automate}{}\doxysection{toxic\+\_\+hardware.\+automate Namespace Reference}
+\label{namespacetoxic__hardware_1_1automate}\index{toxic\_hardware.automate@{toxic\_hardware.automate}}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classtoxic__hardware_1_1automate_1_1ControlSubscriber}{Control\+Subscriber}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{namespacetoxic__hardware_1_1automate_aa4adc1d143238cf1eb5bcd6e972db1ee}{main}} (args=None)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{namespacetoxic__hardware_1_1automate_aa4adc1d143238cf1eb5bcd6e972db1ee}\label{namespacetoxic__hardware_1_1automate_aa4adc1d143238cf1eb5bcd6e972db1ee}} 
+\index{toxic\_hardware.automate@{toxic\_hardware.automate}!main@{main}}
+\index{main@{main}!toxic\_hardware.automate@{toxic\_hardware.automate}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily def toxic\+\_\+hardware.\+automate.\+main (\begin{DoxyParamCaption}\item[{}]{args = {\ttfamily None} }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{118 \textcolor{keyword}{def }\mbox{\hyperlink{namespacetoxic__hardware_1_1automate_aa4adc1d143238cf1eb5bcd6e972db1ee}{main}}(args=None):}
+\DoxyCodeLine{119     rclpy.init(args=args)}
+\DoxyCodeLine{120     control\_subscriber = ControlSubscriber()}
+\DoxyCodeLine{121     rclpy.spin(control\_subscriber)}
+\DoxyCodeLine{122     control\_subscriber.destroy\_node()}
+\DoxyCodeLine{123     rclpy.shutdown()}
+\DoxyCodeLine{124 }
+
+\end{DoxyCode}

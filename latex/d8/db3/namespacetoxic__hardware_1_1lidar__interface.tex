@@ -1,0 +1,32 @@
+\hypertarget{namespacetoxic__hardware_1_1lidar__interface}{}\doxysection{toxic\+\_\+hardware.\+lidar\+\_\+interface Namespace Reference}
+\label{namespacetoxic__hardware_1_1lidar__interface}\index{toxic\_hardware.lidar\_interface@{toxic\_hardware.lidar\_interface}}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classtoxic__hardware_1_1lidar__interface_1_1ScanInterface}{Scan\+Interface}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{namespacetoxic__hardware_1_1lidar__interface_ac9ff94827cddb7a6e50e132c3eed5209}{main}} (args=None)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{namespacetoxic__hardware_1_1lidar__interface_ac9ff94827cddb7a6e50e132c3eed5209}\label{namespacetoxic__hardware_1_1lidar__interface_ac9ff94827cddb7a6e50e132c3eed5209}} 
+\index{toxic\_hardware.lidar\_interface@{toxic\_hardware.lidar\_interface}!main@{main}}
+\index{main@{main}!toxic\_hardware.lidar\_interface@{toxic\_hardware.lidar\_interface}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily def toxic\+\_\+hardware.\+lidar\+\_\+interface.\+main (\begin{DoxyParamCaption}\item[{}]{args = {\ttfamily None} }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{20 \textcolor{keyword}{def }\mbox{\hyperlink{namespacetoxic__hardware_1_1lidar__interface_ac9ff94827cddb7a6e50e132c3eed5209}{main}}(args=None):}
+\DoxyCodeLine{21     rclpy.init(args=args)}
+\DoxyCodeLine{22     scanInterface = ScanInterface()}
+\DoxyCodeLine{23     rclpy.spin(scanInterface)}
+\DoxyCodeLine{24     scanInterface.destroy\_node()}
+\DoxyCodeLine{25     rclpy.shutdown()}
+\DoxyCodeLine{26 }
+
+\end{DoxyCode}

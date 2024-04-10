@@ -73,6 +73,7 @@ the team.
   - Marín, Gustavo lefted to team.
   - Guerrero, Daniel lefted to team
   - [Vasquez, Jair](https://github.com/JAIRVASQUEZTORRES) (Helper) Joined the
+  - Romero, Melania lefted to team.
 team.
 
 ## Current team.
@@ -82,9 +83,13 @@ The current team's pefrormed by.
 - [Robles, Héctor](https://github.com/Hector290601) (Team Leader)
 - [Solano, Jorge](https://github.com/jrg-sln) (Team responsable)
 
+
 ## Sponsors.
-Currently we don't have more sponsors than de UNAM, but if you want to become a
-sponsor to this project, you cand sendus an e-mail to the next emails.
+Work made with support from PAPIME PE105524 project.
+Even supported from Componentes y Accesorios Industriales ([CAI](mailto:roblesge@infinitummail.com))
+Currently we don't have more sponsors or support from anyone than the UNAM and
+CAI, but if you want to become a sponsor to this project, you cand sendus an
+e-mail to the next emails.
 - [Offficial Mail ( pumasautomodelcar@gmail.com )](mailto:pumasautomodelcar@gmail.com)
 - [Negrete, Marco (marco.negrete@ingenieria.unam.edu )](mailto:marco.negrete@ingenieria.unam.edu)
 - [Robles, Hector ( robletes062901@gmail.com )](mailto:robletes062901@gmail.com)

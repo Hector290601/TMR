@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['roboclaw_324',['Roboclaw',['../d6/db4/classroboclaw__3_1_1Roboclaw.html',1,'roboclaw_3']]]
+  ['oledinterface_454',['OledInterface',['../d9/dc3/classoled__interface_1_1OledInterface.html',1,'OledInterface'],['../d9/d4e/classtoxic__hardware_1_1oled__interface_1_1OledInterface.html',1,'OledInterface']]]
 ];

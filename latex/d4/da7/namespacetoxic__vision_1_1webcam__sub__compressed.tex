@@ -1,0 +1,32 @@
+\hypertarget{namespacetoxic__vision_1_1webcam__sub__compressed}{}\doxysection{toxic\+\_\+vision.\+webcam\+\_\+sub\+\_\+compressed Namespace Reference}
+\label{namespacetoxic__vision_1_1webcam__sub__compressed}\index{toxic\_vision.webcam\_sub\_compressed@{toxic\_vision.webcam\_sub\_compressed}}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classtoxic__vision_1_1webcam__sub__compressed_1_1ImageSubscriber}{Image\+Subscriber}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{namespacetoxic__vision_1_1webcam__sub__compressed_a3f87ea8b824212709c485eb52e0e1279}{main}} (args=None)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{namespacetoxic__vision_1_1webcam__sub__compressed_a3f87ea8b824212709c485eb52e0e1279}\label{namespacetoxic__vision_1_1webcam__sub__compressed_a3f87ea8b824212709c485eb52e0e1279}} 
+\index{toxic\_vision.webcam\_sub\_compressed@{toxic\_vision.webcam\_sub\_compressed}!main@{main}}
+\index{main@{main}!toxic\_vision.webcam\_sub\_compressed@{toxic\_vision.webcam\_sub\_compressed}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily def toxic\+\_\+vision.\+webcam\+\_\+sub\+\_\+compressed.\+main (\begin{DoxyParamCaption}\item[{}]{args = {\ttfamily None} }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{27 \textcolor{keyword}{def }\mbox{\hyperlink{namespacetoxic__vision_1_1webcam__sub__compressed_a3f87ea8b824212709c485eb52e0e1279}{main}}(args=None):}
+\DoxyCodeLine{28   rclpy.init(args=args)}
+\DoxyCodeLine{29   image\_subscriber = ImageSubscriber()}
+\DoxyCodeLine{30   rclpy.spin(image\_subscriber)}
+\DoxyCodeLine{31   image\_subscriber.destroy\_node()}
+\DoxyCodeLine{32   rclpy.shutdown()}
+\DoxyCodeLine{33   }
+
+\end{DoxyCode}

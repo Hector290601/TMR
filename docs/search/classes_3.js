@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['motorinterface_322',['MotorInterface',['../de/d70/classmotor__interface_1_1MotorInterface.html',1,'motor_interface']]]
+  ['lanetracker_452',['LaneTracker',['../d5/d25/classtoxic__vision_1_1lane__tracker_1_1LaneTracker.html',1,'toxic_vision::lane_tracker']]]
 ];

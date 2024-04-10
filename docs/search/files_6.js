@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['webcam_5fpub_2epy_343',['webcam_pub.py',['../d7/de5/webcam__pub_8py.html',1,'']]],
-  ['webcam_5fsub_2epy_344',['webcam_sub.py',['../d7/da7/webcam__sub_8py.html',1,'']]]
+  ['motor_5finterface_2epy_504',['motor_interface.py',['../d8/dc7/build_2toxic__hardware_2build_2lib_2toxic__hardware_2motor__interface_8py.html',1,'(Global Namespace)'],['../d7/da3/src_2toxic__hardware_2toxic__hardware_2motor__interface_8py.html',1,'(Global Namespace)']]]
 ];

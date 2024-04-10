@@ -1596,12 +1596,13 @@ def \mbox{\hyperlink{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_addae6fb16d
 \begin{DoxyCode}{0}
 \DoxyCodeLine{1076     \textcolor{keyword}{def }Open(self):}
 \DoxyCodeLine{1077         \textcolor{keywordflow}{try}:}
-\DoxyCodeLine{1078             self.\_port = serial.Serial(port=self.comport, baudrate=self.rate, timeout=1, interCharTimeout=self.timeout)}
-\DoxyCodeLine{1079             \textcolor{comment}{\#self.\_port = serial.Serial(port=self.comport, baudrate=self.rate, timeout=1, interCharTimeout=self.timeout)}}
-\DoxyCodeLine{1080         \textcolor{keywordflow}{except}:}
-\DoxyCodeLine{1081             \textcolor{keywordflow}{return} 0}
-\DoxyCodeLine{1082         \textcolor{keywordflow}{return} 1}
-\DoxyCodeLine{1083 }
+\DoxyCodeLine{1078             \textcolor{comment}{\#self.\_port = serial.Serial(port=self.comport, baudrate=self.rate, timeout=1, interCharTimeout=self.timeout)}}
+\DoxyCodeLine{1079             self.\_port = serial.Serial(port=self.comport, baudrate=self.rate, timeout=0.1, interCharTimeout=self.timeout)}
+\DoxyCodeLine{1080             \textcolor{comment}{\#self.\_port = serial.Serial(port=self.comport, baudrate=self.rate, timeout=1, interCharTimeout=self.timeout)}}
+\DoxyCodeLine{1081         \textcolor{keywordflow}{except}:}
+\DoxyCodeLine{1082             \textcolor{keywordflow}{return} 0}
+\DoxyCodeLine{1083         \textcolor{keywordflow}{return} 1}
+\DoxyCodeLine{1084 }
 
 \end{DoxyCode}
 \mbox{\Hypertarget{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_a0ccc774bd702e611c98c01313707b8fe}\label{classtoxic__hardware_1_1roboclaw__3_1_1Roboclaw_a0ccc774bd702e611c98c01313707b8fe}} 

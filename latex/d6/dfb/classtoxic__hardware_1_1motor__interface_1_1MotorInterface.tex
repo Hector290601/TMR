@@ -12,11 +12,19 @@ Inheritance diagram for Motor\+Interface\+:\begin{figure}[H]
 def \mbox{\hyperlink{classtoxic__hardware_1_1motor__interface_1_1MotorInterface_ae64f0875afe3067b97ba370b354b9213}{\+\_\+\+\_\+init\+\_\+\+\_\+}} (self)
 \item 
 def \mbox{\hyperlink{classtoxic__hardware_1_1motor__interface_1_1MotorInterface_a9e946487184abfcf65c5372008f4e868}{motor\+\_\+callback}} (self, data)
+\item 
+def \mbox{\hyperlink{classtoxic__hardware_1_1motor__interface_1_1MotorInterface_a9692d7a212fa89bc61dacc687e826097}{timer\+\_\+callback}} (self)
 \end{DoxyCompactItemize}
 \doxysubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
+\mbox{\hyperlink{classtoxic__hardware_1_1motor__interface_1_1MotorInterface_a9fabcf6aa0647a2414f7cb1a2ab2634a}{timer}}
+\item 
 \mbox{\hyperlink{classtoxic__hardware_1_1motor__interface_1_1MotorInterface_a4b0698733c4dfaffe8e2b4cd952b6f82}{subscription}}
+\item 
+\mbox{\hyperlink{classtoxic__hardware_1_1motor__interface_1_1MotorInterface_a13ff37efc743b2f76b3af2c5c09070fb}{last}}
+\item 
+\mbox{\hyperlink{classtoxic__hardware_1_1motor__interface_1_1MotorInterface_acc626fb630dcc5dffbb7ecf24d07032b}{current\+\_\+speed}}
 \end{DoxyCompactItemize}
 
 
@@ -29,16 +37,20 @@ def \mbox{\hyperlink{classtoxic__hardware_1_1motor__interface_1_1MotorInterface_
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{10     \textcolor{keyword}{def }\_\_init\_\_(self):}
-\DoxyCodeLine{11         super().\_\_init\_\_(\textcolor{stringliteral}{'motor\_interface'})}
-\DoxyCodeLine{12         self.subscription = self.create\_subscription(}
-\DoxyCodeLine{13                 Float64,}
-\DoxyCodeLine{14                 \textcolor{stringliteral}{'/speed'},}
-\DoxyCodeLine{15                 self.motor\_callback,}
-\DoxyCodeLine{16                 60}
-\DoxyCodeLine{17                 )}
-\DoxyCodeLine{18         self.subscription}
-\DoxyCodeLine{19 }
+\DoxyCodeLine{12     \textcolor{keyword}{def }\_\_init\_\_(self):}
+\DoxyCodeLine{13         super().\_\_init\_\_(\textcolor{stringliteral}{'motor\_interface'})}
+\DoxyCodeLine{14         timer\_period = 0.01}
+\DoxyCodeLine{15         self.timer = self.create\_timer(timer\_period, self.timer\_callback)}
+\DoxyCodeLine{16         self.subscription = self.create\_subscription(}
+\DoxyCodeLine{17                 Float64,}
+\DoxyCodeLine{18                 \textcolor{stringliteral}{'/speed'},}
+\DoxyCodeLine{19                 self.motor\_callback,}
+\DoxyCodeLine{20                 1}
+\DoxyCodeLine{21                 )}
+\DoxyCodeLine{22         self.subscription}
+\DoxyCodeLine{23         self.last = 0}
+\DoxyCodeLine{24         self.current\_speed = 0.0}
+\DoxyCodeLine{25 }
 
 \end{DoxyCode}
 
@@ -52,32 +64,62 @@ def \mbox{\hyperlink{classtoxic__hardware_1_1motor__interface_1_1MotorInterface_
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{20     \textcolor{keyword}{def }motor\_callback(self, data):}
-\DoxyCodeLine{21         \textcolor{keyword}{global} roboclaw}
-\DoxyCodeLine{22         recived = data.data}
-\DoxyCodeLine{23         \textcolor{keywordflow}{if} recived > 1.0:}
-\DoxyCodeLine{24             recived = 1.0}
-\DoxyCodeLine{25         \textcolor{keywordflow}{elif} recived < -\/1.0:}
-\DoxyCodeLine{26             recived = -\/1.0}
-\DoxyCodeLine{27         \textcolor{keywordflow}{if} recived >= 0:}
-\DoxyCodeLine{28             print(\textcolor{stringliteral}{"{}Forward@M1"{}})}
-\DoxyCodeLine{29             roboclaw.ForwardM1(0x80, int(32*recived))}
-\DoxyCodeLine{30             print(recived)}
-\DoxyCodeLine{31         \textcolor{keywordflow}{elif} recived < 0:}
-\DoxyCodeLine{32             print(\textcolor{stringliteral}{"{}Backward@M1"{}})}
-\DoxyCodeLine{33             roboclaw.BackwardM1(0x80, int(32*-\/recived))}
-\DoxyCodeLine{34             print(recived)}
-\DoxyCodeLine{35 }
+\DoxyCodeLine{26     \textcolor{keyword}{def }motor\_callback(self, data):}
+\DoxyCodeLine{27         \textcolor{keyword}{global} roboclaw}
+\DoxyCodeLine{28         self.current\_speed = data.data}
+\DoxyCodeLine{29         self.last = time.time()}
+\DoxyCodeLine{30 }
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classtoxic__hardware_1_1motor__interface_1_1MotorInterface_a9692d7a212fa89bc61dacc687e826097}\label{classtoxic__hardware_1_1motor__interface_1_1MotorInterface_a9692d7a212fa89bc61dacc687e826097}} 
+\index{MotorInterface@{MotorInterface}!timer\_callback@{timer\_callback}}
+\index{timer\_callback@{timer\_callback}!MotorInterface@{MotorInterface}}
+\doxysubsubsection{\texorpdfstring{timer\_callback()}{timer\_callback()}}
+{\footnotesize\ttfamily def timer\+\_\+callback (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{31     \textcolor{keyword}{def }timer\_callback(self):}
+\DoxyCodeLine{32         delta = time.time() -\/ self.last}
+\DoxyCodeLine{33         \textcolor{keywordflow}{if} delta > 0.05:}
+\DoxyCodeLine{34             self.current\_speed = 0}
+\DoxyCodeLine{35         \textcolor{keywordflow}{if} self.current\_speed > 1.0:}
+\DoxyCodeLine{36             self.current\_speed = 1.0}
+\DoxyCodeLine{37         \textcolor{keywordflow}{elif} self.current\_speed < -\/1.0:}
+\DoxyCodeLine{38             self.current\_speed = -\/1.0}
+\DoxyCodeLine{39         \textcolor{keywordflow}{if} self.current\_speed >= 0:}
+\DoxyCodeLine{40             roboclaw.ForwardM2(0x80, int(20*self.current\_speed))}
+\DoxyCodeLine{41         \textcolor{keywordflow}{elif} self.current\_speed < 0:}
+\DoxyCodeLine{42             roboclaw.BackwardM2(0x80, int(20*-\/self.current\_speed))}
+\DoxyCodeLine{43 }
 
 \end{DoxyCode}
 
 
 \doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classtoxic__hardware_1_1motor__interface_1_1MotorInterface_acc626fb630dcc5dffbb7ecf24d07032b}\label{classtoxic__hardware_1_1motor__interface_1_1MotorInterface_acc626fb630dcc5dffbb7ecf24d07032b}} 
+\index{MotorInterface@{MotorInterface}!current\_speed@{current\_speed}}
+\index{current\_speed@{current\_speed}!MotorInterface@{MotorInterface}}
+\doxysubsubsection{\texorpdfstring{current\_speed}{current\_speed}}
+{\footnotesize\ttfamily current\+\_\+speed}
+
+\mbox{\Hypertarget{classtoxic__hardware_1_1motor__interface_1_1MotorInterface_a13ff37efc743b2f76b3af2c5c09070fb}\label{classtoxic__hardware_1_1motor__interface_1_1MotorInterface_a13ff37efc743b2f76b3af2c5c09070fb}} 
+\index{MotorInterface@{MotorInterface}!last@{last}}
+\index{last@{last}!MotorInterface@{MotorInterface}}
+\doxysubsubsection{\texorpdfstring{last}{last}}
+{\footnotesize\ttfamily last}
+
 \mbox{\Hypertarget{classtoxic__hardware_1_1motor__interface_1_1MotorInterface_a4b0698733c4dfaffe8e2b4cd952b6f82}\label{classtoxic__hardware_1_1motor__interface_1_1MotorInterface_a4b0698733c4dfaffe8e2b4cd952b6f82}} 
 \index{MotorInterface@{MotorInterface}!subscription@{subscription}}
 \index{subscription@{subscription}!MotorInterface@{MotorInterface}}
 \doxysubsubsection{\texorpdfstring{subscription}{subscription}}
 {\footnotesize\ttfamily subscription}
+
+\mbox{\Hypertarget{classtoxic__hardware_1_1motor__interface_1_1MotorInterface_a9fabcf6aa0647a2414f7cb1a2ab2634a}\label{classtoxic__hardware_1_1motor__interface_1_1MotorInterface_a9fabcf6aa0647a2414f7cb1a2ab2634a}} 
+\index{MotorInterface@{MotorInterface}!timer@{timer}}
+\index{timer@{timer}!MotorInterface@{MotorInterface}}
+\doxysubsubsection{\texorpdfstring{timer}{timer}}
+{\footnotesize\ttfamily timer}
 
 
 

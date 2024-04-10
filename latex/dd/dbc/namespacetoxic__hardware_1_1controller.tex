@@ -10,13 +10,6 @@ class \mbox{\hyperlink{classtoxic__hardware_1_1controller_1_1ControlSubscriber}{
 \item 
 def \mbox{\hyperlink{namespacetoxic__hardware_1_1controller_aac60e1fb14a23592e007ebec1efc50a4}{main}} (args=None)
 \end{DoxyCompactItemize}
-\doxysubsection*{Variables}
-\begin{DoxyCompactItemize}
-\item 
-\mbox{\hyperlink{namespacetoxic__hardware_1_1controller_ae6deea6e7d03b5d4db98ea209159e57f}{interface}} = lgpio.\+gpiochip\+\_\+open(0)
-\item 
-\mbox{\hyperlink{namespacetoxic__hardware_1_1controller_a257386444c3afd4030922ffb828f85fe}{roboclaw}} = \mbox{\hyperlink{classroboclaw__3_1_1Roboclaw}{Roboclaw}}(\char`\"{}/dev/tty\+ACM0\char`\"{}, 115200)
-\end{DoxyCompactItemize}
 
 
 \doxysubsection{Function Documentation}
@@ -28,27 +21,12 @@ def \mbox{\hyperlink{namespacetoxic__hardware_1_1controller_aac60e1fb14a23592e00
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{40 \textcolor{keyword}{def }\mbox{\hyperlink{namespacecontroller_abe3b9157dce8796452422deae2a9161f}{main}}(args=None):}
-\DoxyCodeLine{41     rclpy.init(args=args)}
-\DoxyCodeLine{42     control\_subscriber = ControlSubscriber()}
-\DoxyCodeLine{43     rclpy.spin(control\_subscriber)}
-\DoxyCodeLine{44     control\_subscriber.destroy\_node()}
-\DoxyCodeLine{45     rclpy.shutdown()}
-\DoxyCodeLine{46 }
+\DoxyCodeLine{35 \textcolor{keyword}{def }\mbox{\hyperlink{namespacecontroller_abe3b9157dce8796452422deae2a9161f}{main}}(args=None):}
+\DoxyCodeLine{36     rclpy.init(args=args)}
+\DoxyCodeLine{37     control\_subscriber = ControlSubscriber()}
+\DoxyCodeLine{38     rclpy.spin(control\_subscriber)}
+\DoxyCodeLine{39     control\_subscriber.destroy\_node()}
+\DoxyCodeLine{40     rclpy.shutdown()}
+\DoxyCodeLine{41 }
 
 \end{DoxyCode}
-
-
-\doxysubsection{Variable Documentation}
-\mbox{\Hypertarget{namespacetoxic__hardware_1_1controller_ae6deea6e7d03b5d4db98ea209159e57f}\label{namespacetoxic__hardware_1_1controller_ae6deea6e7d03b5d4db98ea209159e57f}} 
-\index{toxic\_hardware.controller@{toxic\_hardware.controller}!interface@{interface}}
-\index{interface@{interface}!toxic\_hardware.controller@{toxic\_hardware.controller}}
-\doxysubsubsection{\texorpdfstring{interface}{interface}}
-{\footnotesize\ttfamily interface = lgpio.\+gpiochip\+\_\+open(0)}
-
-\mbox{\Hypertarget{namespacetoxic__hardware_1_1controller_a257386444c3afd4030922ffb828f85fe}\label{namespacetoxic__hardware_1_1controller_a257386444c3afd4030922ffb828f85fe}} 
-\index{toxic\_hardware.controller@{toxic\_hardware.controller}!roboclaw@{roboclaw}}
-\index{roboclaw@{roboclaw}!toxic\_hardware.controller@{toxic\_hardware.controller}}
-\doxysubsubsection{\texorpdfstring{roboclaw}{roboclaw}}
-{\footnotesize\ttfamily roboclaw = \mbox{\hyperlink{classroboclaw__3_1_1Roboclaw}{Roboclaw}}(\char`\"{}/dev/tty\+ACM0\char`\"{}, 115200)}
-
