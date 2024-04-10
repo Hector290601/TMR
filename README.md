@@ -86,7 +86,7 @@ The current team's pefrormed by.
 
 ## Sponsors.
 Work made with support from PAPIME PE105524 project.
-Even supported from Componentes y Accesorios Industriales ([CAI](mailto:roblesge@infinitummail.com)) \\
+Even supported from Componentes y Accesorios Industriales ([CAI](mailto:roblesge@infinitummail.com)) \
 Currently we don't have more sponsors or support from anyone than the UNAM and
 CAI, but if you want to become a sponsor to this project, you cand sendus an
 e-mail to the next emails.
