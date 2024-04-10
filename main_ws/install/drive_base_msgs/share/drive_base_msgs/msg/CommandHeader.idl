@@ -1,0 +1,29 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from drive_base_msgs/msg/CommandHeader.msg
+// generated code does not contain a copyright notice
+
+#include "builtin_interfaces/msg/Time.idl"
+
+module drive_base_msgs {
+  module msg {
+    @verbatim (language="comment", text=
+      "Standard header for commands")
+    struct CommandHeader {
+      @verbatim (language="comment", text=
+        "source timestamp")
+      builtin_interfaces::msg::Time stamp;
+
+      @verbatim (language="comment", text=
+        "an identifier for status replies")
+      uint32 command_id;
+
+      @verbatim (language="comment", text=
+        "by informing the base about the period we expect" "\n"
+        "to send, it can implement a safety shut-off when" "\n"
+        "messages take much longer." "\n"
+        "if zero, bases may estimate the period from the incoming data" "\n"
+        "data stream")
+      uint16 expected_period;
+    };
+  };
+};

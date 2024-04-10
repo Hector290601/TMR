@@ -1,0 +1,86 @@
+{
+  "type_description_msg": {
+    "type_description": {
+      "type_name": "micro_ros_msgs/msg/Node",
+      "fields": [
+        {
+          "name": "node_namespace",
+          "type": {
+            "type_id": 21,
+            "capacity": 0,
+            "string_capacity": 256,
+            "nested_type_name": ""
+          },
+          "default_value": ""
+        },
+        {
+          "name": "node_name",
+          "type": {
+            "type_id": 21,
+            "capacity": 0,
+            "string_capacity": 256,
+            "nested_type_name": ""
+          },
+          "default_value": ""
+        },
+        {
+          "name": "entities",
+          "type": {
+            "type_id": 145,
+            "capacity": 0,
+            "string_capacity": 0,
+            "nested_type_name": "micro_ros_msgs/msg/Entity"
+          },
+          "default_value": ""
+        }
+      ]
+    },
+    "referenced_type_descriptions": [
+      {
+        "type_name": "micro_ros_msgs/msg/Entity",
+        "fields": [
+          {
+            "name": "entity_type",
+            "type": {
+              "type_id": 16,
+              "capacity": 0,
+              "string_capacity": 0,
+              "nested_type_name": ""
+            },
+            "default_value": ""
+          },
+          {
+            "name": "name",
+            "type": {
+              "type_id": 21,
+              "capacity": 0,
+              "string_capacity": 256,
+              "nested_type_name": ""
+            },
+            "default_value": ""
+          },
+          {
+            "name": "types",
+            "type": {
+              "type_id": 165,
+              "capacity": 0,
+              "string_capacity": 256,
+              "nested_type_name": ""
+            },
+            "default_value": ""
+          }
+        ]
+      }
+    ]
+  },
+  "type_hashes": [
+    {
+      "type_name": "micro_ros_msgs/msg/Node",
+      "hash_string": "RIHS01_b14cdbce7f1a1fe7fa561a5316dd45445d7a76c3998b29440686a333bf10221d"
+    },
+    {
+      "type_name": "micro_ros_msgs/msg/Entity",
+      "hash_string": "RIHS01_f66f49cbcc49d8602beda0ffc3b6006e5addf5a78e9d7d62e831b27c912a3e08"
+    }
+  ]
+}

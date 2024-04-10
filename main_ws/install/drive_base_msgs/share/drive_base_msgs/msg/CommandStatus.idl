@@ -1,0 +1,44 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from drive_base_msgs/msg/CommandStatus.msg
+// generated code does not contain a copyright notice
+
+#include "builtin_interfaces/msg/Time.idl"
+#include "drive_base_msgs/msg/CommandHeader.idl"
+
+module drive_base_msgs {
+  module msg {
+    module CommandStatus_Constants {
+      const uint8 OK = 0;
+      @verbatim (language="comment", text=
+        "the command contained requests that exceed the capabilities of the system" "\n"        "e.g., the command speed was too high" "\n"        "NOTE: The system will still attempt to perform as best it can")
+      const uint8 CAPABILITIES_EXCEEDED = 1;
+      @verbatim (language="comment", text=
+        "the command contained invalid values, and the system will not attempt" "\n"        "to perform it")
+      const uint8 INVALID = 2;
+      @verbatim (language="comment", text=
+        "the command cannot be executed because the system has insufficient power to operate")
+      const uint8 POWER_INSUFFICIENT = 3;
+      @verbatim (language="comment", text=
+        "the system is currently inoperational for an unspecified reason" "\n"        "it expects to be able to recover")
+      const uint8 TEMPORARY_FAILURE = 4;
+      @verbatim (language="comment", text=
+        "the system is inoperational indefinitely")
+      const uint8 SYSTEM_FAILURE = 5;
+    };
+    @verbatim (language="comment", text=
+      "command has been accepted")
+    struct CommandStatus {
+      @verbatim (language="comment", text=
+        "timestamp of this message")
+      builtin_interfaces::msg::Time stamp;
+
+      @verbatim (language="comment", text=
+        "command this pertains to")
+      drive_base_msgs::msg::CommandHeader cmd_header;
+
+      @verbatim (language="comment", text=
+        "result of the command")
+      uint8 status;
+    };
+  };
+};

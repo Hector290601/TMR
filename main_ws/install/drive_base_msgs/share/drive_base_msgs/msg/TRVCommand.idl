@@ -1,0 +1,20 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from drive_base_msgs/msg/TRVCommand.msg
+// generated code does not contain a copyright notice
+
+#include "drive_base_msgs/msg/CommandHeader.idl"
+
+module drive_base_msgs {
+  module msg {
+    @verbatim (language="comment", text=
+      "Command a mobile base by Translational and Rotational Velocity" "\n"
+      "Primarily intended for differential drive bases.")
+    struct TRVCommand {
+      drive_base_msgs::msg::CommandHeader header;
+
+      float translational_velocity;
+
+      float rotational_velocity;
+    };
+  };
+};

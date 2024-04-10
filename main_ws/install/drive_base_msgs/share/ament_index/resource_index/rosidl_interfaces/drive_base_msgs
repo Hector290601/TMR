@@ -1,0 +1,8 @@
+msg/BaseInfo.idl
+msg/BaseInfo.msg
+msg/CommandHeader.idl
+msg/CommandHeader.msg
+msg/CommandStatus.idl
+msg/CommandStatus.msg
+msg/TRVCommand.idl
+msg/TRVCommand.msg
