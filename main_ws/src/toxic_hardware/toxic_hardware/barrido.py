@@ -7,39 +7,42 @@ class BlinkersInterface(Node):
     def __init__(self):
         super().__init__('barrido')
         self.publisher = self.create_publisher(Float32MultiArray,
-                'esp32_node',
+                'esp32_topic',
                 1)
         self.timer_period = 1
         self.timer = self.create_timer(self.timer_period, self.pass_callback)
 
     def pass_callback(self):
         msg = Float32MultiArray()
-        for i in range(50, 500, 1):
-            msg.data = [5, (i*0.1)]
+        for i in range(500, 1200, 1):
+            msg.data = [4, (i*0.1)]
             self.publisher.publish(msg)
-            time.sleep(1/30)
+            time.sleep(1/150)
+            """
             if i == 50:
                 msg.data = [2, 3]
                 self.publisher.publish(msg)
                 msg.data = [3, 0]
                 self.publisher.publish(msg)
                 time.sleep(1/30)
-            elif i == 200:
+            elif i == 700:
                 msg.data = [2, 0]
                 self.publisher.publish(msg)
                 msg.data = [3, 0]
                 self.publisher.publish(msg)
                 time.sleep(1/30)
-            elif i == 300:
+            elif i == 1100:
                 msg.data = [2, 0]
                 self.publisher.publish(msg)
                 msg.data = [3, 3]
                 self.publisher.publish(msg)
                 time.sleep(1/30)
-        for i in range(500, 50, -1):
-            msg.data = [5, (i*0.1)]
+            """
+        for i in range(1200, 500, -1):
+            msg.data = [4, (i*0.1)]
             self.publisher.publish(msg)
-            time.sleep(1/30)
+            time.sleep(1/150)
+            """
             if i == 200:
                 msg.data = [2, 3]
                 self.publisher.publish(msg)
@@ -58,24 +61,7 @@ class BlinkersInterface(Node):
                 msg.data = [3, 3]
                 self.publisher.publish(msg)
                 time.sleep(1/30)
-        """
-        for i in range(50, 200, 1):
-            msg.data = [5, (i*0.1)]
-            #self.publisher.publish(msg)
-            time.sleep(0.1)
-        msg.data = [2, 0]
-        self.publisher.publish(msg)
-        for i in range(200, 300, 1):
-            msg.data = [5, (i*0.1)]
-            #self.publisher.publish(msg)
-            time.sleep(0.1)
-        msg.data = [3, 3]
-        self.publisher.publish(msg)
-        for i in range(300, 500, 1):
-            msg.data = [5, (i*0.1)]
-            #self.publisher.publish(msg)
-            time.sleep(0.1)
-        """
+            """
 
 
 def main(args=None):
