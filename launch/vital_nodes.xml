@@ -1,0 +1,6 @@
+<launch>
+		<node pkg="toxic_vision" exec="webcam_publisher"/>
+		<node pkg="toxic_vision" exec="lane_detector"/>
+		<node pkg="toxic_vision" exec="lane_tracker"/>
+		<node pkg="toxic_hardware" exec="motor_interface"/>
+</launch>
