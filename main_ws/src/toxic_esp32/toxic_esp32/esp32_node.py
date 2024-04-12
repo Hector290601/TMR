@@ -41,10 +41,10 @@ class Node_MIX_Publisher(Node):
                     option[0]= float(new_op-1)
                     #----->Selector de grados
                     while True:
-                        degree= (input("\n ¿Cuantos grados de angulo deseas? (Rango de 5-50 grados): "))
+                        degree= (input("\n ¿Cuantos grados de angulo deseas? (Rango de 0-180 grados): "))
                         if degree.isdigit():
                             new_deegre= float (degree)
-                            if  new_deegre>50 or new_deegre<=5:
+                            if  new_deegre>180 or new_deegre<0:
                                 print('\n ---> Esta cantidad de grados puede romper al servo <---\n')
                             else:
                                 option[1]=float(new_deegre)

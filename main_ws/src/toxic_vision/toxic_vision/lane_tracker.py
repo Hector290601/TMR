@@ -2,7 +2,7 @@ import rclpy
 from rclpy.node import Node
 import numpy as np
 import math
-from std_msgs.msg import Float64MultiArray, Float64
+from std_msgs.msg import Float64MultiArray, Float64, Float32MultiArray
 import os
 from sensor_msgs.msg import Joy
 
@@ -55,6 +55,7 @@ class LaneTracker(Node):
         timer_period = 1/30
         #self.timer = self.create_timer(timer_period, self.timer_callback)
         self.steering_publisher = self.create_publisher(Float64, '/steering', 1)
+        self.esp32_publisher = self.create_publisher(Float32MultiArray, '/esp32_topic', 1)
         self.speed_publisher = self.create_publisher(Float64, '/speed', 1)
         self.k_rho_publisher = self.create_publisher(Float64, '/k/rho', 1)
         self.k_theta_publisher = self.create_publisher(Float64, '/k/theta', 1)
@@ -76,15 +77,15 @@ class LaneTracker(Node):
         self.goal_rho_right = 0
         self.goal_theta_right = 0
         self.k_rho = 0.0055
-        self.k_theta = 0.04
+        self.k_theta = 3.54
         self.autocalibrate_left = 0
         self.autocalibrate_right = 0
         self.max_speed = 1.2
         self.publish_flag = False
 
     def control_callback(self, data):
-        self.k_rho += 0.0001 * data.axes[3]
-        self.k_theta += 0.00001 * data.axes[2]
+        self.k_rho += 0.0001 * data.axes[0]
+        self.k_theta += 0.01 * data.axes[3]
         self.max_speed += (0.001 * data.axes[7])
         if data.buttons[0]:
             msg = Float64()
@@ -156,9 +157,19 @@ class LaneTracker(Node):
         theta = -(self.error_theta_left + self.error_theta_right)
         rho = -(self.error_rho_left + self.error_rho_right)
         message = Float64()
+        message_esp32 = Float32MultiArray()
         message.data = -((theta * self.k_theta) + (rho * self.k_rho))
+        message_esp32.data = [4,
+                (
+                    (180/math.pi)
+                    * -((theta * self.k_theta) + (rho * self.k_rho))
+                    )
+                + 85
+                ]
+
         if self.publish_flag:
             self.steering_publisher.publish(message)
+            self.esp32_publisher.publish(message_esp32)
         msg = Float64()
         msg.data = self.max_speed
         if self.publish_flag:
