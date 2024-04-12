@@ -76,7 +76,7 @@ class LaneTracker(Node):
         self.goal_theta_left = 0
         self.goal_rho_right = 0
         self.goal_theta_right = 0
-        self.k_rho = 0.0055
+        self.k_rho = 0.0065
         self.k_theta = 3.54
         self.autocalibrate_left = 0
         self.autocalibrate_right = 0
@@ -162,7 +162,7 @@ class LaneTracker(Node):
         message_esp32.data = [4,
                 (
                     (180/math.pi)
-                    * -((theta * self.k_theta) + (rho * self.k_rho))
+                    * -((theta * self.k_theta) - (rho * self.k_rho))
                     )
                 + 85
                 ]
