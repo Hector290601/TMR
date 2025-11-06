@@ -1,0 +1,230 @@
+\hypertarget{namespacebbox__obstacles}{}\doxysection{bbox\+\_\+obstacles Namespace Reference}
+\label{namespacebbox__obstacles}\index{bbox\_obstacles@{bbox\_obstacles}}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{namespacebbox__obstacles_add6bd6809f4161dfec7438cdb973fd38}{error\+\_\+rho}} (rho\+\_\+left=\mbox{\hyperlink{namespacebbox__obstacles_aeacf0b50dd1bf52ac50eba65a5c86024}{goal\+\_\+left\+\_\+rho}}, rho\+\_\+right=\mbox{\hyperlink{namespacebbox__obstacles_a564202970ebf518a697105788a14449f}{goal\+\_\+right\+\_\+rho}})
+\item 
+def \mbox{\hyperlink{namespacebbox__obstacles_a4af06cc6065f76ed5b57bdc4263d1435}{error\+\_\+theta}} (theta\+\_\+left=\mbox{\hyperlink{namespacebbox__obstacles_aecc4d4f784cbcccfb8e6abd41ec266ce}{goal\+\_\+left\+\_\+theta}}, theta\+\_\+right=\mbox{\hyperlink{namespacebbox__obstacles_af17c9f9c8781d3e3bcdb8e1817f414e7}{goal\+\_\+right\+\_\+theta}})
+\item 
+def \mbox{\hyperlink{namespacebbox__obstacles_a6bb1489d1b280de960f26206de2aafce}{get\+\_\+ideal\+\_\+lanes}} ()
+\item 
+def \mbox{\hyperlink{namespacebbox__obstacles_aeca9faf027176f385518ab9e3c33796f}{decide}} ()
+\item 
+def \mbox{\hyperlink{namespacebbox__obstacles_a09efd39a44d3b0b03ee7e893afae8c37}{callback\+\_\+left}} (msg)
+\item 
+def \mbox{\hyperlink{namespacebbox__obstacles_a4a2f45d84211bcb29cae20d4d5c7e0f7}{callback\+\_\+right}} (msg)
+\item 
+def \mbox{\hyperlink{namespacebbox__obstacles_ad93561d61bfe759391d7454547acb007}{callback\+\_\+parking\+\_\+flag}} (msg)
+\item 
+def \mbox{\hyperlink{namespacebbox__obstacles_af5e137acec3f59c442e9f6adb32e5da3}{callback\+\_\+center}} (msg)
+\item 
+def \mbox{\hyperlink{namespacebbox__obstacles_aa8ec6a795d813d134fe034d63a1d0fbc}{main}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+string \mbox{\hyperlink{namespacebbox__obstacles_a76abd76334e4f20569c0442f08325d81}{left\+\_\+lines}} = \char`\"{}\char`\"{}
+\item 
+string \mbox{\hyperlink{namespacebbox__obstacles_a07c56074d77eca8894db1d229fe70e29}{right\+\_\+lines}} = \char`\"{}\char`\"{}
+\item 
+\mbox{\hyperlink{namespacebbox__obstacles_ac39b2dc10a8f3f2fffead2ac35cb60e9}{steering\+\_\+value}} = Float64(0)
+\item 
+\mbox{\hyperlink{namespacebbox__obstacles_a7e9361e7f04326ddff51411474b73eb6}{speed\+\_\+value}} = Float64(0)
+\item 
+int \mbox{\hyperlink{namespacebbox__obstacles_aeacf0b50dd1bf52ac50eba65a5c86024}{goal\+\_\+left\+\_\+rho}} = 0
+\item 
+int \mbox{\hyperlink{namespacebbox__obstacles_aecc4d4f784cbcccfb8e6abd41ec266ce}{goal\+\_\+left\+\_\+theta}} = 0
+\item 
+int \mbox{\hyperlink{namespacebbox__obstacles_a564202970ebf518a697105788a14449f}{goal\+\_\+right\+\_\+rho}} = 0
+\item 
+int \mbox{\hyperlink{namespacebbox__obstacles_af17c9f9c8781d3e3bcdb8e1817f414e7}{goal\+\_\+right\+\_\+theta}} = 0
+\item 
+int \mbox{\hyperlink{namespacebbox__obstacles_a29b4cb7d97b7b7990db98666c6885c41}{iterator}} = 0
+\item 
+int \mbox{\hyperlink{namespacebbox__obstacles_acbaba14bba6a9d2f63e2443b02a15acf}{suma\+\_\+left\+\_\+rho}} = 0
+\item 
+int \mbox{\hyperlink{namespacebbox__obstacles_af16d7f03e99e53ead7063afcf7e6501c}{suma\+\_\+left\+\_\+theta}} = 0
+\item 
+int \mbox{\hyperlink{namespacebbox__obstacles_aa513e6977c5391e9a7f3b33e402eec1c}{suma\+\_\+right\+\_\+rho}} = 0
+\item 
+int \mbox{\hyperlink{namespacebbox__obstacles_adb1e5601098c7cfd8704b1194a70bd86}{suma\+\_\+right\+\_\+theta}} = 0
+\item 
+bool \mbox{\hyperlink{namespacebbox__obstacles_a4c3551d2c2e6c0d24e3192f42e2b56c7}{flag}} = False
+\item 
+bool \mbox{\hyperlink{namespacebbox__obstacles_a320dd2741ee002a57a285bc417c872f8}{flag1}} = True
+\item 
+int \mbox{\hyperlink{namespacebbox__obstacles_a9f3c39de380e38bd6b9d7977f30abcdc}{center}} = 0
+\item 
+int \mbox{\hyperlink{namespacebbox__obstacles_ac8dad1ed4a9612de3e933d43e33d8310}{ccorrection}} = 0
+\item 
+list \mbox{\hyperlink{namespacebbox__obstacles_a61676a4c2699cd045fcb371bbd99e877}{angulos}} = \mbox{[}0, 0, 0, 0\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{namespacebbox__obstacles_af5e137acec3f59c442e9f6adb32e5da3}\label{namespacebbox__obstacles_af5e137acec3f59c442e9f6adb32e5da3}} 
+\index{bbox\_obstacles@{bbox\_obstacles}!callback\_center@{callback\_center}}
+\index{callback\_center@{callback\_center}!bbox\_obstacles@{bbox\_obstacles}}
+\doxysubsubsection{\texorpdfstring{callback\_center()}{callback\_center()}}
+{\footnotesize\ttfamily def bbox\+\_\+obstacles.\+callback\+\_\+center (\begin{DoxyParamCaption}\item[{}]{msg }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{namespacebbox__obstacles_a09efd39a44d3b0b03ee7e893afae8c37}\label{namespacebbox__obstacles_a09efd39a44d3b0b03ee7e893afae8c37}} 
+\index{bbox\_obstacles@{bbox\_obstacles}!callback\_left@{callback\_left}}
+\index{callback\_left@{callback\_left}!bbox\_obstacles@{bbox\_obstacles}}
+\doxysubsubsection{\texorpdfstring{callback\_left()}{callback\_left()}}
+{\footnotesize\ttfamily def bbox\+\_\+obstacles.\+callback\+\_\+left (\begin{DoxyParamCaption}\item[{}]{msg }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{namespacebbox__obstacles_ad93561d61bfe759391d7454547acb007}\label{namespacebbox__obstacles_ad93561d61bfe759391d7454547acb007}} 
+\index{bbox\_obstacles@{bbox\_obstacles}!callback\_parking\_flag@{callback\_parking\_flag}}
+\index{callback\_parking\_flag@{callback\_parking\_flag}!bbox\_obstacles@{bbox\_obstacles}}
+\doxysubsubsection{\texorpdfstring{callback\_parking\_flag()}{callback\_parking\_flag()}}
+{\footnotesize\ttfamily def bbox\+\_\+obstacles.\+callback\+\_\+parking\+\_\+flag (\begin{DoxyParamCaption}\item[{}]{msg }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{namespacebbox__obstacles_a4a2f45d84211bcb29cae20d4d5c7e0f7}\label{namespacebbox__obstacles_a4a2f45d84211bcb29cae20d4d5c7e0f7}} 
+\index{bbox\_obstacles@{bbox\_obstacles}!callback\_right@{callback\_right}}
+\index{callback\_right@{callback\_right}!bbox\_obstacles@{bbox\_obstacles}}
+\doxysubsubsection{\texorpdfstring{callback\_right()}{callback\_right()}}
+{\footnotesize\ttfamily def bbox\+\_\+obstacles.\+callback\+\_\+right (\begin{DoxyParamCaption}\item[{}]{msg }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{namespacebbox__obstacles_aeca9faf027176f385518ab9e3c33796f}\label{namespacebbox__obstacles_aeca9faf027176f385518ab9e3c33796f}} 
+\index{bbox\_obstacles@{bbox\_obstacles}!decide@{decide}}
+\index{decide@{decide}!bbox\_obstacles@{bbox\_obstacles}}
+\doxysubsubsection{\texorpdfstring{decide()}{decide()}}
+{\footnotesize\ttfamily def bbox\+\_\+obstacles.\+decide (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{namespacebbox__obstacles_add6bd6809f4161dfec7438cdb973fd38}\label{namespacebbox__obstacles_add6bd6809f4161dfec7438cdb973fd38}} 
+\index{bbox\_obstacles@{bbox\_obstacles}!error\_rho@{error\_rho}}
+\index{error\_rho@{error\_rho}!bbox\_obstacles@{bbox\_obstacles}}
+\doxysubsubsection{\texorpdfstring{error\_rho()}{error\_rho()}}
+{\footnotesize\ttfamily def bbox\+\_\+obstacles.\+error\+\_\+rho (\begin{DoxyParamCaption}\item[{}]{rho\+\_\+left = {\ttfamily \mbox{\hyperlink{namespacebbox__obstacles_aeacf0b50dd1bf52ac50eba65a5c86024}{goal\+\_\+left\+\_\+rho}}},  }\item[{}]{rho\+\_\+right = {\ttfamily \mbox{\hyperlink{namespacebbox__obstacles_a564202970ebf518a697105788a14449f}{goal\+\_\+right\+\_\+rho}}} }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{namespacebbox__obstacles_a4af06cc6065f76ed5b57bdc4263d1435}\label{namespacebbox__obstacles_a4af06cc6065f76ed5b57bdc4263d1435}} 
+\index{bbox\_obstacles@{bbox\_obstacles}!error\_theta@{error\_theta}}
+\index{error\_theta@{error\_theta}!bbox\_obstacles@{bbox\_obstacles}}
+\doxysubsubsection{\texorpdfstring{error\_theta()}{error\_theta()}}
+{\footnotesize\ttfamily def bbox\+\_\+obstacles.\+error\+\_\+theta (\begin{DoxyParamCaption}\item[{}]{theta\+\_\+left = {\ttfamily \mbox{\hyperlink{namespacebbox__obstacles_aecc4d4f784cbcccfb8e6abd41ec266ce}{goal\+\_\+left\+\_\+theta}}},  }\item[{}]{theta\+\_\+right = {\ttfamily \mbox{\hyperlink{namespacebbox__obstacles_af17c9f9c8781d3e3bcdb8e1817f414e7}{goal\+\_\+right\+\_\+theta}}} }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{namespacebbox__obstacles_a6bb1489d1b280de960f26206de2aafce}\label{namespacebbox__obstacles_a6bb1489d1b280de960f26206de2aafce}} 
+\index{bbox\_obstacles@{bbox\_obstacles}!get\_ideal\_lanes@{get\_ideal\_lanes}}
+\index{get\_ideal\_lanes@{get\_ideal\_lanes}!bbox\_obstacles@{bbox\_obstacles}}
+\doxysubsubsection{\texorpdfstring{get\_ideal\_lanes()}{get\_ideal\_lanes()}}
+{\footnotesize\ttfamily def bbox\+\_\+obstacles.\+get\+\_\+ideal\+\_\+lanes (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{namespacebbox__obstacles_aa8ec6a795d813d134fe034d63a1d0fbc}\label{namespacebbox__obstacles_aa8ec6a795d813d134fe034d63a1d0fbc}} 
+\index{bbox\_obstacles@{bbox\_obstacles}!main@{main}}
+\index{main@{main}!bbox\_obstacles@{bbox\_obstacles}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily def bbox\+\_\+obstacles.\+main (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{namespacebbox__obstacles_a61676a4c2699cd045fcb371bbd99e877}\label{namespacebbox__obstacles_a61676a4c2699cd045fcb371bbd99e877}} 
+\index{bbox\_obstacles@{bbox\_obstacles}!angulos@{angulos}}
+\index{angulos@{angulos}!bbox\_obstacles@{bbox\_obstacles}}
+\doxysubsubsection{\texorpdfstring{angulos}{angulos}}
+{\footnotesize\ttfamily list bbox\+\_\+obstacles.\+angulos = \mbox{[}0, 0, 0, 0\mbox{]}}
+
+\mbox{\Hypertarget{namespacebbox__obstacles_ac8dad1ed4a9612de3e933d43e33d8310}\label{namespacebbox__obstacles_ac8dad1ed4a9612de3e933d43e33d8310}} 
+\index{bbox\_obstacles@{bbox\_obstacles}!ccorrection@{ccorrection}}
+\index{ccorrection@{ccorrection}!bbox\_obstacles@{bbox\_obstacles}}
+\doxysubsubsection{\texorpdfstring{ccorrection}{ccorrection}}
+{\footnotesize\ttfamily int bbox\+\_\+obstacles.\+ccorrection = 0}
+
+\mbox{\Hypertarget{namespacebbox__obstacles_a9f3c39de380e38bd6b9d7977f30abcdc}\label{namespacebbox__obstacles_a9f3c39de380e38bd6b9d7977f30abcdc}} 
+\index{bbox\_obstacles@{bbox\_obstacles}!center@{center}}
+\index{center@{center}!bbox\_obstacles@{bbox\_obstacles}}
+\doxysubsubsection{\texorpdfstring{center}{center}}
+{\footnotesize\ttfamily int bbox\+\_\+obstacles.\+center = 0}
+
+\mbox{\Hypertarget{namespacebbox__obstacles_a4c3551d2c2e6c0d24e3192f42e2b56c7}\label{namespacebbox__obstacles_a4c3551d2c2e6c0d24e3192f42e2b56c7}} 
+\index{bbox\_obstacles@{bbox\_obstacles}!flag@{flag}}
+\index{flag@{flag}!bbox\_obstacles@{bbox\_obstacles}}
+\doxysubsubsection{\texorpdfstring{flag}{flag}}
+{\footnotesize\ttfamily bool bbox\+\_\+obstacles.\+flag = False}
+
+\mbox{\Hypertarget{namespacebbox__obstacles_a320dd2741ee002a57a285bc417c872f8}\label{namespacebbox__obstacles_a320dd2741ee002a57a285bc417c872f8}} 
+\index{bbox\_obstacles@{bbox\_obstacles}!flag1@{flag1}}
+\index{flag1@{flag1}!bbox\_obstacles@{bbox\_obstacles}}
+\doxysubsubsection{\texorpdfstring{flag1}{flag1}}
+{\footnotesize\ttfamily bool bbox\+\_\+obstacles.\+flag1 = True}
+
+\mbox{\Hypertarget{namespacebbox__obstacles_aeacf0b50dd1bf52ac50eba65a5c86024}\label{namespacebbox__obstacles_aeacf0b50dd1bf52ac50eba65a5c86024}} 
+\index{bbox\_obstacles@{bbox\_obstacles}!goal\_left\_rho@{goal\_left\_rho}}
+\index{goal\_left\_rho@{goal\_left\_rho}!bbox\_obstacles@{bbox\_obstacles}}
+\doxysubsubsection{\texorpdfstring{goal\_left\_rho}{goal\_left\_rho}}
+{\footnotesize\ttfamily int bbox\+\_\+obstacles.\+goal\+\_\+left\+\_\+rho = 0}
+
+\mbox{\Hypertarget{namespacebbox__obstacles_aecc4d4f784cbcccfb8e6abd41ec266ce}\label{namespacebbox__obstacles_aecc4d4f784cbcccfb8e6abd41ec266ce}} 
+\index{bbox\_obstacles@{bbox\_obstacles}!goal\_left\_theta@{goal\_left\_theta}}
+\index{goal\_left\_theta@{goal\_left\_theta}!bbox\_obstacles@{bbox\_obstacles}}
+\doxysubsubsection{\texorpdfstring{goal\_left\_theta}{goal\_left\_theta}}
+{\footnotesize\ttfamily int bbox\+\_\+obstacles.\+goal\+\_\+left\+\_\+theta = 0}
+
+\mbox{\Hypertarget{namespacebbox__obstacles_a564202970ebf518a697105788a14449f}\label{namespacebbox__obstacles_a564202970ebf518a697105788a14449f}} 
+\index{bbox\_obstacles@{bbox\_obstacles}!goal\_right\_rho@{goal\_right\_rho}}
+\index{goal\_right\_rho@{goal\_right\_rho}!bbox\_obstacles@{bbox\_obstacles}}
+\doxysubsubsection{\texorpdfstring{goal\_right\_rho}{goal\_right\_rho}}
+{\footnotesize\ttfamily int bbox\+\_\+obstacles.\+goal\+\_\+right\+\_\+rho = 0}
+
+\mbox{\Hypertarget{namespacebbox__obstacles_af17c9f9c8781d3e3bcdb8e1817f414e7}\label{namespacebbox__obstacles_af17c9f9c8781d3e3bcdb8e1817f414e7}} 
+\index{bbox\_obstacles@{bbox\_obstacles}!goal\_right\_theta@{goal\_right\_theta}}
+\index{goal\_right\_theta@{goal\_right\_theta}!bbox\_obstacles@{bbox\_obstacles}}
+\doxysubsubsection{\texorpdfstring{goal\_right\_theta}{goal\_right\_theta}}
+{\footnotesize\ttfamily int bbox\+\_\+obstacles.\+goal\+\_\+right\+\_\+theta = 0}
+
+\mbox{\Hypertarget{namespacebbox__obstacles_a29b4cb7d97b7b7990db98666c6885c41}\label{namespacebbox__obstacles_a29b4cb7d97b7b7990db98666c6885c41}} 
+\index{bbox\_obstacles@{bbox\_obstacles}!iterator@{iterator}}
+\index{iterator@{iterator}!bbox\_obstacles@{bbox\_obstacles}}
+\doxysubsubsection{\texorpdfstring{iterator}{iterator}}
+{\footnotesize\ttfamily int bbox\+\_\+obstacles.\+iterator = 0}
+
+\mbox{\Hypertarget{namespacebbox__obstacles_a76abd76334e4f20569c0442f08325d81}\label{namespacebbox__obstacles_a76abd76334e4f20569c0442f08325d81}} 
+\index{bbox\_obstacles@{bbox\_obstacles}!left\_lines@{left\_lines}}
+\index{left\_lines@{left\_lines}!bbox\_obstacles@{bbox\_obstacles}}
+\doxysubsubsection{\texorpdfstring{left\_lines}{left\_lines}}
+{\footnotesize\ttfamily string bbox\+\_\+obstacles.\+left\+\_\+lines = \char`\"{}\char`\"{}}
+
+\mbox{\Hypertarget{namespacebbox__obstacles_a07c56074d77eca8894db1d229fe70e29}\label{namespacebbox__obstacles_a07c56074d77eca8894db1d229fe70e29}} 
+\index{bbox\_obstacles@{bbox\_obstacles}!right\_lines@{right\_lines}}
+\index{right\_lines@{right\_lines}!bbox\_obstacles@{bbox\_obstacles}}
+\doxysubsubsection{\texorpdfstring{right\_lines}{right\_lines}}
+{\footnotesize\ttfamily string bbox\+\_\+obstacles.\+right\+\_\+lines = \char`\"{}\char`\"{}}
+
+\mbox{\Hypertarget{namespacebbox__obstacles_a7e9361e7f04326ddff51411474b73eb6}\label{namespacebbox__obstacles_a7e9361e7f04326ddff51411474b73eb6}} 
+\index{bbox\_obstacles@{bbox\_obstacles}!speed\_value@{speed\_value}}
+\index{speed\_value@{speed\_value}!bbox\_obstacles@{bbox\_obstacles}}
+\doxysubsubsection{\texorpdfstring{speed\_value}{speed\_value}}
+{\footnotesize\ttfamily bbox\+\_\+obstacles.\+speed\+\_\+value = Float64(0)}
+
+\mbox{\Hypertarget{namespacebbox__obstacles_ac39b2dc10a8f3f2fffead2ac35cb60e9}\label{namespacebbox__obstacles_ac39b2dc10a8f3f2fffead2ac35cb60e9}} 
+\index{bbox\_obstacles@{bbox\_obstacles}!steering\_value@{steering\_value}}
+\index{steering\_value@{steering\_value}!bbox\_obstacles@{bbox\_obstacles}}
+\doxysubsubsection{\texorpdfstring{steering\_value}{steering\_value}}
+{\footnotesize\ttfamily bbox\+\_\+obstacles.\+steering\+\_\+value = Float64(0)}
+
+\mbox{\Hypertarget{namespacebbox__obstacles_acbaba14bba6a9d2f63e2443b02a15acf}\label{namespacebbox__obstacles_acbaba14bba6a9d2f63e2443b02a15acf}} 
+\index{bbox\_obstacles@{bbox\_obstacles}!suma\_left\_rho@{suma\_left\_rho}}
+\index{suma\_left\_rho@{suma\_left\_rho}!bbox\_obstacles@{bbox\_obstacles}}
+\doxysubsubsection{\texorpdfstring{suma\_left\_rho}{suma\_left\_rho}}
+{\footnotesize\ttfamily int bbox\+\_\+obstacles.\+suma\+\_\+left\+\_\+rho = 0}
+
+\mbox{\Hypertarget{namespacebbox__obstacles_af16d7f03e99e53ead7063afcf7e6501c}\label{namespacebbox__obstacles_af16d7f03e99e53ead7063afcf7e6501c}} 
+\index{bbox\_obstacles@{bbox\_obstacles}!suma\_left\_theta@{suma\_left\_theta}}
+\index{suma\_left\_theta@{suma\_left\_theta}!bbox\_obstacles@{bbox\_obstacles}}
+\doxysubsubsection{\texorpdfstring{suma\_left\_theta}{suma\_left\_theta}}
+{\footnotesize\ttfamily int bbox\+\_\+obstacles.\+suma\+\_\+left\+\_\+theta = 0}
+
+\mbox{\Hypertarget{namespacebbox__obstacles_aa513e6977c5391e9a7f3b33e402eec1c}\label{namespacebbox__obstacles_aa513e6977c5391e9a7f3b33e402eec1c}} 
+\index{bbox\_obstacles@{bbox\_obstacles}!suma\_right\_rho@{suma\_right\_rho}}
+\index{suma\_right\_rho@{suma\_right\_rho}!bbox\_obstacles@{bbox\_obstacles}}
+\doxysubsubsection{\texorpdfstring{suma\_right\_rho}{suma\_right\_rho}}
+{\footnotesize\ttfamily int bbox\+\_\+obstacles.\+suma\+\_\+right\+\_\+rho = 0}
+
+\mbox{\Hypertarget{namespacebbox__obstacles_adb1e5601098c7cfd8704b1194a70bd86}\label{namespacebbox__obstacles_adb1e5601098c7cfd8704b1194a70bd86}} 
+\index{bbox\_obstacles@{bbox\_obstacles}!suma\_right\_theta@{suma\_right\_theta}}
+\index{suma\_right\_theta@{suma\_right\_theta}!bbox\_obstacles@{bbox\_obstacles}}
+\doxysubsubsection{\texorpdfstring{suma\_right\_theta}{suma\_right\_theta}}
+{\footnotesize\ttfamily int bbox\+\_\+obstacles.\+suma\+\_\+right\+\_\+theta = 0}
+

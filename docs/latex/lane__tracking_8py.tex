@@ -1,0 +1,41 @@
+\hypertarget{lane__tracking_8py}{}\doxysection{catkin\+\_\+ws/src/software/parking/scripts/lane\+\_\+tracking.py File Reference}
+\label{lane__tracking_8py}\index{catkin\_ws/src/software/parking/scripts/lane\_tracking.py@{catkin\_ws/src/software/parking/scripts/lane\_tracking.py}}
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+ \mbox{\hyperlink{namespacelane__tracking}{lane\+\_\+tracking}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{namespacelane__tracking_ac584fbd7ca30b2314292808cfebc52e9}{lane\+\_\+tracking.\+calculate\+\_\+control}} ()
+\item 
+def \mbox{\hyperlink{namespacelane__tracking_a80e4433b81df914449b5416f56417042}{lane\+\_\+tracking.\+callback\+\_\+left\+\_\+lane}} (msg)
+\item 
+def \mbox{\hyperlink{namespacelane__tracking_a771176864b6f7f5ef5ee1c2001a72255}{lane\+\_\+tracking.\+callback\+\_\+right\+\_\+lane}} (msg)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+list \mbox{\hyperlink{namespacelane__tracking_a3fa69fc4433f9410179a40ee8cfbee17}{lane\+\_\+tracking.\+left\+\_\+lane}} = \mbox{[}0, 0\mbox{]}
+\item 
+list \mbox{\hyperlink{namespacelane__tracking_a8092e4856d0b8f15b17a2b072720976a}{lane\+\_\+tracking.\+right\+\_\+lane}} = \mbox{[}0, 0\mbox{]}
+\item 
+float \mbox{\hyperlink{namespacelane__tracking_a5dcd897b52dc8f52fe373087868ecbee}{lane\+\_\+tracking.\+max\+\_\+speed}} = 0.\+2
+\item 
+float \mbox{\hyperlink{namespacelane__tracking_ae9f961c67183d3746371d7e5d1c430fa}{lane\+\_\+tracking.\+k\+\_\+rho}} = 0.\+0055
+\item 
+float \mbox{\hyperlink{namespacelane__tracking_a092bd8315b7380596be48e695904f57e}{lane\+\_\+tracking.\+k\+\_\+theta}} = 0.\+04
+\item 
+float \mbox{\hyperlink{namespacelane__tracking_aed822f06c00b641c65dd8837a7e49e47}{lane\+\_\+tracking.\+target\+\_\+rho\+\_\+l}} = 250.\+75
+\item 
+float \mbox{\hyperlink{namespacelane__tracking_aa50a8133f2352e2d0c078563e1754844}{lane\+\_\+tracking.\+target\+\_\+theta\+\_\+l}} = 2.\+14
+\item 
+float \mbox{\hyperlink{namespacelane__tracking_afcadd675eba94b8c8d1b1ce51286215f}{lane\+\_\+tracking.\+target\+\_\+rho\+\_\+r}} = 201.\+01
+\item 
+float \mbox{\hyperlink{namespacelane__tracking_a811425bc9239d09af5bf08a9b33cc15d}{lane\+\_\+tracking.\+target\+\_\+theta\+\_\+r}} = 0.\+85
+\item 
+\mbox{\hyperlink{namespacelane__tracking_a3b92174a97deec2377d757af3851af84}{lane\+\_\+tracking.\+pub\+\_\+speed}} = rospy.\+Publisher(\textquotesingle{}/lane\+\_\+speed\textquotesingle{}, Float32, queue\+\_\+size=10)
+\item 
+\mbox{\hyperlink{namespacelane__tracking_a6a8a14594145bef02fb8cd019f9c42ac}{lane\+\_\+tracking.\+pub\+\_\+steering}} = rospy.\+Publisher(\textquotesingle{}/lane\+\_\+steering\textquotesingle{}, Float64, queue\+\_\+size=10)
+\end{DoxyCompactItemize}

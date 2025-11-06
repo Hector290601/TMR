@@ -1,0 +1,294 @@
+\hypertarget{namespaceparking}{}\doxysection{parking Namespace Reference}
+\label{namespaceparking}\index{parking@{parking}}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{namespaceparking_ac59bc2d43e702c232ab4a21d5ab9a04b}{error\+\_\+rho}} (rho\+\_\+left=\mbox{\hyperlink{namespaceparking_aceb6d034eaf188dafead48dd47643117}{goal\+\_\+left\+\_\+rho}}, rho\+\_\+right=\mbox{\hyperlink{namespaceparking_aa35d14b1801f3ab232a9898a9eaecb81}{goal\+\_\+right\+\_\+rho}})
+\item 
+def \mbox{\hyperlink{namespaceparking_af7cf62a5b8d546093228d314ceef1469}{error\+\_\+theta}} (theta\+\_\+left=\mbox{\hyperlink{namespaceparking_a3033f86fca497474480fffda0e6dacd0}{goal\+\_\+left\+\_\+theta}}, theta\+\_\+right=\mbox{\hyperlink{namespaceparking_a17dcea0c5a242f51745ca008535c261b}{goal\+\_\+right\+\_\+theta}})
+\item 
+def \mbox{\hyperlink{namespaceparking_a4d492aac7b7da531e64ac43b61230f46}{get\+\_\+ideal\+\_\+lanes}} ()
+\item 
+def \mbox{\hyperlink{namespaceparking_ab937693fe018cd2c5497b9123102d61d}{decide}} ()
+\item 
+def \mbox{\hyperlink{namespaceparking_a77e620cc826e59921ee5c285c41a5788}{callback\+\_\+left}} (msg)
+\item 
+def \mbox{\hyperlink{namespaceparking_a9a00964886e27271090565df61a38d9e}{callback\+\_\+right}} (msg)
+\item 
+def \mbox{\hyperlink{namespaceparking_ac1eeed86621295aca58a9a2a8775375e}{callback\+\_\+parking\+\_\+flag}} (msg)
+\item 
+def \mbox{\hyperlink{namespaceparking_a962deaa0d66560ae93a5304f5fb14aae}{main}} ()
+\item 
+def \mbox{\hyperlink{namespaceparking_a0fa5904a80a22b816787c6a56c48de25}{callback\+\_\+cloud}} (msg)
+\item 
+def \mbox{\hyperlink{namespaceparking_aa4d77f99b964238ef4874c1dc04f2e25}{right\+\_\+lane\+\_\+callback}} (data)
+\item 
+def \mbox{\hyperlink{namespaceparking_ad514971e35d884aba40de2e0ffe42547}{left\+\_\+lane\+\_\+callback}} (data)
+\item 
+def \mbox{\hyperlink{namespaceparking_a0969e5d77ab0228d316d43ee8b32dcc7}{parking\+\_\+lane\+\_\+callback}} (data)
+\item 
+def \mbox{\hyperlink{namespaceparking_af1797b6055f29505534876dad9a5dc1b}{lane\+\_\+speed\+\_\+callback}} (data)
+\item 
+def \mbox{\hyperlink{namespaceparking_ad9a48d98762dfcaa7afba77d0f61d199}{lane\+\_\+steering\+\_\+callback}} (data)
+\item 
+def \mbox{\hyperlink{namespaceparking_ad7c79f38e9792720f4e43e099115bd50}{main\+\_\+callback}} (data)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespaceparking_a20531d207e8d825f7f314b15c851b93b}{now}} = datetime.\+now()
+\item 
+string \mbox{\hyperlink{namespaceparking_a21454879c5f622b329c31a23afa74527}{filename}} = now.\+strftime(\char`\"{}\%d-\/\%m-\/\%Y-\/\%H-\/\%M-\/\%S\char`\"{}) + \char`\"{}.csv\char`\"{}
+\item 
+string \mbox{\hyperlink{namespaceparking_a860bfe8a167e773e072c66de58a2a8b9}{left\+\_\+lines}} = \char`\"{}\char`\"{}
+\item 
+string \mbox{\hyperlink{namespaceparking_a5eb83e80b3adf36e0a5e2dffcbf22503}{right\+\_\+lines}} = \char`\"{}\char`\"{}
+\item 
+\mbox{\hyperlink{namespaceparking_a786a1f3d1cc46359e141d7905a171402}{steering\+\_\+value}} = Float64(0)
+\item 
+\mbox{\hyperlink{namespaceparking_ab030d18db264c14824026b7a379b65ad}{speed\+\_\+value}} = Float64(0)
+\item 
+int \mbox{\hyperlink{namespaceparking_aceb6d034eaf188dafead48dd47643117}{goal\+\_\+left\+\_\+rho}} = 0
+\item 
+int \mbox{\hyperlink{namespaceparking_a3033f86fca497474480fffda0e6dacd0}{goal\+\_\+left\+\_\+theta}} = 0
+\item 
+int \mbox{\hyperlink{namespaceparking_aa35d14b1801f3ab232a9898a9eaecb81}{goal\+\_\+right\+\_\+rho}} = 0
+\item 
+int \mbox{\hyperlink{namespaceparking_a17dcea0c5a242f51745ca008535c261b}{goal\+\_\+right\+\_\+theta}} = 0
+\item 
+int \mbox{\hyperlink{namespaceparking_a81de702e4bcb7c1487d18274329567c9}{iterator}} = 0
+\item 
+int \mbox{\hyperlink{namespaceparking_ada19e74765dd468ac3353682d5eac3f6}{suma\+\_\+left\+\_\+rho}} = 0
+\item 
+int \mbox{\hyperlink{namespaceparking_a3d1e556c907e42620cb96ec7626ac13c}{suma\+\_\+left\+\_\+theta}} = 0
+\item 
+int \mbox{\hyperlink{namespaceparking_a343d991e612fede8e10a5e818c465197}{suma\+\_\+right\+\_\+rho}} = 0
+\item 
+int \mbox{\hyperlink{namespaceparking_a9a3381be3ead1562e173b80b2ff573b0}{suma\+\_\+right\+\_\+theta}} = 0
+\item 
+int \mbox{\hyperlink{namespaceparking_a8fd2632d02cebb6e2e135bf434420f4f}{flag}} = 0
+\item 
+int \mbox{\hyperlink{namespaceparking_adbe2933d9d3bf234ca8548d601598f29}{last}} = 0
+\item 
+int \mbox{\hyperlink{namespaceparking_a6678fd3098d601c6a65b995b36e2f840}{delta}} = 0
+\item 
+int \mbox{\hyperlink{namespaceparking_a7b7315ce9482cab790a9d22493b8dd88}{count}} = 0
+\item 
+int \mbox{\hyperlink{namespaceparking_a653924f023834916e661e34f3208cd7d}{pub}} = 0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{namespaceparking_a0fa5904a80a22b816787c6a56c48de25}\label{namespaceparking_a0fa5904a80a22b816787c6a56c48de25}} 
+\index{parking@{parking}!callback\_cloud@{callback\_cloud}}
+\index{callback\_cloud@{callback\_cloud}!parking@{parking}}
+\doxysubsubsection{\texorpdfstring{callback\_cloud()}{callback\_cloud()}}
+{\footnotesize\ttfamily def parking.\+callback\+\_\+cloud (\begin{DoxyParamCaption}\item[{}]{msg }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{namespaceparking_a77e620cc826e59921ee5c285c41a5788}\label{namespaceparking_a77e620cc826e59921ee5c285c41a5788}} 
+\index{parking@{parking}!callback\_left@{callback\_left}}
+\index{callback\_left@{callback\_left}!parking@{parking}}
+\doxysubsubsection{\texorpdfstring{callback\_left()}{callback\_left()}}
+{\footnotesize\ttfamily def parking.\+callback\+\_\+left (\begin{DoxyParamCaption}\item[{}]{msg }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{namespaceparking_ac1eeed86621295aca58a9a2a8775375e}\label{namespaceparking_ac1eeed86621295aca58a9a2a8775375e}} 
+\index{parking@{parking}!callback\_parking\_flag@{callback\_parking\_flag}}
+\index{callback\_parking\_flag@{callback\_parking\_flag}!parking@{parking}}
+\doxysubsubsection{\texorpdfstring{callback\_parking\_flag()}{callback\_parking\_flag()}}
+{\footnotesize\ttfamily def parking.\+callback\+\_\+parking\+\_\+flag (\begin{DoxyParamCaption}\item[{}]{msg }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{namespaceparking_a9a00964886e27271090565df61a38d9e}\label{namespaceparking_a9a00964886e27271090565df61a38d9e}} 
+\index{parking@{parking}!callback\_right@{callback\_right}}
+\index{callback\_right@{callback\_right}!parking@{parking}}
+\doxysubsubsection{\texorpdfstring{callback\_right()}{callback\_right()}}
+{\footnotesize\ttfamily def parking.\+callback\+\_\+right (\begin{DoxyParamCaption}\item[{}]{msg }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{namespaceparking_ab937693fe018cd2c5497b9123102d61d}\label{namespaceparking_ab937693fe018cd2c5497b9123102d61d}} 
+\index{parking@{parking}!decide@{decide}}
+\index{decide@{decide}!parking@{parking}}
+\doxysubsubsection{\texorpdfstring{decide()}{decide()}}
+{\footnotesize\ttfamily def parking.\+decide (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{namespaceparking_ac59bc2d43e702c232ab4a21d5ab9a04b}\label{namespaceparking_ac59bc2d43e702c232ab4a21d5ab9a04b}} 
+\index{parking@{parking}!error\_rho@{error\_rho}}
+\index{error\_rho@{error\_rho}!parking@{parking}}
+\doxysubsubsection{\texorpdfstring{error\_rho()}{error\_rho()}}
+{\footnotesize\ttfamily def parking.\+error\+\_\+rho (\begin{DoxyParamCaption}\item[{}]{rho\+\_\+left = {\ttfamily \mbox{\hyperlink{namespaceparking_aceb6d034eaf188dafead48dd47643117}{goal\+\_\+left\+\_\+rho}}},  }\item[{}]{rho\+\_\+right = {\ttfamily \mbox{\hyperlink{namespaceparking_aa35d14b1801f3ab232a9898a9eaecb81}{goal\+\_\+right\+\_\+rho}}} }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{namespaceparking_af7cf62a5b8d546093228d314ceef1469}\label{namespaceparking_af7cf62a5b8d546093228d314ceef1469}} 
+\index{parking@{parking}!error\_theta@{error\_theta}}
+\index{error\_theta@{error\_theta}!parking@{parking}}
+\doxysubsubsection{\texorpdfstring{error\_theta()}{error\_theta()}}
+{\footnotesize\ttfamily def parking.\+error\+\_\+theta (\begin{DoxyParamCaption}\item[{}]{theta\+\_\+left = {\ttfamily \mbox{\hyperlink{namespaceparking_a3033f86fca497474480fffda0e6dacd0}{goal\+\_\+left\+\_\+theta}}},  }\item[{}]{theta\+\_\+right = {\ttfamily \mbox{\hyperlink{namespaceparking_a17dcea0c5a242f51745ca008535c261b}{goal\+\_\+right\+\_\+theta}}} }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{namespaceparking_a4d492aac7b7da531e64ac43b61230f46}\label{namespaceparking_a4d492aac7b7da531e64ac43b61230f46}} 
+\index{parking@{parking}!get\_ideal\_lanes@{get\_ideal\_lanes}}
+\index{get\_ideal\_lanes@{get\_ideal\_lanes}!parking@{parking}}
+\doxysubsubsection{\texorpdfstring{get\_ideal\_lanes()}{get\_ideal\_lanes()}}
+{\footnotesize\ttfamily def parking.\+get\+\_\+ideal\+\_\+lanes (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{namespaceparking_af1797b6055f29505534876dad9a5dc1b}\label{namespaceparking_af1797b6055f29505534876dad9a5dc1b}} 
+\index{parking@{parking}!lane\_speed\_callback@{lane\_speed\_callback}}
+\index{lane\_speed\_callback@{lane\_speed\_callback}!parking@{parking}}
+\doxysubsubsection{\texorpdfstring{lane\_speed\_callback()}{lane\_speed\_callback()}}
+{\footnotesize\ttfamily def parking.\+lane\+\_\+speed\+\_\+callback (\begin{DoxyParamCaption}\item[{}]{data }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{namespaceparking_ad9a48d98762dfcaa7afba77d0f61d199}\label{namespaceparking_ad9a48d98762dfcaa7afba77d0f61d199}} 
+\index{parking@{parking}!lane\_steering\_callback@{lane\_steering\_callback}}
+\index{lane\_steering\_callback@{lane\_steering\_callback}!parking@{parking}}
+\doxysubsubsection{\texorpdfstring{lane\_steering\_callback()}{lane\_steering\_callback()}}
+{\footnotesize\ttfamily def parking.\+lane\+\_\+steering\+\_\+callback (\begin{DoxyParamCaption}\item[{}]{data }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{namespaceparking_ad514971e35d884aba40de2e0ffe42547}\label{namespaceparking_ad514971e35d884aba40de2e0ffe42547}} 
+\index{parking@{parking}!left\_lane\_callback@{left\_lane\_callback}}
+\index{left\_lane\_callback@{left\_lane\_callback}!parking@{parking}}
+\doxysubsubsection{\texorpdfstring{left\_lane\_callback()}{left\_lane\_callback()}}
+{\footnotesize\ttfamily def parking.\+left\+\_\+lane\+\_\+callback (\begin{DoxyParamCaption}\item[{}]{data }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{namespaceparking_a962deaa0d66560ae93a5304f5fb14aae}\label{namespaceparking_a962deaa0d66560ae93a5304f5fb14aae}} 
+\index{parking@{parking}!main@{main}}
+\index{main@{main}!parking@{parking}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily def parking.\+main (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{namespaceparking_ad7c79f38e9792720f4e43e099115bd50}\label{namespaceparking_ad7c79f38e9792720f4e43e099115bd50}} 
+\index{parking@{parking}!main\_callback@{main\_callback}}
+\index{main\_callback@{main\_callback}!parking@{parking}}
+\doxysubsubsection{\texorpdfstring{main\_callback()}{main\_callback()}}
+{\footnotesize\ttfamily def parking.\+main\+\_\+callback (\begin{DoxyParamCaption}\item[{}]{data }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{namespaceparking_a0969e5d77ab0228d316d43ee8b32dcc7}\label{namespaceparking_a0969e5d77ab0228d316d43ee8b32dcc7}} 
+\index{parking@{parking}!parking\_lane\_callback@{parking\_lane\_callback}}
+\index{parking\_lane\_callback@{parking\_lane\_callback}!parking@{parking}}
+\doxysubsubsection{\texorpdfstring{parking\_lane\_callback()}{parking\_lane\_callback()}}
+{\footnotesize\ttfamily def parking.\+parking\+\_\+lane\+\_\+callback (\begin{DoxyParamCaption}\item[{}]{data }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{namespaceparking_aa4d77f99b964238ef4874c1dc04f2e25}\label{namespaceparking_aa4d77f99b964238ef4874c1dc04f2e25}} 
+\index{parking@{parking}!right\_lane\_callback@{right\_lane\_callback}}
+\index{right\_lane\_callback@{right\_lane\_callback}!parking@{parking}}
+\doxysubsubsection{\texorpdfstring{right\_lane\_callback()}{right\_lane\_callback()}}
+{\footnotesize\ttfamily def parking.\+right\+\_\+lane\+\_\+callback (\begin{DoxyParamCaption}\item[{}]{data }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{namespaceparking_a7b7315ce9482cab790a9d22493b8dd88}\label{namespaceparking_a7b7315ce9482cab790a9d22493b8dd88}} 
+\index{parking@{parking}!count@{count}}
+\index{count@{count}!parking@{parking}}
+\doxysubsubsection{\texorpdfstring{count}{count}}
+{\footnotesize\ttfamily int parking.\+count = 0}
+
+\mbox{\Hypertarget{namespaceparking_a6678fd3098d601c6a65b995b36e2f840}\label{namespaceparking_a6678fd3098d601c6a65b995b36e2f840}} 
+\index{parking@{parking}!delta@{delta}}
+\index{delta@{delta}!parking@{parking}}
+\doxysubsubsection{\texorpdfstring{delta}{delta}}
+{\footnotesize\ttfamily int parking.\+delta = 0}
+
+\mbox{\Hypertarget{namespaceparking_a21454879c5f622b329c31a23afa74527}\label{namespaceparking_a21454879c5f622b329c31a23afa74527}} 
+\index{parking@{parking}!filename@{filename}}
+\index{filename@{filename}!parking@{parking}}
+\doxysubsubsection{\texorpdfstring{filename}{filename}}
+{\footnotesize\ttfamily string parking.\+filename = now.\+strftime(\char`\"{}\%d-\/\%m-\/\%Y-\/\%H-\/\%M-\/\%S\char`\"{}) + \char`\"{}.csv\char`\"{}}
+
+\mbox{\Hypertarget{namespaceparking_a8fd2632d02cebb6e2e135bf434420f4f}\label{namespaceparking_a8fd2632d02cebb6e2e135bf434420f4f}} 
+\index{parking@{parking}!flag@{flag}}
+\index{flag@{flag}!parking@{parking}}
+\doxysubsubsection{\texorpdfstring{flag}{flag}}
+{\footnotesize\ttfamily int parking.\+flag = 0}
+
+\mbox{\Hypertarget{namespaceparking_aceb6d034eaf188dafead48dd47643117}\label{namespaceparking_aceb6d034eaf188dafead48dd47643117}} 
+\index{parking@{parking}!goal\_left\_rho@{goal\_left\_rho}}
+\index{goal\_left\_rho@{goal\_left\_rho}!parking@{parking}}
+\doxysubsubsection{\texorpdfstring{goal\_left\_rho}{goal\_left\_rho}}
+{\footnotesize\ttfamily int parking.\+goal\+\_\+left\+\_\+rho = 0}
+
+\mbox{\Hypertarget{namespaceparking_a3033f86fca497474480fffda0e6dacd0}\label{namespaceparking_a3033f86fca497474480fffda0e6dacd0}} 
+\index{parking@{parking}!goal\_left\_theta@{goal\_left\_theta}}
+\index{goal\_left\_theta@{goal\_left\_theta}!parking@{parking}}
+\doxysubsubsection{\texorpdfstring{goal\_left\_theta}{goal\_left\_theta}}
+{\footnotesize\ttfamily int parking.\+goal\+\_\+left\+\_\+theta = 0}
+
+\mbox{\Hypertarget{namespaceparking_aa35d14b1801f3ab232a9898a9eaecb81}\label{namespaceparking_aa35d14b1801f3ab232a9898a9eaecb81}} 
+\index{parking@{parking}!goal\_right\_rho@{goal\_right\_rho}}
+\index{goal\_right\_rho@{goal\_right\_rho}!parking@{parking}}
+\doxysubsubsection{\texorpdfstring{goal\_right\_rho}{goal\_right\_rho}}
+{\footnotesize\ttfamily int parking.\+goal\+\_\+right\+\_\+rho = 0}
+
+\mbox{\Hypertarget{namespaceparking_a17dcea0c5a242f51745ca008535c261b}\label{namespaceparking_a17dcea0c5a242f51745ca008535c261b}} 
+\index{parking@{parking}!goal\_right\_theta@{goal\_right\_theta}}
+\index{goal\_right\_theta@{goal\_right\_theta}!parking@{parking}}
+\doxysubsubsection{\texorpdfstring{goal\_right\_theta}{goal\_right\_theta}}
+{\footnotesize\ttfamily int parking.\+goal\+\_\+right\+\_\+theta = 0}
+
+\mbox{\Hypertarget{namespaceparking_a81de702e4bcb7c1487d18274329567c9}\label{namespaceparking_a81de702e4bcb7c1487d18274329567c9}} 
+\index{parking@{parking}!iterator@{iterator}}
+\index{iterator@{iterator}!parking@{parking}}
+\doxysubsubsection{\texorpdfstring{iterator}{iterator}}
+{\footnotesize\ttfamily int parking.\+iterator = 0}
+
+\mbox{\Hypertarget{namespaceparking_adbe2933d9d3bf234ca8548d601598f29}\label{namespaceparking_adbe2933d9d3bf234ca8548d601598f29}} 
+\index{parking@{parking}!last@{last}}
+\index{last@{last}!parking@{parking}}
+\doxysubsubsection{\texorpdfstring{last}{last}}
+{\footnotesize\ttfamily int parking.\+last = 0}
+
+\mbox{\Hypertarget{namespaceparking_a860bfe8a167e773e072c66de58a2a8b9}\label{namespaceparking_a860bfe8a167e773e072c66de58a2a8b9}} 
+\index{parking@{parking}!left\_lines@{left\_lines}}
+\index{left\_lines@{left\_lines}!parking@{parking}}
+\doxysubsubsection{\texorpdfstring{left\_lines}{left\_lines}}
+{\footnotesize\ttfamily string parking.\+left\+\_\+lines = \char`\"{}\char`\"{}}
+
+\mbox{\Hypertarget{namespaceparking_a20531d207e8d825f7f314b15c851b93b}\label{namespaceparking_a20531d207e8d825f7f314b15c851b93b}} 
+\index{parking@{parking}!now@{now}}
+\index{now@{now}!parking@{parking}}
+\doxysubsubsection{\texorpdfstring{now}{now}}
+{\footnotesize\ttfamily parking.\+now = datetime.\+now()}
+
+\mbox{\Hypertarget{namespaceparking_a653924f023834916e661e34f3208cd7d}\label{namespaceparking_a653924f023834916e661e34f3208cd7d}} 
+\index{parking@{parking}!pub@{pub}}
+\index{pub@{pub}!parking@{parking}}
+\doxysubsubsection{\texorpdfstring{pub}{pub}}
+{\footnotesize\ttfamily int parking.\+pub = 0}
+
+\mbox{\Hypertarget{namespaceparking_a5eb83e80b3adf36e0a5e2dffcbf22503}\label{namespaceparking_a5eb83e80b3adf36e0a5e2dffcbf22503}} 
+\index{parking@{parking}!right\_lines@{right\_lines}}
+\index{right\_lines@{right\_lines}!parking@{parking}}
+\doxysubsubsection{\texorpdfstring{right\_lines}{right\_lines}}
+{\footnotesize\ttfamily string parking.\+right\+\_\+lines = \char`\"{}\char`\"{}}
+
+\mbox{\Hypertarget{namespaceparking_ab030d18db264c14824026b7a379b65ad}\label{namespaceparking_ab030d18db264c14824026b7a379b65ad}} 
+\index{parking@{parking}!speed\_value@{speed\_value}}
+\index{speed\_value@{speed\_value}!parking@{parking}}
+\doxysubsubsection{\texorpdfstring{speed\_value}{speed\_value}}
+{\footnotesize\ttfamily parking.\+speed\+\_\+value = Float64(0)}
+
+\mbox{\Hypertarget{namespaceparking_a786a1f3d1cc46359e141d7905a171402}\label{namespaceparking_a786a1f3d1cc46359e141d7905a171402}} 
+\index{parking@{parking}!steering\_value@{steering\_value}}
+\index{steering\_value@{steering\_value}!parking@{parking}}
+\doxysubsubsection{\texorpdfstring{steering\_value}{steering\_value}}
+{\footnotesize\ttfamily parking.\+steering\+\_\+value = Float64(0)}
+
+\mbox{\Hypertarget{namespaceparking_ada19e74765dd468ac3353682d5eac3f6}\label{namespaceparking_ada19e74765dd468ac3353682d5eac3f6}} 
+\index{parking@{parking}!suma\_left\_rho@{suma\_left\_rho}}
+\index{suma\_left\_rho@{suma\_left\_rho}!parking@{parking}}
+\doxysubsubsection{\texorpdfstring{suma\_left\_rho}{suma\_left\_rho}}
+{\footnotesize\ttfamily int parking.\+suma\+\_\+left\+\_\+rho = 0}
+
+\mbox{\Hypertarget{namespaceparking_a3d1e556c907e42620cb96ec7626ac13c}\label{namespaceparking_a3d1e556c907e42620cb96ec7626ac13c}} 
+\index{parking@{parking}!suma\_left\_theta@{suma\_left\_theta}}
+\index{suma\_left\_theta@{suma\_left\_theta}!parking@{parking}}
+\doxysubsubsection{\texorpdfstring{suma\_left\_theta}{suma\_left\_theta}}
+{\footnotesize\ttfamily int parking.\+suma\+\_\+left\+\_\+theta = 0}
+
+\mbox{\Hypertarget{namespaceparking_a343d991e612fede8e10a5e818c465197}\label{namespaceparking_a343d991e612fede8e10a5e818c465197}} 
+\index{parking@{parking}!suma\_right\_rho@{suma\_right\_rho}}
+\index{suma\_right\_rho@{suma\_right\_rho}!parking@{parking}}
+\doxysubsubsection{\texorpdfstring{suma\_right\_rho}{suma\_right\_rho}}
+{\footnotesize\ttfamily int parking.\+suma\+\_\+right\+\_\+rho = 0}
+
+\mbox{\Hypertarget{namespaceparking_a9a3381be3ead1562e173b80b2ff573b0}\label{namespaceparking_a9a3381be3ead1562e173b80b2ff573b0}} 
+\index{parking@{parking}!suma\_right\_theta@{suma\_right\_theta}}
+\index{suma\_right\_theta@{suma\_right\_theta}!parking@{parking}}
+\doxysubsubsection{\texorpdfstring{suma\_right\_theta}{suma\_right\_theta}}
+{\footnotesize\ttfamily int parking.\+suma\+\_\+right\+\_\+theta = 0}
+

@@ -1,0 +1,126 @@
+\hypertarget{namespacelane__tracking}{}\doxysection{lane\+\_\+tracking Namespace Reference}
+\label{namespacelane__tracking}\index{lane\_tracking@{lane\_tracking}}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{namespacelane__tracking_ac584fbd7ca30b2314292808cfebc52e9}{calculate\+\_\+control}} ()
+\item 
+def \mbox{\hyperlink{namespacelane__tracking_a80e4433b81df914449b5416f56417042}{callback\+\_\+left\+\_\+lane}} (msg)
+\item 
+def \mbox{\hyperlink{namespacelane__tracking_a771176864b6f7f5ef5ee1c2001a72255}{callback\+\_\+right\+\_\+lane}} (msg)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+list \mbox{\hyperlink{namespacelane__tracking_a3fa69fc4433f9410179a40ee8cfbee17}{left\+\_\+lane}} = \mbox{[}0, 0\mbox{]}
+\item 
+list \mbox{\hyperlink{namespacelane__tracking_a8092e4856d0b8f15b17a2b072720976a}{right\+\_\+lane}} = \mbox{[}0, 0\mbox{]}
+\item 
+float \mbox{\hyperlink{namespacelane__tracking_a5dcd897b52dc8f52fe373087868ecbee}{max\+\_\+speed}} = 0.\+2
+\item 
+float \mbox{\hyperlink{namespacelane__tracking_ae9f961c67183d3746371d7e5d1c430fa}{k\+\_\+rho}} = 0.\+0055
+\item 
+float \mbox{\hyperlink{namespacelane__tracking_a092bd8315b7380596be48e695904f57e}{k\+\_\+theta}} = 0.\+04
+\item 
+float \mbox{\hyperlink{namespacelane__tracking_aed822f06c00b641c65dd8837a7e49e47}{target\+\_\+rho\+\_\+l}} = 250.\+75
+\item 
+float \mbox{\hyperlink{namespacelane__tracking_aa50a8133f2352e2d0c078563e1754844}{target\+\_\+theta\+\_\+l}} = 2.\+14
+\item 
+float \mbox{\hyperlink{namespacelane__tracking_afcadd675eba94b8c8d1b1ce51286215f}{target\+\_\+rho\+\_\+r}} = 201.\+01
+\item 
+float \mbox{\hyperlink{namespacelane__tracking_a811425bc9239d09af5bf08a9b33cc15d}{target\+\_\+theta\+\_\+r}} = 0.\+85
+\item 
+\mbox{\hyperlink{namespacelane__tracking_a3b92174a97deec2377d757af3851af84}{pub\+\_\+speed}} = rospy.\+Publisher(\textquotesingle{}/lane\+\_\+speed\textquotesingle{}, Float32, queue\+\_\+size=10)
+\item 
+\mbox{\hyperlink{namespacelane__tracking_a6a8a14594145bef02fb8cd019f9c42ac}{pub\+\_\+steering}} = rospy.\+Publisher(\textquotesingle{}/lane\+\_\+steering\textquotesingle{}, Float64, queue\+\_\+size=10)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{namespacelane__tracking_ac584fbd7ca30b2314292808cfebc52e9}\label{namespacelane__tracking_ac584fbd7ca30b2314292808cfebc52e9}} 
+\index{lane\_tracking@{lane\_tracking}!calculate\_control@{calculate\_control}}
+\index{calculate\_control@{calculate\_control}!lane\_tracking@{lane\_tracking}}
+\doxysubsubsection{\texorpdfstring{calculate\_control()}{calculate\_control()}}
+{\footnotesize\ttfamily def lane\+\_\+tracking.\+calculate\+\_\+control (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{namespacelane__tracking_a80e4433b81df914449b5416f56417042}\label{namespacelane__tracking_a80e4433b81df914449b5416f56417042}} 
+\index{lane\_tracking@{lane\_tracking}!callback\_left\_lane@{callback\_left\_lane}}
+\index{callback\_left\_lane@{callback\_left\_lane}!lane\_tracking@{lane\_tracking}}
+\doxysubsubsection{\texorpdfstring{callback\_left\_lane()}{callback\_left\_lane()}}
+{\footnotesize\ttfamily def lane\+\_\+tracking.\+callback\+\_\+left\+\_\+lane (\begin{DoxyParamCaption}\item[{}]{msg }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{namespacelane__tracking_a771176864b6f7f5ef5ee1c2001a72255}\label{namespacelane__tracking_a771176864b6f7f5ef5ee1c2001a72255}} 
+\index{lane\_tracking@{lane\_tracking}!callback\_right\_lane@{callback\_right\_lane}}
+\index{callback\_right\_lane@{callback\_right\_lane}!lane\_tracking@{lane\_tracking}}
+\doxysubsubsection{\texorpdfstring{callback\_right\_lane()}{callback\_right\_lane()}}
+{\footnotesize\ttfamily def lane\+\_\+tracking.\+callback\+\_\+right\+\_\+lane (\begin{DoxyParamCaption}\item[{}]{msg }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{namespacelane__tracking_ae9f961c67183d3746371d7e5d1c430fa}\label{namespacelane__tracking_ae9f961c67183d3746371d7e5d1c430fa}} 
+\index{lane\_tracking@{lane\_tracking}!k\_rho@{k\_rho}}
+\index{k\_rho@{k\_rho}!lane\_tracking@{lane\_tracking}}
+\doxysubsubsection{\texorpdfstring{k\_rho}{k\_rho}}
+{\footnotesize\ttfamily float lane\+\_\+tracking.\+k\+\_\+rho = 0.\+0055}
+
+\mbox{\Hypertarget{namespacelane__tracking_a092bd8315b7380596be48e695904f57e}\label{namespacelane__tracking_a092bd8315b7380596be48e695904f57e}} 
+\index{lane\_tracking@{lane\_tracking}!k\_theta@{k\_theta}}
+\index{k\_theta@{k\_theta}!lane\_tracking@{lane\_tracking}}
+\doxysubsubsection{\texorpdfstring{k\_theta}{k\_theta}}
+{\footnotesize\ttfamily float lane\+\_\+tracking.\+k\+\_\+theta = 0.\+04}
+
+\mbox{\Hypertarget{namespacelane__tracking_a3fa69fc4433f9410179a40ee8cfbee17}\label{namespacelane__tracking_a3fa69fc4433f9410179a40ee8cfbee17}} 
+\index{lane\_tracking@{lane\_tracking}!left\_lane@{left\_lane}}
+\index{left\_lane@{left\_lane}!lane\_tracking@{lane\_tracking}}
+\doxysubsubsection{\texorpdfstring{left\_lane}{left\_lane}}
+{\footnotesize\ttfamily list lane\+\_\+tracking.\+left\+\_\+lane = \mbox{[}0, 0\mbox{]}}
+
+\mbox{\Hypertarget{namespacelane__tracking_a5dcd897b52dc8f52fe373087868ecbee}\label{namespacelane__tracking_a5dcd897b52dc8f52fe373087868ecbee}} 
+\index{lane\_tracking@{lane\_tracking}!max\_speed@{max\_speed}}
+\index{max\_speed@{max\_speed}!lane\_tracking@{lane\_tracking}}
+\doxysubsubsection{\texorpdfstring{max\_speed}{max\_speed}}
+{\footnotesize\ttfamily float lane\+\_\+tracking.\+max\+\_\+speed = 0.\+2}
+
+\mbox{\Hypertarget{namespacelane__tracking_a3b92174a97deec2377d757af3851af84}\label{namespacelane__tracking_a3b92174a97deec2377d757af3851af84}} 
+\index{lane\_tracking@{lane\_tracking}!pub\_speed@{pub\_speed}}
+\index{pub\_speed@{pub\_speed}!lane\_tracking@{lane\_tracking}}
+\doxysubsubsection{\texorpdfstring{pub\_speed}{pub\_speed}}
+{\footnotesize\ttfamily lane\+\_\+tracking.\+pub\+\_\+speed = rospy.\+Publisher(\textquotesingle{}/lane\+\_\+speed\textquotesingle{}, Float32, queue\+\_\+size=10)}
+
+\mbox{\Hypertarget{namespacelane__tracking_a6a8a14594145bef02fb8cd019f9c42ac}\label{namespacelane__tracking_a6a8a14594145bef02fb8cd019f9c42ac}} 
+\index{lane\_tracking@{lane\_tracking}!pub\_steering@{pub\_steering}}
+\index{pub\_steering@{pub\_steering}!lane\_tracking@{lane\_tracking}}
+\doxysubsubsection{\texorpdfstring{pub\_steering}{pub\_steering}}
+{\footnotesize\ttfamily lane\+\_\+tracking.\+pub\+\_\+steering = rospy.\+Publisher(\textquotesingle{}/lane\+\_\+steering\textquotesingle{}, Float64, queue\+\_\+size=10)}
+
+\mbox{\Hypertarget{namespacelane__tracking_a8092e4856d0b8f15b17a2b072720976a}\label{namespacelane__tracking_a8092e4856d0b8f15b17a2b072720976a}} 
+\index{lane\_tracking@{lane\_tracking}!right\_lane@{right\_lane}}
+\index{right\_lane@{right\_lane}!lane\_tracking@{lane\_tracking}}
+\doxysubsubsection{\texorpdfstring{right\_lane}{right\_lane}}
+{\footnotesize\ttfamily list lane\+\_\+tracking.\+right\+\_\+lane = \mbox{[}0, 0\mbox{]}}
+
+\mbox{\Hypertarget{namespacelane__tracking_aed822f06c00b641c65dd8837a7e49e47}\label{namespacelane__tracking_aed822f06c00b641c65dd8837a7e49e47}} 
+\index{lane\_tracking@{lane\_tracking}!target\_rho\_l@{target\_rho\_l}}
+\index{target\_rho\_l@{target\_rho\_l}!lane\_tracking@{lane\_tracking}}
+\doxysubsubsection{\texorpdfstring{target\_rho\_l}{target\_rho\_l}}
+{\footnotesize\ttfamily float lane\+\_\+tracking.\+target\+\_\+rho\+\_\+l = 250.\+75}
+
+\mbox{\Hypertarget{namespacelane__tracking_afcadd675eba94b8c8d1b1ce51286215f}\label{namespacelane__tracking_afcadd675eba94b8c8d1b1ce51286215f}} 
+\index{lane\_tracking@{lane\_tracking}!target\_rho\_r@{target\_rho\_r}}
+\index{target\_rho\_r@{target\_rho\_r}!lane\_tracking@{lane\_tracking}}
+\doxysubsubsection{\texorpdfstring{target\_rho\_r}{target\_rho\_r}}
+{\footnotesize\ttfamily float lane\+\_\+tracking.\+target\+\_\+rho\+\_\+r = 201.\+01}
+
+\mbox{\Hypertarget{namespacelane__tracking_aa50a8133f2352e2d0c078563e1754844}\label{namespacelane__tracking_aa50a8133f2352e2d0c078563e1754844}} 
+\index{lane\_tracking@{lane\_tracking}!target\_theta\_l@{target\_theta\_l}}
+\index{target\_theta\_l@{target\_theta\_l}!lane\_tracking@{lane\_tracking}}
+\doxysubsubsection{\texorpdfstring{target\_theta\_l}{target\_theta\_l}}
+{\footnotesize\ttfamily float lane\+\_\+tracking.\+target\+\_\+theta\+\_\+l = 2.\+14}
+
+\mbox{\Hypertarget{namespacelane__tracking_a811425bc9239d09af5bf08a9b33cc15d}\label{namespacelane__tracking_a811425bc9239d09af5bf08a9b33cc15d}} 
+\index{lane\_tracking@{lane\_tracking}!target\_theta\_r@{target\_theta\_r}}
+\index{target\_theta\_r@{target\_theta\_r}!lane\_tracking@{lane\_tracking}}
+\doxysubsubsection{\texorpdfstring{target\_theta\_r}{target\_theta\_r}}
+{\footnotesize\ttfamily float lane\+\_\+tracking.\+target\+\_\+theta\+\_\+r = 0.\+85}
+

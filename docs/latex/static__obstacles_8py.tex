@@ -1,0 +1,65 @@
+\hypertarget{static__obstacles_8py}{}\doxysection{catkin\+\_\+ws/src/software/control/scripts/static\+\_\+obstacles.py File Reference}
+\label{static__obstacles_8py}\index{catkin\_ws/src/software/control/scripts/static\_obstacles.py@{catkin\_ws/src/software/control/scripts/static\_obstacles.py}}
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+ \mbox{\hyperlink{namespacestatic__obstacles}{static\+\_\+obstacles}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{namespacestatic__obstacles_a8523ca4d83c4ba931dd345c65934915e}{static\+\_\+obstacles.\+error\+\_\+rho}} (rho\+\_\+left=goal\+\_\+left\+\_\+rho, rho\+\_\+right=goal\+\_\+right\+\_\+rho)
+\item 
+def \mbox{\hyperlink{namespacestatic__obstacles_a2417feb9604fa6d1c967698c08674845}{static\+\_\+obstacles.\+error\+\_\+theta}} (theta\+\_\+left=goal\+\_\+left\+\_\+theta, theta\+\_\+right=goal\+\_\+right\+\_\+theta)
+\item 
+def \mbox{\hyperlink{namespacestatic__obstacles_ad44f5e869a6b90ec81570aff8f9f8a24}{static\+\_\+obstacles.\+get\+\_\+ideal\+\_\+lanes}} ()
+\item 
+def \mbox{\hyperlink{namespacestatic__obstacles_a7baa9ba4d6127e87acbfeb54a50e2342}{static\+\_\+obstacles.\+decide}} ()
+\item 
+def \mbox{\hyperlink{namespacestatic__obstacles_aa92228997bbd634888a079dba23bd22f}{static\+\_\+obstacles.\+callback\+\_\+left}} (msg)
+\item 
+def \mbox{\hyperlink{namespacestatic__obstacles_a8e317e09616eb92773e38ef57372eb2b}{static\+\_\+obstacles.\+callback\+\_\+right}} (msg)
+\item 
+def \mbox{\hyperlink{namespacestatic__obstacles_aaa8e052f2c459b1cec30d70883a57043}{static\+\_\+obstacles.\+callback\+\_\+parking\+\_\+flag}} (msg)
+\item 
+def \mbox{\hyperlink{namespacestatic__obstacles_adf1df28f419207530d71ace29a0964d5}{static\+\_\+obstacles.\+main}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespacestatic__obstacles_a4ae4d60266fcff0be67e1b08bec72205}{static\+\_\+obstacles.\+now}} = datetime.\+now()
+\item 
+string \mbox{\hyperlink{namespacestatic__obstacles_aff152eb33dac51812f91cb267c64400c}{static\+\_\+obstacles.\+filename}} = now.\+strftime(\char`\"{}\%d-\/\%m-\/\%Y-\/\%H-\/\%M-\/\%S\char`\"{}) + \char`\"{}.csv\char`\"{}
+\item 
+string \mbox{\hyperlink{namespacestatic__obstacles_a34b49cb02b58d2e08b2c0fd38e9ba06d}{static\+\_\+obstacles.\+left\+\_\+lines}} = \char`\"{}\char`\"{}
+\item 
+string \mbox{\hyperlink{namespacestatic__obstacles_a49d42267c1ba56928bbc6ba185174563}{static\+\_\+obstacles.\+right\+\_\+lines}} = \char`\"{}\char`\"{}
+\item 
+\mbox{\hyperlink{namespacestatic__obstacles_adc6a4577729388ea184ce08c5993e229}{static\+\_\+obstacles.\+steering\+\_\+value}} = Float64(0)
+\item 
+\mbox{\hyperlink{namespacestatic__obstacles_a682494dcffddc50c3fec12e1e3667515}{static\+\_\+obstacles.\+speed\+\_\+value}} = Float64(0)
+\item 
+int \mbox{\hyperlink{namespacestatic__obstacles_a0b0705ada756c418e951294444ba4b01}{static\+\_\+obstacles.\+goal\+\_\+left\+\_\+rho}} = 0
+\item 
+int \mbox{\hyperlink{namespacestatic__obstacles_a4b551b0da115d9e7c3b7ab1a1e9fbc1b}{static\+\_\+obstacles.\+goal\+\_\+left\+\_\+theta}} = 0
+\item 
+int \mbox{\hyperlink{namespacestatic__obstacles_a413fe2ec85db3bb0a4d6731442fb4a29}{static\+\_\+obstacles.\+goal\+\_\+right\+\_\+rho}} = 0
+\item 
+int \mbox{\hyperlink{namespacestatic__obstacles_afad5c31c722d436d88057e819f791318}{static\+\_\+obstacles.\+goal\+\_\+right\+\_\+theta}} = 0
+\item 
+int \mbox{\hyperlink{namespacestatic__obstacles_a4f9db86a7474fc03b663ebc94dd517f6}{static\+\_\+obstacles.\+iterator}} = 0
+\item 
+int \mbox{\hyperlink{namespacestatic__obstacles_a97b0d66ae63766873e1bf86646f91670}{static\+\_\+obstacles.\+suma\+\_\+left\+\_\+rho}} = 0
+\item 
+int \mbox{\hyperlink{namespacestatic__obstacles_a24d2cdeae5bf48b42bcc4bc4994fcf09}{static\+\_\+obstacles.\+suma\+\_\+left\+\_\+theta}} = 0
+\item 
+int \mbox{\hyperlink{namespacestatic__obstacles_a629fb260894f65ac385b0f5036f848e5}{static\+\_\+obstacles.\+suma\+\_\+right\+\_\+rho}} = 0
+\item 
+int \mbox{\hyperlink{namespacestatic__obstacles_a8b890c82ac46a911108c39168b3c5330}{static\+\_\+obstacles.\+suma\+\_\+right\+\_\+theta}} = 0
+\item 
+bool \mbox{\hyperlink{namespacestatic__obstacles_aaabc98c92319bc7e84607013f4e2dde4}{static\+\_\+obstacles.\+flag}} = False
+\item 
+bool \mbox{\hyperlink{namespacestatic__obstacles_af5ae3d0789c21c6b87f30a56f5f29ac9}{static\+\_\+obstacles.\+flag1}} = True
+\item 
+int \mbox{\hyperlink{namespacestatic__obstacles_a3d8a2c937748f7b145b7f98c97ca15b0}{static\+\_\+obstacles.\+past}} = 0
+\end{DoxyCompactItemize}

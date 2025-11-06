@@ -1,0 +1,190 @@
+\hypertarget{namespacelanes}{}\doxysection{lanes Namespace Reference}
+\label{namespacelanes}\index{lanes@{lanes}}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{namespacelanes_a59c01b5cd861f554bf8704ca3214bf55}{canny\+\_\+frame}} (frame\+\_\+gray)
+\item 
+def \mbox{\hyperlink{namespacelanes_ae395f07be28fba66e457083ca0634d06}{crop\+\_\+frame}} (frame\+\_\+cannied, shp)
+\item 
+def \mbox{\hyperlink{namespacelanes_a97829e143fe0bef5a1768574534b9852}{color\+\_\+seg}} (frame\+\_\+color, frame\+\_\+gray, frame\+\_\+interest)
+\item 
+def \mbox{\hyperlink{namespacelanes_ad03940d938d6e294a254ebe4a7dd9bca}{callback\+\_\+raw\+\_\+image}} (data)
+\item 
+def \mbox{\hyperlink{namespacelanes_a0f7080e27ddb020e027d8f7045004d0b}{main}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespacelanes_a3bf9bbd7ba915aaf268e50ff0b4b8a0f}{start}} = time.\+time()
+\item 
+string \mbox{\hyperlink{namespacelanes_add570390bad47bff26629fe13e230e8d}{lanes\+\_\+to\+\_\+publish\+\_\+left}} = \char`\"{}\char`\"{}
+\item 
+string \mbox{\hyperlink{namespacelanes_a91dd911cfc5a40e2843aa57f166fbcf9}{lanes\+\_\+to\+\_\+publish\+\_\+right}} = \char`\"{}\char`\"{}
+\item 
+\mbox{\hyperlink{namespacelanes_a7fd3d1d51e57e7ee9e457fd38ada1b3f}{lane\+\_\+publisherL}}
+\item 
+\mbox{\hyperlink{namespacelanes_a5ce3d57bdb82ad1881b5e079b15ea4b6}{lane\+\_\+publisherR}}
+\item 
+string \mbox{\hyperlink{namespacelanes_a518a57d1e6e660430169a211a5c3e471}{degrees\+\_\+publisher}} = \char`\"{}\char`\"{}
+\item 
+int \mbox{\hyperlink{namespacelanes_ad715cc49353fc6a53b346e12d0f838b9}{min\+\_\+val}} = 33
+\item 
+int \mbox{\hyperlink{namespacelanes_a011e1bce4c65017691ddb27d0f105240}{max\+\_\+val}} = 112
+\item 
+int \mbox{\hyperlink{namespacelanes_a5f84463ff626d75aac946df6c6634b61}{k\+\_\+size\+\_\+y}} = 5
+\item 
+int \mbox{\hyperlink{namespacelanes_a3357c7fd577c7a97ec1e87e359f51b63}{k\+\_\+size\+\_\+x}} = 5
+\item 
+int \mbox{\hyperlink{namespacelanes_a4b869d231a681731fbebec4157c6a112}{votes}} = 35
+\item 
+int \mbox{\hyperlink{namespacelanes_ad8a816f359ef9d0b12599f2f2134f4d6}{degl}} = 44
+\item 
+int \mbox{\hyperlink{namespacelanes_a1488c244acf03f9db0f5ded5b341f1cd}{degr}} = 132
+\item 
+int \mbox{\hyperlink{namespacelanes_ab90c83935005e76a913b6b3cdbe6758f}{tolerance1}} = 10
+\item 
+int \mbox{\hyperlink{namespacelanes_a5f1c070c817d9cc46f00f97e31032806}{tolerance2}} = 20
+\item 
+int \mbox{\hyperlink{namespacelanes_a77f46143ab6c920523c1e21123d58c99}{left\+\_\+rho\+\_\+goal}} = 392
+\item 
+int \mbox{\hyperlink{namespacelanes_a0bda19225f5441a61e63c40848c50de3}{right\+\_\+rho\+\_\+goal}} = -\/12
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{namespacelanes_ad03940d938d6e294a254ebe4a7dd9bca}\label{namespacelanes_ad03940d938d6e294a254ebe4a7dd9bca}} 
+\index{lanes@{lanes}!callback\_raw\_image@{callback\_raw\_image}}
+\index{callback\_raw\_image@{callback\_raw\_image}!lanes@{lanes}}
+\doxysubsubsection{\texorpdfstring{callback\_raw\_image()}{callback\_raw\_image()}}
+{\footnotesize\ttfamily def lanes.\+callback\+\_\+raw\+\_\+image (\begin{DoxyParamCaption}\item[{}]{data }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{namespacelanes_a59c01b5cd861f554bf8704ca3214bf55}\label{namespacelanes_a59c01b5cd861f554bf8704ca3214bf55}} 
+\index{lanes@{lanes}!canny\_frame@{canny\_frame}}
+\index{canny\_frame@{canny\_frame}!lanes@{lanes}}
+\doxysubsubsection{\texorpdfstring{canny\_frame()}{canny\_frame()}}
+{\footnotesize\ttfamily def lanes.\+canny\+\_\+frame (\begin{DoxyParamCaption}\item[{}]{frame\+\_\+gray }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{namespacelanes_a97829e143fe0bef5a1768574534b9852}\label{namespacelanes_a97829e143fe0bef5a1768574534b9852}} 
+\index{lanes@{lanes}!color\_seg@{color\_seg}}
+\index{color\_seg@{color\_seg}!lanes@{lanes}}
+\doxysubsubsection{\texorpdfstring{color\_seg()}{color\_seg()}}
+{\footnotesize\ttfamily def lanes.\+color\+\_\+seg (\begin{DoxyParamCaption}\item[{}]{frame\+\_\+color,  }\item[{}]{frame\+\_\+gray,  }\item[{}]{frame\+\_\+interest }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{namespacelanes_ae395f07be28fba66e457083ca0634d06}\label{namespacelanes_ae395f07be28fba66e457083ca0634d06}} 
+\index{lanes@{lanes}!crop\_frame@{crop\_frame}}
+\index{crop\_frame@{crop\_frame}!lanes@{lanes}}
+\doxysubsubsection{\texorpdfstring{crop\_frame()}{crop\_frame()}}
+{\footnotesize\ttfamily def lanes.\+crop\+\_\+frame (\begin{DoxyParamCaption}\item[{}]{frame\+\_\+cannied,  }\item[{}]{shp }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{namespacelanes_a0f7080e27ddb020e027d8f7045004d0b}\label{namespacelanes_a0f7080e27ddb020e027d8f7045004d0b}} 
+\index{lanes@{lanes}!main@{main}}
+\index{main@{main}!lanes@{lanes}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily def lanes.\+main (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{namespacelanes_ad8a816f359ef9d0b12599f2f2134f4d6}\label{namespacelanes_ad8a816f359ef9d0b12599f2f2134f4d6}} 
+\index{lanes@{lanes}!degl@{degl}}
+\index{degl@{degl}!lanes@{lanes}}
+\doxysubsubsection{\texorpdfstring{degl}{degl}}
+{\footnotesize\ttfamily int lanes.\+degl = 44}
+
+\mbox{\Hypertarget{namespacelanes_a1488c244acf03f9db0f5ded5b341f1cd}\label{namespacelanes_a1488c244acf03f9db0f5ded5b341f1cd}} 
+\index{lanes@{lanes}!degr@{degr}}
+\index{degr@{degr}!lanes@{lanes}}
+\doxysubsubsection{\texorpdfstring{degr}{degr}}
+{\footnotesize\ttfamily int lanes.\+degr = 132}
+
+\mbox{\Hypertarget{namespacelanes_a518a57d1e6e660430169a211a5c3e471}\label{namespacelanes_a518a57d1e6e660430169a211a5c3e471}} 
+\index{lanes@{lanes}!degrees\_publisher@{degrees\_publisher}}
+\index{degrees\_publisher@{degrees\_publisher}!lanes@{lanes}}
+\doxysubsubsection{\texorpdfstring{degrees\_publisher}{degrees\_publisher}}
+{\footnotesize\ttfamily string lanes.\+degrees\+\_\+publisher = \char`\"{}\char`\"{}}
+
+\mbox{\Hypertarget{namespacelanes_a3357c7fd577c7a97ec1e87e359f51b63}\label{namespacelanes_a3357c7fd577c7a97ec1e87e359f51b63}} 
+\index{lanes@{lanes}!k\_size\_x@{k\_size\_x}}
+\index{k\_size\_x@{k\_size\_x}!lanes@{lanes}}
+\doxysubsubsection{\texorpdfstring{k\_size\_x}{k\_size\_x}}
+{\footnotesize\ttfamily int lanes.\+k\+\_\+size\+\_\+x = 5}
+
+\mbox{\Hypertarget{namespacelanes_a5f84463ff626d75aac946df6c6634b61}\label{namespacelanes_a5f84463ff626d75aac946df6c6634b61}} 
+\index{lanes@{lanes}!k\_size\_y@{k\_size\_y}}
+\index{k\_size\_y@{k\_size\_y}!lanes@{lanes}}
+\doxysubsubsection{\texorpdfstring{k\_size\_y}{k\_size\_y}}
+{\footnotesize\ttfamily int lanes.\+k\+\_\+size\+\_\+y = 5}
+
+\mbox{\Hypertarget{namespacelanes_a7fd3d1d51e57e7ee9e457fd38ada1b3f}\label{namespacelanes_a7fd3d1d51e57e7ee9e457fd38ada1b3f}} 
+\index{lanes@{lanes}!lane\_publisherL@{lane\_publisherL}}
+\index{lane\_publisherL@{lane\_publisherL}!lanes@{lanes}}
+\doxysubsubsection{\texorpdfstring{lane\_publisherL}{lane\_publisherL}}
+{\footnotesize\ttfamily lanes.\+lane\+\_\+publisherL}
+
+\mbox{\Hypertarget{namespacelanes_a5ce3d57bdb82ad1881b5e079b15ea4b6}\label{namespacelanes_a5ce3d57bdb82ad1881b5e079b15ea4b6}} 
+\index{lanes@{lanes}!lane\_publisherR@{lane\_publisherR}}
+\index{lane\_publisherR@{lane\_publisherR}!lanes@{lanes}}
+\doxysubsubsection{\texorpdfstring{lane\_publisherR}{lane\_publisherR}}
+{\footnotesize\ttfamily lanes.\+lane\+\_\+publisherR}
+
+\mbox{\Hypertarget{namespacelanes_add570390bad47bff26629fe13e230e8d}\label{namespacelanes_add570390bad47bff26629fe13e230e8d}} 
+\index{lanes@{lanes}!lanes\_to\_publish\_left@{lanes\_to\_publish\_left}}
+\index{lanes\_to\_publish\_left@{lanes\_to\_publish\_left}!lanes@{lanes}}
+\doxysubsubsection{\texorpdfstring{lanes\_to\_publish\_left}{lanes\_to\_publish\_left}}
+{\footnotesize\ttfamily string lanes.\+lanes\+\_\+to\+\_\+publish\+\_\+left = \char`\"{}\char`\"{}}
+
+\mbox{\Hypertarget{namespacelanes_a91dd911cfc5a40e2843aa57f166fbcf9}\label{namespacelanes_a91dd911cfc5a40e2843aa57f166fbcf9}} 
+\index{lanes@{lanes}!lanes\_to\_publish\_right@{lanes\_to\_publish\_right}}
+\index{lanes\_to\_publish\_right@{lanes\_to\_publish\_right}!lanes@{lanes}}
+\doxysubsubsection{\texorpdfstring{lanes\_to\_publish\_right}{lanes\_to\_publish\_right}}
+{\footnotesize\ttfamily string lanes.\+lanes\+\_\+to\+\_\+publish\+\_\+right = \char`\"{}\char`\"{}}
+
+\mbox{\Hypertarget{namespacelanes_a77f46143ab6c920523c1e21123d58c99}\label{namespacelanes_a77f46143ab6c920523c1e21123d58c99}} 
+\index{lanes@{lanes}!left\_rho\_goal@{left\_rho\_goal}}
+\index{left\_rho\_goal@{left\_rho\_goal}!lanes@{lanes}}
+\doxysubsubsection{\texorpdfstring{left\_rho\_goal}{left\_rho\_goal}}
+{\footnotesize\ttfamily int lanes.\+left\+\_\+rho\+\_\+goal = 392}
+
+\mbox{\Hypertarget{namespacelanes_a011e1bce4c65017691ddb27d0f105240}\label{namespacelanes_a011e1bce4c65017691ddb27d0f105240}} 
+\index{lanes@{lanes}!max\_val@{max\_val}}
+\index{max\_val@{max\_val}!lanes@{lanes}}
+\doxysubsubsection{\texorpdfstring{max\_val}{max\_val}}
+{\footnotesize\ttfamily int lanes.\+max\+\_\+val = 112}
+
+\mbox{\Hypertarget{namespacelanes_ad715cc49353fc6a53b346e12d0f838b9}\label{namespacelanes_ad715cc49353fc6a53b346e12d0f838b9}} 
+\index{lanes@{lanes}!min\_val@{min\_val}}
+\index{min\_val@{min\_val}!lanes@{lanes}}
+\doxysubsubsection{\texorpdfstring{min\_val}{min\_val}}
+{\footnotesize\ttfamily int lanes.\+min\+\_\+val = 33}
+
+\mbox{\Hypertarget{namespacelanes_a0bda19225f5441a61e63c40848c50de3}\label{namespacelanes_a0bda19225f5441a61e63c40848c50de3}} 
+\index{lanes@{lanes}!right\_rho\_goal@{right\_rho\_goal}}
+\index{right\_rho\_goal@{right\_rho\_goal}!lanes@{lanes}}
+\doxysubsubsection{\texorpdfstring{right\_rho\_goal}{right\_rho\_goal}}
+{\footnotesize\ttfamily int lanes.\+right\+\_\+rho\+\_\+goal = -\/12}
+
+\mbox{\Hypertarget{namespacelanes_a3bf9bbd7ba915aaf268e50ff0b4b8a0f}\label{namespacelanes_a3bf9bbd7ba915aaf268e50ff0b4b8a0f}} 
+\index{lanes@{lanes}!start@{start}}
+\index{start@{start}!lanes@{lanes}}
+\doxysubsubsection{\texorpdfstring{start}{start}}
+{\footnotesize\ttfamily lanes.\+start = time.\+time()}
+
+\mbox{\Hypertarget{namespacelanes_ab90c83935005e76a913b6b3cdbe6758f}\label{namespacelanes_ab90c83935005e76a913b6b3cdbe6758f}} 
+\index{lanes@{lanes}!tolerance1@{tolerance1}}
+\index{tolerance1@{tolerance1}!lanes@{lanes}}
+\doxysubsubsection{\texorpdfstring{tolerance1}{tolerance1}}
+{\footnotesize\ttfamily int lanes.\+tolerance1 = 10}
+
+\mbox{\Hypertarget{namespacelanes_a5f1c070c817d9cc46f00f97e31032806}\label{namespacelanes_a5f1c070c817d9cc46f00f97e31032806}} 
+\index{lanes@{lanes}!tolerance2@{tolerance2}}
+\index{tolerance2@{tolerance2}!lanes@{lanes}}
+\doxysubsubsection{\texorpdfstring{tolerance2}{tolerance2}}
+{\footnotesize\ttfamily int lanes.\+tolerance2 = 20}
+
+\mbox{\Hypertarget{namespacelanes_a4b869d231a681731fbebec4157c6a112}\label{namespacelanes_a4b869d231a681731fbebec4157c6a112}} 
+\index{lanes@{lanes}!votes@{votes}}
+\index{votes@{votes}!lanes@{lanes}}
+\doxysubsubsection{\texorpdfstring{votes}{votes}}
+{\footnotesize\ttfamily int lanes.\+votes = 35}
+

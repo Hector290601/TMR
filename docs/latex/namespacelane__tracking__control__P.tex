@@ -1,0 +1,80 @@
+\hypertarget{namespacelane__tracking__control__P}{}\doxysection{lane\+\_\+tracking\+\_\+control\+\_\+P Namespace Reference}
+\label{namespacelane__tracking__control__P}\index{lane\_tracking\_control\_P@{lane\_tracking\_control\_P}}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{namespacelane__tracking__control__P_a3c60a1adb6c0124702a068564cd957e1}{calculate\+\_\+control}} (rho\+\_\+l, theta\+\_\+l, rho\+\_\+r, theta\+\_\+r, goal\+\_\+rho\+\_\+l, goal\+\_\+theta\+\_\+l, goal\+\_\+rho\+\_\+r, goal\+\_\+theta\+\_\+r)
+\item 
+def \mbox{\hyperlink{namespacelane__tracking__control__P_a8343a14e423cf4aa383e623499487a24}{callback\+\_\+left\+\_\+lane}} (msg)
+\item 
+def \mbox{\hyperlink{namespacelane__tracking__control__P_aebd6756e3a7ce5514063d06ef656b3bd}{callback\+\_\+right\+\_\+lane}} (msg)
+\item 
+def \mbox{\hyperlink{namespacelane__tracking__control__P_a3f8f9523a04b36bdfe18b7cdc8dd2c43}{callback\+\_\+obstacle}} (msg)
+\item 
+def \mbox{\hyperlink{namespacelane__tracking__control__P_a10d38c1285d1632eb917d93f5a049935}{callback\+\_\+stop}} (msg)
+\item 
+def \mbox{\hyperlink{namespacelane__tracking__control__P_a1ff16af53e7419e31f7c8ce4c963f94f}{main}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{namespacelane__tracking__control__P_a78a13638b35a5e58c83b73bb58197cfc}{stops}} = 0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyVerb}This node implements a proportional control and is intended to be used
+together with the lane_detector node. It is assumed both lane borders 
+are given by two straight lines in rho-theta form. Given a desired rho-theta
+for each lane border, an error is calculated.
+Steering is calculated proportional to this error and linear speed is
+set as a constant. 
+\end{DoxyVerb}
+ 
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{namespacelane__tracking__control__P_a3c60a1adb6c0124702a068564cd957e1}\label{namespacelane__tracking__control__P_a3c60a1adb6c0124702a068564cd957e1}} 
+\index{lane\_tracking\_control\_P@{lane\_tracking\_control\_P}!calculate\_control@{calculate\_control}}
+\index{calculate\_control@{calculate\_control}!lane\_tracking\_control\_P@{lane\_tracking\_control\_P}}
+\doxysubsubsection{\texorpdfstring{calculate\_control()}{calculate\_control()}}
+{\footnotesize\ttfamily def lane\+\_\+tracking\+\_\+control\+\_\+\+P.\+calculate\+\_\+control (\begin{DoxyParamCaption}\item[{}]{rho\+\_\+l,  }\item[{}]{theta\+\_\+l,  }\item[{}]{rho\+\_\+r,  }\item[{}]{theta\+\_\+r,  }\item[{}]{goal\+\_\+rho\+\_\+l,  }\item[{}]{goal\+\_\+theta\+\_\+l,  }\item[{}]{goal\+\_\+rho\+\_\+r,  }\item[{}]{goal\+\_\+theta\+\_\+r }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{namespacelane__tracking__control__P_a8343a14e423cf4aa383e623499487a24}\label{namespacelane__tracking__control__P_a8343a14e423cf4aa383e623499487a24}} 
+\index{lane\_tracking\_control\_P@{lane\_tracking\_control\_P}!callback\_left\_lane@{callback\_left\_lane}}
+\index{callback\_left\_lane@{callback\_left\_lane}!lane\_tracking\_control\_P@{lane\_tracking\_control\_P}}
+\doxysubsubsection{\texorpdfstring{callback\_left\_lane()}{callback\_left\_lane()}}
+{\footnotesize\ttfamily def lane\+\_\+tracking\+\_\+control\+\_\+\+P.\+callback\+\_\+left\+\_\+lane (\begin{DoxyParamCaption}\item[{}]{msg }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{namespacelane__tracking__control__P_a3f8f9523a04b36bdfe18b7cdc8dd2c43}\label{namespacelane__tracking__control__P_a3f8f9523a04b36bdfe18b7cdc8dd2c43}} 
+\index{lane\_tracking\_control\_P@{lane\_tracking\_control\_P}!callback\_obstacle@{callback\_obstacle}}
+\index{callback\_obstacle@{callback\_obstacle}!lane\_tracking\_control\_P@{lane\_tracking\_control\_P}}
+\doxysubsubsection{\texorpdfstring{callback\_obstacle()}{callback\_obstacle()}}
+{\footnotesize\ttfamily def lane\+\_\+tracking\+\_\+control\+\_\+\+P.\+callback\+\_\+obstacle (\begin{DoxyParamCaption}\item[{}]{msg }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{namespacelane__tracking__control__P_aebd6756e3a7ce5514063d06ef656b3bd}\label{namespacelane__tracking__control__P_aebd6756e3a7ce5514063d06ef656b3bd}} 
+\index{lane\_tracking\_control\_P@{lane\_tracking\_control\_P}!callback\_right\_lane@{callback\_right\_lane}}
+\index{callback\_right\_lane@{callback\_right\_lane}!lane\_tracking\_control\_P@{lane\_tracking\_control\_P}}
+\doxysubsubsection{\texorpdfstring{callback\_right\_lane()}{callback\_right\_lane()}}
+{\footnotesize\ttfamily def lane\+\_\+tracking\+\_\+control\+\_\+\+P.\+callback\+\_\+right\+\_\+lane (\begin{DoxyParamCaption}\item[{}]{msg }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{namespacelane__tracking__control__P_a10d38c1285d1632eb917d93f5a049935}\label{namespacelane__tracking__control__P_a10d38c1285d1632eb917d93f5a049935}} 
+\index{lane\_tracking\_control\_P@{lane\_tracking\_control\_P}!callback\_stop@{callback\_stop}}
+\index{callback\_stop@{callback\_stop}!lane\_tracking\_control\_P@{lane\_tracking\_control\_P}}
+\doxysubsubsection{\texorpdfstring{callback\_stop()}{callback\_stop()}}
+{\footnotesize\ttfamily def lane\+\_\+tracking\+\_\+control\+\_\+\+P.\+callback\+\_\+stop (\begin{DoxyParamCaption}\item[{}]{msg }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{namespacelane__tracking__control__P_a1ff16af53e7419e31f7c8ce4c963f94f}\label{namespacelane__tracking__control__P_a1ff16af53e7419e31f7c8ce4c963f94f}} 
+\index{lane\_tracking\_control\_P@{lane\_tracking\_control\_P}!main@{main}}
+\index{main@{main}!lane\_tracking\_control\_P@{lane\_tracking\_control\_P}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily def lane\+\_\+tracking\+\_\+control\+\_\+\+P.\+main (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{namespacelane__tracking__control__P_a78a13638b35a5e58c83b73bb58197cfc}\label{namespacelane__tracking__control__P_a78a13638b35a5e58c83b73bb58197cfc}} 
+\index{lane\_tracking\_control\_P@{lane\_tracking\_control\_P}!stops@{stops}}
+\index{stops@{stops}!lane\_tracking\_control\_P@{lane\_tracking\_control\_P}}
+\doxysubsubsection{\texorpdfstring{stops}{stops}}
+{\footnotesize\ttfamily int lane\+\_\+tracking\+\_\+control\+\_\+\+P.\+stops = 0}
+

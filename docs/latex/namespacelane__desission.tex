@@ -1,0 +1,190 @@
+\hypertarget{namespacelane__desission}{}\doxysection{lane\+\_\+desission Namespace Reference}
+\label{namespacelane__desission}\index{lane\_desission@{lane\_desission}}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{namespacelane__desission_ac7bd9f16c2c46f8c899923ec6e91c950}{error\+\_\+rho}} (rho\+\_\+left=\mbox{\hyperlink{namespacelane__desission_a4ee06d4ab8e177458a1877d89ae25835}{goal\+\_\+left\+\_\+rho}}, rho\+\_\+right=\mbox{\hyperlink{namespacelane__desission_ae0a5392dc6111a912fca521d21c25a07}{goal\+\_\+right\+\_\+rho}})
+\item 
+def \mbox{\hyperlink{namespacelane__desission_a920629e80c1bb777ee62228afdceccd1}{error\+\_\+theta}} (theta\+\_\+left=\mbox{\hyperlink{namespacelane__desission_aab26aac7ff0583749b2745179c684b79}{goal\+\_\+left\+\_\+theta}}, theta\+\_\+right=\mbox{\hyperlink{namespacelane__desission_a1947ed8a5fd34378b6e9eacc9706b305}{goal\+\_\+right\+\_\+theta}})
+\item 
+def \mbox{\hyperlink{namespacelane__desission_a24b0fadc56a477248435971397fad2f0}{get\+\_\+ideal\+\_\+lanes}} ()
+\item 
+def \mbox{\hyperlink{namespacelane__desission_a26dfc69a30d8a418e1ffc05c847fa416}{decide}} ()
+\item 
+def \mbox{\hyperlink{namespacelane__desission_ac5be9ecfefc6675bb0152cf5147faa75}{callback\+\_\+left}} (msg)
+\item 
+def \mbox{\hyperlink{namespacelane__desission_a8a3289e89b511bdace76674760e67146}{callback\+\_\+right}} (msg)
+\item 
+def \mbox{\hyperlink{namespacelane__desission_a489dc28dea372ba9cc9a2d22c3e88c97}{main}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespacelane__desission_a80968965e5264c201bd476e6273a889a}{now}} = datetime.\+now()
+\item 
+string \mbox{\hyperlink{namespacelane__desission_a9b0987a3a9907c63d86818067fae6eca}{filename}} = now.\+strftime(\char`\"{}\%d-\/\%m-\/\%Y-\/\%H-\/\%M-\/\%S\char`\"{}) + \char`\"{}.csv\char`\"{}
+\item 
+string \mbox{\hyperlink{namespacelane__desission_a9900bc986a330b0470a3b517431fdd50}{left\+\_\+lines}} = \char`\"{}\char`\"{}
+\item 
+string \mbox{\hyperlink{namespacelane__desission_adb1fc7032a55de95f798303dcdbaa6d8}{right\+\_\+lines}} = \char`\"{}\char`\"{}
+\item 
+\mbox{\hyperlink{namespacelane__desission_a3433873e84d0b8ac1e91e933712215c2}{steering\+\_\+value}} = Float64(0)
+\item 
+\mbox{\hyperlink{namespacelane__desission_a3f7444fa9bb1a06ff8f5ce650dc9465c}{speed\+\_\+value}} = Float64(0)
+\item 
+int \mbox{\hyperlink{namespacelane__desission_a4ee06d4ab8e177458a1877d89ae25835}{goal\+\_\+left\+\_\+rho}} = 0
+\item 
+int \mbox{\hyperlink{namespacelane__desission_aab26aac7ff0583749b2745179c684b79}{goal\+\_\+left\+\_\+theta}} = 0
+\item 
+int \mbox{\hyperlink{namespacelane__desission_ae0a5392dc6111a912fca521d21c25a07}{goal\+\_\+right\+\_\+rho}} = 0
+\item 
+int \mbox{\hyperlink{namespacelane__desission_a1947ed8a5fd34378b6e9eacc9706b305}{goal\+\_\+right\+\_\+theta}} = 0
+\item 
+int \mbox{\hyperlink{namespacelane__desission_a1854363caa7601b4c99566ebc1b622d0}{iterator}} = 0
+\item 
+int \mbox{\hyperlink{namespacelane__desission_a96cd46874946e3a6ddf2e6f33dd3acd7}{suma\+\_\+left\+\_\+rho}} = 0
+\item 
+int \mbox{\hyperlink{namespacelane__desission_a6850fa149d2d22eeb24e823d8f0bb618}{suma\+\_\+left\+\_\+theta}} = 0
+\item 
+int \mbox{\hyperlink{namespacelane__desission_aba7402d930bf04117c39fb3d919d2af5}{suma\+\_\+right\+\_\+rho}} = 0
+\item 
+int \mbox{\hyperlink{namespacelane__desission_a3765ce55666346ce5b008835d9c193c6}{suma\+\_\+right\+\_\+theta}} = 0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{namespacelane__desission_ac5be9ecfefc6675bb0152cf5147faa75}\label{namespacelane__desission_ac5be9ecfefc6675bb0152cf5147faa75}} 
+\index{lane\_desission@{lane\_desission}!callback\_left@{callback\_left}}
+\index{callback\_left@{callback\_left}!lane\_desission@{lane\_desission}}
+\doxysubsubsection{\texorpdfstring{callback\_left()}{callback\_left()}}
+{\footnotesize\ttfamily def lane\+\_\+desission.\+callback\+\_\+left (\begin{DoxyParamCaption}\item[{}]{msg }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{namespacelane__desission_a8a3289e89b511bdace76674760e67146}\label{namespacelane__desission_a8a3289e89b511bdace76674760e67146}} 
+\index{lane\_desission@{lane\_desission}!callback\_right@{callback\_right}}
+\index{callback\_right@{callback\_right}!lane\_desission@{lane\_desission}}
+\doxysubsubsection{\texorpdfstring{callback\_right()}{callback\_right()}}
+{\footnotesize\ttfamily def lane\+\_\+desission.\+callback\+\_\+right (\begin{DoxyParamCaption}\item[{}]{msg }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{namespacelane__desission_a26dfc69a30d8a418e1ffc05c847fa416}\label{namespacelane__desission_a26dfc69a30d8a418e1ffc05c847fa416}} 
+\index{lane\_desission@{lane\_desission}!decide@{decide}}
+\index{decide@{decide}!lane\_desission@{lane\_desission}}
+\doxysubsubsection{\texorpdfstring{decide()}{decide()}}
+{\footnotesize\ttfamily def lane\+\_\+desission.\+decide (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{namespacelane__desission_ac7bd9f16c2c46f8c899923ec6e91c950}\label{namespacelane__desission_ac7bd9f16c2c46f8c899923ec6e91c950}} 
+\index{lane\_desission@{lane\_desission}!error\_rho@{error\_rho}}
+\index{error\_rho@{error\_rho}!lane\_desission@{lane\_desission}}
+\doxysubsubsection{\texorpdfstring{error\_rho()}{error\_rho()}}
+{\footnotesize\ttfamily def lane\+\_\+desission.\+error\+\_\+rho (\begin{DoxyParamCaption}\item[{}]{rho\+\_\+left = {\ttfamily \mbox{\hyperlink{namespacelane__desission_a4ee06d4ab8e177458a1877d89ae25835}{goal\+\_\+left\+\_\+rho}}},  }\item[{}]{rho\+\_\+right = {\ttfamily \mbox{\hyperlink{namespacelane__desission_ae0a5392dc6111a912fca521d21c25a07}{goal\+\_\+right\+\_\+rho}}} }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{namespacelane__desission_a920629e80c1bb777ee62228afdceccd1}\label{namespacelane__desission_a920629e80c1bb777ee62228afdceccd1}} 
+\index{lane\_desission@{lane\_desission}!error\_theta@{error\_theta}}
+\index{error\_theta@{error\_theta}!lane\_desission@{lane\_desission}}
+\doxysubsubsection{\texorpdfstring{error\_theta()}{error\_theta()}}
+{\footnotesize\ttfamily def lane\+\_\+desission.\+error\+\_\+theta (\begin{DoxyParamCaption}\item[{}]{theta\+\_\+left = {\ttfamily \mbox{\hyperlink{namespacelane__desission_aab26aac7ff0583749b2745179c684b79}{goal\+\_\+left\+\_\+theta}}},  }\item[{}]{theta\+\_\+right = {\ttfamily \mbox{\hyperlink{namespacelane__desission_a1947ed8a5fd34378b6e9eacc9706b305}{goal\+\_\+right\+\_\+theta}}} }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{namespacelane__desission_a24b0fadc56a477248435971397fad2f0}\label{namespacelane__desission_a24b0fadc56a477248435971397fad2f0}} 
+\index{lane\_desission@{lane\_desission}!get\_ideal\_lanes@{get\_ideal\_lanes}}
+\index{get\_ideal\_lanes@{get\_ideal\_lanes}!lane\_desission@{lane\_desission}}
+\doxysubsubsection{\texorpdfstring{get\_ideal\_lanes()}{get\_ideal\_lanes()}}
+{\footnotesize\ttfamily def lane\+\_\+desission.\+get\+\_\+ideal\+\_\+lanes (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{namespacelane__desission_a489dc28dea372ba9cc9a2d22c3e88c97}\label{namespacelane__desission_a489dc28dea372ba9cc9a2d22c3e88c97}} 
+\index{lane\_desission@{lane\_desission}!main@{main}}
+\index{main@{main}!lane\_desission@{lane\_desission}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily def lane\+\_\+desission.\+main (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{namespacelane__desission_a9b0987a3a9907c63d86818067fae6eca}\label{namespacelane__desission_a9b0987a3a9907c63d86818067fae6eca}} 
+\index{lane\_desission@{lane\_desission}!filename@{filename}}
+\index{filename@{filename}!lane\_desission@{lane\_desission}}
+\doxysubsubsection{\texorpdfstring{filename}{filename}}
+{\footnotesize\ttfamily string lane\+\_\+desission.\+filename = now.\+strftime(\char`\"{}\%d-\/\%m-\/\%Y-\/\%H-\/\%M-\/\%S\char`\"{}) + \char`\"{}.csv\char`\"{}}
+
+\mbox{\Hypertarget{namespacelane__desission_a4ee06d4ab8e177458a1877d89ae25835}\label{namespacelane__desission_a4ee06d4ab8e177458a1877d89ae25835}} 
+\index{lane\_desission@{lane\_desission}!goal\_left\_rho@{goal\_left\_rho}}
+\index{goal\_left\_rho@{goal\_left\_rho}!lane\_desission@{lane\_desission}}
+\doxysubsubsection{\texorpdfstring{goal\_left\_rho}{goal\_left\_rho}}
+{\footnotesize\ttfamily int lane\+\_\+desission.\+goal\+\_\+left\+\_\+rho = 0}
+
+\mbox{\Hypertarget{namespacelane__desission_aab26aac7ff0583749b2745179c684b79}\label{namespacelane__desission_aab26aac7ff0583749b2745179c684b79}} 
+\index{lane\_desission@{lane\_desission}!goal\_left\_theta@{goal\_left\_theta}}
+\index{goal\_left\_theta@{goal\_left\_theta}!lane\_desission@{lane\_desission}}
+\doxysubsubsection{\texorpdfstring{goal\_left\_theta}{goal\_left\_theta}}
+{\footnotesize\ttfamily int lane\+\_\+desission.\+goal\+\_\+left\+\_\+theta = 0}
+
+\mbox{\Hypertarget{namespacelane__desission_ae0a5392dc6111a912fca521d21c25a07}\label{namespacelane__desission_ae0a5392dc6111a912fca521d21c25a07}} 
+\index{lane\_desission@{lane\_desission}!goal\_right\_rho@{goal\_right\_rho}}
+\index{goal\_right\_rho@{goal\_right\_rho}!lane\_desission@{lane\_desission}}
+\doxysubsubsection{\texorpdfstring{goal\_right\_rho}{goal\_right\_rho}}
+{\footnotesize\ttfamily int lane\+\_\+desission.\+goal\+\_\+right\+\_\+rho = 0}
+
+\mbox{\Hypertarget{namespacelane__desission_a1947ed8a5fd34378b6e9eacc9706b305}\label{namespacelane__desission_a1947ed8a5fd34378b6e9eacc9706b305}} 
+\index{lane\_desission@{lane\_desission}!goal\_right\_theta@{goal\_right\_theta}}
+\index{goal\_right\_theta@{goal\_right\_theta}!lane\_desission@{lane\_desission}}
+\doxysubsubsection{\texorpdfstring{goal\_right\_theta}{goal\_right\_theta}}
+{\footnotesize\ttfamily int lane\+\_\+desission.\+goal\+\_\+right\+\_\+theta = 0}
+
+\mbox{\Hypertarget{namespacelane__desission_a1854363caa7601b4c99566ebc1b622d0}\label{namespacelane__desission_a1854363caa7601b4c99566ebc1b622d0}} 
+\index{lane\_desission@{lane\_desission}!iterator@{iterator}}
+\index{iterator@{iterator}!lane\_desission@{lane\_desission}}
+\doxysubsubsection{\texorpdfstring{iterator}{iterator}}
+{\footnotesize\ttfamily int lane\+\_\+desission.\+iterator = 0}
+
+\mbox{\Hypertarget{namespacelane__desission_a9900bc986a330b0470a3b517431fdd50}\label{namespacelane__desission_a9900bc986a330b0470a3b517431fdd50}} 
+\index{lane\_desission@{lane\_desission}!left\_lines@{left\_lines}}
+\index{left\_lines@{left\_lines}!lane\_desission@{lane\_desission}}
+\doxysubsubsection{\texorpdfstring{left\_lines}{left\_lines}}
+{\footnotesize\ttfamily string lane\+\_\+desission.\+left\+\_\+lines = \char`\"{}\char`\"{}}
+
+\mbox{\Hypertarget{namespacelane__desission_a80968965e5264c201bd476e6273a889a}\label{namespacelane__desission_a80968965e5264c201bd476e6273a889a}} 
+\index{lane\_desission@{lane\_desission}!now@{now}}
+\index{now@{now}!lane\_desission@{lane\_desission}}
+\doxysubsubsection{\texorpdfstring{now}{now}}
+{\footnotesize\ttfamily lane\+\_\+desission.\+now = datetime.\+now()}
+
+\mbox{\Hypertarget{namespacelane__desission_adb1fc7032a55de95f798303dcdbaa6d8}\label{namespacelane__desission_adb1fc7032a55de95f798303dcdbaa6d8}} 
+\index{lane\_desission@{lane\_desission}!right\_lines@{right\_lines}}
+\index{right\_lines@{right\_lines}!lane\_desission@{lane\_desission}}
+\doxysubsubsection{\texorpdfstring{right\_lines}{right\_lines}}
+{\footnotesize\ttfamily string lane\+\_\+desission.\+right\+\_\+lines = \char`\"{}\char`\"{}}
+
+\mbox{\Hypertarget{namespacelane__desission_a3f7444fa9bb1a06ff8f5ce650dc9465c}\label{namespacelane__desission_a3f7444fa9bb1a06ff8f5ce650dc9465c}} 
+\index{lane\_desission@{lane\_desission}!speed\_value@{speed\_value}}
+\index{speed\_value@{speed\_value}!lane\_desission@{lane\_desission}}
+\doxysubsubsection{\texorpdfstring{speed\_value}{speed\_value}}
+{\footnotesize\ttfamily lane\+\_\+desission.\+speed\+\_\+value = Float64(0)}
+
+\mbox{\Hypertarget{namespacelane__desission_a3433873e84d0b8ac1e91e933712215c2}\label{namespacelane__desission_a3433873e84d0b8ac1e91e933712215c2}} 
+\index{lane\_desission@{lane\_desission}!steering\_value@{steering\_value}}
+\index{steering\_value@{steering\_value}!lane\_desission@{lane\_desission}}
+\doxysubsubsection{\texorpdfstring{steering\_value}{steering\_value}}
+{\footnotesize\ttfamily lane\+\_\+desission.\+steering\+\_\+value = Float64(0)}
+
+\mbox{\Hypertarget{namespacelane__desission_a96cd46874946e3a6ddf2e6f33dd3acd7}\label{namespacelane__desission_a96cd46874946e3a6ddf2e6f33dd3acd7}} 
+\index{lane\_desission@{lane\_desission}!suma\_left\_rho@{suma\_left\_rho}}
+\index{suma\_left\_rho@{suma\_left\_rho}!lane\_desission@{lane\_desission}}
+\doxysubsubsection{\texorpdfstring{suma\_left\_rho}{suma\_left\_rho}}
+{\footnotesize\ttfamily int lane\+\_\+desission.\+suma\+\_\+left\+\_\+rho = 0}
+
+\mbox{\Hypertarget{namespacelane__desission_a6850fa149d2d22eeb24e823d8f0bb618}\label{namespacelane__desission_a6850fa149d2d22eeb24e823d8f0bb618}} 
+\index{lane\_desission@{lane\_desission}!suma\_left\_theta@{suma\_left\_theta}}
+\index{suma\_left\_theta@{suma\_left\_theta}!lane\_desission@{lane\_desission}}
+\doxysubsubsection{\texorpdfstring{suma\_left\_theta}{suma\_left\_theta}}
+{\footnotesize\ttfamily int lane\+\_\+desission.\+suma\+\_\+left\+\_\+theta = 0}
+
+\mbox{\Hypertarget{namespacelane__desission_aba7402d930bf04117c39fb3d919d2af5}\label{namespacelane__desission_aba7402d930bf04117c39fb3d919d2af5}} 
+\index{lane\_desission@{lane\_desission}!suma\_right\_rho@{suma\_right\_rho}}
+\index{suma\_right\_rho@{suma\_right\_rho}!lane\_desission@{lane\_desission}}
+\doxysubsubsection{\texorpdfstring{suma\_right\_rho}{suma\_right\_rho}}
+{\footnotesize\ttfamily int lane\+\_\+desission.\+suma\+\_\+right\+\_\+rho = 0}
+
+\mbox{\Hypertarget{namespacelane__desission_a3765ce55666346ce5b008835d9c193c6}\label{namespacelane__desission_a3765ce55666346ce5b008835d9c193c6}} 
+\index{lane\_desission@{lane\_desission}!suma\_right\_theta@{suma\_right\_theta}}
+\index{suma\_right\_theta@{suma\_right\_theta}!lane\_desission@{lane\_desission}}
+\doxysubsubsection{\texorpdfstring{suma\_right\_theta}{suma\_right\_theta}}
+{\footnotesize\ttfamily int lane\+\_\+desission.\+suma\+\_\+right\+\_\+theta = 0}
+

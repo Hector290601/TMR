@@ -1,0 +1,144 @@
+\hypertarget{namespacelane__detector__canny__hough}{}\doxysection{lane\+\_\+detector\+\_\+canny\+\_\+hough Namespace Reference}
+\label{namespacelane__detector__canny__hough}\index{lane\_detector\_canny\_hough@{lane\_detector\_canny\_hough}}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{namespacelane__detector__canny__hough_a64589349994dfb3e96007f0cbf3bcebc}{to\+\_\+normal\+\_\+form}} (x1, y1, x2, y2)
+\item 
+def \mbox{\hyperlink{namespacelane__detector__canny__hough_a0d84753156b5ea895cb1d54cb32e00fa}{translate\+\_\+lines\+\_\+to\+\_\+bottom\+\_\+center}} (lines, x\+\_\+center, y\+\_\+center)
+\item 
+def \mbox{\hyperlink{namespacelane__detector__canny__hough_a3012343a97e650702ec7732ad392049b}{draw\+\_\+normal\+\_\+line}} (rho, theta, length, img, color)
+\item 
+def \mbox{\hyperlink{namespacelane__detector__canny__hough_a2bf4fc349ace22f563467f595d25d8ce}{detect\+\_\+edges}} (img)
+\item 
+def \mbox{\hyperlink{namespacelane__detector__canny__hough_ab6e43aa5f7ce23a0d7c1bf4266ba7251}{filter\+\_\+lines}} (lines)
+\item 
+def \mbox{\hyperlink{namespacelane__detector__canny__hough_aab63d2023600719e70899602e8f17080}{weighted\+\_\+average}} (lines)
+\item 
+def \mbox{\hyperlink{namespacelane__detector__canny__hough_a91665a764de11e4ba7135642ebf80997}{color\+\_\+filter}} (frame)
+\item 
+def \mbox{\hyperlink{namespacelane__detector__canny__hough_ad28e2761b262e7c9e2ba3760266981df}{box\+\_\+finder}} (img)
+\item 
+def \mbox{\hyperlink{namespacelane__detector__canny__hough_a70e973416116a2d06e7e132822d9f97c}{new\+\_\+zone}} (img)
+\item 
+def \mbox{\hyperlink{namespacelane__detector__canny__hough_aaeeae04876a9242ea5d8797f796a4ee2}{new\+\_\+color\+\_\+filters}} (img, l\+\_\+box, r\+\_\+box)
+\item 
+def \mbox{\hyperlink{namespacelane__detector__canny__hough_a710f3429aab8c50437de50baf036bed8}{callback\+\_\+rgb\+\_\+image}} (msg)
+\item 
+def \mbox{\hyperlink{namespacelane__detector__canny__hough_a6d84c11d461f4840ea39837931298792}{main}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespacelane__detector__canny__hough_a2587ed9c7d40e404241d70f465da93dd}{kernel}} = np.\+ones((5, 5), np.\+uint8)
+\item 
+list \mbox{\hyperlink{namespacelane__detector__canny__hough_a0734a13542100f8df99b7172fa17b43e}{lower\+\_\+color}} = \mbox{[}0, 0, 253\mbox{]}
+\item 
+list \mbox{\hyperlink{namespacelane__detector__canny__hough_afc83cc4f5029a42b0f8e5be5a73805f7}{upper\+\_\+color}} = \mbox{[}90, 4, 255\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyVerb}This node finds lanes using a Canny edge detector and Hough transform.
+It is intended to detect right and left lane borders always as straight lines. 
+Curves are also detected as straight lines under the assumption that curvature
+is small enough.
+Detected lines are published in normal form (rho, theta) as 2-float arrays.
+rho is measured in pixels and theta in radians
+\end{DoxyVerb}
+ 
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{namespacelane__detector__canny__hough_ad28e2761b262e7c9e2ba3760266981df}\label{namespacelane__detector__canny__hough_ad28e2761b262e7c9e2ba3760266981df}} 
+\index{lane\_detector\_canny\_hough@{lane\_detector\_canny\_hough}!box\_finder@{box\_finder}}
+\index{box\_finder@{box\_finder}!lane\_detector\_canny\_hough@{lane\_detector\_canny\_hough}}
+\doxysubsubsection{\texorpdfstring{box\_finder()}{box\_finder()}}
+{\footnotesize\ttfamily def lane\+\_\+detector\+\_\+canny\+\_\+hough.\+box\+\_\+finder (\begin{DoxyParamCaption}\item[{}]{img }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{namespacelane__detector__canny__hough_a710f3429aab8c50437de50baf036bed8}\label{namespacelane__detector__canny__hough_a710f3429aab8c50437de50baf036bed8}} 
+\index{lane\_detector\_canny\_hough@{lane\_detector\_canny\_hough}!callback\_rgb\_image@{callback\_rgb\_image}}
+\index{callback\_rgb\_image@{callback\_rgb\_image}!lane\_detector\_canny\_hough@{lane\_detector\_canny\_hough}}
+\doxysubsubsection{\texorpdfstring{callback\_rgb\_image()}{callback\_rgb\_image()}}
+{\footnotesize\ttfamily def lane\+\_\+detector\+\_\+canny\+\_\+hough.\+callback\+\_\+rgb\+\_\+image (\begin{DoxyParamCaption}\item[{}]{msg }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{namespacelane__detector__canny__hough_a91665a764de11e4ba7135642ebf80997}\label{namespacelane__detector__canny__hough_a91665a764de11e4ba7135642ebf80997}} 
+\index{lane\_detector\_canny\_hough@{lane\_detector\_canny\_hough}!color\_filter@{color\_filter}}
+\index{color\_filter@{color\_filter}!lane\_detector\_canny\_hough@{lane\_detector\_canny\_hough}}
+\doxysubsubsection{\texorpdfstring{color\_filter()}{color\_filter()}}
+{\footnotesize\ttfamily def lane\+\_\+detector\+\_\+canny\+\_\+hough.\+color\+\_\+filter (\begin{DoxyParamCaption}\item[{}]{frame }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{namespacelane__detector__canny__hough_a2bf4fc349ace22f563467f595d25d8ce}\label{namespacelane__detector__canny__hough_a2bf4fc349ace22f563467f595d25d8ce}} 
+\index{lane\_detector\_canny\_hough@{lane\_detector\_canny\_hough}!detect\_edges@{detect\_edges}}
+\index{detect\_edges@{detect\_edges}!lane\_detector\_canny\_hough@{lane\_detector\_canny\_hough}}
+\doxysubsubsection{\texorpdfstring{detect\_edges()}{detect\_edges()}}
+{\footnotesize\ttfamily def lane\+\_\+detector\+\_\+canny\+\_\+hough.\+detect\+\_\+edges (\begin{DoxyParamCaption}\item[{}]{img }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{namespacelane__detector__canny__hough_a3012343a97e650702ec7732ad392049b}\label{namespacelane__detector__canny__hough_a3012343a97e650702ec7732ad392049b}} 
+\index{lane\_detector\_canny\_hough@{lane\_detector\_canny\_hough}!draw\_normal\_line@{draw\_normal\_line}}
+\index{draw\_normal\_line@{draw\_normal\_line}!lane\_detector\_canny\_hough@{lane\_detector\_canny\_hough}}
+\doxysubsubsection{\texorpdfstring{draw\_normal\_line()}{draw\_normal\_line()}}
+{\footnotesize\ttfamily def lane\+\_\+detector\+\_\+canny\+\_\+hough.\+draw\+\_\+normal\+\_\+line (\begin{DoxyParamCaption}\item[{}]{rho,  }\item[{}]{theta,  }\item[{}]{length,  }\item[{}]{img,  }\item[{}]{color }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{namespacelane__detector__canny__hough_ab6e43aa5f7ce23a0d7c1bf4266ba7251}\label{namespacelane__detector__canny__hough_ab6e43aa5f7ce23a0d7c1bf4266ba7251}} 
+\index{lane\_detector\_canny\_hough@{lane\_detector\_canny\_hough}!filter\_lines@{filter\_lines}}
+\index{filter\_lines@{filter\_lines}!lane\_detector\_canny\_hough@{lane\_detector\_canny\_hough}}
+\doxysubsubsection{\texorpdfstring{filter\_lines()}{filter\_lines()}}
+{\footnotesize\ttfamily def lane\+\_\+detector\+\_\+canny\+\_\+hough.\+filter\+\_\+lines (\begin{DoxyParamCaption}\item[{}]{lines }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{namespacelane__detector__canny__hough_a6d84c11d461f4840ea39837931298792}\label{namespacelane__detector__canny__hough_a6d84c11d461f4840ea39837931298792}} 
+\index{lane\_detector\_canny\_hough@{lane\_detector\_canny\_hough}!main@{main}}
+\index{main@{main}!lane\_detector\_canny\_hough@{lane\_detector\_canny\_hough}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily def lane\+\_\+detector\+\_\+canny\+\_\+hough.\+main (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{namespacelane__detector__canny__hough_aaeeae04876a9242ea5d8797f796a4ee2}\label{namespacelane__detector__canny__hough_aaeeae04876a9242ea5d8797f796a4ee2}} 
+\index{lane\_detector\_canny\_hough@{lane\_detector\_canny\_hough}!new\_color\_filters@{new\_color\_filters}}
+\index{new\_color\_filters@{new\_color\_filters}!lane\_detector\_canny\_hough@{lane\_detector\_canny\_hough}}
+\doxysubsubsection{\texorpdfstring{new\_color\_filters()}{new\_color\_filters()}}
+{\footnotesize\ttfamily def lane\+\_\+detector\+\_\+canny\+\_\+hough.\+new\+\_\+color\+\_\+filters (\begin{DoxyParamCaption}\item[{}]{img,  }\item[{}]{l\+\_\+box,  }\item[{}]{r\+\_\+box }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{namespacelane__detector__canny__hough_a70e973416116a2d06e7e132822d9f97c}\label{namespacelane__detector__canny__hough_a70e973416116a2d06e7e132822d9f97c}} 
+\index{lane\_detector\_canny\_hough@{lane\_detector\_canny\_hough}!new\_zone@{new\_zone}}
+\index{new\_zone@{new\_zone}!lane\_detector\_canny\_hough@{lane\_detector\_canny\_hough}}
+\doxysubsubsection{\texorpdfstring{new\_zone()}{new\_zone()}}
+{\footnotesize\ttfamily def lane\+\_\+detector\+\_\+canny\+\_\+hough.\+new\+\_\+zone (\begin{DoxyParamCaption}\item[{}]{img }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{namespacelane__detector__canny__hough_a64589349994dfb3e96007f0cbf3bcebc}\label{namespacelane__detector__canny__hough_a64589349994dfb3e96007f0cbf3bcebc}} 
+\index{lane\_detector\_canny\_hough@{lane\_detector\_canny\_hough}!to\_normal\_form@{to\_normal\_form}}
+\index{to\_normal\_form@{to\_normal\_form}!lane\_detector\_canny\_hough@{lane\_detector\_canny\_hough}}
+\doxysubsubsection{\texorpdfstring{to\_normal\_form()}{to\_normal\_form()}}
+{\footnotesize\ttfamily def lane\+\_\+detector\+\_\+canny\+\_\+hough.\+to\+\_\+normal\+\_\+form (\begin{DoxyParamCaption}\item[{}]{x1,  }\item[{}]{y1,  }\item[{}]{x2,  }\item[{}]{y2 }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{namespacelane__detector__canny__hough_a0d84753156b5ea895cb1d54cb32e00fa}\label{namespacelane__detector__canny__hough_a0d84753156b5ea895cb1d54cb32e00fa}} 
+\index{lane\_detector\_canny\_hough@{lane\_detector\_canny\_hough}!translate\_lines\_to\_bottom\_center@{translate\_lines\_to\_bottom\_center}}
+\index{translate\_lines\_to\_bottom\_center@{translate\_lines\_to\_bottom\_center}!lane\_detector\_canny\_hough@{lane\_detector\_canny\_hough}}
+\doxysubsubsection{\texorpdfstring{translate\_lines\_to\_bottom\_center()}{translate\_lines\_to\_bottom\_center()}}
+{\footnotesize\ttfamily def lane\+\_\+detector\+\_\+canny\+\_\+hough.\+translate\+\_\+lines\+\_\+to\+\_\+bottom\+\_\+center (\begin{DoxyParamCaption}\item[{}]{lines,  }\item[{}]{x\+\_\+center,  }\item[{}]{y\+\_\+center }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{namespacelane__detector__canny__hough_aab63d2023600719e70899602e8f17080}\label{namespacelane__detector__canny__hough_aab63d2023600719e70899602e8f17080}} 
+\index{lane\_detector\_canny\_hough@{lane\_detector\_canny\_hough}!weighted\_average@{weighted\_average}}
+\index{weighted\_average@{weighted\_average}!lane\_detector\_canny\_hough@{lane\_detector\_canny\_hough}}
+\doxysubsubsection{\texorpdfstring{weighted\_average()}{weighted\_average()}}
+{\footnotesize\ttfamily def lane\+\_\+detector\+\_\+canny\+\_\+hough.\+weighted\+\_\+average (\begin{DoxyParamCaption}\item[{}]{lines }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{namespacelane__detector__canny__hough_a2587ed9c7d40e404241d70f465da93dd}\label{namespacelane__detector__canny__hough_a2587ed9c7d40e404241d70f465da93dd}} 
+\index{lane\_detector\_canny\_hough@{lane\_detector\_canny\_hough}!kernel@{kernel}}
+\index{kernel@{kernel}!lane\_detector\_canny\_hough@{lane\_detector\_canny\_hough}}
+\doxysubsubsection{\texorpdfstring{kernel}{kernel}}
+{\footnotesize\ttfamily lane\+\_\+detector\+\_\+canny\+\_\+hough.\+kernel = np.\+ones((5, 5), np.\+uint8)}
+
+\mbox{\Hypertarget{namespacelane__detector__canny__hough_a0734a13542100f8df99b7172fa17b43e}\label{namespacelane__detector__canny__hough_a0734a13542100f8df99b7172fa17b43e}} 
+\index{lane\_detector\_canny\_hough@{lane\_detector\_canny\_hough}!lower\_color@{lower\_color}}
+\index{lower\_color@{lower\_color}!lane\_detector\_canny\_hough@{lane\_detector\_canny\_hough}}
+\doxysubsubsection{\texorpdfstring{lower\_color}{lower\_color}}
+{\footnotesize\ttfamily list lane\+\_\+detector\+\_\+canny\+\_\+hough.\+lower\+\_\+color = \mbox{[}0, 0, 253\mbox{]}}
+
+\mbox{\Hypertarget{namespacelane__detector__canny__hough_afc83cc4f5029a42b0f8e5be5a73805f7}\label{namespacelane__detector__canny__hough_afc83cc4f5029a42b0f8e5be5a73805f7}} 
+\index{lane\_detector\_canny\_hough@{lane\_detector\_canny\_hough}!upper\_color@{upper\_color}}
+\index{upper\_color@{upper\_color}!lane\_detector\_canny\_hough@{lane\_detector\_canny\_hough}}
+\doxysubsubsection{\texorpdfstring{upper\_color}{upper\_color}}
+{\footnotesize\ttfamily list lane\+\_\+detector\+\_\+canny\+\_\+hough.\+upper\+\_\+color = \mbox{[}90, 4, 255\mbox{]}}
+

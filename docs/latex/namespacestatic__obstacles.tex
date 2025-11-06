@@ -1,0 +1,222 @@
+\hypertarget{namespacestatic__obstacles}{}\doxysection{static\+\_\+obstacles Namespace Reference}
+\label{namespacestatic__obstacles}\index{static\_obstacles@{static\_obstacles}}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{namespacestatic__obstacles_a8523ca4d83c4ba931dd345c65934915e}{error\+\_\+rho}} (rho\+\_\+left=\mbox{\hyperlink{namespacestatic__obstacles_a0b0705ada756c418e951294444ba4b01}{goal\+\_\+left\+\_\+rho}}, rho\+\_\+right=\mbox{\hyperlink{namespacestatic__obstacles_a413fe2ec85db3bb0a4d6731442fb4a29}{goal\+\_\+right\+\_\+rho}})
+\item 
+def \mbox{\hyperlink{namespacestatic__obstacles_a2417feb9604fa6d1c967698c08674845}{error\+\_\+theta}} (theta\+\_\+left=\mbox{\hyperlink{namespacestatic__obstacles_a4b551b0da115d9e7c3b7ab1a1e9fbc1b}{goal\+\_\+left\+\_\+theta}}, theta\+\_\+right=\mbox{\hyperlink{namespacestatic__obstacles_afad5c31c722d436d88057e819f791318}{goal\+\_\+right\+\_\+theta}})
+\item 
+def \mbox{\hyperlink{namespacestatic__obstacles_ad44f5e869a6b90ec81570aff8f9f8a24}{get\+\_\+ideal\+\_\+lanes}} ()
+\item 
+def \mbox{\hyperlink{namespacestatic__obstacles_a7baa9ba4d6127e87acbfeb54a50e2342}{decide}} ()
+\item 
+def \mbox{\hyperlink{namespacestatic__obstacles_aa92228997bbd634888a079dba23bd22f}{callback\+\_\+left}} (msg)
+\item 
+def \mbox{\hyperlink{namespacestatic__obstacles_a8e317e09616eb92773e38ef57372eb2b}{callback\+\_\+right}} (msg)
+\item 
+def \mbox{\hyperlink{namespacestatic__obstacles_aaa8e052f2c459b1cec30d70883a57043}{callback\+\_\+parking\+\_\+flag}} (msg)
+\item 
+def \mbox{\hyperlink{namespacestatic__obstacles_adf1df28f419207530d71ace29a0964d5}{main}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespacestatic__obstacles_a4ae4d60266fcff0be67e1b08bec72205}{now}} = datetime.\+now()
+\item 
+string \mbox{\hyperlink{namespacestatic__obstacles_aff152eb33dac51812f91cb267c64400c}{filename}} = now.\+strftime(\char`\"{}\%d-\/\%m-\/\%Y-\/\%H-\/\%M-\/\%S\char`\"{}) + \char`\"{}.csv\char`\"{}
+\item 
+string \mbox{\hyperlink{namespacestatic__obstacles_a34b49cb02b58d2e08b2c0fd38e9ba06d}{left\+\_\+lines}} = \char`\"{}\char`\"{}
+\item 
+string \mbox{\hyperlink{namespacestatic__obstacles_a49d42267c1ba56928bbc6ba185174563}{right\+\_\+lines}} = \char`\"{}\char`\"{}
+\item 
+\mbox{\hyperlink{namespacestatic__obstacles_adc6a4577729388ea184ce08c5993e229}{steering\+\_\+value}} = Float64(0)
+\item 
+\mbox{\hyperlink{namespacestatic__obstacles_a682494dcffddc50c3fec12e1e3667515}{speed\+\_\+value}} = Float64(0)
+\item 
+int \mbox{\hyperlink{namespacestatic__obstacles_a0b0705ada756c418e951294444ba4b01}{goal\+\_\+left\+\_\+rho}} = 0
+\item 
+int \mbox{\hyperlink{namespacestatic__obstacles_a4b551b0da115d9e7c3b7ab1a1e9fbc1b}{goal\+\_\+left\+\_\+theta}} = 0
+\item 
+int \mbox{\hyperlink{namespacestatic__obstacles_a413fe2ec85db3bb0a4d6731442fb4a29}{goal\+\_\+right\+\_\+rho}} = 0
+\item 
+int \mbox{\hyperlink{namespacestatic__obstacles_afad5c31c722d436d88057e819f791318}{goal\+\_\+right\+\_\+theta}} = 0
+\item 
+int \mbox{\hyperlink{namespacestatic__obstacles_a4f9db86a7474fc03b663ebc94dd517f6}{iterator}} = 0
+\item 
+int \mbox{\hyperlink{namespacestatic__obstacles_a97b0d66ae63766873e1bf86646f91670}{suma\+\_\+left\+\_\+rho}} = 0
+\item 
+int \mbox{\hyperlink{namespacestatic__obstacles_a24d2cdeae5bf48b42bcc4bc4994fcf09}{suma\+\_\+left\+\_\+theta}} = 0
+\item 
+int \mbox{\hyperlink{namespacestatic__obstacles_a629fb260894f65ac385b0f5036f848e5}{suma\+\_\+right\+\_\+rho}} = 0
+\item 
+int \mbox{\hyperlink{namespacestatic__obstacles_a8b890c82ac46a911108c39168b3c5330}{suma\+\_\+right\+\_\+theta}} = 0
+\item 
+bool \mbox{\hyperlink{namespacestatic__obstacles_aaabc98c92319bc7e84607013f4e2dde4}{flag}} = False
+\item 
+bool \mbox{\hyperlink{namespacestatic__obstacles_af5ae3d0789c21c6b87f30a56f5f29ac9}{flag1}} = True
+\item 
+int \mbox{\hyperlink{namespacestatic__obstacles_a3d8a2c937748f7b145b7f98c97ca15b0}{past}} = 0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{namespacestatic__obstacles_aa92228997bbd634888a079dba23bd22f}\label{namespacestatic__obstacles_aa92228997bbd634888a079dba23bd22f}} 
+\index{static\_obstacles@{static\_obstacles}!callback\_left@{callback\_left}}
+\index{callback\_left@{callback\_left}!static\_obstacles@{static\_obstacles}}
+\doxysubsubsection{\texorpdfstring{callback\_left()}{callback\_left()}}
+{\footnotesize\ttfamily def static\+\_\+obstacles.\+callback\+\_\+left (\begin{DoxyParamCaption}\item[{}]{msg }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{namespacestatic__obstacles_aaa8e052f2c459b1cec30d70883a57043}\label{namespacestatic__obstacles_aaa8e052f2c459b1cec30d70883a57043}} 
+\index{static\_obstacles@{static\_obstacles}!callback\_parking\_flag@{callback\_parking\_flag}}
+\index{callback\_parking\_flag@{callback\_parking\_flag}!static\_obstacles@{static\_obstacles}}
+\doxysubsubsection{\texorpdfstring{callback\_parking\_flag()}{callback\_parking\_flag()}}
+{\footnotesize\ttfamily def static\+\_\+obstacles.\+callback\+\_\+parking\+\_\+flag (\begin{DoxyParamCaption}\item[{}]{msg }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{namespacestatic__obstacles_a8e317e09616eb92773e38ef57372eb2b}\label{namespacestatic__obstacles_a8e317e09616eb92773e38ef57372eb2b}} 
+\index{static\_obstacles@{static\_obstacles}!callback\_right@{callback\_right}}
+\index{callback\_right@{callback\_right}!static\_obstacles@{static\_obstacles}}
+\doxysubsubsection{\texorpdfstring{callback\_right()}{callback\_right()}}
+{\footnotesize\ttfamily def static\+\_\+obstacles.\+callback\+\_\+right (\begin{DoxyParamCaption}\item[{}]{msg }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{namespacestatic__obstacles_a7baa9ba4d6127e87acbfeb54a50e2342}\label{namespacestatic__obstacles_a7baa9ba4d6127e87acbfeb54a50e2342}} 
+\index{static\_obstacles@{static\_obstacles}!decide@{decide}}
+\index{decide@{decide}!static\_obstacles@{static\_obstacles}}
+\doxysubsubsection{\texorpdfstring{decide()}{decide()}}
+{\footnotesize\ttfamily def static\+\_\+obstacles.\+decide (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{namespacestatic__obstacles_a8523ca4d83c4ba931dd345c65934915e}\label{namespacestatic__obstacles_a8523ca4d83c4ba931dd345c65934915e}} 
+\index{static\_obstacles@{static\_obstacles}!error\_rho@{error\_rho}}
+\index{error\_rho@{error\_rho}!static\_obstacles@{static\_obstacles}}
+\doxysubsubsection{\texorpdfstring{error\_rho()}{error\_rho()}}
+{\footnotesize\ttfamily def static\+\_\+obstacles.\+error\+\_\+rho (\begin{DoxyParamCaption}\item[{}]{rho\+\_\+left = {\ttfamily \mbox{\hyperlink{namespacestatic__obstacles_a0b0705ada756c418e951294444ba4b01}{goal\+\_\+left\+\_\+rho}}},  }\item[{}]{rho\+\_\+right = {\ttfamily \mbox{\hyperlink{namespacestatic__obstacles_a413fe2ec85db3bb0a4d6731442fb4a29}{goal\+\_\+right\+\_\+rho}}} }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{namespacestatic__obstacles_a2417feb9604fa6d1c967698c08674845}\label{namespacestatic__obstacles_a2417feb9604fa6d1c967698c08674845}} 
+\index{static\_obstacles@{static\_obstacles}!error\_theta@{error\_theta}}
+\index{error\_theta@{error\_theta}!static\_obstacles@{static\_obstacles}}
+\doxysubsubsection{\texorpdfstring{error\_theta()}{error\_theta()}}
+{\footnotesize\ttfamily def static\+\_\+obstacles.\+error\+\_\+theta (\begin{DoxyParamCaption}\item[{}]{theta\+\_\+left = {\ttfamily \mbox{\hyperlink{namespacestatic__obstacles_a4b551b0da115d9e7c3b7ab1a1e9fbc1b}{goal\+\_\+left\+\_\+theta}}},  }\item[{}]{theta\+\_\+right = {\ttfamily \mbox{\hyperlink{namespacestatic__obstacles_afad5c31c722d436d88057e819f791318}{goal\+\_\+right\+\_\+theta}}} }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{namespacestatic__obstacles_ad44f5e869a6b90ec81570aff8f9f8a24}\label{namespacestatic__obstacles_ad44f5e869a6b90ec81570aff8f9f8a24}} 
+\index{static\_obstacles@{static\_obstacles}!get\_ideal\_lanes@{get\_ideal\_lanes}}
+\index{get\_ideal\_lanes@{get\_ideal\_lanes}!static\_obstacles@{static\_obstacles}}
+\doxysubsubsection{\texorpdfstring{get\_ideal\_lanes()}{get\_ideal\_lanes()}}
+{\footnotesize\ttfamily def static\+\_\+obstacles.\+get\+\_\+ideal\+\_\+lanes (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{namespacestatic__obstacles_adf1df28f419207530d71ace29a0964d5}\label{namespacestatic__obstacles_adf1df28f419207530d71ace29a0964d5}} 
+\index{static\_obstacles@{static\_obstacles}!main@{main}}
+\index{main@{main}!static\_obstacles@{static\_obstacles}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily def static\+\_\+obstacles.\+main (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{namespacestatic__obstacles_aff152eb33dac51812f91cb267c64400c}\label{namespacestatic__obstacles_aff152eb33dac51812f91cb267c64400c}} 
+\index{static\_obstacles@{static\_obstacles}!filename@{filename}}
+\index{filename@{filename}!static\_obstacles@{static\_obstacles}}
+\doxysubsubsection{\texorpdfstring{filename}{filename}}
+{\footnotesize\ttfamily string static\+\_\+obstacles.\+filename = now.\+strftime(\char`\"{}\%d-\/\%m-\/\%Y-\/\%H-\/\%M-\/\%S\char`\"{}) + \char`\"{}.csv\char`\"{}}
+
+\mbox{\Hypertarget{namespacestatic__obstacles_aaabc98c92319bc7e84607013f4e2dde4}\label{namespacestatic__obstacles_aaabc98c92319bc7e84607013f4e2dde4}} 
+\index{static\_obstacles@{static\_obstacles}!flag@{flag}}
+\index{flag@{flag}!static\_obstacles@{static\_obstacles}}
+\doxysubsubsection{\texorpdfstring{flag}{flag}}
+{\footnotesize\ttfamily bool static\+\_\+obstacles.\+flag = False}
+
+\mbox{\Hypertarget{namespacestatic__obstacles_af5ae3d0789c21c6b87f30a56f5f29ac9}\label{namespacestatic__obstacles_af5ae3d0789c21c6b87f30a56f5f29ac9}} 
+\index{static\_obstacles@{static\_obstacles}!flag1@{flag1}}
+\index{flag1@{flag1}!static\_obstacles@{static\_obstacles}}
+\doxysubsubsection{\texorpdfstring{flag1}{flag1}}
+{\footnotesize\ttfamily bool static\+\_\+obstacles.\+flag1 = True}
+
+\mbox{\Hypertarget{namespacestatic__obstacles_a0b0705ada756c418e951294444ba4b01}\label{namespacestatic__obstacles_a0b0705ada756c418e951294444ba4b01}} 
+\index{static\_obstacles@{static\_obstacles}!goal\_left\_rho@{goal\_left\_rho}}
+\index{goal\_left\_rho@{goal\_left\_rho}!static\_obstacles@{static\_obstacles}}
+\doxysubsubsection{\texorpdfstring{goal\_left\_rho}{goal\_left\_rho}}
+{\footnotesize\ttfamily int static\+\_\+obstacles.\+goal\+\_\+left\+\_\+rho = 0}
+
+\mbox{\Hypertarget{namespacestatic__obstacles_a4b551b0da115d9e7c3b7ab1a1e9fbc1b}\label{namespacestatic__obstacles_a4b551b0da115d9e7c3b7ab1a1e9fbc1b}} 
+\index{static\_obstacles@{static\_obstacles}!goal\_left\_theta@{goal\_left\_theta}}
+\index{goal\_left\_theta@{goal\_left\_theta}!static\_obstacles@{static\_obstacles}}
+\doxysubsubsection{\texorpdfstring{goal\_left\_theta}{goal\_left\_theta}}
+{\footnotesize\ttfamily int static\+\_\+obstacles.\+goal\+\_\+left\+\_\+theta = 0}
+
+\mbox{\Hypertarget{namespacestatic__obstacles_a413fe2ec85db3bb0a4d6731442fb4a29}\label{namespacestatic__obstacles_a413fe2ec85db3bb0a4d6731442fb4a29}} 
+\index{static\_obstacles@{static\_obstacles}!goal\_right\_rho@{goal\_right\_rho}}
+\index{goal\_right\_rho@{goal\_right\_rho}!static\_obstacles@{static\_obstacles}}
+\doxysubsubsection{\texorpdfstring{goal\_right\_rho}{goal\_right\_rho}}
+{\footnotesize\ttfamily int static\+\_\+obstacles.\+goal\+\_\+right\+\_\+rho = 0}
+
+\mbox{\Hypertarget{namespacestatic__obstacles_afad5c31c722d436d88057e819f791318}\label{namespacestatic__obstacles_afad5c31c722d436d88057e819f791318}} 
+\index{static\_obstacles@{static\_obstacles}!goal\_right\_theta@{goal\_right\_theta}}
+\index{goal\_right\_theta@{goal\_right\_theta}!static\_obstacles@{static\_obstacles}}
+\doxysubsubsection{\texorpdfstring{goal\_right\_theta}{goal\_right\_theta}}
+{\footnotesize\ttfamily int static\+\_\+obstacles.\+goal\+\_\+right\+\_\+theta = 0}
+
+\mbox{\Hypertarget{namespacestatic__obstacles_a4f9db86a7474fc03b663ebc94dd517f6}\label{namespacestatic__obstacles_a4f9db86a7474fc03b663ebc94dd517f6}} 
+\index{static\_obstacles@{static\_obstacles}!iterator@{iterator}}
+\index{iterator@{iterator}!static\_obstacles@{static\_obstacles}}
+\doxysubsubsection{\texorpdfstring{iterator}{iterator}}
+{\footnotesize\ttfamily int static\+\_\+obstacles.\+iterator = 0}
+
+\mbox{\Hypertarget{namespacestatic__obstacles_a34b49cb02b58d2e08b2c0fd38e9ba06d}\label{namespacestatic__obstacles_a34b49cb02b58d2e08b2c0fd38e9ba06d}} 
+\index{static\_obstacles@{static\_obstacles}!left\_lines@{left\_lines}}
+\index{left\_lines@{left\_lines}!static\_obstacles@{static\_obstacles}}
+\doxysubsubsection{\texorpdfstring{left\_lines}{left\_lines}}
+{\footnotesize\ttfamily string static\+\_\+obstacles.\+left\+\_\+lines = \char`\"{}\char`\"{}}
+
+\mbox{\Hypertarget{namespacestatic__obstacles_a4ae4d60266fcff0be67e1b08bec72205}\label{namespacestatic__obstacles_a4ae4d60266fcff0be67e1b08bec72205}} 
+\index{static\_obstacles@{static\_obstacles}!now@{now}}
+\index{now@{now}!static\_obstacles@{static\_obstacles}}
+\doxysubsubsection{\texorpdfstring{now}{now}}
+{\footnotesize\ttfamily static\+\_\+obstacles.\+now = datetime.\+now()}
+
+\mbox{\Hypertarget{namespacestatic__obstacles_a3d8a2c937748f7b145b7f98c97ca15b0}\label{namespacestatic__obstacles_a3d8a2c937748f7b145b7f98c97ca15b0}} 
+\index{static\_obstacles@{static\_obstacles}!past@{past}}
+\index{past@{past}!static\_obstacles@{static\_obstacles}}
+\doxysubsubsection{\texorpdfstring{past}{past}}
+{\footnotesize\ttfamily int static\+\_\+obstacles.\+past = 0}
+
+\mbox{\Hypertarget{namespacestatic__obstacles_a49d42267c1ba56928bbc6ba185174563}\label{namespacestatic__obstacles_a49d42267c1ba56928bbc6ba185174563}} 
+\index{static\_obstacles@{static\_obstacles}!right\_lines@{right\_lines}}
+\index{right\_lines@{right\_lines}!static\_obstacles@{static\_obstacles}}
+\doxysubsubsection{\texorpdfstring{right\_lines}{right\_lines}}
+{\footnotesize\ttfamily string static\+\_\+obstacles.\+right\+\_\+lines = \char`\"{}\char`\"{}}
+
+\mbox{\Hypertarget{namespacestatic__obstacles_a682494dcffddc50c3fec12e1e3667515}\label{namespacestatic__obstacles_a682494dcffddc50c3fec12e1e3667515}} 
+\index{static\_obstacles@{static\_obstacles}!speed\_value@{speed\_value}}
+\index{speed\_value@{speed\_value}!static\_obstacles@{static\_obstacles}}
+\doxysubsubsection{\texorpdfstring{speed\_value}{speed\_value}}
+{\footnotesize\ttfamily static\+\_\+obstacles.\+speed\+\_\+value = Float64(0)}
+
+\mbox{\Hypertarget{namespacestatic__obstacles_adc6a4577729388ea184ce08c5993e229}\label{namespacestatic__obstacles_adc6a4577729388ea184ce08c5993e229}} 
+\index{static\_obstacles@{static\_obstacles}!steering\_value@{steering\_value}}
+\index{steering\_value@{steering\_value}!static\_obstacles@{static\_obstacles}}
+\doxysubsubsection{\texorpdfstring{steering\_value}{steering\_value}}
+{\footnotesize\ttfamily static\+\_\+obstacles.\+steering\+\_\+value = Float64(0)}
+
+\mbox{\Hypertarget{namespacestatic__obstacles_a97b0d66ae63766873e1bf86646f91670}\label{namespacestatic__obstacles_a97b0d66ae63766873e1bf86646f91670}} 
+\index{static\_obstacles@{static\_obstacles}!suma\_left\_rho@{suma\_left\_rho}}
+\index{suma\_left\_rho@{suma\_left\_rho}!static\_obstacles@{static\_obstacles}}
+\doxysubsubsection{\texorpdfstring{suma\_left\_rho}{suma\_left\_rho}}
+{\footnotesize\ttfamily int static\+\_\+obstacles.\+suma\+\_\+left\+\_\+rho = 0}
+
+\mbox{\Hypertarget{namespacestatic__obstacles_a24d2cdeae5bf48b42bcc4bc4994fcf09}\label{namespacestatic__obstacles_a24d2cdeae5bf48b42bcc4bc4994fcf09}} 
+\index{static\_obstacles@{static\_obstacles}!suma\_left\_theta@{suma\_left\_theta}}
+\index{suma\_left\_theta@{suma\_left\_theta}!static\_obstacles@{static\_obstacles}}
+\doxysubsubsection{\texorpdfstring{suma\_left\_theta}{suma\_left\_theta}}
+{\footnotesize\ttfamily int static\+\_\+obstacles.\+suma\+\_\+left\+\_\+theta = 0}
+
+\mbox{\Hypertarget{namespacestatic__obstacles_a629fb260894f65ac385b0f5036f848e5}\label{namespacestatic__obstacles_a629fb260894f65ac385b0f5036f848e5}} 
+\index{static\_obstacles@{static\_obstacles}!suma\_right\_rho@{suma\_right\_rho}}
+\index{suma\_right\_rho@{suma\_right\_rho}!static\_obstacles@{static\_obstacles}}
+\doxysubsubsection{\texorpdfstring{suma\_right\_rho}{suma\_right\_rho}}
+{\footnotesize\ttfamily int static\+\_\+obstacles.\+suma\+\_\+right\+\_\+rho = 0}
+
+\mbox{\Hypertarget{namespacestatic__obstacles_a8b890c82ac46a911108c39168b3c5330}\label{namespacestatic__obstacles_a8b890c82ac46a911108c39168b3c5330}} 
+\index{static\_obstacles@{static\_obstacles}!suma\_right\_theta@{suma\_right\_theta}}
+\index{suma\_right\_theta@{suma\_right\_theta}!static\_obstacles@{static\_obstacles}}
+\doxysubsubsection{\texorpdfstring{suma\_right\_theta}{suma\_right\_theta}}
+{\footnotesize\ttfamily int static\+\_\+obstacles.\+suma\+\_\+right\+\_\+theta = 0}
+

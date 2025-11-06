@@ -1,0 +1,59 @@
+\hypertarget{control_2scripts_2parking_8py}{}\doxysection{catkin\+\_\+ws/src/software/control/scripts/parking.py File Reference}
+\label{control_2scripts_2parking_8py}\index{catkin\_ws/src/software/control/scripts/parking.py@{catkin\_ws/src/software/control/scripts/parking.py}}
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+ \mbox{\hyperlink{namespaceparking}{parking}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{namespaceparking_ac59bc2d43e702c232ab4a21d5ab9a04b}{parking.\+error\+\_\+rho}} (rho\+\_\+left=goal\+\_\+left\+\_\+rho, rho\+\_\+right=goal\+\_\+right\+\_\+rho)
+\item 
+def \mbox{\hyperlink{namespaceparking_af7cf62a5b8d546093228d314ceef1469}{parking.\+error\+\_\+theta}} (theta\+\_\+left=goal\+\_\+left\+\_\+theta, theta\+\_\+right=goal\+\_\+right\+\_\+theta)
+\item 
+def \mbox{\hyperlink{namespaceparking_a4d492aac7b7da531e64ac43b61230f46}{parking.\+get\+\_\+ideal\+\_\+lanes}} ()
+\item 
+def \mbox{\hyperlink{namespaceparking_ab937693fe018cd2c5497b9123102d61d}{parking.\+decide}} ()
+\item 
+def \mbox{\hyperlink{namespaceparking_a77e620cc826e59921ee5c285c41a5788}{parking.\+callback\+\_\+left}} (msg)
+\item 
+def \mbox{\hyperlink{namespaceparking_a9a00964886e27271090565df61a38d9e}{parking.\+callback\+\_\+right}} (msg)
+\item 
+def \mbox{\hyperlink{namespaceparking_ac1eeed86621295aca58a9a2a8775375e}{parking.\+callback\+\_\+parking\+\_\+flag}} (msg)
+\item 
+def \mbox{\hyperlink{namespaceparking_a962deaa0d66560ae93a5304f5fb14aae}{parking.\+main}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespaceparking_a20531d207e8d825f7f314b15c851b93b}{parking.\+now}} = datetime.\+now()
+\item 
+string \mbox{\hyperlink{namespaceparking_a21454879c5f622b329c31a23afa74527}{parking.\+filename}} = now.\+strftime(\char`\"{}\%d-\/\%m-\/\%Y-\/\%H-\/\%M-\/\%S\char`\"{}) + \char`\"{}.csv\char`\"{}
+\item 
+string \mbox{\hyperlink{namespaceparking_a860bfe8a167e773e072c66de58a2a8b9}{parking.\+left\+\_\+lines}} = \char`\"{}\char`\"{}
+\item 
+string \mbox{\hyperlink{namespaceparking_a5eb83e80b3adf36e0a5e2dffcbf22503}{parking.\+right\+\_\+lines}} = \char`\"{}\char`\"{}
+\item 
+\mbox{\hyperlink{namespaceparking_a786a1f3d1cc46359e141d7905a171402}{parking.\+steering\+\_\+value}} = Float64(0)
+\item 
+\mbox{\hyperlink{namespaceparking_ab030d18db264c14824026b7a379b65ad}{parking.\+speed\+\_\+value}} = Float64(0)
+\item 
+int \mbox{\hyperlink{namespaceparking_aceb6d034eaf188dafead48dd47643117}{parking.\+goal\+\_\+left\+\_\+rho}} = 0
+\item 
+int \mbox{\hyperlink{namespaceparking_a3033f86fca497474480fffda0e6dacd0}{parking.\+goal\+\_\+left\+\_\+theta}} = 0
+\item 
+int \mbox{\hyperlink{namespaceparking_aa35d14b1801f3ab232a9898a9eaecb81}{parking.\+goal\+\_\+right\+\_\+rho}} = 0
+\item 
+int \mbox{\hyperlink{namespaceparking_a17dcea0c5a242f51745ca008535c261b}{parking.\+goal\+\_\+right\+\_\+theta}} = 0
+\item 
+int \mbox{\hyperlink{namespaceparking_a81de702e4bcb7c1487d18274329567c9}{parking.\+iterator}} = 0
+\item 
+int \mbox{\hyperlink{namespaceparking_ada19e74765dd468ac3353682d5eac3f6}{parking.\+suma\+\_\+left\+\_\+rho}} = 0
+\item 
+int \mbox{\hyperlink{namespaceparking_a3d1e556c907e42620cb96ec7626ac13c}{parking.\+suma\+\_\+left\+\_\+theta}} = 0
+\item 
+int \mbox{\hyperlink{namespaceparking_a343d991e612fede8e10a5e818c465197}{parking.\+suma\+\_\+right\+\_\+rho}} = 0
+\item 
+int \mbox{\hyperlink{namespaceparking_a9a3381be3ead1562e173b80b2ff573b0}{parking.\+suma\+\_\+right\+\_\+theta}} = 0
+\end{DoxyCompactItemize}
